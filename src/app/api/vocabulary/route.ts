@@ -18,7 +18,7 @@ export async function GET(request: Request) {
     const tags = searchParams.get('tags')
     const searchParam = searchParams.get('search')
 
-    let query = supabase.from('vocabulary').select('*').limit(50)
+    let query = supabase.from('vocabulary').select('*').limit(1000)
 
     if (level) query = query.eq('level', level)
     if (theme) query = query.eq('theme', theme)

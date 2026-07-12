@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { motion } from 'framer-motion'
+import { toast } from 'sonner'
 import { Mic, MicOff, Square, Play, Clock, BarChart3, MessageSquare, History, Volume2 } from 'lucide-react'
 import { useSpeakingTopics, useSaveSpeakingSession, useSpeakingHistory } from '@/hooks/use-progress'
 import { format } from 'date-fns'
@@ -67,7 +68,7 @@ export default function SprechenPage() {
         setDisplayTime(recordingTimeRef.current)
       }, 1000)
     } catch {
-      console.error('Microphone access denied')
+      toast.error('Microphone access denied. Please allow microphone permissions in your browser settings.')
     }
   }, [currentTopic, saveSession])
 

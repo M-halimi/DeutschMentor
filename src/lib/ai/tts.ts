@@ -105,7 +105,7 @@ export async function generateAudioUrl(text: string, lang: string = 'de'): Promi
   const apiKey = typeof process !== 'undefined' ? process.env.OPENAI_API_KEY : null
   if (apiKey) {
     try {
-      const voiceMap: Record<string, string> = { de: 'alloy', ar: 'onyx', en: 'nova', fr: 'shimmer', es: 'echo' }
+      const voiceMap: Record<string, string> = { de: 'onyx', ar: 'onyx', en: 'nova', fr: 'shimmer', es: 'echo' }
       const voice = voiceMap[lang] || 'alloy'
       const response = await fetch('https://api.openai.com/v1/audio/speech', {
         method: 'POST',

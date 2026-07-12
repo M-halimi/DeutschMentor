@@ -154,21 +154,36 @@ export default function HoerenPage() {
     }
   }, [loop])
 
+  const generatingAudioRef = useRef(false)
+
   useEffect(() => {
-    if (selectedId && lessonDetail?.audio_url && audioRef.current) {
+    if (!selectedId || !audioRef.current) return
+    if (lessonDetail?.audio_url) {
       audioRef.current.src = lessonDetail.audio_url
       audioRef.current.load()
-      setCurrentTime(0)
-      setCurrentExerciseIdx(0)
-      setSelectedAnswer(null)
-      setShowResult(false)
-      setCompleted(false)
-      setResults([])
-      setFillBlankAnswer('')
-      setShortAnswer('')
-      setAutoShowTranscript(false)
+    } else if (lessonDetail?.transcript && !generatingAudioRef.current) {
+      generatingAudioRef.current = true
+      fetch('/api/tts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ lesson_id: selectedId, transcript: lessonDetail.transcript, level: lessonDetail.level || 'A2' })
+      }).then(res => res.json()).then(data => {
+        if (data.audio_url && audioRef.current) {
+          audioRef.current.src = data.audio_url
+          audioRef.current.load()
+        }
+      }).catch(() => {}).finally(() => { generatingAudioRef.current = false })
     }
-  }, [selectedId, lessonDetail?.audio_url])
+    setCurrentTime(0)
+    setCurrentExerciseIdx(0)
+    setSelectedAnswer(null)
+    setShowResult(false)
+    setCompleted(false)
+    setResults([])
+    setFillBlankAnswer('')
+    setShortAnswer('')
+    setAutoShowTranscript(false)
+  }, [selectedId, lessonDetail?.audio_url, lessonDetail?.transcript, lessonDetail?.level])
 
   const prevCompleted = useRef(completed)
   useEffect(() => {
@@ -1023,7 +1038,13 @@ export default function HoerenPage() {
                     </Button>
                     {showTranslation && (
                       <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="mt-2 p-3 rounded-lg bg-blue-50 dark:bg-blue-950/20 border text-sm text-muted-foreground">
-                        <p className="italic">Translation feature coming soon.</p>
+                        <p>See key vocabulary with translations in the <strong>Vocabulary</strong> tab above.</p>
+                        {lessonVocabulary?.slice(0, 5).map(v => (
+                          <div key={v.id} className="flex items-center justify-between mt-2 text-xs">
+                            <span className="font-medium">{v.german_word}</span>
+                            <span className="text-muted-foreground">{v.english_translation}</span>
+                          </div>
+                        ))}
                       </motion.div>
                     )}
                   </CardContent>

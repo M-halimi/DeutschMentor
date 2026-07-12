@@ -18,8 +18,8 @@ export interface TTSUpgradeResult {
   provider?: string
 }
 
-const OPENAI_VOICE_MAP: Record<string, string> = {
-  de: 'alloy',
+export const OPENAI_VOICE_MAP: Record<string, string> = {
+  de: 'onyx',
   en: 'nova',
   fr: 'shimmer',
   ar: 'onyx',

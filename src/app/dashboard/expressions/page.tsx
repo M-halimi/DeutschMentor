@@ -9,8 +9,9 @@ import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Skeleton } from '@/components/ui/skeleton'
 import { motion } from 'framer-motion'
-import { MessageSquareText, Search, Volume2, BookmarkPlus, CheckCircle2 } from 'lucide-react'
+import { MessageSquareText, Search, BookmarkPlus, CheckCircle2 } from 'lucide-react'
 import { useExpressions, useSaveExpression } from '@/hooks/use-progress'
+import { AudioPlayer } from '@/components/audio-player'
 
 const categories = [
   { value: '', label: 'All' },
@@ -109,9 +110,7 @@ export default function ExpressionsPage() {
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
                         <span className="text-lg font-semibold">{expr.german}</span>
-                        <Button variant="ghost" size="icon" className="h-6 w-6 opacity-0 group-hover:opacity-100">
-                          <Volume2 className="h-3.5 w-3.5" />
-                        </Button>
+                        <AudioPlayer text={expr.german} existingUrl={(expr as { audio_url?: string | null }).audio_url} />
                       </div>
                       <p className="text-sm text-muted-foreground italic">{expr.english}</p>
                       {expr.usage_context && (

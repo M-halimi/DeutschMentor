@@ -300,10 +300,10 @@ export function useWritingPrompts(level?: string, exerciseType?: string) {
   return useQuery<WritingPrompt[]>({
     queryKey: ['writing-prompts', level, exerciseType],
     queryFn: async () => {
-      const params = new URLSearchParams()
+      const params = new URLSearchParams({ type: 'prompts' })
       if (level) params.set('level', level)
       if (exerciseType) params.set('exercise_type', exerciseType)
-      const res = await fetch(`/api/writing/prompts?${params}`)
+      const res = await fetch(`/api/writing?${params}`)
       if (!res.ok) throw new Error('Failed')
       return res.json()
     },
@@ -314,7 +314,7 @@ export function useWritingPrompt(id: string | undefined) {
   return useQuery<WritingPrompt>({
     queryKey: ['writing-prompt', id],
     queryFn: async () => {
-      const res = await fetch(`/api/writing/prompts?id=${id}`)
+      const res = await fetch(`/api/writing?type=prompts&prompt_id=${id}`)
       if (!res.ok) throw new Error('Failed')
       return res.json()
     },

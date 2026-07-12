@@ -14,12 +14,12 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { Separator } from '@/components/ui/separator'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
-  BookmarkPlus, Search, ChevronLeft, ChevronRight, Star, RotateCcw, Volume2, Sparkles,
-  CheckCircle2, Heart, Shuffle, BookOpen, Filter, X, RefreshCw, Award, Ear, Brain,
+  BookmarkPlus, Search, ChevronLeft, ChevronRight, Star, RotateCcw, Sparkles,
+  CheckCircle2, Heart, Shuffle, BookOpen, Filter, X, RefreshCw, Award, Brain,
   ArrowRight, ThumbsUp, ThumbsDown, Languages, VolumeX, ListX, GraduationCap
 } from 'lucide-react'
 import { useVocabulary, useUserVocabulary, useSaveVocabulary, useLearningAnalytics } from '@/hooks/use-progress'
-import { speakWithBrowser } from '@/lib/ai/tts'
+import { AudioPlayer } from '@/components/audio-player'
 import type { Vocabulary } from '@/types'
 
 const LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1'] as const
@@ -57,14 +57,7 @@ function WordCard({ word, mastered, isFav, onToggleFav, onMastered, expanded, on
   onToggleFav: () => void; onMastered: () => void
   expanded: boolean; onToggleExpand: () => void
 }) {
-  const [playing, setPlaying] = useState(false)
   const isVerb = word.word_type === 'verb'
-
-  async function handleSpeak(slow = false) {
-    setPlaying(true)
-    await speakWithBrowser({ text: word.german_word, lang: 'de', speed: slow ? 0.6 : 0.9 })
-    setPlaying(false)
-  }
 
   return (
     <motion.div layout initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }}>
@@ -77,13 +70,8 @@ function WordCard({ word, mastered, isFav, onToggleFav, onMastered, expanded, on
                   <span className={`text-sm font-medium ${articleColors[word.article] ?? ''}`}>{word.article}</span>
                 )}
                 <span className="text-lg font-bold tracking-tight">{word.german_word}</span>
-                <div className="flex items-center gap-1 ml-auto sm:ml-0">
-                  <Button variant="ghost" size="icon" className="h-6 w-6" onClick={e => { e.stopPropagation(); handleSpeak() }}>
-                    {playing ? <Ear className="h-3.5 w-3.5 text-primary animate-pulse" /> : <Volume2 className="h-3.5 w-3.5" />}
-                  </Button>
-                  <Button variant="ghost" size="icon" className="h-5 w-5 text-[10px] px-0.5 text-muted-foreground hover:text-foreground" onClick={e => { e.stopPropagation(); handleSpeak(true) }}>
-                    ½×
-                  </Button>
+                <div className="ml-auto sm:ml-0" onClick={e => e.stopPropagation()}>
+                  <AudioPlayer text={word.german_word} existingUrl={word.pronunciation_url} slowUrl={word.slow_pronunciation_url} />
                 </div>
               </div>
               {word.ipa && <p className="text-xs text-muted-foreground/60 font-mono mt-0.5">/{word.ipa}/</p>}
@@ -150,7 +138,7 @@ function WordCard({ word, mastered, isFav, onToggleFav, onMastered, expanded, on
   )
 }
 
-function FlashcardFront({ word, onSpeak, playing }: { word: Vocabulary; onSpeak: (s?: boolean) => void; playing: boolean }) {
+function FlashcardFront({ word }: { word: Vocabulary }) {
   return (
     <div className="flex flex-col items-center justify-center p-8 text-center min-h-[320px]">
       <Badge variant="outline" className="mb-4 text-xs">{word.level}</Badge>
@@ -160,14 +148,8 @@ function FlashcardFront({ word, onSpeak, playing }: { word: Vocabulary; onSpeak:
       </div>
       {word.ipa && <p className="text-sm text-muted-foreground/60 font-mono mb-4">/{word.ipa}/</p>}
       {word.word_type && <Badge variant="secondary" className="mb-3 text-xs">{typeIcon(word.word_type)}</Badge>}
-      <div className="flex items-center gap-2 mt-2">
-        <Button variant="outline" size="sm" onClick={e => { e.stopPropagation(); onSpeak() }} disabled={playing}>
-          {playing ? <Ear className="h-4 w-4 animate-pulse" /> : <Volume2 className="h-4 w-4" />}
-          <span className="ml-1">Listen</span>
-        </Button>
-        <Button variant="ghost" size="sm" className="text-xs" onClick={e => { e.stopPropagation(); onSpeak(true) }}>
-          ½× Slow
-        </Button>
+      <div className="flex items-center gap-2 mt-2" onClick={e => e.stopPropagation()}>
+        <AudioPlayer text={word.german_word} existingUrl={word.pronunciation_url} slowUrl={word.slow_pronunciation_url} />
       </div>
       <p className="text-xs text-muted-foreground mt-auto pt-4">Tap to flip</p>
     </div>
@@ -208,7 +190,6 @@ export default function VocabularyPage() {
   const [shuffleMode, setShuffleMode] = useState(false)
   const [expandedCardId, setExpandedCardId] = useState<string | null>(null)
   const [flashcardSource, setFlashcardSource] = useState<'all' | 'due'>('all')
-  const [playingId, setPlayingId] = useState<string | null>(null)
   const [practiceActive, setPracticeActive] = useState(false)
   const [practiceWords, setPracticeWords] = useState<Vocabulary[]>([])
   const [practiceIndex, setPracticeIndex] = useState(0)
@@ -294,12 +275,6 @@ export default function VocabularyPage() {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['user-vocabulary'] }),
   })
 
-  const speakWord = useCallback(async (word: Vocabulary, slow = false) => {
-    setPlayingId(word.id)
-    await speakWithBrowser({ text: word.german_word, lang: 'de', speed: slow ? 0.6 : 0.9 })
-    setPlayingId(null)
-  }, [])
-
   const handleMastered = useCallback((wordId: string) => {
     const isMastered = userVocMap.get(wordId)?.mastered ?? false
     saveVocab.mutate({ vocabularyId: wordId, mastered: !isMastered })
@@ -310,7 +285,12 @@ export default function VocabularyPage() {
     if (practiceConfig.level) pool = pool.filter(w => w.level === practiceConfig.level)
     if (practiceConfig.theme) pool = pool.filter(w => w.theme === practiceConfig.theme)
     const count = Math.min(parseInt(practiceConfig.count) || 10, pool.length)
-    const shuffled = pool.sort(() => Math.random() - 0.5).slice(0, count)
+    const shuffled = [...pool]
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+    }
+    shuffled.length = count
     setPracticeWords(shuffled)
     setPracticeIndex(0)
     setPracticeScore(0)
@@ -527,10 +507,7 @@ export default function VocabularyPage() {
                                     <FlashcardBack word={shuffledCards.cards[currentCard]} />
                                   </div>
                                 ) : (
-                                  <FlashcardFront word={shuffledCards.cards[currentCard]}
-                                    onSpeak={(slow) => speakWord(shuffledCards.cards[currentCard], slow)}
-                                    playing={playingId === shuffledCards.cards[currentCard]?.id}
-                                  />
+                                  <FlashcardFront word={shuffledCards.cards[currentCard]} />
                                 )}
                               </CardContent>
                             </Card>
@@ -605,9 +582,9 @@ export default function VocabularyPage() {
                               </div>
                             </div>
                             <div className="flex items-center gap-2 shrink-0">
-                              <Button variant="outline" size="sm" className="h-8 text-xs" onClick={e => { e.stopPropagation(); speakWord(uv.vocabulary) }}>
-                                <Volume2 className="h-3.5 w-3.5 mr-1" /> Listen
-                              </Button>
+                              <div onClick={e => e.stopPropagation()}>
+                                <AudioPlayer text={uv.vocabulary.german_word} existingUrl={uv.vocabulary.pronunciation_url} slowUrl={uv.vocabulary.slow_pronunciation_url} showSlow={false} />
+                              </div>
                               <Button size="sm" className="h-8 text-xs" onClick={() => saveVocab.mutate({ vocabularyId: uv.vocabulary_id, mastered: true })}>
                                 <CheckCircle2 className="h-3.5 w-3.5 mr-1" /> Mastered
                               </Button>
@@ -719,10 +696,7 @@ export default function VocabularyPage() {
                             <span className="text-3xl font-bold">{currentPracticeWord.german_word}</span>
                           </div>
                           {currentPracticeWord.ipa && <p className="text-sm text-muted-foreground/60 font-mono mb-3">/{currentPracticeWord.ipa}/</p>}
-                          <Button variant="ghost" size="sm" disabled={playingId === currentPracticeWord.id} onClick={() => speakWord(currentPracticeWord)}>
-                            {playingId === currentPracticeWord.id ? <Ear className="h-4 w-4 animate-pulse" /> : <Volume2 className="h-4 w-4" />}
-                            <span className="ml-1.5 text-xs">Listen</span>
-                          </Button>
+                          <AudioPlayer text={currentPracticeWord.german_word} existingUrl={currentPracticeWord.pronunciation_url} slowUrl={currentPracticeWord.slow_pronunciation_url} />
                         </CardContent>
                       </Card>
 

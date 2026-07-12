@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { AppShell } from '@/components/layout/app-shell'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -11,8 +11,9 @@ import { Separator } from '@/components/ui/separator'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   FileText, Search, BookOpen, Lightbulb, ArrowLeft, BookMarked,
-  Quote, Hash, Star, CheckCircle, ChevronDown, ChevronUp, Sparkles
+  Quote, Hash, Star, CheckCircle, ChevronDown, ChevronUp, Sparkles,
 } from 'lucide-react'
+import { AudioPlayer } from '@/components/audio-player'
 import type { GermanLevel, WritingExerciseTypeFull, WritingExample } from '@/types'
 
 const LEVELS: (GermanLevel | 'C2')[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
@@ -39,9 +40,9 @@ export default function WritingExamplesPage() {
   const [levelFilter, setLevelFilter] = useState<string>('')
   const [typeFilter, setTypeFilter] = useState<string>('')
 
-  useState(() => {
+  useEffect(() => {
     fetchExamples()
-  })
+  }, [])
 
   async function fetchExamples() {
     setIsLoading(true)
@@ -101,6 +102,7 @@ export default function WritingExamplesPage() {
             <CardHeader>
               <CardTitle className="text-base flex items-center gap-2 text-emerald-600 dark:text-emerald-400">
                 <CheckCircle className="h-4 w-4" /> Model Answer
+                <AudioPlayer text={selectedExample.example_answer} showSlow={true} />
               </CardTitle>
               {selectedExample.word_count && <CardDescription>{selectedExample.word_count} words</CardDescription>}
             </CardHeader>
@@ -195,11 +197,11 @@ export default function WritingExamplesPage() {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input placeholder="Search examples..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="pl-9 h-9" />
               </div>
-              <select value={levelFilter} onChange={(e) => { setLevelFilter(e.target.value); setTimeout(fetchExamples, 0) }} className="h-9 rounded-lg border border-input bg-transparent px-3 text-sm outline-none focus-visible:border-ring">
+              <select value={levelFilter} onChange={(e) => setLevelFilter(e.target.value)} className="h-9 rounded-lg border border-input bg-transparent px-3 text-sm outline-none focus-visible:border-ring">
                 <option value="">All Levels</option>
                 {LEVELS.map(l => <option key={l} value={l}>{l}</option>)}
               </select>
-              <select value={typeFilter} onChange={(e) => { setTypeFilter(e.target.value); setTimeout(fetchExamples, 0) }} className="h-9 rounded-lg border border-input bg-transparent px-3 text-sm outline-none focus-visible:border-ring">
+              <select value={typeFilter} onChange={(e) => setTypeFilter(e.target.value)} className="h-9 rounded-lg border border-input bg-transparent px-3 text-sm outline-none focus-visible:border-ring">
                 <option value="">All Types</option>
                 {Object.entries(TYPE_CATEGORIES).map(([cat, types]) => (
                   <optgroup key={cat} label={cat}>

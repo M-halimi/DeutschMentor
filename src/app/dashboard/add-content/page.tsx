@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef } from 'react'
+import { toast } from 'sonner'
 import { AppShell } from '@/components/layout/app-shell'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -74,7 +75,7 @@ export default function AddContentPage() {
       setResult(uploadRes)
       resetForm()
     } catch (err) {
-      console.error('Failed:', err)
+      toast.error('Upload failed. Please try again.')
     } finally {
       setIsProcessing(false)
     }
