@@ -1,0 +1,973 @@
+{
+  "audioLessons": [
+    {
+      "title": "Begrüßungen und Vorstellung",
+      "description": "Lerne, wie man sich auf Deutsch begrüßt.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+      "transcript": "Hallo! Guten Morgen! Guten Tag! Guten Abend! Das sind die wichtigsten Begrüßungen. Wie heißt du? Ich heiße Anna. Freut mich! Woher kommst du? Ich komme aus Spanien. Wohnst du in Berlin? Ja, ich wohne in Berlin. Tschüss! Auf Wiedersehen!",
+      "level": "A1",
+      "duration_seconds": 90,
+      "category": "basics",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Was sagt man am Morgen?",
+          "options": [
+            "Guten Abend",
+            "Gute Nacht",
+            "Guten Morgen",
+            "Tschüss"
+          ],
+          "correct_answer": "Guten Morgen",
+          "order_index": 1
+        },
+        {
+          "question": "Woher kommt Anna?",
+          "options": [
+            "Italien",
+            "Spanien",
+            "Deutschland",
+            "Frankreich"
+          ],
+          "correct_answer": "Spanien",
+          "order_index": 2
+        }
+      ]
+    },
+    {
+      "title": "Zahlen und Alphabet",
+      "description": "Übe die Zahlen von 1 bis 20 und das Alphabet.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+      "transcript": "Eins, zwei, drei, vier, fünf, sechs, sieben, acht, neun, zehn. Elf, zwölf, dreizehn, vierzehn, fünfzehn. Das Alphabet: A, B, C, D, E, F, G. Besondere Buchstaben: Ä, Ö, Ü und ß. Wie alt bist du? Ich bin zehn Jahre alt.",
+      "level": "A1",
+      "duration_seconds": 100,
+      "category": "basics",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Wie sagt man 15?",
+          "options": [
+            "Fünfzehn",
+            "Fünfzig",
+            "Fünfundzwanzig",
+            "Fünfzehnhundert"
+          ],
+          "correct_answer": "Fünfzehn",
+          "order_index": 1
+        },
+        {
+          "question": "Welcher Buchstabe ist besonders?",
+          "options": [
+            "C",
+            "Q",
+            "Ü",
+            "X"
+          ],
+          "correct_answer": "Ü",
+          "order_index": 2
+        }
+      ]
+    },
+    {
+      "title": "Beim Einkaufen",
+      "description": "Typische Sätze für den Einkauf.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+      "transcript": "Guten Tag! Kann ich helfen? Ich suche frische Brötchen. Die Brötchen sind dort hinten. Was kostet der Käse? 3 Euro 50. Ich nehme zwei Stück. Zahlen Sie bar oder mit Karte? Mit Karte. Das macht 8 Euro 20. Vielen Dank!",
+      "level": "A1",
+      "duration_seconds": 110,
+      "category": "daily",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Was sucht der Kunde zuerst?",
+          "options": [
+            "Käse",
+            "Milch",
+            "Brötchen",
+            "Eier"
+          ],
+          "correct_answer": "Brötchen",
+          "order_index": 1
+        },
+        {
+          "question": "Wie viel kostet der Käse?",
+          "options": [
+            "2,50",
+            "3,50",
+            "4,00",
+            "8,20"
+          ],
+          "correct_answer": "3,50",
+          "order_index": 2
+        },
+        {
+          "question": "Wie wird bezahlt?",
+          "options": [
+            "Bar",
+            "Mit Karte",
+            "Mit Handy",
+            "Mit Schein"
+          ],
+          "correct_answer": "Mit Karte",
+          "order_index": 3
+        }
+      ]
+    },
+    {
+      "title": "Meine Familie",
+      "description": "Ein Gespräch über die Familie.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
+      "transcript": "Erzähl mir von deiner Familie! Meine Mutter heißt Claudia, mein Vater Thomas. Ich habe eine Schwester und einen Bruder. Meine Schwester studiert Medizin. Meine Großeltern wohnen in der Nähe. Meine Oma kocht sehr gut. Ich besuche sie jeden Sonntag.",
+      "level": "A1",
+      "duration_seconds": 95,
+      "category": "basics",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Wie heißt die Mutter?",
+          "options": [
+            "Claudia",
+            "Maria",
+            "Anna",
+            "Laura"
+          ],
+          "correct_answer": "Claudia",
+          "order_index": 1
+        },
+        {
+          "question": "Was macht die Schwester?",
+          "options": [
+            "Sie studiert Medizin",
+            "Sie geht zur Schule",
+            "Sie arbeitet",
+            "Sie macht eine Ausbildung"
+          ],
+          "correct_answer": "Sie studiert Medizin",
+          "order_index": 2
+        }
+      ]
+    },
+    {
+      "title": "Essen und Trinken",
+      "description": "Wortschatz rund um Essen.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
+      "transcript": "Was isst du gern? Ich esse gern Pizza. Mein Lieblingsgericht ist Schnitzel mit Pommes. Am Morgen frühstücke ich. Ich trinke Kaffee. Magst du Obst? Ja, Äpfel und Bananen. Trinkst du gern Wasser oder Saft? Ich trinke gern Wasser.",
+      "level": "A1",
+      "duration_seconds": 105,
+      "category": "daily",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Was ist das Lieblingsgericht?",
+          "options": [
+            "Pizza",
+            "Spaghetti",
+            "Schnitzel mit Pommes",
+            "Salat"
+          ],
+          "correct_answer": "Schnitzel mit Pommes",
+          "order_index": 1
+        },
+        {
+          "question": "Was trinkt die Person am Morgen?",
+          "options": [
+            "Tee",
+            "Milch",
+            "Kaffee",
+            "Saft"
+          ],
+          "correct_answer": "Kaffee",
+          "order_index": 2
+        }
+      ]
+    },
+    {
+      "title": "Das Wetter",
+      "description": "Sätze über das Wetter.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
+      "transcript": "Wie ist das Wetter heute? Die Sonne scheint, es ist warm. 25 Grad. Im Winter schneit es. Die Kinder bauen Schneemänner. Im Frühling blühen die Blumen. Im Herbst fallen die Blätter. Welche Jahreszeit magst du? Ich mag den Sommer.",
+      "level": "A1",
+      "duration_seconds": 85,
+      "category": "basics",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Wie ist das Wetter?",
+          "options": [
+            "Es regnet",
+            "Es schneit",
+            "Die Sonne scheint",
+            "Es ist kalt"
+          ],
+          "correct_answer": "Die Sonne scheint",
+          "order_index": 1
+        },
+        {
+          "question": "Welche Temperatur?",
+          "options": [
+            "20 Grad",
+            "25 Grad",
+            "30 Grad",
+            "15 Grad"
+          ],
+          "correct_answer": "25 Grad",
+          "order_index": 2
+        }
+      ]
+    },
+    {
+      "title": "Im Restaurant",
+      "description": "Bestellen und bezahlen im Restaurant.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
+      "transcript": "Guten Abend! Haben Sie einen Tisch für zwei Personen? Ja, hier am Fenster. Ich hätte gern ein Glas Rotwein und eine Apfelschorle. Ich nehme das Schnitzel mit Pommes. Und ich die Bratwurst mit Kartoffelsalat. Hat es geschmeckt? Hervorragend! Zusammen oder getrennt? Zusammen, 42 Euro 50.",
+      "level": "A2",
+      "duration_seconds": 130,
+      "category": "daily",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Was trinkt die erste Person?",
+          "options": [
+            "Bier",
+            "Wein",
+            "Apfelschorle",
+            "Wasser"
+          ],
+          "correct_answer": "Wein",
+          "order_index": 1
+        },
+        {
+          "question": "Was bestellt die zweite Person?",
+          "options": [
+            "Schnitzel",
+            "Bratwurst mit Kartoffelsalat",
+            "Salat",
+            "Fisch"
+          ],
+          "correct_answer": "Bratwurst mit Kartoffelsalat",
+          "order_index": 2
+        },
+        {
+          "question": "Wie viel wird bezahlt?",
+          "options": [
+            "32,50",
+            "42,50",
+            "52,00",
+            "38,00"
+          ],
+          "correct_answer": "42,50",
+          "order_index": 3
+        }
+      ]
+    },
+    {
+      "title": "Wegbeschreibung",
+      "description": "Nach dem Weg fragen und beschreiben.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
+      "transcript": "Entschuldigung, wo ist der Bahnhof? Gehen Sie geradeaus bis zur Ampel, dann links. Nach 200 Metern sehen Sie den Bahnhof rechts. Und die nächste Apotheke? Die Apotheke ist in der Hauptstraße. Gehen Sie hier rechts um die Ecke, dann die zweite Straße links. Nur fünf Minuten zu Fuß.",
+      "level": "A2",
+      "duration_seconds": 140,
+      "category": "daily",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Wohin möchte die Person zuerst?",
+          "options": [
+            "Apotheke",
+            "Supermarkt",
+            "Bahnhof",
+            "Kirche"
+          ],
+          "correct_answer": "Bahnhof",
+          "order_index": 1
+        },
+        {
+          "question": "Wie weit ist die Apotheke?",
+          "options": [
+            "2 Minuten",
+            "5 Minuten",
+            "10 Minuten",
+            "15 Minuten"
+          ],
+          "correct_answer": "5 Minuten",
+          "order_index": 2
+        }
+      ]
+    },
+    {
+      "title": "Eine neue Wohnung",
+      "description": "Wohnungsbesichtigung.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
+      "transcript": "Willkommen zur Besichtigung! Die Wohnung hat 65 qm, zwei Zimmer, Küche und Bad. Dritter Stock mit Aufzug. Das Wohnzimmer hat große Fenster. Die Küche ist mit Herd und Kühlschrank ausgestattet. Kaltmiete 750 Euro, Nebenkosten 150 Euro. Kaution drei Kaltmieten. Einzug ab 1. nächsten Monats.",
+      "level": "A2",
+      "duration_seconds": 125,
+      "category": "daily",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Wie viele qm hat die Wohnung?",
+          "options": [
+            "45",
+            "55",
+            "65",
+            "75"
+          ],
+          "correct_answer": "65",
+          "order_index": 1
+        },
+        {
+          "question": "Wie hoch ist die Kaution?",
+          "options": [
+            "750",
+            "1500",
+            "2250",
+            "2700"
+          ],
+          "correct_answer": "2250",
+          "order_index": 2
+        }
+      ]
+    },
+    {
+      "title": "Termin beim Arzt",
+      "description": "Symptome beschreiben.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3",
+      "transcript": "Guten Tag! Ich habe einen Termin um 10 Uhr. Herr Weber, kommen Sie herein! Was fehlt Ihnen? Ich habe seit drei Tagen Halsschmerzen und Husten. Haben Sie Fieber? 38,2 Grad. Machen Sie den Mund auf. Der Hals ist gerötet. Ich verschreibe Hustensaft und Halstabletten. Trinken Sie viel und ruhen Sie sich aus.",
+      "level": "A2",
+      "duration_seconds": 120,
+      "category": "health",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Seit wann hat der Patient Halsschmerzen?",
+          "options": [
+            "1 Tag",
+            "2 Tage",
+            "3 Tage",
+            "1 Woche"
+          ],
+          "correct_answer": "3 Tage",
+          "order_index": 1
+        },
+        {
+          "question": "Welche Temperatur hat er?",
+          "options": [
+            "37,2",
+            "38,2",
+            "39,0",
+            "36,8"
+          ],
+          "correct_answer": "38,2",
+          "order_index": 2
+        },
+        {
+          "question": "Was verschreibt der Arzt?",
+          "options": [
+            "Antibiotika",
+            "Hustensaft und Halstabletten",
+            "Schmerztabletten",
+            "Vitamine"
+          ],
+          "correct_answer": "Hustensaft und Halstabletten",
+          "order_index": 3
+        }
+      ]
+    },
+    {
+      "title": "Hobbys und Freizeit",
+      "description": "Über Freizeitaktivitäten.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3",
+      "transcript": "Was machst du in deiner Freizeit? Ich spiele Gitarre und mache Sport. Tennis und Fitnessstudio, dreimal pro Woche. Ich fotografiere gern und lese Krimis. Der neue Film mit Tom Cruise soll gut sein. Sollen wir samstag ins Kino gehen? Ich hole dich um 18 Uhr ab!",
+      "level": "A2",
+      "duration_seconds": 115,
+      "category": "daily",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Was ist das erste Hobby?",
+          "options": [
+            "Fotografieren",
+            "Gitarre und Sport",
+            "Kino",
+            "Schwimmen"
+          ],
+          "correct_answer": "Gitarre und Sport",
+          "order_index": 1
+        },
+        {
+          "question": "Wann gehen sie ins Kino?",
+          "options": [
+            "Freitag",
+            "Samstag",
+            "Sonntag",
+            "Montag"
+          ],
+          "correct_answer": "Samstag",
+          "order_index": 2
+        }
+      ]
+    },
+    {
+      "title": "Urlaubserinnerungen",
+      "description": "Zwei Freunde erzählen von ihren Urlauben.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3",
+      "transcript": "Wo warst du im Urlaub? Ich war in Rom. Es war fantastisch! Kolosseum, Spanische Treppe, Vatikan. Das Wetter war perfekt. Und das Essen unglaublich! Ich war in den Bergen in Österreich. Gewandert, die Natur genossen. In einer Berghütte geschlafen. Nächstes Jahr möchte ich nach Spanien.",
+      "level": "A2",
+      "duration_seconds": 135,
+      "category": "travel",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Wo war die erste Person?",
+          "options": [
+            "Österreich",
+            "Spanien",
+            "Italien",
+            "Frankreich"
+          ],
+          "correct_answer": "Italien",
+          "order_index": 1
+        },
+        {
+          "question": "Wo hat die zweite Person geschlafen?",
+          "options": [
+            "Hotel",
+            "Jugendherberge",
+            "Berghütte",
+            "Zelt"
+          ],
+          "correct_answer": "Berghütte",
+          "order_index": 2
+        }
+      ]
+    },
+    {
+      "title": "Das Vorstellungsgespräch",
+      "description": "Simulation eines Bewerbungsgesprächs.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3",
+      "transcript": "Guten Tag, Frau Schmidt! Ich habe Ihren Lebenslauf gelesen. Drei Jahre bei der Müller GmbH. Warum möchten Sie wechseln? Ich suche eine neue Herausforderung. Welche Stärken haben Sie? Ich bin organisiert und teamfähig. Können Sie mit Stress umgehen? Ja, ich habe gelernt, Prioritäten zu setzen. Wir melden uns nächste Woche.",
+      "level": "B1",
+      "duration_seconds": 160,
+      "category": "work",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Wo hat Frau Schmidt gearbeitet?",
+          "options": [
+            "Schmidt GmbH",
+            "Müller GmbH",
+            "Meier AG",
+            "Weber KG"
+          ],
+          "correct_answer": "Müller GmbH",
+          "order_index": 1
+        },
+        {
+          "question": "Warum möchte sie wechseln?",
+          "options": [
+            "Gehalt",
+            "Standort",
+            "Neue Herausforderung",
+            "Arbeitszeit"
+          ],
+          "correct_answer": "Neue Herausforderung",
+          "order_index": 2
+        },
+        {
+          "question": "Welche Stärke nennt sie zuerst?",
+          "options": [
+            "Flexibilität",
+            "Organisiert und teamfähig",
+            "Kreativität",
+            "Sprachen"
+          ],
+          "correct_answer": "Organisiert und teamfähig",
+          "order_index": 3
+        }
+      ]
+    },
+    {
+      "title": "Nachrichten verstehen",
+      "description": "Kurze Nachrichtenmeldungen.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3",
+      "transcript": "Hier sind die Nachrichten. Die Bundesregierung hat heute neue Klimaziele beschlossen. Bis 2045 soll Deutschland klimaneutral sein. Im Sport: Die deutsche Fußballnationalmannschaft hat gestern 3:1 gewonnen. Das Wetter: Morgen wird es regnerisch bei 18 Grad. Und nun die Verkehrsmeldungen: Auf der A3 gibt es Stau zwischen Frankfurt und Wiesbaden.",
+      "level": "B1",
+      "duration_seconds": 150,
+      "category": "daily",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Bis wann soll Deutschland klimaneutral sein?",
+          "options": [
+            "2035",
+            "2040",
+            "2045",
+            "2050"
+          ],
+          "correct_answer": "2045",
+          "order_index": 1
+        },
+        {
+          "question": "Wie hat die Fußballmannschaft gespielt?",
+          "options": [
+            "1:0",
+            "2:0",
+            "3:1",
+            "4:2"
+          ],
+          "correct_answer": "3:1",
+          "order_index": 2
+        }
+      ]
+    },
+    {
+      "title": "Eine Diskussion",
+      "description": "Zwei Freunde diskutieren über Plastikmüll.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3",
+      "transcript": "Ich finde, wir sollten weniger Plastik benutzen. Ja, aber Plastik ist praktisch und günstig. Das stimmt, aber es schadet der Umwelt. Die Meere sind voller Plastik. Was können wir tun? Wir könnten Stoffbeutel benutzen und Glasflaschen kaufen. Auch beim Verzicht auf Mikroplastik in Kosmetik kann man anfangen. Jeder kleine Schritt hilft.",
+      "level": "B1",
+      "duration_seconds": 170,
+      "category": "daily",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Was ist das Problem mit Plastik?",
+          "options": [
+            "Zu teuer",
+            "Schadet der Umwelt",
+            "Zu schwer",
+            "Schlecht für die Gesundheit"
+          ],
+          "correct_answer": "Schadet der Umwelt",
+          "order_index": 1
+        },
+        {
+          "question": "Was wird als Lösung vorgeschlagen?",
+          "options": [
+            "Mehr Plastik kaufen",
+            "Stoffbeutel und Glasflaschen",
+            "Nichts tun",
+            "Plastik verbrennen"
+          ],
+          "correct_answer": "Stoffbeutel und Glasflaschen",
+          "order_index": 2
+        }
+      ]
+    },
+    {
+      "title": "Ein Telefonat",
+      "description": "Ein berufliches Telefonat.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3",
+      "transcript": "Guten Tag, Firma Meier, Schmidt am Apparat. Ich hätte gern Frau Dr. Weber gesprochen. Einen Moment bitte, ich verbinde. Frau Weber ist leider in einer Besprechung. Kann ich etwas ausrichten? Ja, mein Name ist Müller. Es geht um den Projekttermin nächste Woche. Können Sie mich zurückrufen? Ja, natürlich. Ihre Nummer, bitte? 0176 123456. Vielen Dank!",
+      "level": "B1",
+      "duration_seconds": 140,
+      "category": "work",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Mit wem möchte Herr Müller sprechen?",
+          "options": [
+            "Herrn Schmidt",
+            "Frau Dr. Weber",
+            "Frau Meier",
+            "Herrn Müller"
+          ],
+          "correct_answer": "Frau Dr. Weber",
+          "order_index": 1
+        },
+        {
+          "question": "Warum ist Frau Weber nicht erreichbar?",
+          "options": [
+            "Im Urlaub",
+            "In einer Besprechung",
+            "Krank",
+            "Im Homeoffice"
+          ],
+          "correct_answer": "In einer Besprechung",
+          "order_index": 2
+        }
+      ]
+    },
+    {
+      "title": "Eine Präsentation",
+      "description": "Kurze Geschäftspräsentation.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+      "transcript": "Guten Morgen, meine Damen und Herren! Ich möchte Ihnen heute unsere neuen Produkte vorstellen. Wir haben in den letzten Monaten an einer innovativen Lösung gearbeitet. Unser neues Produkt ist effizienter und umweltfreundlicher. Die Produktionskosten sind um 15 Prozent gesunken. Ich zeige Ihnen nun die Grafik. Wie Sie sehen, sind die Verkaufszahlen gestiegen. Fragen?",
+      "level": "B1",
+      "duration_seconds": 180,
+      "category": "work",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Um wie viel Prozent sind die Kosten gesunken?",
+          "options": [
+            "10%",
+            "15%",
+            "20%",
+            "25%"
+          ],
+          "correct_answer": "15%",
+          "order_index": 1
+        },
+        {
+          "question": "Was zeigt die Grafik?",
+          "options": [
+            "Aktienkurse",
+            "Verkaufszahlen",
+            "Mitarbeiterzahlen",
+            "Produktionskosten"
+          ],
+          "correct_answer": "Verkaufszahlen",
+          "order_index": 2
+        }
+      ]
+    },
+    {
+      "title": "Studium und Uni",
+      "description": "Ein Student erzählt vom Uni-Alltag.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+      "transcript": "Ich studiere im vierten Semester Informatik. Der Stundenplan ist voll, ich habe etwa 20 Stunden Vorlesungen pro Woche. Dazu kommen Übungen und Praktika. Die Bibliothek ist mein zweites Zuhause. Nächstes Semester schreibe ich meine Bachelorarbeit. Danach möchte ich ein Praktikum bei einer Softwarefirma machen. Der Berufseinstieg sieht gut aus, viele Firmen suchen Informatiker.",
+      "level": "B1",
+      "duration_seconds": 155,
+      "category": "education",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Was studiert der Student?",
+          "options": [
+            "BWL",
+            "Informatik",
+            "Medizin",
+            "Germanistik"
+          ],
+          "correct_answer": "Informatik",
+          "order_index": 1
+        },
+        {
+          "question": "Wie viele Stunden Vorlesung pro Woche?",
+          "options": [
+            "15",
+            "20",
+            "25",
+            "30"
+          ],
+          "correct_answer": "20",
+          "order_index": 2
+        }
+      ]
+    },
+    {
+      "title": "Eine politische Debatte",
+      "description": "Ausschnitte aus einer politischen Debatte.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+      "transcript": "Meine Damen und Herren, die Bildungspolitik muss Priorität haben. Wir investieren zu wenig in unsere Schulen. Die Digitalisierung kommt viel zu langsam voran. Auf der anderen Seite müssen wir auch die Lehrer besser bezahlen. Ein guter Vorschlag ist die Einführung eines digitalen Bildungsrats. Wir brauchen eine gemeinsame Strategie für alle Bundesländer. Nur so können wir im internationalen Wettbewerb bestehen.",
+      "level": "B2",
+      "duration_seconds": 200,
+      "category": "daily",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Welcher Bereich soll Priorität haben?",
+          "options": [
+            "Gesundheit",
+            "Bildungspolitik",
+            "Verteidigung",
+            "Umwelt"
+          ],
+          "correct_answer": "Bildungspolitik",
+          "order_index": 1
+        },
+        {
+          "question": "Wer soll besser bezahlt werden?",
+          "options": [
+            "Polizisten",
+            "Lehrer",
+            "Ärzte",
+            "Beamte"
+          ],
+          "correct_answer": "Lehrer",
+          "order_index": 2
+        }
+      ]
+    },
+    {
+      "title": "Vortrag: Erneuerbare Energien",
+      "description": "Technischer Vortrag über Solarenergie.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
+      "transcript": "Ich spreche heute über Photovoltaik. Solarzellen wandeln Sonnenlicht direkt in elektrische Energie um. Der Wirkungsgrad moderner Module liegt bei über 22 Prozent. Deutschland hat installierte Photovoltaik-Leistung von über 60 Gigawatt. Die Kosten sind in den letzten zehn Jahren um 90 Prozent gefallen. Ein durchschnittliches Einfamilienhaus kann mit einer Anlage seinen gesamten Strombedarf decken. Die Amortisationszeit beträgt etwa acht bis zwölf Jahre.",
+      "level": "B2",
+      "duration_seconds": 220,
+      "category": "education",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Wie hoch ist der Wirkungsgrad moderner Module?",
+          "options": [
+            "15%",
+            "22%",
+            "30%",
+            "50%"
+          ],
+          "correct_answer": "22%",
+          "order_index": 1
+        },
+        {
+          "question": "Wie lange dauert die Amortisation?",
+          "options": [
+            "3-5 Jahre",
+            "8-12 Jahre",
+            "15-20 Jahre",
+            "25 Jahre"
+          ],
+          "correct_answer": "8-12 Jahre",
+          "order_index": 2
+        }
+      ]
+    },
+    {
+      "title": "Interview mit einer Unternehmerin",
+      "description": "Ein Interview über Gründung und Führung.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
+      "transcript": "Frau Dr. Wagner, Sie haben Ihr Unternehmen vor fünf Jahren gegründet. Was war Ihre Motivation? Ich habe eine Marktlücke im Bereich nachhaltige Verpackungen gesehen. Wie viele Mitarbeiter haben Sie heute? Wir sind 45 Personen. Die größte Herausforderung war die Finanzierung. Ohne die Förderbank wäre es schwierig gewesen. Mein Tipp für Gründer: Netzwerken und dranbleiben. Rückschläge gehören dazu.",
+      "level": "B2",
+      "duration_seconds": 190,
+      "category": "work",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Vor wie vielen Jahren wurde gegründet?",
+          "options": [
+            "3",
+            "5",
+            "7",
+            "10"
+          ],
+          "correct_answer": "5",
+          "order_index": 1
+        },
+        {
+          "question": "Wie viele Mitarbeiter hat die Firma?",
+          "options": [
+            "25",
+            "35",
+            "45",
+            "55"
+          ],
+          "correct_answer": "45",
+          "order_index": 2
+        }
+      ]
+    },
+    {
+      "title": "Reportage: Kulturevent",
+      "description": "Radio-Reportage über ein Kulturfestival.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
+      "transcript": "Willkommen zur Kulturreportage. Heute berichten wir vom diesjährigen Bachfest in Leipzig. Tausende Besucher strömen in die Kirchen und Konzertsäle. Das Festival dauert zehn Tage und bietet über 100 Veranstaltungen. Besonders beliebt sind die kostenlosen Konzerte auf dem Marktplatz. Ein Besucher sagt: Die Atmosphäre ist einzigartig. Musik verbindet Menschen aus aller Welt. Auch junge Künstler bekommen eine Bühne. Das Festival fördert den Nachwuchs und macht klassische Musik für alle zugänglich.",
+      "level": "B2",
+      "duration_seconds": 210,
+      "category": "daily",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Über welches Festival wird berichtet?",
+          "options": [
+            "Bayreuther Festspiele",
+            "Bachfest in Leipzig",
+            "Oktoberfest",
+            "Filmfest Berlin"
+          ],
+          "correct_answer": "Bachfest in Leipzig",
+          "order_index": 1
+        },
+        {
+          "question": "Wie viele Veranstaltungen gibt es?",
+          "options": [
+            "50",
+            "80",
+            "100",
+            "150"
+          ],
+          "correct_answer": "100",
+          "order_index": 2
+        }
+      ]
+    },
+    {
+      "title": "Wirtschaftsnachrichten",
+      "description": "Aktuelle Wirtschaftsnachrichten.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
+      "transcript": "Die Wirtschaftsnachrichten. Der DAX schloss gestern mit einem Plus von 1,2 Prozent bei 18.950 Punkten. Die Inflation ist im Vergleich zum Vormonat leicht gesunken auf 2,1 Prozent. Experten erwarten eine stabile Konjunktur für das zweite Halbjahr. Der ifo-Geschäftsklimaindex ist ebenfalls gestiegen. Besonders die Automobilindustrie meldet steigende Exportzahlen. Kritisch bleibt die Lage in der Bauwirtschaft. Hier fehlen weiterhin Fachkräfte und Material. Die Zentralbank hält den Leitzins vorerst stabil.",
+      "level": "B2",
+      "duration_seconds": 200,
+      "category": "daily",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Wie ist der DAX gestanden?",
+          "options": [
+            "Plus 1,2% bei 18.950",
+            "Minus 1,2% bei 18.500",
+            "Plus 2,1% bei 19.200",
+            "Minus 0,5% bei 18.000"
+          ],
+          "correct_answer": "Plus 1,2% bei 18.950",
+          "order_index": 1
+        },
+        {
+          "question": "Wie hoch ist die Inflation?",
+          "options": [
+            "1,5%",
+            "2,1%",
+            "2,5%",
+            "3,0%"
+          ],
+          "correct_answer": "2,1%",
+          "order_index": 2
+        }
+      ]
+    },
+    {
+      "title": "Politische Rede",
+      "description": "Auszug aus einer politischen Rede zur Europapolitik.",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
+      "transcript": "Meine sehr geehrten Damen und Herren, die Europäische Union steht vor einer Zerreißprobe. Die Herausforderungen sind gewaltig: Klimawandel, Migration, digitale Transformation. Doch gerade in Krisenzeiten zeigt sich der Wert der europäischen Einigung. Wir müssen gemeinsam handeln, nicht national isoliert. Ein geeintes Europa kann seine Interessen in der Welt besser vertreten. Deshalb appelliere ich an Sie: Stehen Sie für ein starkes, demokratisches und solidarisches Europa ein. Die nächsten Jahre werden entscheidend sein für die Zukunft unseres Kontinents.",
+      "level": "C1",
+      "duration_seconds": 240,
+      "category": "daily",
+      "is_published": true,
+      "exercises": [
+        {
+          "question": "Wovor steht die EU laut der Rede?",
+          "options": [
+            "Vor einer Blütezeit",
+            "Vor einer Zerreißprobe",
+            "Vor einer Auflösung",
+            "Vor einer Expansion"
+          ],
+          "correct_answer": "Vor einer Zerreißprobe",
+          "order_index": 1
+        },
+        {
+          "question": "Welche Herausforderungen werden genannt?",
+          "options": [
+            "Kriege",
+            "Klimawandel, Migration, Digitalisierung",
+            "Handelskriege",
+            "Bevölkerungswachstum"
+          ],
+          "correct_answer": "Klimawandel, Migration, Digitalisierung",
+          "order_index": 2
+        },
+        {
+          "question": "Wofür soll Europa einstehen?",
+          "options": [
+            "Nationale Interessen",
+            "Stark, demokratisch, solidarisch",
+            "Wirtschaftliches Wachstum",
+            "Militärische Stärke"
+          ],
+          "correct_answer": "Stark, demokratisch, solidarisch",
+          "order_index": 3
+        }
+      ]
+    }
+  ],
+  "dictationExercises": [
+    {
+      "title": "Mein Tagesablauf",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
+      "full_text": "Ich stehe um sieben Uhr auf. Dann frühstücke ich. Um acht Uhr gehe ich zur Schule.",
+      "level": "A1",
+      "duration_seconds": 45,
+      "is_published": true
+    },
+    {
+      "title": "Die Familie",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
+      "full_text": "Meine Familie ist groß. Ich habe einen Bruder und eine Schwester. Meine Mutter ist Lehrerin.",
+      "level": "A1",
+      "duration_seconds": 50,
+      "is_published": true
+    },
+    {
+      "title": "Das Wetter",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
+      "full_text": "Die Sonne scheint. Der Himmel ist blau. Es ist warm. Ich spiele im Park.",
+      "level": "A1",
+      "duration_seconds": 40,
+      "is_published": true
+    },
+    {
+      "title": "Im Supermarkt",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3",
+      "full_text": "Wir gehen einkaufen. Meine Mutter kauft Obst und Gemüse. Ich nehme einen Einkaufswagen.",
+      "level": "A2",
+      "duration_seconds": 55,
+      "is_published": true
+    },
+    {
+      "title": "Der Geburtstag",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3",
+      "full_text": "Letzte Woche hatte meine Schwester Geburtstag. Wir haben eine Party gemacht. Es gab Kuchen und Geschenke.",
+      "level": "A2",
+      "duration_seconds": 60,
+      "is_published": true
+    },
+    {
+      "title": "Meine Wohnung",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3",
+      "full_text": "Ich wohne in einer Wohnung im zweiten Stock. Die Wohnung hat drei Zimmer und eine Küche.",
+      "level": "A2",
+      "duration_seconds": 50,
+      "is_published": true
+    },
+    {
+      "title": "Gesunde Ernährung",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3",
+      "full_text": "Eine gesunde Ernährung ist wichtig. Man sollte täglich Obst und Gemüse essen und ausreichend Wasser trinken.",
+      "level": "B1",
+      "duration_seconds": 70,
+      "is_published": true
+    },
+    {
+      "title": "Umweltschutz",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3",
+      "full_text": "Jeder kann etwas für den Umweltschutz tun. Wir sollten Plastik vermeiden und Müll richtig trennen.",
+      "level": "B1",
+      "duration_seconds": 75,
+      "is_published": true
+    },
+    {
+      "title": "Der Arbeitsmarkt",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3",
+      "full_text": "Der deutsche Arbeitsmarkt leidet unter Fachkräftemangel. Besonders betroffen sind die IT und das Handwerk.",
+      "level": "B1",
+      "duration_seconds": 80,
+      "is_published": true
+    },
+    {
+      "title": "Klimapolitik",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3",
+      "full_text": "Die Klimapolitik ist ein zentrales Thema. Deutschland hat den Ausbau erneuerbarer Energien vorangetrieben.",
+      "level": "B2",
+      "duration_seconds": 90,
+      "is_published": true
+    },
+    {
+      "title": "Soziale Medien",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+      "full_text": "Soziale Medien haben die Kommunikation verändert. Sie ermöglichen schnelle Informationsverbreitung, aber auch Falschinformationen.",
+      "level": "B2",
+      "duration_seconds": 85,
+      "is_published": true
+    },
+    {
+      "title": "Integration",
+      "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+      "full_text": "Die Integration von Migranten ist eine gesellschaftliche Daueraufgabe. Sprachkenntnisse gelten als der zentrale Schlüssel für eine erfolgreiche Integration in den Arbeitsmarkt und die Gesellschaft.",
+      "level": "C1",
+      "duration_seconds": 100,
+      "is_published": true
+    }
+  ]
+}

@@ -1,0 +1,7391 @@
+[
+  {
+    "german_word": "Hallo",
+    "english_translation": "hello",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Hallo, wie geht es dir?",
+    "level": "A1",
+    "category": "greetings"
+  },
+  {
+    "german_word": "Tschüss",
+    "english_translation": "bye",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Tschüss, bis morgen!",
+    "level": "A1",
+    "category": "greetings"
+  },
+  {
+    "german_word": "Guten Morgen",
+    "english_translation": "good morning",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Guten Morgen, Herr Müller!",
+    "level": "A1",
+    "category": "greetings"
+  },
+  {
+    "german_word": "Guten Tag",
+    "english_translation": "good day",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Guten Tag, kann ich helfen?",
+    "level": "A1",
+    "category": "greetings"
+  },
+  {
+    "german_word": "Guten Abend",
+    "english_translation": "good evening",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Guten Abend, Frau Schmidt.",
+    "level": "A1",
+    "category": "greetings"
+  },
+  {
+    "german_word": "Gute Nacht",
+    "english_translation": "good night",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Gute Nacht, schlaf gut!",
+    "level": "A1",
+    "category": "greetings"
+  },
+  {
+    "german_word": "Auf Wiedersehen",
+    "english_translation": "goodbye",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Auf Wiedersehen, bis bald!",
+    "level": "A1",
+    "category": "greetings"
+  },
+  {
+    "german_word": "Willkommen",
+    "english_translation": "welcome",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Willkommen in Berlin!",
+    "level": "A1",
+    "category": "greetings"
+  },
+  {
+    "german_word": "Danke",
+    "english_translation": "thank you",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Danke schön!",
+    "level": "A1",
+    "category": "greetings"
+  },
+  {
+    "german_word": "Bitte",
+    "english_translation": "please / welcome",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Bitte sehr!",
+    "level": "A1",
+    "category": "greetings"
+  },
+  {
+    "german_word": "Entschuldigung",
+    "english_translation": "excuse me / sorry",
+    "article": "die",
+    "plural": "Entschuldigungen",
+    "example_sentence": "Entschuldigung, wo ist der Bahnhof?",
+    "level": "A1",
+    "category": "greetings"
+  },
+  {
+    "german_word": "Ja",
+    "english_translation": "yes",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ja, gerne!",
+    "level": "A1",
+    "category": "greetings"
+  },
+  {
+    "german_word": "Nein",
+    "english_translation": "no",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Nein, danke.",
+    "level": "A1",
+    "category": "greetings"
+  },
+  {
+    "german_word": "eins",
+    "english_translation": "one",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Eins, zwei, drei!",
+    "level": "A1",
+    "category": "numbers"
+  },
+  {
+    "german_word": "zwei",
+    "english_translation": "two",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Zwei Kaffee, bitte.",
+    "level": "A1",
+    "category": "numbers"
+  },
+  {
+    "german_word": "drei",
+    "english_translation": "three",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Drei Äpfel, bitte.",
+    "level": "A1",
+    "category": "numbers"
+  },
+  {
+    "german_word": "vier",
+    "english_translation": "four",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Vier Wochen Urlaub.",
+    "level": "A1",
+    "category": "numbers"
+  },
+  {
+    "german_word": "fünf",
+    "english_translation": "five",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Fünf Euro, bitte.",
+    "level": "A1",
+    "category": "numbers"
+  },
+  {
+    "german_word": "sechs",
+    "english_translation": "six",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Sechs Bier, bitte.",
+    "level": "A1",
+    "category": "numbers"
+  },
+  {
+    "german_word": "sieben",
+    "english_translation": "seven",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Sieben Tage in der Woche.",
+    "level": "A1",
+    "category": "numbers"
+  },
+  {
+    "german_word": "acht",
+    "english_translation": "eight",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Acht Uhr morgens.",
+    "level": "A1",
+    "category": "numbers"
+  },
+  {
+    "german_word": "neun",
+    "english_translation": "nine",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Neun Euro, bitte.",
+    "level": "A1",
+    "category": "numbers"
+  },
+  {
+    "german_word": "zehn",
+    "english_translation": "ten",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Zehn Minuten Pause.",
+    "level": "A1",
+    "category": "numbers"
+  },
+  {
+    "german_word": "zwanzig",
+    "english_translation": "twenty",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Zwanzig Euro, bitte.",
+    "level": "A1",
+    "category": "numbers"
+  },
+  {
+    "german_word": "dreißig",
+    "english_translation": "thirty",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Dreißig Minuten.",
+    "level": "A1",
+    "category": "numbers"
+  },
+  {
+    "german_word": "vierzig",
+    "english_translation": "forty",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Vierzig Jahre alt.",
+    "level": "A1",
+    "category": "numbers"
+  },
+  {
+    "german_word": "hundert",
+    "english_translation": "hundred",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Hundert Euro!",
+    "level": "A1",
+    "category": "numbers"
+  },
+  {
+    "german_word": "tausend",
+    "english_translation": "thousand",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das kostet tausend Euro.",
+    "level": "A1",
+    "category": "numbers"
+  },
+  {
+    "german_word": "rot",
+    "english_translation": "red",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Auto ist rot.",
+    "level": "A1",
+    "category": "colors"
+  },
+  {
+    "german_word": "blau",
+    "english_translation": "blue",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Himmel ist blau.",
+    "level": "A1",
+    "category": "colors"
+  },
+  {
+    "german_word": "grün",
+    "english_translation": "green",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Wald ist grün.",
+    "level": "A1",
+    "category": "colors"
+  },
+  {
+    "german_word": "gelb",
+    "english_translation": "yellow",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Banane ist gelb.",
+    "level": "A1",
+    "category": "colors"
+  },
+  {
+    "german_word": "schwarz",
+    "english_translation": "black",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Nacht ist schwarz.",
+    "level": "A1",
+    "category": "colors"
+  },
+  {
+    "german_word": "weiß",
+    "english_translation": "white",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Schnee ist weiß.",
+    "level": "A1",
+    "category": "colors"
+  },
+  {
+    "german_word": "grau",
+    "english_translation": "gray",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Himmel ist grau.",
+    "level": "A1",
+    "category": "colors"
+  },
+  {
+    "german_word": "braun",
+    "english_translation": "brown",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Tisch ist braun.",
+    "level": "A1",
+    "category": "colors"
+  },
+  {
+    "german_word": "bunt",
+    "english_translation": "colorful",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Regenbogen ist bunt.",
+    "level": "A1",
+    "category": "colors"
+  },
+  {
+    "german_word": "Montag",
+    "english_translation": "Monday",
+    "article": "der",
+    "plural": "Montage",
+    "example_sentence": "Am Montag beginnt die Woche.",
+    "level": "A1",
+    "category": "days"
+  },
+  {
+    "german_word": "Dienstag",
+    "english_translation": "Tuesday",
+    "article": "der",
+    "plural": "Dienstage",
+    "example_sentence": "Am Dienstag habe ich Unterricht.",
+    "level": "A1",
+    "category": "days"
+  },
+  {
+    "german_word": "Mittwoch",
+    "english_translation": "Wednesday",
+    "article": "der",
+    "plural": "Mittwoche",
+    "example_sentence": "Am Mittwoch arbeite ich.",
+    "level": "A1",
+    "category": "days"
+  },
+  {
+    "german_word": "Donnerstag",
+    "english_translation": "Thursday",
+    "article": "der",
+    "plural": "Donnerstage",
+    "example_sentence": "Am Donnerstag gehe ich einkaufen.",
+    "level": "A1",
+    "category": "days"
+  },
+  {
+    "german_word": "Freitag",
+    "english_translation": "Friday",
+    "article": "der",
+    "plural": "Freitage",
+    "example_sentence": "Am Freitag gehe ich ins Kino.",
+    "level": "A1",
+    "category": "days"
+  },
+  {
+    "german_word": "Samstag",
+    "english_translation": "Saturday",
+    "article": "der",
+    "plural": "Samstage",
+    "example_sentence": "Am Samstag schlafe ich lange.",
+    "level": "A1",
+    "category": "days"
+  },
+  {
+    "german_word": "Sonntag",
+    "english_translation": "Sunday",
+    "article": "der",
+    "plural": "Sonntage",
+    "example_sentence": "Am Sonntag besuche ich meine Familie.",
+    "level": "A1",
+    "category": "days"
+  },
+  {
+    "german_word": "Frühling",
+    "english_translation": "spring",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Im Frühling blühen die Blumen.",
+    "level": "A1",
+    "category": "seasons"
+  },
+  {
+    "german_word": "Sommer",
+    "english_translation": "summer",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Im Sommer ist es heiß.",
+    "level": "A1",
+    "category": "seasons"
+  },
+  {
+    "german_word": "Herbst",
+    "english_translation": "autumn",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Im Herbst fallen die Blätter.",
+    "level": "A1",
+    "category": "seasons"
+  },
+  {
+    "german_word": "Winter",
+    "english_translation": "winter",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Im Winter schneit es.",
+    "level": "A1",
+    "category": "seasons"
+  },
+  {
+    "german_word": "Mutter",
+    "english_translation": "mother",
+    "article": "die",
+    "plural": "Mütter",
+    "example_sentence": "Meine Mutter ist Ärztin.",
+    "level": "A1",
+    "category": "family"
+  },
+  {
+    "german_word": "Vater",
+    "english_translation": "father",
+    "article": "der",
+    "plural": "Väter",
+    "example_sentence": "Mein Vater arbeitet im Büro.",
+    "level": "A1",
+    "category": "family"
+  },
+  {
+    "german_word": "Schwester",
+    "english_translation": "sister",
+    "article": "die",
+    "plural": "Schwestern",
+    "example_sentence": "Meine Schwester ist jünger.",
+    "level": "A1",
+    "category": "family"
+  },
+  {
+    "german_word": "Bruder",
+    "english_translation": "brother",
+    "article": "der",
+    "plural": "Brüder",
+    "example_sentence": "Mein Bruder spielt Fußball.",
+    "level": "A1",
+    "category": "family"
+  },
+  {
+    "german_word": "Großmutter",
+    "english_translation": "grandmother",
+    "article": "die",
+    "plural": "Großmütter",
+    "example_sentence": "Meine Großmutter kocht gut.",
+    "level": "A1",
+    "category": "family"
+  },
+  {
+    "german_word": "Großvater",
+    "english_translation": "grandfather",
+    "article": "der",
+    "plural": "Großväter",
+    "example_sentence": "Mein Großvater erzählt Geschichten.",
+    "level": "A1",
+    "category": "family"
+  },
+  {
+    "german_word": "Tochter",
+    "english_translation": "daughter",
+    "article": "die",
+    "plural": "Töchter",
+    "example_sentence": "Meine Tochter geht zur Schule.",
+    "level": "A1",
+    "category": "family"
+  },
+  {
+    "german_word": "Sohn",
+    "english_translation": "son",
+    "article": "der",
+    "plural": "Söhne",
+    "example_sentence": "Mein Sohn ist fünf Jahre alt.",
+    "level": "A1",
+    "category": "family"
+  },
+  {
+    "german_word": "Onkel",
+    "english_translation": "uncle",
+    "article": "der",
+    "plural": "Onkel",
+    "example_sentence": "Mein Onkel wohnt in Hamburg.",
+    "level": "A1",
+    "category": "family"
+  },
+  {
+    "german_word": "Tante",
+    "english_translation": "aunt",
+    "article": "die",
+    "plural": "Tanten",
+    "example_sentence": "Meine Tante ist Lehrerin.",
+    "level": "A1",
+    "category": "family"
+  },
+  {
+    "german_word": "Freund",
+    "english_translation": "friend (male)",
+    "article": "der",
+    "plural": "Freunde",
+    "example_sentence": "Mein Freund heißt Max.",
+    "level": "A1",
+    "category": "family"
+  },
+  {
+    "german_word": "Freundin",
+    "english_translation": "friend (female)",
+    "article": "die",
+    "plural": "Freundinnen",
+    "example_sentence": "Meine Freundin heißt Anna.",
+    "level": "A1",
+    "category": "family"
+  },
+  {
+    "german_word": "Familie",
+    "english_translation": "family",
+    "article": "die",
+    "plural": "Familien",
+    "example_sentence": "Meine Familie ist groß.",
+    "level": "A1",
+    "category": "family"
+  },
+  {
+    "german_word": "Kopf",
+    "english_translation": "head",
+    "article": "der",
+    "plural": "Köpfe",
+    "example_sentence": "Ich habe Kopfschmerzen.",
+    "level": "A1",
+    "category": "body"
+  },
+  {
+    "german_word": "Hand",
+    "english_translation": "hand",
+    "article": "die",
+    "plural": "Hände",
+    "example_sentence": "Er hat große Hände.",
+    "level": "A1",
+    "category": "body"
+  },
+  {
+    "german_word": "Fuß",
+    "english_translation": "foot",
+    "article": "der",
+    "plural": "Füße",
+    "example_sentence": "Meine Füße tun weh.",
+    "level": "A1",
+    "category": "body"
+  },
+  {
+    "german_word": "Auge",
+    "english_translation": "eye",
+    "article": "das",
+    "plural": "Augen",
+    "example_sentence": "Sie hat blaue Augen.",
+    "level": "A1",
+    "category": "body"
+  },
+  {
+    "german_word": "Ohr",
+    "english_translation": "ear",
+    "article": "das",
+    "plural": "Ohren",
+    "example_sentence": "Die Ohren tun mir weh.",
+    "level": "A1",
+    "category": "body"
+  },
+  {
+    "german_word": "Nase",
+    "english_translation": "nose",
+    "article": "die",
+    "plural": "Nasen",
+    "example_sentence": "Er hat eine große Nase.",
+    "level": "A1",
+    "category": "body"
+  },
+  {
+    "german_word": "Mund",
+    "english_translation": "mouth",
+    "article": "der",
+    "plural": "Münder",
+    "example_sentence": "Öffne den Mund, bitte.",
+    "level": "A1",
+    "category": "body"
+  },
+  {
+    "german_word": "Arm",
+    "english_translation": "arm",
+    "article": "der",
+    "plural": "Arme",
+    "example_sentence": "Er hat starke Arme.",
+    "level": "A1",
+    "category": "body"
+  },
+  {
+    "german_word": "Bein",
+    "english_translation": "leg",
+    "article": "das",
+    "plural": "Beine",
+    "example_sentence": "Mein Bein tut weh.",
+    "level": "A1",
+    "category": "body"
+  },
+  {
+    "german_word": "Brot",
+    "english_translation": "bread",
+    "article": "das",
+    "plural": "Brote",
+    "example_sentence": "Das Brot ist frisch.",
+    "level": "A1",
+    "category": "food"
+  },
+  {
+    "german_word": "Milch",
+    "english_translation": "milk",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Milch ist kalt.",
+    "level": "A1",
+    "category": "food"
+  },
+  {
+    "german_word": "Wasser",
+    "english_translation": "water",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Ein Glas Wasser, bitte.",
+    "level": "A1",
+    "category": "food"
+  },
+  {
+    "german_word": "Kaffee",
+    "english_translation": "coffee",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Ich trinke gern Kaffee.",
+    "level": "A1",
+    "category": "food"
+  },
+  {
+    "german_word": "Tee",
+    "english_translation": "tea",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Möchtest du Tee?",
+    "level": "A1",
+    "category": "food"
+  },
+  {
+    "german_word": "Fleisch",
+    "english_translation": "meat",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Ich esse kein Fleisch.",
+    "level": "A1",
+    "category": "food"
+  },
+  {
+    "german_word": "Fisch",
+    "english_translation": "fish",
+    "article": "der",
+    "plural": "Fische",
+    "example_sentence": "Der Fisch schmeckt gut.",
+    "level": "A1",
+    "category": "food"
+  },
+  {
+    "german_word": "Obst",
+    "english_translation": "fruit",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Obst ist gesund.",
+    "level": "A1",
+    "category": "food"
+  },
+  {
+    "german_word": "Gemüse",
+    "english_translation": "vegetables",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Ich kaufe frisches Gemüse.",
+    "level": "A1",
+    "category": "food"
+  },
+  {
+    "german_word": "Kuchen",
+    "english_translation": "cake",
+    "article": "der",
+    "plural": "Kuchen",
+    "example_sentence": "Der Kuchen ist lecker.",
+    "level": "A1",
+    "category": "food"
+  },
+  {
+    "german_word": "Ei",
+    "english_translation": "egg",
+    "article": "das",
+    "plural": "Eier",
+    "example_sentence": "Ich esse ein Ei zum Frühstück.",
+    "level": "A1",
+    "category": "food"
+  },
+  {
+    "german_word": "Käse",
+    "english_translation": "cheese",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Der Käse schmeckt würzig.",
+    "level": "A1",
+    "category": "food"
+  },
+  {
+    "german_word": "Apfel",
+    "english_translation": "apple",
+    "article": "der",
+    "plural": "Äpfel",
+    "example_sentence": "Der Apfel ist rot.",
+    "level": "A1",
+    "category": "food"
+  },
+  {
+    "german_word": "Banane",
+    "english_translation": "banana",
+    "article": "die",
+    "plural": "Bananen",
+    "example_sentence": "Die Banane ist gelb.",
+    "level": "A1",
+    "category": "food"
+  },
+  {
+    "german_word": "Haus",
+    "english_translation": "house",
+    "article": "das",
+    "plural": "Häuser",
+    "example_sentence": "Das Haus ist sehr groß.",
+    "level": "A1",
+    "category": "house"
+  },
+  {
+    "german_word": "Wohnung",
+    "english_translation": "apartment",
+    "article": "die",
+    "plural": "Wohnungen",
+    "example_sentence": "Meine Wohnung ist im dritten Stock.",
+    "level": "A1",
+    "category": "house"
+  },
+  {
+    "german_word": "Tür",
+    "english_translation": "door",
+    "article": "die",
+    "plural": "Türen",
+    "example_sentence": "Die Tür ist offen.",
+    "level": "A1",
+    "category": "house"
+  },
+  {
+    "german_word": "Fenster",
+    "english_translation": "window",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Das Fenster ist geschlossen.",
+    "level": "A1",
+    "category": "house"
+  },
+  {
+    "german_word": "Küche",
+    "english_translation": "kitchen",
+    "article": "die",
+    "plural": "Küchen",
+    "example_sentence": "In der Küche koche ich.",
+    "level": "A1",
+    "category": "house"
+  },
+  {
+    "german_word": "Schlafzimmer",
+    "english_translation": "bedroom",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Das Schlafzimmer ist gemütlich.",
+    "level": "A1",
+    "category": "house"
+  },
+  {
+    "german_word": "Bad",
+    "english_translation": "bathroom",
+    "article": "das",
+    "plural": "Bäder",
+    "example_sentence": "Das Bad ist sauber.",
+    "level": "A1",
+    "category": "house"
+  },
+  {
+    "german_word": "Wohnzimmer",
+    "english_translation": "living room",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Wir sitzen im Wohnzimmer.",
+    "level": "A1",
+    "category": "house"
+  },
+  {
+    "german_word": "Tisch",
+    "english_translation": "table",
+    "article": "der",
+    "plural": "Tische",
+    "example_sentence": "Der Tisch ist aus Holz.",
+    "level": "A1",
+    "category": "furniture"
+  },
+  {
+    "german_word": "Stuhl",
+    "english_translation": "chair",
+    "article": "der",
+    "plural": "Stühle",
+    "example_sentence": "Der Stuhl ist bequem.",
+    "level": "A1",
+    "category": "furniture"
+  },
+  {
+    "german_word": "Bett",
+    "english_translation": "bed",
+    "article": "das",
+    "plural": "Betten",
+    "example_sentence": "Das Bett ist weich.",
+    "level": "A1",
+    "category": "furniture"
+  },
+  {
+    "german_word": "Schrank",
+    "english_translation": "wardrobe",
+    "article": "der",
+    "plural": "Schränke",
+    "example_sentence": "Der Schrank ist voll.",
+    "level": "A1",
+    "category": "furniture"
+  },
+  {
+    "german_word": "Hose",
+    "english_translation": "pants",
+    "article": "die",
+    "plural": "Hosen",
+    "example_sentence": "Die Hose ist blau.",
+    "level": "A1",
+    "category": "clothing"
+  },
+  {
+    "german_word": "Hemd",
+    "english_translation": "shirt",
+    "article": "das",
+    "plural": "Hemden",
+    "example_sentence": "Das Hemd ist weiß.",
+    "level": "A1",
+    "category": "clothing"
+  },
+  {
+    "german_word": "Kleid",
+    "english_translation": "dress",
+    "article": "das",
+    "plural": "Kleider",
+    "example_sentence": "Das Kleid ist schön.",
+    "level": "A1",
+    "category": "clothing"
+  },
+  {
+    "german_word": "Schuh",
+    "english_translation": "shoe",
+    "article": "der",
+    "plural": "Schuhe",
+    "example_sentence": "Die Schuhe sind neu.",
+    "level": "A1",
+    "category": "clothing"
+  },
+  {
+    "german_word": "Jacke",
+    "english_translation": "jacket",
+    "article": "die",
+    "plural": "Jacken",
+    "example_sentence": "Die Jacke ist warm.",
+    "level": "A1",
+    "category": "clothing"
+  },
+  {
+    "german_word": "Hund",
+    "english_translation": "dog",
+    "article": "der",
+    "plural": "Hunde",
+    "example_sentence": "Der Hund bellt.",
+    "level": "A1",
+    "category": "animals"
+  },
+  {
+    "german_word": "Katze",
+    "english_translation": "cat",
+    "article": "die",
+    "plural": "Katzen",
+    "example_sentence": "Die Katze schläft.",
+    "level": "A1",
+    "category": "animals"
+  },
+  {
+    "german_word": "Pferd",
+    "english_translation": "horse",
+    "article": "das",
+    "plural": "Pferde",
+    "example_sentence": "Das Pferd läuft schnell.",
+    "level": "A1",
+    "category": "animals"
+  },
+  {
+    "german_word": "Vogel",
+    "english_translation": "bird",
+    "article": "der",
+    "plural": "Vögel",
+    "example_sentence": "Der Vogel singt.",
+    "level": "A1",
+    "category": "animals"
+  },
+  {
+    "german_word": "Maus",
+    "english_translation": "mouse",
+    "article": "die",
+    "plural": "Mäuse",
+    "example_sentence": "Die Maus ist klein.",
+    "level": "A1",
+    "category": "animals"
+  },
+  {
+    "german_word": "Sonne",
+    "english_translation": "sun",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Sonne scheint heute.",
+    "level": "A1",
+    "category": "weather"
+  },
+  {
+    "german_word": "Regen",
+    "english_translation": "rain",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Der Regen hört bald auf.",
+    "level": "A1",
+    "category": "weather"
+  },
+  {
+    "german_word": "Schnee",
+    "english_translation": "snow",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Der Schnee ist weiß.",
+    "level": "A1",
+    "category": "weather"
+  },
+  {
+    "german_word": "Wind",
+    "english_translation": "wind",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Der Wind weht stark.",
+    "level": "A1",
+    "category": "weather"
+  },
+  {
+    "german_word": "Wolke",
+    "english_translation": "cloud",
+    "article": "die",
+    "plural": "Wolken",
+    "example_sentence": "Die Wolken sind grau.",
+    "level": "A1",
+    "category": "weather"
+  },
+  {
+    "german_word": "Regenbogen",
+    "english_translation": "rainbow",
+    "article": "der",
+    "plural": "Regenbögen",
+    "example_sentence": "Der Regenbogen ist bunt.",
+    "level": "A1",
+    "category": "weather"
+  },
+  {
+    "german_word": "Uhr",
+    "english_translation": "clock",
+    "article": "die",
+    "plural": "Uhren",
+    "example_sentence": "Es ist fünf Uhr.",
+    "level": "A1",
+    "category": "time"
+  },
+  {
+    "german_word": "Stunde",
+    "english_translation": "hour",
+    "article": "die",
+    "plural": "Stunden",
+    "example_sentence": "Eine Stunde hat 60 Minuten.",
+    "level": "A1",
+    "category": "time"
+  },
+  {
+    "german_word": "Minute",
+    "english_translation": "minute",
+    "article": "die",
+    "plural": "Minuten",
+    "example_sentence": "Fünf Minuten, bitte.",
+    "level": "A1",
+    "category": "time"
+  },
+  {
+    "german_word": "Tag",
+    "english_translation": "day",
+    "article": "der",
+    "plural": "Tage",
+    "example_sentence": "Heute ist ein schöner Tag.",
+    "level": "A1",
+    "category": "time"
+  },
+  {
+    "german_word": "Woche",
+    "english_translation": "week",
+    "article": "die",
+    "plural": "Wochen",
+    "example_sentence": "Eine Woche hat sieben Tage.",
+    "level": "A1",
+    "category": "time"
+  },
+  {
+    "german_word": "Monat",
+    "english_translation": "month",
+    "article": "der",
+    "plural": "Monate",
+    "example_sentence": "Der Mai ist ein schöner Monat.",
+    "level": "A1",
+    "category": "time"
+  },
+  {
+    "german_word": "Jahr",
+    "english_translation": "year",
+    "article": "das",
+    "plural": "Jahre",
+    "example_sentence": "Das Jahr 2024 ist vorbei.",
+    "level": "A1",
+    "category": "time"
+  },
+  {
+    "german_word": "Buch",
+    "english_translation": "book",
+    "article": "das",
+    "plural": "Bücher",
+    "example_sentence": "Das Buch ist interessant.",
+    "level": "A1",
+    "category": "school"
+  },
+  {
+    "german_word": "Stift",
+    "english_translation": "pen",
+    "article": "der",
+    "plural": "Stifte",
+    "example_sentence": "Der Stift schreibt blau.",
+    "level": "A1",
+    "category": "school"
+  },
+  {
+    "german_word": "Papier",
+    "english_translation": "paper",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Das Papier ist weiß.",
+    "level": "A1",
+    "category": "school"
+  },
+  {
+    "german_word": "Tafel",
+    "english_translation": "blackboard",
+    "article": "die",
+    "plural": "Tafeln",
+    "example_sentence": "Die Tafel ist grün.",
+    "level": "A1",
+    "category": "school"
+  },
+  {
+    "german_word": "Schule",
+    "english_translation": "school",
+    "article": "die",
+    "plural": "Schulen",
+    "example_sentence": "Die Schule beginnt um acht.",
+    "level": "A1",
+    "category": "school"
+  },
+  {
+    "german_word": "groß",
+    "english_translation": "big/tall",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Haus ist groß.",
+    "level": "A1",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "klein",
+    "english_translation": "small",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Maus ist klein.",
+    "level": "A1",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "heiß",
+    "english_translation": "hot",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Kaffee ist heiß.",
+    "level": "A1",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "kalt",
+    "english_translation": "cold",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Wasser ist kalt.",
+    "level": "A1",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "schön",
+    "english_translation": "beautiful",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Blume ist schön.",
+    "level": "A1",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "hässlich",
+    "english_translation": "ugly",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Frosch ist hässlich.",
+    "level": "A1",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "alt",
+    "english_translation": "old",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Haus ist sehr alt.",
+    "level": "A1",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "neu",
+    "english_translation": "new",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich habe ein neues Auto.",
+    "level": "A1",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "gut",
+    "english_translation": "good",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Essen ist gut.",
+    "level": "A1",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "schlecht",
+    "english_translation": "bad",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Wetter ist schlecht.",
+    "level": "A1",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "jung",
+    "english_translation": "young",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Mein Bruder ist jung.",
+    "level": "A1",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "schnell",
+    "english_translation": "fast",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Zug ist schnell.",
+    "level": "A1",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "langsam",
+    "english_translation": "slow",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Schnecke ist langsam.",
+    "level": "A1",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "teuer",
+    "english_translation": "expensive",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Auto ist teuer.",
+    "level": "A1",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "billig",
+    "english_translation": "cheap",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Stift ist billig.",
+    "level": "A1",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "sein",
+    "english_translation": "to be",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich bin hier.",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "haben",
+    "english_translation": "to have",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich habe ein Auto.",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "werden",
+    "english_translation": "to become",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Er wird Lehrer.",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "gehen",
+    "english_translation": "to go",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Wir gehen ins Kino.",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "kommen",
+    "english_translation": "to come",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Kommst du mit?",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "machen",
+    "english_translation": "to do/make",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Was machst du?",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "sagen",
+    "english_translation": "to say",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Was sagst du?",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "sehen",
+    "english_translation": "to see",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich sehe einen Vogel.",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "hören",
+    "english_translation": "to hear",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich höre Musik.",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "wissen",
+    "english_translation": "to know",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich weiß die Antwort.",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "essen",
+    "english_translation": "to eat",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Wir essen Pizza.",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "trinken",
+    "english_translation": "to drink",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich trinke Wasser.",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "schlafen",
+    "english_translation": "to sleep",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Baby schläft.",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "lesen",
+    "english_translation": "to read",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich lese ein Buch.",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "schreiben",
+    "english_translation": "to write",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Sie schreibt einen Brief.",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "sprechen",
+    "english_translation": "to speak",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Sprichst du Deutsch?",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "verstehen",
+    "english_translation": "to understand",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich verstehe dich.",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "wohnen",
+    "english_translation": "to live",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich wohne in Berlin.",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "arbeiten",
+    "english_translation": "to work",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Er arbeitet im Büro.",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "spielen",
+    "english_translation": "to play",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Kinder spielen im Park.",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "lernen",
+    "english_translation": "to learn",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich lerne Deutsch.",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "brauchen",
+    "english_translation": "to need",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich brauche Hilfe.",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "kaufen",
+    "english_translation": "to buy",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich kaufe ein Brot.",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "nehmen",
+    "english_translation": "to take",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Nimmst du ein Stück Kuchen?",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "geben",
+    "english_translation": "to give",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich gebe dir das Buch.",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "mögen",
+    "english_translation": "to like",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich mag Schokolade.",
+    "level": "A1",
+    "category": "verbs"
+  },
+  {
+    "german_word": "in",
+    "english_translation": "in",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Buch ist in der Tasche.",
+    "level": "A1",
+    "category": "prepositions"
+  },
+  {
+    "german_word": "auf",
+    "english_translation": "on",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Katze ist auf dem Tisch.",
+    "level": "A1",
+    "category": "prepositions"
+  },
+  {
+    "german_word": "unter",
+    "english_translation": "under",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Hund ist unter dem Tisch.",
+    "level": "A1",
+    "category": "prepositions"
+  },
+  {
+    "german_word": "neben",
+    "english_translation": "next to",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Bank ist neben dem Haus.",
+    "level": "A1",
+    "category": "prepositions"
+  },
+  {
+    "german_word": "zwischen",
+    "english_translation": "between",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Kind sitzt zwischen den Eltern.",
+    "level": "A1",
+    "category": "prepositions"
+  },
+  {
+    "german_word": "hinter",
+    "english_translation": "behind",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Garten ist hinter dem Haus.",
+    "level": "A1",
+    "category": "prepositions"
+  },
+  {
+    "german_word": "vor",
+    "english_translation": "in front of",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Auto steht vor dem Haus.",
+    "level": "A1",
+    "category": "prepositions"
+  },
+  {
+    "german_word": "über",
+    "english_translation": "above/over",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Bild hängt über dem Sofa.",
+    "level": "A1",
+    "category": "prepositions"
+  },
+  {
+    "german_word": "an",
+    "english_translation": "at/on",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich bin an der Haltestelle.",
+    "level": "A1",
+    "category": "prepositions"
+  },
+  {
+    "german_word": "wer",
+    "english_translation": "who",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Wer ist das?",
+    "level": "A1",
+    "category": "question_words"
+  },
+  {
+    "german_word": "was",
+    "english_translation": "what",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Was machst du?",
+    "level": "A1",
+    "category": "question_words"
+  },
+  {
+    "german_word": "wo",
+    "english_translation": "where",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Wo wohnst du?",
+    "level": "A1",
+    "category": "question_words"
+  },
+  {
+    "german_word": "wie",
+    "english_translation": "how",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Wie geht es dir?",
+    "level": "A1",
+    "category": "question_words"
+  },
+  {
+    "german_word": "wann",
+    "english_translation": "when",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Wann kommst du?",
+    "level": "A1",
+    "category": "question_words"
+  },
+  {
+    "german_word": "warum",
+    "english_translation": "why",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Warum lernst du Deutsch?",
+    "level": "A1",
+    "category": "question_words"
+  },
+  {
+    "german_word": "welcher",
+    "english_translation": "which",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Welches Buch liest du?",
+    "level": "A1",
+    "category": "question_words"
+  },
+  {
+    "german_word": "Arzt",
+    "english_translation": "doctor",
+    "article": "der",
+    "plural": "Ärzte",
+    "example_sentence": "Der Arzt hilft den Patienten.",
+    "level": "A2",
+    "category": "professions"
+  },
+  {
+    "german_word": "Ärztin",
+    "english_translation": "doctor",
+    "article": "die",
+    "plural": "Ärztinnen",
+    "example_sentence": "Die Ärztin arbeitet im Krankenhaus.",
+    "level": "A2",
+    "category": "professions"
+  },
+  {
+    "german_word": "Lehrer",
+    "english_translation": "teacher",
+    "article": "der",
+    "plural": "Lehrer",
+    "example_sentence": "Der Lehrer erklärt die Grammatik.",
+    "level": "A2",
+    "category": "professions"
+  },
+  {
+    "german_word": "Lehrerin",
+    "english_translation": "teacher",
+    "article": "die",
+    "plural": "Lehrerinnen",
+    "example_sentence": "Die Lehrerin korrigiert die Tests.",
+    "level": "A2",
+    "category": "professions"
+  },
+  {
+    "german_word": "Ingenieur",
+    "english_translation": "engineer",
+    "article": "der",
+    "plural": "Ingenieure",
+    "example_sentence": "Der Ingenieur baut Brücken.",
+    "level": "A2",
+    "category": "professions"
+  },
+  {
+    "german_word": "Koch",
+    "english_translation": "cook",
+    "article": "der",
+    "plural": "Köche",
+    "example_sentence": "Der Koch bereitet das Essen zu.",
+    "level": "A2",
+    "category": "professions"
+  },
+  {
+    "german_word": "Köchin",
+    "english_translation": "cook",
+    "article": "die",
+    "plural": "Köchinnen",
+    "example_sentence": "Die Köchin kocht sehr gut.",
+    "level": "A2",
+    "category": "professions"
+  },
+  {
+    "german_word": "Verkäufer",
+    "english_translation": "salesperson",
+    "article": "der",
+    "plural": "Verkäufer",
+    "example_sentence": "Der Verkäufer zeigt mir die Schuhe.",
+    "level": "A2",
+    "category": "professions"
+  },
+  {
+    "german_word": "Student",
+    "english_translation": "student",
+    "article": "der",
+    "plural": "Studenten",
+    "example_sentence": "Der Student studiert Medizin.",
+    "level": "A2",
+    "category": "professions"
+  },
+  {
+    "german_word": "Studentin",
+    "english_translation": "student",
+    "article": "die",
+    "plural": "Studentinnen",
+    "example_sentence": "Die Studentin lernt für die Prüfung.",
+    "level": "A2",
+    "category": "professions"
+  },
+  {
+    "german_word": "Polizist",
+    "english_translation": "police officer",
+    "article": "der",
+    "plural": "Polizisten",
+    "example_sentence": "Der Polizist regelt den Verkehr.",
+    "level": "A2",
+    "category": "professions"
+  },
+  {
+    "german_word": "Krankenpfleger",
+    "english_translation": "nurse",
+    "article": "der",
+    "plural": "Krankenpfleger",
+    "example_sentence": "Der Krankenpfleger hilft den Patienten.",
+    "level": "A2",
+    "category": "professions"
+  },
+  {
+    "german_word": "Fotograf",
+    "english_translation": "photographer",
+    "article": "der",
+    "plural": "Fotografen",
+    "example_sentence": "Der Fotograf macht Hochzeitsfotos.",
+    "level": "A2",
+    "category": "professions"
+  },
+  {
+    "german_word": "Musiker",
+    "english_translation": "musician",
+    "article": "der",
+    "plural": "Musiker",
+    "example_sentence": "Der Musiker spielt Gitarre.",
+    "level": "A2",
+    "category": "professions"
+  },
+  {
+    "german_word": "Journalist",
+    "english_translation": "journalist",
+    "article": "der",
+    "plural": "Journalisten",
+    "example_sentence": "Der Journalist schreibt Artikel.",
+    "level": "A2",
+    "category": "professions"
+  },
+  {
+    "german_word": "Künstler",
+    "english_translation": "artist",
+    "article": "der",
+    "plural": "Künstler",
+    "example_sentence": "Der Künstler malt Bilder.",
+    "level": "A2",
+    "category": "professions"
+  },
+  {
+    "german_word": "Fahrer",
+    "english_translation": "driver",
+    "article": "der",
+    "plural": "Fahrer",
+    "example_sentence": "Der Fahrer fährt den Bus.",
+    "level": "A2",
+    "category": "professions"
+  },
+  {
+    "german_word": "Sekretärin",
+    "english_translation": "secretary",
+    "article": "die",
+    "plural": "Sekretärinnen",
+    "example_sentence": "Die Sekretärin nimmt Anrufe entgegen.",
+    "level": "A2",
+    "category": "professions"
+  },
+  {
+    "german_word": "Krankenhaus",
+    "english_translation": "hospital",
+    "article": "das",
+    "plural": "Krankenhäuser",
+    "example_sentence": "Das Krankenhaus ist modern.",
+    "level": "A2",
+    "category": "work"
+  },
+  {
+    "german_word": "Firma",
+    "english_translation": "company",
+    "article": "die",
+    "plural": "Firmen",
+    "example_sentence": "Die Firma hat 500 Mitarbeiter.",
+    "level": "A2",
+    "category": "work"
+  },
+  {
+    "german_word": "Kollege",
+    "english_translation": "colleague",
+    "article": "der",
+    "plural": "Kollegen",
+    "example_sentence": "Mein Kollege hilft mir bei der Arbeit.",
+    "level": "A2",
+    "category": "work"
+  },
+  {
+    "german_word": "Kollegin",
+    "english_translation": "colleague",
+    "article": "die",
+    "plural": "Kolleginnen",
+    "example_sentence": "Meine Kollegin ist sehr nett.",
+    "level": "A2",
+    "category": "work"
+  },
+  {
+    "german_word": "Chef",
+    "english_translation": "boss",
+    "article": "der",
+    "plural": "Chefs",
+    "example_sentence": "Mein Chef ist streng aber fair.",
+    "level": "A2",
+    "category": "work"
+  },
+  {
+    "german_word": "Büro",
+    "english_translation": "office",
+    "article": "das",
+    "plural": "Büros",
+    "example_sentence": "Das Büro ist im dritten Stock.",
+    "level": "A2",
+    "category": "work"
+  },
+  {
+    "german_word": "Besprechung",
+    "english_translation": "meeting",
+    "article": "die",
+    "plural": "Besprechungen",
+    "example_sentence": "Die Besprechung beginnt um 10 Uhr.",
+    "level": "A2",
+    "category": "work"
+  },
+  {
+    "german_word": "Termin",
+    "english_translation": "appointment",
+    "article": "der",
+    "plural": "Termine",
+    "example_sentence": "Ich habe einen Termin beim Arzt.",
+    "level": "A2",
+    "category": "work"
+  },
+  {
+    "german_word": "Pause",
+    "english_translation": "break",
+    "article": "die",
+    "plural": "Pausen",
+    "example_sentence": "Wir machen eine kurze Pause.",
+    "level": "A2",
+    "category": "work"
+  },
+  {
+    "german_word": "Fußball",
+    "english_translation": "soccer",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Fußball ist mein Lieblingssport.",
+    "level": "A2",
+    "category": "hobbies"
+  },
+  {
+    "german_word": "Fahrrad",
+    "english_translation": "bicycle",
+    "article": "das",
+    "plural": "Fahrräder",
+    "example_sentence": "Ich fahre gern Fahrrad.",
+    "level": "A2",
+    "category": "hobbies"
+  },
+  {
+    "german_word": "Schwimmen",
+    "english_translation": "swimming",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Schwimmen macht im Sommer Spaß.",
+    "level": "A2",
+    "category": "hobbies"
+  },
+  {
+    "german_word": "Tanzen",
+    "english_translation": "dancing",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Sie geht jeden Samstag tanzen.",
+    "level": "A2",
+    "category": "hobbies"
+  },
+  {
+    "german_word": "Fotografie",
+    "english_translation": "photography",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Fotografie ist sein Hobby.",
+    "level": "A2",
+    "category": "hobbies"
+  },
+  {
+    "german_word": "Musik",
+    "english_translation": "music",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Ich höre gern klassische Musik.",
+    "level": "A2",
+    "category": "hobbies"
+  },
+  {
+    "german_word": "Gitarre",
+    "english_translation": "guitar",
+    "article": "die",
+    "plural": "Gitarren",
+    "example_sentence": "Er spielt Gitarre in einer Band.",
+    "level": "A2",
+    "category": "hobbies"
+  },
+  {
+    "german_word": "Kino",
+    "english_translation": "cinema",
+    "article": "das",
+    "plural": "Kinos",
+    "example_sentence": "Wir gehen heute ins Kino.",
+    "level": "A2",
+    "category": "hobbies"
+  },
+  {
+    "german_word": "Theater",
+    "english_translation": "theatre",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Das Theaterstück war sehr gut.",
+    "level": "A2",
+    "category": "hobbies"
+  },
+  {
+    "german_word": "Museum",
+    "english_translation": "museum",
+    "article": "das",
+    "plural": "Museen",
+    "example_sentence": "Das Museum öffnet um 10 Uhr.",
+    "level": "A2",
+    "category": "hobbies"
+  },
+  {
+    "german_word": "Wandern",
+    "english_translation": "hiking",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Am Wochenende gehen wir wandern.",
+    "level": "A2",
+    "category": "hobbies"
+  },
+  {
+    "german_word": "Kochen",
+    "english_translation": "cooking",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Kochen macht mir Spaß.",
+    "level": "A2",
+    "category": "hobbies"
+  },
+  {
+    "german_word": "Zeichnen",
+    "english_translation": "drawing",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Das Kind zeichnet gern.",
+    "level": "A2",
+    "category": "hobbies"
+  },
+  {
+    "german_word": "Reiten",
+    "english_translation": "horseback riding",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Sie reitet gern am Strand.",
+    "level": "A2",
+    "category": "hobbies"
+  },
+  {
+    "german_word": "Angeln",
+    "english_translation": "fishing",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Mein Opa geht gern angeln.",
+    "level": "A2",
+    "category": "hobbies"
+  },
+  {
+    "german_word": "Fitness",
+    "english_translation": "fitness",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Ich gehe dreimal pro Woche ins Fitnessstudio.",
+    "level": "A2",
+    "category": "hobbies"
+  },
+  {
+    "german_word": "Yoga",
+    "english_translation": "yoga",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Yoga hilft mir zu entspannen.",
+    "level": "A2",
+    "category": "hobbies"
+  },
+  {
+    "german_word": "Reise",
+    "english_translation": "trip",
+    "article": "die",
+    "plural": "Reisen",
+    "example_sentence": "Die Reise nach Paris war schön.",
+    "level": "A2",
+    "category": "travel"
+  },
+  {
+    "german_word": "Urlaub",
+    "english_translation": "vacation",
+    "article": "der",
+    "plural": "Urlaube",
+    "example_sentence": "Ich mache Urlaub in Italien.",
+    "level": "A2",
+    "category": "travel"
+  },
+  {
+    "german_word": "Flughafen",
+    "english_translation": "airport",
+    "article": "der",
+    "plural": "Flughäfen",
+    "example_sentence": "Der Flughafen ist weit entfernt.",
+    "level": "A2",
+    "category": "travel"
+  },
+  {
+    "german_word": "Bahnhof",
+    "english_translation": "train station",
+    "article": "der",
+    "plural": "Bahnhöfe",
+    "example_sentence": "Der Bahnhof ist im Zentrum.",
+    "level": "A2",
+    "category": "travel"
+  },
+  {
+    "german_word": "Fahrkarte",
+    "english_translation": "ticket",
+    "article": "die",
+    "plural": "Fahrkarten",
+    "example_sentence": "Eine Fahrkarte nach München, bitte.",
+    "level": "A2",
+    "category": "travel"
+  },
+  {
+    "german_word": "Zug",
+    "english_translation": "train",
+    "article": "der",
+    "plural": "Züge",
+    "example_sentence": "Der Zug kommt um 14 Uhr an.",
+    "level": "A2",
+    "category": "travel"
+  },
+  {
+    "german_word": "Bus",
+    "english_translation": "bus",
+    "article": "der",
+    "plural": "Busse",
+    "example_sentence": "Der Bus fährt alle 20 Minuten.",
+    "level": "A2",
+    "category": "travel"
+  },
+  {
+    "german_word": "Flugzeug",
+    "english_translation": "airplane",
+    "article": "das",
+    "plural": "Flugzeuge",
+    "example_sentence": "Das Flugzeug startet pünktlich.",
+    "level": "A2",
+    "category": "travel"
+  },
+  {
+    "german_word": "Hotel",
+    "english_translation": "hotel",
+    "article": "das",
+    "plural": "Hotels",
+    "example_sentence": "Das Hotel hat ein Restaurant.",
+    "level": "A2",
+    "category": "travel"
+  },
+  {
+    "german_word": "Zimmer",
+    "english_translation": "room",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Ich möchte ein Zimmer reservieren.",
+    "level": "A2",
+    "category": "travel"
+  },
+  {
+    "german_word": "Pass",
+    "english_translation": "passport",
+    "article": "der",
+    "plural": "Pässe",
+    "example_sentence": "Mein Pass ist noch gültig.",
+    "level": "A2",
+    "category": "travel"
+  },
+  {
+    "german_word": "Gepäck",
+    "english_translation": "luggage",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Mein Gepäck ist schwer.",
+    "level": "A2",
+    "category": "travel"
+  },
+  {
+    "german_word": "Koffer",
+    "english_translation": "suitcase",
+    "article": "der",
+    "plural": "Koffer",
+    "example_sentence": "Der Koffer ist voll.",
+    "level": "A2",
+    "category": "travel"
+  },
+  {
+    "german_word": "Landkarte",
+    "english_translation": "map",
+    "article": "die",
+    "plural": "Landkarten",
+    "example_sentence": "Die Landkarte zeigt alle Straßen.",
+    "level": "A2",
+    "category": "travel"
+  },
+  {
+    "german_word": "Richtung",
+    "english_translation": "direction",
+    "article": "die",
+    "plural": "Richtungen",
+    "example_sentence": "In welche Richtung gehen wir?",
+    "level": "A2",
+    "category": "travel"
+  },
+  {
+    "german_word": "Straße",
+    "english_translation": "street",
+    "article": "die",
+    "plural": "Straßen",
+    "example_sentence": "Die Straße ist sehr lang.",
+    "level": "A2",
+    "category": "travel"
+  },
+  {
+    "german_word": "Autobahn",
+    "english_translation": "highway",
+    "article": "die",
+    "plural": "Autobahnen",
+    "example_sentence": "Die Autobahn ist in Deutschland sehr berühmt.",
+    "level": "A2",
+    "category": "travel"
+  },
+  {
+    "german_word": "Haltestelle",
+    "english_translation": "bus stop",
+    "article": "die",
+    "plural": "Haltestellen",
+    "example_sentence": "Die Haltestelle ist um die Ecke.",
+    "level": "A2",
+    "category": "travel"
+  },
+  {
+    "german_word": "Abfahrt",
+    "english_translation": "departure",
+    "article": "die",
+    "plural": "Abfahrten",
+    "example_sentence": "Die Abfahrt ist um 15 Uhr.",
+    "level": "A2",
+    "category": "travel"
+  },
+  {
+    "german_word": "Ankunft",
+    "english_translation": "arrival",
+    "article": "die",
+    "plural": "Ankünfte",
+    "example_sentence": "Die Ankunft ist pünktlich.",
+    "level": "A2",
+    "category": "travel"
+  },
+  {
+    "german_word": "Stadt",
+    "english_translation": "city",
+    "article": "die",
+    "plural": "Städte",
+    "example_sentence": "Die Stadt ist sehr lebendig.",
+    "level": "A2",
+    "category": "city"
+  },
+  {
+    "german_word": "Zentrum",
+    "english_translation": "center",
+    "article": "das",
+    "plural": "Zentren",
+    "example_sentence": "Das Zentrum ist fußläufig erreichbar.",
+    "level": "A2",
+    "category": "city"
+  },
+  {
+    "german_word": "Supermarkt",
+    "english_translation": "supermarket",
+    "article": "der",
+    "plural": "Supermärkte",
+    "example_sentence": "Der Supermarkt hat bis 20 Uhr geöffnet.",
+    "level": "A2",
+    "category": "city"
+  },
+  {
+    "german_word": "Restaurant",
+    "english_translation": "restaurant",
+    "article": "das",
+    "plural": "Restaurants",
+    "example_sentence": "Das Restaurant ist sehr beliebt.",
+    "level": "A2",
+    "category": "city"
+  },
+  {
+    "german_word": "Bank",
+    "english_translation": "bank",
+    "article": "die",
+    "plural": "Banken",
+    "example_sentence": "Die Bank öffnet um 9 Uhr.",
+    "level": "A2",
+    "category": "city"
+  },
+  {
+    "german_word": "Post",
+    "english_translation": "post office",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Ich gehe zur Post.",
+    "level": "A2",
+    "category": "city"
+  },
+  {
+    "german_word": "Park",
+    "english_translation": "park",
+    "article": "der",
+    "plural": "Parks",
+    "example_sentence": "Der Park ist wunderschön.",
+    "level": "A2",
+    "category": "city"
+  },
+  {
+    "german_word": "Kirche",
+    "english_translation": "church",
+    "article": "die",
+    "plural": "Kirchen",
+    "example_sentence": "Die Kirche ist sehr alt.",
+    "level": "A2",
+    "category": "city"
+  },
+  {
+    "german_word": "Brücke",
+    "english_translation": "bridge",
+    "article": "die",
+    "plural": "Brücken",
+    "example_sentence": "Die Brücke verbindet die Stadtteile.",
+    "level": "A2",
+    "category": "city"
+  },
+  {
+    "german_word": "Platz",
+    "english_translation": "square",
+    "article": "der",
+    "plural": "Plätze",
+    "example_sentence": "Der Marktplatz ist im Zentrum.",
+    "level": "A2",
+    "category": "city"
+  },
+  {
+    "german_word": "Bushaltestelle",
+    "english_translation": "bus stop",
+    "article": "die",
+    "plural": "Bushaltestellen",
+    "example_sentence": "Die Bushaltestelle ist um die Ecke.",
+    "level": "A2",
+    "category": "city"
+  },
+  {
+    "german_word": "Polizei",
+    "english_translation": "police",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Polizei kommt sofort.",
+    "level": "A2",
+    "category": "city"
+  },
+  {
+    "german_word": "Krankenhaus",
+    "english_translation": "hospital",
+    "article": "das",
+    "plural": "Krankenhäuser",
+    "example_sentence": "Das Krankenhaus ist weit weg.",
+    "level": "A2",
+    "category": "city"
+  },
+  {
+    "german_word": "Apotheke",
+    "english_translation": "pharmacy",
+    "article": "die",
+    "plural": "Apotheken",
+    "example_sentence": "Die Apotheke hat bis 18 Uhr offen.",
+    "level": "A2",
+    "category": "city"
+  },
+  {
+    "german_word": "Speisekarte",
+    "english_translation": "menu",
+    "article": "die",
+    "plural": "Speisekarten",
+    "example_sentence": "Die Speisekarte ist auf Deutsch und Englisch.",
+    "level": "A2",
+    "category": "restaurant"
+  },
+  {
+    "german_word": "Bestellung",
+    "english_translation": "order",
+    "article": "die",
+    "plural": "Bestellungen",
+    "example_sentence": "Ihre Bestellung kommt sofort.",
+    "level": "A2",
+    "category": "restaurant"
+  },
+  {
+    "german_word": "Vorspeise",
+    "english_translation": "starter",
+    "article": "die",
+    "plural": "Vorspeisen",
+    "example_sentence": "Als Vorspeise nehme ich die Suppe.",
+    "level": "A2",
+    "category": "restaurant"
+  },
+  {
+    "german_word": "Hauptgericht",
+    "english_translation": "main course",
+    "article": "das",
+    "plural": "Hauptgerichte",
+    "example_sentence": "Das Hauptgericht ist sehr lecker.",
+    "level": "A2",
+    "category": "restaurant"
+  },
+  {
+    "german_word": "Nachspeise",
+    "english_translation": "dessert",
+    "article": "die",
+    "plural": "Nachspeisen",
+    "example_sentence": "Zum Nachtisch nehme ich den Kuchen.",
+    "level": "A2",
+    "category": "restaurant"
+  },
+  {
+    "german_word": "Getränk",
+    "english_translation": "drink",
+    "article": "das",
+    "plural": "Getränke",
+    "example_sentence": "Was möchten Sie trinken?",
+    "level": "A2",
+    "category": "restaurant"
+  },
+  {
+    "german_word": "Rechnung",
+    "english_translation": "bill",
+    "article": "die",
+    "plural": "Rechnungen",
+    "example_sentence": "Die Rechnung, bitte!",
+    "level": "A2",
+    "category": "restaurant"
+  },
+  {
+    "german_word": "Trinkgeld",
+    "english_translation": "tip",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Trinkgeld ist in Deutschland üblich.",
+    "level": "A2",
+    "category": "restaurant"
+  },
+  {
+    "german_word": "Kellner",
+    "english_translation": "waiter",
+    "article": "der",
+    "plural": "Kellner",
+    "example_sentence": "Der Kellner bringt das Essen.",
+    "level": "A2",
+    "category": "restaurant"
+  },
+  {
+    "german_word": "Frühstück",
+    "english_translation": "breakfast",
+    "article": "das",
+    "plural": "Frühstücke",
+    "example_sentence": "Das Frühstück ist von 7 bis 10 Uhr.",
+    "level": "A2",
+    "category": "restaurant"
+  },
+  {
+    "german_word": "Mittagessen",
+    "english_translation": "lunch",
+    "article": "das",
+    "plural": "Mittagessen",
+    "example_sentence": "Das Mittagessen ist um 12 Uhr.",
+    "level": "A2",
+    "category": "restaurant"
+  },
+  {
+    "german_word": "Abendessen",
+    "english_translation": "dinner",
+    "article": "das",
+    "plural": "Abendessen",
+    "example_sentence": "Wir essen um 18 Uhr Abendessen.",
+    "level": "A2",
+    "category": "restaurant"
+  },
+  {
+    "german_word": "Teller",
+    "english_translation": "plate",
+    "article": "der",
+    "plural": "Teller",
+    "example_sentence": "Der Teller ist leer.",
+    "level": "A2",
+    "category": "restaurant"
+  },
+  {
+    "german_word": "Glas",
+    "english_translation": "glass",
+    "article": "das",
+    "plural": "Gläser",
+    "example_sentence": "Ein Glas Wasser, bitte.",
+    "level": "A2",
+    "category": "restaurant"
+  },
+  {
+    "german_word": "Flasche",
+    "english_translation": "bottle",
+    "article": "die",
+    "plural": "Flaschen",
+    "example_sentence": "Die Flasche ist leer.",
+    "level": "A2",
+    "category": "restaurant"
+  },
+  {
+    "german_word": "Besteck",
+    "english_translation": "cutlery",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Das Besteck liegt auf dem Tisch.",
+    "level": "A2",
+    "category": "restaurant"
+  },
+  {
+    "german_word": "Löffel",
+    "english_translation": "spoon",
+    "article": "der",
+    "plural": "Löffel",
+    "example_sentence": "Der Löffel ist aus Metall.",
+    "level": "A2",
+    "category": "restaurant"
+  },
+  {
+    "german_word": "Gabel",
+    "english_translation": "fork",
+    "article": "die",
+    "plural": "Gabeln",
+    "example_sentence": "Die Gabel liegt neben dem Teller.",
+    "level": "A2",
+    "category": "restaurant"
+  },
+  {
+    "german_word": "Messer",
+    "english_translation": "knife",
+    "article": "das",
+    "plural": "Messer",
+    "example_sentence": "Das Messer ist scharf.",
+    "level": "A2",
+    "category": "restaurant"
+  },
+  {
+    "german_word": "Geschäft",
+    "english_translation": "shop",
+    "article": "das",
+    "plural": "Geschäfte",
+    "example_sentence": "Das Geschäft hat heute geschlossen.",
+    "level": "A2",
+    "category": "shopping"
+  },
+  {
+    "german_word": "Einkaufszentrum",
+    "english_translation": "shopping mall",
+    "article": "das",
+    "plural": "Einkaufszentren",
+    "example_sentence": "Das Einkaufszentrum ist groß.",
+    "level": "A2",
+    "category": "shopping"
+  },
+  {
+    "german_word": "Preis",
+    "english_translation": "price",
+    "article": "der",
+    "plural": "Preise",
+    "example_sentence": "Der Preis ist günstig.",
+    "level": "A2",
+    "category": "shopping"
+  },
+  {
+    "german_word": "Angebot",
+    "english_translation": "offer/sale",
+    "article": "das",
+    "plural": "Angebote",
+    "example_sentence": "Das ist ein gutes Angebot.",
+    "level": "A2",
+    "category": "shopping"
+  },
+  {
+    "german_word": "Kasse",
+    "english_translation": "checkout",
+    "article": "die",
+    "plural": "Kassen",
+    "example_sentence": "Bezahlen Sie an der Kasse.",
+    "level": "A2",
+    "category": "shopping"
+  },
+  {
+    "german_word": "Bar",
+    "english_translation": "cash",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich bezahle bar.",
+    "level": "A2",
+    "category": "shopping"
+  },
+  {
+    "german_word": "Karte",
+    "english_translation": "card",
+    "article": "die",
+    "plural": "Karten",
+    "example_sentence": "Kann ich mit Karte bezahlen?",
+    "level": "A2",
+    "category": "shopping"
+  },
+  {
+    "german_word": "Probieren",
+    "english_translation": "to try on",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Kann ich das Hemd probieren?",
+    "level": "A2",
+    "category": "shopping"
+  },
+  {
+    "german_word": "Größe",
+    "english_translation": "size",
+    "article": "die",
+    "plural": "Größen",
+    "example_sentence": "Welche Größe haben Sie?",
+    "level": "A2",
+    "category": "shopping"
+  },
+  {
+    "german_word": "Umkleidekabine",
+    "english_translation": "fitting room",
+    "article": "die",
+    "plural": "Umkleidekabinen",
+    "example_sentence": "Die Umkleidekabine ist hinten.",
+    "level": "A2",
+    "category": "shopping"
+  },
+  {
+    "german_word": "Rabatt",
+    "english_translation": "discount",
+    "article": "der",
+    "plural": "Rabatte",
+    "example_sentence": "Ich bekomme 20 Prozent Rabatt.",
+    "level": "A2",
+    "category": "shopping"
+  },
+  {
+    "german_word": "Quittung",
+    "english_translation": "receipt",
+    "article": "die",
+    "plural": "Quittungen",
+    "example_sentence": "Hier ist Ihre Quittung.",
+    "level": "A2",
+    "category": "shopping"
+  },
+  {
+    "german_word": "Schmerz",
+    "english_translation": "pain",
+    "article": "der",
+    "plural": "Schmerzen",
+    "example_sentence": "Ich habe starke Schmerzen.",
+    "level": "A2",
+    "category": "health"
+  },
+  {
+    "german_word": "Krankheit",
+    "english_translation": "illness",
+    "article": "die",
+    "plural": "Krankheiten",
+    "example_sentence": "Die Krankheit ist ansteckend.",
+    "level": "A2",
+    "category": "health"
+  },
+  {
+    "german_word": "Fieber",
+    "english_translation": "fever",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Ich habe Fieber.",
+    "level": "A2",
+    "category": "health"
+  },
+  {
+    "german_word": "Arzttermin",
+    "english_translation": "doctor appointment",
+    "article": "der",
+    "plural": "Arzttermine",
+    "example_sentence": "Ich brauche einen Arzttermin.",
+    "level": "A2",
+    "category": "health"
+  },
+  {
+    "german_word": "Medikament",
+    "english_translation": "medication",
+    "article": "das",
+    "plural": "Medikamente",
+    "example_sentence": "Das Medikament hilft gegen die Schmerzen.",
+    "level": "A2",
+    "category": "health"
+  },
+  {
+    "german_word": "Tablette",
+    "english_translation": "tablet",
+    "article": "die",
+    "plural": "Tabletten",
+    "example_sentence": "Ich nehme zweimal täglich eine Tablette.",
+    "level": "A2",
+    "category": "health"
+  },
+  {
+    "german_word": "Operation",
+    "english_translation": "surgery",
+    "article": "die",
+    "plural": "Operationen",
+    "example_sentence": "Die Operation war erfolgreich.",
+    "level": "A2",
+    "category": "health"
+  },
+  {
+    "german_word": "Gesundheit",
+    "english_translation": "health",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Gesundheit ist das Wichtigste.",
+    "level": "A2",
+    "category": "health"
+  },
+  {
+    "german_word": "krank",
+    "english_translation": "sick",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich bin krank.",
+    "level": "A2",
+    "category": "health"
+  },
+  {
+    "german_word": "gesund",
+    "english_translation": "healthy",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich fühle mich gesund.",
+    "level": "A2",
+    "category": "health"
+  },
+  {
+    "german_word": "Baum",
+    "english_translation": "tree",
+    "article": "der",
+    "plural": "Bäume",
+    "example_sentence": "Der Baum ist sehr alt.",
+    "level": "A2",
+    "category": "nature"
+  },
+  {
+    "german_word": "Blume",
+    "english_translation": "flower",
+    "article": "die",
+    "plural": "Blumen",
+    "example_sentence": "Die Blume blüht im Frühling.",
+    "level": "A2",
+    "category": "nature"
+  },
+  {
+    "german_word": "Wald",
+    "english_translation": "forest",
+    "article": "der",
+    "plural": "Wälder",
+    "example_sentence": "Der Wald ist schön im Herbst.",
+    "level": "A2",
+    "category": "nature"
+  },
+  {
+    "german_word": "Berg",
+    "english_translation": "mountain",
+    "article": "der",
+    "plural": "Berge",
+    "example_sentence": "Der Berg ist sehr hoch.",
+    "level": "A2",
+    "category": "nature"
+  },
+  {
+    "german_word": "Fluss",
+    "english_translation": "river",
+    "article": "der",
+    "plural": "Flüsse",
+    "example_sentence": "Der Fluss fließt durch die Stadt.",
+    "level": "A2",
+    "category": "nature"
+  },
+  {
+    "german_word": "See",
+    "english_translation": "lake",
+    "article": "der",
+    "plural": "Seen",
+    "example_sentence": "Der See ist sehr sauber.",
+    "level": "A2",
+    "category": "nature"
+  },
+  {
+    "german_word": "Wiese",
+    "english_translation": "meadow",
+    "article": "die",
+    "plural": "Wiesen",
+    "example_sentence": "Die Wiese ist grün.",
+    "level": "A2",
+    "category": "nature"
+  },
+  {
+    "german_word": "Tier",
+    "english_translation": "animal",
+    "article": "das",
+    "plural": "Tiere",
+    "example_sentence": "Das Tier ist wild.",
+    "level": "A2",
+    "category": "nature"
+  },
+  {
+    "german_word": "Hase",
+    "english_translation": "rabbit",
+    "article": "der",
+    "plural": "Hasen",
+    "example_sentence": "Der Hase läuft schnell.",
+    "level": "A2",
+    "category": "nature"
+  },
+  {
+    "german_word": "Eule",
+    "english_translation": "owl",
+    "article": "die",
+    "plural": "Eulen",
+    "example_sentence": "Die Eule schläft am Tag.",
+    "level": "A2",
+    "category": "nature"
+  },
+  {
+    "german_word": "Freude",
+    "english_translation": "joy",
+    "article": "die",
+    "plural": "Freuden",
+    "example_sentence": "Die Freude ist groß.",
+    "level": "A2",
+    "category": "emotions"
+  },
+  {
+    "german_word": "Trauer",
+    "english_translation": "sadness",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Trauer ist tief.",
+    "level": "A2",
+    "category": "emotions"
+  },
+  {
+    "german_word": "Angst",
+    "english_translation": "fear",
+    "article": "die",
+    "plural": "Ängste",
+    "example_sentence": "Ich habe Angst vor Spinnen.",
+    "level": "A2",
+    "category": "emotions"
+  },
+  {
+    "german_word": "Mut",
+    "english_translation": "courage",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Sie hatte viel Mut.",
+    "level": "A2",
+    "category": "emotions"
+  },
+  {
+    "german_word": "Liebe",
+    "english_translation": "love",
+    "article": "die",
+    "plural": "Lieben",
+    "example_sentence": "Die Liebe zur Familie ist stark.",
+    "level": "A2",
+    "category": "emotions"
+  },
+  {
+    "german_word": "Hass",
+    "english_translation": "hatred",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Hass ist ein starkes Gefühl.",
+    "level": "A2",
+    "category": "emotions"
+  },
+  {
+    "german_word": "Ärger",
+    "english_translation": "anger",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Ich habe großen Ärger.",
+    "level": "A2",
+    "category": "emotions"
+  },
+  {
+    "german_word": "Enttäuschung",
+    "english_translation": "disappointment",
+    "article": "die",
+    "plural": "Enttäuschungen",
+    "example_sentence": "Die Enttäuschung war groß.",
+    "level": "A2",
+    "category": "emotions"
+  },
+  {
+    "german_word": "Hoffnung",
+    "english_translation": "hope",
+    "article": "die",
+    "plural": "Hoffnungen",
+    "example_sentence": "Die Hoffnung stirbt zuletzt.",
+    "level": "A2",
+    "category": "emotions"
+  },
+  {
+    "german_word": "Computer",
+    "english_translation": "computer",
+    "article": "der",
+    "plural": "Computer",
+    "example_sentence": "Der Computer ist kaputt.",
+    "level": "A2",
+    "category": "technology"
+  },
+  {
+    "german_word": "Handy",
+    "english_translation": "mobile phone",
+    "article": "das",
+    "plural": "Handys",
+    "example_sentence": "Mein Handy klingelt.",
+    "level": "A2",
+    "category": "technology"
+  },
+  {
+    "german_word": "Internet",
+    "english_translation": "internet",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Das Internet ist langsam.",
+    "level": "A2",
+    "category": "technology"
+  },
+  {
+    "german_word": "E-Mail",
+    "english_translation": "email",
+    "article": "die",
+    "plural": "E-Mails",
+    "example_sentence": "Ich schreibe eine E-Mail.",
+    "level": "A2",
+    "category": "technology"
+  },
+  {
+    "german_word": "Website",
+    "english_translation": "website",
+    "article": "die",
+    "plural": "Websites",
+    "example_sentence": "Die Website ist informativ.",
+    "level": "A2",
+    "category": "technology"
+  },
+  {
+    "german_word": "Auto",
+    "english_translation": "car",
+    "article": "das",
+    "plural": "Autos",
+    "example_sentence": "Das Auto ist blau.",
+    "level": "A2",
+    "category": "transport"
+  },
+  {
+    "german_word": "Fahrrad",
+    "english_translation": "bicycle",
+    "article": "das",
+    "plural": "Fahrräder",
+    "example_sentence": "Das Fahrrad hat einen Korb.",
+    "level": "A2",
+    "category": "transport"
+  },
+  {
+    "german_word": "Motorrad",
+    "english_translation": "motorcycle",
+    "article": "das",
+    "plural": "Motorräder",
+    "example_sentence": "Das Motorrad fährt schnell.",
+    "level": "A2",
+    "category": "transport"
+  },
+  {
+    "german_word": "Tankstelle",
+    "english_translation": "gas station",
+    "article": "die",
+    "plural": "Tankstellen",
+    "example_sentence": "Die Tankstelle ist um die Ecke.",
+    "level": "A2",
+    "category": "transport"
+  },
+  {
+    "german_word": "Parkplatz",
+    "english_translation": "parking lot",
+    "article": "der",
+    "plural": "Parkplätze",
+    "example_sentence": "Der Parkplatz ist voll.",
+    "level": "A2",
+    "category": "transport"
+  },
+  {
+    "german_word": "Taxi",
+    "english_translation": "taxi",
+    "article": "das",
+    "plural": "Taxis",
+    "example_sentence": "Wir nehmen ein Taxi zum Flughafen.",
+    "level": "A2",
+    "category": "transport"
+  },
+  {
+    "german_word": "U-Bahn",
+    "english_translation": "subway",
+    "article": "die",
+    "plural": "U-Bahnen",
+    "example_sentence": "Die U-Bahn fährt alle 5 Minuten.",
+    "level": "A2",
+    "category": "transport"
+  },
+  {
+    "german_word": "Straßenbahn",
+    "english_translation": "tram",
+    "article": "die",
+    "plural": "Straßenbahnen",
+    "example_sentence": "Die Straßenbahn fährt durch die Stadt.",
+    "level": "A2",
+    "category": "transport"
+  },
+  {
+    "german_word": "Geburtstag",
+    "english_translation": "birthday",
+    "article": "der",
+    "plural": "Geburtstage",
+    "example_sentence": "Ich feiere meinen Geburtstag am Samstag.",
+    "level": "A2",
+    "category": "holidays"
+  },
+  {
+    "german_word": "Weihnachten",
+    "english_translation": "Christmas",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Weihnachten ist im Dezember.",
+    "level": "A2",
+    "category": "holidays"
+  },
+  {
+    "german_word": "Ostern",
+    "english_translation": "Easter",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Ostern ist im Frühling.",
+    "level": "A2",
+    "category": "holidays"
+  },
+  {
+    "german_word": "Silvester",
+    "english_translation": "New Year Eve",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Silvester feiern wir mit Freunden.",
+    "level": "A2",
+    "category": "holidays"
+  },
+  {
+    "german_word": "Hochzeit",
+    "english_translation": "wedding",
+    "article": "die",
+    "plural": "Hochzeiten",
+    "example_sentence": "Die Hochzeit findet im Juni statt.",
+    "level": "A2",
+    "category": "holidays"
+  },
+  {
+    "german_word": "Feiertag",
+    "english_translation": "public holiday",
+    "article": "der",
+    "plural": "Feiertage",
+    "example_sentence": "Der 1. Mai ist ein Feiertag.",
+    "level": "A2",
+    "category": "holidays"
+  },
+  {
+    "german_word": "Geschenk",
+    "english_translation": "gift",
+    "article": "das",
+    "plural": "Geschenke",
+    "example_sentence": "Das Geschenk ist für dich.",
+    "level": "A2",
+    "category": "holidays"
+  },
+  {
+    "german_word": "Feier",
+    "english_translation": "celebration",
+    "article": "die",
+    "plural": "Feiern",
+    "example_sentence": "Die Feier war sehr schön.",
+    "level": "A2",
+    "category": "holidays"
+  },
+  {
+    "german_word": "Einladung",
+    "english_translation": "invitation",
+    "article": "die",
+    "plural": "Einladungen",
+    "example_sentence": "Ich habe eine Einladung bekommen.",
+    "level": "A2",
+    "category": "holidays"
+  },
+  {
+    "german_word": "Party",
+    "english_translation": "party",
+    "article": "die",
+    "plural": "Partys",
+    "example_sentence": "Die Party war toll.",
+    "level": "A2",
+    "category": "holidays"
+  },
+  {
+    "german_word": "wichtig",
+    "english_translation": "important",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das ist sehr wichtig.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "richtig",
+    "english_translation": "correct",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Antwort ist richtig.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "falsch",
+    "english_translation": "wrong",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Aussage ist falsch.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "einfach",
+    "english_translation": "simple",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Aufgabe ist einfach.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "schwierig",
+    "english_translation": "difficult",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Prüfung ist schwierig.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "sicher",
+    "english_translation": "safe/certain",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich bin mir sicher.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "gefährlich",
+    "english_translation": "dangerous",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Situation ist gefährlich.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "glücklich",
+    "english_translation": "happy",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich bin sehr glücklich.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "traurig",
+    "english_translation": "sad",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Film war traurig.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "müde",
+    "english_translation": "tired",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich bin müde.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "hungrig",
+    "english_translation": "hungry",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich bin hungrig.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "durstig",
+    "english_translation": "thirsty",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich bin durstig.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "fertig",
+    "english_translation": "finished",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich bin fertig mit der Arbeit.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "frei",
+    "english_translation": "free",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Am Sonntag bin ich frei.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "besetzt",
+    "english_translation": "occupied",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Platz ist besetzt.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "leer",
+    "english_translation": "empty",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Flasche ist leer.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "voll",
+    "english_translation": "full",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Bus ist voll.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "breit",
+    "english_translation": "wide",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Straße ist breit.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "eng",
+    "english_translation": "narrow",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Weg ist eng.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "tief",
+    "english_translation": "deep",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der See ist tief.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "flach",
+    "english_translation": "shallow",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Becken ist flach.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "weich",
+    "english_translation": "soft",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Kissen ist weich.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "hart",
+    "english_translation": "hard",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Brot ist hart.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "süß",
+    "english_translation": "sweet",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Erdbeeren sind süß.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "sauer",
+    "english_translation": "sour",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Zitrone ist sauer.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "salzig",
+    "english_translation": "salty",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Suppe ist salzig.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "bitter",
+    "english_translation": "bitter",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Schokolade ist bitter.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "schwer",
+    "english_translation": "heavy/difficult",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Koffer ist schwer.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "leicht",
+    "english_translation": "light/easy",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Tasche ist leicht.",
+    "level": "A2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "anfangen",
+    "english_translation": "to begin",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Kurs fängt im September an.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "aufhören",
+    "english_translation": "to stop",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Hör auf damit!",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "anrufen",
+    "english_translation": "to call",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich rufe dich morgen an.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "einladen",
+    "english_translation": "to invite",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich lade dich zur Party ein.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "mitbringen",
+    "english_translation": "to bring along",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Bring deinen Freund mit!",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "vorbereiten",
+    "english_translation": "to prepare",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich bereite das Essen vor.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "einkaufen",
+    "english_translation": "to shop",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich kaufe im Supermarkt ein.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "aufräumen",
+    "english_translation": "to clean up",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich räume mein Zimmer auf.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "ausgehen",
+    "english_translation": "to go out",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Wir gehen heute Abend aus.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "fernsehen",
+    "english_translation": "to watch TV",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich sehe gern fern.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "stattfinden",
+    "english_translation": "to take place",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Konzert findet am Samstag statt.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "teilnehmen",
+    "english_translation": "to participate",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich nehme am Kurs teil.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "bekommen",
+    "english_translation": "to receive",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich bekomme ein Geschenk.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "bezahlen",
+    "english_translation": "to pay",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich bezahle mit Karte.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "erzählen",
+    "english_translation": "to tell",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Erzähl mir eine Geschichte.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "folgen",
+    "english_translation": "to follow",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Folgen Sie mir bitte.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "grüßen",
+    "english_translation": "to greet",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Grüß deine Familie von mir!",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "heiraten",
+    "english_translation": "to marry",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die beiden heiraten im Juni.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "klingeln",
+    "english_translation": "to ring",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Telefon klingelt.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "kosten",
+    "english_translation": "to cost",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Was kostet das?",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "lächeln",
+    "english_translation": "to smile",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Baby lächelt.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "lehren",
+    "english_translation": "to teach",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Er lehrt an der Universität.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "liefern",
+    "english_translation": "to deliver",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Bote liefert das Paket.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "parken",
+    "english_translation": "to park",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Hier darf man nicht parken.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "passieren",
+    "english_translation": "to happen",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Was ist passiert?",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "putzen",
+    "english_translation": "to clean",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich putze die Fenster.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "regnen",
+    "english_translation": "to rain",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Es regnet schon wieder.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "scheinen",
+    "english_translation": "to shine/seem",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Sonne scheint.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "schmecken",
+    "english_translation": "to taste",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Essen schmeckt gut.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "schneien",
+    "english_translation": "to snow",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Es schneit heute.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "schicken",
+    "english_translation": "to send",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich schicke dir eine Nachricht.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "überraschen",
+    "english_translation": "to surprise",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das überrascht mich.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "umziehen",
+    "english_translation": "to move house",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich ziehe nächste Woche um.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "verdienen",
+    "english_translation": "to earn",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Er verdient gut.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "wachsen",
+    "english_translation": "to grow",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Pflanze wächst schnell.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "wählen",
+    "english_translation": "to choose/dial",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Wähle die richtige Antwort.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "wünschen",
+    "english_translation": "to wish",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich wünsche dir alles Gute.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "zeichnen",
+    "english_translation": "to draw",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Kind zeichnet ein Bild.",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "zeigen",
+    "english_translation": "to show",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Kannst du mir den Weg zeigen?",
+    "level": "A2",
+    "category": "verbs"
+  },
+  {
+    "german_word": "Bewerbung",
+    "english_translation": "application",
+    "article": "die",
+    "plural": "Bewerbungen",
+    "example_sentence": "Die Bewerbung muss bis Freitag kommen.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Vorstellungsgespräch",
+    "english_translation": "interview",
+    "article": "das",
+    "plural": "Vorstellungsgespräche",
+    "example_sentence": "Das Vorstellungsgespräch war erfolgreich.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Ausbildung",
+    "english_translation": "training/education",
+    "article": "die",
+    "plural": "Ausbildungen",
+    "example_sentence": "Er macht eine Ausbildung als Elektriker.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Gehalt",
+    "english_translation": "salary",
+    "article": "das",
+    "plural": "Gehälter",
+    "example_sentence": "Das Gehalt ist verhandelbar.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Angestellte",
+    "english_translation": "employee",
+    "article": "der",
+    "plural": "Angestellten",
+    "example_sentence": "Die Angestellten bekommen Weihnachtsgeld.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Abteilung",
+    "english_translation": "department",
+    "article": "die",
+    "plural": "Abteilungen",
+    "example_sentence": "Er arbeitet in der Marketingabteilung.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Geschäftsführer",
+    "english_translation": "managing director",
+    "article": "der",
+    "plural": "Geschäftsführer",
+    "example_sentence": "Der Geschäftsführer leitet das Unternehmen.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Kündigung",
+    "english_translation": "resignation",
+    "article": "die",
+    "plural": "Kündigungen",
+    "example_sentence": "Die Kündigung kam überraschend.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Bewerber",
+    "english_translation": "candidate",
+    "article": "der",
+    "plural": "Bewerber",
+    "example_sentence": "Die Bewerber warten im Wartezimmer.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Praktikum",
+    "english_translation": "internship",
+    "article": "das",
+    "plural": "Praktika",
+    "example_sentence": "Ich mache ein Praktikum bei einer Firma.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Berufserfahrung",
+    "english_translation": "work experience",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Meine Berufserfahrung umfasst fünf Jahre.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Verhandlung",
+    "english_translation": "negotiation",
+    "article": "die",
+    "plural": "Verhandlungen",
+    "example_sentence": "Die Verhandlung dauerte drei Stunden.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Vertrag",
+    "english_translation": "contract",
+    "article": "der",
+    "plural": "Verträge",
+    "example_sentence": "Der Vertrag wurde unterschrieben.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Kunde",
+    "english_translation": "customer",
+    "article": "der",
+    "plural": "Kunden",
+    "example_sentence": "Der Kunde ist König.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Lieferant",
+    "english_translation": "supplier",
+    "article": "der",
+    "plural": "Lieferanten",
+    "example_sentence": "Der Lieferant bringt die Ware.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Umsatz",
+    "english_translation": "revenue",
+    "article": "der",
+    "plural": "Umsätze",
+    "example_sentence": "Der Umsatz ist dieses Jahr gestiegen.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Gewinn",
+    "english_translation": "profit",
+    "article": "der",
+    "plural": "Gewinne",
+    "example_sentence": "Der Gewinn beträgt 10 Prozent.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Verlust",
+    "english_translation": "loss",
+    "article": "der",
+    "plural": "Verluste",
+    "example_sentence": "Der Verlust ist bedauerlich.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Steuer",
+    "english_translation": "tax",
+    "article": "die",
+    "plural": "Steuern",
+    "example_sentence": "Die Steuern werden jedes Jahr fällig.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Bilanz",
+    "english_translation": "balance sheet",
+    "article": "die",
+    "plural": "Bilanzen",
+    "example_sentence": "Die Bilanz zeigt positive Zahlen.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Investition",
+    "english_translation": "investment",
+    "article": "die",
+    "plural": "Investitionen",
+    "example_sentence": "Die Investition lohnt sich.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Wirtschaft",
+    "english_translation": "economy",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die deutsche Wirtschaft wächst.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Werbung",
+    "english_translation": "advertising",
+    "article": "die",
+    "plural": "Werbungen",
+    "example_sentence": "Die Werbung läuft im Fernsehen.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Messe",
+    "english_translation": "trade fair",
+    "article": "die",
+    "plural": "Messen",
+    "example_sentence": "Die Messe findet in Hannover statt.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Geschäftsreise",
+    "english_translation": "business trip",
+    "article": "die",
+    "plural": "Geschäftsreisen",
+    "example_sentence": "Ich bin auf Geschäftsreise in München.",
+    "level": "B1",
+    "category": "business"
+  },
+  {
+    "german_word": "Zeitung",
+    "english_translation": "newspaper",
+    "article": "die",
+    "plural": "Zeitungen",
+    "example_sentence": "Ich lese jeden Morgen die Zeitung.",
+    "level": "B1",
+    "category": "media"
+  },
+  {
+    "german_word": "Nachrichten",
+    "english_translation": "news",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Nachrichten kommen um 20 Uhr.",
+    "level": "B1",
+    "category": "media"
+  },
+  {
+    "german_word": "Artikel",
+    "english_translation": "article",
+    "article": "der",
+    "plural": "Artikel",
+    "example_sentence": "Der Artikel ist sehr informativ.",
+    "level": "B1",
+    "category": "media"
+  },
+  {
+    "german_word": "Journalist",
+    "english_translation": "journalist",
+    "article": "der",
+    "plural": "Journalisten",
+    "example_sentence": "Der Journalist recherchiert den Fall.",
+    "level": "B1",
+    "category": "media"
+  },
+  {
+    "german_word": "Interview",
+    "english_translation": "interview",
+    "article": "das",
+    "plural": "Interviews",
+    "example_sentence": "Das Interview wird morgen veröffentlicht.",
+    "level": "B1",
+    "category": "media"
+  },
+  {
+    "german_word": "Berichterstattung",
+    "english_translation": "reporting",
+    "article": "die",
+    "plural": "Berichterstattungen",
+    "example_sentence": "Die Berichterstattung ist objektiv.",
+    "level": "B1",
+    "category": "media"
+  },
+  {
+    "german_word": "Redaktion",
+    "english_translation": "editorial office",
+    "article": "die",
+    "plural": "Redaktionen",
+    "example_sentence": "Die Redaktion arbeitet rund um die Uhr.",
+    "level": "B1",
+    "category": "media"
+  },
+  {
+    "german_word": "Schlagzeile",
+    "english_translation": "headline",
+    "article": "die",
+    "plural": "Schlagzeilen",
+    "example_sentence": "Die Schlagzeile ist reißerisch.",
+    "level": "B1",
+    "category": "media"
+  },
+  {
+    "german_word": "Presse",
+    "english_translation": "press",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Presse berichtet über das Ereignis.",
+    "level": "B1",
+    "category": "media"
+  },
+  {
+    "german_word": "Medium",
+    "english_translation": "medium",
+    "article": "das",
+    "plural": "Medien",
+    "example_sentence": "Die sozialen Medien sind sehr einflussreich.",
+    "level": "B1",
+    "category": "media"
+  },
+  {
+    "german_word": "Fernsehen",
+    "english_translation": "television",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Das Fernsehen zeigt die Live-Übertragung.",
+    "level": "B1",
+    "category": "media"
+  },
+  {
+    "german_word": "Rundfunk",
+    "english_translation": "broadcasting",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Der Rundfunk sendet das Programm.",
+    "level": "B1",
+    "category": "media"
+  },
+  {
+    "german_word": "Abonnement",
+    "english_translation": "subscription",
+    "article": "das",
+    "plural": "Abonnements",
+    "example_sentence": "Ich habe ein Abonnement für die Zeitung.",
+    "level": "B1",
+    "category": "media"
+  },
+  {
+    "german_word": "Ausgabe",
+    "english_translation": "edition/issue",
+    "article": "die",
+    "plural": "Ausgaben",
+    "example_sentence": "Die heutige Ausgabe ist ausverkauft.",
+    "level": "B1",
+    "category": "media"
+  },
+  {
+    "german_word": "Verlag",
+    "english_translation": "publishing house",
+    "article": "der",
+    "plural": "Verlage",
+    "example_sentence": "Der Verlag veröffentlicht Bücher.",
+    "level": "B1",
+    "category": "media"
+  },
+  {
+    "german_word": "Umwelt",
+    "english_translation": "environment",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Wir müssen die Umwelt schützen.",
+    "level": "B1",
+    "category": "environment"
+  },
+  {
+    "german_word": "Klimawandel",
+    "english_translation": "climate change",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Der Klimawandel ist eine globale Herausforderung.",
+    "level": "B1",
+    "category": "environment"
+  },
+  {
+    "german_word": "Erderwärmung",
+    "english_translation": "global warming",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Erderwärmung nimmt zu.",
+    "level": "B1",
+    "category": "environment"
+  },
+  {
+    "german_word": "Verschmutzung",
+    "english_translation": "pollution",
+    "article": "die",
+    "plural": "Verschmutzungen",
+    "example_sentence": "Die Verschmutzung der Luft ist hoch.",
+    "level": "B1",
+    "category": "environment"
+  },
+  {
+    "german_word": "Nachhaltigkeit",
+    "english_translation": "sustainability",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Nachhaltigkeit ist wichtig für die Zukunft.",
+    "level": "B1",
+    "category": "environment"
+  },
+  {
+    "german_word": "erneuerbare Energie",
+    "english_translation": "renewable energy",
+    "article": "die",
+    "plural": "erneuerbaren Energien",
+    "example_sentence": "Erneuerbare Energien sind umweltfreundlich.",
+    "level": "B1",
+    "category": "environment"
+  },
+  {
+    "german_word": "Kohlenstoffdioxid",
+    "english_translation": "carbon dioxide",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Kohlenstoffdioxid ist ein Treibhausgas.",
+    "level": "B1",
+    "category": "environment"
+  },
+  {
+    "german_word": "Emission",
+    "english_translation": "emission",
+    "article": "die",
+    "plural": "Emissionen",
+    "example_sentence": "Die Emissionen müssen reduziert werden.",
+    "level": "B1",
+    "category": "environment"
+  },
+  {
+    "german_word": "Mülltrennung",
+    "english_translation": "waste separation",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Mülltrennung ist in Deutschland Pflicht.",
+    "level": "B1",
+    "category": "environment"
+  },
+  {
+    "german_word": "Recycling",
+    "english_translation": "recycling",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Recycling schont die Ressourcen.",
+    "level": "B1",
+    "category": "environment"
+  },
+  {
+    "german_word": "Artenschutz",
+    "english_translation": "species protection",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Der Artenschutz ist gesetzlich geregelt.",
+    "level": "B1",
+    "category": "environment"
+  },
+  {
+    "german_word": "Nationalpark",
+    "english_translation": "national park",
+    "article": "der",
+    "plural": "Nationalparks",
+    "example_sentence": "Der Nationalpark ist ein Naturschutzgebiet.",
+    "level": "B1",
+    "category": "environment"
+  },
+  {
+    "german_word": "Ökosystem",
+    "english_translation": "ecosystem",
+    "article": "das",
+    "plural": "Ökosysteme",
+    "example_sentence": "Das Ökosystem ist empfindlich.",
+    "level": "B1",
+    "category": "environment"
+  },
+  {
+    "german_word": "Studium",
+    "english_translation": "studies",
+    "article": "das",
+    "plural": "Studien",
+    "example_sentence": "Das Studium dauert drei Jahre.",
+    "level": "B1",
+    "category": "education"
+  },
+  {
+    "german_word": "Vorlesung",
+    "english_translation": "lecture",
+    "article": "die",
+    "plural": "Vorlesungen",
+    "example_sentence": "Die Vorlesung beginnt um 10 Uhr.",
+    "level": "B1",
+    "category": "education"
+  },
+  {
+    "german_word": "Seminar",
+    "english_translation": "seminar",
+    "article": "das",
+    "plural": "Seminare",
+    "example_sentence": "Das Seminar ist interaktiv.",
+    "level": "B1",
+    "category": "education"
+  },
+  {
+    "german_word": "Prüfung",
+    "english_translation": "exam",
+    "article": "die",
+    "plural": "Prüfungen",
+    "example_sentence": "Die Prüfung war schwer.",
+    "level": "B1",
+    "category": "education"
+  },
+  {
+    "german_word": "Note",
+    "english_translation": "grade",
+    "article": "die",
+    "plural": "Noten",
+    "example_sentence": "Meine Note ist gut.",
+    "level": "B1",
+    "category": "education"
+  },
+  {
+    "german_word": "Semester",
+    "english_translation": "semester",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Das Semester beginnt im Oktober.",
+    "level": "B1",
+    "category": "education"
+  },
+  {
+    "german_word": "Bachelor",
+    "english_translation": "bachelor degree",
+    "article": "der",
+    "plural": "Bachelor",
+    "example_sentence": "Er hat seinen Bachelor in Informatik.",
+    "level": "B1",
+    "category": "education"
+  },
+  {
+    "german_word": "Master",
+    "english_translation": "master degree",
+    "article": "der",
+    "plural": "Master",
+    "example_sentence": "Sie macht ihren Master in BWL.",
+    "level": "B1",
+    "category": "education"
+  },
+  {
+    "german_word": "Promotion",
+    "english_translation": "doctorate",
+    "article": "die",
+    "plural": "Promotionen",
+    "example_sentence": "Er arbeitet an seiner Promotion.",
+    "level": "B1",
+    "category": "education"
+  },
+  {
+    "german_word": "Stipendium",
+    "english_translation": "scholarship",
+    "article": "das",
+    "plural": "Stipendien",
+    "example_sentence": "Sie hat ein Stipendium bekommen.",
+    "level": "B1",
+    "category": "education"
+  },
+  {
+    "german_word": "Forschung",
+    "english_translation": "research",
+    "article": "die",
+    "plural": "Forschungen",
+    "example_sentence": "Die Forschung ist wichtig für den Fortschritt.",
+    "level": "B1",
+    "category": "education"
+  },
+  {
+    "german_word": "Bibliothek",
+    "english_translation": "library",
+    "article": "die",
+    "plural": "Bibliotheken",
+    "example_sentence": "Die Bibliothek hat viele Bücher.",
+    "level": "B1",
+    "category": "education"
+  },
+  {
+    "german_word": "Kultur",
+    "english_translation": "culture",
+    "article": "die",
+    "plural": "Kulturen",
+    "example_sentence": "Die deutsche Kultur ist vielfältig.",
+    "level": "B1",
+    "category": "culture"
+  },
+  {
+    "german_word": "Kunst",
+    "english_translation": "art",
+    "article": "die",
+    "plural": "Künste",
+    "example_sentence": "Die Kunstausstellung war beeindruckend.",
+    "level": "B1",
+    "category": "culture"
+  },
+  {
+    "german_word": "Literatur",
+    "english_translation": "literature",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die deutsche Literatur ist weltberühmt.",
+    "level": "B1",
+    "category": "culture"
+  },
+  {
+    "german_word": "Geschichte",
+    "english_translation": "history",
+    "article": "die",
+    "plural": "Geschichten",
+    "example_sentence": "Die Geschichte Berlins ist faszinierend.",
+    "level": "B1",
+    "category": "culture"
+  },
+  {
+    "german_word": "Malerei",
+    "english_translation": "painting",
+    "article": "die",
+    "plural": "Malereien",
+    "example_sentence": "Die Malerei des 19. Jahrhunderts ist wunderschön.",
+    "level": "B1",
+    "category": "culture"
+  },
+  {
+    "german_word": "Skulptur",
+    "english_translation": "sculpture",
+    "article": "die",
+    "plural": "Skulpturen",
+    "example_sentence": "Die Skulptur steht im Park.",
+    "level": "B1",
+    "category": "culture"
+  },
+  {
+    "german_word": "Architektur",
+    "english_translation": "architecture",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Architektur der Stadt ist beeindruckend.",
+    "level": "B1",
+    "category": "culture"
+  },
+  {
+    "german_word": "Klassik",
+    "english_translation": "classical",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Er hört gern Klassik.",
+    "level": "B1",
+    "category": "culture"
+  },
+  {
+    "german_word": "Ausstellung",
+    "english_translation": "exhibition",
+    "article": "die",
+    "plural": "Ausstellungen",
+    "example_sentence": "Die Ausstellung zeigt moderne Kunst.",
+    "level": "B1",
+    "category": "culture"
+  },
+  {
+    "german_word": "Festival",
+    "english_translation": "festival",
+    "article": "das",
+    "plural": "Festivals",
+    "example_sentence": "Das Festival findet jeden Sommer statt.",
+    "level": "B1",
+    "category": "culture"
+  },
+  {
+    "german_word": "Beziehung",
+    "english_translation": "relationship",
+    "article": "die",
+    "plural": "Beziehungen",
+    "example_sentence": "Die Beziehung ist sehr harmonisch.",
+    "level": "B1",
+    "category": "relationships"
+  },
+  {
+    "german_word": "Bekanntschaft",
+    "english_translation": "acquaintance",
+    "article": "die",
+    "plural": "Bekanntschaften",
+    "example_sentence": "Die Bekanntschaft habe ich auf der Reise gemacht.",
+    "level": "B1",
+    "category": "relationships"
+  },
+  {
+    "german_word": "Freundschaft",
+    "english_translation": "friendship",
+    "article": "die",
+    "plural": "Freundschaften",
+    "example_sentence": "Unsere Freundschaft hält schon Jahre.",
+    "level": "B1",
+    "category": "relationships"
+  },
+  {
+    "german_word": "Vertrauen",
+    "english_translation": "trust",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Das Vertrauen ist sehr wichtig.",
+    "level": "B1",
+    "category": "relationships"
+  },
+  {
+    "german_word": "Respekt",
+    "english_translation": "respect",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Respekt ist die Basis jeder Beziehung.",
+    "level": "B1",
+    "category": "relationships"
+  },
+  {
+    "german_word": "Eifersucht",
+    "english_translation": "jealousy",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Eifersucht kann Beziehungen zerstören.",
+    "level": "B1",
+    "category": "relationships"
+  },
+  {
+    "german_word": "Versöhnung",
+    "english_translation": "reconciliation",
+    "article": "die",
+    "plural": "Versöhnungen",
+    "example_sentence": "Die Versöhnung war ein wichtiger Schritt.",
+    "level": "B1",
+    "category": "relationships"
+  },
+  {
+    "german_word": "Streit",
+    "english_translation": "argument",
+    "article": "der",
+    "plural": "Streite",
+    "example_sentence": "Der Streit war unnötig.",
+    "level": "B1",
+    "category": "relationships"
+  },
+  {
+    "german_word": "Verlobung",
+    "english_translation": "engagement",
+    "article": "die",
+    "plural": "Verlobungen",
+    "example_sentence": "Die Verlobung wurde im Urlaub gefeiert.",
+    "level": "B1",
+    "category": "relationships"
+  },
+  {
+    "german_word": "Trennung",
+    "english_translation": "separation",
+    "article": "die",
+    "plural": "Trennungen",
+    "example_sentence": "Die Trennung war sehr schmerzhaft.",
+    "level": "B1",
+    "category": "relationships"
+  },
+  {
+    "german_word": "Erfahrung",
+    "english_translation": "experience",
+    "article": "die",
+    "plural": "Erfahrungen",
+    "example_sentence": "Ich habe viel Erfahrung in diesem Bereich.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Bedeutung",
+    "english_translation": "meaning",
+    "article": "die",
+    "plural": "Bedeutungen",
+    "example_sentence": "Die Bedeutung dieses Wortes ist komplex.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Entwicklung",
+    "english_translation": "development",
+    "article": "die",
+    "plural": "Entwicklungen",
+    "example_sentence": "Die Entwicklung der Technologie ist rasant.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Möglichkeit",
+    "english_translation": "possibility",
+    "article": "die",
+    "plural": "Möglichkeiten",
+    "example_sentence": "Es gibt viele Möglichkeiten.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Wirklichkeit",
+    "english_translation": "reality",
+    "article": "die",
+    "plural": "Wirklichkeiten",
+    "example_sentence": "Die Wirklichkeit ist anders als die Theorie.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Gefühl",
+    "english_translation": "feeling",
+    "article": "das",
+    "plural": "Gefühle",
+    "example_sentence": "Das Gefühl der Freude war überwältigend.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Gedanke",
+    "english_translation": "thought",
+    "article": "der",
+    "plural": "Gedanken",
+    "example_sentence": "Der Gedanke war interessant.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Absicht",
+    "english_translation": "intention",
+    "article": "die",
+    "plural": "Absichten",
+    "example_sentence": "Ich hatte nicht die Absicht, dich zu verletzen.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Eindruck",
+    "english_translation": "impression",
+    "article": "der",
+    "plural": "Eindrücke",
+    "example_sentence": "Der erste Eindruck ist wichtig.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Fähigkeit",
+    "english_translation": "ability",
+    "article": "die",
+    "plural": "Fähigkeiten",
+    "example_sentence": "Seine Fähigkeiten sind beeindruckend.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Verantwortung",
+    "english_translation": "responsibility",
+    "article": "die",
+    "plural": "Verantwortungen",
+    "example_sentence": "Die Verantwortung ist groß.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Schwierigkeit",
+    "english_translation": "difficulty",
+    "article": "die",
+    "plural": "Schwierigkeiten",
+    "example_sentence": "Die Schwierigkeit der Aufgabe ist hoch.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Lösung",
+    "english_translation": "solution",
+    "article": "die",
+    "plural": "Lösungen",
+    "example_sentence": "Die Lösung des Problems ist einfach.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Entscheidung",
+    "english_translation": "decision",
+    "article": "die",
+    "plural": "Entscheidungen",
+    "example_sentence": "Die Entscheidung war schwer.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Leistung",
+    "english_translation": "performance/achievement",
+    "article": "die",
+    "plural": "Leistungen",
+    "example_sentence": "Seine Leistung war hervorragend.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Vorteil",
+    "english_translation": "advantage",
+    "article": "der",
+    "plural": "Vorteile",
+    "example_sentence": "Der Vorteil dieser Methode ist klar.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Nachteil",
+    "english_translation": "disadvantage",
+    "article": "der",
+    "plural": "Nachteile",
+    "example_sentence": "Der Nachteil ist der hohe Preis.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Ursache",
+    "english_translation": "cause",
+    "article": "die",
+    "plural": "Ursachen",
+    "example_sentence": "Die Ursache des Unfalls ist unbekannt.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Wirkung",
+    "english_translation": "effect",
+    "article": "die",
+    "plural": "Wirkungen",
+    "example_sentence": "Die Wirkung des Medikaments ist stark.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Zusammenhang",
+    "english_translation": "context/connection",
+    "article": "der",
+    "plural": "Zusammenhänge",
+    "example_sentence": "Der Zusammenhang zwischen den Ereignissen ist klar.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Kenntnis",
+    "english_translation": "knowledge",
+    "article": "die",
+    "plural": "Kenntnisse",
+    "example_sentence": "Meine Kenntnisse in Deutsch sind gut.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Voraussetzung",
+    "english_translation": "prerequisite",
+    "article": "die",
+    "plural": "Voraussetzungen",
+    "example_sentence": "Die Voraussetzung für den Kurs ist Niveau B1.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Standpunkt",
+    "english_translation": "point of view",
+    "article": "der",
+    "plural": "Standpunkte",
+    "example_sentence": "Von meinem Standpunkt aus ist das richtig.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "Wert",
+    "english_translation": "value",
+    "article": "der",
+    "plural": "Werte",
+    "example_sentence": "Der Wert des Hauses ist gestiegen.",
+    "level": "B1",
+    "category": "abstract_nouns"
+  },
+  {
+    "german_word": "beantragen",
+    "english_translation": "to apply for",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich beantrage einen neuen Pass.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "benachrichtigen",
+    "english_translation": "to notify",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Wir benachrichtigen Sie per E-Mail.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "berücksichtigen",
+    "english_translation": "to consider",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Wir berücksichtigen alle Vorschläge.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "beschweren",
+    "english_translation": "to complain",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich beschwere mich über den Service.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "bestätigen",
+    "english_translation": "to confirm",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich bestätige meine Teilnahme.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "beteiligen",
+    "english_translation": "to participate",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Er beteiligt sich an der Diskussion.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "beurteilen",
+    "english_translation": "to judge/evaluate",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Lehrer beurteilt die Arbeiten.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "diskutieren",
+    "english_translation": "to discuss",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Wir diskutieren über das Thema.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "einschätzen",
+    "english_translation": "to assess",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich schätze die Lage anders ein.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "empfehlen",
+    "english_translation": "to recommend",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich empfehle dieses Restaurant.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "erwähnen",
+    "english_translation": "to mention",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Er erwähnte den Termin kurz.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "feststellen",
+    "english_translation": "to determine",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Arzt stellt die Diagnose fest.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "genehmigen",
+    "english_translation": "to approve",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Chef genehmigt den Urlaub.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "gewährleisten",
+    "english_translation": "to guarantee",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Wir gewährleisten die Qualität.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "hinweisen",
+    "english_translation": "to point out",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich weise auf die Fehler hin.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "kennzeichnen",
+    "english_translation": "to mark",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Ware ist deutlich gekennzeichnet.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "mitteilen",
+    "english_translation": "to inform/communicate",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich teile Ihnen das Ergebnis mit.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "nachweisen",
+    "english_translation": "to prove",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Er kann seine Fähigkeiten nachweisen.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "rechtfertigen",
+    "english_translation": "to justify",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Er rechtfertigt seine Entscheidung.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "regeln",
+    "english_translation": "to regulate",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Gesetz regelt das Verfahren.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "schätzen",
+    "english_translation": "to estimate/value",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich schätze seine Ehrlichkeit.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "unterstützen",
+    "english_translation": "to support",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Regierung unterstützt das Projekt.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "verfügen",
+    "english_translation": "to have at disposal",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Sie verfügt über große Erfahrung.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "vergleichen",
+    "english_translation": "to compare",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Vergleichen Sie die Angebote.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "verlangen",
+    "english_translation": "to demand",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Kunde verlangt eine Rückerstattung.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "vermeiden",
+    "english_translation": "to avoid",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Wir vermeiden unnötige Kosten.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "versichern",
+    "english_translation": "to assure/insure",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich versichere Ihnen, dass alles klappt.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "voraussetzen",
+    "english_translation": "to presuppose",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Kurs setzt Deutschkenntnisse voraus.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "widerrufen",
+    "english_translation": "to revoke",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Er widerruft seine Aussage.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "zustimmen",
+    "english_translation": "to agree",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich stimme dem Vorschlag zu.",
+    "level": "B1",
+    "category": "verbs_formal"
+  },
+  {
+    "german_word": "Arbeitsplatz",
+    "english_translation": "workplace",
+    "article": "der",
+    "plural": "Arbeitsplätze",
+    "example_sentence": "Der Arbeitsplatz ist modern.",
+    "level": "B1",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Fahrkartenautomat",
+    "english_translation": "ticket machine",
+    "article": "der",
+    "plural": "Fahrkartenautomaten",
+    "example_sentence": "Der Fahrkartenautomat nimmt nur Münzen.",
+    "level": "B1",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Hauptbahnhof",
+    "english_translation": "main station",
+    "article": "der",
+    "plural": "Hauptbahnhöfe",
+    "example_sentence": "Der Hauptbahnhof ist sehr groß.",
+    "level": "B1",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Krankenversicherung",
+    "english_translation": "health insurance",
+    "article": "die",
+    "plural": "Krankenversicherungen",
+    "example_sentence": "Die Krankenversicherung ist Pflicht.",
+    "level": "B1",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Lebensmittel",
+    "english_translation": "groceries",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Lebensmittel sind teurer geworden.",
+    "level": "B1",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Mietvertrag",
+    "english_translation": "rental contract",
+    "article": "der",
+    "plural": "Mietverträge",
+    "example_sentence": "Der Mietvertrag läuft zwei Jahre.",
+    "level": "B1",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Sprachschule",
+    "english_translation": "language school",
+    "article": "die",
+    "plural": "Sprachschulen",
+    "example_sentence": "Die Sprachschule bietet Deutschkurse an.",
+    "level": "B1",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Stadtzentrum",
+    "english_translation": "city center",
+    "article": "das",
+    "plural": "Stadtzentren",
+    "example_sentence": "Das Stadtzentrum ist belebt.",
+    "level": "B1",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Treibhausgas",
+    "english_translation": "greenhouse gas",
+    "article": "das",
+    "plural": "Treibhausgase",
+    "example_sentence": "Treibhausgase verursachen den Klimawandel.",
+    "level": "B1",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Umweltschutz",
+    "english_translation": "environmental protection",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Umweltschutz ist ein wichtiges Thema.",
+    "level": "B1",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Versicherungsgesellschaft",
+    "english_translation": "insurance company",
+    "article": "die",
+    "plural": "Versicherungsgesellschaften",
+    "example_sentence": "Die Versicherungsgesellschaft zahlt den Schaden.",
+    "level": "B1",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Wohnungssuche",
+    "english_translation": "apartment search",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Wohnungssuche dauert lange.",
+    "level": "B1",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Politik",
+    "english_translation": "politics",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Politik beeinflusst unser Leben.",
+    "level": "B2",
+    "category": "politics"
+  },
+  {
+    "german_word": "Gesellschaft",
+    "english_translation": "society",
+    "article": "die",
+    "plural": "Gesellschaften",
+    "example_sentence": "Die Gesellschaft verändert sich.",
+    "level": "B2",
+    "category": "politics"
+  },
+  {
+    "german_word": "Regierung",
+    "english_translation": "government",
+    "article": "die",
+    "plural": "Regierungen",
+    "example_sentence": "Die Regierung beschließt neue Gesetze.",
+    "level": "B2",
+    "category": "politics"
+  },
+  {
+    "german_word": "Demokratie",
+    "english_translation": "democracy",
+    "article": "die",
+    "plural": "Demokratien",
+    "example_sentence": "Die Demokratie ist eine Staatsform.",
+    "level": "B2",
+    "category": "politics"
+  },
+  {
+    "german_word": "Wahl",
+    "english_translation": "election",
+    "article": "die",
+    "plural": "Wahlen",
+    "example_sentence": "Die Wahl findet alle vier Jahre statt.",
+    "level": "B2",
+    "category": "politics"
+  },
+  {
+    "german_word": "Partei",
+    "english_translation": "political party",
+    "article": "die",
+    "plural": "Parteien",
+    "example_sentence": "Die Partei hat einen neuen Vorsitzenden.",
+    "level": "B2",
+    "category": "politics"
+  },
+  {
+    "german_word": "Bürger",
+    "english_translation": "citizen",
+    "article": "der",
+    "plural": "Bürger",
+    "example_sentence": "Die Bürger haben das Recht zu wählen.",
+    "level": "B2",
+    "category": "politics"
+  },
+  {
+    "german_word": "Grundgesetz",
+    "english_translation": "constitution",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Das Grundgesetz schützt die Grundrechte.",
+    "level": "B2",
+    "category": "politics"
+  },
+  {
+    "german_word": "Menschenrecht",
+    "english_translation": "human right",
+    "article": "das",
+    "plural": "Menschenrechte",
+    "example_sentence": "Die Menschenrechte sind unveräußerlich.",
+    "level": "B2",
+    "category": "politics"
+  },
+  {
+    "german_word": "Freiheit",
+    "english_translation": "freedom",
+    "article": "die",
+    "plural": "Freiheiten",
+    "example_sentence": "Die Freiheit der Meinungsäußerung ist geschützt.",
+    "level": "B2",
+    "category": "politics"
+  },
+  {
+    "german_word": "Gleichberechtigung",
+    "english_translation": "equal rights",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Gleichberechtigung von Mann und Frau ist wichtig.",
+    "level": "B2",
+    "category": "politics"
+  },
+  {
+    "german_word": "Integration",
+    "english_translation": "integration",
+    "article": "die",
+    "plural": "Integrationen",
+    "example_sentence": "Die Integration der Flüchtlinge ist eine Herausforderung.",
+    "level": "B2",
+    "category": "politics"
+  },
+  {
+    "german_word": "Migration",
+    "english_translation": "migration",
+    "article": "die",
+    "plural": "Migrationen",
+    "example_sentence": "Die Migration nimmt weltweit zu.",
+    "level": "B2",
+    "category": "politics"
+  },
+  {
+    "german_word": "Initiative",
+    "english_translation": "initiative",
+    "article": "die",
+    "plural": "Initiativen",
+    "example_sentence": "Die Initiative sammelt Unterschriften.",
+    "level": "B2",
+    "category": "politics"
+  },
+  {
+    "german_word": "Globalisierung",
+    "english_translation": "globalization",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Globalisierung hat Vor- und Nachteile.",
+    "level": "B2",
+    "category": "politics"
+  },
+  {
+    "german_word": "Arbeitslosigkeit",
+    "english_translation": "unemployment",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Arbeitslosigkeit ist gesunken.",
+    "level": "B2",
+    "category": "politics"
+  },
+  {
+    "german_word": "Rente",
+    "english_translation": "pension",
+    "article": "die",
+    "plural": "Renten",
+    "example_sentence": "Die Rente ist für viele Menschen niedrig.",
+    "level": "B2",
+    "category": "politics"
+  },
+  {
+    "german_word": "Steuerreform",
+    "english_translation": "tax reform",
+    "article": "die",
+    "plural": "Steuerreformen",
+    "example_sentence": "Die Steuerreform tritt nächstes Jahr in Kraft.",
+    "level": "B2",
+    "category": "politics"
+  },
+  {
+    "german_word": "Außenpolitik",
+    "english_translation": "foreign policy",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Außenpolitik Deutschlands ist multilateral.",
+    "level": "B2",
+    "category": "politics"
+  },
+  {
+    "german_word": "Verfassung",
+    "english_translation": "constitution",
+    "article": "die",
+    "plural": "Verfassungen",
+    "example_sentence": "Die Verfassung garantiert die Grundrechte.",
+    "level": "B2",
+    "category": "politics"
+  },
+  {
+    "german_word": "Wissenschaft",
+    "english_translation": "science",
+    "article": "die",
+    "plural": "Wissenschaften",
+    "example_sentence": "Die Wissenschaft macht Fortschritte.",
+    "level": "B2",
+    "category": "science"
+  },
+  {
+    "german_word": "Forschung",
+    "english_translation": "research",
+    "article": "die",
+    "plural": "Forschungen",
+    "example_sentence": "Die Forschung wird staatlich gefördert.",
+    "level": "B2",
+    "category": "science"
+  },
+  {
+    "german_word": "Studie",
+    "english_translation": "study",
+    "article": "die",
+    "plural": "Studien",
+    "example_sentence": "Die Studie zeigt neue Ergebnisse.",
+    "level": "B2",
+    "category": "science"
+  },
+  {
+    "german_word": "Theorie",
+    "english_translation": "theory",
+    "article": "die",
+    "plural": "Theorien",
+    "example_sentence": "Die Theorie wurde getestet.",
+    "level": "B2",
+    "category": "science"
+  },
+  {
+    "german_word": "Hypothese",
+    "english_translation": "hypothesis",
+    "article": "die",
+    "plural": "Hypothesen",
+    "example_sentence": "Die Hypothese muss bestätigt werden.",
+    "level": "B2",
+    "category": "science"
+  },
+  {
+    "german_word": "Experiment",
+    "english_translation": "experiment",
+    "article": "das",
+    "plural": "Experimente",
+    "example_sentence": "Das Experiment liefert neue Daten.",
+    "level": "B2",
+    "category": "science"
+  },
+  {
+    "german_word": "Analyse",
+    "english_translation": "analysis",
+    "article": "die",
+    "plural": "Analysen",
+    "example_sentence": "Die Analyse der Daten ist komplex.",
+    "level": "B2",
+    "category": "science"
+  },
+  {
+    "german_word": "Methode",
+    "english_translation": "method",
+    "article": "die",
+    "plural": "Methoden",
+    "example_sentence": "Die Methode ist wissenschaftlich anerkannt.",
+    "level": "B2",
+    "category": "science"
+  },
+  {
+    "german_word": "Phänomen",
+    "english_translation": "phenomenon",
+    "article": "das",
+    "plural": "Phänomene",
+    "example_sentence": "Das Phänomen ist schwer zu erklären.",
+    "level": "B2",
+    "category": "science"
+  },
+  {
+    "german_word": "Labor",
+    "english_translation": "laboratory",
+    "article": "das",
+    "plural": "Labore",
+    "example_sentence": "Das Labor ist modern ausgestattet.",
+    "level": "B2",
+    "category": "science"
+  },
+  {
+    "german_word": "Biologie",
+    "english_translation": "biology",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Biologie erforscht das Leben.",
+    "level": "B2",
+    "category": "science"
+  },
+  {
+    "german_word": "Chemie",
+    "english_translation": "chemistry",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Chemie untersucht die Stoffe.",
+    "level": "B2",
+    "category": "science"
+  },
+  {
+    "german_word": "Physik",
+    "english_translation": "physics",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Physik beschäftigt sich mit den Naturgesetzen.",
+    "level": "B2",
+    "category": "science"
+  },
+  {
+    "german_word": "Medizin",
+    "english_translation": "medicine",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Medizin hat in den letzten Jahren große Fortschritte gemacht.",
+    "level": "B2",
+    "category": "science"
+  },
+  {
+    "german_word": "Psychologie",
+    "english_translation": "psychology",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Psychologie erforscht das menschliche Verhalten.",
+    "level": "B2",
+    "category": "science"
+  },
+  {
+    "german_word": "Konjunktur",
+    "english_translation": "economic cycle",
+    "article": "die",
+    "plural": "Konjunkturen",
+    "example_sentence": "Die Konjunktur zeigt einen Aufschwung.",
+    "level": "B2",
+    "category": "economics"
+  },
+  {
+    "german_word": "Inflation",
+    "english_translation": "inflation",
+    "article": "die",
+    "plural": "Inflationen",
+    "example_sentence": "Die Inflation ist gestiegen.",
+    "level": "B2",
+    "category": "economics"
+  },
+  {
+    "german_word": "Marktwirtschaft",
+    "english_translation": "market economy",
+    "article": "die",
+    "plural": "Marktwirtschaften",
+    "example_sentence": "Die soziale Marktwirtschaft ist das deutsche Modell.",
+    "level": "B2",
+    "category": "economics"
+  },
+  {
+    "german_word": "Angebot und Nachfrage",
+    "english_translation": "supply and demand",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Angebot und Nachfrage bestimmen den Preis.",
+    "level": "B2",
+    "category": "economics"
+  },
+  {
+    "german_word": "Bruttoinlandsprodukt",
+    "english_translation": "gross domestic product",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Das Bruttoinlandsprodukt wächst.",
+    "level": "B2",
+    "category": "economics"
+  },
+  {
+    "german_word": "Export",
+    "english_translation": "export",
+    "article": "der",
+    "plural": "Exporte",
+    "example_sentence": "Der Export ist eine starke Säule der deutschen Wirtschaft.",
+    "level": "B2",
+    "category": "economics"
+  },
+  {
+    "german_word": "Import",
+    "english_translation": "import",
+    "article": "der",
+    "plural": "Importe",
+    "example_sentence": "Die Importe sind gestiegen.",
+    "level": "B2",
+    "category": "economics"
+  },
+  {
+    "german_word": "Subvention",
+    "english_translation": "subsidy",
+    "article": "die",
+    "plural": "Subventionen",
+    "example_sentence": "Die Regierung zahlt Subventionen.",
+    "level": "B2",
+    "category": "economics"
+  },
+  {
+    "german_word": "Investor",
+    "english_translation": "investor",
+    "article": "der",
+    "plural": "Investoren",
+    "example_sentence": "Die Investoren sind optimistisch.",
+    "level": "B2",
+    "category": "economics"
+  },
+  {
+    "german_word": "Aktie",
+    "english_translation": "stock",
+    "article": "die",
+    "plural": "Aktien",
+    "example_sentence": "Die Aktie ist im Wert gestiegen.",
+    "level": "B2",
+    "category": "economics"
+  },
+  {
+    "german_word": "Markt",
+    "english_translation": "market",
+    "article": "der",
+    "plural": "Märkte",
+    "example_sentence": "Der Markt ist global.",
+    "level": "B2",
+    "category": "economics"
+  },
+  {
+    "german_word": "Wettbewerb",
+    "english_translation": "competition",
+    "article": "der",
+    "plural": "Wettbewerbe",
+    "example_sentence": "Der Wettbewerb ist hart.",
+    "level": "B2",
+    "category": "economics"
+  },
+  {
+    "german_word": "Monopol",
+    "english_translation": "monopoly",
+    "article": "das",
+    "plural": "Monopole",
+    "example_sentence": "Das Monopol wurde aufgelöst.",
+    "level": "B2",
+    "category": "economics"
+  },
+  {
+    "german_word": "Ressource",
+    "english_translation": "resource",
+    "article": "die",
+    "plural": "Ressourcen",
+    "example_sentence": "Die Ressourcen sind begrenzt.",
+    "level": "B2",
+    "category": "economics"
+  },
+  {
+    "german_word": "Produktion",
+    "english_translation": "production",
+    "article": "die",
+    "plural": "Produktionen",
+    "example_sentence": "Die Produktion läuft auf Hochtouren.",
+    "level": "B2",
+    "category": "economics"
+  },
+  {
+    "german_word": "Gesetz",
+    "english_translation": "law",
+    "article": "das",
+    "plural": "Gesetze",
+    "example_sentence": "Das Gesetz verbietet das Rauchen.",
+    "level": "B2",
+    "category": "law"
+  },
+  {
+    "german_word": "Recht",
+    "english_translation": "right/law",
+    "article": "das",
+    "plural": "Rechte",
+    "example_sentence": "Jeder hat das Recht auf freie Meinungsäußerung.",
+    "level": "B2",
+    "category": "law"
+  },
+  {
+    "german_word": "Gericht",
+    "english_translation": "court",
+    "article": "das",
+    "plural": "Gerichte",
+    "example_sentence": "Das Gericht fällt das Urteil.",
+    "level": "B2",
+    "category": "law"
+  },
+  {
+    "german_word": "Urteil",
+    "english_translation": "verdict",
+    "article": "das",
+    "plural": "Urteile",
+    "example_sentence": "Das Urteil ist rechtskräftig.",
+    "level": "B2",
+    "category": "law"
+  },
+  {
+    "german_word": "Anwalt",
+    "english_translation": "lawyer",
+    "article": "der",
+    "plural": "Anwälte",
+    "example_sentence": "Der Anwalt verteidigt seinen Mandanten.",
+    "level": "B2",
+    "category": "law"
+  },
+  {
+    "german_word": "Richter",
+    "english_translation": "judge",
+    "article": "der",
+    "plural": "Richter",
+    "example_sentence": "Der Richter spricht das Urteil.",
+    "level": "B2",
+    "category": "law"
+  },
+  {
+    "german_word": "Klage",
+    "english_translation": "lawsuit",
+    "article": "die",
+    "plural": "Klagen",
+    "example_sentence": "Die Klage wurde eingereicht.",
+    "level": "B2",
+    "category": "law"
+  },
+  {
+    "german_word": "Verteidigung",
+    "english_translation": "defense",
+    "article": "die",
+    "plural": "Verteidigungen",
+    "example_sentence": "Die Verteidigung plädiert auf Unschuld.",
+    "level": "B2",
+    "category": "law"
+  },
+  {
+    "german_word": "Straftat",
+    "english_translation": "criminal offense",
+    "article": "die",
+    "plural": "Straftaten",
+    "example_sentence": "Die Straftat wurde aufgeklärt.",
+    "level": "B2",
+    "category": "law"
+  },
+  {
+    "german_word": "Strafe",
+    "english_translation": "punishment",
+    "article": "die",
+    "plural": "Strafen",
+    "example_sentence": "Die Strafe ist angemessen.",
+    "level": "B2",
+    "category": "law"
+  },
+  {
+    "german_word": "Zeuge",
+    "english_translation": "witness",
+    "article": "der",
+    "plural": "Zeugen",
+    "example_sentence": "Der Zeuge sagt vor Gericht aus.",
+    "level": "B2",
+    "category": "law"
+  },
+  {
+    "german_word": "Beweis",
+    "english_translation": "evidence",
+    "article": "der",
+    "plural": "Beweise",
+    "example_sentence": "Der Beweis ist erbracht.",
+    "level": "B2",
+    "category": "law"
+  },
+  {
+    "german_word": "Philosophie",
+    "english_translation": "philosophy",
+    "article": "die",
+    "plural": "Philosophien",
+    "example_sentence": "Die Philosophie hinterfragt das Sein.",
+    "level": "B2",
+    "category": "philosophy"
+  },
+  {
+    "german_word": "Ethik",
+    "english_translation": "ethics",
+    "article": "die",
+    "plural": "Ethiken",
+    "example_sentence": "Die Ethik beschäftigt sich mit Moral.",
+    "level": "B2",
+    "category": "philosophy"
+  },
+  {
+    "german_word": "Moral",
+    "english_translation": "morality",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Moral spielt eine wichtige Rolle.",
+    "level": "B2",
+    "category": "philosophy"
+  },
+  {
+    "german_word": "Tugend",
+    "english_translation": "virtue",
+    "article": "die",
+    "plural": "Tugenden",
+    "example_sentence": "Ehrlichkeit ist eine Tugend.",
+    "level": "B2",
+    "category": "philosophy"
+  },
+  {
+    "german_word": "Gerechtigkeit",
+    "english_translation": "justice",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Gerechtigkeit ist ein hohes Gut.",
+    "level": "B2",
+    "category": "philosophy"
+  },
+  {
+    "german_word": "Wahrheit",
+    "english_translation": "truth",
+    "article": "die",
+    "plural": "Wahrheiten",
+    "example_sentence": "Die Wahrheit kommt ans Licht.",
+    "level": "B2",
+    "category": "philosophy"
+  },
+  {
+    "german_word": "Existenz",
+    "english_translation": "existence",
+    "article": "die",
+    "plural": "Existenzen",
+    "example_sentence": "Die menschliche Existenz ist komplex.",
+    "level": "B2",
+    "category": "philosophy"
+  },
+  {
+    "german_word": "Bewusstsein",
+    "english_translation": "consciousness",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Das Bewusstsein ist ein philosophisches Rätsel.",
+    "level": "B2",
+    "category": "philosophy"
+  },
+  {
+    "german_word": "umfangreich",
+    "english_translation": "extensive",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Angebot ist umfangreich.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "ausführlich",
+    "english_translation": "detailed",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Erklärung war ausführlich.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "angemessen",
+    "english_translation": "appropriate",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Preis ist angemessen.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "unangemessen",
+    "english_translation": "inappropriate",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Sein Verhalten war unangemessen.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "selbstverständlich",
+    "english_translation": "obvious",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das ist selbstverständlich.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "anspruchsvoll",
+    "english_translation": "demanding",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Aufgabe ist anspruchsvoll.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "zuverlässig",
+    "english_translation": "reliable",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Er ist ein zuverlässiger Mitarbeiter.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "unzuverlässig",
+    "english_translation": "unreliable",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Wetterbericht ist unzuverlässig.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "effizient",
+    "english_translation": "efficient",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Methode ist sehr effizient.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "notwendig",
+    "english_translation": "necessary",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Maßnahmen sind notwendig.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "ausreichend",
+    "english_translation": "sufficient",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Zeit ist nicht ausreichend.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "erheblich",
+    "english_translation": "considerable",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Kosten sind erheblich gestiegen.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "beachtlich",
+    "english_translation": "remarkable",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Leistung ist beachtlich.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "vorteilhaft",
+    "english_translation": "advantageous",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Lage ist vorteilhaft.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "nachteilig",
+    "english_translation": "disadvantageous",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Auswirkungen sind nachteilig.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "eindeutig",
+    "english_translation": "unambiguous",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Antwort ist eindeutig.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "zweideutig",
+    "english_translation": "ambiguous",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Aussage ist zweideutig.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "vorsichtig",
+    "english_translation": "careful",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Sei vorsichtig!",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "gründlich",
+    "english_translation": "thorough",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Prüfung war gründlich.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "oberflächlich",
+    "english_translation": "superficial",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Analyse war oberflächlich.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "wesentlich",
+    "english_translation": "essential",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das ist ein wesentlicher Punkt.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "vergleichbar",
+    "english_translation": "comparable",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Ergebnisse sind vergleichbar.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "unerwartet",
+    "english_translation": "unexpected",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Entwicklung war unerwartet.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "wahrscheinlich",
+    "english_translation": "probable",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das ist sehr wahrscheinlich.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "fraglich",
+    "english_translation": "questionable",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Erfolg ist fraglich.",
+    "level": "B2",
+    "category": "adjectives"
+  },
+  {
+    "german_word": "analysieren",
+    "english_translation": "to analyze",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Wir analysieren die Daten.",
+    "level": "B2",
+    "category": "academic_verbs"
+  },
+  {
+    "german_word": "bewerten",
+    "english_translation": "to evaluate",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Lehrer bewertet die Arbeit.",
+    "level": "B2",
+    "category": "academic_verbs"
+  },
+  {
+    "german_word": "definieren",
+    "english_translation": "to define",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Definieren Sie den Begriff.",
+    "level": "B2",
+    "category": "academic_verbs"
+  },
+  {
+    "german_word": "interpretieren",
+    "english_translation": "to interpret",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Wie interpretieren Sie das Ergebnis?",
+    "level": "B2",
+    "category": "academic_verbs"
+  },
+  {
+    "german_word": "kategorisieren",
+    "english_translation": "to categorize",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Daten werden kategorisiert.",
+    "level": "B2",
+    "category": "academic_verbs"
+  },
+  {
+    "german_word": "charakterisieren",
+    "english_translation": "to characterize",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Merkmal charakterisiert die Art.",
+    "level": "B2",
+    "category": "academic_verbs"
+  },
+  {
+    "german_word": "dokumentieren",
+    "english_translation": "to document",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Vorgang wird dokumentiert.",
+    "level": "B2",
+    "category": "academic_verbs"
+  },
+  {
+    "german_word": "evaluieren",
+    "english_translation": "to evaluate",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Projekt wird evaluiert.",
+    "level": "B2",
+    "category": "academic_verbs"
+  },
+  {
+    "german_word": "extrapolieren",
+    "english_translation": "to extrapolate",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Tendenz wird extrapoliert.",
+    "level": "B2",
+    "category": "academic_verbs"
+  },
+  {
+    "german_word": "fungieren",
+    "english_translation": "to function as",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Gerät fungiert als Schnittstelle.",
+    "level": "B2",
+    "category": "academic_verbs"
+  },
+  {
+    "german_word": "generieren",
+    "english_translation": "to generate",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das System generiert Berichte.",
+    "level": "B2",
+    "category": "academic_verbs"
+  },
+  {
+    "german_word": "implementieren",
+    "english_translation": "to implement",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Software wird implementiert.",
+    "level": "B2",
+    "category": "academic_verbs"
+  },
+  {
+    "german_word": "korrelieren",
+    "english_translation": "to correlate",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Werte korrelieren miteinander.",
+    "level": "B2",
+    "category": "academic_verbs"
+  },
+  {
+    "german_word": "manipulieren",
+    "english_translation": "to manipulate",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Daten wurden manipuliert.",
+    "level": "B2",
+    "category": "academic_verbs"
+  },
+  {
+    "german_word": "prognostizieren",
+    "english_translation": "to forecast",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Experte prognostiziert einen Anstieg.",
+    "level": "B2",
+    "category": "academic_verbs"
+  },
+  {
+    "german_word": "quantifizieren",
+    "english_translation": "to quantify",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Schaden wird quantifiziert.",
+    "level": "B2",
+    "category": "academic_verbs"
+  },
+  {
+    "german_word": "schlussfolgern",
+    "english_translation": "to conclude",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Daraus schlussfolgere ich, dass es klappt.",
+    "level": "B2",
+    "category": "academic_verbs"
+  },
+  {
+    "german_word": "selektieren",
+    "english_translation": "to select",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Proben werden selektiert.",
+    "level": "B2",
+    "category": "academic_verbs"
+  },
+  {
+    "german_word": "simulieren",
+    "english_translation": "to simulate",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Modell simuliert das Klima.",
+    "level": "B2",
+    "category": "academic_verbs"
+  },
+  {
+    "german_word": "substituieren",
+    "english_translation": "to substitute",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Stoff wird durch einen anderen substituiert.",
+    "level": "B2",
+    "category": "academic_verbs"
+  },
+  {
+    "german_word": "validieren",
+    "english_translation": "to validate",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Ergebnisse müssen validiert werden.",
+    "level": "B2",
+    "category": "academic_verbs"
+  },
+  {
+    "german_word": "verifizieren",
+    "english_translation": "to verify",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Angaben werden verifiziert.",
+    "level": "B2",
+    "category": "academic_verbs"
+  },
+  {
+    "german_word": "Arbeitgeber",
+    "english_translation": "employer",
+    "article": "der",
+    "plural": "Arbeitgeber",
+    "example_sentence": "Der Arbeitgeber zahlt das Gehalt.",
+    "level": "B2",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Arbeitnehmer",
+    "english_translation": "employee",
+    "article": "der",
+    "plural": "Arbeitnehmer",
+    "example_sentence": "Die Arbeitnehmer fordern mehr Lohn.",
+    "level": "B2",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Bevölkerungsentwicklung",
+    "english_translation": "population development",
+    "article": "die",
+    "plural": "Bevölkerungsentwicklungen",
+    "example_sentence": "Die Bevölkerungsentwicklung ist rückläufig.",
+    "level": "B2",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Bundeskanzler",
+    "english_translation": "federal chancellor",
+    "article": "der",
+    "plural": "Bundeskanzler",
+    "example_sentence": "Der Bundeskanzler regiert das Land.",
+    "level": "B2",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Entscheidungsprozess",
+    "english_translation": "decision-making process",
+    "article": "der",
+    "plural": "Entscheidungsprozesse",
+    "example_sentence": "Der Entscheidungsprozess ist komplex.",
+    "level": "B2",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Finanzministerium",
+    "english_translation": "ministry of finance",
+    "article": "das",
+    "plural": "Finanzministerien",
+    "example_sentence": "Das Finanzministerium plant den Haushalt.",
+    "level": "B2",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Grundstückspreis",
+    "english_translation": "property price",
+    "article": "der",
+    "plural": "Grundstückspreise",
+    "example_sentence": "Die Grundstückspreise steigen.",
+    "level": "B2",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Haushaltsplan",
+    "english_translation": "budget plan",
+    "article": "der",
+    "plural": "Haushaltspläne",
+    "example_sentence": "Der Haushaltsplan wurde verabschiedet.",
+    "level": "B2",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Klimaveränderung",
+    "english_translation": "climate change",
+    "article": "die",
+    "plural": "Klimaveränderungen",
+    "example_sentence": "Die Klimaveränderung ist spürbar.",
+    "level": "B2",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Mehrheitsbeschluss",
+    "english_translation": "majority decision",
+    "article": "der",
+    "plural": "Mehrheitsbeschlüsse",
+    "example_sentence": "Der Mehrheitsbeschluss ist gültig.",
+    "level": "B2",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Minderheitenschutz",
+    "english_translation": "protection of minorities",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Der Minderheitenschutz ist verfassungsrechtlich verankert.",
+    "level": "B2",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Nahrungsmittelproduktion",
+    "english_translation": "food production",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Nahrungsmittelproduktion muss steigen.",
+    "level": "B2",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Privatunternehmen",
+    "english_translation": "private company",
+    "article": "das",
+    "plural": "Privatunternehmen",
+    "example_sentence": "Das Privatunternehmen expandiert.",
+    "level": "B2",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Rentensystem",
+    "english_translation": "pension system",
+    "article": "das",
+    "plural": "Rentensysteme",
+    "example_sentence": "Das Rentensystem ist reformbedürftig.",
+    "level": "B2",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Wachstumsrate",
+    "english_translation": "growth rate",
+    "article": "die",
+    "plural": "Wachstumsraten",
+    "example_sentence": "Die Wachstumsrate beträgt 2 Prozent.",
+    "level": "B2",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Zahlungsbilanz",
+    "english_translation": "balance of payments",
+    "article": "die",
+    "plural": "Zahlungsbilanzen",
+    "example_sentence": "Die Zahlungsbilanz ist ausgeglichen.",
+    "level": "B2",
+    "category": "compound_nouns"
+  },
+  {
+    "german_word": "Abhandlung",
+    "english_translation": "treatise",
+    "article": "die",
+    "plural": "Abhandlungen",
+    "example_sentence": "Die Abhandlung behandelt ein philosophisches Thema.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Argumentation",
+    "english_translation": "argumentation",
+    "article": "die",
+    "plural": "Argumentationen",
+    "example_sentence": "Seine Argumentation ist schlüssig.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Begrifflichkeit",
+    "english_translation": "terminology",
+    "article": "die",
+    "plural": "Begrifflichkeiten",
+    "example_sentence": "Die Begrifflichkeit muss genau definiert werden.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Dialektik",
+    "english_translation": "dialectics",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Dialektik ist eine Methode der Philosophie.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Diskurs",
+    "english_translation": "discourse",
+    "article": "der",
+    "plural": "Diskurse",
+    "example_sentence": "Der Diskurs über die Klimakrise ist aktuell.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Disziplin",
+    "english_translation": "discipline",
+    "article": "die",
+    "plural": "Disziplinen",
+    "example_sentence": "Die wissenschaftliche Disziplin hat eigene Methoden.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Empirie",
+    "english_translation": "empiricism",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Empirie liefert die Daten für die Theorie.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Erkenntnis",
+    "english_translation": "insight",
+    "article": "die",
+    "plural": "Erkenntnisse",
+    "example_sentence": "Die Erkenntnis ist bahnbrechend.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Fachbereich",
+    "english_translation": "department",
+    "article": "der",
+    "plural": "Fachbereiche",
+    "example_sentence": "Der Fachbereich Physik forscht zu Quanten.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Fachzeitschrift",
+    "english_translation": "academic journal",
+    "article": "die",
+    "plural": "Fachzeitschriften",
+    "example_sentence": "Die Fachzeitschrift erscheint monatlich.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Forschungsvorhaben",
+    "english_translation": "research project",
+    "article": "das",
+    "plural": "Forschungsvorhaben",
+    "example_sentence": "Das Forschungsvorhaben wird gefördert.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Grundlagenforschung",
+    "english_translation": "basic research",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Grundlagenforschung ist die Basis für Innovation.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Habitus",
+    "english_translation": "habitus",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Der Habitus eines Wissenschaftlers prägt seine Arbeit.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Hypothese",
+    "english_translation": "hypothesis",
+    "article": "die",
+    "plural": "Hypothesen",
+    "example_sentence": "Die Hypothese wurde widerlegt.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Interdisziplinarität",
+    "english_translation": "interdisciplinarity",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Interdisziplinarität ist in der Forschung wichtig.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Korrelation",
+    "english_translation": "correlation",
+    "article": "die",
+    "plural": "Korrelationen",
+    "example_sentence": "Die Korrelation zwischen den Variablen ist signifikant.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Legitimation",
+    "english_translation": "legitimation",
+    "article": "die",
+    "plural": "Legitimationen",
+    "example_sentence": "Die Legitimation der Maßnahme ist fraglich.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Methodik",
+    "english_translation": "methodology",
+    "article": "die",
+    "plural": "Methodiken",
+    "example_sentence": "Die Methodik der Studie ist sorgfältig.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Paradigma",
+    "english_translation": "paradigm",
+    "article": "das",
+    "plural": "Paradigmen",
+    "example_sentence": "Das Paradigma hat sich verschoben.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Perspektive",
+    "english_translation": "perspective",
+    "article": "die",
+    "plural": "Perspektiven",
+    "example_sentence": "Aus wissenschaftlicher Perspektive ist das interessant.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Plausibilität",
+    "english_translation": "plausibility",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Plausibilität der Theorie ist hoch.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Postulat",
+    "english_translation": "postulate",
+    "article": "das",
+    "plural": "Postulate",
+    "example_sentence": "Das Postulat ist Grundlage der Theorie.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Prognose",
+    "english_translation": "forecast",
+    "article": "die",
+    "plural": "Prognosen",
+    "example_sentence": "Die Prognose basiert auf Modellrechnungen.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Relevanz",
+    "english_translation": "relevance",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Relevanz der Studie ist unbestritten.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Synthese",
+    "english_translation": "synthesis",
+    "article": "die",
+    "plural": "Synthesen",
+    "example_sentence": "Die Synthese der Ergebnisse ist überzeugend.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "These",
+    "english_translation": "thesis",
+    "article": "die",
+    "plural": "Thesen",
+    "example_sentence": "Die These wird in der Dissertation verteidigt.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Validität",
+    "english_translation": "validity",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Validität der Messung ist gegeben.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Variablen",
+    "english_translation": "variables",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die unabhängigen Variablen werden kontrolliert.",
+    "level": "C1",
+    "category": "academic"
+  },
+  {
+    "german_word": "Antike",
+    "english_translation": "antiquity",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Antike prägt die abendländische Kultur.",
+    "level": "C1",
+    "category": "literary"
+  },
+  {
+    "german_word": "Ästhetik",
+    "english_translation": "aesthetics",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Ästhetik der Romantik ist einzigartig.",
+    "level": "C1",
+    "category": "literary"
+  },
+  {
+    "german_word": "Daseinsberechtigung",
+    "english_translation": "right to exist",
+    "article": "die",
+    "plural": "Daseinsberechtigungen",
+    "example_sentence": "Die Daseinsberechtigung dieser Einrichtung ist unbestritten.",
+    "level": "C1",
+    "category": "literary"
+  },
+  {
+    "german_word": "Erhabenheit",
+    "english_translation": "sublimity",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Erhabenheit der Bergwelt beeindruckt jeden.",
+    "level": "C1",
+    "category": "literary"
+  },
+  {
+    "german_word": "Erzählperspektive",
+    "english_translation": "narrative perspective",
+    "article": "die",
+    "plural": "Erzählperspektiven",
+    "example_sentence": "Die Erzählperspektive wechselt im dritten Kapitel.",
+    "level": "C1",
+    "category": "literary"
+  },
+  {
+    "german_word": "Existentialismus",
+    "english_translation": "existentialism",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Der Existentialismus betont die Freiheit des Individuums.",
+    "level": "C1",
+    "category": "literary"
+  },
+  {
+    "german_word": "Hermeneutik",
+    "english_translation": "hermeneutics",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Hermeneutik ist die Kunst des Verstehens.",
+    "level": "C1",
+    "category": "literary"
+  },
+  {
+    "german_word": "Ironie",
+    "english_translation": "irony",
+    "article": "die",
+    "plural": "Ironien",
+    "example_sentence": "Die Ironie der Situation war ihm bewusst.",
+    "level": "C1",
+    "category": "literary"
+  },
+  {
+    "german_word": "Metapher",
+    "english_translation": "metaphor",
+    "article": "die",
+    "plural": "Metaphern",
+    "example_sentence": "Die Metapher verleiht dem Text Tiefe.",
+    "level": "C1",
+    "category": "literary"
+  },
+  {
+    "german_word": "Nihilismus",
+    "english_translation": "nihilism",
+    "article": "der",
+    "plural": null,
+    "example_sentence": "Der Nihilismus lehnt alle Werte ab.",
+    "level": "C1",
+    "category": "literary"
+  },
+  {
+    "german_word": "Ontologie",
+    "english_translation": "ontology",
+    "article": "die",
+    "plural": "Ontologien",
+    "example_sentence": "Die Ontologie fragt nach dem Sein.",
+    "level": "C1",
+    "category": "literary"
+  },
+  {
+    "german_word": "Poesie",
+    "english_translation": "poetry",
+    "article": "die",
+    "plural": "Poesien",
+    "example_sentence": "Die Poesie des 18. Jahrhunderts ist geprägt von Empfindsamkeit.",
+    "level": "C1",
+    "category": "literary"
+  },
+  {
+    "german_word": "Prosa",
+    "english_translation": "prose",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Prosa ist klar und nüchtern.",
+    "level": "C1",
+    "category": "literary"
+  },
+  {
+    "german_word": "Sinnbild",
+    "english_translation": "symbol",
+    "article": "das",
+    "plural": "Sinnbilder",
+    "example_sentence": "Die Taube ist ein Sinnbild des Friedens.",
+    "level": "C1",
+    "category": "literary"
+  },
+  {
+    "german_word": "Subjektivität",
+    "english_translation": "subjectivity",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Subjektivität der Wahrnehmung ist ein philosophisches Problem.",
+    "level": "C1",
+    "category": "literary"
+  },
+  {
+    "german_word": "Transzendenz",
+    "english_translation": "transcendence",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Transzendenz ist ein zentraler Begriff der Metaphysik.",
+    "level": "C1",
+    "category": "literary"
+  },
+  {
+    "german_word": "Weltanschauung",
+    "english_translation": "worldview",
+    "article": "die",
+    "plural": "Weltanschauungen",
+    "example_sentence": "Jede Weltanschauung hat ihre eigenen Werte.",
+    "level": "C1",
+    "category": "literary"
+  },
+  {
+    "german_word": "Wissenschaftskritik",
+    "english_translation": "critique of science",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Wissenschaftskritik hinterfragt den Fortschrittsglauben.",
+    "level": "C1",
+    "category": "literary"
+  },
+  {
+    "german_word": "Akquisition",
+    "english_translation": "acquisition",
+    "article": "die",
+    "plural": "Akquisitionen",
+    "example_sentence": "Die Akquisition des Konkurrenzunternehmens war teuer.",
+    "level": "C1",
+    "category": "business"
+  },
+  {
+    "german_word": "Ausschreibung",
+    "english_translation": "invitation to tender",
+    "article": "die",
+    "plural": "Ausschreibungen",
+    "example_sentence": "Die Ausschreibung läuft bis Ende des Monats.",
+    "level": "C1",
+    "category": "business"
+  },
+  {
+    "german_word": "Bonität",
+    "english_translation": "creditworthiness",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Bonität des Unternehmens ist exzellent.",
+    "level": "C1",
+    "category": "business"
+  },
+  {
+    "german_word": "Corporate Governance",
+    "english_translation": "corporate governance",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Corporate Governance steht für gute Unternehmensführung.",
+    "level": "C1",
+    "category": "business"
+  },
+  {
+    "german_word": "Due Diligence",
+    "english_translation": "due diligence",
+    "article": "die",
+    "plural": "Due Diligences",
+    "example_sentence": "Die Due Diligence-Prüfung ergab keine Mängel.",
+    "level": "C1",
+    "category": "business"
+  },
+  {
+    "german_word": "Eigenkapital",
+    "english_translation": "equity",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Das Eigenkapital stärkt die Bilanz.",
+    "level": "C1",
+    "category": "business"
+  },
+  {
+    "german_word": "Fusion",
+    "english_translation": "merger",
+    "article": "die",
+    "plural": "Fusionen",
+    "example_sentence": "Die Fusion der beiden Banken wurde genehmigt.",
+    "level": "C1",
+    "category": "business"
+  },
+  {
+    "german_word": "Liquidität",
+    "english_translation": "liquidity",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Liquidität des Unternehmens ist gesichert.",
+    "level": "C1",
+    "category": "business"
+  },
+  {
+    "german_word": "Marktdurchdringung",
+    "english_translation": "market penetration",
+    "article": "die",
+    "plural": "Marktdurchdringungen",
+    "example_sentence": "Die Marktdurchdringung der neuen Produkte ist hoch.",
+    "level": "C1",
+    "category": "business"
+  },
+  {
+    "german_word": "Rendite",
+    "english_translation": "yield",
+    "article": "die",
+    "plural": "Renditen",
+    "example_sentence": "Die Rendite der Anlage beträgt 5 Prozent.",
+    "level": "C1",
+    "category": "business"
+  },
+  {
+    "german_word": "Risikomanagement",
+    "english_translation": "risk management",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Das Risikomanagement ist ein zentraler Bereich.",
+    "level": "C1",
+    "category": "business"
+  },
+  {
+    "german_word": "Synergieeffekt",
+    "english_translation": "synergy effect",
+    "article": "der",
+    "plural": "Synergieeffekte",
+    "example_sentence": "Der Synergieeffekt der Fusion ist deutlich.",
+    "level": "C1",
+    "category": "business"
+  },
+  {
+    "german_word": "Wertschöpfung",
+    "english_translation": "value creation",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Wertschöpfungskette wurde optimiert.",
+    "level": "C1",
+    "category": "business"
+  },
+  {
+    "german_word": "Wirtschaftsprüfer",
+    "english_translation": "auditor",
+    "article": "der",
+    "plural": "Wirtschaftsprüfer",
+    "example_sentence": "Der Wirtschaftsprüfer testiert den Jahresabschluss.",
+    "level": "C1",
+    "category": "business"
+  },
+  {
+    "german_word": "Zinsniveau",
+    "english_translation": "interest rate level",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Das Zinsniveau bleibt niedrig.",
+    "level": "C1",
+    "category": "business"
+  },
+  {
+    "german_word": "Fingerspitzengefühl",
+    "english_translation": "tact / sensitivity",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Für diese Verhandlung braucht man Fingerspitzengefühl.",
+    "level": "C1",
+    "category": "idiomatic"
+  },
+  {
+    "german_word": "Hals- und Beinbruch",
+    "english_translation": "good luck!",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Hals- und Beinbruch für die Prüfung!",
+    "level": "C1",
+    "category": "idiomatic"
+  },
+  {
+    "german_word": "Nullachtfünfzehn",
+    "english_translation": "run-of-the-mill",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das ist nur Nullachtfünfzehn.",
+    "level": "C1",
+    "category": "idiomatic"
+  },
+  {
+    "german_word": "Querschnittsaufgabe",
+    "english_translation": "cross-sectional task",
+    "article": "die",
+    "plural": "Querschnittsaufgaben",
+    "example_sentence": "Die Digitalisierung ist eine Querschnittsaufgabe.",
+    "level": "C1",
+    "category": "idiomatic"
+  },
+  {
+    "german_word": "Schubladendenken",
+    "english_translation": "stereotypical thinking",
+    "article": "das",
+    "plural": null,
+    "example_sentence": "Schubladendenken verhindert neue Ideen.",
+    "level": "C1",
+    "category": "idiomatic"
+  },
+  {
+    "german_word": "Stammtischparole",
+    "english_translation": "barroom slogan",
+    "article": "die",
+    "plural": "Stammtischparolen",
+    "example_sentence": "Das sind nur Stammtischparolen.",
+    "level": "C1",
+    "category": "idiomatic"
+  },
+  {
+    "german_word": "Tacheles reden",
+    "english_translation": "to speak frankly",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Jetzt reden wir Tacheles!",
+    "level": "C1",
+    "category": "idiomatic"
+  },
+  {
+    "german_word": "Verschlimmbesserung",
+    "english_translation": "making worse by trying to improve",
+    "article": "die",
+    "plural": "Verschlimmbesserungen",
+    "example_sentence": "Die Änderung war eine Verschlimmbesserung.",
+    "level": "C1",
+    "category": "idiomatic"
+  },
+  {
+    "german_word": "Waldeinsamkeit",
+    "english_translation": "forest solitude",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Waldeinsamkeit der Romantik ist ein literarisches Motiv.",
+    "level": "C1",
+    "category": "idiomatic"
+  },
+  {
+    "german_word": "Zugpferd",
+    "english_translation": "crowd-puller",
+    "article": "das",
+    "plural": "Zugpferde",
+    "example_sentence": "Der Star war das Zugpferd der Veranstaltung.",
+    "level": "C1",
+    "category": "idiomatic"
+  },
+  {
+    "german_word": "sich etwas einhandeln",
+    "english_translation": "to bring something on oneself",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Damit hast du dir Ärger eingehandelt.",
+    "level": "C1",
+    "category": "idiomatic"
+  },
+  {
+    "german_word": "etwas auf die lange Bank schieben",
+    "english_translation": "to procrastinate",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Schieb es nicht auf die lange Bank!",
+    "level": "C1",
+    "category": "idiomatic"
+  },
+  {
+    "german_word": "den Nagel auf den Kopf treffen",
+    "english_translation": "to hit the nail on the head",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Du hast den Nagel auf den Kopf getroffen.",
+    "level": "C1",
+    "category": "idiomatic"
+  },
+  {
+    "german_word": "über den Tellerrand hinausschauen",
+    "english_translation": "to think outside the box",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Man muss über den Tellerrand hinausschauen.",
+    "level": "C1",
+    "category": "idiomatic"
+  },
+  {
+    "german_word": "zwei Fliegen mit einer Klappe schlagen",
+    "english_translation": "to kill two birds with one stone",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Damit schlagen wir zwei Fliegen mit einer Klappe.",
+    "level": "C1",
+    "category": "idiomatic"
+  },
+  {
+    "german_word": "Algorithmus",
+    "english_translation": "algorithm",
+    "article": "der",
+    "plural": "Algorithmen",
+    "example_sentence": "Der Algorithmus optimiert die Berechnung.",
+    "level": "C1",
+    "category": "technical"
+  },
+  {
+    "german_word": "Datenbank",
+    "english_translation": "database",
+    "article": "die",
+    "plural": "Datenbanken",
+    "example_sentence": "Die Datenbank wird täglich aktualisiert.",
+    "level": "C1",
+    "category": "technical"
+  },
+  {
+    "german_word": "Differenzialgleichung",
+    "english_translation": "differential equation",
+    "article": "die",
+    "plural": "Differenzialgleichungen",
+    "example_sentence": "Die Differenzialgleichung beschreibt das System.",
+    "level": "C1",
+    "category": "technical"
+  },
+  {
+    "german_word": "Katalysator",
+    "english_translation": "catalyst",
+    "article": "der",
+    "plural": "Katalysatoren",
+    "example_sentence": "Der Katalysator beschleunigt die Reaktion.",
+    "level": "C1",
+    "category": "technical"
+  },
+  {
+    "german_word": "Parameter",
+    "english_translation": "parameter",
+    "article": "der",
+    "plural": "Parameter",
+    "example_sentence": "Die Parameter müssen angepasst werden.",
+    "level": "C1",
+    "category": "technical"
+  },
+  {
+    "german_word": "Quantenphysik",
+    "english_translation": "quantum physics",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Quantenphysik revolutionierte die Physik.",
+    "level": "C1",
+    "category": "technical"
+  },
+  {
+    "german_word": "Schaltkreis",
+    "english_translation": "circuit",
+    "article": "der",
+    "plural": "Schaltkreise",
+    "example_sentence": "Der Schaltkreis ist komplex.",
+    "level": "C1",
+    "category": "technical"
+  },
+  {
+    "german_word": "Schnittstelle",
+    "english_translation": "interface",
+    "article": "die",
+    "plural": "Schnittstellen",
+    "example_sentence": "Die Schnittstelle verbindet die Systeme.",
+    "level": "C1",
+    "category": "technical"
+  },
+  {
+    "german_word": "Spektroskopie",
+    "english_translation": "spectroscopy",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Spektroskopie analysiert das Licht.",
+    "level": "C1",
+    "category": "technical"
+  },
+  {
+    "german_word": "Thermodynamik",
+    "english_translation": "thermodynamics",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Thermodynamik beschreibt Wärmevorgänge.",
+    "level": "C1",
+    "category": "technical"
+  },
+  {
+    "german_word": "Topologie",
+    "english_translation": "topology",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Topologie untersucht die räumlichen Beziehungen.",
+    "level": "C1",
+    "category": "technical"
+  },
+  {
+    "german_word": "Anamnese",
+    "english_translation": "medical history",
+    "article": "die",
+    "plural": "Anamnesen",
+    "example_sentence": "Der Arzt erhebt die Anamnese.",
+    "level": "C1",
+    "category": "fachsprache"
+  },
+  {
+    "german_word": "Diagnose",
+    "english_translation": "diagnosis",
+    "article": "die",
+    "plural": "Diagnosen",
+    "example_sentence": "Die Diagnose wurde früh gestellt.",
+    "level": "C1",
+    "category": "fachsprache"
+  },
+  {
+    "german_word": "Indikation",
+    "english_translation": "indication",
+    "article": "die",
+    "plural": "Indikationen",
+    "example_sentence": "Die Indikation für die Operation ist gegeben.",
+    "level": "C1",
+    "category": "fachsprache"
+  },
+  {
+    "german_word": "Kontraindikation",
+    "english_translation": "contraindication",
+    "article": "die",
+    "plural": "Kontraindikationen",
+    "example_sentence": "Es liegen keine Kontraindikationen vor.",
+    "level": "C1",
+    "category": "fachsprache"
+  },
+  {
+    "german_word": "Prophylaxe",
+    "english_translation": "prophylaxis",
+    "article": "die",
+    "plural": "Prophylaxen",
+    "example_sentence": "Die Prophylaxe beugt Krankheiten vor.",
+    "level": "C1",
+    "category": "fachsprache"
+  },
+  {
+    "german_word": "Therapie",
+    "english_translation": "therapy",
+    "article": "die",
+    "plural": "Therapien",
+    "example_sentence": "Die Therapie zeigt gute Ergebnisse.",
+    "level": "C1",
+    "category": "fachsprache"
+  },
+  {
+    "german_word": "Ätiologie",
+    "english_translation": "etiology",
+    "article": "die",
+    "plural": "Ätiologien",
+    "example_sentence": "Die Ätiologie der Krankheit ist unbekannt.",
+    "level": "C1",
+    "category": "fachsprache"
+  },
+  {
+    "german_word": "Pathogenese",
+    "english_translation": "pathogenesis",
+    "article": "die",
+    "plural": "Pathogenesen",
+    "example_sentence": "Die Pathogenese wird erforscht.",
+    "level": "C1",
+    "category": "fachsprache"
+  },
+  {
+    "german_word": "Rezidiv",
+    "english_translation": "relapse",
+    "article": "das",
+    "plural": "Rezidive",
+    "example_sentence": "Das Rezidiv trat nach einem Jahr auf.",
+    "level": "C1",
+    "category": "fachsprache"
+  },
+  {
+    "german_word": "Prognose",
+    "english_translation": "prognosis",
+    "article": "die",
+    "plural": "Prognosen",
+    "example_sentence": "Die Prognose ist günstig.",
+    "level": "C1",
+    "category": "fachsprache"
+  },
+  {
+    "german_word": "Exegese",
+    "english_translation": "exegesis",
+    "article": "die",
+    "plural": "Exegesen",
+    "example_sentence": "Die Exegese des Textes ist anspruchsvoll.",
+    "level": "C1",
+    "category": "fachsprache"
+  },
+  {
+    "german_word": "Hermeneutik",
+    "english_translation": "hermeneutics",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Hermeneutik ist die Methodenlehre der Interpretation.",
+    "level": "C1",
+    "category": "fachsprache"
+  },
+  {
+    "german_word": "Pragmatik",
+    "english_translation": "pragmatics",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Pragmatik untersucht den Sprachgebrauch.",
+    "level": "C1",
+    "category": "fachsprache"
+  },
+  {
+    "german_word": "Semantik",
+    "english_translation": "semantics",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Semantik beschäftigt sich mit der Bedeutung von Zeichen.",
+    "level": "C1",
+    "category": "fachsprache"
+  },
+  {
+    "german_word": "Syntax",
+    "english_translation": "syntax",
+    "article": "die",
+    "plural": "Syntaxen",
+    "example_sentence": "Die Syntax des Satzes ist komplex.",
+    "level": "C1",
+    "category": "fachsprache"
+  },
+  {
+    "german_word": "Morphologie",
+    "english_translation": "morphology",
+    "article": "die",
+    "plural": "Morphologien",
+    "example_sentence": "Die Morphologie untersucht die Wortstruktur.",
+    "level": "C1",
+    "category": "fachsprache"
+  },
+  {
+    "german_word": "Phonologie",
+    "english_translation": "phonology",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Phonologie erforscht die Sprachlaute.",
+    "level": "C1",
+    "category": "fachsprache"
+  },
+  {
+    "german_word": "Rechtsprechung",
+    "english_translation": "jurisprudence",
+    "article": "die",
+    "plural": "Rechtsprechungen",
+    "example_sentence": "Die Rechtsprechung des Bundesgerichtshofs ist maßgeblich.",
+    "level": "C1",
+    "category": "fachsprache"
+  },
+  {
+    "german_word": "Rechtsstaatlichkeit",
+    "english_translation": "rule of law",
+    "article": "die",
+    "plural": null,
+    "example_sentence": "Die Rechtsstaatlichkeit ist ein hohes Gut.",
+    "level": "C1",
+    "category": "fachsprache"
+  },
+  {
+    "german_word": "Subsumtion",
+    "english_translation": "subsumption",
+    "article": "die",
+    "plural": "Subsumtionen",
+    "example_sentence": "Die Subsumtion des Sachverhalts unter den Tatbestand.",
+    "level": "C1",
+    "category": "fachsprache"
+  },
+  {
+    "german_word": "erwerben / kaufen",
+    "english_translation": "acquire / buy",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Ich erwerbe (formell) / kaufe (informell) ein Haus.",
+    "level": "C1",
+    "category": "synonyms"
+  },
+  {
+    "german_word": "erblicken / sehen",
+    "english_translation": "behold / see",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Er erblickte (literarisch) / sah den Horizont.",
+    "level": "C1",
+    "category": "synonyms"
+  },
+  {
+    "german_word": "entgegnen / antworten",
+    "english_translation": "rejoin / answer",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Er entgegnete (formell) / antwortete scharf.",
+    "level": "C1",
+    "category": "synonyms"
+  },
+  {
+    "german_word": "beendigen / aufhören",
+    "english_translation": "terminate / cease",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Er beendigte (formell) / hörte auf mit der Arbeit.",
+    "level": "C1",
+    "category": "synonyms"
+  },
+  {
+    "german_word": "gewähren / geben",
+    "english_translation": "grant / give",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Antrag wurde gewährt (formell) / gegeben.",
+    "level": "C1",
+    "category": "synonyms"
+  },
+  {
+    "german_word": "unterlassen / vermeiden",
+    "english_translation": "refrain / avoid",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Bitte unterlassen Sie (formell) / vermeiden Sie das Rauchen.",
+    "level": "C1",
+    "category": "synonyms"
+  },
+  {
+    "german_word": "befördern / beschleunigen",
+    "english_translation": "advance / accelerate",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Prozess wurde befördert (formell) / beschleunigt.",
+    "level": "C1",
+    "category": "synonyms"
+  },
+  {
+    "german_word": "beauftragen / anweisen",
+    "english_translation": "commission / instruct",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Er beauftragte (formell) / wies an, die Arbeit auszuführen.",
+    "level": "C1",
+    "category": "synonyms"
+  },
+  {
+    "german_word": "bekunden / zeigen",
+    "english_translation": "declare / show",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Er bekundete (formell) / zeigte sein Interesse.",
+    "level": "C1",
+    "category": "synonyms"
+  },
+  {
+    "german_word": "konstatieren / feststellen",
+    "english_translation": "ascertain / determine",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Der Arzt konstatiert (fachsprachlich) / stellt fest die Heilung.",
+    "level": "C1",
+    "category": "synonyms"
+  },
+  {
+    "german_word": "mutmaßen / vermuten",
+    "english_translation": "presume / suspect",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Polizei mutmaßt (formell) / vermutet einen Zusammenhang.",
+    "level": "C1",
+    "category": "synonyms"
+  },
+  {
+    "german_word": "restimieren / zusammenfassen",
+    "english_translation": "summarize",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Abschließend restimieren (formell) / fasse ich zusammen.",
+    "level": "C1",
+    "category": "synonyms"
+  },
+  {
+    "german_word": "subtrahieren / abziehen",
+    "english_translation": "subtract / deduct",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Subtrahieren Sie (fachsprachlich) / ziehen Sie ab die Kosten.",
+    "level": "C1",
+    "category": "synonyms"
+  },
+  {
+    "german_word": "avancieren / aufsteigen",
+    "english_translation": "advance / rise",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Er avancierte (gehoben) / stieg auf zum Abteilungsleiter.",
+    "level": "C1",
+    "category": "synonyms"
+  },
+  {
+    "german_word": "divergieren / abweichen",
+    "english_translation": "diverge / deviate",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Meinungen divergieren (formell) / weichen ab.",
+    "level": "C1",
+    "category": "synonyms"
+  },
+  {
+    "german_word": "inkriminieren / beschuldigen",
+    "english_translation": "incriminate / accuse",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Er wurde inkriminiert (juristisch) / beschuldigt.",
+    "level": "C1",
+    "category": "synonyms"
+  },
+  {
+    "german_word": "präliminieren / vorläufig festlegen",
+    "english_translation": "preliminary determine",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Kosten wurden präliminiert (formell) / vorläufig festgelegt.",
+    "level": "C1",
+    "category": "synonyms"
+  },
+  {
+    "german_word": "restringieren / einschränken",
+    "english_translation": "restrict",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Die Maßnahmen restringieren (formell) / schränken ein den Handel.",
+    "level": "C1",
+    "category": "synonyms"
+  },
+  {
+    "german_word": "suspendieren / vorläufig ausschließen",
+    "english_translation": "suspend",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Er wurde suspendiert (formell) / vorläufig ausgeschlossen.",
+    "level": "C1",
+    "category": "synonyms"
+  },
+  {
+    "german_word": "terminieren / beenden",
+    "english_translation": "terminate",
+    "article": null,
+    "plural": null,
+    "example_sentence": "Das Projekt wurde terminiert (formell) / beendet.",
+    "level": "C1",
+    "category": "synonyms"
+  }
+]

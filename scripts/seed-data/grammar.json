@@ -1,0 +1,2224 @@
+[
+  {
+    "title": "Bestimmter Artikel - der, die, das",
+    "description": "Choose the correct definite article.",
+    "level": "A1",
+    "category": "articles",
+    "question": "___ Hund ist braun.",
+    "options": [
+      "Der",
+      "Die",
+      "Das",
+      "Den"
+    ],
+    "correct_answer": "Der",
+    "explanation": "\"Hund\" is masculine (der Hund) in nominative.",
+    "order_index": 1
+  },
+  {
+    "title": "Bestimmter Artikel",
+    "description": "Choose the correct definite article.",
+    "level": "A1",
+    "category": "articles",
+    "question": "___ Sonne scheint.",
+    "options": [
+      "Der",
+      "Die",
+      "Das",
+      "Den"
+    ],
+    "correct_answer": "Die",
+    "explanation": "\"Sonne\" is feminine (die Sonne).",
+    "order_index": 2
+  },
+  {
+    "title": "Bestimmter Artikel",
+    "description": "Choose the correct definite article.",
+    "level": "A1",
+    "category": "articles",
+    "question": "___ Kind spielt.",
+    "options": [
+      "Der",
+      "Die",
+      "Das",
+      "Den"
+    ],
+    "correct_answer": "Das",
+    "explanation": "\"Kind\" is neuter (das Kind).",
+    "order_index": 3
+  },
+  {
+    "title": "Unbestimmter Artikel",
+    "description": "Choose the correct indefinite article.",
+    "level": "A1",
+    "category": "articles",
+    "question": "Das ist ___ Hund.",
+    "options": [
+      "ein",
+      "eine",
+      "einen",
+      "einer"
+    ],
+    "correct_answer": "ein",
+    "explanation": "Masculine indefinite article in nominative: ein Hund.",
+    "order_index": 4
+  },
+  {
+    "title": "Unbestimmter Artikel",
+    "description": "Choose the correct indefinite article.",
+    "level": "A1",
+    "category": "articles",
+    "question": "Das ist ___ Katze.",
+    "options": [
+      "ein",
+      "eine",
+      "einen",
+      "einer"
+    ],
+    "correct_answer": "eine",
+    "explanation": "Feminine indefinite article in nominative: eine Katze.",
+    "order_index": 5
+  },
+  {
+    "title": "Unbestimmter Artikel",
+    "description": "Choose the correct indefinite article.",
+    "level": "A1",
+    "category": "articles",
+    "question": "Das ist ___ Kind.",
+    "options": [
+      "ein",
+      "eine",
+      "einen",
+      "einer"
+    ],
+    "correct_answer": "ein",
+    "explanation": "Neuter indefinite article in nominative: ein Kind.",
+    "order_index": 6
+  },
+  {
+    "title": "Verb sein - Konjugation",
+    "description": "Conjugate \"sein\".",
+    "level": "A1",
+    "category": "verb_conjugation",
+    "question": "Ich ___ müde.",
+    "options": [
+      "bin",
+      "bist",
+      "ist",
+      "sind"
+    ],
+    "correct_answer": "bin",
+    "explanation": "Ich bin = I am.",
+    "order_index": 7
+  },
+  {
+    "title": "Verb sein - Konjugation",
+    "description": "Conjugate \"sein\".",
+    "level": "A1",
+    "category": "verb_conjugation",
+    "question": "Du ___ freundlich.",
+    "options": [
+      "bin",
+      "bist",
+      "ist",
+      "seid"
+    ],
+    "correct_answer": "bist",
+    "explanation": "Du bist = you are (informal singular).",
+    "order_index": 8
+  },
+  {
+    "title": "Verb sein - Konjugation",
+    "description": "Conjugate \"sein\".",
+    "level": "A1",
+    "category": "verb_conjugation",
+    "question": "Wir ___ im Kino.",
+    "options": [
+      "bin",
+      "bist",
+      "sind",
+      "seid"
+    ],
+    "correct_answer": "sind",
+    "explanation": "Wir sind = we are.",
+    "order_index": 9
+  },
+  {
+    "title": "Verb haben - Konjugation",
+    "description": "Conjugate \"haben\".",
+    "level": "A1",
+    "category": "verb_conjugation",
+    "question": "Er ___ einen Bruder.",
+    "options": [
+      "habe",
+      "hast",
+      "hat",
+      "haben"
+    ],
+    "correct_answer": "hat",
+    "explanation": "Er hat = he has.",
+    "order_index": 10
+  },
+  {
+    "title": "Verb haben - Konjugation",
+    "description": "Conjugate \"haben\".",
+    "level": "A1",
+    "category": "verb_conjugation",
+    "question": "___ du ein Haustier?",
+    "options": [
+      "Habe",
+      "Hast",
+      "Hat",
+      "Habt"
+    ],
+    "correct_answer": "Hast",
+    "explanation": "Du hast = you have.",
+    "order_index": 11
+  },
+  {
+    "title": "Verb werden - Konjugation",
+    "description": "Conjugate \"werden\".",
+    "level": "A1",
+    "category": "verb_conjugation",
+    "question": "Das Wetter ___ besser.",
+    "options": [
+      "werde",
+      "wirst",
+      "wird",
+      "werden"
+    ],
+    "correct_answer": "wird",
+    "explanation": "Es wird = it becomes.",
+    "order_index": 12
+  },
+  {
+    "title": "Regelmäßige Verben",
+    "description": "Conjugate \"spielen\".",
+    "level": "A1",
+    "category": "verb_conjugation",
+    "question": "Ich ___ gern Fußball.",
+    "options": [
+      "spiele",
+      "spielst",
+      "spielt",
+      "spielen"
+    ],
+    "correct_answer": "spiele",
+    "explanation": "ich spiele = I play.",
+    "order_index": 13
+  },
+  {
+    "title": "Regelmäßige Verben",
+    "description": "Conjugate \"arbeiten\".",
+    "level": "A1",
+    "category": "verb_conjugation",
+    "question": "Er ___ bei einer Firma.",
+    "options": [
+      "arbeite",
+      "arbeitest",
+      "arbeitet",
+      "arbeiten"
+    ],
+    "correct_answer": "arbeitet",
+    "explanation": "er arbeitet = he works.",
+    "order_index": 14
+  },
+  {
+    "title": "Regelmäßige Verben",
+    "description": "Conjugate \"wohnen\".",
+    "level": "A1",
+    "category": "verb_conjugation",
+    "question": "Wir ___ in Berlin.",
+    "options": [
+      "wohne",
+      "wohnst",
+      "wohnt",
+      "wohnen"
+    ],
+    "correct_answer": "wohnen",
+    "explanation": "wir wohnen = we live.",
+    "order_index": 15
+  },
+  {
+    "title": "Pluralformen",
+    "description": "Choose the correct plural.",
+    "level": "A1",
+    "category": "plural",
+    "question": "der Tisch - die ___",
+    "options": [
+      "Tisch",
+      "Tische",
+      "Tischen",
+      "Tisches"
+    ],
+    "correct_answer": "Tische",
+    "explanation": "Masculine nouns often add -e: Tisch → Tische.",
+    "order_index": 16
+  },
+  {
+    "title": "Pluralformen",
+    "description": "Choose the correct plural.",
+    "level": "A1",
+    "category": "plural",
+    "question": "die Frau - die ___",
+    "options": [
+      "Frau",
+      "Fraue",
+      "Frauen",
+      "Fraus"
+    ],
+    "correct_answer": "Frauen",
+    "explanation": "Feminine nouns add -(e)n: Frau → Frauen.",
+    "order_index": 17
+  },
+  {
+    "title": "Pluralformen",
+    "description": "Choose the correct plural.",
+    "level": "A1",
+    "category": "plural",
+    "question": "das Kind - die ___",
+    "options": [
+      "Kind",
+      "Kinde",
+      "Kinder",
+      "Kindern"
+    ],
+    "correct_answer": "Kinder",
+    "explanation": "Neuter nouns add -er: Kind → Kinder.",
+    "order_index": 18
+  },
+  {
+    "title": "Pluralformen",
+    "description": "Choose the correct plural.",
+    "level": "A1",
+    "category": "plural",
+    "question": "der Apfel - die ___",
+    "options": [
+      "Apfel",
+      "Äpfel",
+      "Äpfeln",
+      "Apfeln"
+    ],
+    "correct_answer": "Äpfel",
+    "explanation": "Umlaut change: Apfel → Äpfel.",
+    "order_index": 19
+  },
+  {
+    "title": "Nominativ vs. Akkusativ",
+    "description": "Choose the correct article in accusative.",
+    "level": "A1",
+    "category": "cases",
+    "question": "Ich sehe ___ Hund.",
+    "options": [
+      "der",
+      "die",
+      "das",
+      "den"
+    ],
+    "correct_answer": "den",
+    "explanation": "Masculine changes in accusative: der → den.",
+    "order_index": 20
+  },
+  {
+    "title": "Nominativ vs. Akkusativ",
+    "description": "Accusative with indefinite article.",
+    "level": "A1",
+    "category": "cases",
+    "question": "Er kauft ___ Buch.",
+    "options": [
+      "ein",
+      "eine",
+      "einen",
+      "einer"
+    ],
+    "correct_answer": "ein",
+    "explanation": "Neuter: ein Buch stays ein Buch in accusative.",
+    "order_index": 21
+  },
+  {
+    "title": "Nominativ vs. Akkusativ",
+    "description": "Accusative indefinite article.",
+    "level": "A1",
+    "category": "cases",
+    "question": "Sie hat ___ Katze.",
+    "options": [
+      "ein",
+      "eine",
+      "einen",
+      "einer"
+    ],
+    "correct_answer": "eine",
+    "explanation": "Feminine: eine Katze stays eine Katze in accusative.",
+    "order_index": 22
+  },
+  {
+    "title": "Präpositionen - in, auf, unter",
+    "description": "Choose the correct preposition.",
+    "level": "A1",
+    "category": "prepositions",
+    "question": "Das Buch liegt ___ dem Tisch.",
+    "options": [
+      "in",
+      "auf",
+      "unter",
+      "neben"
+    ],
+    "correct_answer": "auf",
+    "explanation": "\"Auf\" = on (surface).",
+    "order_index": 23
+  },
+  {
+    "title": "Präpositionen",
+    "description": "Choose the correct preposition.",
+    "level": "A1",
+    "category": "prepositions",
+    "question": "Die Katze schläft ___ dem Bett.",
+    "options": [
+      "in",
+      "auf",
+      "unter",
+      "zwischen"
+    ],
+    "correct_answer": "unter",
+    "explanation": "\"Unter\" = under.",
+    "order_index": 24
+  },
+  {
+    "title": "Präpositionen - neben, zwischen",
+    "description": "Choose the correct preposition.",
+    "level": "A1",
+    "category": "prepositions",
+    "question": "Die Schule ist zwischen dem Krankenhaus und der Bibliothek.",
+    "options": [
+      "in",
+      "auf",
+      "neben",
+      "zwischen"
+    ],
+    "correct_answer": "zwischen",
+    "explanation": "\"Zwischen\" = between.",
+    "order_index": 25
+  },
+  {
+    "title": "Wortstellung - Aussagesatz",
+    "description": "Correct word order for a main clause.",
+    "level": "A1",
+    "category": "word_order",
+    "question": "Which is correct?",
+    "options": [
+      "Du gehst heute ins Kino",
+      "Heute du gehst ins Kino",
+      "Du heute gehst ins Kino",
+      "Gehst du heute ins Kino"
+    ],
+    "correct_answer": "Du gehst heute ins Kino",
+    "explanation": "Verb in position 2: Subject - Verb - Time - Place.",
+    "order_index": 26
+  },
+  {
+    "title": "Wortstellung - W-Frage",
+    "description": "Correct W-question word order.",
+    "level": "A1",
+    "category": "word_order",
+    "question": "Which is correct?",
+    "options": [
+      "Wo wohnst du",
+      "Wo du wohnst",
+      "Du wohnst wo",
+      "Wohnst du wo"
+    ],
+    "correct_answer": "Wo wohnst du",
+    "explanation": "W-word first, then verb, then subject.",
+    "order_index": 27
+  },
+  {
+    "title": "Präsens - regelmäßige Verben",
+    "description": "Correct present tense.",
+    "level": "A1",
+    "category": "present_tense",
+    "question": "Die Kinder ___ im Park.",
+    "options": [
+      "spiele",
+      "spielst",
+      "spielt",
+      "spielen"
+    ],
+    "correct_answer": "spielen",
+    "explanation": "Plural: die Kinder spielen.",
+    "order_index": 28
+  },
+  {
+    "title": "Präsens - unregelmäßige Verben",
+    "description": "Conjugate \"lesen\".",
+    "level": "A1",
+    "category": "present_tense",
+    "question": "Er ___ ein Buch.",
+    "options": [
+      "lest",
+      "liest",
+      "lesen",
+      "lese"
+    ],
+    "correct_answer": "liest",
+    "explanation": "Vowel change: lesen → er liest.",
+    "order_index": 29
+  },
+  {
+    "title": "Negation - nicht vs. kein",
+    "description": "\"kein\" vs \"nicht\".",
+    "level": "A1",
+    "category": "negation",
+    "question": "Ich habe ___ Auto.",
+    "options": [
+      "nicht",
+      "kein",
+      "keine",
+      "keinen"
+    ],
+    "correct_answer": "kein",
+    "explanation": "\"Kein\" negates a noun without article.",
+    "order_index": 30
+  },
+  {
+    "title": "Negation - nicht vs. kein",
+    "description": "\"nicht\" vs \"kein\".",
+    "level": "A1",
+    "category": "negation",
+    "question": "Ich mag Kaffee ___.",
+    "options": [
+      "nicht",
+      "kein",
+      "keine",
+      "keinen"
+    ],
+    "correct_answer": "nicht",
+    "explanation": "\"Nicht\" negates verbs and adjectives.",
+    "order_index": 31
+  },
+  {
+    "title": "Negation - nicht vs. kein",
+    "description": "Correct form of \"kein\".",
+    "level": "A1",
+    "category": "negation",
+    "question": "Das ist ___ gute Idee.",
+    "options": [
+      "nicht",
+      "kein",
+      "keine",
+      "keinen"
+    ],
+    "correct_answer": "keine",
+    "explanation": "Feminine: keine gute Idee.",
+    "order_index": 32
+  },
+  {
+    "title": "Possessivartikel",
+    "description": "Correct possessive article.",
+    "level": "A1",
+    "category": "possessive",
+    "question": "Das ist ___ Mutter. (ich)",
+    "options": [
+      "mein",
+      "meine",
+      "meiner",
+      "meines"
+    ],
+    "correct_answer": "meine",
+    "explanation": "Feminine: meine Mutter.",
+    "order_index": 33
+  },
+  {
+    "title": "Possessivartikel",
+    "description": "Correct possessive article.",
+    "level": "A1",
+    "category": "possessive",
+    "question": "Ist das ___ Buch? (du)",
+    "options": [
+      "dein",
+      "deine",
+      "deiner",
+      "deines"
+    ],
+    "correct_answer": "dein",
+    "explanation": "Neuter: dein Buch.",
+    "order_index": 34
+  },
+  {
+    "title": "Possessivartikel",
+    "description": "Correct possessive article.",
+    "level": "A1",
+    "category": "possessive",
+    "question": "Das ist ___ Hund. (er)",
+    "options": [
+      "sein",
+      "seine",
+      "seiner",
+      "seines"
+    ],
+    "correct_answer": "sein",
+    "explanation": "Masculine: sein Hund.",
+    "order_index": 35
+  },
+  {
+    "title": "Zahlen",
+    "description": "Choose the correct number.",
+    "level": "A1",
+    "category": "numbers",
+    "question": "20 + 15 = ___",
+    "options": [
+      "fünfundzwanzig",
+      "fünfunddreißig",
+      "fünfundvierzig",
+      "fünfundfünfzig"
+    ],
+    "correct_answer": "fünfunddreißig",
+    "explanation": "35 = fünfunddreißig (five-and-thirty).",
+    "order_index": 36
+  },
+  {
+    "title": "Zeitausdrücke",
+    "description": "Practice telling time in German.",
+    "level": "A1",
+    "category": "time",
+    "question": "Es ist 14:30 Uhr. Was ist richtig?",
+    "options": [
+      "Es ist halb drei.",
+      "Es ist halb zwei.",
+      "Es ist drei Uhr.",
+      "Es ist Viertel nach drei."
+    ],
+    "correct_answer": "Es ist halb drei.",
+    "explanation": "14:30 = halb drei (half past two / half to three)."
+  },
+  {
+    "title": "Zeitausdrücke",
+    "description": "Practice telling time in German.",
+    "level": "A1",
+    "category": "time",
+    "question": "Es ist 8:15 Uhr. Was ist richtig?",
+    "options": [
+      "Viertel vor acht",
+      "Viertel nach acht",
+      "halb neun",
+      "fünf nach acht"
+    ],
+    "correct_answer": "Viertel nach acht",
+    "explanation": "8:15 = Viertel nach acht (quarter past eight)."
+  },
+  {
+    "title": "Dativ - bestimmter Artikel",
+    "description": "Correct dative article.",
+    "level": "A2",
+    "category": "dative",
+    "question": "Ich gebe ___ Kind ein Geschenk.",
+    "options": [
+      "der",
+      "die",
+      "das",
+      "dem"
+    ],
+    "correct_answer": "dem",
+    "explanation": "Masculine/neuter dative: dem Kind.",
+    "order_index": 39
+  },
+  {
+    "title": "Dativ - bestimmter Artikel",
+    "description": "Correct dative article.",
+    "level": "A2",
+    "category": "dative",
+    "question": "Wir helfen ___ Frau.",
+    "options": [
+      "der",
+      "die",
+      "dem",
+      "den"
+    ],
+    "correct_answer": "der",
+    "explanation": "Feminine dative: der Frau.",
+    "order_index": 40
+  },
+  {
+    "title": "Dativ - unbestimmter Artikel",
+    "description": "Indefinite article in dative.",
+    "level": "A2",
+    "category": "dative",
+    "question": "Sie dankt ___ Freund.",
+    "options": [
+      "ein",
+      "eine",
+      "einem",
+      "einen"
+    ],
+    "correct_answer": "einem",
+    "explanation": "Masculine dative: einem Freund.",
+    "order_index": 41
+  },
+  {
+    "title": "Verben mit Dativ",
+    "description": "Dative verb \"helfen\".",
+    "level": "A2",
+    "category": "dative",
+    "question": "Kannst du ___ helfen? (ich)",
+    "options": [
+      "mich",
+      "mir",
+      "ich",
+      "mein"
+    ],
+    "correct_answer": "mir",
+    "explanation": "\"Helfen\" takes dative: mir.",
+    "order_index": 42
+  },
+  {
+    "title": "Trennbare Verben",
+    "description": "Separable verb \"ankommen\".",
+    "level": "A2",
+    "category": "separable_verbs",
+    "question": "Der Zug ___ um 8 Uhr ___.",
+    "options": [
+      "kommt ... an",
+      "ankommt",
+      "ankommen ... kommt",
+      "kommt ... ankommen"
+    ],
+    "correct_answer": "kommt ... an",
+    "explanation": "Prefix separates: Der Zug kommt um 8 Uhr an.",
+    "order_index": 43
+  },
+  {
+    "title": "Trennbare Verben",
+    "description": "Separable verb \"abholen\".",
+    "level": "A2",
+    "category": "separable_verbs",
+    "question": "Ich ___ dich um 18 Uhr ___.",
+    "options": [
+      "abhole",
+      "hole ... ab",
+      "abholen ... hole",
+      "hole ... abholen"
+    ],
+    "correct_answer": "hole ... ab",
+    "explanation": "Prefix separates: hole ... ab.",
+    "order_index": 44
+  },
+  {
+    "title": "Modalverb können",
+    "description": "Conjugate \"können\".",
+    "level": "A2",
+    "category": "modal_verbs",
+    "question": "Er ___ gut Tennis spielen.",
+    "options": [
+      "kann",
+      "kannst",
+      "könnt",
+      "können"
+    ],
+    "correct_answer": "kann",
+    "explanation": "Vowel change: können → er kann.",
+    "order_index": 45
+  },
+  {
+    "title": "Modalverb müssen",
+    "description": "Conjugate \"müssen\".",
+    "level": "A2",
+    "category": "modal_verbs",
+    "question": "Wir ___ jetzt gehen.",
+    "options": [
+      "muss",
+      "musst",
+      "müssen",
+      "müsst"
+    ],
+    "correct_answer": "müssen",
+    "explanation": "Plural: wir müssen.",
+    "order_index": 46
+  },
+  {
+    "title": "Modalverb dürfen",
+    "description": "Conjugate \"dürfen\".",
+    "level": "A2",
+    "category": "modal_verbs",
+    "question": "___ ich hier parken?",
+    "options": [
+      "Darf",
+      "Darfst",
+      "Dürft",
+      "Dürfen"
+    ],
+    "correct_answer": "Darf",
+    "explanation": "ich darf (a changes from ü).",
+    "order_index": 47
+  },
+  {
+    "title": "Modalverb sollen",
+    "description": "Conjugate \"sollen\".",
+    "level": "A2",
+    "category": "modal_verbs",
+    "question": "Du ___ deine Hausaufgaben machen.",
+    "options": [
+      "soll",
+      "sollst",
+      "sollt",
+      "sollen"
+    ],
+    "correct_answer": "sollst",
+    "explanation": "du sollst (no stem change).",
+    "order_index": 48
+  },
+  {
+    "title": "Modalverb wollen",
+    "description": "Conjugate \"wollen\".",
+    "level": "A2",
+    "category": "modal_verbs",
+    "question": "Meine Freunde ___ ins Kino.",
+    "options": [
+      "will",
+      "willst",
+      "wollen",
+      "wollt"
+    ],
+    "correct_answer": "wollen",
+    "explanation": "Plural: wir/sie wollen.",
+    "order_index": 49
+  },
+  {
+    "title": "Perfekt - sein oder haben",
+    "description": "Auxiliary verb in Perfekt.",
+    "level": "A2",
+    "category": "perfect_tense",
+    "question": "Ich ___ nach Berlin gefahren.",
+    "options": [
+      "habe",
+      "bin",
+      "werde",
+      "hat"
+    ],
+    "correct_answer": "bin",
+    "explanation": "Movement verbs take \"sein\": bin gefahren.",
+    "order_index": 50
+  },
+  {
+    "title": "Perfekt - sein oder haben",
+    "description": "Auxiliary in Perfekt.",
+    "level": "A2",
+    "category": "perfect_tense",
+    "question": "Er ___ ein Buch gelesen.",
+    "options": [
+      "hat",
+      "ist",
+      "habt",
+      "seid"
+    ],
+    "correct_answer": "hat",
+    "explanation": "Transitive verbs take \"haben\": hat gelesen.",
+    "order_index": 51
+  },
+  {
+    "title": "Perfekt - Partizip II",
+    "description": "Past participle of regular verbs.",
+    "level": "A2",
+    "category": "perfect_tense",
+    "question": "Ich habe die Aufgabe ___. (machen)",
+    "options": [
+      "macht",
+      "gemacht",
+      "gemachen",
+      "machten"
+    ],
+    "correct_answer": "gemacht",
+    "explanation": "ge- + stem + -t: machen → gemacht.",
+    "order_index": 52
+  },
+  {
+    "title": "Komparativ",
+    "description": "Correct comparative form.",
+    "level": "A2",
+    "category": "comparison",
+    "question": "Berlin ist ___ als Hamburg.",
+    "options": [
+      "groß",
+      "größer",
+      "am größten",
+      "große"
+    ],
+    "correct_answer": "größer",
+    "explanation": "Comparative: groß → größer (Umlaut + er).",
+    "order_index": 53
+  },
+  {
+    "title": "Superlativ",
+    "description": "Correct superlative form.",
+    "level": "A2",
+    "category": "comparison",
+    "question": "Der Mount Everest ist der ___ Berg.",
+    "options": [
+      "hoch",
+      "höher",
+      "höchste",
+      "höchsten"
+    ],
+    "correct_answer": "höchste",
+    "explanation": "Superlative: hoch → höchste.",
+    "order_index": 54
+  },
+  {
+    "title": "Nebensätze - weil",
+    "description": "Subordinate clause with \"weil\".",
+    "level": "A2",
+    "category": "subordinate_clauses",
+    "question": "Ich lerne Deutsch, ___ ich in Berlin wohne.",
+    "options": [
+      "weil ich in Berlin wohne",
+      "weil",
+      "denn",
+      "weil ich wohne in Berlin"
+    ],
+    "correct_answer": "weil ich in Berlin wohne",
+    "explanation": "\"Weil\" sends verb to end: weil ich in Berlin wohne.",
+    "order_index": 55
+  },
+  {
+    "title": "Nebensätze - dass",
+    "description": "Subordinate clause with \"dass\".",
+    "level": "A2",
+    "category": "subordinate_clauses",
+    "question": "Ich glaube, ___ es morgen regnet.",
+    "options": [
+      "weil",
+      "dass",
+      "denn",
+      "wenn"
+    ],
+    "correct_answer": "dass",
+    "explanation": "\"Dass\" introduces a fact/opinion clause.",
+    "order_index": 56
+  },
+  {
+    "title": "Nebensätze - wenn",
+    "description": "Conditional clause with \"wenn\".",
+    "level": "A2",
+    "category": "subordinate_clauses",
+    "question": "___ ich Zeit habe, gehe ich ins Kino.",
+    "options": [
+      "Weil",
+      "Dass",
+      "Wenn",
+      "Ob"
+    ],
+    "correct_answer": "Wenn",
+    "explanation": "\"Wenn\" = if/when (conditional).",
+    "order_index": 57
+  },
+  {
+    "title": "Reflexive Verben",
+    "description": "Correct reflexive pronoun.",
+    "level": "A2",
+    "category": "reflexive_verbs",
+    "question": "Ich ___ mich auf den Sommer.",
+    "options": [
+      "freust",
+      "freue",
+      "freut",
+      "freuen"
+    ],
+    "correct_answer": "freue",
+    "explanation": "sich freuen: ich freue mich.",
+    "order_index": 58
+  },
+  {
+    "title": "Reflexive Verben",
+    "description": "Correct reflexive pronoun.",
+    "level": "A2",
+    "category": "reflexive_verbs",
+    "question": "Er wäscht ___ die Hände.",
+    "options": [
+      "mich",
+      "dich",
+      "sich",
+      "uns"
+    ],
+    "correct_answer": "sich",
+    "explanation": "Third-person: er wäscht sich.",
+    "order_index": 59
+  },
+  {
+    "title": "Imperativ - du",
+    "description": "Imperative for \"du\" (sein).",
+    "level": "A2",
+    "category": "imperative",
+    "question": "___ bitte leise! (sein)",
+    "options": [
+      "Sein",
+      "Seist",
+      "Bist",
+      "Sei"
+    ],
+    "correct_answer": "Sei",
+    "explanation": "Irregular imperative: Sei! (Be!)",
+    "order_index": 60
+  },
+  {
+    "title": "Imperativ - Sie",
+    "description": "Imperative for \"Sie\" (formal).",
+    "level": "A2",
+    "category": "imperative",
+    "question": "___ Sie bitte Platz! (nehmen)",
+    "options": [
+      "Nehmen",
+      "Nimm",
+      "Nehmt",
+      "Nehme"
+    ],
+    "correct_answer": "Nehmen",
+    "explanation": "Formal imperative: infinitive + Sie.",
+    "order_index": 61
+  },
+  {
+    "title": "Ordinalzahlen",
+    "description": "Correct ordinal number.",
+    "level": "A2",
+    "category": "ordinal_numbers",
+    "question": "Der ___ Mai ist ein Feiertag.",
+    "options": [
+      "eins",
+      "erste",
+      "erst",
+      "einte"
+    ],
+    "correct_answer": "erste",
+    "explanation": "1 → erste (irregular).",
+    "order_index": 62
+  },
+  {
+    "title": "Ordinalzahlen",
+    "description": "Correct ordinal number (20th).",
+    "level": "A2",
+    "category": "ordinal_numbers",
+    "question": "Heute ist der ___ September.",
+    "options": [
+      "zwanzigste",
+      "zwanzigsten",
+      "zwanzigte",
+      "zwanzigster"
+    ],
+    "correct_answer": "zwanzigste",
+    "explanation": "20 → zwanzigste (add -ste for 20+).",
+    "order_index": 63
+  },
+  {
+    "title": "Dativ-Präpositionen",
+    "description": "Prepositions that always take dative.",
+    "level": "A2",
+    "category": "dative",
+    "question": "___ dem Bahnhof ist ein Hotel.",
+    "options": [
+      "Auf",
+      "Aus",
+      "Zu",
+      "In"
+    ],
+    "correct_answer": "Zu",
+    "explanation": "\"Zu\" always takes dative: zu dem (zum) Bahnhof.",
+    "order_index": 64
+  },
+  {
+    "title": "Perfekt - unregelmäßig",
+    "description": "Irregular past participle.",
+    "level": "A2",
+    "category": "perfect_tense",
+    "question": "Sie hat einen Kuchen ___. (backen)",
+    "options": [
+      "backt",
+      "gebackt",
+      "gebacken",
+      "backen"
+    ],
+    "correct_answer": "gebacken",
+    "explanation": "gebacken (strong verb Partizip II).",
+    "order_index": 65
+  },
+  {
+    "title": "Dativ - Plural",
+    "description": "Dative plural form.",
+    "level": "A2",
+    "category": "dative",
+    "question": "Ich helfe ___ Kindern.",
+    "options": [
+      "der",
+      "die",
+      "den",
+      "das"
+    ],
+    "correct_answer": "den",
+    "explanation": "Dative plural: den Kindern (+n suffix).",
+    "order_index": 66
+  },
+  {
+    "title": "Modalverben - Satzstellung",
+    "description": "Modal verb word order.",
+    "level": "A2",
+    "category": "modal_verbs",
+    "question": "Which sentence is correct?",
+    "options": [
+      "Ich kann Deutsch sprechen.",
+      "Ich kann sprechen Deutsch.",
+      "Ich Deutsch kann sprechen.",
+      "Kann ich Deutsch sprechen?"
+    ],
+    "correct_answer": "Ich kann Deutsch sprechen.",
+    "explanation": "Modal in position 2, infinitive at end.",
+    "order_index": 67
+  },
+  {
+    "title": "Präteritum - sein",
+    "description": "Correct Präteritum of \"sein\".",
+    "level": "B1",
+    "category": "praeteritum",
+    "question": "Ich ___ gestern im Kino.",
+    "options": [
+      "war",
+      "hatte",
+      "wurde",
+      "bin"
+    ],
+    "correct_answer": "war",
+    "explanation": "ich war = I was.",
+    "order_index": 68
+  },
+  {
+    "title": "Präteritum - haben",
+    "description": "Correct Präteritum of \"haben\".",
+    "level": "B1",
+    "category": "praeteritum",
+    "question": "Er ___ keine Zeit.",
+    "options": [
+      "hat",
+      "habte",
+      "hatte",
+      "hätte"
+    ],
+    "correct_answer": "hatte",
+    "explanation": "er hatte = he had.",
+    "order_index": 69
+  },
+  {
+    "title": "Präteritum - regelmäßig",
+    "description": "Präteritum of regular verbs.",
+    "level": "B1",
+    "category": "praeteritum",
+    "question": "Mein Vater ___ 40 Jahre dort. (arbeiten)",
+    "options": [
+      "arbeitete",
+      "arbeitetest",
+      "arbeitet",
+      "gearbeitet"
+    ],
+    "correct_answer": "arbeitete",
+    "explanation": "arbeitete (stem + -te).",
+    "order_index": 70
+  },
+  {
+    "title": "Präteritum - unregelmäßig",
+    "description": "Präteritum of \"geben\".",
+    "level": "B1",
+    "category": "praeteritum",
+    "question": "Sie ___ ihm ein Buch.",
+    "options": [
+      "gab",
+      "gebt",
+      "gibt",
+      "gaben"
+    ],
+    "correct_answer": "gab",
+    "explanation": "geben → gab (stem change).",
+    "order_index": 71
+  },
+  {
+    "title": "Genitiv",
+    "description": "Correct genitive article.",
+    "level": "B1",
+    "category": "genitive",
+    "question": "Das ist das Auto ___ Nachbarn.",
+    "options": [
+      "der",
+      "die",
+      "dem",
+      "des"
+    ],
+    "correct_answer": "des",
+    "explanation": "Masculine genitive: des Nachbarn (-s).",
+    "order_index": 72
+  },
+  {
+    "title": "Genitiv",
+    "description": "Correct genitive.",
+    "level": "B1",
+    "category": "genitive",
+    "question": "Die Farbe ___ Himmels ist blau.",
+    "options": [
+      "der",
+      "die",
+      "dem",
+      "des"
+    ],
+    "correct_answer": "des",
+    "explanation": "des Himmels (masculine genitive).",
+    "order_index": 73
+  },
+  {
+    "title": "Genitiv - n-Deklination",
+    "description": "Genitive with weak nouns.",
+    "level": "B1",
+    "category": "genitive",
+    "question": "Die Meinung ___ Studenten ist wichtig.",
+    "options": [
+      "der",
+      "des",
+      "dem",
+      "den"
+    ],
+    "correct_answer": "des",
+    "explanation": "des Studenten (n-declension: des + -en).",
+    "order_index": 74
+  },
+  {
+    "title": "Relativsätze - Nominativ",
+    "description": "Correct relative pronoun (nominative).",
+    "level": "B1",
+    "category": "relative_clauses",
+    "question": "Der Mann, ___ dort steht, ist mein Lehrer.",
+    "options": [
+      "der",
+      "die",
+      "das",
+      "den"
+    ],
+    "correct_answer": "der",
+    "explanation": "Masculine nominative: der.",
+    "order_index": 75
+  },
+  {
+    "title": "Relativsätze - Akkusativ",
+    "description": "Correct relative pronoun (accusative).",
+    "level": "B1",
+    "category": "relative_clauses",
+    "question": "Das Buch, ___ ich lese, ist spannend.",
+    "options": [
+      "der",
+      "die",
+      "das",
+      "den"
+    ],
+    "correct_answer": "das",
+    "explanation": "Neuter accusative: das.",
+    "order_index": 76
+  },
+  {
+    "title": "Relativsätze - Dativ",
+    "description": "Correct relative pronoun (dative).",
+    "level": "B1",
+    "category": "relative_clauses",
+    "question": "Der Freund, ___ ich helfe, heißt Peter.",
+    "options": [
+      "der",
+      "den",
+      "dem",
+      "dessen"
+    ],
+    "correct_answer": "dem",
+    "explanation": "Dative (helfen + dative): dem.",
+    "order_index": 77
+  },
+  {
+    "title": "Relativsätze - Genitiv",
+    "description": "Genitive relative pronoun.",
+    "level": "B1",
+    "category": "relative_clauses",
+    "question": "Der Mann, ___ Auto gestohlen wurde...",
+    "options": [
+      "der",
+      "dem",
+      "dessen",
+      "denen"
+    ],
+    "correct_answer": "dessen",
+    "explanation": "\"Dessen\" = whose (masculine/neuter genitive).",
+    "order_index": 78
+  },
+  {
+    "title": "Passiv - Präsens",
+    "description": "Present passive.",
+    "level": "B1",
+    "category": "passive",
+    "question": "Das Haus ___ gerade ___. (bauen)",
+    "options": [
+      "wird ... gebaut",
+      "ist ... gebaut",
+      "wurde ... gebaut",
+      "hat ... gebaut"
+    ],
+    "correct_answer": "wird ... gebaut",
+    "explanation": "werden + Partizip II: wird gebaut.",
+    "order_index": 79
+  },
+  {
+    "title": "Passiv - Präteritum",
+    "description": "Past passive (Präteritum).",
+    "level": "B1",
+    "category": "passive",
+    "question": "Die Brücke ___ 1990 ___. (bauen)",
+    "options": [
+      "wird ... gebaut",
+      "wurde ... gebaut",
+      "ist ... gebaut worden",
+      "hat ... gebaut"
+    ],
+    "correct_answer": "wurde ... gebaut",
+    "explanation": "wurde + Partizip II: wurde gebaut.",
+    "order_index": 80
+  },
+  {
+    "title": "Konjunktiv II - würde",
+    "description": "würde + Infinitive.",
+    "level": "B1",
+    "category": "konjunktiv_ii",
+    "question": "Ich ___ gern nach Japan reisen.",
+    "options": [
+      "würde",
+      "hätte",
+      "wäre",
+      "könnte"
+    ],
+    "correct_answer": "würde",
+    "explanation": "würde + Infinitiv is the standard Konjunktiv II.",
+    "order_index": 81
+  },
+  {
+    "title": "Konjunktiv II - hätte",
+    "description": "Correct Konjunktiv II of \"haben\".",
+    "level": "B1",
+    "category": "konjunktiv_ii",
+    "question": "Ich ___ gern mehr Zeit.",
+    "options": [
+      "hätte",
+      "wäre",
+      "würde",
+      "könnte"
+    ],
+    "correct_answer": "hätte",
+    "explanation": "hätte = would have (Konjunktiv II of haben).",
+    "order_index": 82
+  },
+  {
+    "title": "Konjunktiv II - wäre",
+    "description": "Correct Konjunktiv II of \"sein\".",
+    "level": "B1",
+    "category": "konjunktiv_ii",
+    "question": "Das ___ schön!",
+    "options": [
+      "wäre",
+      "hätte",
+      "würde",
+      "könnte"
+    ],
+    "correct_answer": "wäre",
+    "explanation": "wäre = would be (Konjunktiv II of sein).",
+    "order_index": 83
+  },
+  {
+    "title": "Adjektivdeklination - bestimmter Artikel",
+    "description": "Adjective after definite article.",
+    "level": "B1",
+    "category": "adjective_endings",
+    "question": "Der ___ Wein schmeckt gut.",
+    "options": [
+      "rot",
+      "rote",
+      "roten",
+      "rotes"
+    ],
+    "correct_answer": "rote",
+    "explanation": "der + -e: der rote Wein.",
+    "order_index": 84
+  },
+  {
+    "title": "Adjektivdeklination - bestimmter Artikel",
+    "description": "Adjective in accusative masculine.",
+    "level": "B1",
+    "category": "adjective_endings",
+    "question": "Ich kaufe den ___ Wagen.",
+    "options": [
+      "neu",
+      "neue",
+      "neuen",
+      "neues"
+    ],
+    "correct_answer": "neuen",
+    "explanation": "den + -en: den neuen Wagen.",
+    "order_index": 85
+  },
+  {
+    "title": "Adjektivdeklination - unbestimmter Artikel",
+    "description": "Adjective after indefinite article.",
+    "level": "B1",
+    "category": "adjective_endings",
+    "question": "Das ist ein ___ Buch.",
+    "options": [
+      "interessant",
+      "interessante",
+      "interessantes",
+      "interessanten"
+    ],
+    "correct_answer": "interessantes",
+    "explanation": "ein + -es: ein interessantes Buch.",
+    "order_index": 86
+  },
+  {
+    "title": "Adjektivdeklination - ohne Artikel",
+    "description": "Strong adjective endings without article.",
+    "level": "B1",
+    "category": "adjective_endings",
+    "question": "Mit ___ Freundschaft kann man alles schaffen.",
+    "options": [
+      "gut",
+      "gute",
+      "guter",
+      "guten"
+    ],
+    "correct_answer": "guter",
+    "explanation": "Strong ending for feminine dative: guter Freundschaft.",
+    "order_index": 87
+  },
+  {
+    "title": "Adjektivdeklination - ohne Artikel Genitiv",
+    "description": "Strong adjective in genitive.",
+    "level": "B1",
+    "category": "adjective_endings",
+    "question": "Wegen ___ Wetters bleiben wir zu Hause.",
+    "options": [
+      "schlecht",
+      "schlechten",
+      "schlechter",
+      "schlechtes"
+    ],
+    "correct_answer": "schlechten",
+    "explanation": "Genitive masc/neut strong: schlechten Wetters.",
+    "order_index": 88
+  },
+  {
+    "title": "Wechselpräpositionen",
+    "description": "Location (Wo? = Dativ).",
+    "level": "B1",
+    "category": "two_way_prepositions",
+    "question": "Die Kinder spielen ___ Garten.",
+    "options": [
+      "in dem",
+      "in den",
+      "in die",
+      "in der"
+    ],
+    "correct_answer": "in dem",
+    "explanation": "Wo? → Dativ: im (in dem) Garten.",
+    "order_index": 89
+  },
+  {
+    "title": "Wechselpräpositionen",
+    "description": "Direction (Wohin? = Akkusativ).",
+    "level": "B1",
+    "category": "two_way_prepositions",
+    "question": "Ich lege das Buch ___ Tisch.",
+    "options": [
+      "auf dem",
+      "auf den",
+      "auf die",
+      "auf der"
+    ],
+    "correct_answer": "auf den",
+    "explanation": "Wohin? → Akkusativ: auf den Tisch.",
+    "order_index": 90
+  },
+  {
+    "title": "Konjunktive Adverbien - deshalb",
+    "description": "Correct conjunctive adverb.",
+    "level": "B1",
+    "category": "conjunctive_adverbs",
+    "question": "Es regnet. ___ bleiben wir zu Hause.",
+    "options": [
+      "Weil",
+      "Deshalb",
+      "Obwohl",
+      "Trotzdem"
+    ],
+    "correct_answer": "Deshalb",
+    "explanation": "\"Deshalb\" (therefore) connects two main clauses.",
+    "order_index": 91
+  },
+  {
+    "title": "Konjunktive Adverbien - trotzdem",
+    "description": "Correct conjunctive adverb.",
+    "level": "B1",
+    "category": "conjunctive_adverbs",
+    "question": "Es hat geregnet. ___ sind wir gegangen.",
+    "options": [
+      "Deshalb",
+      "Weil",
+      "Dass",
+      "Trotzdem"
+    ],
+    "correct_answer": "Trotzdem",
+    "explanation": "\"Trotzdem\" (nevertheless) expresses contrast.",
+    "order_index": 92
+  },
+  {
+    "title": "Infinitivsätze - um...zu",
+    "description": "Purpose: um...zu.",
+    "level": "B1",
+    "category": "infinitive_clauses",
+    "question": "Ich lerne Deutsch, ___ in Deutschland zu arbeiten.",
+    "options": [
+      "um",
+      "ohne",
+      "zum",
+      "damit"
+    ],
+    "correct_answer": "um",
+    "explanation": "\"Um...zu\" expresses purpose.",
+    "order_index": 93
+  },
+  {
+    "title": "Infinitivsätze - ohne...zu",
+    "description": "Without doing: ohne...zu.",
+    "level": "B1",
+    "category": "infinitive_clauses",
+    "question": "Er ging weg, ___ sich zu verabschieden.",
+    "options": [
+      "um",
+      "ohne",
+      "statt",
+      "damit"
+    ],
+    "correct_answer": "ohne",
+    "explanation": "\"Ohne...zu\" = without doing.",
+    "order_index": 94
+  },
+  {
+    "title": "Infinitivsätze - statt...zu",
+    "description": "Instead of: statt...zu.",
+    "level": "B1",
+    "category": "infinitive_clauses",
+    "question": "___ zu arbeiten, geht er ins Kino.",
+    "options": [
+      "Um",
+      "Ohne",
+      "Statt",
+      "Damit"
+    ],
+    "correct_answer": "Statt",
+    "explanation": "\"Statt...zu\" = instead of doing.",
+    "order_index": 95
+  },
+  {
+    "title": "Ob-Sätze",
+    "description": "Indirect yes/no question.",
+    "level": "B1",
+    "category": "subordinate_clauses",
+    "question": "Ich weiß nicht, ___ er morgen kommt.",
+    "options": [
+      "wenn",
+      "ob",
+      "dass",
+      "weil"
+    ],
+    "correct_answer": "ob",
+    "explanation": "\"Ob\" introduces indirect yes/no questions.",
+    "order_index": 96
+  },
+  {
+    "title": "TELC-Prüfungstyp - Wortschatz",
+    "description": "Correct preposition with verb.",
+    "level": "B1",
+    "category": "exam_style",
+    "question": "Ich interessiere mich ___ Kunst.",
+    "options": [
+      "für",
+      "an",
+      "auf",
+      "über"
+    ],
+    "correct_answer": "für",
+    "explanation": "sich interessieren für (to be interested in).",
+    "order_index": 97
+  },
+  {
+    "title": "Plusquamperfekt",
+    "description": "Past perfect with \"hatte\".",
+    "level": "B2",
+    "category": "past_perfect",
+    "question": "Nachdem ich gegessen ___, ging ich spazieren.",
+    "options": [
+      "habe",
+      "hatte",
+      "bin",
+      "war"
+    ],
+    "correct_answer": "hatte",
+    "explanation": "Plusquamperfekt: hatte/ war + Partizip II.",
+    "order_index": 98
+  },
+  {
+    "title": "Plusquamperfekt - sein",
+    "description": "Past perfect with movement verb.",
+    "level": "B2",
+    "category": "past_perfect",
+    "question": "Er ___ schon gegangen, als wir ankamen.",
+    "options": [
+      "ist",
+      "war",
+      "hatte",
+      "wurde"
+    ],
+    "correct_answer": "war",
+    "explanation": "\"war gegangen\" (Plusquamperfekt of gehen).",
+    "order_index": 99
+  },
+  {
+    "title": "Futur I",
+    "description": "Correct future form.",
+    "level": "B2",
+    "category": "future",
+    "question": "Ich ___ dich morgen ___. (anrufen)",
+    "options": [
+      "werde ... anrufen",
+      "rufe ... an",
+      "habe ... angerufen",
+      "würde ... anrufen"
+    ],
+    "correct_answer": "werde ... anrufen",
+    "explanation": "werden + infinitive: werde anrufen.",
+    "order_index": 100
+  },
+  {
+    "title": "Futur II",
+    "description": "Future perfect.",
+    "level": "B2",
+    "category": "future",
+    "question": "Bis nächste Woche ___ ich die Arbeit ___.",
+    "options": [
+      "werde ... beenden",
+      "werde ... beendet haben",
+      "habe ... beendet",
+      "würde ... beenden"
+    ],
+    "correct_answer": "werde ... beendet haben",
+    "explanation": "Futur II: werden + Partizip II + haben.",
+    "order_index": 101
+  },
+  {
+    "title": "Futur I - Vermutung",
+    "description": "Futur I expressing assumption.",
+    "level": "B2",
+    "category": "future",
+    "question": "Das ___ der Postbote sein.",
+    "options": [
+      "ist",
+      "wird",
+      "werde",
+      "sei"
+    ],
+    "correct_answer": "wird",
+    "explanation": "Futur I for guesses: Das wird der Postbote sein.",
+    "order_index": 102
+  },
+  {
+    "title": "Passiv mit Modalverben",
+    "description": "Passive with modal (present).",
+    "level": "B2",
+    "category": "passive",
+    "question": "Die Hausaufgaben ___ heute gemacht ___.",
+    "options": [
+      "müssen ... werden",
+      "müssen ... machen",
+      "werden ... gemacht",
+      "sind ... gemacht"
+    ],
+    "correct_answer": "müssen ... werden",
+    "explanation": "Modal + Partizip II + werden: müssen gemacht werden.",
+    "order_index": 103
+  },
+  {
+    "title": "Konjunktiv I - indirekte Rede",
+    "description": "Indirect speech with Konjunktiv I.",
+    "level": "B2",
+    "category": "konjunktiv_i",
+    "question": "Er sagt, er ___ keine Zeit.",
+    "options": [
+      "habe",
+      "hat",
+      "hätte",
+      "haben"
+    ],
+    "correct_answer": "habe",
+    "explanation": "Konjunktiv I: er habe (reported speech).",
+    "order_index": 104
+  },
+  {
+    "title": "Konjunktiv I - indirekte Rede",
+    "description": "Perfect in indirect speech.",
+    "level": "B2",
+    "category": "konjunktiv_i",
+    "question": "Sie behauptet, sie ___ nie gelogen.",
+    "options": [
+      "hat",
+      "habe",
+      "hätte",
+      "habet"
+    ],
+    "correct_answer": "habe",
+    "explanation": "Konjunktiv I Perfekt: habe + Partizip II.",
+    "order_index": 105
+  },
+  {
+    "title": "Erweiterte Partizipialattribute",
+    "description": "Extended participial phrase.",
+    "level": "B2",
+    "category": "participle_phrases",
+    "question": "Der ___ Schüler wurde belohnt.",
+    "options": [
+      "fleißig",
+      "fleißige",
+      "fleißig lernende",
+      "fleißig lernend"
+    ],
+    "correct_answer": "fleißig lernende",
+    "explanation": "Partizip I as adjective: der fleißig lernende Schüler.",
+    "order_index": 106
+  },
+  {
+    "title": "Partizip I als Adjektiv",
+    "description": "Present participle as adjective.",
+    "level": "B2",
+    "category": "participle_phrases",
+    "question": "Das ___ Kind weint.",
+    "options": [
+      "weinend",
+      "weinende",
+      "geweinte",
+      "weinendes"
+    ],
+    "correct_answer": "weinende",
+    "explanation": "Partizip I + adjective ending: das weinende Kind.",
+    "order_index": 107
+  },
+  {
+    "title": "Partizip II als Adjektiv",
+    "description": "Past participle as adjective.",
+    "level": "B2",
+    "category": "participle_phrases",
+    "question": "Die ___ Blumen sind schön.",
+    "options": [
+      "blühend",
+      "geblüht",
+      "geblühte",
+      "blühende"
+    ],
+    "correct_answer": "geblühte",
+    "explanation": "Partizip II as adjective with passive meaning.",
+    "order_index": 108
+  },
+  {
+    "title": "Komplexe Nebensätze - obwohl",
+    "description": "Concessive clause with \"obwohl\".",
+    "level": "B2",
+    "category": "complex_clauses",
+    "question": "___ er auch krank war, ging er zur Arbeit.",
+    "options": [
+      "Obwohl",
+      "Weil",
+      "Trotzdem",
+      "Denn"
+    ],
+    "correct_answer": "Obwohl",
+    "explanation": "\"Obwohl\" = although (concessive subordinate clause).",
+    "order_index": 109
+  },
+  {
+    "title": "Präpositionen mit Genitiv",
+    "description": "Prepositions with genitive.",
+    "level": "B2",
+    "category": "genitive_prepositions",
+    "question": "___ des Regens gingen wir spazieren.",
+    "options": [
+      "Wegen",
+      "Trotz",
+      "Während",
+      "Alle drei"
+    ],
+    "correct_answer": "Alle drei",
+    "explanation": "Wegen, trotz, während all take genitive.",
+    "order_index": 110
+  },
+  {
+    "title": "Nominalisierung von Verben",
+    "description": "Nominalized infinitive.",
+    "level": "B2",
+    "category": "nominalization",
+    "question": "Das ___ von Deutsch ist wichtig.",
+    "options": [
+      "lernen",
+      "Lernen",
+      "Lernung",
+      "gelernt"
+    ],
+    "correct_answer": "Lernen",
+    "explanation": "Nominalized infinitive (neuter): das Lernen.",
+    "order_index": 111
+  },
+  {
+    "title": "Nominalisierung mit -ung",
+    "description": "Verbs → nouns with -ung.",
+    "level": "B2",
+    "category": "nominalization",
+    "question": "Die ___ des Problems dauerte lange.",
+    "options": [
+      "lösen",
+      "Lösung",
+      "gelöst",
+      "Lösen"
+    ],
+    "correct_answer": "Lösung",
+    "explanation": "lösen → die Lösung (solution).",
+    "order_index": 112
+  },
+  {
+    "title": "Konjunktiv II - Vergangenheit",
+    "description": "Konjunktiv II past form.",
+    "level": "B2",
+    "category": "konjunktiv_ii",
+    "question": "Wenn ich mehr Geld ___, hätte ich ein Haus gekauft.",
+    "options": [
+      "hatte ... würde",
+      "hätte ... hätte",
+      "würde ... hätte",
+      "haben ... würde"
+    ],
+    "correct_answer": "hätte ... hätte",
+    "explanation": "hätte/wäre + Partizip II for past unreal situations.",
+    "order_index": 113
+  },
+  {
+    "title": "Goethe-Prüfungstyp - Grammatik",
+    "description": "Correct passive transformation.",
+    "level": "B2",
+    "category": "exam_style",
+    "question": "Man baut das Haus. → Das Haus ___ ___.",
+    "options": [
+      "wird gebaut",
+      "wird bauen",
+      "ist gebaut",
+      "hat gebaut"
+    ],
+    "correct_answer": "wird gebaut",
+    "explanation": "Passive transformation: wird gebaut.",
+    "order_index": 114
+  },
+  {
+    "title": "Vorgangspassiv vs. Zustandspassiv",
+    "description": "Identify Zustandspassiv (state).",
+    "level": "C1",
+    "category": "passive_all",
+    "question": "Which is Zustandspassiv?",
+    "options": [
+      "Die Tür wird geschlossen.",
+      "Die Tür ist geschlossen worden.",
+      "Die Tür ist geschlossen.",
+      "Die Tür wurde geschlossen."
+    ],
+    "correct_answer": "Die Tür ist geschlossen.",
+    "explanation": "Zustandspassiv: sein + Partizip II (describes a state).",
+    "order_index": 115
+  },
+  {
+    "title": "Vorgangspassiv vs. Zustandspassiv",
+    "description": "Identify Vorgangspassiv (action).",
+    "level": "C1",
+    "category": "passive_all",
+    "question": "Which is Vorgangspassiv (action)?",
+    "options": [
+      "Die Tür ist geschlossen.",
+      "Die Tür wird geschlossen.",
+      "Die Tür war geschlossen.",
+      "Die Tür ist geschlossen gewesen."
+    ],
+    "correct_answer": "Die Tür wird geschlossen.",
+    "explanation": "Vorgangspassiv: werden + Partizip II (describes an action).",
+    "order_index": 116
+  },
+  {
+    "title": "Indirekte Rede - Konjunktiv I",
+    "description": "Konjunktiv I: sein.",
+    "level": "C1",
+    "category": "konjunktiv_i",
+    "question": "Er sagt, er ___ krank.",
+    "options": [
+      "ist",
+      "sei",
+      "wäre",
+      "war"
+    ],
+    "correct_answer": "sei",
+    "explanation": "Konjunktiv I of sein: er sei.",
+    "order_index": 117
+  },
+  {
+    "title": "Indirekte Rede - Vergangenheit",
+    "description": "Past in indirect speech.",
+    "level": "C1",
+    "category": "konjunktiv_i",
+    "question": "Sie behauptete, sie ___ ihn nie gesehen.",
+    "options": [
+      "hat ... gesehen",
+      "hätte ... gesehen",
+      "habe ... gesehen",
+      "würde ... sehen"
+    ],
+    "correct_answer": "habe ... gesehen",
+    "explanation": "Konjunktiv I Perfekt: habe + Partizip II.",
+    "order_index": 118
+  },
+  {
+    "title": "Indirekte Rede - Ersatzform",
+    "description": "Ersatzform when Konj I = Indikativ.",
+    "level": "C1",
+    "category": "konjunktiv_i",
+    "question": "Der Minister erklärte, die Steuern ___ nicht erhöht ___.",
+    "options": [
+      "werden ... werden",
+      "würden ... werden",
+      "würden ... würden",
+      "werden ... würden"
+    ],
+    "correct_answer": "würden ... werden",
+    "explanation": "Konjunktiv II substitutes when Konj I = Indikativ.",
+    "order_index": 119
+  },
+  {
+    "title": "Subjektive Modalverben - müssen",
+    "description": "Subjective \"müssen\" (strong assumption).",
+    "level": "C1",
+    "category": "modal_nuance",
+    "question": "Er ___ zu Hause sein. (80% sicher)",
+    "options": [
+      "kann",
+      "muss",
+      "darf",
+      "soll"
+    ],
+    "correct_answer": "muss",
+    "explanation": "Subjective müssen = strong assumption (must be).",
+    "order_index": 120
+  },
+  {
+    "title": "Subjektive Modalverben - können",
+    "description": "Subjective \"können\" (possibility).",
+    "level": "C1",
+    "category": "modal_nuance",
+    "question": "Er ___ krank sein. (50% möglich)",
+    "options": [
+      "kann",
+      "mag",
+      "darf",
+      "soll"
+    ],
+    "correct_answer": "kann",
+    "explanation": "Subjective können = possibility (might be).",
+    "order_index": 121
+  },
+  {
+    "title": "Subjektive Modalverben - Vergangenheit",
+    "description": "Subjective modal in past.",
+    "level": "C1",
+    "category": "modal_nuance",
+    "question": "Er ___ den Zug verpasst haben.",
+    "options": [
+      "hat",
+      "muss",
+      "musste",
+      "wird"
+    ],
+    "correct_answer": "muss",
+    "explanation": "muss + Partizip II + haben = must have done.",
+    "order_index": 122
+  },
+  {
+    "title": "Subjektives Modalverb - sollen",
+    "description": "\"Sollen\" as hearsay.",
+    "level": "C1",
+    "category": "modal_nuance",
+    "question": "Er ___ in Berlin angekommen sein. (Hörensagen)",
+    "options": [
+      "kann",
+      "muss",
+      "soll",
+      "darf"
+    ],
+    "correct_answer": "soll",
+    "explanation": "Subjective \"sollen\" = hearsay (they say he...).",
+    "order_index": 123
+  },
+  {
+    "title": "Subjektive Modalverben - dürfte",
+    "description": "\"dürfte\" as subjective (probably).",
+    "level": "C1",
+    "category": "modal_nuance",
+    "question": "Das ___ stimmen. (wahrscheinlich)",
+    "options": [
+      "kann",
+      "darf",
+      "dürfte",
+      "mag"
+    ],
+    "correct_answer": "dürfte",
+    "explanation": "\"Dürfte\" expresses probability (probably).",
+    "order_index": 124
+  },
+  {
+    "title": "Partikel - doch",
+    "description": "Meaning of \"doch\" (insisting).",
+    "level": "C1",
+    "category": "particles",
+    "question": "Komm ___ mit! (insisting)",
+    "options": [
+      "doch",
+      "ja",
+      "halt",
+      "eben"
+    ],
+    "correct_answer": "doch",
+    "explanation": "\"Doch\" insists or encourages: Komm doch mit!",
+    "order_index": 125
+  },
+  {
+    "title": "Partikel - ja",
+    "description": "Meaning of \"ja\" (acknowledging).",
+    "level": "C1",
+    "category": "particles",
+    "question": "Du hast ___ recht, aber...",
+    "options": [
+      "doch",
+      "ja",
+      "halt",
+      "eben"
+    ],
+    "correct_answer": "ja",
+    "explanation": "\"Ja\" acknowledges a known fact.",
+    "order_index": 126
+  },
+  {
+    "title": "Partikel - halt",
+    "description": "Meaning of \"halt\" (resignation).",
+    "level": "C1",
+    "category": "particles",
+    "question": "So ist das ___ im Leben.",
+    "options": [
+      "doch",
+      "ja",
+      "halt",
+      "auch"
+    ],
+    "correct_answer": "halt",
+    "explanation": "\"Halt\" expresses resignation (that's just how it is).",
+    "order_index": 127
+  },
+  {
+    "title": "Ellipsis - Verkürzte Sätze",
+    "description": "Elliptical construction.",
+    "level": "C1",
+    "category": "ellipsis",
+    "question": "\"Kaffee oder Tee?\" - \"___\"",
+    "options": [
+      "Ich nehme Tee.",
+      "Tee, bitte.",
+      "Ich möchte bitte Tee.",
+      "Einen Tee bitte ich."
+    ],
+    "correct_answer": "Tee, bitte.",
+    "explanation": "Ellipsis drops redundant grammar, keeps key info.",
+    "order_index": 128
+  },
+  {
+    "title": "Deixis - Kontextverweise",
+    "description": "Deictic expression.",
+    "level": "C1",
+    "category": "deixis",
+    "question": "___ haben wir es endlich geschafft!",
+    "options": [
+      "Dort",
+      "Hier",
+      "Da",
+      "Dorthin"
+    ],
+    "correct_answer": "Da",
+    "explanation": "\"Da\" is deictic referring to the moment.",
+    "order_index": 129
+  },
+  {
+    "title": "Passiv - Perfekt",
+    "description": "Perfect passive.",
+    "level": "C1",
+    "category": "passive_all",
+    "question": "Das Haus ___ verkauft ___.",
+    "options": [
+      "ist ... worden",
+      "ist ... geworden",
+      "hat ... werden",
+      "wird ... worden"
+    ],
+    "correct_answer": "ist ... worden",
+    "explanation": "Perfekt passiv: ist + Partizip II + worden.",
+    "order_index": 130
+  },
+  {
+    "title": "Passiv - Plusquamperfekt",
+    "description": "Past perfect passive.",
+    "level": "C1",
+    "category": "passive_all",
+    "question": "Bevor wir ankamen, ___ das Zimmer gereinigt ___.",
+    "options": [
+      "wurde ... worden",
+      "war ... worden",
+      "ist ... worden",
+      "hatte ... werden"
+    ],
+    "correct_answer": "war ... worden",
+    "explanation": "Plusquamperfekt passiv: war + Partizip II + worden.",
+    "order_index": 131
+  },
+  {
+    "title": "Zustandspassiv - Futur II",
+    "description": "Future stative passive.",
+    "level": "C1",
+    "category": "passive_all",
+    "question": "Der Bericht ___ bis morgen geschrieben ___.",
+    "options": [
+      "wird ... sein",
+      "wird ... worden sein",
+      "ist ... worden",
+      "war ... worden"
+    ],
+    "correct_answer": "wird ... sein",
+    "explanation": "Futur II Zustandspassiv: wird + Partizip II + sein.",
+    "order_index": 132
+  },
+  {
+    "title": "Fachsprache - Nominalstil",
+    "description": "Nominal style.",
+    "level": "C1",
+    "category": "nominalization",
+    "question": "\"Weil der Motor überhitzt\" → \"Wegen ___ des Motors\"",
+    "options": [
+      "überhitzen",
+      "Überhitzung",
+      "der Überhitzung",
+      "überheizt"
+    ],
+    "correct_answer": "der Überhitzung",
+    "explanation": "Nominal style: wegen der Überhitzung.",
+    "order_index": 133
+  },
+  {
+    "title": "Mehrfache Nebensätze",
+    "description": "Multiple nested clauses.",
+    "level": "C1",
+    "category": "complex_clauses",
+    "question": "Choose the grammatically correct sentence:",
+    "options": [
+      "Obwohl er müde war, ging er trotzdem ins Kino.",
+      "Er ist ins Kino gegangen obwohl müde war.",
+      "Obwohl er müde ist war, ist er gegangen.",
+      "Trotzdem er müde war, ging er ins Kino."
+    ],
+    "correct_answer": "Obwohl er müde war, ging er trotzdem ins Kino.",
+    "explanation": "\"Obwohl\" clause (verb at end) + main clause.",
+    "order_index": 134
+  },
+  {
+    "title": "Irreale Wünsche - Konjunktiv II",
+    "description": "Irreal wish.",
+    "level": "C1",
+    "category": "konjunktiv_ii",
+    "question": "Wenn ich doch mehr Zeit ___!",
+    "options": [
+      "habe",
+      "hätte",
+      "hatte",
+      "haben würde"
+    ],
+    "correct_answer": "hätte",
+    "explanation": "Irreal wish with Konjunktiv II.",
+    "order_index": 135
+  },
+  {
+    "title": "Goethe-Prüfungstyp - Textverständnis",
+    "description": "Same meaning recognition.",
+    "level": "B1",
+    "category": "exam_style",
+    "question": "Welcher Satz hat die gleiche Bedeutung? (Obwohl das Wetter schlecht war...)",
+    "options": [
+      "Trotz des schlechten Wetters...",
+      "Wegen des schlechten Wetters...",
+      "Die Veranstaltung war schlecht besucht...",
+      "Das Wetter war schlecht, deshalb..."
+    ],
+    "correct_answer": "Trotz des schlechten Wetters...",
+    "explanation": "\"Trotz\" + Genitiv = \"obwohl\".",
+    "order_index": 136
+  },
+  {
+    "title": "TELC-Prüfungstyp - Grammatik",
+    "description": "Complete the sentence correctly.",
+    "level": "B2",
+    "category": "exam_style",
+    "question": "Es ist wichtig, dass die Bürger ___ werden. (informieren)",
+    "options": [
+      "informieren",
+      "informiert",
+      "informierende",
+      "Information"
+    ],
+    "correct_answer": "informiert",
+    "explanation": "Passive: informiert (Partizip II).",
+    "order_index": 137
+  },
+  {
+    "title": "TELC-Prüfungstyp - Wortschatz",
+    "description": "Correct word in context.",
+    "level": "C1",
+    "category": "exam_style",
+    "question": "Die ___ der wirtschaftlichen Lage ist besorgniserregend.",
+    "options": [
+      "Entwicklung",
+      "Entwickeln",
+      "entwickelt",
+      "Entwickelung"
+    ],
+    "correct_answer": "Entwicklung",
+    "explanation": "Nominalization: die Entwicklung.",
+    "order_index": 138
+  },
+  {
+    "title": "Goethe-Prüfungstyp - Lesen",
+    "description": "Find the correct match.",
+    "level": "A2",
+    "category": "exam_style",
+    "question": "\"Ich möchte ein Hotelzimmer reservieren.\"",
+    "options": [
+      "Im Restaurant",
+      "Im Hotel",
+      "Im Krankenhaus",
+      "Im Museum"
+    ],
+    "correct_answer": "Im Hotel",
+    "explanation": "Zimmer reservieren = hotel.",
+    "order_index": 139
+  }
+]

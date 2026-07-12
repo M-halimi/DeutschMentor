@@ -1,0 +1,4685 @@
+{
+  "mockExams": [
+    {
+      "title": "Goethe A1 Lesen Mock Exam 1",
+      "examType": "goethe",
+      "level": "A1",
+      "module": "lesen",
+      "description": "Dieser Modelltest bereitet auf das Goethe-Zertifikat A1 Lesen vor. Drei Teile mit kurzen Texten, Anzeigen und Schildern aus dem Alltag.",
+      "tasks": [
+        {
+          "taskNumber": 1,
+          "instructions": "Lesen Sie die Situationen 1-5 und die Anzeigen A-G. Welche Anzeige passt zu welcher Situation?",
+          "text": "Situationen:\n1. Sie moechten Deutsch lernen.\n2. Sie suchen eine Wohnung.\n3. Sie moechten einen Arzttermin.\n4. Sie brauchen ein neues Handy.\n5. Sie suchen einen Job.\n\nAnzeigen:\nA. Sprachschule Berlin Kurse fuer Anfaenger und Fortgeschrittene.\nB. Praxis Dr. Mueller Terminvereinbarung unter 030-123456.\nC. 2-Zimmer-Wohnung ab 1. Maerz zu vermieten.\nD. Elektronik-Shop Handys, Laptops & Zubehoer.\nE. Supermarkt Aldi geoeffnet Mo-Sa 8-20 Uhr.\nF. Stellenanzeige: Verkaeufer/in gesucht.\nG. Restaurant Zum Italiener heute Mittagstisch ab 8 EUR.",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "zuordnung",
+              "question": "Situation 1",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 2,
+              "type": "zuordnung",
+              "question": "Situation 2",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "C"
+            },
+            {
+              "questionNumber": 3,
+              "type": "zuordnung",
+              "question": "Situation 3",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 4,
+              "type": "zuordnung",
+              "question": "Situation 4",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "D"
+            },
+            {
+              "questionNumber": 5,
+              "type": "zuordnung",
+              "question": "Situation 5",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "F"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 2,
+          "instructions": "Lesen Sie den Text. Sind die Aussagen 1-5 richtig oder falsch?",
+          "text": "Hallo, ich heisse Anna und komme aus Polen. Ich wohne seit zwei Jahren in Berlin. Ich arbeite in einem Krankenhaus als Krankenschwester. Ich wohne in einer kleinen Wohnung in Kreuzberg. Am Wochenende gehe ich gern spazieren oder treffe Freunde. Ich mag Berlin, weil die Stadt sehr bunt und lebendig ist.",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "richtig_falsch",
+              "question": "Anna kommt aus Deutschland.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 2,
+              "type": "richtig_falsch",
+              "question": "Anna wohnt seit zwei Jahren in Berlin.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 3,
+              "type": "richtig_falsch",
+              "question": "Anna arbeitet in einer Schule.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 4,
+              "type": "richtig_falsch",
+              "question": "Anna wohnt in einer grossen Wohnung.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 5,
+              "type": "richtig_falsch",
+              "question": "Anna geht am Wochenende gern spazieren.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 3,
+          "instructions": "Lesen Sie die E-Mail. Waehlen Sie A, B oder C.",
+          "text": "Betreff: Willkommen im Sprachkurs!\n\nLiebe Frau Schmidt,\n\nherzlich willkommen in Ihrem Deutschkurs A1. Der Kurs beginnt am 15. Maerz um 9:00 Uhr im Raum 204. Bitte bringen Sie ein Heft, einen Stift und das Lehrbuch \"Menschen A1\" mit. Der Kurs kostet 180 Euro. Sie koennen bar oder mit Karte bezahlen.\n\nMit freundlichen Gruessen\nThomas Weber\nKursleitung",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Wann beginnt der Kurs?",
+              "options": [
+                "A. Am 15. Maerz",
+                "B. Am 15. Mai",
+                "C. Am 5. Maerz"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Wie viel kostet der Kurs?",
+              "options": [
+                "A. 80 Euro",
+                "B. 180 Euro",
+                "C. 280 Euro"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 3,
+              "type": "multiple_choice",
+              "question": "Was muessen die Teilnehmer mitbringen?",
+              "options": [
+                "A. Einen Laptop",
+                "B. Ein Heft, Stift und Lehrbuch",
+                "C. Ein Woerterbuch"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 4,
+              "type": "multiple_choice",
+              "question": "In welchem Raum findet der Kurs statt?",
+              "options": [
+                "A. Raum 204",
+                "B. Raum 402",
+                "C. Raum 240"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 5,
+              "type": "multiple_choice",
+              "question": "Wer ist Thomas Weber?",
+              "options": [
+                "A. Ein Teilnehmer",
+                "B. Der Kursleiter",
+                "C. Ein Lehrer aus Muenchen"
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        }
+      ],
+      "totalPoints": 15,
+      "passThreshold": 60,
+      "timeMinutes": 25,
+      "rubric": {
+        "criteria": [
+          {
+            "name": "Inhalt",
+            "description": "Wurden alle Aufgaben bearbeitet?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Leseverstehen",
+            "description": "Wurden die Texte richtig verstanden?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Aufgabenverstaendnis",
+            "description": "Wurden die Aufgaben korrekt umgesetzt?",
+            "maxPoints": 5
+          }
+        ]
+      },
+      "goetheStyleNotes": "Orientiert sich am Goethe-Zertifikat A1: Lesen (3 Teile, 25 Minuten).",
+      "tips": [
+        "Lesen Sie zuerst die Aufgabenstellung genau.",
+        "Ueberfliegen Sie den Text vor den Fragen.",
+        "Markieren Sie Schluesselwoerter im Text."
+      ]
+    },
+    {
+      "title": "Goethe A1 Lesen Mock Exam 2",
+      "examType": "goethe",
+      "level": "A1",
+      "module": "lesen",
+      "description": "Zweiter Modelltest mit Fokus auf Alltagstexte, oeffentliche Hinweise und einfache Korrespondenz.",
+      "tasks": [
+        {
+          "taskNumber": 1,
+          "instructions": "Wo sehen Sie diese Schilder? Ordnen Sie die Schilder 1-5 den Orten A-G zu.",
+          "text": "Schilder:\n1. Eintritt frei\n2. Ausgang\n3. Bitte nicht rauchen\n4. Geoeffnet von 9-18 Uhr\n5. Parken verboten\n\nOrte:\nA. In einem Museum B. An einer Tuer C. In einem Restaurant D. Auf der Strasse E. Vor einem Geschaeft F. Im Krankenhaus G. In der Bibliothek",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "zuordnung",
+              "question": "Schild 1",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 2,
+              "type": "zuordnung",
+              "question": "Schild 2",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 3,
+              "type": "zuordnung",
+              "question": "Schild 3",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "C"
+            },
+            {
+              "questionNumber": 4,
+              "type": "zuordnung",
+              "question": "Schild 4",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "E"
+            },
+            {
+              "questionNumber": 5,
+              "type": "zuordnung",
+              "question": "Schild 5",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "D"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 2,
+          "instructions": "Lesen Sie den Text. Sind die Aussagen richtig oder falsch?",
+          "text": "Liebe Lena,\n\nwie geht es dir? Mir geht es gut. Ich bin jetzt in Muenchen. Die Stadt ist sehr schoen. Ich wohne in einem Hotel in der Innenstadt. Morgen besuche ich das Deutsche Museum. Am Abend esse ich im Hofbraeuhaus. Das Wetter ist sonnig und warm.\n\nViele Gruesse\nMaria",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "richtig_falsch",
+              "question": "Maria ist in Berlin.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 2,
+              "type": "richtig_falsch",
+              "question": "Maria wohnt in einem Hotel.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 3,
+              "type": "richtig_falsch",
+              "question": "Maria besucht morgen den Zoo.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 4,
+              "type": "richtig_falsch",
+              "question": "Das Wetter ist schlecht.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 5,
+              "type": "richtig_falsch",
+              "question": "Maria schreibt eine Postkarte an Lena.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 3,
+          "instructions": "Lesen Sie die Kurztexte 1-3 und beantworten Sie die Fragen.",
+          "text": "Text 1: Fruehlingsfest am Samstag, 20. April, ab 14 Uhr im Stadtpark. Musik, Essen und Spiele fuer Kinder. Eintritt frei.\nText 2: Zimmermaedchen gesucht! Hotel Sonne sucht Reinigungskraft. Arbeitszeit 9-13 Uhr. 12 EUR pro Stunde. Tel: 089-1234567.\nText 3: Ihre Bestellung ist angekommen. Abholung ab Montag im Geschaeft. Oeffnungszeiten Mo-Fr 10-19 Uhr. MediaMarkt-Team.",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Wann ist das Fruehlingsfest?",
+              "options": [
+                "A. Am Sonntag",
+                "B. Am Samstag, 20. April",
+                "C. Am 20. Mai"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Was wird im Hotel Sonne angeboten?",
+              "options": [
+                "A. Stelle als Koch",
+                "B. Stelle als Zimmermaedchen",
+                "C. Stelle als Rezeptionist"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 3,
+              "type": "multiple_choice",
+              "question": "Wo kann Herr Schulz seine Bestellung abholen?",
+              "options": [
+                "A. Im Hotel Sonne",
+                "B. Im MediaMarkt",
+                "C. Im Stadtpark"
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        }
+      ],
+      "totalPoints": 15,
+      "passThreshold": 60,
+      "timeMinutes": 25,
+      "rubric": {
+        "criteria": [
+          {
+            "name": "Inhalt",
+            "description": "Wurden alle Aufgaben bearbeitet?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Leseverstehen",
+            "description": "Wurden die Texte richtig verstanden?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Aufgabenverstaendnis",
+            "description": "Wurden die Aufgaben korrekt umgesetzt?",
+            "maxPoints": 5
+          }
+        ]
+      },
+      "goetheStyleNotes": "Orientiert sich am Goethe-Zertifikat A1: Lesen (3 Teile, 25 Minuten).",
+      "tips": [
+        "Achten Sie auf Signalwoerter wie nicht, kein, aber.",
+        "Bei Richtig/Falsch: Nur der Text zaehlt.",
+        "Lesen Sie alle Optionen vor der Antwort."
+      ]
+    },
+    {
+      "title": "Goethe A1 Hoeren Mock Exam 1",
+      "examType": "goethe",
+      "level": "A1",
+      "module": "hoeren",
+      "description": "Modelltest fuer das Goethe-Zertifikat A1 Hoeren. Uebt das Verstehen von Durchsagen, kurzen Gespraechen und Alltagsdialogen.",
+      "tasks": [
+        {
+          "taskNumber": 1,
+          "instructions": "Sie hoeren fuenf kurze Durchsagen. Waehlen Sie A, B oder C.",
+          "text": "Durchsage 1: \"Achtung, Bahnsteig 3, der Zug nach Muenchen faehrt um 14:30 Uhr ab.\"\nDurchsage 2: \"Liebe Kunden, unser Geschaeft schliesst heute um 18:00 Uhr.\"\nDurchsage 3: \"Bitte leise sein. Hier ist die Bibliothek.\"\nDurchsage 4: \"Die naechste U-Bahn kommt in 5 Minuten.\"\nDurchsage 5: \"Tisch Nummer 7, Ihre Bestellung ist fertig.\"",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Wohin faehrt der Zug?",
+              "options": [
+                "A. Nach Berlin",
+                "B. Nach Muenchen",
+                "C. Nach Hamburg"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Wann schliesst das Geschaeft?",
+              "options": [
+                "A. Um 16:00",
+                "B. Um 17:00",
+                "C. Um 18:00"
+              ],
+              "correctAnswer": "C"
+            },
+            {
+              "questionNumber": 3,
+              "type": "multiple_choice",
+              "question": "Wo ist diese Durchsage zu hoeren?",
+              "options": [
+                "A. Im Supermarkt",
+                "B. In der Bibliothek",
+                "C. Im Schwimmbad"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 4,
+              "type": "multiple_choice",
+              "question": "Wie lange bis zur naechsten U-Bahn?",
+              "options": [
+                "A. 2 Minuten",
+                "B. 5 Minuten",
+                "C. 10 Minuten"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 5,
+              "type": "multiple_choice",
+              "question": "Was ist fertig?",
+              "options": [
+                "A. Die Waesche",
+                "B. Die Bestellung",
+                "C. Die Arbeit"
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 2,
+          "instructions": "Sie hoeren ein Gespraech am Fahrkartenschalter. Sind die Aussagen richtig oder falsch?",
+          "text": "A: \"Guten Tag, ich haette gern ein Ticket nach Frankfurt.\"\nB: \"Einzelfahrt oder Hin- und Rueckfahrt?\"\nA: \"Hin- und Rueckfahrt, bitte.\"\nB: \"Das macht 45 Euro.\"\nA: \"Hier ist mein Studentenausweis. Gibt es Ermassigung?\"\nB: \"Ja, dann kostet es 30 Euro.\"\nA: \"OK, ich zahle mit Karte.\"",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "richtig_falsch",
+              "question": "Die Person moechte nach Berlin fahren.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 2,
+              "type": "richtig_falsch",
+              "question": "Die Person kauft eine Hin- und Rueckfahrkarte.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 3,
+              "type": "richtig_falsch",
+              "question": "Der normale Preis ist 45 Euro.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 4,
+              "type": "richtig_falsch",
+              "question": "Die Person hat keinen Studentenausweis.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 5,
+              "type": "richtig_falsch",
+              "question": "Die Person bezahlt bar.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 3,
+          "instructions": "Sie hoeren fuenf Aussagen. Was ist das Thema? A, B oder C.",
+          "text": "1. \"Ich habe Kopfschmerzen und Fieber.\"\n2. \"Ich moechte ein Zimmer mit Bad und Balkon.\"\n3. \"Mein Flug geht um 6 Uhr morgens.\"\n4. \"Ich haette gern einen Kaffee und ein Stueck Kuchen.\"\n5. \"Ich brauche ein Rezept fuer die Erkaeltung.\"",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Aussage 1",
+              "options": [
+                "A. Einkaufen",
+                "B. Krankheit",
+                "C. Reisen"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Aussage 2",
+              "options": [
+                "A. Wohnungssuche",
+                "B. Urlaub",
+                "C. Arbeit"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 3,
+              "type": "multiple_choice",
+              "question": "Aussage 3",
+              "options": [
+                "A. Hotel",
+                "B. Flughafen",
+                "C. Restaurant"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 4,
+              "type": "multiple_choice",
+              "question": "Aussage 4",
+              "options": [
+                "A. Im Cafe",
+                "B. Im Kino",
+                "C. Im Museum"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 5,
+              "type": "multiple_choice",
+              "question": "Aussage 5",
+              "options": [
+                "A. Beim Arzt",
+                "B. In der Apotheke",
+                "C. Im Supermarkt"
+              ],
+              "correctAnswer": "A"
+            }
+          ],
+          "maxPoints": 5
+        }
+      ],
+      "totalPoints": 15,
+      "passThreshold": 60,
+      "timeMinutes": 20,
+      "rubric": {
+        "criteria": [
+          {
+            "name": "Inhalt",
+            "description": "Wurden alle Aufgaben bearbeitet?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Hoerverstehen",
+            "description": "Wurden die Hoertexte richtig verstanden?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Detailverstaendnis",
+            "description": "Wurden Details korrekt erkannt?",
+            "maxPoints": 5
+          }
+        ]
+      },
+      "goetheStyleNotes": "Orientiert sich am Goethe-Zertifikat A1: Hoeren (3 Teile, 20 Minuten).",
+      "tips": [
+        "Lesen Sie die Fragen vor dem Hoeren.",
+        "Konzentrieren Sie sich auf Zahlen, Namen und Orte.",
+        "Keine Panik bei Unverstaendnis - der Kontext hilft."
+      ]
+    },
+    {
+      "title": "Goethe A1 Hoeren Mock Exam 2",
+      "examType": "goethe",
+      "level": "A1",
+      "module": "hoeren",
+      "description": "Zweiter Modelltest mit Telefonansagen und Alltagsgespraechen.",
+      "tasks": [
+        {
+          "taskNumber": 1,
+          "instructions": "Sie hoeren fuenf Ansagen auf einem Telefonbeantworter. Welche Information ist richtig?",
+          "text": "1. \"Hallo Herr Meier, hier ist die Praxis Dr. Schneider. Termin morgen um 10 Uhr faellt aus. Bitte rueckrufen.\"\n2. \"Hier ist Anna. Ich komme spaeter zur Party. Erst um 21 Uhr.\"\n3. \"Paket fuer Frau Schmidt in der Filiale Hauptstrasse 12 bereit. Abholung ab 15 Uhr.\"\n4. \"ICE 728 nach Hamburg faehrt heute von Gleis 7 ab.\"\n5. \"Kino Union: Film beginnt um 20:15 Uhr. Karten an der Abendkasse.\"",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Warum ruft die Praxis an?",
+              "options": [
+                "A. Terminbestaetigung",
+                "B. Terminabsage",
+                "C. Rechnungserinnerung"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Wann kommt Anna?",
+              "options": [
+                "A. Um 19 Uhr",
+                "B. Um 20 Uhr",
+                "C. Um 21 Uhr"
+              ],
+              "correctAnswer": "C"
+            },
+            {
+              "questionNumber": 3,
+              "type": "multiple_choice",
+              "question": "Wo kann Frau Schmidt das Paket abholen?",
+              "options": [
+                "A. Hauptstrasse 12",
+                "B. Postfiliale Bahnhof",
+                "C. Zu Hause"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 4,
+              "type": "multiple_choice",
+              "question": "Von welchem Gleis faehrt der ICE?",
+              "options": [
+                "A. Gleis 5",
+                "B. Gleis 7",
+                "C. Gleis 9"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 5,
+              "type": "multiple_choice",
+              "question": "Wann beginnt der Film?",
+              "options": [
+                "A. 20:15 Uhr",
+                "B. 19:45 Uhr",
+                "C. 21:00 Uhr"
+              ],
+              "correctAnswer": "A"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 2,
+          "instructions": "Sie hoeren ein Gespraech im Restaurant. Richtig oder falsch?",
+          "text": "Kellner: \"Guten Abend, haben Sie schon gewaehlt?\"\nGast: \"Ja, Tomatensuppe und dann Schnitzel mit Pommes.\"\nKellner: \"Als Getraenk?\"\nGast: \"Mineralwasser, bitte.\"\nKellner: \"Moechten Sie auch einen Nachtisch?\"\nGast: \"Nein, danke.\"",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "richtig_falsch",
+              "question": "Der Gast bestellt zuerst Tomatensuppe.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 2,
+              "type": "richtig_falsch",
+              "question": "Der Gast moechte Schnitzel mit Reis.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 3,
+              "type": "richtig_falsch",
+              "question": "Der Gast trinkt Mineralwasser.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 4,
+              "type": "richtig_falsch",
+              "question": "Der Gast moechte einen Nachtisch.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 5,
+              "type": "richtig_falsch",
+              "question": "Der Kellner bringt zuerst das Schnitzel.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 3,
+          "instructions": "Sie hoeren fuenf Personen ueber ihre Hobbys. Welches Hobby passt?",
+          "text": "1. \"Ich gehe jeden Samstag ins Schwimmbad.\"\n2. \"Ich lese gern Krimis und Romane.\"\n3. \"Ich spiele Gitarre in einer Band.\"\n4. \"Ich koche gern italienische Gerichte.\"\n5. \"Ich mache jeden Morgen Yoga.\"",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Person 1",
+              "options": [
+                "A. Schwimmen",
+                "B. Lesen",
+                "C. Kochen"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Person 2",
+              "options": [
+                "A. Musik",
+                "B. Lesen",
+                "C. Sport"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 3,
+              "type": "multiple_choice",
+              "question": "Person 3",
+              "options": [
+                "A. Kochen",
+                "B. Reisen",
+                "C. Musik"
+              ],
+              "correctAnswer": "C"
+            },
+            {
+              "questionNumber": 4,
+              "type": "multiple_choice",
+              "question": "Person 4",
+              "options": [
+                "A. Backen",
+                "B. Kochen",
+                "C. Malen"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 5,
+              "type": "multiple_choice",
+              "question": "Person 5",
+              "options": [
+                "A. Yoga",
+                "B. Joggen",
+                "C. Tanzen"
+              ],
+              "correctAnswer": "A"
+            }
+          ],
+          "maxPoints": 5
+        }
+      ],
+      "totalPoints": 15,
+      "passThreshold": 60,
+      "timeMinutes": 20,
+      "rubric": {
+        "criteria": [
+          {
+            "name": "Inhalt",
+            "description": "Wurden alle Aufgaben bearbeitet?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Hoerverstehen",
+            "description": "Wurden die Hoertexte richtig verstanden?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Detailverstaendnis",
+            "description": "Wurden Details korrekt erkannt?",
+            "maxPoints": 5
+          }
+        ]
+      },
+      "goetheStyleNotes": "Orientiert sich am Goethe-Zertifikat A1: Hoeren (3 Teile, 20 Minuten).",
+      "tips": [
+        "Achten Sie auf Zahlen und Uhrzeiten.",
+        "Lesen Sie die Antworten vor dem Hoeren.",
+        "Notieren Sie Schluesselwoerter."
+      ]
+    },
+    {
+      "title": "Goethe A1 Schreiben Mock Exam 1",
+      "examType": "goethe",
+      "level": "A1",
+      "module": "schreiben",
+      "description": "Modelltest fuer das Goethe-Zertifikat A1 Schreiben. Formular ausfuellen und kurze Nachricht schreiben.",
+      "tasks": [
+        {
+          "taskNumber": 1,
+          "instructions": "Sie moechten einen Deutschkurs besuchen. Fuellen Sie das Anmeldeformular aus.",
+          "text": "Anmeldeformular Sprachschule Berlin\n\nName: _________\nVorname: _________\nAdresse: _________\nTelefon: _________\nE-Mail: _________\nSprachniveau: _________\nKursbeginn: _________",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Welche Informationen muessen Sie angeben?",
+              "options": [
+                "A. Name, Adresse, Telefon, E-Mail, Sprachniveau, Kursbeginn",
+                "B. Nur Name und Adresse",
+                "C. Name, Geburtsdatum, Beruf"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Was ist ein passendes Sprachniveau fuer Anfaenger?",
+              "options": [
+                "A. A1",
+                "B. C1",
+                "C. B2"
+              ],
+              "correctAnswer": "A"
+            }
+          ],
+          "maxPoints": 4
+        },
+        {
+          "taskNumber": 2,
+          "instructions": "Ihr Freund Max hat Geburtstag. Schreiben Sie eine kurze Glueckwunschkarte (20-30 Woerter).",
+          "text": "Beispiel: Lieber Max, herzlichen Glueckwunsch zum Geburtstag! Ich schenke dir ein Buch. Was machst du heute?",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Was ist der wichtigste Teil einer Geburtstagskarte?",
+              "options": [
+                "A. Die Glueckwuensche",
+                "B. Das Datum",
+                "C. Die Unterschrift"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Wie lang sollte die Nachricht sein?",
+              "options": [
+                "A. 5-10 Woerter",
+                "B. 20-30 Woerter",
+                "C. 50-60 Woerter"
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 6
+        }
+      ],
+      "totalPoints": 10,
+      "passThreshold": 60,
+      "timeMinutes": 20,
+      "rubric": {
+        "criteria": [
+          {
+            "name": "Inhalt",
+            "description": "Wurden alle Punkte bearbeitet?",
+            "maxPoints": 4
+          },
+          {
+            "name": "Kommunikative Gestaltung",
+            "description": "Ist der Text verstaendlich?",
+            "maxPoints": 3
+          },
+          {
+            "name": "Formale Richtigkeit",
+            "description": "Grammatik und Rechtschreibung?",
+            "maxPoints": 3
+          }
+        ]
+      },
+      "goetheStyleNotes": "Orientiert sich am Goethe A1: Schreiben (2 Teile, 20 Minuten).",
+      "tips": [
+        "Lesen Sie die Aufgabenstellung genau.",
+        "Schreiben Sie nicht zu wenig.",
+        "Kontrollieren Sie Rechtschreibung und Grammatik."
+      ]
+    },
+    {
+      "title": "Goethe A1 Schreiben Mock Exam 2",
+      "examType": "goethe",
+      "level": "A1",
+      "module": "schreiben",
+      "description": "Zweiter Modelltest mit Formular und E-Mail.",
+      "tasks": [
+        {
+          "taskNumber": 1,
+          "instructions": "Sie melden sich fuer einen Sportkurs an. Fuellen Sie das Formular aus.",
+          "text": "Anmeldung Sportkurs Fit im Park\n\nVorname: _________\nNachname: _________\nGeburtsdatum: _________\nStrasse: _________\nPLZ, Ort: _________\nKurs: Yoga / Pilates / Zumba / Joggen\nZahlungsart: Bar / Ueberweisung",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Welche Angabe wird nicht verlangt?",
+              "options": [
+                "A. Geburtsdatum",
+                "B. Beruf",
+                "C. Adresse"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Welche Kurse stehen zur Auswahl?",
+              "options": [
+                "A. Yoga, Pilates, Zumba, Joggen",
+                "B. Schwimmen, Tennis, Fussball",
+                "C. Malen, Singen, Tanzen"
+              ],
+              "correctAnswer": "A"
+            }
+          ],
+          "maxPoints": 4
+        },
+        {
+          "taskNumber": 2,
+          "instructions": "Sie haben einen Arzttermin vergessen. Schreiben Sie eine E-Mail an die Praxis (20-30 Woerter).",
+          "text": "Beispiel: Sehr geehrte Damen und Herren, ich habe meinen Termin am Montag vergessen. Es tut mir leid. Haben Sie am Freitag um 10 Uhr einen Termin frei?",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Wie sollten Sie die Praxis anreden?",
+              "options": [
+                "A. Hallo",
+                "B. Sehr geehrte Damen und Herren",
+                "C. Liebe Praxis"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Was sollten Sie nicht vergessen?",
+              "options": [
+                "A. Eine Entschuldigung",
+                "B. Eine Beschwerde",
+                "C. Eine Rechnung"
+              ],
+              "correctAnswer": "A"
+            }
+          ],
+          "maxPoints": 6
+        }
+      ],
+      "totalPoints": 10,
+      "passThreshold": 60,
+      "timeMinutes": 20,
+      "rubric": {
+        "criteria": [
+          {
+            "name": "Inhalt",
+            "description": "Wurden alle Punkte bearbeitet?",
+            "maxPoints": 4
+          },
+          {
+            "name": "Kommunikative Gestaltung",
+            "description": "Ist der Text verstaendlich?",
+            "maxPoints": 3
+          },
+          {
+            "name": "Formale Richtigkeit",
+            "description": "Grammatik und Rechtschreibung?",
+            "maxPoints": 3
+          }
+        ]
+      },
+      "goetheStyleNotes": "Orientiert sich am Goethe A1: Schreiben (2 Teile, 20 Minuten).",
+      "tips": [
+        "Achten Sie auf formelle Anrede in E-Mails.",
+        "Fuellen Sie alle Formularfelder aus.",
+        "Schreiben Sie leserlich."
+      ]
+    },
+    {
+      "title": "Goethe A1 Sprechen Mock Exam",
+      "examType": "goethe",
+      "level": "A1",
+      "module": "sprechen",
+      "description": "Modelltest fuer Goethe A1 Sprechen. Sich vorstellen, Fragen stellen und beantworten, Bitten formulieren.",
+      "tasks": [
+        {
+          "taskNumber": 1,
+          "instructions": "Sich vorstellen: Name, Wohnort, Beruf, Hobbys (ca. 30 Sekunden).",
+          "text": "Beispiel: Guten Tag! Ich heisse Maria Schmidt. Ich wohne in Koeln. Ich bin Studentin. In meiner Freizeit lese ich gern.",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Welche Informationen gehoeren zur Vorstellung?",
+              "options": [
+                "A. Name, Wohnort, Beruf, Hobbys",
+                "B. Nur den Namen",
+                "C. Lieblingstier"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Wie lange sollten Sie sprechen?",
+              "options": [
+                "A. 10 Sekunden",
+                "B. 30 Sekunden",
+                "C. 2 Minuten"
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 2,
+          "instructions": "Fragen stellen und antworten: Ihr Partner wohnt in Berlin und arbeitet als Arzt. Stellen Sie drei Fragen.",
+          "text": "Moegliche Fragen: Seit wann wohnen Sie in Berlin? Gefaellt es Ihnen? Was machen Sie in der Freizeit?",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Welche Frage passt zu \"Ich wohne in Berlin\"?",
+              "options": [
+                "A. Seit wann wohnen Sie da?",
+                "B. Wie viel kostet das?",
+                "C. Haben Sie Haustiere?"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Welche Frage passt nicht zum Thema Arbeit?",
+              "options": [
+                "A. Wo arbeiten Sie?",
+                "B. Moegen Sie Ihren Beruf?",
+                "C. Was ist Ihre Lieblingsfarbe?"
+              ],
+              "correctAnswer": "C"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 3,
+          "instructions": "Bitten formulieren: Im Cafe Kaffee bestellen, bezahlen, Toilette suchen.",
+          "text": "Beispiel: \"Ich haette gern einen Kaffee, bitte.\" / \"Die Rechnung, bitte.\" / \"Wo ist die Toilette?\"",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Wie bestellen Sie hoefflich?",
+              "options": [
+                "A. Kaffee!",
+                "B. Ich haette gern einen Kaffee, bitte.",
+                "C. Geben Sie mir Kaffee."
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Wie fragen Sie nach der Toilette?",
+              "options": [
+                "A. Wo ist Klo?",
+                "B. Toilette!",
+                "C. Entschuldigung, wo ist die Toilette?"
+              ],
+              "correctAnswer": "C"
+            }
+          ],
+          "maxPoints": 5
+        }
+      ],
+      "totalPoints": 15,
+      "passThreshold": 60,
+      "timeMinutes": 15,
+      "rubric": {
+        "criteria": [
+          {
+            "name": "Aussprache",
+            "description": "Ist die Aussprache verstaendlich?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Kommunikative Gestaltung",
+            "description": "Kann der Pruefling angemessen reagieren?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Formale Richtigkeit",
+            "description": "Sind die Saetze korrekt?",
+            "maxPoints": 5
+          }
+        ]
+      },
+      "goetheStyleNotes": "Orientiert sich am Goethe A1: Sprechen (3 Teile, 15 Minuten).",
+      "tips": [
+        "Ueben Sie die Selbstvorstellung taeglich.",
+        "Sprechen Sie langsam und deutlich.",
+        "Nachfragen ist erlaubt!"
+      ]
+    },
+    {
+      "title": "Goethe A2 Lesen Mock Exam",
+      "examType": "goethe",
+      "level": "A2",
+      "module": "lesen",
+      "description": "Modelltest fuer Goethe A2 Lesen mit E-Mails, Textverstaendnis und Anzeigen.",
+      "tasks": [
+        {
+          "taskNumber": 1,
+          "instructions": "Lesen Sie die E-Mails 1-5. Ordnen Sie die passenden Betreffzeilen A-H zu.",
+          "text": "E-Mails:\n1. Ihre Bewerbung ist eingegangen. Einladung zum Vorstellungsgespraech am 15. Mai.\n2. Ich kann leider nicht zum Training kommen. Bin krank.\n3. Hiermit kuendige ich mein Abo zum 30. Juni.\n4. Vielen Dank fuer das Geburtstagsgeschenk! Der Pullover gefaellt mir.\n5. Ihre Rechnung ueber 89,90 EUR ist bis 10. Mai faellig.\nBetreffe: A. Einladung Vorstellungsgespraech B. Trainingsabsage C. Danke fuer Geschenk D. Kuendigung Abo E. Zahlungserinnerung F. Urlaubsgruesse G. Paketankuendigung H. Terminbestaetigung",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "zuordnung",
+              "question": "E-Mail 1",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G",
+                "H"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 2,
+              "type": "zuordnung",
+              "question": "E-Mail 2",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G",
+                "H"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 3,
+              "type": "zuordnung",
+              "question": "E-Mail 3",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G",
+                "H"
+              ],
+              "correctAnswer": "D"
+            },
+            {
+              "questionNumber": 4,
+              "type": "zuordnung",
+              "question": "E-Mail 4",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G",
+                "H"
+              ],
+              "correctAnswer": "C"
+            },
+            {
+              "questionNumber": 5,
+              "type": "zuordnung",
+              "question": "E-Mail 5",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G",
+                "H"
+              ],
+              "correctAnswer": "E"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 2,
+          "instructions": "Lesen Sie den Text ueber Hamburg. Richtig oder falsch?",
+          "text": "Hamburg ist eine Stadt im Norden Deutschlands mit ca. 1,8 Mio. Einwohnern. Bekannt fuer den Hafen, den zweitgroessten Containerhafen Europas. Sehenswuerdigkeiten: Speicherstadt, Rathaus, Elbphilharmonie. Das Wetter ist oft windig und regnerisch. Beste Reisezeit: Mai bis September.",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "richtig_falsch",
+              "question": "Hamburg liegt im Sueden Deutschlands.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 2,
+              "type": "richtig_falsch",
+              "question": "Der Hamburger Hafen ist der groesste Containerhafen Europas.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 3,
+              "type": "richtig_falsch",
+              "question": "Die Elbphilharmonie ist in Hamburg.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 4,
+              "type": "richtig_falsch",
+              "question": "In Hamburg regnet es selten.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 5,
+              "type": "richtig_falsch",
+              "question": "Beste Reisezeit ist Mai bis September.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 3,
+          "instructions": "Lesen Sie die Anzeigen und beantworten Sie die Fragen.",
+          "text": "Anzeige 1: Italienisch-Intensivkurs 4 Wochen, 2x pro Woche, 180 EUR inkl. Material. Start 10. Juni.\nAnzeige 2: Gebrauchtes Damenrad, 28 Zoll, 3 Jahre, guter Zustand. 120 EUR VB. Tel: 0176-12345678.\nAnzeige 3: Studentin sucht 1-Zimmer-Wohnung in Stuttgart bis 500 EUR warm.",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Wie lange dauert der Italienischkurs?",
+              "options": [
+                "A. 2 Wochen",
+                "B. 4 Wochen",
+                "C. 6 Wochen"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Was ist im Kurspreis enthalten?",
+              "options": [
+                "A. Unterkunft",
+                "B. Lernmaterial",
+                "C. Verpflegung"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 3,
+              "type": "multiple_choice",
+              "question": "Wie viel kostet das Fahrrad?",
+              "options": [
+                "A. 100 EUR",
+                "B. 120 EUR",
+                "C. 150 EUR"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 4,
+              "type": "multiple_choice",
+              "question": "Was bedeutet VB?",
+              "options": [
+                "A. Verkauft",
+                "B. Verhandlungsbasis",
+                "C. Viel billiger"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 5,
+              "type": "multiple_choice",
+              "question": "Welche Wohnung sucht die Studentin?",
+              "options": [
+                "A. 2-Zimmer",
+                "B. 1-Zimmer",
+                "C. Einfamilienhaus"
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        }
+      ],
+      "totalPoints": 15,
+      "passThreshold": 60,
+      "timeMinutes": 30,
+      "rubric": {
+        "criteria": [
+          {
+            "name": "Inhalt",
+            "description": "Wurden alle Aufgaben bearbeitet?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Leseverstehen",
+            "description": "Texte richtig verstanden?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Detailverstaendnis",
+            "description": "Details korrekt erfasst?",
+            "maxPoints": 5
+          }
+        ]
+      },
+      "goetheStyleNotes": "Orientiert sich am Goethe A2: Lesen (3 Teile, 30 Minuten).",
+      "tips": [
+        "Lesen Sie zuerst die Fragen, dann den Text.",
+        "Achten Sie auf Signalwoerter.",
+        "Bei unbekannten Woertern: Kontext hilft."
+      ]
+    },
+    {
+      "title": "Goethe A2 Hoeren Mock Exam",
+      "examType": "goethe",
+      "level": "A2",
+      "module": "hoeren",
+      "description": "Modelltest fuer Goethe A2 Hoeren mit Radiodurchsagen, Telefongespraechen und Alltagsdialogen.",
+      "tasks": [
+        {
+          "taskNumber": 1,
+          "instructions": "Sie hoeren fuenf Radiodurchsagen. Waehlen Sie A, B oder C.",
+          "text": "1. A3 zwischen Koeln und Frankfurt: Stau von 10 km.\n2. Wetter morgen: bewolkt mit Regen, 12-15 Grad.\n3. Stadtmuseum: Ausstellung ueber Geschichte Berlins.\n4. Zug nach Stuttgart faellt aus. Grund: Personen im Gleis.\n5. Supermaerkte sonntags in Deutschland geschlossen.",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Wo gibt es Stau?",
+              "options": [
+                "A. A3",
+                "B. A1",
+                "C. A9"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Wetter morgen?",
+              "options": [
+                "A. Sonnig",
+                "B. Bewoelkt mit Regen",
+                "C. Schnee"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 3,
+              "type": "multiple_choice",
+              "question": "Was ist im Stadtmuseum?",
+              "options": [
+                "A. Konzert",
+                "B. Ausstellung",
+                "C. Filmabend"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 4,
+              "type": "multiple_choice",
+              "question": "Warum Zugausfall?",
+              "options": [
+                "A. Streik",
+                "B. Personen im Gleis",
+                "C. Schnee"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 5,
+              "type": "multiple_choice",
+              "question": "Was ist sonntags geschlossen?",
+              "options": [
+                "A. Restaurants",
+                "B. Supermaerkte",
+                "C. Apotheken"
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 2,
+          "instructions": "Telefongespraech Hotelreservierung. Richtig oder falsch?",
+          "text": "Mitarbeiter: \"Hotel Sonne, guten Tag.\"\nFrau Klein: \"Ich moechte ein Zimmer reservieren.\"\nM: \"Von wann bis wann?\"\nFK: \"Vom 3. bis 7. August.\"\nM: \"Einzel- oder Doppelzimmer?\"\nFK: \"Einzelzimmer mit Bad.\"\nM: \"85 Euro pro Nacht. Fruehstueck inklusive.\"\nFK: \"Gut, ich reserviere.\"",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "richtig_falsch",
+              "question": "Frau Klein ruft im Hotel Sonne an.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 2,
+              "type": "richtig_falsch",
+              "question": "Sie moechte ein Doppelzimmer.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 3,
+              "type": "richtig_falsch",
+              "question": "Das Zimmer kostet 85 Euro pro Nacht.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 4,
+              "type": "richtig_falsch",
+              "question": "Fruehstueck kostet extra.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 5,
+              "type": "richtig_falsch",
+              "question": "Reservierung vom 3. bis 7. August.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 3,
+          "instructions": "Fuenf Personen ueber ihre Tagesroutine. Was machen sie?",
+          "text": "1. \"Ich stehe um 6 Uhr auf und mache einen Spaziergang.\"\n2. \"In der Mittagspause esse ich in der Kantine.\"\n3. \"Nach der Arbeit gehe ich ins Fitnessstudio.\"\n4. \"Am Wochenende schlafe ich lange.\"\n5. \"Vor dem Schlafen lese ich ein Kapitel.\"",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Person 1 steht auf und...",
+              "options": [
+                "A. macht Spaziergang",
+                "B. fruehstueckt",
+                "C. geht joggen"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Person 2 isst...",
+              "options": [
+                "A. zu Hause",
+                "B. in der Kantine",
+                "C. im Restaurant"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 3,
+              "type": "multiple_choice",
+              "question": "Person 3 geht...",
+              "options": [
+                "A. schwimmen",
+                "B. ins Fitnessstudio",
+                "C. nach Hause"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 4,
+              "type": "multiple_choice",
+              "question": "Person 4 schlaft...",
+              "options": [
+                "A. wenig",
+                "B. lange",
+                "C. gar nicht"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 5,
+              "type": "multiple_choice",
+              "question": "Person 5 liest...",
+              "options": [
+                "A. Zeitung",
+                "B. ein Kapitel",
+                "C. E-Mails"
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        }
+      ],
+      "totalPoints": 15,
+      "passThreshold": 60,
+      "timeMinutes": 25,
+      "rubric": {
+        "criteria": [
+          {
+            "name": "Inhalt",
+            "description": "Aufgaben vollstaendig?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Hoerverstehen",
+            "description": "Hoertexte richtig verstanden?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Detailverstaendnis",
+            "description": "Details korrekt?",
+            "maxPoints": 5
+          }
+        ]
+      },
+      "goetheStyleNotes": "Orientiert sich am Goethe A2: Hoeren (3 Teile, ca. 25 Minuten).",
+      "tips": [
+        "Hoe ren Sie aktiv: Machen Sie Notizen.",
+        "Konzentrieren Sie sich auf Wer? Was? Wann? Wo?",
+        "Bei Zahlen: genau zuhoeren."
+      ]
+    },
+    {
+      "title": "Goethe A2 Schreiben Mock Exam",
+      "examType": "goethe",
+      "level": "A2",
+      "module": "schreiben",
+      "description": "Modelltest fuer Goethe A2 Schreiben. Private und formelle Nachricht.",
+      "tasks": [
+        {
+          "taskNumber": 1,
+          "instructions": "Sie machen Urlaub. Schreiben Sie Ihrer Freundin Lisa (ca. 40 Woerter): Wann/wohin, mit wem, Blumen giessen?",
+          "text": "Beispiel: Liebe Lisa, ich fahre von Montag bis Freitag nach Wien. Ich reise mit meiner Schwester. Kannst du bitte meine Blumen giessen? Danke!",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Welche Infos gehoeren in die E-Mail?",
+              "options": [
+                "A. Reiseziel, Begleitung, Bitte",
+                "B. Wetter, Hotel, Flugnummer",
+                "C. Lieblingsgericht, Hobbys"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Wie bitten Sie hoefflich um Hilfe?",
+              "options": [
+                "A. Giess meine Blumen!",
+                "B. Kannst du bitte meine Blumen giessen?",
+                "C. Du musst meine Blumen giessen."
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 2,
+          "instructions": "Sie muessen einen Sprachkurs absagen. Schreiben Sie eine formelle E-Mail (ca. 50 Woerter).",
+          "text": "Beispiel: Betreff: Kursabsage\nSehr geehrte Damen und Herren, leider kann ich am Deutschkurs ab 15. Maerz nicht teilnehmen. Ich bin krank. Kann ich auf Mai verschieben? Mit freundlichen Gruessen, [Name]",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Passender Betreff?",
+              "options": [
+                "A. Hallo",
+                "B. Kursabsage",
+                "C. Sprachschule"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Angemessener Gruss in formeller E-Mail?",
+              "options": [
+                "A. Liebe Gruesse",
+                "B. Mit freundlichen Gruessen",
+                "C. Tschuess"
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        }
+      ],
+      "totalPoints": 10,
+      "passThreshold": 60,
+      "timeMinutes": 30,
+      "rubric": {
+        "criteria": [
+          {
+            "name": "Inhalt",
+            "description": "Alle Punkte bearbeitet?",
+            "maxPoints": 4
+          },
+          {
+            "name": "Kommunikative Gestaltung",
+            "description": "Verstaendlich und angemessen?",
+            "maxPoints": 3
+          },
+          {
+            "name": "Formale Richtigkeit",
+            "description": "Grammatik, Rechtschreibung?",
+            "maxPoints": 3
+          }
+        ]
+      },
+      "goetheStyleNotes": "Orientiert sich am Goethe A2: Schreiben (2 Teile, 30 Minuten).",
+      "tips": [
+        "Planen Sie kurz vor dem Schreiben.",
+        "Einfache Saetze, aber Satzbau variieren.",
+        "Kontrollieren: Alle Punkte beantwortet?"
+      ]
+    },
+    {
+      "title": "Goethe A2 Sprechen Mock Exam",
+      "examType": "goethe",
+      "level": "A2",
+      "module": "sprechen",
+      "description": "Modelltest fuer Goethe A2 Sprechen. Vorstellung, Gespraech ueber Alltag, gemeinsame Planung.",
+      "tasks": [
+        {
+          "taskNumber": 1,
+          "instructions": "Sich vorstellen: Name, Herkunft, Familie, Spracherfahrung, Hobbys (ca. 1 Min.).",
+          "text": "Beispiel: Guten Morgen! Ich heisse Anna und komme aus Spanien. Ich wohne mit meinem Mann in Frankfurt. Ich lerne seit drei Monaten Deutsch.",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Wie lange sprechen?",
+              "options": [
+                "A. 30 Sekunden",
+                "B. 1 Minute",
+                "C. 3 Minuten"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Was gehoert nicht zur Vorstellung?",
+              "options": [
+                "A. Spracherfahrung",
+                "B. Lieblingsfarbe des Partners",
+                "C. Hobbys"
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 2,
+          "instructions": "Thema: Mein Lieblingsort. Ort, Grund, Aktivitaeten, Haeufigkeit.",
+          "text": "Mein Lieblingsort ist der Park am Fluss. Ich gehe gern hin, weil es ruhig ist. Ich lese dort oder treffe Freunde.",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Welche Aspekte nennen?",
+              "options": [
+                "A. Ort, Grund, Aktivitaeten, Haeufigkeit",
+                "B. Nur Name",
+                "C. Geschichte"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Wie begruenden Sie Vorlieben?",
+              "options": [
+                "A. Es gefaellt mir, weil...",
+                "B. Es ist uninteressant.",
+                "C. Ich weiss nicht."
+              ],
+              "correctAnswer": "A"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 3,
+          "instructions": "Gemeinsam planen: Picknick organisieren. Wann, wo, Essen, Ausruestung.",
+          "text": "Dialog: A: \"Wann moechtest du das Picknick?\" B: \"Am Samstag um 14 Uhr?\" A: \"Gute Idee. Wo?\" B: \"Im Stadtpark.\" A: \"Ich bringe Brote und Wasser mit.\"",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Was besprechen?",
+              "options": [
+                "A. Datum, Ort, Essen, Ausruestung",
+                "B. Nur Musik",
+                "C. Kleiderordnung"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Wie Vorschlag machen?",
+              "options": [
+                "A. Ich will...",
+                "B. Moechtest du am Samstag?",
+                "C. Das ist bloed."
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        }
+      ],
+      "totalPoints": 15,
+      "passThreshold": 60,
+      "timeMinutes": 15,
+      "rubric": {
+        "criteria": [
+          {
+            "name": "Aussprache",
+            "description": "Klar und verstaendlich?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Kommunikative Gestaltung",
+            "description": "Fluessig und angemessen?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Formale Richtigkeit",
+            "description": "Grammatik und Wortschatz angemessen?",
+            "maxPoints": 5
+          }
+        ]
+      },
+      "goetheStyleNotes": "Orientiert sich am Goethe A2: Sprechen (3 Teile, ca. 15 Minuten).",
+      "tips": [
+        "Sprechen Sie auch bei Unsicherheit.",
+        "Nutzen Sie Fuellwoerter wie also, dann, und.",
+        "Bei Partneraufgabe: Zuh oren und reagieren."
+      ]
+    },
+    {
+      "title": "Goethe B1 Lesen Mock Exam",
+      "examType": "goethe",
+      "level": "B1",
+      "module": "lesen",
+      "description": "Modelltest fuer Goethe B1 Lesen mit Blogbeitraegen, Zeitungsartikeln und Forumsbeitraegen.",
+      "tasks": [
+        {
+          "taskNumber": 1,
+          "instructions": "Blogbeitrag ueber nachhaltiges Leben. Richtig oder falsch?",
+          "text": "Seit einem Jahr lebe ich nachhaltiger. Ich kaufe Obst auf dem Wochenmarkt, fahre mit dem Fahrrad zur Arbeit und repariere kaputte Sachen. Mein Strom kommt von einem Oeko-Anbieter. Nachhaltiges Leben ist nicht immer einfach, aber es fuehlt sich richtig an.",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "richtig_falsch",
+              "question": "Die Person benutzt noch Plastiktueten.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 2,
+              "type": "richtig_falsch",
+              "question": "Sie kauft Obst im Supermarkt.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 3,
+              "type": "richtig_falsch",
+              "question": "Sie faehrt mit dem Fahrrad zur Arbeit.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 4,
+              "type": "richtig_falsch",
+              "question": "Sie wirft kaputte Sachen sofort weg.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 5,
+              "type": "richtig_falsch",
+              "question": "Nachhaltiges Leben ist manchmal nicht einfach.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 2,
+          "instructions": "Zeitungsartikel ueber Homeoffice. A, B oder C.",
+          "text": "35% der Erwerbstaetigen arbeiten mindestens einen Tag pro Woche im Homeoffice. Besonders in der IT-Branche. Vorteile: flexible Zeiten, keine Anfahrt. Nachteile: Einsamkeit. Experten empfehlen klare Grenzen zwischen Arbeit und Freizeit.",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Wie viel Prozent arbeiten im Homeoffice?",
+              "options": [
+                "A. 25%",
+                "B. 30%",
+                "C. 35%"
+              ],
+              "correctAnswer": "C"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "In welcher Branche ist Homeoffice verbreitet?",
+              "options": [
+                "A. Gesundheitswesen",
+                "B. IT-Branche",
+                "C. Einzelhandel"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 3,
+              "type": "multiple_choice",
+              "question": "Welcher Nachteil wird genannt?",
+              "options": [
+                "A. Hoehere Kosten",
+                "B. Einsamkeit",
+                "C. Weniger Produktivitaet"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 4,
+              "type": "multiple_choice",
+              "question": "Was empfehlen Experten?",
+              "options": [
+                "A. Mehr Ueberstunden",
+                "B. Klare Grenzen setzen",
+                "C. Jeden Tag im Buero"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 5,
+              "type": "multiple_choice",
+              "question": "Welcher Vorteil wird nicht genannt?",
+              "options": [
+                "A. Flexible Zeiten",
+                "B. Hoeheres Gehalt",
+                "C. Keine Anfahrt"
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 3,
+          "instructions": "Forumsbeitraege 1-5. Welche Ueberschrift A-G passt?",
+          "text": "1. \"Erstes Auto gekauft - gebrauchter Golf.\"\n2. \"Urlaub in Schweden, Nordlichter gesehen.\"\n3. \"Gehaltserhoeung bekommen!\"\n4. \"Marathon gelaufen - hart aber toll.\"\n5. \"Von Freund getrennt - tut weh, aber richtig.\"\nUeberschriften: A. Naturerlebnis B. Erster Autokauf C. Sportlicher Erfolg D. Gehaltserhoeung E. Beziehungsende F. Wohnungswechsel G. Studienbeginn",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "zuordnung",
+              "question": "Beitrag 1",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 2,
+              "type": "zuordnung",
+              "question": "Beitrag 2",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 3,
+              "type": "zuordnung",
+              "question": "Beitrag 3",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "D"
+            },
+            {
+              "questionNumber": 4,
+              "type": "zuordnung",
+              "question": "Beitrag 4",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "C"
+            },
+            {
+              "questionNumber": 5,
+              "type": "zuordnung",
+              "question": "Beitrag 5",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "E"
+            }
+          ],
+          "maxPoints": 5
+        }
+      ],
+      "totalPoints": 15,
+      "passThreshold": 60,
+      "timeMinutes": 40,
+      "rubric": {
+        "criteria": [
+          {
+            "name": "Inhalt",
+            "description": "Alle Aufgaben bearbeitet?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Leseverstehen",
+            "description": "Texte richtig verstanden?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Detailverstaendnis",
+            "description": "Details und Gesamtverstaendnis?",
+            "maxPoints": 5
+          }
+        ]
+      },
+      "goetheStyleNotes": "Orientiert sich am Goethe B1: Lesen (3 Teile, 40 Minuten).",
+      "tips": [
+        "Lesen Sie zuerst die ganze Aufgabe.",
+        "Achten Sie auf Woerter wie immer, nie, alle.",
+        "Markieren Sie wichtige Textstellen."
+      ]
+    },
+    {
+      "title": "Goethe B1 Hoeren Mock Exam",
+      "examType": "goethe",
+      "level": "B1",
+      "module": "hoeren",
+      "description": "Modelltest fuer Goethe B1 Hoeren mit Radiogespraechen, Interviews und Alltagsdiskussionen.",
+      "tasks": [
+        {
+          "taskNumber": 1,
+          "instructions": "Radiogespraech ueber digitales Lernen. A, B oder C.",
+          "text": "Moderator: \"Frau Dr. Weber, Vorteile von digitalem Lernen?\"\nDr. Weber: \"Flexibilitaet, jederzeit und ueberall lernen, interaktive Uebungen.\"\nM: \"Nachteile?\"\nW: \"Disziplin noetig, manche verlieren Motivation. Nicht alle Kurse sind qualitativ hochwertig.\"\nM: \"Zukunft?\"\nW: \"Mischung aus digital und Praesenz ist ideal.\"",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Vorteil von digitalem Lernen?",
+              "options": [
+                "A. Niedrige Kosten",
+                "B. Flexibilitaet",
+                "C. Soziale Kontakte"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Nachteil?",
+              "options": [
+                "A. Zu viele Uebungen",
+                "B. Braucht Disziplin",
+                "C. Zu teuer"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 3,
+              "type": "multiple_choice",
+              "question": "Empfehlung fuer Zukunft?",
+              "options": [
+                "A. Nur digital",
+                "B. Nur Praesenz",
+                "C. Mischung aus beidem"
+              ],
+              "correctAnswer": "C"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 2,
+          "instructions": "Gespraech ueber Wohnungssuche. Richtig oder falsch?",
+          "text": "Anna: \"Suche seit 3 Monaten eine Wohnung in Muenchen. 2-Zimmer-Wohnung kostet mindestens 1200 Euro warm.\"\nBen: \"Wie viel suchst du?\"\nA: \"Bis 900 Euro warm - fast nichts zu finden.\"\nB: \"Hast du WG probiert?\"\nA: \"Ja, aber mit 32 will ich nicht mehr in WG wohnen.\"\nB: \"Vielleicht ausserhalb von Muenchen?\"\nA: \"Gute Idee.\"",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "richtig_falsch",
+              "question": "Anna sucht seit 2 Monaten.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 2,
+              "type": "richtig_falsch",
+              "question": "2-Zimmer-Wohnung kostet mindestens 1200 Euro warm.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 3,
+              "type": "richtig_falsch",
+              "question": "Anna sucht bis 900 Euro warm.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 4,
+              "type": "richtig_falsch",
+              "question": "Anna will in einer WG wohnen.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 5,
+              "type": "richtig_falsch",
+              "question": "Ben schlaegt Umland vor.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 3,
+          "instructions": "Fuenf Aussagen zum Thema Gesundheit. Situationen A-G zuordnen.",
+          "text": "1. \"Rueckenschmerzen - sollte zum Physio.\"\n2. \"Letzte Nacht kaum geschlafen - Baustellenlaerm.\"\n3. \"Will mit Rauchen aufhoeren.\"\n4. \"Nur Fertiggerichte - fuehle mich schlapp.\"\n5. \"Heute gejoggt - endlich wieder Sport!\"\nSituationen: A. Bewegung nach Pause B. Schlafprobleme C. Sucht bekaempfen D. Rueckenschmerzen E. Ungesunde Ernaehrung F. Arztbesuch G. Entspannung",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "zuordnung",
+              "question": "Aussage 1",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "D"
+            },
+            {
+              "questionNumber": 2,
+              "type": "zuordnung",
+              "question": "Aussage 2",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 3,
+              "type": "zuordnung",
+              "question": "Aussage 3",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "C"
+            },
+            {
+              "questionNumber": 4,
+              "type": "zuordnung",
+              "question": "Aussage 4",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "E"
+            },
+            {
+              "questionNumber": 5,
+              "type": "zuordnung",
+              "question": "Aussage 5",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "A"
+            }
+          ],
+          "maxPoints": 5
+        }
+      ],
+      "totalPoints": 15,
+      "passThreshold": 60,
+      "timeMinutes": 30,
+      "rubric": {
+        "criteria": [
+          {
+            "name": "Inhalt",
+            "description": "Aufgaben vollstaendig?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Hoerverstehen",
+            "description": "Hoertexte richtig verstanden?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Detailverstaendnis",
+            "description": "Details und Zusammenhaenge?",
+            "maxPoints": 5
+          }
+        ]
+      },
+      "goetheStyleNotes": "Orientiert sich am Goethe B1: Hoeren (3 Teile, ca. 30 Minuten).",
+      "tips": [
+        "Bewusst auf Hauptaussage und Details achten.",
+        "Kurze Notizen machen.",
+        "Nicht jedes Wort verstehen muessen."
+      ]
+    },
+    {
+      "title": "Goethe B1 Schreiben Mock Exam",
+      "examType": "goethe",
+      "level": "B1",
+      "module": "schreiben",
+      "description": "Modelltest fuer Goethe B1 Schreiben. Formelle Beschwerde und persoenliche Mitteilung.",
+      "tasks": [
+        {
+          "taskNumber": 1,
+          "instructions": "Buch beschaeftigt angekommen. Beschwerde-E-Mail (ca. 80 Woerter).",
+          "text": "Betreff: Beschwerde - beschaeftigte Lieferung\nSehr geehrte Damen und Herren,\nam 10. Maerz bestellte ich Buch \"Deutsche Grammatik\" (Nr. 12345). Heute kam die Lieferung - das Buch ist beschaeftigt. Seiten 20-30 sind eingerissen. Ich bitte um Ersatz oder Rueckerstattung.\nMit freundlichen Gruessen\nMax Mustermann",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Infos in der Beschwerde?",
+              "options": [
+                "A. Bestellnr., Problem, Erwartung",
+                "B. Hobbys, Beruf, Wohnort",
+                "C. Lieblingsbuch, Autor"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Angemessene Formulierung?",
+              "options": [
+                "A. Ihr Service ist schlecht!",
+                "B. Ich bitte um Ersatz oder Rueckerstattung.",
+                "C. Geben Sie mir mein Geld!"
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 2,
+          "instructions": "Freund hat Geburtstag. Persoenliche E-Mail (ca. 80 Woerter).",
+          "text": "Lieber Jonas,\nherzlichen Glueckwunsch! Erinnerst du dich an Hamburg? Das war so lustig! Bei mir: neuer Job, nach Koeln gezogen. Wie geht es dir? Plaene fuer Sommer?\nViele Gruesse\nAnna",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Elemente einer Geburtstagsmail?",
+              "options": [
+                "A. Glueckwunsch, Erinnerung, Neuigkeiten, Frage",
+                "B. Nur Glueckwunsch",
+                "C. Formelle Anrede und Beschwerde"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Anrede fuer Freund?",
+              "options": [
+                "A. Sehr geehrter Herr Jonas",
+                "B. Lieber Jonas",
+                "C. An Jonas"
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        }
+      ],
+      "totalPoints": 10,
+      "passThreshold": 60,
+      "timeMinutes": 40,
+      "rubric": {
+        "criteria": [
+          {
+            "name": "Inhalt",
+            "description": "Alle Punkte vollstaendig?",
+            "maxPoints": 4
+          },
+          {
+            "name": "Kommunikative Gestaltung",
+            "description": "Kohaerent und angemessen?",
+            "maxPoints": 3
+          },
+          {
+            "name": "Formale Richtigkeit",
+            "description": "Grammatik, Rechtschreibung?",
+            "maxPoints": 3
+          }
+        ]
+      },
+      "goetheStyleNotes": "Orientiert sich am Goethe B1: Schreiben (2 Teile, 40 Minuten).",
+      "tips": [
+        "Auf Textsorte achten (formell vs. informell).",
+        "Einleitung, Hauptteil, Schluss.",
+        "Satzverbindungen wie ausserdem, deshalb, obwohl."
+      ]
+    },
+    {
+      "title": "Goethe B1 Sprechen Mock Exam",
+      "examType": "goethe",
+      "level": "B1",
+      "module": "sprechen",
+      "description": "Modelltest fuer Goethe B1 Sprechen. Vortrag, Diskussion und gemeinsame Planung.",
+      "tasks": [
+        {
+          "taskNumber": 1,
+          "instructions": "Vortrag (ca. 3 Min.): Umweltschutz im Alltag.",
+          "text": "Ich moechte ueber Umweltschutz im Alltag sprechen. Klimawandel betrifft uns alle. Privat: Muell trennen, weniger Fleisch, Fahrrad. Politik: erneuerbare Energien foerdern. Meiner Meinung nach muessen alle zusammenhelfen.",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Vortrag-Struktur?",
+              "options": [
+                "A. Einleitung, Hauptteil, Schluss",
+                "B. Nur Fakten",
+                "C. Nur Meinung"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Meinung ausdruecken?",
+              "options": [
+                "A. Fakt ist...",
+                "B. Meiner Meinung nach...",
+                "C. Alle sagen..."
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 2,
+          "instructions": "Diskussion: Sollte man im Studium ins Ausland gehen?",
+          "text": "Pro: Sprache lernen, Kultur kennenlernen, selbstaendiger werden. Contra: teuer, Familie vermissen, Anerkennungsprobleme.",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Pro-Argument einleiten?",
+              "options": [
+                "A. Dagegen spricht...",
+                "B. Ein Vorteil ist...",
+                "C. Leider..."
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Contra-Argument einleiten?",
+              "options": [
+                "A. Positiv ist...",
+                "B. Ein Nachteil ist...",
+                "C. Zum Glueck..."
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 3,
+          "instructions": "Gemeinsam planen: Abschlussfeier fuer Deutschkurs.",
+          "text": "A: \"Wann sollen wir feiern?\" B: \"Am letzten Kurstag, 20. Juni?\" A: \"Wo?\" B: \"Im Kursraum, jeder bringt was mit.\" A: \"Ich bringe Getraenke.\" B: \"Ich bringe Salat.\" A: \"Sollen wir Musik machen?\" B: \"Ja, ich mache Playlist.\"",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Planungsaspekte?",
+              "options": [
+                "A. Termin, Ort, Programm, Budget",
+                "B. Nur Datum",
+                "C. Nur Essen"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Zustimmung ausdruecken?",
+              "options": [
+                "A. Keine gute Idee.",
+                "B. Einverstanden.",
+                "C. Vielleicht."
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        }
+      ],
+      "totalPoints": 15,
+      "passThreshold": 60,
+      "timeMinutes": 25,
+      "rubric": {
+        "criteria": [
+          {
+            "name": "Aussprache",
+            "description": "Klar und natuerlich?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Kommunikative Gestaltung",
+            "description": "Fluessig, strukturiert, interaktiv?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Formale Richtigkeit",
+            "description": "Wortschatz und Satzbau angemessen?",
+            "maxPoints": 5
+          }
+        ]
+      },
+      "goetheStyleNotes": "Orientiert sich am Goethe B1: Sprechen (3 Teile, ca. 25 Minuten).",
+      "tips": [
+        "Vortrag strukturieren: Einleitung, Hauptteil, Fazit.",
+        "Meinung begruenden koennen.",
+        "Auf Partnerargumente eingehen."
+      ]
+    },
+    {
+      "title": "Goethe B2 Lesen Mock Exam",
+      "examType": "goethe",
+      "level": "B2",
+      "module": "lesen",
+      "description": "Modelltest fuer Goethe B2 Lesen mit komplexen Sachtexten, Meinungsartikeln und Briefen.",
+      "tasks": [
+        {
+          "taskNumber": 1,
+          "instructions": "Artikel \"Digitalisierung der Arbeitswelt\". A, B, C oder D.",
+          "text": "Die Digitalisierung veraendert die Arbeitswelt. Bis 2030 werden ca. 40% der heutigen Taetigkeiten durch Automatisierung ersetzt oder veraendert. Betroffen: Routineaufgaben in Produktion und Buero. Neue Berufe: KI und Datenanalyse. Kritiker: Politik reagiert nicht ausreichend. Experten: Investitionen in Bildung und soziale Sicherung.",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Wie viel Prozent der Taetigkeiten veraendert?",
+              "options": [
+                "A. 20%",
+                "B. 30%",
+                "C. 40%",
+                "D. 50%"
+              ],
+              "correctAnswer": "C"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Welche Bereiche betroffen?",
+              "options": [
+                "A. Kreative Berufe",
+                "B. Routineaufgaben Produktion/Buero",
+                "C. Fuehrungspositionen",
+                "D. Soziale Berufe"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 3,
+              "type": "multiple_choice",
+              "question": "Was kritisieren Kritiker?",
+              "options": [
+                "A. Unternehmen investieren wenig",
+                "B. Politik reagiert nicht ausreichend",
+                "C. AN zu wenig qualifiziert",
+                "D. Technologie nicht ausgereift"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 4,
+              "type": "multiple_choice",
+              "question": "Experten empfehlen?",
+              "options": [
+                "A. Weniger Digitalisierung",
+                "B. Investitionen in Bildung und soziale Sicherung",
+                "C. Mehr Schutz traditioneller Berufe",
+                "D. Steuererleichterungen"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 5,
+              "type": "multiple_choice",
+              "question": "Was muessen Arbeitnehmer?",
+              "options": [
+                "A. Beruf wechseln",
+                "B. Lebenslang lernen",
+                "C. Frueher in Rente",
+                "D. Weniger arbeiten"
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 2,
+          "instructions": "Fuenf Abschnitte ueber Lebensmittelverschwendung. Ueberschriften A-G zuordnen.",
+          "text": "1. Jedes Jahr 19 Mio. Tonnen Lebensmittel weggeworfen - 235 kg pro Sekunde.\n2. Private Haushalte 52%, Landwirtschaft 18%, Verarbeitung 18%, Handel 5%.\n3. Strenge Handelsnormen: krumme Gurken nicht angenommen. MHD fuehrt zu Wegwuerfen.\n4. Frankreich verbietet Supermaerkten, unverkaufte Lebensmittel unbrauchbar zu machen.\n5. Jeder kann helfen: bewusst einkaufen, Reste verwerten, Apps wie Too Good To Go.\nUeberschriften: A. Rolle des Handels B. Mengen und Fakten C. Internationale Gesetze D. Verteilung ueber Wertschopfungskette E. Was Verbraucher tun koennen F. Geschichte des MHD G. Wirtschaftliche Folgen",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "zuordnung",
+              "question": "Abschnitt 1",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 2,
+              "type": "zuordnung",
+              "question": "Abschnitt 2",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "D"
+            },
+            {
+              "questionNumber": 3,
+              "type": "zuordnung",
+              "question": "Abschnitt 3",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 4,
+              "type": "zuordnung",
+              "question": "Abschnitt 4",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "C"
+            },
+            {
+              "questionNumber": 5,
+              "type": "zuordnung",
+              "question": "Abschnitt 5",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "E"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 3,
+          "instructions": "Leserbrief. Richtig oder falsch?",
+          "text": "Sehr geehrte Damen und Herren,\nmit Interesse las ich \"Studentenleben in der Krise\". Sie behaupten, die meisten Studierenden kaempfen mit gestiegenen Kosten. Aus Erfahrung kann ich das bestaetigen. Aber Sie vergessen BAföG und Studentenwohnheime zu erwaehnen. Das duale Studium verbindet Studium und Beruf. Meiner Meinung nach sollten Sie auch Loesungen zeigen.\nLukas Meier",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "richtig_falsch",
+              "question": "Der Leser ist mit dem Artikel zufrieden.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 2,
+              "type": "richtig_falsch",
+              "question": "Der Leser bestaetigt, dass Studierende neben dem Studium arbeiten.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 3,
+              "type": "richtig_falsch",
+              "question": "Der Leser kritisiert fehlende Erwaehnung von BAföG und Wohnheimen.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 4,
+              "type": "richtig_falsch",
+              "question": "Der Leser findet das duale Studium schlecht.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 5,
+              "type": "richtig_falsch",
+              "question": "Der Leser will mehr Loesungen und positive Beispiele.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            }
+          ],
+          "maxPoints": 5
+        }
+      ],
+      "totalPoints": 15,
+      "passThreshold": 60,
+      "timeMinutes": 50,
+      "rubric": {
+        "criteria": [
+          {
+            "name": "Inhalt",
+            "description": "Alle Aufgaben vollstaendig?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Leseverstehen",
+            "description": "Komplexe Texte verstanden?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Analyse",
+            "description": "Zusammenhaenge erkannt?",
+            "maxPoints": 5
+          }
+        ]
+      },
+      "goetheStyleNotes": "Orientiert sich am Goethe B2: Lesen (3 Teile, 50 Minuten).",
+      "tips": [
+        "Ganzen Text vor Fragen lesen.",
+        "Argumentationsstruktur beachten.",
+        "Hauptaussagen der Absaetze notieren."
+      ]
+    },
+    {
+      "title": "Goethe B2 Hoeren Mock Exam",
+      "examType": "goethe",
+      "level": "B2",
+      "module": "hoeren",
+      "description": "Modelltest fuer Goethe B2 Hoeren mit Vortraegen, Diskussionen und Radiofeatures.",
+      "tasks": [
+        {
+          "taskNumber": 1,
+          "instructions": "Vortrag ueber erneuerbare Energien. A, B, C oder D.",
+          "text": "Dr. Schneider: \"Deutschland will bis 2045 klimaneutral sein. Anteil erneuerbarer Energien am Strommix: 47%. Windkraft: 25%, Photovoltaik: 12%. Groesste Herausforderung: Speicherung. Forscher arbeiten an Batterietechnologien und Wasserstoff. Problem: Stromnetzausbau scheitert an Genehmigungsverfahren.\"",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Bis wann klimaneutral?",
+              "options": [
+                "A. 2030",
+                "B. 2045",
+                "C. 2050",
+                "D. 2035"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Anteil erneuerbarer Energien?",
+              "options": [
+                "A. 25%",
+                "B. 37%",
+                "C. 47%",
+                "D. 57%"
+              ],
+              "correctAnswer": "C"
+            },
+            {
+              "questionNumber": 3,
+              "type": "multiple_choice",
+              "question": "Groesste Herausforderung?",
+              "options": [
+                "A. Kosten",
+                "B. Speicherung",
+                "C. Politischer Wille",
+                "D. Akzeptanz"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 4,
+              "type": "multiple_choice",
+              "question": "Speichermoeglichkeit?",
+              "options": [
+                "A. Erdgas",
+                "B. Wasserstoff",
+                "C. Biomasse",
+                "D. Kernenergie"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 5,
+              "type": "multiple_choice",
+              "question": "Warum Netzausbau schwierig?",
+              "options": [
+                "A. Fehlende Technologie",
+                "B. Genehmigungsverfahren",
+                "C. Zu teuer",
+                "D. Fachkraeftemangel"
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 2,
+          "instructions": "Diskussion bezahlbarer Wohnraum. Richtig oder falsch?",
+          "text": "T1: \"Mieten steigen unaufhoerlich. Normalverdiener koennen sich nichts leisten.\"\nT2: \"Stimmt. Aber nicht nur Mietendeckel, wir brauchen mehr Wohnungsbau.\"\nT1: \"Bezahlbaren Wohnungsbau, nicht nur Luxus.\"\nT2: \"Bauland teuer, Auflagen verteuern.\"\nT1: \"Genossenschaften und kommunale Gesellschaften koennten Loesung sein.\"",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "richtig_falsch",
+              "question": "T1 findet Mieten zu hoch.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 2,
+              "type": "richtig_falsch",
+              "question": "T2 ist gegen staatliche Eingriffe.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 3,
+              "type": "richtig_falsch",
+              "question": "T1 fordert mehr Luxuswohnungen.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 4,
+              "type": "richtig_falsch",
+              "question": "T2 nennt Bauland und Auflagen als Probleme.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 5,
+              "type": "richtig_falsch",
+              "question": "T1 schlaegt Genossenschaften vor.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 3,
+          "instructions": "Fuenf Personen ueber ehrenamtliche Arbeit. Motive A-G zuordnen.",
+          "text": "1. \"Helfe in der Tafel - Menschen mit weniger helfen.\"\n2. \"Nachhilfe fuer Kinder mit Migrationshintergrund.\"\n3. \"Tierschutz - pflege verletzte Tiere.\"\n4. \"Vorstand im Sportverein - fuer Gemeinschaft.\"\n5. \"Spendenlaeufe fuer krebskranke Kinder.\"\nMotive: A. Soziale Verantwortung B. Tierschutz C. Integration/Bildung D. Gemeinschaftsarbeit E. Gesundheitsfoerderung F. Umweltschutz G. Kultur",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "zuordnung",
+              "question": "Person 1",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 2,
+              "type": "zuordnung",
+              "question": "Person 2",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "C"
+            },
+            {
+              "questionNumber": 3,
+              "type": "zuordnung",
+              "question": "Person 3",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 4,
+              "type": "zuordnung",
+              "question": "Person 4",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "D"
+            },
+            {
+              "questionNumber": 5,
+              "type": "zuordnung",
+              "question": "Person 5",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "E"
+            }
+          ],
+          "maxPoints": 5
+        }
+      ],
+      "totalPoints": 15,
+      "passThreshold": 60,
+      "timeMinutes": 35,
+      "rubric": {
+        "criteria": [
+          {
+            "name": "Inhalt",
+            "description": "Aufgaben vollstaendig?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Hoerverstehen",
+            "description": "Komplexe Hoertexte verstanden?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Detailverstaendnis",
+            "description": "Details und Zusammenhaenge erfasst?",
+            "maxPoints": 5
+          }
+        ]
+      },
+      "goetheStyleNotes": "Orientiert sich am Goethe B2: Hoeren (3 Teile, ca. 35 Minuten).",
+      "tips": [
+        "Auf Hauptargumente und Struktur achten.",
+        "Signale wie Zunaechst, Ein weiterer Punkt, Zusammenfassend.",
+        "Sprecher und Positionen unterscheiden."
+      ]
+    },
+    {
+      "title": "Goethe B2 Schreiben Mock Exam",
+      "examType": "goethe",
+      "level": "B2",
+      "module": "schreiben",
+      "description": "Modelltest fuer Goethe B2 Schreiben. Argumentation und formelle Korrespondenz.",
+      "tasks": [
+        {
+          "taskNumber": 1,
+          "instructions": "Leserbrief: Neues Einkaufszentrum auf Gruenstreifen (ca. 120 Woerter).",
+          "text": "Betreff: Leserbrief zum geplanten Einkaufszentrum\nEinerseits verstehe ich den Wunsch nach mehr Einkaufsmoeglichkeiten. Andererseits sollte man dafuer keinen Gruenstreifen opfern. Grünflaechen sind wichtig fuer Stadtklima und Erholung. Mein Vorschlag: Das leerstehende Gebaeude am Bahnhof umbauen.",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Leserbrief-Struktur?",
+              "options": [
+                "A. Einleitung, Argumente, Schluss",
+                "B. Nur Kritik",
+                "C. Nur Lob"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Alternative einleiten?",
+              "options": [
+                "A. Das ist schlecht.",
+                "B. Mein Vorschlag:...",
+                "C. Man muss..."
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 2,
+          "instructions": "E-Mail an Kursleiter nach Rhetorikkurs (ca. 120 Woerter).",
+          "text": "Sehr geehrter Herr Wagner,\n vielen Dank fuer den Rhetorikkurs. Besonders die Videoanalyse hat mir geholfen. Ein Verbesserungsvorschlag: mehr Zeit fuer individuelle Rueckmeldungen. Gibt es einen Aufbaukurs?\nMit freundlichen Gruessen",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Elemente dieser E-Mail?",
+              "options": [
+                "A. Dank, Feedback, Verbesserung, Frage",
+                "B. Nur Kritik",
+                "C. Nur Beschwerde"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Hoefflich nach Info fragen?",
+              "options": [
+                "A. Sagen Sie mir Bescheid.",
+                "B. Gibt es die Moeglichkeit...?",
+                "C. Ich will..."
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        }
+      ],
+      "totalPoints": 10,
+      "passThreshold": 60,
+      "timeMinutes": 60,
+      "rubric": {
+        "criteria": [
+          {
+            "name": "Inhalt",
+            "description": "Alle Punkte differenziert bearbeitet?",
+            "maxPoints": 4
+          },
+          {
+            "name": "Kommunikative Gestaltung",
+            "description": "Klar strukturiert und adressatengerecht?",
+            "maxPoints": 3
+          },
+          {
+            "name": "Formale Richtigkeit",
+            "description": "Grammatik, Stil angemessen?",
+            "maxPoints": 3
+          }
+        ]
+      },
+      "goetheStyleNotes": "Orientiert sich am Goethe B2: Schreiben (2 Teile, 60 Minuten).",
+      "tips": [
+        "Argumente vor Schreiben planen.",
+        "Klaren Aufbau: These - Argument - Beispiel.",
+        "Differenzierten Wortschatz nutzen."
+      ]
+    },
+    {
+      "title": "Goethe B2 Sprechen Mock Exam",
+      "examType": "goethe",
+      "level": "B2",
+      "module": "sprechen",
+      "description": "Modelltest fuer Goethe B2 Sprechen. Praesentation, Diskussion und Problemloesung.",
+      "tasks": [
+        {
+          "taskNumber": 1,
+          "instructions": "Praesentation (3-4 Min.): Gesundheit am Arbeitsplatz.",
+          "text": "Guten Tag, mein Thema ist Gesundheit am Arbeitsplatz. Typische Risiken: Rueckenschmerzen, Augenbelastung, Stress. Praevention: regelmaessige Bewegung, ergonomische Arbeitsplaetze, Pausen. Ich selbst nutze einen hoehenverstellbaren Schreibtisch.",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Praesentation beginnen?",
+              "options": [
+                "A. Also...",
+                "B. Guten Tag, mein Thema ist...",
+                "C. Hoeren Sie zu!"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Praesentation beenden?",
+              "options": [
+                "A. Das war es.",
+                "B. Vielen Dank fuer Ihre Aufmerksamkeit.",
+                "C. Fragen?"
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 2,
+          "instructions": "Diskussion: Social Media fuer Jugendliche unter 16 verbieten?",
+          "text": "Pro: Schutz vor Cybermobbing, weniger Zeitverschwendung. Contra: Meinungsfreiheit, wichtige soziale Plattform.",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Hoefflich widersprechen?",
+              "options": [
+                "A. Stimmt nicht.",
+                "B. Da bin ich anderer Meinung, denn...",
+                "C. Sie luegen."
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Position zusammenfassen?",
+              "options": [
+                "A. Zusammenfassend moechte ich sagen...",
+                "B. Also...",
+                "C. Egal."
+              ],
+              "correctAnswer": "A"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 3,
+          "instructions": "Problemloesung: Sportverein verliert Mitglieder.",
+          "text": "A: \"Warum verlieren wir Mitglieder?\" B: \"Angebote nicht modern genug.\" A: \"Brauchen neue Kurse wie Yoga.\" B: \"Und in Social Media werben.\" A: \"Treue-Rabatte fuer bestehende Mitglieder.\" B: \"Schnuppertag fuer Neue.\"",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Problemloesung beginnen?",
+              "options": [
+                "A. Das Problem ist...",
+                "B. Warum haben wir dieses Problem?",
+                "C. Machen wir einfach."
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Loesungsvorschlag einbringen?",
+              "options": [
+                "A. Was haeltst du von...?",
+                "B. Wir muessen...",
+                "C. Das geht nicht."
+              ],
+              "correctAnswer": "A"
+            }
+          ],
+          "maxPoints": 5
+        }
+      ],
+      "totalPoints": 15,
+      "passThreshold": 60,
+      "timeMinutes": 30,
+      "rubric": {
+        "criteria": [
+          {
+            "name": "Aussprache",
+            "description": "Klar und natuerlich?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Kommunikative Gestaltung",
+            "description": "Fluessig, differenziert, interaktiv?",
+            "maxPoints": 5
+          },
+          {
+            "name": "Formale Richtigkeit",
+            "description": "Wortschatz und Stil niveaugerecht?",
+            "maxPoints": 5
+          }
+        ]
+      },
+      "goetheStyleNotes": "Orientiert sich am Goethe B2: Sprechen (3 Teile, ca. 30 Minuten).",
+      "tips": [
+        "Praesentation gut vorbereiten - klare Struktur.",
+        "Beispiele aus Erfahrung geben.",
+        "In Diskussion genau zuhoeren und eingehen."
+      ]
+    },
+    {
+      "title": "Goethe C1 Lesen Mock Exam",
+      "examType": "goethe",
+      "level": "C1",
+      "module": "lesen",
+      "description": "Modelltest fuer Goethe C1 Lesen mit wissenschaftlichen Texten, Kommentaren und literarischen Texten.",
+      "tasks": [
+        {
+          "taskNumber": 1,
+          "instructions": "Wissenschaftlicher Artikel ueber KI und Ethik. A, B, C oder D.",
+          "text": "Die rasante Entwicklung KI wirft ethische Fragen auf. Black-Box-Problematik: Bei neuronalen Netzen ist nicht nachvollziehbar, wie Entscheidungen getroffen werden. Problematisch in Rechtsprechung und Kreditvergabe. Haftungsfrage bei autonomen Fahrzeugen ungeklaert. EU arbeitet an KI-Regulierungsgesetz mit Risikoklassifizierung. Experten fordern Transparenz und unabhaengige Ethikraete.",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Black-Box-Problematik?",
+              "options": [
+                "A. Hohe Kosten",
+                "B. Mangelnde Nachvollziehbarkeit",
+                "C. Fehlende Rechenleistung",
+                "D. Mangelnde Akzeptanz"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Wo besonders problematisch?",
+              "options": [
+                "A. Unterhaltung",
+                "B. Rechtsprechung und Kreditvergabe",
+                "C. Logistik",
+                "D. Marketing"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 3,
+              "type": "multiple_choice",
+              "question": "EU-KI-Gesetz sieht vor?",
+              "options": [
+                "A. Komplettverbot",
+                "B. Risikoklassifizierung mit Auflagen",
+                "C. Steuererleichterungen",
+                "D. Zertifizierungspflicht"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 4,
+              "type": "multiple_choice",
+              "question": "Zusaetzlich gefordert?",
+              "options": [
+                "A. Mehr Foerderung",
+                "B. Transparenz und Ethikraete",
+                "C. Moratorium",
+                "D. Handelsabkommen"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 5,
+              "type": "multiple_choice",
+              "question": "Problem bei autonomen Fahrzeugen?",
+              "options": [
+                "A. Reichweite",
+                "B. Haftungsfrage",
+                "C. Infrastruktur",
+                "D. Energieverbrauch"
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 2,
+          "instructions": "Fuenf Aussagen zur Digitalisierung der Bildung. Thesen A-G zuordnen.",
+          "text": "1. \"Digitale Medien sollen Praesenz ergaenzen, nicht ersetzen.\"\n2. \"Jeder Schueler braucht eigenes Endgeraet - Bildungsgerechtigkeit.\"\n3. \"Lehrkraefte brauchen mehr Fortbildung.\"\n4. \"Digitale Plattformen ermoeglichen individualisiertes Lernen.\"\n5. \"Smartphones fuehren zu Ablenkung.\"\nThesen: A. Bildungsgerechtigkeit B. Lehrerfortbildung C. Blended Learning D. Individuelle Foerderung E. Negative Auswirkungen F. Datenschutz G. Kosten-Nutzen",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "zuordnung",
+              "question": "Aussage 1",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "C"
+            },
+            {
+              "questionNumber": 2,
+              "type": "zuordnung",
+              "question": "Aussage 2",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "A"
+            },
+            {
+              "questionNumber": 3,
+              "type": "zuordnung",
+              "question": "Aussage 3",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 4,
+              "type": "zuordnung",
+              "question": "Aussage 4",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "D"
+            },
+            {
+              "questionNumber": 5,
+              "type": "zuordnung",
+              "question": "Aussage 5",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G"
+              ],
+              "correctAnswer": "E"
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 3,
+          "instructions": "Kommentar zur Vier-Tage-Woche. Richtig oder falsch?",
+          "text": "Befuerworter verweisen auf Produktivitaetssteigerung - Island und Neuseeland als Vorreiter. Doch nicht alle Branchen sind geeignet: Einzelhandel, Pflege, Schichtarbeit. Studien aus Suedkorea zeigen: Arbeitsverdichtung kann Stress erhoehen. Entscheidend ist die Arbeitsorganisation, nicht die Anzahl der Tage. Flexible Modelle wie Vertrauensarbeitszeit sind vielversprechender.",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "richtig_falsch",
+              "question": "Befuerworter argumentieren mit Produktivitaet.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 2,
+              "type": "richtig_falsch",
+              "question": "Island und Neuseeland sind Beispiele GEGEN die Vier-Tage-Woche.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 3,
+              "type": "richtig_falsch",
+              "question": "Der Autor ist uneingeschraenkt fuer die Vier-Tage-Woche.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 4,
+              "type": "richtig_falsch",
+              "question": "Der Autor haelt flexible Modelle fuer vielversprechender.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            },
+            {
+              "questionNumber": 5,
+              "type": "richtig_falsch",
+              "question": "Die Branche ist irrelevant fuer die Umsetzbarkeit.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ]
+            }
+          ],
+          "maxPoints": 5
+        },
+        {
+          "taskNumber": 4,
+          "instructions": "Literarischer Text \"Das letzte Blatt\" (Auszug). A, B, C oder D.",
+          "text": "Er sass am Fenster und blickte auf den kahlen Baum. Seit Wochen krank. \"Wenn das letzte Blatt faellt\", dachte er, \"sterbe ich.\" Drei Blaetter waren noch uebrig. Die Nachbarin, eine alte Malerin, malte in einer stuermischen Nacht ein Blatt an die Mauer. Er sah es und schoepfte Hoffnung. Monate spaeter erfuhr er: Die Nachbarin war in jener Nacht an Lungenentzuendung gestorben. Sie hatte ihm das Leben gerettet.",
+          "questions": [
+            {
+              "questionNumber": 1,
+              "type": "multiple_choice",
+              "question": "Warum beobachtet er das letzte Blatt?",
+              "options": [
+                "A. Langeweile",
+                "B. Glaubt, damit zu sterben",
+                "C. Botaniker",
+                "D. Mag Ausblick"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 2,
+              "type": "multiple_choice",
+              "question": "Was macht die Nachbarin?",
+              "options": [
+                "A. Pflanzt Baum",
+                "B. Malt Blatt an Mauer",
+                "C. Ruft Arzt",
+                "D. Schneidet Blatt ab"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 3,
+              "type": "multiple_choice",
+              "question": "Reaktion des Kranken?",
+              "options": [
+                "A. Enttaeuscht",
+                "B. Schoepft Hoffnung",
+                "C. Merkt nicht",
+                "D. Wird wuetend"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 4,
+              "type": "multiple_choice",
+              "question": "Was passiert mit der Nachbarin?",
+              "options": [
+                "A. Zieht um",
+                "B. Wird krank und stirbt",
+                "C. Malt Bild",
+                "D. Zieht in Sueden"
+              ],
+              "correctAnswer": "B"
+            },
+            {
+              "questionNumber": 5,
+              "type": "multiple_choice",
+              "question": "Botschaft?",
+              "options": [
+                "A. Keine Hoffnung",
+                "B. Selbstlose Hilfe rettet Leben",
+                "C. Natur unbesiegbar",
+                "D. Kuenstler realistisch malen"
+              ],
+              "correctAnswer": "B"
+            }
+          ],
+          "maxPoints": 5
+        }
+      ],
+      "totalPoints": 20,
+      "passThreshold": 60,
+      "timeMinutes": 60,
+      "rubric": {
+        "criteria": [
+          {
+            "name": "Inhalt",
+            "description": "Alle Aufgaben differenziert bearbeitet?",
+            "maxPoints": 7
+          },
+          {
+            "name": "Leseverstehen",
+            "description": "Komplexe Texte implizit verstanden?",
+            "maxPoints": 7
+          },
+          {
+            "name": "Analyse",
+            "description": "Textstrukturen und Argumentation erkannt?",
+            "maxPoints": 6
+          }
+        ]
+      },
+      "goetheStyleNotes": "Orientiert sich am Goethe C1: Lesen (4 Teile, 60 Minuten).",
+      "tips": [
+        "Komplexe Texte zweimal lesen: global und detailliert.",
+        "Auf implizite Aussagen und Ironie achten.",
+        "Bei literarischen Texten: Symbole und Motive interpretieren."
+      ]
+    }
+  ],
+  "examTopics": [
+    {
+      "examType": "goethe",
+      "level": "A2",
+      "module": "sprechen",
+      "commonTopics": [
+        "Familie",
+        "Wohnen",
+        "Essen und Trinken",
+        "Tagesablauf",
+        "Freizeit",
+        "Einkaufen",
+        "Reisen",
+        "Gesundheit",
+        "Wetter",
+        "Beruf"
+      ],
+      "preparationGuides": [
+        {
+          "topic": "Familie",
+          "usefulVocabulary": [
+            "die Familie",
+            "der Vater",
+            "die Mutter",
+            "der Bruder",
+            "die Schwester",
+            "verheiratet",
+            "das Kind"
+          ],
+          "possibleQuestions": [
+            "Wie gross ist deine Familie?",
+            "Hast du Geschwister?"
+          ],
+          "argumentsFor": [
+            "Eine grosse Familie ist schoen, weil man nie allein ist.",
+            "Familie gibt Halt."
+          ],
+          "argumentsAgainst": [
+            "Eine grosse Familie kann anstrengend sein.",
+            "Man hat weniger Zeit fuer sich."
+          ],
+          "keyPhrases": [
+            "In meiner Familie gibt es...",
+            "Mein Vater arbeitet als..."
+          ]
+        },
+        {
+          "topic": "Wohnen",
+          "usefulVocabulary": [
+            "die Wohnung",
+            "das Haus",
+            "das Zimmer",
+            "die Kueche",
+            "das Bad",
+            "der Balkon",
+            "die Miete"
+          ],
+          "possibleQuestions": [
+            "Wo wohnst du?",
+            "Ist deine Wohnung gross?",
+            "Zahlst du viel Miete?"
+          ],
+          "argumentsFor": [
+            "Eine Wohnung in der Stadt ist praktisch.",
+            "Ein Haus im Gruenen ist ruhiger."
+          ],
+          "argumentsAgainst": [
+            "Wohnungen in der Stadt sind teuer.",
+            "Ein Haus braucht viel Arbeit."
+          ],
+          "keyPhrases": [
+            "Ich wohne in...",
+            "Meine Wohnung hat...",
+            "Die Miete kostet..."
+          ]
+        },
+        {
+          "topic": "Essen und Trinken",
+          "usefulVocabulary": [
+            "das Fruehstueck",
+            "das Mittagessen",
+            "das Abendessen",
+            "kochen",
+            "bestellen",
+            "der Geschmack",
+            "die Zutat",
+            "das Rezept"
+          ],
+          "possibleQuestions": [
+            "Was isst du gern?",
+            "Kannst du kochen?",
+            "Was ist dein Lieblingsgericht?"
+          ],
+          "argumentsFor": [
+            "Selber kochen ist gesuender.",
+            "Neue Gerichte probieren macht Spass."
+          ],
+          "argumentsAgainst": [
+            "Kochen braucht Zeit.",
+            "Essen gehen ist teuer."
+          ],
+          "keyPhrases": [
+            "Ich esse gern...",
+            "Mein Lieblingsgericht ist..."
+          ]
+        },
+        {
+          "topic": "Tagesablauf",
+          "usefulVocabulary": [
+            "aufstehen",
+            "fruehstuecken",
+            "zur Arbeit gehen",
+            "Mittagspause",
+            "Feierabend",
+            "einschlafen",
+            "taeglich",
+            "normalerweise"
+          ],
+          "possibleQuestions": [
+            "Um wie viel Uhr stehst du auf?",
+            "Was machst du am Abend?"
+          ],
+          "argumentsFor": [
+            "Ein fester Tagesablauf gibt Struktur.",
+            "Frueh aufstehen ist produktiver."
+          ],
+          "argumentsAgainst": [
+            "Ein starrer Tagesablauf ist langweilig.",
+            "Man will auch spontan sein."
+          ],
+          "keyPhrases": [
+            "Ich stehe um... auf.",
+            "Normalerweise arbeite ich...",
+            "Am Abend..."
+          ]
+        },
+        {
+          "topic": "Freizeit",
+          "usefulVocabulary": [
+            "das Hobby",
+            "der Sport",
+            "lesen",
+            "Musik hoeren",
+            "Freunde treffen",
+            "spazieren gehen",
+            "reisen"
+          ],
+          "possibleQuestions": [
+            "Was machst du in deiner Freizeit?",
+            "Machst du Sport?",
+            "Triffst du oft Freunde?"
+          ],
+          "argumentsFor": [
+            "Hobbys sind wichtig fuer Erholung.",
+            "Sport haelt fit."
+          ],
+          "argumentsAgainst": [
+            "Manche Hobbys sind teuer.",
+            "Freizeitaktivitaeten brauchen Zeit."
+          ],
+          "keyPhrases": [
+            "In meiner Freizeit...",
+            "Ich treibe gern Sport."
+          ]
+        },
+        {
+          "topic": "Einkaufen",
+          "usefulVocabulary": [
+            "der Supermarkt",
+            "einkaufen",
+            "bezahlen",
+            "bar",
+            "mit Karte",
+            "der Preis",
+            "das Angebot",
+            "die Kasse"
+          ],
+          "possibleQuestions": [
+            "Wo kaufst du ein?",
+            "Bezahlst du bar oder mit Karte?"
+          ],
+          "argumentsFor": [
+            "Auf dem Wochenmarkt ist Obst frischer.",
+            "Im Supermarkt ist alles guenstiger."
+          ],
+          "argumentsAgainst": [
+            "Einkaufen kann stressig sein.",
+            "Am Wochenende ist es voll."
+          ],
+          "keyPhrases": [
+            "Ich kaufe bei... ein.",
+            "Das kostet...",
+            "Ich bezahle mit..."
+          ]
+        },
+        {
+          "topic": "Reisen",
+          "usefulVocabulary": [
+            "der Urlaub",
+            "verreisen",
+            "das Hotel",
+            "der Flug",
+            "der Zug",
+            "buchen",
+            "der Koffer",
+            "die Reise"
+          ],
+          "possibleQuestions": [
+            "Reist du gern?",
+            "Wohin faehrst du in Urlaub?"
+          ],
+          "argumentsFor": [
+            "Reisen erweitert den Horizont.",
+            "Im Urlaub kann man entspannen."
+          ],
+          "argumentsAgainst": [
+            "Reisen ist teuer.",
+            "Fliegen ist schlecht fuer Umwelt."
+          ],
+          "keyPhrases": [
+            "Ich reise gern nach...",
+            "Mein letzter Urlaub war..."
+          ]
+        },
+        {
+          "topic": "Gesundheit",
+          "usefulVocabulary": [
+            "der Arzt",
+            "das Krankenhaus",
+            "die Medizin",
+            "Schmerzen haben",
+            "krank",
+            "gesund",
+            "der Termin",
+            "die Versicherung"
+          ],
+          "possibleQuestions": [
+            "Gehst du regelmaessig zum Arzt?",
+            "Was machst du, wenn du krank bist?"
+          ],
+          "argumentsFor": [
+            "Regelmaessige Vorsorge ist wichtig.",
+            "Gesund essen beugt Krankheiten vor."
+          ],
+          "argumentsAgainst": [
+            "Arztbesuche kosten Zeit.",
+            "Medikamente sind teuer."
+          ],
+          "keyPhrases": [
+            "Ich habe... Schmerzen.",
+            "Ich gehe zum Arzt, weil..."
+          ]
+        }
+      ]
+    },
+    {
+      "examType": "goethe",
+      "level": "B1",
+      "module": "sprechen",
+      "commonTopics": [
+        "Umwelt",
+        "Gesundheit",
+        "Arbeit",
+        "Freizeit",
+        "Medien",
+        "Bildung",
+        "Ernaehrung",
+        "Digitalisierung",
+        "Wohnen",
+        "Mobilitaet"
+      ],
+      "preparationGuides": [
+        {
+          "topic": "Umwelt",
+          "usefulVocabulary": [
+            "der Klimawandel",
+            "die Umweltverschmutzung",
+            "erneuerbare Energien",
+            "der Muell",
+            "recyceln",
+            "der CO2-Ausstoss",
+            "die Nachhaltigkeit"
+          ],
+          "possibleQuestions": [
+            "Was kann man fuer die Umwelt tun?",
+            "Sollte man mehr in oeffentlichen Nahverkehr investieren?",
+            "Klimaschutz: Politik oder Einzelner?"
+          ],
+          "argumentsFor": [
+            "Jeder kann durch kleine Veraenderungen beitragen.",
+            "Erneuerbare Energien schaffen Arbeitsplaetze."
+          ],
+          "argumentsAgainst": [
+            "Einzelmassnahmen reichen nicht, wenn Industrie nicht mitmacht.",
+            "Klimaschutz nicht zu Lasten der Wirtschaft."
+          ],
+          "keyPhrases": [
+            "Ich bin der Meinung, dass...",
+            "Einerseits... andererseits...",
+            "Meiner Ansicht nach..."
+          ]
+        },
+        {
+          "topic": "Gesundheit",
+          "usefulVocabulary": [
+            "die Vorsorge",
+            "die Krankenversicherung",
+            "der Lebensstil",
+            "die Bewegung",
+            "die Ernaehrung",
+            "der Stress",
+            "die Praevention"
+          ],
+          "possibleQuestions": [
+            "Wie wichtig ist Gesundheit?",
+            "Sollten Arbeitgeber mehr fuer Gesundheit tun?"
+          ],
+          "argumentsFor": [
+            "Praevention ist besser als Nachsorge.",
+            "Betriebliche Gesundheitsfoerderung senkt Kosten."
+          ],
+          "argumentsAgainst": [
+            "Viele haben keine Zeit fuer Vorsorge.",
+            "Gesundheitssystem ist zu teuer."
+          ],
+          "keyPhrases": [
+            "Aus meiner Sicht...",
+            "Dafuer spricht...",
+            "Dagegen spricht..."
+          ]
+        },
+        {
+          "topic": "Arbeit",
+          "usefulVocabulary": [
+            "der Beruf",
+            "die Karriere",
+            "die Arbeitszeit",
+            "das Gehalt",
+            "die Bewerbung",
+            "der Arbeitgeber",
+            "der Arbeitnehmer"
+          ],
+          "possibleQuestions": [
+            "Was ist dir bei Arbeit wichtig?",
+            "Traumjob oder Sicherheit?",
+            "Ist Homeoffice gut?"
+          ],
+          "argumentsFor": [
+            "Sicherer Job gibt Stabilitaet.",
+            "Homeoffice bietet Flexibilitaet."
+          ],
+          "argumentsAgainst": [
+            "Sicherheit allein macht nicht gluecklich.",
+            "Homeoffice kann einsam machen."
+          ],
+          "keyPhrases": [
+            "Meiner Erfahrung nach...",
+            "Viele sind der Auffassung..."
+          ]
+        },
+        {
+          "topic": "Medien",
+          "usefulVocabulary": [
+            "soziale Medien",
+            "Nachrichten",
+            "die Zeitung",
+            "das Fernsehen",
+            "das Internet",
+            "Meinungsfreiheit",
+            "Fake News",
+            "Journalismus"
+          ],
+          "possibleQuestions": [
+            "Wie informierst du dich?",
+            "Sind soziale Medien eine Gefahr?",
+            "Sollte man Kommentare moderieren?"
+          ],
+          "argumentsFor": [
+            "Soziale Medien ermoeglichen schnellen Austausch.",
+            "Journalismus ist wichtig fuer Demokratie."
+          ],
+          "argumentsAgainst": [
+            "Fake News manipulieren.",
+            "Algorithmen schaffen Filterblasen."
+          ],
+          "keyPhrases": [
+            "Ein haeufig genanntes Argument ist...",
+            "Es laesst sich nicht leugnen..."
+          ]
+        },
+        {
+          "topic": "Bildung",
+          "usefulVocabulary": [
+            "das Schulsystem",
+            "die Universitaet",
+            "die Ausbildung",
+            "der Unterricht",
+            "die Note",
+            "das Studium",
+            "die Weiterbildung"
+          ],
+          "possibleQuestions": [
+            "Sollte das Schulsystem reformiert werden?",
+            "Studium wichtiger als Ausbildung?",
+            "Mehr digitale Bildung?"
+          ],
+          "argumentsFor": [
+            "Bildung ist Schluessel zum Aufstieg.",
+            "Digitalisierung bereitet auf Arbeitswelt vor."
+          ],
+          "argumentsAgainst": [
+            "Schulsystem ist ungerecht.",
+            "Zu viel Digitalisierung lenkt ab."
+          ],
+          "keyPhrases": [
+            "Es ist allgemein bekannt...",
+            "Studien belegen...",
+            "Ich vertrete den Standpunkt..."
+          ]
+        },
+        {
+          "topic": "Ernaehrung",
+          "usefulVocabulary": [
+            "vegetarisch",
+            "vegan",
+            "Bio-Produkte",
+            "Fleischkonsum",
+            "Nahrungsmittel",
+            "Tierwohl",
+            "Lebensmittelverschwendung"
+          ],
+          "possibleQuestions": [
+            "Ist vegetarische Ernaehrung gesuender?",
+            "Sollte Fleisch teurer sein?",
+            "Was haltest du von Bio?"
+          ],
+          "argumentsFor": [
+            "Weniger Fleisch ist gut fuer Umwelt und Gesundheit.",
+            "Bio hat weniger Schadstoffe."
+          ],
+          "argumentsAgainst": [
+            "Bio ist zu teuer.",
+            "Ausgewogene Ernaehrung auch mit Fleisch."
+          ],
+          "keyPhrases": [
+            "Pro/Contra abwaegen...",
+            "Sowohl... als auch..."
+          ]
+        },
+        {
+          "topic": "Digitalisierung",
+          "usefulVocabulary": [
+            "die Automatisierung",
+            "der Algorithmus",
+            "kuenstliche Intelligenz",
+            "der Datenschutz",
+            "die Digitalisierung",
+            "die Cybersicherheit"
+          ],
+          "possibleQuestions": [
+            "Veraendert Digitalisierung die Gesellschaft zu schnell?",
+            "Sollte Staat mehr investieren?",
+            "Zu abhaengig von Technologie?"
+          ],
+          "argumentsFor": [
+            "Digitalisierung macht Prozesse effizienter.",
+            "Deutschland muss wettbewerbsfaehig bleiben."
+          ],
+          "argumentsAgainst": [
+            "Datenschutz wird vernachlaessigt.",
+            "Digitale Kluft zwischen Menschen."
+          ],
+          "keyPhrases": [
+            "Es ist nicht von der Hand zu weisen...",
+            "Ein wichtiger Aspekt ist..."
+          ]
+        },
+        {
+          "topic": "Mobilitaet",
+          "usefulVocabulary": [
+            "das Elektroauto",
+            "oeffentlicher Nahverkehr",
+            "die Verkehrswende",
+            "das Fahrrad",
+            "Carsharing",
+            "die Infrastruktur",
+            "die Emission"
+          ],
+          "possibleQuestions": [
+            "Auto aus Innenstaedten verbannen?",
+            "Elektroauto die Zukunft?",
+            "OePNV kostenlos?"
+          ],
+          "argumentsFor": [
+            "Weniger Autos = bessere Luft.",
+            "OePNV ausbauen und ver billigen."
+          ],
+          "argumentsAgainst": [
+            "Viele sind auf Auto angewiesen.",
+            "Elektroautos zu teuer, Infrastruktur fehlt."
+          ],
+          "keyPhrases": [
+            "Ich moechte darauf hinweisen...",
+            "Abschliessend laesst sich sagen..."
+          ]
+        }
+      ]
+    },
+    {
+      "examType": "goethe",
+      "level": "B2",
+      "module": "sprechen",
+      "commonTopics": [
+        "Umwelt und Klimapolitik",
+        "Globalisierung",
+        "Migration und Integration",
+        "Gesundheitssystem",
+        "Bildungsreform",
+        "Arbeitsmarkt der Zukunft",
+        "Medien und Meinungsfreiheit",
+        "Kuenstliche Intelligenz",
+        "Nachhaltigkeit",
+        "Kultur und Identitaet"
+      ],
+      "preparationGuides": [
+        {
+          "topic": "Umwelt und Klimapolitik",
+          "usefulVocabulary": [
+            "die Klimaneutralitaet",
+            "der Emissionshandel",
+            "die CO2-Steuer",
+            "die Klimabewegung",
+            "das Pariser Abkommen",
+            "die Ressourcenschonung",
+            "der oekologische Fussabdruck"
+          ],
+          "possibleQuestions": [
+            "Sollte Deutschland Vorreiter sein?",
+            "Ist CO2-Steuer geeignet?",
+            "Klimaschutz und Wirtschaftswachstum vereinbar?"
+          ],
+          "argumentsFor": [
+            "Deutschland hat besondere Verantwortung.",
+            "CO2-Steuer setzt Anreize fuer Innovation."
+          ],
+          "argumentsAgainst": [
+            "Deutschland allein kann Weltklima nicht retten.",
+            "CO2-Steuer belastet Geringverdiener."
+          ],
+          "keyPhrases": [
+            "Ich moechte aus verschiedenen Perspektiven betrachten...",
+            "Waehrend die einen argumentieren..."
+          ]
+        },
+        {
+          "topic": "Globalisierung",
+          "usefulVocabulary": [
+            "der Welthandel",
+            "die Lieferkette",
+            "der Protektionismus",
+            "multinationale Konzerne",
+            "die globale Arbeitsteilung",
+            "der kulturelle Austausch"
+          ],
+          "possibleQuestions": [
+            "Ist Globalisierung gescheitert?",
+            "Mehr regionale Produktion?",
+            "Auswirkungen auf Kultur?"
+          ],
+          "argumentsFor": [
+            "Globalisierung hat Wohlstand gefoerdert.",
+            "Lieferketten senken Kosten."
+          ],
+          "argumentsAgainst": [
+            "Vergroessert Kluft zwischen Arm und Reich.",
+            "Krisen zeigen Verletzlichkeit."
+          ],
+          "keyPhrases": [
+            "Eine komplexe Thematik...",
+            "Befuerworter heben hervor..."
+          ]
+        },
+        {
+          "topic": "Migration und Integration",
+          "usefulVocabulary": [
+            "die Zuwanderung",
+            "die Integration",
+            "der Asylbewerber",
+            "die Willkommenskultur",
+            "der Spracherwerb",
+            "die Arbeitsmigration",
+            "der Fachkraeftemangel"
+          ],
+          "possibleQuestions": [
+            "Braucht Deutschland mehr Einwanderung?",
+            "Voraussetzungen fuer Integration?",
+            "Integration gesetzlich verpflichtend?"
+          ],
+          "argumentsFor": [
+            "Deutschland braucht Einwanderung gegen Fachkraeftemangel.",
+            "Kulturelle Vielfalt bereichert."
+          ],
+          "argumentsAgainst": [
+            "Integration braucht Zeit.",
+            "Zu schnelle Zuwanderung belastet Sozialsysteme."
+          ],
+          "keyPhrases": [
+            "In der aktuellen Debatte wird kontrovers diskutiert...",
+            "Es gibt gute Gruende..."
+          ]
+        },
+        {
+          "topic": "Gesundheitssystem",
+          "usefulVocabulary": [
+            "gesetzliche Krankenversicherung",
+            "private Krankenversicherung",
+            "der Fachkraeftemangel",
+            "Digitalisierung im Gesundheitswesen",
+            "die Telemedizin",
+            "die Pflege",
+            "die Gesundheitspraevention"
+          ],
+          "possibleQuestions": [
+            "Gesundheitssystem reformbeduerftig?",
+            "Elektronische Patientenakte verpflichtend?",
+            "Pflegenotstand beheben?"
+          ],
+          "argumentsFor": [
+            "Deutsches System bietet umfassende Versorgung.",
+            "Digitalisierung steigert Effizienz."
+          ],
+          "argumentsAgainst": [
+            "Zweiklassenmedizin ist ungerecht.",
+            "Buerokratieaufwand zu hoch."
+          ],
+          "keyPhrases": [
+            "Ein weiterer Gesichtspunkt...",
+            "Problematisch ist jedoch..."
+          ]
+        },
+        {
+          "topic": "Bildungsreform",
+          "usefulVocabulary": [
+            "die Bildungspolitik",
+            "der Bildungsfoederalismus",
+            "die Ganztagsschule",
+            "das Abitur",
+            "die Inklusion",
+            "die fruehkindliche Bildung",
+            "die Hochschulreform"
+          ],
+          "possibleQuestions": [
+            "Vereinheitlichung des Schulsystems?",
+            "Abitur nach 12. Klasse abschaffen?",
+            "Inklusion umsetzbar?"
+          ],
+          "argumentsFor": [
+            "Zentrales System = mehr Chancengerechtigkeit.",
+            "Inklusion foerdert soziales Miteinander."
+          ],
+          "argumentsAgainst": [
+            "Foederalismus ermoeglicht regionale Anpassung.",
+            "Inklusion erfordert Ressourcen."
+          ],
+          "keyPhrases": [
+            "Dieses Thema ist vielschichtig...",
+            "Befuerworter einer Reform argumentieren..."
+          ]
+        },
+        {
+          "topic": "Arbeitsmarkt der Zukunft",
+          "usefulVocabulary": [
+            "der Strukturwandel",
+            "die Automatisierung",
+            "lebenslanges Lernen",
+            "der Fachkraeftemangel",
+            "die Gig-Economy",
+            "das Grundeinkommen",
+            "die Umschulung"
+          ],
+          "possibleQuestions": [
+            "Wie wird die Arbeit der Zukunft aussehen?",
+            "Bedroht Automation unsere Jobs?",
+            "Brauchen wir ein Grundeinkommen?"
+          ],
+          "argumentsFor": [
+            "Automatisierung schafft neue Berufe.",
+            "Lebenslanges Lernen ist Chance."
+          ],
+          "argumentsAgainst": [
+            "Viele Berufe werden verschwinden.",
+            "Nicht alle koennen sich anpassen."
+          ],
+          "keyPhrases": [
+            "Es zeichnet sich ab, dass...",
+            "Prognosen zufolge werden..."
+          ]
+        },
+        {
+          "topic": "Medien und Meinungsfreiheit",
+          "usefulVocabulary": [
+            "die Pressefreiheit",
+            "die Zensur",
+            "die Desinformation",
+            "der Journalismus",
+            "die oeffentlich-rechtlichen Medien",
+            "die Algorithmen",
+            "die Echokammer"
+          ],
+          "possibleQuestions": [
+            "Ist die Pressefreiheit in Gefahr?",
+            "Sollten soziale Medien staerker reguliert werden?",
+            "Brauchen wir oeffentlich-rechtlichen Rundfunk?"
+          ],
+          "argumentsFor": [
+            "Pressefreiheit ist Grundpfeiler der Demokratie.",
+            "Oeffentlich-rechtliche sichern Qualitaetsjournalismus."
+          ],
+          "argumentsAgainst": [
+            "Soziale Medien verbreiten Desinformation.",
+            "OeR-Rundfunk ist zu teuer und nicht mehr zeitgemaess."
+          ],
+          "keyPhrases": [
+            "In dieser Diskussion stehen sich zwei Positionen gegenueber...",
+            "Waehrend die einen die Meinungsfreiheit betonen..."
+          ]
+        },
+        {
+          "topic": "Kuenstliche Intelligenz",
+          "usefulVocabulary": [
+            "maschinelles Lernen",
+            "neuronale Netze",
+            "die Ethik",
+            "die Automatisierung",
+            "die Daten",
+            "der Algorithmus",
+            "die Transparenz",
+            "die Verantwortung"
+          ],
+          "possibleQuestions": [
+            "Ist KI eine Chance oder Gefahr?",
+            "Sollte KI reguliert werden?",
+            "Wird KI Arbeitsplaetze ersetzen?"
+          ],
+          "argumentsFor": [
+            "KI kann medizinische Diagnosen verbessern.",
+            "KI steigert Effizienz in vielen Bereichen."
+          ],
+          "argumentsAgainst": [
+            "KI entscheidet undurchschaubar.",
+            "KI kann Vorurteile verstaerken."
+          ],
+          "keyPhrases": [
+            "Bei diesem Thema muss man differenzieren...",
+            "Die Potenziale sind enorm, aber die Risiken..."
+          ]
+        }
+      ]
+    }
+  ],
+  "goetheLevelGuides": [
+    {
+      "level": "A1",
+      "description": "Grundlegende Kenntnisse: vertraute alltaegliche Ausdruecke und einfache Saetze verstehen und verwenden.",
+      "modules": [
+        "Hoeren",
+        "Lesen",
+        "Schreiben",
+        "Sprechen"
+      ],
+      "moduleDetails": [
+        {
+          "name": "Hoeren",
+          "duration_minutes": 20,
+          "format": "3 Teile: Durchsagen, kurze Gespraeche und Alltagsdialoge",
+          "passScore": "60%",
+          "skills": [
+            "Einfache Woerter und Phrasen verstehen",
+            "Grundlegende Informationen aus kurzen Audios extrahieren"
+          ],
+          "practiceTips": [
+            "Langsame deutsche Audios taeglich hoeren",
+            "Auf Zahlen und Namen konzentrieren"
+          ]
+        },
+        {
+          "name": "Lesen",
+          "duration_minutes": 25,
+          "format": "3 Teile: kurze Texte, Schilder, Anzeigen, E-Mails",
+          "passScore": "60%",
+          "skills": [
+            "Einfache Schilder und Notizen verstehen",
+            "Informationen aus kurzen Texten finden"
+          ],
+          "practiceTips": [
+            "Kurze Anzeigen und Schilder lesen",
+            "Schluesselinformationen ueberfliegen ueben"
+          ]
+        },
+        {
+          "name": "Schreiben",
+          "duration_minutes": 20,
+          "format": "2 Teile: Formular ausfuellen + kurze Nachricht",
+          "passScore": "60%",
+          "skills": [
+            "Einfache persoenliche Informationen schreiben",
+            "Kurze Mitteilung ueber Alltag schreiben"
+          ],
+          "practiceTips": [
+            "Formulare ausfuellen ueben",
+            "Kurze E-Mails ueber sich schreiben"
+          ]
+        },
+        {
+          "name": "Sprechen",
+          "duration_minutes": 15,
+          "format": "3 Teile: sich vorstellen, Fragen stellen/antworten, Bitten",
+          "passScore": "60%",
+          "skills": [
+            "Sich einfach vorstellen",
+            "Grundlegende Fragen stellen und beantworten"
+          ],
+          "practiceTips": [
+            "Selbstvorstellung taeglich ueben",
+            "Sich beim Sprechen aufnehmen"
+          ]
+        }
+      ]
+    },
+    {
+      "level": "A2",
+      "description": "Elementare Verwendung: versteht Satze und haeufig gebrauchte Ausdruecke in wichtigen Bereichen (Person, Familie, Einkaufen, Arbeit).",
+      "modules": [
+        "Hoeren",
+        "Lesen",
+        "Schreiben",
+        "Sprechen"
+      ],
+      "moduleDetails": [
+        {
+          "name": "Hoeren",
+          "duration_minutes": 25,
+          "format": "3 Teile: Radioansagen, Telefongespraeche, Alltagsdialoge",
+          "passScore": "60%",
+          "skills": [
+            "Hauptinformationen in kurzen Gespraechen verstehen",
+            "Einfache Erklaerungen verstehen"
+          ],
+          "practiceTips": [
+            "Podcasts fuer A2-Niveau hoeren",
+            "Dialoge aus Lehrbuechern anhoeren"
+          ]
+        },
+        {
+          "name": "Lesen",
+          "duration_minutes": 30,
+          "format": "3 Teile: laengere Alltagstexte, E-Mails, Anzeigen",
+          "passScore": "60%",
+          "skills": [
+            "Einfache Texte ueber vertraute Themen verstehen",
+            "Konkrete Informationen in Anzeigen finden"
+          ],
+          "practiceTips": [
+            "Kurze Zeitungsartikel lesen",
+            "Wortschatz thematisch erweitern"
+          ]
+        },
+        {
+          "name": "Schreiben",
+          "duration_minutes": 30,
+          "format": "2 Teile: private und formelle Nachricht",
+          "passScore": "60%",
+          "skills": [
+            "Ueber vertraute Themen schreiben",
+            "Formelle E-Mails verfassen"
+          ],
+          "practiceTips": [
+            "Tagebuch auf Deutsch fuehren",
+            "E-Mails mit verschiedenen Anlaessen schreiben"
+          ]
+        },
+        {
+          "name": "Sprechen",
+          "duration_minutes": 15,
+          "format": "3 Teile: Vorstellung, Thema besprechen, gemeinsame Planung",
+          "passScore": "60%",
+          "skills": [
+            "In einfachen Saetzen kommunizieren",
+            "Ueber Alltagsthemen sprechen",
+            "Einfache Planungen durchfuehren"
+          ],
+          "practiceTips": [
+            "Alltagssituationen nachspielen",
+            "Mit Sprachpartner ueben"
+          ]
+        }
+      ]
+    },
+    {
+      "level": "B1",
+      "description": "Selbststaendige Sprachverwendung: Hauptinhalte vertrauter Themen verstehen, sich einfach zusammenhaengend ausdruecken.",
+      "modules": [
+        "Hoeren",
+        "Lesen",
+        "Schreiben",
+        "Sprechen"
+      ],
+      "moduleDetails": [
+        {
+          "name": "Hoeren",
+          "duration_minutes": 30,
+          "format": "3 Teile: Radiogespraeche, Interviews, Diskussionen",
+          "passScore": "60%",
+          "skills": [
+            "Hauptaussagen von Radiobeitraegen verstehen",
+            "Meinungen und Standpunkte erkennen"
+          ],
+          "practiceTips": [
+            "Nachrichten auf Deutsch hoeren (langsam)",
+            "Verschiedene Stimmen und Akzente ueben"
+          ]
+        },
+        {
+          "name": "Lesen",
+          "duration_minutes": 40,
+          "format": "3 Teile: Blogbeitraege, Zeitungsartikel, Forumsbeitraege",
+          "passScore": "60%",
+          "skills": [
+            "Sachtexte und persoenliche Briefe verstehen",
+            "Wichtige Informationen im Text finden"
+          ],
+          "practiceTips": [
+            "Blogs zu Interessenthemen lesen",
+            "Unbekannte Woerter aus Kontext erschliessen"
+          ]
+        },
+        {
+          "name": "Schreiben",
+          "duration_minutes": 40,
+          "format": "2 Teile: formelle Beschwerde/Anfrage + persoenliche Mitteilung",
+          "passScore": "60%",
+          "skills": [
+            "Zusammenhaengende Texte schreiben",
+            "Persoenliche Meinung ausdruecken und begruenden"
+          ],
+          "practiceTips": [
+            "Forumsbeitraege schreiben",
+            "Texte mit Einleitung, Hauptteil, Schluss gliedern"
+          ]
+        },
+        {
+          "name": "Sprechen",
+          "duration_minutes": 25,
+          "format": "3 Teile: Vortrag, Diskussion, gemeinsame Planung",
+          "passScore": "60%",
+          "skills": [
+            "Zusammenhaengend ueber vertraute Themen sprechen",
+            "Meinungen begruenden",
+            "An Gespraechen teilnehmen"
+          ],
+          "practiceTips": [
+            "Kurze Vortraege zu Alltagsthemen halten",
+            "Argumente sammeln und strukturieren"
+          ]
+        }
+      ]
+    },
+    {
+      "level": "B2",
+      "description": "Selbststaendige Sprachverwendung: komplexe Texte verstehen, sich spontan und fluessig verstaendigen.",
+      "modules": [
+        "Hoeren",
+        "Lesen",
+        "Schreiben",
+        "Sprechen"
+      ],
+      "moduleDetails": [
+        {
+          "name": "Hoeren",
+          "duration_minutes": 35,
+          "format": "3 Teile: Vortraege, Diskussionsrunden, Radiofeatures",
+          "passScore": "60%",
+          "skills": [
+            "Laengere Redebeitraege verstehen",
+            "Argumentation folgen",
+            "Implizite Einstellungen erkennen"
+          ],
+          "practiceTips": [
+            "TED-Talks auf Deutsch anhoeren",
+            "Debatten und Diskussionen verfolgen"
+          ]
+        },
+        {
+          "name": "Lesen",
+          "duration_minutes": 50,
+          "format": "3 Teile: komplexe Sachtexte, Meinungsartikel, Kommentare",
+          "passScore": "60%",
+          "skills": [
+            "Komplexe Texte zu aktuellen Themen verstehen",
+            "Argumentation und Standpunkte erkennen"
+          ],
+          "practiceTips": [
+            "Qualitaetszeitungen lesen (Zeit, FAZ, SZ)",
+            "Textstruktur analysieren"
+          ]
+        },
+        {
+          "name": "Schreiben",
+          "duration_minutes": 60,
+          "format": "2 Teile: Argumentation/Stellungnahme + formelle Korrespondenz",
+          "passScore": "60%",
+          "skills": [
+            "Differenzierte Argumentation verfassen",
+            "Formelle Briefe mit komplexem Inhalt schreiben"
+          ],
+          "practiceTips": [
+            "Leserbriefe zu aktuellen Themen schreiben",
+            "Argumente pro/contra strukturieren"
+          ]
+        },
+        {
+          "name": "Sprechen",
+          "duration_minutes": 30,
+          "format": "3 Teile: Praesentation, Diskussion, Problemloesung",
+          "passScore": "60%",
+          "skills": [
+            "Komplexe Sachverhalte praesentieren",
+            "Standpunkte vertreten und verteidigen",
+            "Loesungen erarbeiten"
+          ],
+          "practiceTips": [
+            "Aktuelle Themen praesentieren",
+            "Debatten ueben, Positionen begruenden"
+          ]
+        }
+      ]
+    },
+    {
+      "level": "C1",
+      "description": "Kompetente Sprachverwendung: anspruchsvolle Texte verstehen, sich spontan und strukturiert ausdruecken.",
+      "modules": [
+        "Hoeren",
+        "Lesen",
+        "Schreiben",
+        "Sprechen"
+      ],
+      "moduleDetails": [
+        {
+          "name": "Hoeren",
+          "duration_minutes": 40,
+          "format": "3 Teile: komplexe Vortraege, Diskussionen, Reportagen",
+          "passScore": "60%",
+          "skills": [
+            "Laengere Redebeitraege auch abstrakt verstehen",
+            "Zwischentoene erkennen",
+            "Kontextuelle Bedeutungen verstehen"
+          ],
+          "practiceTips": [
+            "Wissenschaftliche Vortraege hoeren",
+            "Akzente und Dialekte ueben"
+          ]
+        },
+        {
+          "name": "Lesen",
+          "duration_minutes": 60,
+          "format": "4 Teile: wissenschaftliche Texte, Kommentare, literarische Texte",
+          "passScore": "60%",
+          "skills": [
+            "Komplexe Sachbuecher und Fachartikel verstehen",
+            "Implizite Aussagen interpretieren"
+          ],
+          "practiceTips": [
+            "Fachtexte zum Interessengebiet lesen",
+            "Stilmittel und Argumentationsstrategien analysieren"
+          ]
+        },
+        {
+          "name": "Schreiben",
+          "duration_minutes": 75,
+          "format": "2 Teile: zusammenfassende/erortende Aufgaben + formelle Korrespondenz",
+          "passScore": "60%",
+          "skills": [
+            "Komplexe Sachverhalte strukturiert darstellen",
+            "Stellungnahmen mit Argumenten verfassen"
+          ],
+          "practiceTips": [
+            "Zusammenfassungen von Artikeln schreiben",
+            "Koh aerente Argumentationslinien aufbauen"
+          ]
+        },
+        {
+          "name": "Sprechen",
+          "duration_minutes": 35,
+          "format": "2 Teile: Vortrag/Praesentation + Diskussion",
+          "passScore": "60%",
+          "skills": [
+            "Anspruchsvolle Praesentationen halten",
+            "Sich an komplexen Diskussionen beteiligen",
+            "Nuancen ausdruecken"
+          ],
+          "practiceTips": [
+            "Vortraege mit Thesen und Antithesen halten",
+            "Sich an Diskussionsrunden beteiligen"
+          ]
+        }
+      ]
+    }
+  ]
+}
