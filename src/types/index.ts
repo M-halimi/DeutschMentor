@@ -649,6 +649,42 @@ export interface MentorMessage {
   created_at: string
 }
 
+export interface DictionaryEntry {
+  id: string
+  german_word: string
+  word_type: 'noun' | 'verb' | 'adjective' | 'adverb' | 'preposition' | 'conjunction' | 'expression' | 'pronoun' | 'article' | 'numeral' | 'interjection' | 'prefix' | 'suffix' | 'phrase'
+  article: 'der' | 'die' | 'das' | null
+  singular: string | null
+  plural: string | null
+  infinitive: string | null
+  verb_conjugation: Record<string, string>
+  cefr_level: GermanLevel | 'C2'
+  english_translation: string
+  french_translation: string | null
+  arabic_translation: string | null
+  pronunciation_url: string | null
+  ipa: string | null
+  example_sentences: string[]
+  synonyms: string[]
+  antonyms: string[]
+  word_family: string[]
+  collocations: string[]
+  grammar_notes: string | null
+  common_mistakes: string[]
+  topic: string | null
+  frequency_rank: number | null
+  tags: string[]
+  created_at: string
+}
+
+export interface DictionarySearchResult {
+  entries: DictionaryEntry[]
+  total: number
+  page: number
+  limit: number
+  totalPages: number
+}
+
 export type ThemeContentType = 'vocabulary' | 'listening' | 'reading' | 'speaking' | 'writing' | 'grammar' | 'conversation'
 
 export interface ThemeLesson {

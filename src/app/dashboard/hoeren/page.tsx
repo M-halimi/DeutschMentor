@@ -90,6 +90,8 @@ export default function HoerenPage() {
   const [shortAnswer, setShortAnswer] = useState('')
   const [contentTab, setContentTab] = useState<'vocabulary' | 'phrases' | 'grammar'>('vocabulary')
   const [autoShowTranscript, setAutoShowTranscript] = useState(false)
+  const [readingAloud, setReadingAloud] = useState(false)
+  const [isReadingLoading, setIsReadingLoading] = useState(false)
 
   const audioRef = useRef<HTMLAudioElement | null>(null)
 
@@ -156,9 +158,12 @@ export default function HoerenPage() {
 
   const generatingAudioRef = useRef(false)
 
+  const isPlaceholderAudio = (url: string) =>
+    url.includes('soundhelix') || url.includes('placeholder') || url.includes('example.com')
+
   useEffect(() => {
     if (!selectedId || !audioRef.current) return
-    if (lessonDetail?.audio_url) {
+    if (lessonDetail?.audio_url && !isPlaceholderAudio(lessonDetail.audio_url)) {
       audioRef.current.src = lessonDetail.audio_url
       audioRef.current.load()
     } else if (lessonDetail?.transcript && !generatingAudioRef.current) {
@@ -842,6 +847,39 @@ export default function HoerenPage() {
                   <SkipForward className="h-5 w-5" />
                 </Button>
               </div>
+
+              {lessonDetail.transcript && (
+                <div className="flex justify-center mb-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="text-xs"
+                    onClick={() => {
+                      if (readingAloud) {
+                        window.speechSynthesis?.cancel()
+                        setReadingAloud(false)
+                      } else {
+                        const voices = window.speechSynthesis?.getVoices() ?? []
+                        const germanVoices = voices.filter(v => v.lang.startsWith('de'))
+                        const preferred = germanVoices.find(v => /neural|natural|premium|katja|hedda|seraphina|conrad|amala|louisa|killian/i.test(v.name))
+                          ?? germanVoices.find(v => v.lang === 'de-DE')
+                          ?? germanVoices[0]
+                        const utterance = new SpeechSynthesisUtterance(lessonDetail.transcript as string)
+                        utterance.lang = 'de-DE'
+                        if (preferred) utterance.voice = preferred
+                        utterance.rate = 0.9
+                        utterance.onend = () => setReadingAloud(false)
+                        utterance.onerror = () => setReadingAloud(false)
+                        window.speechSynthesis?.speak(utterance)
+                        setReadingAloud(true)
+                      }
+                    }}
+                  >
+                    {readingAloud ? <Pause className="h-3.5 w-3.5 mr-1" /> : <Play className="h-3.5 w-3.5 mr-1" />}
+                    {readingAloud ? 'Stop' : 'Native German Audio'}
+                  </Button>
+                </div>
+              )}
 
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-xs text-muted-foreground tabular-nums w-10 text-right">{formatTime(currentTime)}</span>

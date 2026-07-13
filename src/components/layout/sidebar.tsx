@@ -26,6 +26,7 @@ import {
   Languages,
   BarChart3,
   Target,
+  BookText,
   type LucideIcon,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -51,6 +52,7 @@ const skillNav: NavItem[] = [
 
 const resourceNav: NavItem[] = [
   { href: '/dashboard/vocabulary', label: 'Vocabulary', icon: BookmarkPlus, badge: 'NEW' },
+  { href: '/dashboard/dictionary', label: 'Dictionary', icon: BookText, badge: 'NEW' },
   { href: '/dashboard/grammar', label: 'Grammar', icon: Braces },
   { href: '/dashboard/dictation', label: 'Dictation', icon: Ear },
   { href: '/dashboard/expressions', label: 'Expressions', icon: MessageSquareText },

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react'
 import { AppShell } from '@/components/layout/app-shell'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -17,11 +17,12 @@ import {
   BookOpen, Target, Lightbulb, ChevronDown, ChevronUp, Filter,
   Timer, FileText, Send, RotateCcw, Star, Languages,
   Mail, FileEdit, MessageSquare, Briefcase, Newspaper,
-  Quote, Users, Gift, ThumbsUp, Book, Edit3,
+  Quote, Users, Gift, ThumbsUp, Book, Edit3, ArrowLeft,
 } from 'lucide-react'
-import { useWritingHistory, useSubmitWriting, useWritingPrompts } from '@/hooks/use-progress'
+import { AudioPlayer } from '@/components/audio-player'
+import { useWritingHistory, useSubmitWriting, useWritingPrompts, useWritingExamples } from '@/hooks/use-progress'
 import { format } from 'date-fns'
-import type { WritingSubmission, WritingPrompt, WritingExerciseType, GermanLevel } from '@/types'
+import type { WritingSubmission, WritingPrompt, WritingExerciseType, GermanLevel, WritingExerciseTypeFull, WritingExample } from '@/types'
 
 const EXERCISE_ICONS: Record<WritingExerciseType, typeof Mail> = {
   email: Mail, formal_letter: FileEdit, informal_letter: MessageSquare, complaint: AlertCircle,
@@ -126,6 +127,208 @@ function CorrectionBlock({ corrections, suggestions }: { corrections: { original
         </>
       )}
     </>
+  )
+}
+
+function EmailTrainingContent() {
+  const { data: examples, isLoading } = useWritingExamples()
+  const ALL_LEVELS: (GermanLevel | 'C2')[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
+  const EMAIL_TYPES: WritingExerciseTypeFull[] = ['email_formal', 'email_informal', 'email_complaint', 'email_request', 'email_application', 'email_information']
+  const EMAIL_TYPE_LABELS: Record<string, string> = {
+    email_formal: 'Formelle E-Mail',
+    email_informal: 'Informelle E-Mail',
+    email_complaint: 'Beschwerde-E-Mail',
+    email_request: 'Anfrage-E-Mail',
+    email_application: 'Bewerbungs-E-Mail',
+    email_information: 'Informations-E-Mail',
+  }
+
+  const [selectedExample, setSelectedExample] = useState<WritingExample | null>(null)
+  const [emailLevelFilter, setEmailLevelFilter] = useState<string>('all')
+  const [emailTypeFilter, setEmailTypeFilter] = useState<string>('all')
+
+  const emailExamples = useMemo(() => {
+    let list = (examples ?? []).filter(e => EMAIL_TYPES.includes(e.exercise_type))
+    if (emailLevelFilter !== 'all') list = list.filter(e => e.level === emailLevelFilter)
+    if (emailTypeFilter !== 'all') list = list.filter(e => e.exercise_type === emailTypeFilter)
+    return list
+  }, [examples, emailLevelFilter, emailTypeFilter])
+
+  if (selectedExample) {
+    return (
+      <div className="space-y-6">
+        <Button variant="ghost" size="sm" onClick={() => setSelectedExample(null)}>
+          <ArrowLeft className="mr-2 h-4 w-4" /> Zurück zur Übersicht
+        </Button>
+
+        <div className="flex items-center gap-2">
+          <Badge className={LEVEL_COLORS[selectedExample.level as GermanLevel] ?? ''}>{selectedExample.level}</Badge>
+          <Badge variant="secondary">{EMAIL_TYPE_LABELS[selectedExample.exercise_type] ?? selectedExample.exercise_type}</Badge>
+          {selectedExample.word_count != null && (
+            <span className="ml-auto text-sm text-muted-foreground">{selectedExample.word_count} Wörter</span>
+          )}
+        </div>
+
+        <h2 className="text-xl font-bold">{selectedExample.title}</h2>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-base"><FileText className="h-4 w-4" /> Aufgabenstellung</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="whitespace-pre-wrap text-sm leading-relaxed">{selectedExample.task_description}</p>
+          </CardContent>
+        </Card>
+
+        <Card className="border-emerald-200 dark:border-emerald-800">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-base text-emerald-600 dark:text-emerald-400">
+              <CheckCircle2 className="h-4 w-4" /> Musterantwort
+              <AudioPlayer text={selectedExample.example_answer} showSlow />
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="rounded-lg border border-emerald-200 bg-emerald-50/50 p-4 text-sm leading-relaxed dark:border-emerald-900/50 dark:bg-emerald-950/20">
+              <p className="whitespace-pre-wrap">{selectedExample.example_answer}</p>
+            </div>
+          </CardContent>
+        </Card>
+
+        {selectedExample.useful_vocabulary?.length > 0 && (
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="flex items-center gap-2 text-sm"><BookOpen className="h-4 w-4" /> Nützlicher Wortschatz</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2">
+                {selectedExample.useful_vocabulary.map((v, i) => (
+                  <Badge key={i} variant="secondary" className="text-xs">{v}</Badge>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {selectedExample.useful_phrases?.length > 0 && (
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="flex items-center gap-2 text-sm"><Quote className="h-4 w-4" /> Nützliche Redemittel</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2">
+                {selectedExample.useful_phrases.map((p, i) => (
+                  <Badge key={i} variant="outline" className="text-xs italic">{p}</Badge>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {selectedExample.grammar_structures?.length > 0 && (
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="flex items-center gap-2 text-sm"><Target className="h-4 w-4" /> Grammatische Strukturen</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2">
+                {selectedExample.grammar_structures.map((g, i) => (
+                  <Badge key={i} variant="default" className="border-violet-200 bg-violet-500/10 text-xs text-violet-600 dark:border-violet-800 dark:text-violet-400">{g}</Badge>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="flex items-center gap-2 text-sm"><Lightbulb className="h-4 w-4" /> Erklärung</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="whitespace-pre-wrap text-sm">{selectedExample.explanation}</p>
+            {selectedExample.why_good && (
+              <div className="mt-3 rounded-lg border border-amber-200 bg-amber-50/50 p-3 dark:border-amber-900/50 dark:bg-amber-950/20">
+                <p className="mb-1 flex items-center gap-1 text-xs font-medium text-amber-600 dark:text-amber-400">
+                  <Star className="h-3 w-3" /> Warum diese Antwort gut ist
+                </p>
+                <p className="text-sm text-amber-700 dark:text-amber-300">{selectedExample.why_good}</p>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      </div>
+    )
+  }
+
+  return (
+    <div className="space-y-6">
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2"><Mail className="h-5 w-5 text-primary" /> E-Mail-Training für Prüfungen</CardTitle>
+          <CardDescription>
+            Lerne, wie du formelle und informelle E-Mails für Goethe, TELC und andere Prüfungen schreibst.
+            Enthält Musterantworten, nützliche Redemittel und Grammatikhinweise.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap gap-3">
+            <div className="flex items-center gap-2">
+              <Filter className="h-4 w-4 text-muted-foreground" />
+              <Select value={emailLevelFilter} onValueChange={v => { if (v !== null) setEmailLevelFilter(v); }}>
+                <SelectTrigger className="w-28"><SelectValue /></SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">Alle Niveaus</SelectItem>
+                  {ALL_LEVELS.map(l => <SelectItem key={l} value={l}>{l}</SelectItem>)}
+                </SelectContent>
+              </Select>
+            </div>
+            <Select value={emailTypeFilter} onValueChange={v => { if (v !== null) setEmailTypeFilter(v); }}>
+              <SelectTrigger className="w-48"><SelectValue /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">Alle E-Mail-Typen</SelectItem>
+                {EMAIL_TYPES.map(t => (
+                  <SelectItem key={t} value={t}>{EMAIL_TYPE_LABELS[t]}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        </CardContent>
+      </Card>
+
+      {isLoading ? (
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {[1, 2, 3, 4, 5, 6].map(i => <Skeleton key={i} className="h-44 rounded-xl" />)}
+        </div>
+      ) : emailExamples.length > 0 ? (
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {emailExamples.map((example) => (
+            <motion.div key={example.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} layout>
+              <Card className="cursor-pointer transition-all hover:border-primary/50 hover:shadow-md" onClick={() => setSelectedExample(example)}>
+                <CardContent className="p-5">
+                  <div className="mb-3 flex items-start justify-between">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                      <Mail className="h-4 w-4" />
+                    </div>
+                    <Badge className={LEVEL_COLORS[example.level as GermanLevel] ?? ''}>{example.level}</Badge>
+                  </div>
+                  <h3 className="mb-1 font-semibold leading-snug line-clamp-2">{example.title}</h3>
+                  <Badge variant="outline" className="mb-3">{EMAIL_TYPE_LABELS[example.exercise_type] ?? example.exercise_type}</Badge>
+                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                    <span className="flex items-center gap-1"><FileText className="h-3.5 w-3.5" />{example.word_count ?? '?'} Wörter</span>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      ) : (
+        <Card>
+          <CardContent className="flex flex-col items-center gap-3 p-8 text-center text-muted-foreground">
+            <Mail className="h-10 w-10" />
+            <p>Keine E-Mail-Beispiele gefunden. Versuche andere Filter.</p>
+          </CardContent>
+        </Card>
+      )}
+    </div>
   )
 }
 
@@ -264,6 +467,7 @@ export default function SchreibenPage() {
             <TabsTrigger value="uebungen" className="gap-2"><BookOpen className="h-4 w-4" /> Übungen</TabsTrigger>
             <TabsTrigger value="schreiben" className="gap-2"><Pen className="h-4 w-4" /> Schreiben</TabsTrigger>
             <TabsTrigger value="verlauf" className="gap-2"><History className="h-4 w-4" /> Verlauf</TabsTrigger>
+            <TabsTrigger value="email_training" className="gap-2"><Mail className="h-4 w-4" /> E-Mail-Training</TabsTrigger>
           </TabsList>
 
           <TabsContent value="uebungen" className="space-y-6">
@@ -689,6 +893,9 @@ export default function SchreibenPage() {
                 </CardContent>
               </Card>
             )}
+          </TabsContent>
+          <TabsContent value="email_training" className="space-y-6">
+            <EmailTrainingContent />
           </TabsContent>
         </Tabs>
       </div>

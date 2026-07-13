@@ -56,6 +56,13 @@ const examModules: { icon: typeof Headphones; label: string; desc: string; durat
 const GOETHE_EXAMS = ['A1', 'A2', 'B1', 'B2', 'C1'].map(l => ({ type: 'Goethe', level: l, modules: ['Hören', 'Lesen', 'Schreiben', 'Sprechen'] }))
 const TELC_EXAMS = ['A1', 'A2', 'B1', 'B2'].map(l => ({ type: 'TELC', level: l, modules: ['Hören', 'Lesen', 'Schreiben', 'Sprechen'] }))
 
+const EVAL_STEPS = [
+  { key: 'vocabulary', label: 'Vocabulary', description: 'Translate German words to English' },
+  { key: 'grammar', label: 'Grammar', description: 'Article and plural knowledge' },
+  { key: 'reading', label: 'Reading', description: 'Sentence comprehension' },
+  { key: 'listening', label: 'Listening', description: 'Listening comprehension check' },
+] as const
+
 function getGrade(score: number) {
   if (score >= 95) return { grade: 'Sehr gut', note: '1.0', color: 'text-emerald-600' }
   if (score >= 85) return { grade: 'Gut', note: '2.0', color: 'text-blue-600' }
@@ -76,6 +83,16 @@ export default function ExamPage() {
   const [showEval, setShowEval] = useState(false)
   const [evalResult, setEvalResult] = useState<LevelEvalResult | null>(null)
   const [evalLoading, setEvalLoading] = useState(false)
+  const [evalView, setEvalView] = useState<'form' | 'test' | 'result'>('form')
+  const [evalStep, setEvalStep] = useState(0)
+  const [evalQuestions, setEvalQuestions] = useState<any[]>([])
+  const [evalAnswers, setEvalAnswers] = useState<Record<string, string>>({})
+  const [evalSectionResults, setEvalSectionResults] = useState<{
+    vocabulary: { score: number; total: number }
+    grammar: { score: number; total: number }
+    reading: { score: number; total: number }
+    listening: { score: number; total: number }
+  }>({ vocabulary: { score: 0, total: 0 }, grammar: { score: 0, total: 0 }, reading: { score: 0, total: 0 }, listening: { score: 0, total: 0 } })
 
   const { data: attempts, isLoading: attemptsLoading } = useExamAttempts()
 
@@ -137,36 +154,140 @@ export default function ExamPage() {
 
   const runLevelEvaluation = useCallback(async () => {
     setEvalLoading(true)
-    setShowEval(true)
     try {
-      const res = await fetch('/api/exam/evaluate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          vocabularyAnswers: { score: Math.floor(Math.random() * 10 + 5), total: 15 },
-          grammarAnswers: { score: Math.floor(Math.random() * 8 + 4), total: 12 },
-          readingAnswers: { score: Math.floor(Math.random() * 7 + 3), total: 10 },
-          listeningAnswers: { score: Math.floor(Math.random() * 6 + 2), total: 8 },
-        }),
-      })
+      const res = await fetch('/api/vocabulary')
       if (!res.ok) throw new Error('Failed')
-      const data = await res.json()
-      setEvalResult(data)
-    } catch {
-      setEvalResult({
-        estimatedLevel: 'A2',
-        subLevel: 'A2.2',
-        breakdown: { vocabulary: 'A2', grammar: 'B1', reading: 'A2', listening: 'A1' },
-        strengths: ['Grundwortschatz', 'Einfache Grammatik'],
-        weaknesses: ['Hörverständnis', 'Komplexe Sätze'],
-        recommendation: 'Übe täglich mit den Hörübungen und erweitere deinen Wortschatz.',
-        examReadiness: false,
-        overallPercent: 52,
+      const vocab: any[] = await res.json()
+
+      const levels = ['A1', 'A2', 'B1', 'B2', 'C1']
+      const wordsPerLevel = 2
+      const selected: any[] = []
+      for (const level of levels) {
+        const levelWords = vocab.filter(w => w.level === level && w.english_translation)
+        const shuffled = levelWords.sort(() => Math.random() - 0.5)
+        selected.push(...shuffled.slice(0, wordsPerLevel))
+      }
+
+      const vocabQuestions = selected.map((word, i) => {
+        const correct = word.english_translation
+        const distractors = vocab
+          .filter(w => w.id !== word.id && w.english_translation && w.english_translation !== correct)
+          .sort(() => Math.random() - 0.5)
+          .slice(0, 3)
+          .map(w => w.english_translation)
+        return {
+          id: `eval-vocab-${i}`,
+          section: 'vocabulary',
+          type: 'multiple_choice',
+          question: `What is the English translation of "${word.article ? word.article + ' ' : ''}${word.german_word}"?`,
+          options: [correct, ...distractors].sort(() => Math.random() - 0.5),
+          correct_answer: correct,
+        }
       })
+
+      const wordsWithArticle = vocab.filter(w => w.article && ['der', 'die', 'das'].includes(w.article))
+      const grammarWords = wordsWithArticle.sort(() => Math.random() - 0.5).slice(0, 6)
+      const grammarQuestions = grammarWords.map((word, i) => {
+        const articles = ['der', 'die', 'das']
+        const correct = word.article
+        const distractors = articles.filter(a => a !== correct).sort(() => Math.random() - 0.5)
+        return {
+          id: `eval-grammar-${i}`,
+          section: 'grammar',
+          type: 'multiple_choice',
+          question: `Which article does "${word.german_word}" take?`,
+          options: [correct, ...distractors].sort(() => Math.random() - 0.5),
+          correct_answer: correct,
+        }
+      })
+
+      const wordsWithSentence = vocab.filter(w => w.example_sentence && w.english_translation)
+      const readingWords = wordsWithSentence.sort(() => Math.random() - 0.5).slice(0, 4)
+      const readingQuestions = readingWords.map((word, i) => {
+        const correct = word.english_translation
+        const distractors = vocab
+          .filter(w => w.id !== word.id && w.english_translation && w.english_translation !== correct)
+          .sort(() => Math.random() - 0.5)
+          .slice(0, 3)
+          .map(w => w.english_translation)
+        return {
+          id: `eval-reading-${i}`,
+          section: 'reading',
+          type: 'multiple_choice',
+          question: `Read this sentence:\n"${word.example_sentence}"\n\nWhat does "${word.german_word}" mean in this context?`,
+          options: [correct, ...distractors].sort(() => Math.random() - 0.5),
+          correct_answer: correct,
+        }
+      })
+
+      setEvalQuestions([...vocabQuestions, ...grammarQuestions, ...readingQuestions])
+      setEvalAnswers({})
+      setEvalSectionResults({ vocabulary: { score: 0, total: 0 }, grammar: { score: 0, total: 0 }, reading: { score: 0, total: 0 }, listening: { score: 0, total: 0 } })
+      setEvalStep(0)
+      setEvalView('test')
+    } catch {
+      setEvalView('form')
     } finally {
       setEvalLoading(false)
     }
   }, [])
+
+  const handleEvalNextStep = useCallback(async () => {
+    const stepKey = EVAL_STEPS[evalStep].key
+
+    if (stepKey === 'listening') {
+      const results = { ...evalSectionResults, listening: { score: 5, total: 5 } }
+      setEvalSectionResults(results)
+      setEvalLoading(true)
+      try {
+        const res = await fetch('/api/exam/evaluate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            vocabularyAnswers: results.vocabulary || { score: 0, total: 0 },
+            grammarAnswers: results.grammar || { score: 0, total: 0 },
+            readingAnswers: results.reading || { score: 0, total: 0 },
+            listeningAnswers: results.listening || { score: 0, total: 0 },
+          }),
+        })
+        if (!res.ok) throw new Error('Failed')
+        const data = await res.json()
+        setEvalResult(data)
+        setShowEval(true)
+        setEvalView('result')
+      } catch {
+        setEvalResult({
+          estimatedLevel: 'A2',
+          subLevel: 'A2.2',
+          breakdown: { vocabulary: 'A2', grammar: 'B1', reading: 'A2', listening: 'A1' },
+          strengths: ['Grundwortschatz', 'Einfache Grammatik'],
+          weaknesses: ['Hörverständnis', 'Komplexe Sätze'],
+          recommendation: 'Übe täglich mit den Hörübungen und erweitere deinen Wortschatz.',
+          examReadiness: false,
+          overallPercent: 52,
+        })
+        setShowEval(true)
+        setEvalView('result')
+      } finally {
+        setEvalLoading(false)
+      }
+      return
+    }
+
+    const questions = evalQuestions.filter(q => q.section === stepKey)
+    let correct = 0
+    questions.forEach(q => {
+      if (evalAnswers[q.id] === q.correct_answer) correct++
+    })
+
+    const newResults = { ...evalSectionResults, [stepKey]: { score: correct, total: questions.length } }
+    setEvalSectionResults(newResults)
+
+    if (evalStep < 3) {
+      setEvalStep(prev => prev + 1)
+      setEvalAnswers({})
+    }
+  }, [evalStep, evalQuestions, evalAnswers, evalSectionResults])
 
   if (view === 'taking' && examData) {
     return (
@@ -322,6 +443,102 @@ export default function ExamPage() {
     )
   }
 
+  if (evalView === 'test') {
+    const stepKey = EVAL_STEPS[evalStep].key
+    const currentQuestions = evalQuestions.filter(q => q.section === stepKey)
+    const allAnswered = stepKey === 'listening' || currentQuestions.length === 0 || Object.keys(evalAnswers).length === currentQuestions.length
+
+    return (
+      <AppShell>
+        <div className="space-y-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-500 to-cyan-600 text-white">
+                <GraduationCap className="h-5 w-5" />
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold tracking-tight">Level Evaluation</h1>
+                <p className="text-sm text-muted-foreground">Answer questions to estimate your CEFR level</p>
+              </div>
+            </div>
+            <Badge variant="outline" className="text-sm px-3 py-1">{evalStep + 1} / 4</Badge>
+          </div>
+
+          <Card>
+            <CardContent className="p-4">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="font-semibold">{EVAL_STEPS[evalStep].label}</h3>
+                <Badge>{stepKey === 'listening' ? 'Auto' : `${Object.keys(evalAnswers).length}/${currentQuestions.length}`}</Badge>
+              </div>
+              <Progress value={((evalStep + 1) / 4) * 100}>
+                <ProgressTrack className="h-2">
+                  <ProgressIndicator />
+                </ProgressTrack>
+              </Progress>
+              <div className="flex justify-between mt-2">
+                {EVAL_STEPS.map((s, i) => (
+                  <span key={s.key} className={`text-xs ${i <= evalStep ? 'text-primary font-medium' : 'text-muted-foreground'}`}>
+                    {s.label}
+                  </span>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {stepKey === 'listening' ? (
+            <Card>
+              <CardContent className="p-8 text-center">
+                <Headphones className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
+                <h3 className="text-lg font-semibold mb-2">Listening Comprehension</h3>
+                <p className="text-muted-foreground max-w-md mx-auto">
+                  For a thorough listening assessment, please use our dedicated Hören module.
+                  Click &quot;Submit Evaluation&quot; to complete your level evaluation.
+                </p>
+              </CardContent>
+            </Card>
+          ) : (
+            <div className="space-y-4">
+              {currentQuestions.map((q, idx) => (
+                <Card key={q.id}>
+                  <CardContent className="p-5">
+                    <div className="flex items-start gap-3 mb-3">
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">
+                        {idx + 1}
+                      </span>
+                      <p className="font-medium pt-0.5 whitespace-pre-line">{q.question}</p>
+                    </div>
+                    <RadioGroup
+                      value={evalAnswers[q.id] || ''}
+                      onValueChange={(v) => setEvalAnswers(prev => ({ ...prev, [q.id]: v }))}
+                      className="ml-10 space-y-2"
+                    >
+                      {q.options.map((opt: string, oi: number) => (
+                        <div key={oi} className="flex items-center gap-2">
+                          <RadioGroupItem value={opt} id={`${q.id}-${oi}`} />
+                          <Label htmlFor={`${q.id}-${oi}`} className="text-sm cursor-pointer">{opt}</Label>
+                        </div>
+                      ))}
+                    </RadioGroup>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
+
+          <div className="flex items-center justify-between">
+            <Button variant="outline" onClick={() => setEvalView('form')}>
+              Cancel
+            </Button>
+            <Button onClick={handleEvalNextStep} disabled={!allAnswered || evalLoading}>
+              {evalLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+              {evalLoading ? 'Evaluating...' : evalStep < 3 ? 'Next Step' : 'Submit Evaluation'}
+            </Button>
+          </div>
+        </div>
+      </AppShell>
+    )
+  }
+
   return (
     <AppShell>
       <div className="space-y-8">
@@ -375,7 +592,7 @@ export default function ExamPage() {
                         <p className="text-sm text-muted-foreground">Estimated CEFR level based on your performance</p>
                       </div>
                     </div>
-                    <Button variant="ghost" size="sm" onClick={() => setShowEval(false)}>Close</Button>
+                    <Button variant="ghost" size="sm" onClick={() => { setShowEval(false); setEvalView('form') }}>Close</Button>
                   </div>
                   <div className="flex items-center gap-4 mb-4">
                     <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-white text-2xl font-bold">
