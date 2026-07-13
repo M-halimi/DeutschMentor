@@ -21,7 +21,7 @@ import {
 import { useArticles, useArticle, useSubmitReadingAnswer, useCompleteArticle, useLearningAnalytics } from '@/hooks/use-progress'
 import type { ReadingQuestionType, GermanLevel, Article } from '@/types'
 
-const LEVELS: GermanLevel[] = ['A1', 'A2', 'B1', 'B2', 'C1']
+const LEVELS: GermanLevel[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
 const CATEGORIES = ['Alles', 'News', 'Wissenschaft', 'Technologie', 'Kultur', 'Reisen', 'Geschichte', 'Medizin', 'Umwelt', 'Wirtschaft', 'Politik', 'Bildung']
 const SORT_OPTIONS = [{ value: 'difficulty', label: 'Schwierigkeit' }, { value: 'date', label: 'Datum' }, { value: 'word_count', label: 'Wortanzahl' }]
 
@@ -67,6 +67,7 @@ function LevelBadge({ level }: { level: GermanLevel }) {
     B1: 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-800',
     B2: 'bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-200 dark:border-purple-800',
     C1: 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-200 dark:border-rose-800',
+    C2: 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-200 dark:border-amber-800',
   }
   return (
     <Badge variant="outline" className={`text-xs font-semibold ${colors[level]}`}>

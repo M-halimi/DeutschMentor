@@ -163,8 +163,8 @@ export default function OnboardingPage() {
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
                     <Label>Current Level</Label>
-                    <RadioGroup value={currentLevel} onValueChange={(v) => setCurrentLevel(v as GermanLevel)} className="grid grid-cols-5 gap-2">
-                      {(['A1', 'A2', 'B1', 'B2', 'C1'] as GermanLevel[]).map((l) => (
+                    <RadioGroup value={currentLevel} onValueChange={(v) => setCurrentLevel(v as GermanLevel)} className="grid grid-cols-6 gap-2">
+                      {(['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] as GermanLevel[]).map((l) => (
                         <div key={l}>
                           <RadioGroupItem value={l} id={`current-${l}`} className="peer sr-only" />
                           <Label htmlFor={`current-${l}`} className="flex cursor-pointer flex-col items-center rounded-lg border p-3 peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/5">
@@ -177,8 +177,8 @@ export default function OnboardingPage() {
 
                   <div className="space-y-2">
                     <Label>Target Level</Label>
-                    <RadioGroup value={targetLevel} onValueChange={(v) => setTargetLevel(v as GermanLevel)} className="grid grid-cols-5 gap-2">
-                      {(['A1', 'A2', 'B1', 'B2', 'C1'] as GermanLevel[]).map((l) => (
+                    <RadioGroup value={targetLevel} onValueChange={(v) => setTargetLevel(v as GermanLevel)} className="grid grid-cols-6 gap-2">
+                      {(['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] as GermanLevel[]).map((l) => (
                         <div key={l}>
                           <RadioGroupItem value={l} id={`target-${l}`} className="peer sr-only" />
                           <Label htmlFor={`target-${l}`} className="flex cursor-pointer flex-col items-center rounded-lg border p-3 peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/5">

@@ -27,6 +27,7 @@ import {
   BarChart3,
   Target,
   BookText,
+  Award,
   type LucideIcon,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -43,6 +44,10 @@ const studentNav: NavItem[] = [
   { href: '/dashboard/analytics', label: 'Analytics', icon: BarChart3 },
 ]
 
+const courseNav: NavItem[] = [
+  { href: '/dashboard/courses', label: 'Courses', icon: BookOpen },
+]
+
 const skillNav: NavItem[] = [
   { href: '/dashboard/hoeren', label: 'Hören', icon: Headphones },
   { href: '/dashboard/lesen', label: 'Lesen', icon: BookOpen },
@@ -56,7 +61,9 @@ const resourceNav: NavItem[] = [
   { href: '/dashboard/grammar', label: 'Grammar', icon: Braces },
   { href: '/dashboard/dictation', label: 'Dictation', icon: Ear },
   { href: '/dashboard/expressions', label: 'Expressions', icon: MessageSquareText },
-  { href: '/dashboard/exam', label: 'Exam Prep', icon: GraduationCap },
+  { href: '/dashboard/exam', label: 'Level Check', icon: GraduationCap },
+  { href: '/dashboard/exam-prep', label: 'Exam Prep', icon: Target },
+  { href: '/dashboard/certificates', label: 'Certificates', icon: Award },
 ]
 
 const arabicNav: NavItem[] = [
@@ -164,6 +171,7 @@ export function Sidebar() {
             {user?.role === 'student' ? (
               <>
                 <NavSection title="Overview" items={studentNav} />
+                <NavSection title="Courses" items={courseNav} />
                 <NavSection title="Skills" items={skillNav} />
                 <NavSection title="Resources" items={resourceNav} />
                 <div className="my-2 border-t" />

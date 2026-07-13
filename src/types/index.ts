@@ -1,14 +1,14 @@
 export type Role = 'student' | 'teacher' | 'admin'
 
-export type GermanLevel = 'A1' | 'A2' | 'B1' | 'B2' | 'C1'
+export type GermanLevel = 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2'
 
 export type SkillType = 'hoeren' | 'lesen' | 'schreiben' | 'sprechen'
 
-export type ExamType = 'goethe' | 'telc'
+export type ExamType = 'goethe' | 'telc' | 'testdaf' | 'dsh' | 'osterreich'
 
 export type LearningGoal = 'exam_preparation' | 'daily_conversation' | 'business_german' | 'academic' | 'travel' | 'relocation'
 
-export type LessonType = 'listening' | 'reading' | 'writing' | 'speaking' | 'vocabulary' | 'grammar'
+export type LessonType = 'listening' | 'reading' | 'writing' | 'speaking' | 'vocabulary' | 'grammar' | 'review' | 'test'
 
 export type LanguageCode = 'de' | 'ar' | 'en' | 'fr' | 'es'
 
@@ -65,7 +65,235 @@ export interface Lesson {
   duration_minutes: number
   is_published: boolean
   created_at: string
+}
+
+// ============================================================
+// COURSE SYSTEM TYPES
+// ============================================================
+
+export interface CourseLevel {
+  id: GermanLevel
+  title: string
+  description: string | null
+  image_url: string | null
+  color: string | null
+  order_index: number
+  is_active: boolean
+  created_at: string
+}
+
+export interface CourseModule {
+  id: string
+  level_id: GermanLevel
+  title: string
+  description: string | null
+  objectives: string[]
+  order_index: number
+  estimated_hours: number
+  is_published: boolean
+  created_at: string
   updated_at: string
+  lesson_count?: number
+  progress?: number
+}
+
+export interface CourseLesson {
+  id: string
+  module_id: string
+  title: string
+  description: string | null
+  topic: string | null
+  lesson_type: LessonType
+  source_table: string | null
+  source_id: string | null
+  objectives: string[]
+  duration_minutes: number
+  order_index: number
+  is_published: boolean
+  created_at: string
+  updated_at: string
+  progress?: number
+  score?: number | null
+}
+
+export interface LessonVocabulary {
+  id: string
+  lesson_id: string
+  german_word: string
+  arabic_translation: string
+  english_translation: string
+  article: string | null
+  plural: string | null
+  part_of_speech: string
+  example_sentence: string | null
+  example_translation: string | null
+  pronunciation_url: string | null
+  order_index: number
+}
+
+export interface LessonGrammar {
+  id: string
+  lesson_id: string
+  title: string
+  explanation: string
+  rules: GrammarItem[]
+  examples: GrammarExample[]
+  common_mistakes: GrammarMistake[]
+  order_index: number
+}
+
+export interface GrammarItem {
+  rule: string
+  note?: string
+}
+
+export interface GrammarExample {
+  german: string
+  arabic: string
+  english: string
+  phonetic?: string
+}
+
+export interface GrammarMistake {
+  mistake: string
+  correction: string
+  explanation: string
+}
+
+export interface LessonExercise {
+  id: string
+  lesson_id: string
+  exercise_type: 'multiple_choice' | 'fill_gap' | 'matching' | 'sentence_order' | 'translation'
+  question: string
+  options: string[]
+  correct_answer: string
+  explanation: string | null
+  points: number
+  order_index: number
+}
+
+export interface LessonTestQuestion {
+  id: string
+  lesson_id: string
+  question_type: 'multiple_choice' | 'true_false' | 'fill_blank' | 'matching'
+  question: string
+  options: string[]
+  correct_answer: string
+  points: number
+  order_index: number
+}
+
+export interface UserCourseProgress {
+  id: string
+  user_id: string
+  lesson_id: string
+  module_id: string | null
+  completed: boolean
+  score: number | null
+  time_spent_minutes: number
+  completed_at: string | null
+  created_at: string
+}
+
+export interface UserLessonResult {
+  id: string
+  user_id: string
+  lesson_id: string
+  score: number
+  total_points: number
+  answers: TestAnswer[]
+  passed: boolean
+  attempt_number: number
+  completed_at: string
+  created_at: string
+}
+
+export interface TestAnswer {
+  question_id: string
+  answer: string
+  correct: boolean
+  points_earned: number
+}
+
+export interface CourseLevelWithModules extends CourseLevel {
+  modules: (CourseModule & { lessons: CourseLesson[] })[]
+}
+
+export interface CourseLessonFull extends CourseLesson {
+  vocabulary: LessonVocabulary[]
+  grammar: LessonGrammar[]
+  exercises: LessonExercise[]
+  test_questions: LessonTestQuestion[]
+  module?: CourseModule
+  user_results?: UserLessonResult[]
+  source_content?: Record<string, unknown> | null
+}
+
+export interface CourseCertificate {
+  id: string
+  user_id: string
+  level_id: string
+  certificate_url: string | null
+  issued_at: string
+  metadata: Record<string, unknown>
+  created_at: string
+}
+
+export interface AchievementCriteria {
+  id: string
+  achievement_id: string
+  criteria_type: 'complete_module' | 'complete_level' | 'pass_lesson_test' | 'streak_days' | 'vocab_mastered' | 'perfect_score' | 'exam_passed' | 'skill_level' | 'lessons_completed' | 'practice_hours'
+  target_id: string | null
+  threshold: number
+  created_at: string
+}
+
+export type ExamPrepModuleType = 'lesen' | 'hoeren' | 'schreiben' | 'sprechen' | 'wortschatz' | 'grammatik' | 'full_mock'
+
+export interface ExamPrepModule {
+  id: string
+  exam_type: ExamType
+  level_id: string
+  title: string
+  description: string | null
+  module_type: ExamPrepModuleType
+  time_limit_minutes: number | null
+  total_points: number
+  pass_threshold: number
+  is_published: boolean
+  order_index: number
+  created_at: string
+  updated_at: string
+}
+
+export interface ExamPrepQuestion {
+  id: string
+  module_id: string
+  question_type: 'multiple_choice' | 'true_false' | 'fill_blank' | 'matching' | 'short_answer' | 'essay' | 'listening' | 'speaking'
+  question: string
+  options: string[]
+  correct_answer: string
+  explanation: string | null
+  audio_url: string | null
+  image_url: string | null
+  points: number
+  order_index: number
+  created_at: string
+}
+
+export interface ExamPrepAttempt {
+  id: string
+  user_id: string
+  module_id: string
+  score: number
+  total_points: number
+  answers: TestAnswer[]
+  time_spent_minutes: number
+  passed: boolean
+  attempt_number: number
+  started_at: string
+  completed_at: string | null
+  created_at: string
 }
 
 export interface LessonContent {
@@ -692,7 +920,7 @@ export interface ThemeLesson {
   theme: string
   title: string
   description: string | null
-  level: GermanLevel | 'C2'
+  level: GermanLevel
   content_type: ThemeContentType
   reference_id: string | null
   reference_table: string | null

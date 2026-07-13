@@ -25,7 +25,7 @@ import type { GermanLevel, ListeningQuestionType, ListeningVocabulary, Listening
 
 const SPEEDS = [0.5, 0.75, 1, 1.25, 1.5] as const
 const LABELS: Record<string, string> = { restaurant: 'Restaurant', hospital: 'Hospital', hotel: 'Hotel', airport: 'Airport', university: 'University', office: 'Office', job_interview: 'Job Interview', shopping: 'Shopping', phone: 'Phone Call', government: 'Government', daily: 'Daily Life' }
-const LEVELS: GermanLevel[] = ['A1', 'A2', 'B1', 'B2', 'C1']
+const LEVELS: GermanLevel[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
 
 function formatTime(s: number) {
   const m = Math.floor(s / 60)

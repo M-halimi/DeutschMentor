@@ -87,6 +87,7 @@ function getRecommendation(level: GermanLevel): string {
     B1: 'Gut gemacht! Arbeite an komplexeren Satzstrukturen und erweitere deinen thematischen Wortschatz für die B1-Prüfung.',
     B2: 'Du bist auf einem guten Weg für B2. Fokussiere dich auf Nominalisierungen, Passiv und differenzierte Argumentation.',
     C1: 'Hervorragend! Arbeite an nuanciertem Ausdruck und fachspezifischem Wortschatz, um C1-Niveau zu festigen.',
+    C2: 'Exzellent! Du beherrschst die Sprache nahezu muttersprachlich. Vertiefe dein Wissen mit komplexen Texten und Diskussionen.',
   }
   return recs[level]
 }

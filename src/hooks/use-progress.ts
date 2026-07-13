@@ -2,7 +2,7 @@
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { createClient } from '@/lib/supabase/client'
-import type { DashboardStats, DailyPlan, LessonType, AudioLessonWithExercises, ArticleWithContent, DictationExercise, Expression, GrammarExercise, AudioLesson, Article, SpeakingSession, Vocabulary, UserVocabulary, ListeningAnalytics, LearningAnalytics, ExerciseAttempt, WritingPrompt, WritingExample, MentorChat, ThemeLesson } from '@/types'
+import type { DashboardStats, DailyPlan, LessonType, AudioLessonWithExercises, ArticleWithContent, DictationExercise, Expression, GrammarExercise, AudioLesson, Article, SpeakingSession, Vocabulary, UserVocabulary, ListeningAnalytics, LearningAnalytics, ExerciseAttempt, WritingPrompt, WritingExample, MentorChat, ThemeLesson, CourseModule, CourseLesson, CourseLessonFull, ExamPrepModule, ExamPrepAttempt, CourseCertificate } from '@/types'
 
 export function useDashboardStats(userId: string | undefined) {
   return useQuery<DashboardStats>({
@@ -815,6 +815,164 @@ export function useGenerateWritingPrompts() {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['writing-prompts'] })
+    },
+  })
+}
+
+// ============================================================
+// EXAM PREP HOOKS
+// ============================================================
+
+export function useExamPrepModules(levelId?: string, examType?: string) {
+  return useQuery({
+    queryKey: ['exam-prep-modules', levelId, examType],
+    queryFn: async () => {
+      const params = new URLSearchParams()
+      if (levelId) params.set('level', levelId)
+      if (examType) params.set('exam_type', examType)
+      const res = await fetch(`/api/exam-prep?${params}`)
+      if (!res.ok) throw new Error('Failed')
+      return res.json()
+    },
+  })
+}
+
+export function useExamPrepModule(moduleId: string | undefined) {
+  return useQuery({
+    queryKey: ['exam-prep-module', moduleId],
+    queryFn: async () => {
+      const res = await fetch(`/api/exam-prep?module=${moduleId}`)
+      if (!res.ok) throw new Error('Failed')
+      return res.json()
+    },
+    enabled: !!moduleId,
+  })
+}
+
+export function useSubmitExamPrep() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: async (data: { moduleId: string; answers: string[]; timeSpentMinutes?: number }) => {
+      const res = await fetch('/api/exam-prep', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'submit', ...data }),
+      })
+      if (!res.ok) throw new Error('Failed')
+      return res.json()
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({ queryKey: ['exam-prep-module', variables.moduleId] })
+      queryClient.invalidateQueries({ queryKey: ['exam-prep-attempts'] })
+    },
+  })
+}
+
+export function useExamPrepAttempts(moduleId?: string) {
+  return useQuery({
+    queryKey: ['exam-prep-attempts', moduleId],
+    queryFn: async () => {
+      const params = new URLSearchParams({ attempts: 'true' })
+      if (moduleId) params.set('module', moduleId)
+      const res = await fetch(`/api/exam-prep?${params}`)
+      if (!res.ok) throw new Error('Failed')
+      return res.json()
+    },
+  })
+}
+
+// ============================================================
+// CERTIFICATE HOOKS
+// ============================================================
+
+export function useUserCertificates() {
+  return useQuery({
+    queryKey: ['user-certificates'],
+    queryFn: async () => {
+      const supabase = createClient()
+      const { data: { user } } = await supabase.auth.getUser()
+      if (!user) return []
+      const { data } = await supabase
+        .from('course_certificates')
+        .select('*, course_levels(*)')
+        .eq('user_id', user.id)
+        .order('issued_at', { ascending: false })
+      return data ?? []
+    },
+  })
+}
+
+export function useCourseModules(level?: string) {
+  return useQuery<CourseModule[]>({
+    queryKey: ['course-modules', level],
+    queryFn: async () => {
+      const params = new URLSearchParams()
+      if (level) params.set('level', level)
+      const res = await fetch(`/api/courses?${params}`)
+      if (!res.ok) throw new Error('Failed to fetch modules')
+      return res.json()
+    },
+  })
+}
+
+export function useModuleLessons(moduleId: string | undefined) {
+  return useQuery<CourseLesson[]>({
+    queryKey: ['module-lessons', moduleId],
+    queryFn: async () => {
+      const res = await fetch(`/api/courses?module=${moduleId}`)
+      if (!res.ok) throw new Error('Failed to fetch lessons')
+      return res.json()
+    },
+    enabled: !!moduleId,
+  })
+}
+
+export function useCourseLesson(lessonId: string | undefined) {
+  return useQuery<CourseLessonFull>({
+    queryKey: ['course-lesson', lessonId],
+    queryFn: async () => {
+      const res = await fetch(`/api/courses?lesson=${lessonId}&full=true`)
+      if (!res.ok) throw new Error('Failed to fetch lesson')
+      return res.json()
+    },
+    enabled: !!lessonId,
+  })
+}
+
+export function useSaveCourseProgress() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: async (data: { lessonId: string; moduleId?: string; completed?: boolean; score?: number; timeSpentMinutes?: number }) => {
+      const res = await fetch('/api/courses', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'save_progress', ...data }),
+      })
+      if (!res.ok) throw new Error('Failed to save progress')
+      return res.json()
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({ queryKey: ['course-modules'] })
+      queryClient.invalidateQueries({ queryKey: ['module-lessons', variables.moduleId] })
+      queryClient.invalidateQueries({ queryKey: ['course-lesson', variables.lessonId] })
+    },
+  })
+}
+
+export function useSubmitLessonTest() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: async (data: { lessonId: string; answers: string[] }) => {
+      const res = await fetch('/api/courses', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'submit_test', ...data }),
+      })
+      if (!res.ok) throw new Error('Failed to submit test')
+      return res.json()
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({ queryKey: ['course-lesson', variables.lessonId] })
+      queryClient.invalidateQueries({ queryKey: ['module-lessons'] })
     },
   })
 }

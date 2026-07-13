@@ -31,6 +31,7 @@ import {
   BarChart3,
   Target,
   Star,
+  RotateCcw,
 } from 'lucide-react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
@@ -54,6 +55,8 @@ const activityIcons: Record<LessonType, typeof Headphones> = {
   speaking: Mic,
   vocabulary: BookOpen,
   grammar: TrendingUp,
+  review: RotateCcw,
+  test: Target,
 }
 
 const quickActions = [

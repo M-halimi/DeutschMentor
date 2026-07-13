@@ -37,7 +37,7 @@ const EXERCISE_LABELS: Record<WritingExerciseType, string> = {
   story: 'Geschichte', description: 'Beschreibung', argumentative: 'Argumentation',
 }
 
-const LEVELS: GermanLevel[] = ['A1', 'A2', 'B1', 'B2', 'C1']
+const LEVELS: GermanLevel[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
 
 const LEVEL_COLORS: Record<GermanLevel, string> = {
   A1: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400',
@@ -45,6 +45,7 @@ const LEVEL_COLORS: Record<GermanLevel, string> = {
   B1: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400',
   B2: 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400',
   C1: 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400',
+  C2: 'bg-rose-100 text-rose-800 dark:bg-rose-900/30 dark:text-rose-400',
 }
 
 const EXAM_SCALE = [
