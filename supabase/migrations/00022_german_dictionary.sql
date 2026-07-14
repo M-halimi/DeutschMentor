@@ -47,16 +47,19 @@ create index if not exists idx_dictionary_frequency on public.german_dictionary 
 -- RLS
 alter table public.german_dictionary enable row level security;
 
+drop policy if exists "Dictionary entries are viewable by all authenticated users" on public.german_dictionary;
 create policy "Dictionary entries are viewable by all authenticated users"
   on public.german_dictionary for select
   to authenticated
   using (true);
 
+drop policy if exists "Dictionary entries can be inserted by admins" on public.german_dictionary;
 create policy "Dictionary entries can be inserted by admins"
   on public.german_dictionary for insert
   to authenticated
   with check (exists (select 1 from public.profiles where user_id = auth.uid() and role = 'admin'));
 
+drop policy if exists "Dictionary entries can be updated by admins" on public.german_dictionary;
 create policy "Dictionary entries can be updated by admins"
   on public.german_dictionary for update
   to authenticated

@@ -42,7 +42,7 @@ export interface ExerciseDef {
   question: string
   options: string[]
   correct_answer: string
-  explanation: string
+  explanation?: string
   points: number
 }
 
@@ -52,4 +52,5 @@ export interface TestQuestionDef {
   options: string[]
   correct_answer: string
   points: number
+  explanation?: string
 }

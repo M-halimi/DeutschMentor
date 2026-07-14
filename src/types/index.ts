@@ -10,6 +10,18 @@ export type LearningGoal = 'exam_preparation' | 'daily_conversation' | 'business
 
 export type LessonType = 'listening' | 'reading' | 'writing' | 'speaking' | 'vocabulary' | 'grammar' | 'review' | 'test'
 
+export type ExerciseType =
+  | 'multiple_choice' | 'fill_gap' | 'matching' | 'sentence_order' | 'translation'
+  | 'true_false' | 'drag_drop' | 'error_correction' | 'listening_comprehension'
+  | 'reading_comprehension' | 'vocabulary_practice' | 'grammar_practice'
+  | 'dialogue_completion' | 'word_formation' | 'category_sort'
+  | 'analysis' | 'essay'
+
+export type TestQuestionType =
+  | 'multiple_choice' | 'true_false' | 'fill_blank' | 'matching'
+  | 'short_answer' | 'essay' | 'listening' | 'speaking'
+  | 'drag_drop' | 'error_correction' | 'sentence_order'
+
 export type LanguageCode = 'de' | 'ar' | 'en' | 'fr' | 'es'
 
 export type WordType = 'noun' | 'verb' | 'adjective' | 'adverb' | 'preposition' | 'conjunction' | 'expression'
@@ -114,6 +126,18 @@ export interface CourseLesson {
   updated_at: string
   progress?: number
   score?: number | null
+  audio_url?: string | null
+  image_url?: string | null
+  difficulty_rating?: number
+  has_expressions?: boolean
+  has_reading?: boolean
+  has_listening?: boolean
+  has_speaking?: boolean
+  has_writing?: boolean
+  has_conversation?: boolean
+  has_ai_challenges?: boolean
+  has_homework?: boolean
+  has_review?: boolean
 }
 
 export interface LessonVocabulary {
@@ -128,6 +152,10 @@ export interface LessonVocabulary {
   example_sentence: string | null
   example_translation: string | null
   pronunciation_url: string | null
+  pronunciation: string | null
+  ipa: string | null
+  cefr_level: GermanLevel | null
+  audio_url: string | null
   order_index: number
 }
 
@@ -163,7 +191,7 @@ export interface GrammarMistake {
 export interface LessonExercise {
   id: string
   lesson_id: string
-  exercise_type: 'multiple_choice' | 'fill_gap' | 'matching' | 'sentence_order' | 'translation'
+  exercise_type: ExerciseType
   question: string
   options: string[]
   correct_answer: string
@@ -175,7 +203,7 @@ export interface LessonExercise {
 export interface LessonTestQuestion {
   id: string
   lesson_id: string
-  question_type: 'multiple_choice' | 'true_false' | 'fill_blank' | 'matching'
+  question_type: TestQuestionType
   question: string
   options: string[]
   correct_answer: string
@@ -219,6 +247,149 @@ export interface CourseLevelWithModules extends CourseLevel {
   modules: (CourseModule & { lessons: CourseLesson[] })[]
 }
 
+// ============================================================
+// PREMIUM CONTENT TYPES
+// ============================================================
+
+export interface LessonExpression {
+  id: string
+  lesson_id: string
+  german: string
+  english_translation: string
+  arabic_translation: string | null
+  usage_context: string | null
+  formality: 'formal' | 'neutral' | 'informal' | 'slang' | null
+  is_idiom: boolean
+  literal_translation: string | null
+  audio_url: string | null
+  order_index: number
+}
+
+export interface LessonReadingContent {
+  id: string
+  lesson_id: string
+  title: string
+  content: string
+  english_translation: string | null
+  arabic_translation: string | null
+  word_count: number | null
+  difficulty_rating: number
+  audio_url: string | null
+  source: string | null
+}
+
+export interface LessonListeningContent {
+  id: string
+  lesson_id: string
+  title: string
+  transcript: string
+  english_translation: string | null
+  arabic_translation: string | null
+  audio_url: string | null
+  duration_seconds: number | null
+  speaker_count: number
+  scenario: string | null
+}
+
+export interface LessonSpeakingPrompt {
+  id: string
+  lesson_id: string
+  title: string
+  prompt: string
+  scenario: string | null
+  tips: string[]
+  vocabulary_hints: string[]
+  min_duration_seconds: number
+  order_index: number
+}
+
+export interface LessonWritingPrompt {
+  id: string
+  lesson_id: string
+  title: string
+  task: string
+  tips: string[]
+  vocabulary_hints: string[]
+  grammar_focus: string[]
+  word_limit_min: number
+  word_limit_max: number
+  order_index: number
+}
+
+export interface LessonConversation {
+  id: string
+  lesson_id: string
+  title: string
+  scenario: string
+  role_user: string
+  role_ai: string
+  context: string | null
+  opening_line: string | null
+  vocabulary_hints: string[]
+  difficulty: 'beginner' | 'intermediate' | 'advanced'
+  order_index: number
+}
+
+export interface LessonAiChallenge {
+  id: string
+  lesson_id: string
+  title: string
+  question: string
+  scenario: string | null
+  expected_elements: string[]
+  tips: string[]
+  difficulty: 'easy' | 'medium' | 'hard'
+  order_index: number
+}
+
+export interface LessonHomework {
+  id: string
+  lesson_id: string
+  title: string
+  description: string
+  homework_type: 'writing' | 'speaking' | 'listening' | 'reading' | 'vocabulary' | 'grammar' | 'mixed'
+  tasks: Record<string, unknown>[]
+  estimated_minutes: number
+  order_index: number
+}
+
+export interface LessonReview {
+  id: string
+  lesson_id: string
+  summary: string
+  key_points: string[]
+  grammar_summary: Record<string, unknown>[]
+  vocabulary_focus: string[]
+  common_mistakes_summary: string[]
+  tips: string[]
+}
+
+export interface LessonFlashcard {
+  id: string
+  lesson_id: string
+  front: string
+  back: string
+  hint: string | null
+  category: 'vocabulary' | 'grammar' | 'expression' | 'phrase' | 'culture'
+  order_index: number
+}
+
+export interface LessonAiFeedback {
+  id: string
+  user_id: string
+  lesson_id: string | null
+  feedback_type: 'speaking' | 'writing' | 'conversation' | 'challenge' | 'question'
+  user_input: string
+  ai_response: string | null
+  feedback: Record<string, unknown>
+  scores: Record<string, unknown>
+  suggestions: string[]
+}
+
+// ============================================================
+// FULL LESSON WITH ALL CONTENT
+// ============================================================
+
 export interface CourseLessonFull extends CourseLesson {
   vocabulary: LessonVocabulary[]
   grammar: LessonGrammar[]
@@ -227,6 +398,16 @@ export interface CourseLessonFull extends CourseLesson {
   module?: CourseModule
   user_results?: UserLessonResult[]
   source_content?: Record<string, unknown> | null
+  expressions?: LessonExpression[]
+  reading_content?: LessonReadingContent[]
+  listening_content?: LessonListeningContent[]
+  speaking_prompts?: LessonSpeakingPrompt[]
+  writing_prompts?: LessonWritingPrompt[]
+  conversations?: LessonConversation[]
+  ai_challenges?: LessonAiChallenge[]
+  homework?: LessonHomework[]
+  review?: LessonReview[]
+  flashcards?: LessonFlashcard[]
 }
 
 export interface CourseCertificate {

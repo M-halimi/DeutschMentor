@@ -29,12 +29,22 @@ export async function GET(request: Request) {
 
       if (!lesson) return NextResponse.json({ error: 'Not found' }, { status: 404 })
 
-      const [vocabulary, grammar, exercises, testQuestions, progress] = await Promise.all([
+      const [vocabulary, grammar, exercises, testQuestions, progress, expressions, reading, listening, speaking, writing, conversations, aiChallenges, homework, reviews, flashcards] = await Promise.all([
         supabase.from('lesson_vocabulary').select('*').eq('lesson_id', lessonId).order('order_index'),
         supabase.from('lesson_grammar').select('*').eq('lesson_id', lessonId).order('order_index'),
         supabase.from('lesson_exercises').select('*').eq('lesson_id', lessonId).order('order_index'),
         supabase.from('lesson_test_questions').select('*').eq('lesson_id', lessonId).order('order_index'),
         supabase.from('user_course_progress').select('*').eq('lesson_id', lessonId).eq('user_id', user.id).maybeSingle(),
+        supabase.from('lesson_expressions').select('*').eq('lesson_id', lessonId).order('order_index'),
+        supabase.from('lesson_reading').select('*').eq('lesson_id', lessonId),
+        supabase.from('lesson_listening').select('*').eq('lesson_id', lessonId),
+        supabase.from('lesson_speaking').select('*').eq('lesson_id', lessonId).order('order_index'),
+        supabase.from('lesson_writing').select('*').eq('lesson_id', lessonId).order('order_index'),
+        supabase.from('lesson_conversations').select('*').eq('lesson_id', lessonId).order('order_index'),
+        supabase.from('lesson_ai_challenges').select('*').eq('lesson_id', lessonId).order('order_index'),
+        supabase.from('lesson_homework').select('*').eq('lesson_id', lessonId).order('order_index'),
+        supabase.from('lesson_reviews').select('*').eq('lesson_id', lessonId),
+        supabase.from('lesson_flashcards').select('*').eq('lesson_id', lessonId).order('order_index'),
       ])
 
       let moduleData = null
@@ -77,6 +87,16 @@ export async function GET(request: Request) {
         score: progress.data?.score ?? null,
         user_results: userResults,
         source_content: sourceContent,
+        expressions: expressions.data ?? [],
+        reading_content: reading.data ?? [],
+        listening_content: listening.data ?? [],
+        speaking_prompts: speaking.data ?? [],
+        writing_prompts: writing.data ?? [],
+        conversations: conversations.data ?? [],
+        ai_challenges: aiChallenges.data ?? [],
+        homework: homework.data ?? [],
+        review: reviews.data ?? [],
+        flashcards: flashcards.data ?? [],
       }
 
       return NextResponse.json(result)
