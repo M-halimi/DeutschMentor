@@ -1334,3 +1334,122 @@ export interface ThemeLesson {
   is_published: boolean
   created_at: string
 }
+
+// ===== DASHBOARD ENGINE V2 =====
+
+export type ActivityType =
+  | 'lesson_completed' | 'quiz_completed'
+  | 'vocabulary_learned' | 'vocabulary_reviewed'
+  | 'listening_done' | 'reading_done' | 'writing_done' | 'speaking_done'
+  | 'grammar_done' | 'dictation_done' | 'exam_done'
+  | 'achievement_unlocked' | 'level_up' | 'streak_milestone'
+  | 'certificate_earned' | 'login'
+
+export interface XpLevel {
+  level: number
+  xp_required: number
+  title: string
+  badge_icon: string | null
+}
+
+export interface XpTransaction {
+  id: string
+  user_id: string
+  amount: number
+  source: string
+  description: string | null
+  metadata: Record<string, any> | null
+  created_at: string
+}
+
+export interface UserXp {
+  user_id: string
+  total_xp: number
+  current_level: number
+  updated_at: string
+}
+
+export interface UserActivity {
+  id: string
+  user_id: string
+  activity_type: ActivityType
+  metadata: Record<string, any> | null
+  xp_earned: number
+  duration_minutes: number
+  created_at: string
+}
+
+export interface UserDailyStats {
+  id: string
+  user_id: string
+  date: string
+  total_minutes: number
+  lessons_completed: number
+  exercises_completed: number
+  vocabulary_learned: number
+  xp_earned: number
+}
+
+export interface LeaderboardEntry {
+  user_id: string
+  full_name: string
+  avatar_url: string | null
+  cefr_level: string
+  total_xp: number
+  xp_level: number
+  rank: number
+  total_users: number
+}
+
+export interface DashboardData {
+  today_minutes: number
+  total_study_hours: number
+  total_study_minutes: number
+  current_streak: number
+  longest_streak: number
+  lessons_completed: number
+  lessons_total: number
+  modules_completed: number
+  modules_total: number
+  courses_completed: number
+  vocabulary_learned: number
+  vocabulary_mastered: number
+  vocabulary_review: number
+  vocabulary_new: number
+  grammar_lessons: number
+  grammar_exercises: number
+  grammar_accuracy: number
+  skill_scores: Record<string, number>
+  xp: number
+  level: number
+  level_title: string
+  next_level_xp: number
+  rank: number
+  total_users: number
+  cefr_level: string
+  weak_topics: string[]
+  strong_topics: string[]
+  weekly_activity: { day: string; minutes: number; lessons: number }[]
+  heatmap: { date: string; minutes: number; intensity: number }[]
+  recent_activity: {
+    type: ActivityType
+    metadata: Record<string, any> | null
+    xp: number
+    created_at: string
+  }[]
+}
+
+export interface AchievementWithProgress {
+  id: string
+  title: string
+  description: string | null
+  icon: string | null
+  category: string | null
+  requirement: Record<string, any> | null
+  max_progress: number
+  hidden: boolean
+  unlocked: boolean
+  progress: number
+  unlocked_at: string | null
+  created_at: string
+}
