@@ -15,6 +15,7 @@ export interface VocabItem {
   word: string
   arabic: string
   english: string
+  french?: string
   article?: string
   plural?: string
   pos: string
@@ -39,7 +40,7 @@ export interface GrammarTopic {
   explanation: string
   explanationArabic: string
   rules: { rule: string; note: string; arabic?: string }[]
-  examples: { german: string; arabic: string; english: string; phonetic?: string }[]
+  examples: { german: string; arabic: string; english: string; french?: string; phonetic?: string }[]
   mistakes: { mistake: string; correction: string; explanation: string; arabic?: string }[]
   memoryTip?: string
   teacherNotes?: string[]
@@ -69,6 +70,7 @@ export interface DialogueLine {
   german: string
   arabic: string
   english: string
+  french?: string
   vocabNote?: string
   grammarNote?: string
   cultureNote?: string
@@ -79,6 +81,7 @@ export interface ReadingText {
   content: string
   arabicTranslation: string
   englishTranslation: string
+  frenchTranslation?: string
   wordCount: number
   questions: ReadingQuestion[]
 }
@@ -138,7 +141,7 @@ export interface TranslationExercise {
 export interface RealLifeSituation {
   situation: string
   context: string
-  phrases: { german: string; arabic: string; english: string }[]
+  phrases: { german: string; arabic: string; english: string; french?: string }[]
   culturalNote: string
   steps?: string[]
 }
@@ -315,7 +318,7 @@ export interface CompleteLesson {
   review?: LessonReview
   aiKnowledge: AIKnowledge
   examPrep?: ExamPrepSection
-  expressions: { german: string; english: string; arabic: string; formality: string }[]
+  expressions: { german: string; english: string; arabic: string; french?: string; formality: string }[]
   flashcards: { front: string; back: string; hint?: string; category: string }[]
 }
 

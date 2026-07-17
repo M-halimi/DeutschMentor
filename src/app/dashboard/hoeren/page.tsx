@@ -61,11 +61,11 @@ function ScenarioIcon({ scenario }: { scenario: string | null }) {
 
 const questionTypeLabels: Record<ListeningQuestionType, string> = {
   multiple_choice: 'Multiple Choice',
-  true_false: 'True / False',
-  matching: 'Matching',
-  fill_blank: 'Fill in the Blank',
-  order_events: 'Order Events',
-  short_answer: 'Short Answer',
+  true_false: 'Richtig / Falsch',
+  matching: 'Zuordnung',
+  fill_blank: 'Lückentext',
+  order_events: 'Reihenfolge',
+  short_answer: 'Kurze Antwort',
 }
 
 export default function HoerenPage() {
@@ -324,7 +324,7 @@ export default function HoerenPage() {
         <div className="space-y-3">
           <p className="text-sm text-muted-foreground italic">{currentExercise.question}</p>
           <Input
-            placeholder="Type your answer..."
+            placeholder="Tippe deine Antwort..."
             value={fillBlankAnswer}
             onChange={(e) => setFillBlankAnswer(e.target.value)}
             disabled={showResult}
@@ -332,7 +332,7 @@ export default function HoerenPage() {
           />
           {showResult && (
             <p className="text-sm">
-              <span className="text-muted-foreground">Correct answer: </span>
+              <span className="text-muted-foreground">Richtige Antwort: </span>
               <span className="font-semibold text-emerald-600 dark:text-emerald-400">{currentExercise.correct_answer}</span>
             </p>
           )}
@@ -345,7 +345,7 @@ export default function HoerenPage() {
         <div className="space-y-3">
           <p className="text-sm text-muted-foreground italic">{currentExercise.question}</p>
           <textarea
-            placeholder="Write your answer..."
+            placeholder="Schreibe deine Antwort..."
             value={shortAnswer}
             onChange={(e) => setShortAnswer(e.target.value)}
             disabled={showResult}
@@ -353,7 +353,7 @@ export default function HoerenPage() {
           />
           {showResult && (
             <p className="text-sm">
-              <span className="text-muted-foreground">Sample answer: </span>
+              <span className="text-muted-foreground">Beispielantwort: </span>
               <span className="font-semibold text-emerald-600 dark:text-emerald-400">{currentExercise.correct_answer}</span>
             </p>
           )}
@@ -385,7 +385,7 @@ export default function HoerenPage() {
                   <span className="flex items-center gap-3 w-full">
                     <span className="font-medium">{p.left}</span>
                     <span className="text-muted-foreground">→</span>
-                    <span className="text-muted-foreground">{p.right || '(select)'}</span>
+                    <span className="text-muted-foreground">{p.right || '(auswählen)'}</span>
                   </span>
                 </Button>
               )
@@ -422,7 +422,7 @@ export default function HoerenPage() {
               )
             })}
           </div>
-          {!showResult && <p className="text-xs text-muted-foreground">Click to select the item in correct position. Select items in order from first to last.</p>}
+          {!showResult && <p className="text-xs text-muted-foreground">Klicken, um das Element auszuwählen</p>}
         </div>
       )
     }
@@ -456,7 +456,7 @@ export default function HoerenPage() {
               <p className="text-muted-foreground">Prüfungsorientiertes Hörverstehenstraining</p>
             </div>
             <Button variant="outline" size="sm" onClick={() => window.location.href = '/dashboard/add-content'} className="shrink-0">
-              <Upload className="h-4 w-4 mr-1" /> Add Content
+              <Upload className="h-4 w-4 mr-1" /> Inhalt hinzufügen
             </Button>
           </div>
 
@@ -468,7 +468,7 @@ export default function HoerenPage() {
                 </div>
                 <div>
                   <p className="text-2xl font-bold">{stats.total}</p>
-                  <p className="text-xs text-muted-foreground">Total Lessons</p>
+                  <p className="text-xs text-muted-foreground">Lektionen insgesamt</p>
                 </div>
               </CardContent>
             </Card>
@@ -479,7 +479,7 @@ export default function HoerenPage() {
                 </div>
                 <div>
                   <p className="text-2xl font-bold">{stats.completed}</p>
-                  <p className="text-xs text-muted-foreground">Completed</p>
+                  <p className="text-xs text-muted-foreground">Abgeschlossen</p>
                 </div>
               </CardContent>
             </Card>
@@ -490,7 +490,7 @@ export default function HoerenPage() {
                 </div>
                 <div>
                   <p className="text-2xl font-bold">{stats.avgAccuracy}%</p>
-                  <p className="text-xs text-muted-foreground">Avg. Accuracy</p>
+                  <p className="text-xs text-muted-foreground">Durchschn. Genauigkeit</p>
                 </div>
               </CardContent>
             </Card>
@@ -500,8 +500,8 @@ export default function HoerenPage() {
                   <Target className="h-5 w-5" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-xs font-medium text-muted-foreground">Weak Topics</p>
-                  <p className="text-sm truncate">{stats.weakTopics.length ? stats.weakTopics.slice(0, 2).join(', ') : 'None detected'}</p>
+                  <p className="text-xs font-medium text-muted-foreground">Schwache Themen</p>
+                  <p className="text-sm truncate">{stats.weakTopics.length ? stats.weakTopics.slice(0, 2).join(', ') : 'Keine erkannt'}</p>
                 </div>
               </CardContent>
             </Card>
@@ -513,7 +513,7 @@ export default function HoerenPage() {
                 <div className="relative flex-1 min-w-[200px]">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <Input
-                    placeholder="Search lessons…"
+                    placeholder="Lektionen durchsuchen…"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="pl-9 h-9"
@@ -524,7 +524,7 @@ export default function HoerenPage() {
                   onChange={(e) => setLevelFilter(e.target.value as GermanLevel | '')}
                   className="h-9 rounded-lg border border-input bg-transparent px-3 text-sm outline-none focus-visible:border-ring"
                 >
-                  <option value="">All Levels</option>
+                  <option value="">Alle Niveaus</option>
                   {LEVELS.map(l => <option key={l} value={l}>{l}</option>)}
                 </select>
                 <select
@@ -532,7 +532,7 @@ export default function HoerenPage() {
                   onChange={(e) => setScenarioFilter(e.target.value)}
                   className="h-9 rounded-lg border border-input bg-transparent px-3 text-sm outline-none focus-visible:border-ring"
                 >
-                  <option value="">All Scenarios</option>
+                  <option value="">Alle Szenarien</option>
                   {Object.entries(LABELS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
                 </select>
                 <select
@@ -540,9 +540,9 @@ export default function HoerenPage() {
                   onChange={(e) => setSortBy(e.target.value as 'difficulty' | 'date' | 'level')}
                   className="h-9 rounded-lg border border-input bg-transparent px-3 text-sm outline-none focus-visible:border-ring"
                 >
-                  <option value="difficulty">Sort: Difficulty</option>
-                  <option value="date">Sort: Newest</option>
-                  <option value="level">Sort: Level</option>
+                  <option value="difficulty">Sortieren: Schwierigkeit</option>
+                  <option value="date">Sortieren: Neueste</option>
+                  <option value="level">Sortieren: Niveau</option>
                 </select>
               </div>
             </CardContent>
@@ -593,7 +593,7 @@ export default function HoerenPage() {
               <Card className="col-span-full">
                 <CardContent className="p-12 text-center">
                   <Headphones className="h-12 w-12 text-muted-foreground/40 mx-auto mb-4" />
-                  <p className="text-muted-foreground">No listening lessons match your filters.</p>
+                  <p className="text-muted-foreground">Keine Hörlektionen entsprechen deinen Filtern.</p>
                 </CardContent>
               </Card>
             )}
@@ -619,7 +619,7 @@ export default function HoerenPage() {
     return (
       <AppShell>
         <Card>
-          <CardContent className="p-8 text-center text-muted-foreground">Lesson not found.</CardContent>
+          <CardContent className="p-8 text-center text-muted-foreground">Lektion nicht gefunden.</CardContent>
         </Card>
       </AppShell>
     )
@@ -648,16 +648,16 @@ export default function HoerenPage() {
               </p>
               <div className="flex items-center justify-center gap-3 flex-wrap">
                 <Button onClick={() => { setSelectedId(null); if (audioRef.current) audioRef.current.pause() }} variant="outline">
-                  <ArrowLeft className="h-4 w-4 mr-1" /> Back to Lessons
+                  <ArrowLeft className="h-4 w-4 mr-1" /> Zurück zu den Lektionen
                 </Button>
                 <Button onClick={resetLesson}>
-                  <RotateCcw className="h-4 w-4 mr-1" /> Try Again
+                  <RotateCcw className="h-4 w-4 mr-1" /> Nochmal versuchen
                 </Button>
               </div>
               {results.length > 0 && (
                 <div className="mt-6 max-w-md mx-auto">
                   <Separator className="mb-4" />
-                  <p className="text-sm font-medium text-muted-foreground mb-2">Results by question type:</p>
+                  <p className="text-sm font-medium text-muted-foreground mb-2">Ergebnisse nach Fragetyp:</p>
                   <div className="space-y-1.5">
                     {exercises.map((ex, idx) => {
                       const res = results.find(r => r.exerciseId === ex.id)
@@ -665,7 +665,7 @@ export default function HoerenPage() {
                         <div key={ex.id} className="flex items-center justify-between text-sm">
                           <span className="text-muted-foreground truncate mr-2">{idx + 1}. {questionTypeLabels[ex.question_type as ListeningQuestionType]}</span>
                           <span className={res?.correct ? 'text-emerald-500 font-medium' : 'text-red-400 font-medium'}>
-                            {res?.correct ? '✓ Correct' : '✗ Incorrect'}
+                            {res?.correct ? '✓ Richtig' : '✗ Falsch'}
                           </span>
                         </div>
                       )
@@ -685,8 +685,8 @@ export default function HoerenPage() {
                 >
                   <div className="flex items-center gap-2">
                     <FileText className="h-4 w-4 text-muted-foreground" />
-                    <CardTitle className="text-sm font-medium">Transcript</CardTitle>
-                    <Badge variant="outline" className="text-[10px]">Review after listening</Badge>
+                    <CardTitle className="text-sm font-medium">Transkript</CardTitle>
+                    <Badge variant="outline" className="text-[10px]">Nach dem Hören</Badge>
                   </div>
                   {showTranscript ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
                 </button>
@@ -710,13 +710,13 @@ export default function HoerenPage() {
               <CardHeader className="pb-2">
                 <div className="flex items-center gap-2 mb-3">
                   <BookOpen className="h-4 w-4 text-muted-foreground" />
-                  <CardTitle className="text-sm font-medium">Learning Content</CardTitle>
+                  <CardTitle className="text-sm font-medium">Lerninhalt</CardTitle>
                 </div>
                 <div className="flex gap-1">
                   {[
-                    { id: 'vocabulary' as const, label: 'Vocabulary', icon: BookMarked, count: lessonVocabulary.length },
-                    { id: 'phrases' as const, label: 'Phrases', icon: Quote, count: lessonPhrases.length },
-                    { id: 'grammar' as const, label: 'Grammar', icon: Hash, count: lessonGrammar.length },
+                    { id: 'vocabulary' as const, label: 'Wortschatz', icon: BookMarked, count: lessonVocabulary.length },
+                    { id: 'phrases' as const, label: 'Ausdrücke', icon: Quote, count: lessonPhrases.length },
+                    { id: 'grammar' as const, label: 'Grammatik', icon: Hash, count: lessonGrammar.length },
                   ].map(({ id, label, icon: Icon, count }) => (
                     <button
                       key={id}
@@ -811,7 +811,7 @@ export default function HoerenPage() {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <Button variant="outline" onClick={() => { setSelectedId(null); if (audioRef.current) audioRef.current.pause() }}>
-            <ArrowLeft className="h-4 w-4 mr-1" /> Lessons
+            <ArrowLeft className="h-4 w-4 mr-1" /> Lektionen
           </Button>
           <Badge className="bg-violet-500/10 text-violet-600 dark:text-violet-400 border-violet-200 dark:border-violet-800">
             <Headphones className="h-3 w-3 mr-1" /> Hören
@@ -876,7 +876,7 @@ export default function HoerenPage() {
                     }}
                   >
                     {readingAloud ? <Pause className="h-3.5 w-3.5 mr-1" /> : <Play className="h-3.5 w-3.5 mr-1" />}
-                    {readingAloud ? 'Stop' : 'Native German Audio'}
+                    {readingAloud ? 'Stop' : 'Audio'}
                   </Button>
                 </div>
               )}
@@ -968,7 +968,7 @@ export default function HoerenPage() {
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between mb-1">
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-medium text-muted-foreground">Question {currentExerciseIdx + 1} of {exercises.length}</span>
+                  <span className="text-sm font-medium text-muted-foreground">Frage {currentExerciseIdx + 1} von {exercises.length}</span>
                   <Badge variant="secondary" className="text-xs">
                     {questionTypeLabels[currentExercise.question_type as ListeningQuestionType] ?? currentExercise.question_type}
                   </Badge>
@@ -976,8 +976,8 @@ export default function HoerenPage() {
                 {showResult && (
                   <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="flex items-center gap-1">
                     {isCorrect
-                      ? <span className="flex items-center gap-1 text-emerald-500 text-sm font-medium"><CheckCircle className="h-4 w-4" /> Correct</span>
-                      : <span className="flex items-center gap-1 text-red-400 text-sm font-medium"><XCircle className="h-4 w-4" /> Incorrect</span>
+                      ? <span className="flex items-center gap-1 text-emerald-500 text-sm font-medium"><CheckCircle className="h-4 w-4" /> Richtig</span>
+                      : <span className="flex items-center gap-1 text-red-400 text-sm font-medium"><XCircle className="h-4 w-4" /> Falsch</span>
                     }
                   </motion.div>
                 )}
@@ -999,14 +999,14 @@ export default function HoerenPage() {
 
               {showResult && currentExercise.explanation && (
                 <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="p-3 rounded-lg bg-muted/50 border text-sm">
-                  <p className="text-xs font-medium text-muted-foreground mb-1 flex items-center gap-1"><Lightbulb className="h-3 w-3" /> Explanation</p>
+                  <p className="text-xs font-medium text-muted-foreground mb-1 flex items-center gap-1"><Lightbulb className="h-3 w-3" /> Erklärung</p>
                   <p>{currentExercise.explanation}</p>
                 </motion.div>
               )}
 
               {showResult && currentExercise.hint && (
                 <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="p-3 rounded-lg bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 text-sm">
-                  <p className="text-xs font-medium text-amber-600 dark:text-amber-400 mb-1 flex items-center gap-1"><Lightbulb className="h-3 w-3" /> Hint</p>
+                  <p className="text-xs font-medium text-amber-600 dark:text-amber-400 mb-1 flex items-center gap-1"><Lightbulb className="h-3 w-3" /> Tipp</p>
                   <p className="text-amber-700 dark:text-amber-300">{currentExercise.hint}</p>
                 </motion.div>
               )}
@@ -1021,7 +1021,7 @@ export default function HoerenPage() {
                     setShortAnswer('')
                   }
                 }} disabled={currentExerciseIdx === 0}>
-                  ← Previous
+                  ← Zurück
                 </Button>
                 {!showResult ? (
                   <Button size="sm" onClick={handleSubmitAnswer} disabled={
@@ -1029,11 +1029,11 @@ export default function HoerenPage() {
                       : currentExercise.question_type === 'short_answer' ? !shortAnswer
                         : !selectedAnswer
                   } className="bg-violet-600 hover:bg-violet-700">
-                    Check Answer
+                    Antwort prüfen
                   </Button>
                 ) : (
                   <Button size="sm" onClick={nextExercise} className="bg-violet-600 hover:bg-violet-700">
-                    {currentExerciseIdx < exercises.length - 1 ? 'Next Question →' : 'See Results'}
+                    {currentExerciseIdx < exercises.length - 1 ? 'Nächste Frage →' : 'Ergebnisse ansehen'}
                   </Button>
                 )}
               </div>
@@ -1050,8 +1050,8 @@ export default function HoerenPage() {
               >
                 <div className="flex items-center gap-2">
                   <FileText className="h-4 w-4 text-muted-foreground" />
-                  <CardTitle className="text-sm font-medium">Transcript</CardTitle>
-                  <Badge variant="outline" className="text-[10px]">After listening</Badge>
+                  <CardTitle className="text-sm font-medium">Transkript</CardTitle>
+                  <Badge variant="outline" className="text-[10px]">Nach dem Hören</Badge>
                 </div>
                 {showTranscript ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
               </button>
@@ -1072,11 +1072,11 @@ export default function HoerenPage() {
                       onClick={() => setShowTranslation(!showTranslation)}
                     >
                       <Languages className="h-3.5 w-3.5 mr-1" />
-                      {showTranslation ? 'Hide Translation' : 'Show Translation'}
+                      {showTranslation ? 'Übersetzung ausblenden' : 'Übersetzung einblenden'}
                     </Button>
                     {showTranslation && (
                       <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="mt-2 p-3 rounded-lg bg-blue-50 dark:bg-blue-950/20 border text-sm text-muted-foreground">
-                        <p>See key vocabulary with translations in the <strong>Vocabulary</strong> tab above.</p>
+                        <p>Schlüsselwortschatz mit Übersetzungen findest du im Tab <strong>Wortschatz</strong> oben.</p>
                         {lessonVocabulary?.slice(0, 5).map(v => (
                           <div key={v.id} className="flex items-center justify-between mt-2 text-xs">
                             <span className="font-medium">{v.german_word}</span>
@@ -1097,13 +1097,13 @@ export default function HoerenPage() {
             <CardHeader className="pb-2">
               <div className="flex items-center gap-2 mb-3">
                 <BookOpen className="h-4 w-4 text-muted-foreground" />
-                <CardTitle className="text-sm font-medium">Learning Content</CardTitle>
+                <CardTitle className="text-sm font-medium">Lerninhalt</CardTitle>
               </div>
               <div className="flex gap-1">
                 {[
-                  { id: 'vocabulary' as const, label: 'Vocabulary', icon: BookMarked, count: lessonVocabulary.length },
-                  { id: 'phrases' as const, label: 'Phrases', icon: Quote, count: lessonPhrases.length },
-                  { id: 'grammar' as const, label: 'Grammar', icon: Hash, count: lessonGrammar.length },
+                  { id: 'vocabulary' as const, label: 'Wortschatz', icon: BookMarked, count: lessonVocabulary.length },
+                  { id: 'phrases' as const, label: 'Ausdrücke', icon: Quote, count: lessonPhrases.length },
+                  { id: 'grammar' as const, label: 'Grammatik', icon: Hash, count: lessonGrammar.length },
                 ].map(({ id, label, icon: Icon, count }) => (
                   <button
                     key={id}

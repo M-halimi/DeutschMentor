@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge'
 import type { LessonVocabulary } from '@/types'
 import { StepHeader } from './step-header'
 import { XPCounter } from './xp-counter'
+import { useTranslation } from '@/lib/i18n/use-translation'
 
 const posColors: Record<string, string> = {
   noun: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300',
@@ -30,6 +31,7 @@ export function VocabularyDeck({
   const [direction, setDirection] = useState(0)
   const [showXP, setShowXP] = useState(false)
   const [xpEarned, setXpEarned] = useState(0)
+  const { t } = useTranslation()
 
   const v = vocabulary[current]
 
@@ -78,8 +80,8 @@ export function VocabularyDeck({
     <div>
       <StepHeader
         icon={BookOpen}
-        title="Vocabulary"
-        subtitle={`Learn ${vocabulary.length} essential words`}
+        title={t('vocab.title')}
+        subtitle={t('vocab.subtitle', { count: vocabulary.length })}
         step={2}
         total={8}
       />
@@ -166,7 +168,7 @@ export function VocabularyDeck({
                     <p className="text-sm italic text-muted-foreground">{v.example_sentence}</p>
                   </div>
                 )}
-                <p className="text-xs text-muted-foreground mt-6">Tap to reveal translation</p>
+                <p className="text-xs text-muted-foreground mt-6">{t('vocab.tap-hint')}</p>
               </div>
 
               {/* Back */}
@@ -175,10 +177,13 @@ export function VocabularyDeck({
                 style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
               >
                 <Badge className="text-xs mb-4 bg-primary/10 text-primary hover:bg-primary/15">
-                  Translation
+                  {t('vocab.translation')}
                 </Badge>
-                <h3 className="text-2xl font-bold mb-1">{v.arabic_translation}</h3>
-                <p className="text-muted-foreground mb-4">{v.english_translation}</p>
+                <h3 className="text-2xl font-bold mb-1" dir="auto">{v.arabic_translation}</h3>
+                <p className="text-muted-foreground mb-1">{v.english_translation}</p>
+                {v.french_translation && (
+                  <p className="text-muted-foreground/80 mb-4">{v.french_translation}</p>
+                )}
                 {v.example_translation && (
                   <p className="text-sm text-muted-foreground italic max-w-md">
                     {v.example_translation}
@@ -186,7 +191,7 @@ export function VocabularyDeck({
                 )}
                 {v.cefr_level && (
                   <Badge variant="outline" className="mt-4 text-xs">
-                    Level: {v.cefr_level}
+                    {t('vocab.level', { level: v.cefr_level })}
                   </Badge>
                 )}
               </div>
@@ -214,10 +219,10 @@ export function VocabularyDeck({
         >
           {learned.has(v.id) ? (
             <>
-              <Check className="h-4 w-4" /> Learned
+              <Check className="h-4 w-4" /> {t('vocab.learned')}
             </>
           ) : (
-            'Mark Learned'
+            t('vocab.mark-learned')
           )}
         </Button>
 
@@ -240,12 +245,12 @@ export function VocabularyDeck({
         />
         {allLearned && !showXP && (
           <Button onClick={() => { setShowXP(true) }} className="rounded-full px-8">
-            Continue Mission
+            {t('vocab.continue')}
           </Button>
         )}
         {!allLearned && (
           <p className="text-xs text-muted-foreground">
-            {learned.size} of {vocabulary.length} words learned
+            {t('vocab.progress', { done: learned.size, total: vocabulary.length })}
           </p>
         )}
       </div>

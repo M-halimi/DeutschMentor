@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import type { LucideIcon } from 'lucide-react'
+import { useTranslation } from '@/lib/i18n/use-translation'
 
 export function StepHeader({
   icon: Icon,
@@ -16,6 +17,8 @@ export function StepHeader({
   step: number
   total: number
 }) {
+  const { t } = useTranslation()
+
   return (
     <motion.div
       initial={{ opacity: 0, y: -12 }}
@@ -28,9 +31,9 @@ export function StepHeader({
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 text-xs text-muted-foreground mb-0.5">
-            <span className="font-medium text-primary">Step {step}</span>
+            <span className="font-medium text-primary">{t('step.step')} {step}</span>
             <span className="opacity-40">/</span>
-            <span>of {total}</span>
+            <span>{t('step.of')} {total}</span>
           </div>
           <h2 className="text-lg font-bold truncate">{title}</h2>
         </div>

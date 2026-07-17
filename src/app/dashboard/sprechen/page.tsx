@@ -99,7 +99,7 @@ export default function SprechenPage() {
           </div>
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Sprechen</h1>
-            <p className="text-muted-foreground">Practice speaking with AI conversation partner. Record your voice and get feedback.</p>
+            <p className="text-muted-foreground">Sprich mit einem KI-Gesprächspartner. Nimm deine Stimme auf und erhalte Feedback.</p>
           </div>
         </div>
 
@@ -108,7 +108,7 @@ export default function SprechenPage() {
             <CardContent className="flex items-center gap-4 p-6">
               <MessageSquare className="h-8 w-8 text-amber-500" />
               <div>
-                <p className="text-sm text-muted-foreground">Sessions</p>
+                <p className="text-sm text-muted-foreground">Sitzungen</p>
                 <p className="text-2xl font-bold">{history?.length ?? 0}</p>
               </div>
             </CardContent>
@@ -117,7 +117,7 @@ export default function SprechenPage() {
             <CardContent className="flex items-center gap-4 p-6">
               <Clock className="h-8 w-8 text-emerald-500" />
               <div>
-                <p className="text-sm text-muted-foreground">Total Practice</p>
+                <p className="text-sm text-muted-foreground">Gesamtzeit</p>
                 <p className="text-2xl font-bold">
                   {formatDuration(history?.reduce((sum, s) => sum + (s.duration_seconds ?? 0), 0) ?? 0)}
                 </p>
@@ -128,7 +128,7 @@ export default function SprechenPage() {
             <CardContent className="flex items-center gap-4 p-6">
               <BarChart3 className="h-8 w-8 text-purple-500" />
               <div>
-                <p className="text-sm text-muted-foreground">Average Score</p>
+                <p className="text-sm text-muted-foreground">Ø Bewertung</p>
                 <p className="text-2xl font-bold">{avgScore > 0 ? `${avgScore}%` : '—'}</p>
               </div>
             </CardContent>
@@ -140,7 +140,7 @@ export default function SprechenPage() {
             <CardContent className="p-4">
               <div className="flex items-center gap-4">
                 <Volume2 className="h-5 w-5 text-emerald-500" />
-                <span className="text-sm font-medium">Recording saved!</span>
+                <span className="text-sm font-medium">Aufnahme gespeichert!</span>
                 <audio controls src={recordingUrl} className="flex-1 h-8" />
               </div>
             </CardContent>
@@ -149,8 +149,8 @@ export default function SprechenPage() {
 
         <Tabs defaultValue="practice">
           <TabsList>
-            <TabsTrigger value="practice"><Mic className="mr-2 h-4 w-4" /> Practice</TabsTrigger>
-            <TabsTrigger value="history"><History className="mr-2 h-4 w-4" /> History</TabsTrigger>
+            <TabsTrigger value="practice"><Mic className="mr-2 h-4 w-4" /> Üben</TabsTrigger>
+            <TabsTrigger value="history"><History className="mr-2 h-4 w-4" /> Verlauf</TabsTrigger>
           </TabsList>
 
           <TabsContent value="practice" className="space-y-6">
@@ -179,11 +179,11 @@ export default function SprechenPage() {
                         <div className="flex items-center gap-2">
                           {!isRecording ? (
                             <Button size="sm" className="w-full" onClick={startRecording}>
-                              <Mic className="mr-2 h-4 w-4" /> Start Recording
+                              <Mic className="mr-2 h-4 w-4" /> Aufnahme starten
                             </Button>
                           ) : (
                             <Button size="sm" variant="destructive" className="w-full" onClick={stopRecording}>
-                              <Square className="mr-2 h-4 w-4" /> Stop Recording ({formatDuration(displayTime)})
+                              <Square className="mr-2 h-4 w-4" /> Aufnahme beenden ({formatDuration(displayTime)})
                             </Button>
                           )}
                         </div>
@@ -198,7 +198,7 @@ export default function SprechenPage() {
               <Card>
                 <CardContent className="py-12 text-center">
                   <Mic className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground">Select a topic above to start speaking practice</p>
+                  <p className="text-muted-foreground">Wähle ein Thema aus, um mit dem Sprechen zu üben</p>
                 </CardContent>
               </Card>
             )}
@@ -216,8 +216,8 @@ export default function SprechenPage() {
                       <CardContent className="p-5">
                         <div className="flex items-center justify-between mb-2">
                           <h3 className="font-semibold">{session.topic}</h3>
-                          {session.score != null && (
-                            <span className="text-sm font-medium text-primary">Score: {session.score}%</span>
+                            {session.score != null && (
+                            <span className="text-sm font-medium text-primary">Bewertung: {session.score}%</span>
                           )}
                         </div>
                         <div className="flex items-center gap-3 text-sm text-muted-foreground">
@@ -240,7 +240,7 @@ export default function SprechenPage() {
             ) : (
               <Card>
                 <CardContent className="p-8 text-center text-muted-foreground">
-                  No speaking sessions yet. Start practicing!
+                  Noch keine Sprechübungen. Beginne noch heute!
                 </CardContent>
               </Card>
             )}

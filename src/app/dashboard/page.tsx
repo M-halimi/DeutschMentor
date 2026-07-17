@@ -159,8 +159,8 @@ export default function DashboardPage() {
   const currentMonth = new Date().getMonth()
 
   const exerciseTypeLabel: Record<string, string> = {
-    listening: 'Listening', reading: 'Reading', writing: 'Writing',
-    speaking: 'Speaking', grammar: 'Grammar', vocabulary: 'Vocabulary',
+    listening: 'Hören', reading: 'Lesen', writing: 'Schreiben',
+    speaking: 'Sprechen', grammar: 'Grammatik', vocabulary: 'Wortschatz',
   }
 
   return (
@@ -176,7 +176,7 @@ export default function DashboardPage() {
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Willkommen, {firstName}</h1>
             <p className="mt-1 text-muted-foreground">
-              {user.current_level} → {user.target_level} &middot; {dailyGoal} min daily goal
+              {user.current_level} → {user.target_level} &middot; {dailyGoal} Min. Tagesziel
             </p>
           </div>
           <div className="flex items-center gap-3">
@@ -473,7 +473,7 @@ export default function DashboardPage() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Play className="h-5 w-5 text-primary" />
-                    Quick Actions
+                    Schnellzugriff
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2">
@@ -501,7 +501,7 @@ export default function DashboardPage() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Clock className="h-5 w-5 text-primary" />
-                    Recent Activity
+                    Letzte Aktivität
                   </CardTitle>
                 </CardHeader>
                 <CardContent>

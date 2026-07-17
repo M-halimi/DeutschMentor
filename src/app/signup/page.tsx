@@ -107,17 +107,17 @@ export default function SignUpPage() {
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
                 <Mail className="h-8 w-8 text-primary" />
               </div>
-              <CardTitle className="text-2xl">Check your email</CardTitle>
+              <CardTitle className="text-2xl">E-Mail bestätigen</CardTitle>
               <CardDescription>
-                We sent a confirmation link to <strong>{email}</strong>. Click the link to activate your account.
+                Wir haben einen Bestätigungslink an <strong>{email}</strong> gesendet. Klicke auf den Link, um dein Konto zu aktivieren.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-sm text-muted-foreground">
-                Didn&apos;t receive it? Check your spam folder or try again.
+                Nicht erhalten? Überprüfe deinen Spam-Ordner oder versuche es erneut.
               </p>
               <Button variant="outline" className="w-full" onClick={() => setEmailSent(false)}>
-                Try a different email
+                Andere E-Mail verwenden
               </Button>
             </CardContent>
           </Card>
@@ -146,16 +146,16 @@ export default function SignUpPage() {
 
         <Card>
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl">Create your account</CardTitle>
-            <CardDescription>Start your German learning journey today</CardDescription>
+            <CardTitle className="text-2xl">Konto erstellen</CardTitle>
+            <CardDescription>Starte noch heute deine Deutschreise</CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="fullName">Full Name</Label>
+                <Label htmlFor="fullName">Vollständiger Name</Label>
                 <Input
                   id="fullName"
-                  placeholder="Your name"
+                  placeholder="Dein Name"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   required
@@ -163,11 +163,11 @@ export default function SignUpPage() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">E-Mail</Label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="you@example.com"
+                  placeholder="max@beispiel.de"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -175,12 +175,12 @@ export default function SignUpPage() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password">Passwort</Label>
                 <div className="relative">
                   <Input
                     id="password"
                     type={showPassword ? 'text' : 'password'}
-                    placeholder="Create a strong password"
+                    placeholder="Sicheres Passwort erstellen"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
@@ -203,15 +203,15 @@ export default function SignUpPage() {
               )}
 
               <Button type="submit" className="w-full" disabled={loading}>
-                {loading ? 'Creating account...' : 'Create Account'}
+                {loading ? 'Wird erstellt...' : 'Konto erstellen'}
               </Button>
             </form>
 
             <div className="mt-4 text-center">
               <p className="text-sm text-muted-foreground">
-                Already have an account?{' '}
+                Bereits ein Konto?{' '}
                 <Link href="/login" className="font-medium text-primary hover:underline">
-                  Sign in
+                  Anmelden
                 </Link>
               </p>
             </div>

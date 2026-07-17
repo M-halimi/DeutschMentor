@@ -38,12 +38,12 @@ function useModuleLessons(moduleId: string | undefined) {
 }
 
 const levelMeta: Record<string, { title: string; gradient: string; color: string }> = {
-  a1: { title: 'Beginner (A1)', gradient: 'from-green-500 to-emerald-600', color: 'green' },
-  a2: { title: 'Elementary (A2)', gradient: 'from-blue-500 to-cyan-600', color: 'blue' },
-  b1: { title: 'Intermediate (B1)', gradient: 'from-yellow-500 to-orange-600', color: 'yellow' },
-  b2: { title: 'Upper Intermediate (B2)', gradient: 'from-purple-500 to-violet-600', color: 'purple' },
-  c1: { title: 'Advanced (C1)', gradient: 'from-red-500 to-rose-600', color: 'red' },
-  c2: { title: 'Mastery (C2)', gradient: 'from-amber-500 to-yellow-600', color: 'amber' },
+  a1: { title: 'Anfänger (A1)', gradient: 'from-green-500 to-emerald-600', color: 'green' },
+  a2: { title: 'Grundlagen (A2)', gradient: 'from-blue-500 to-cyan-600', color: 'blue' },
+  b1: { title: 'Mittelstufe (B1)', gradient: 'from-yellow-500 to-orange-600', color: 'yellow' },
+  b2: { title: 'Fortgeschritten (B2)', gradient: 'from-purple-500 to-violet-600', color: 'purple' },
+  c1: { title: 'Kompetent (C1)', gradient: 'from-red-500 to-rose-600', color: 'red' },
+  c2: { title: 'Experte (C2)', gradient: 'from-amber-500 to-yellow-600', color: 'amber' },
 }
 
 export default function CourseLevelPage() {
@@ -67,7 +67,7 @@ export default function CourseLevelPage() {
               <h1 className="text-2xl font-bold tracking-tight">{meta.title}</h1>
             </div>
             <p className="text-muted-foreground text-sm ml-5">
-              {modules?.length ?? 0} module{(modules?.length ?? 0) !== 1 ? 's' : ''}
+              {modules?.length ?? 0} Modul{(modules?.length ?? 0) !== 1 ? 'e' : ''}
             </p>
           </div>
         </div>
@@ -88,8 +88,8 @@ export default function CourseLevelPage() {
           <Card>
             <CardContent className="p-10 text-center">
               <BookOpen className="h-12 w-12 text-muted-foreground/50 mx-auto mb-4" />
-              <h3 className="font-semibold mb-2">Coming Soon</h3>
-              <p className="text-sm text-muted-foreground">Modules for this level are being created.</p>
+              <h3 className="font-semibold mb-2">In Vorbereitung</h3>
+              <p className="text-sm text-muted-foreground">Module für dieses Niveau werden erstellt.</p>
             </CardContent>
           </Card>
         ) : (
@@ -133,7 +133,7 @@ function ModuleCard({ mod, gradient, levelParam, isExpanded, onToggle }: {
               <div className="flex items-center gap-2">
                 <h3 className="font-semibold text-lg">{mod.title}</h3>
                 <Badge variant="secondary" className="shrink-0 text-xs">
-                  {mod.lesson_count ?? 0} lessons
+                  {mod.lesson_count ?? 0} Lektionen
                 </Badge>
               </div>
               <p className="text-sm text-muted-foreground mt-0.5">{mod.description}</p>
@@ -149,7 +149,7 @@ function ModuleCard({ mod, gradient, levelParam, isExpanded, onToggle }: {
             {completedCount > 0 && (
               <span className="flex items-center gap-1 text-green-600">
                 <CheckCircle2 className="h-3 w-3" />
-                {completedCount}/{totalCount} done
+                {completedCount}/{totalCount} erledigt
               </span>
             )}
           </div>
@@ -193,7 +193,7 @@ function ModuleCard({ mod, gradient, levelParam, isExpanded, onToggle }: {
                 </Link>
               ))}
               {(!lessons || lessons.length === 0) && (
-                <p className="text-sm text-muted-foreground text-center py-4">No lessons yet</p>
+                <p className="text-sm text-muted-foreground text-center py-4">Noch keine Lektionen</p>
               )}
             </div>
           </motion.div>

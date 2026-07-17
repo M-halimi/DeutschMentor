@@ -16,6 +16,7 @@ import { Badge } from '@/components/ui/badge'
 import type { LessonTestQuestion } from '@/types'
 import { StepHeader } from './step-header'
 import { Confetti } from './confetti'
+import { useTranslation } from '@/lib/i18n/use-translation'
 
 const PASS_THRESHOLD = 0.6
 
@@ -23,10 +24,12 @@ export function FinalBossTest({
   questions,
   onSubmit,
   isPending,
+  onResult,
 }: {
   questions: LessonTestQuestion[]
   onSubmit: (answers: string[]) => void
   isPending: boolean
+  onResult?: (passed: boolean, score: number) => void
 }) {
   const [answers, setAnswers] = useState<string[]>(
     new Array(questions.length).fill('')
@@ -46,6 +49,7 @@ export function FinalBossTest({
     'correct' | 'wrong' | null
   >(null)
   const inputRef = useRef<HTMLInputElement>(null)
+  const { t } = useTranslation()
 
   const q = questions[currentQuestion]
 
@@ -109,25 +113,26 @@ export function FinalBossTest({
       const passedTest = pct >= PASS_THRESHOLD
       setPassed(passedTest)
       if (passedTest) setShowConfetti(true)
+      onResult?.(passedTest, Math.round(pct * 100))
     },
-    [answers, questions]
+    [answers, questions, onResult]
   )
 
   if (submitted && results) {
     const pct = score / totalPoints
     return (
       <div>
-        <StepHeader
-          icon={Target}
-          title="Test Results"
-          subtitle={
-            passed
-              ? 'Mission accomplished!'
-              : 'Not this time. Review and try again.'
-          }
-          step={4}
-          total={8}
-        />
+      <StepHeader
+        icon={Target}
+        title={t('test.results-title')}
+        subtitle={
+          passed
+            ? t('test.passed-subtitle')
+            : t('test.failed-subtitle')
+        }
+        step={4}
+        total={8}
+      />
 
         <Confetti active={showConfetti} />
 
@@ -153,13 +158,13 @@ export function FinalBossTest({
             <XCircle className="h-16 w-16 text-red-500 mx-auto mb-4" />
           )}
           <h2 className="text-2xl font-bold mb-1">
-            {passed ? 'Test Passed!' : 'Test Failed'}
+            {passed ? t('test.passed') : t('test.failed')}
           </h2>
           <p className="text-4xl font-bold mb-1 tabular-nums">
             {Math.round(pct * 100)}%
           </p>
           <p className="text-sm text-muted-foreground">
-            {score} / {totalPoints} points
+            {t('test.score', { score, total: totalPoints })}
           </p>
           {passed && (
             <motion.div
@@ -169,7 +174,7 @@ export function FinalBossTest({
               className="mt-4"
             >
               <Badge className="text-sm px-4 py-1.5 bg-green-500 text-white">
-                Boss Defeated!
+                {t('test.boss-defeated')}
               </Badge>
             </motion.div>
           )}
@@ -186,8 +191,8 @@ export function FinalBossTest({
                 setShowConfetti(false)
               }}
             >
-              <RotateCcw className="h-4 w-4 mr-1.5" /> Retry
-            </Button>
+                <RotateCcw className="h-4 w-4 mr-1.5" /> {t('test.retry')}
+              </Button>
           )}
         </motion.div>
 
@@ -214,11 +219,11 @@ export function FinalBossTest({
                 <div className="min-w-0 flex-1">
                   <p className="text-sm font-medium">{qq.question}</p>
                   <p className="text-xs text-muted-foreground mt-0.5">
-                    Your answer: {answers[i] || '-'}
+                    {t('test.your-answer')} {answers[i] || '-'}
                   </p>
                   {!r.correct && (
                     <p className="text-xs text-green-600 mt-0.5">
-                      Correct: {r.correctAnswer}
+                      {t('test.correct')} {r.correctAnswer}
                     </p>
                   )}
                 </div>
@@ -235,7 +240,7 @@ export function FinalBossTest({
             className="mt-6"
           >
             <Button className="w-full rounded-xl" size="lg">
-              Claim Rewards
+              {t('test.claim')}
             </Button>
           </motion.div>
         )}
@@ -247,8 +252,8 @@ export function FinalBossTest({
     <div>
       <StepHeader
         icon={Target}
-        title="Final Boss Test"
-        subtitle={`${questions.length} questions. ${Math.round(PASS_THRESHOLD * 100)}% to pass.`}
+        title={t('test.title')}
+        subtitle={t('test.subtitle', { count: questions.length, pass: Math.round(PASS_THRESHOLD * 100) })}
         step={4}
         total={8}
       />
@@ -297,7 +302,7 @@ export function FinalBossTest({
               {q.question_type.replace(/_/g, ' ')}
             </Badge>
             <span className="text-xs text-muted-foreground">
-              {q.points ?? 1} pt{q.points > 1 ? 's' : ''}
+              {t('exercise.pts', { pts: q.points ?? 1 })}
             </span>
           </div>
 
@@ -362,7 +367,7 @@ export function FinalBossTest({
                   a[currentQuestion] = e.target.value
                   setAnswers(a)
                 }}
-                placeholder="Type your answer..."
+                placeholder={t('test.type-answer')}
                 disabled={!!feedback || isPending}
                 onKeyDown={(e) => {
                   if (
@@ -385,7 +390,7 @@ export function FinalBossTest({
                     disabled={isPending}
                     className="w-full rounded-xl"
                   >
-                    {isPending ? 'Submitting...' : 'Confirm Answer'}
+                    {isPending ? t('test.submitting') : t('test.confirm')}
                   </Button>
                 </motion.div>
               )}
@@ -403,7 +408,7 @@ export function FinalBossTest({
               >
                 <p className="text-sm text-red-700 dark:text-red-300 flex items-center gap-2">
                   <XCircle className="h-4 w-4" />
-                  Wrong! {lives > 0 ? `${lives} ${lives === 1 ? 'life' : 'lives'} remaining` : 'No lives left!'}
+                  {t('test.wrong')} {lives > 0 ? t('test.lives-left', { count: lives }) : t('test.no-lives')}
                 </p>
               </motion.div>
             )}
@@ -416,7 +421,7 @@ export function FinalBossTest({
               >
                 <p className="text-sm text-green-700 dark:text-green-300 flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4" />
-                  Correct!
+                  {t('exercise.correct')}
                 </p>
               </motion.div>
             )}
@@ -431,7 +436,7 @@ export function FinalBossTest({
           className="text-center"
         >
           <p className="text-sm text-muted-foreground mb-3">
-            No lives remaining. Submitting your answers...
+            {t('test.lives-exhausted')}
           </p>
         </motion.div>
       )}

@@ -15,6 +15,8 @@ import {
   BookOpen,
   Mic,
   Pen,
+  Headphones,
+  FileText,
 } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -91,7 +93,7 @@ export function MissionComplete({
         <div className="w-20 h-20 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center mx-auto mb-4 shadow-lg">
           <Trophy className="h-10 w-10 text-white" />
         </div>
-        <h1 className="text-3xl font-bold mb-1">Mission Complete!</h1>
+        <h1 className="text-3xl font-bold mb-1">Lektion abgeschlossen!</h1>
         <p className="text-muted-foreground">{lessonTitle}</p>
       </motion.div>
 
@@ -111,7 +113,7 @@ export function MissionComplete({
                 <motion.div className="text-4xl font-bold tabular-nums">
                   {xpCount}
                 </motion.div>
-                <div className="text-xs font-medium opacity-80">XP EARNED</div>
+                <div className="text-xs font-medium opacity-80">XP VERDIENT</div>
               </div>
             </div>
           </motion.div>
@@ -125,21 +127,25 @@ export function MissionComplete({
             animate={{ opacity: 1, y: 0 }}
             className="grid grid-cols-2 gap-3 mb-8 max-w-sm mx-auto"
           >
-            <div className="rounded-xl bg-muted/50 border p-4">
-              <BookOpen className="h-5 w-5 text-blue-500 mx-auto mb-1" />
-              <div className="text-2xl font-bold tabular-nums">{vocabLearned}</div>
-              <div className="text-xs text-muted-foreground">Words Learned</div>
-            </div>
-            <div className="rounded-xl bg-muted/50 border p-4">
-              <Target className="h-5 w-5 text-green-500 mx-auto mb-1" />
-              <div className="text-2xl font-bold tabular-nums">{exercisesCompleted}</div>
-              <div className="text-xs text-muted-foreground">Exercises Done</div>
-            </div>
+            {vocabLearned > 0 && (
+              <div className="rounded-xl bg-muted/50 border p-4">
+                <BookOpen className="h-5 w-5 text-blue-500 mx-auto mb-1" />
+                <div className="text-2xl font-bold tabular-nums">{vocabLearned}</div>
+                <div className="text-xs text-muted-foreground">Wörter gelernt</div>
+              </div>
+            )}
+            {exercisesCompleted > 0 && (
+              <div className="rounded-xl bg-muted/50 border p-4">
+                <Target className="h-5 w-5 text-green-500 mx-auto mb-1" />
+                <div className="text-2xl font-bold tabular-nums">{exercisesCompleted}</div>
+                <div className="text-xs text-muted-foreground">Übungen gemacht</div>
+              </div>
+            )}
             {testPassed && (
               <div className="rounded-xl bg-muted/50 border p-4 col-span-2">
                 <Trophy className="h-5 w-5 text-amber-500 mx-auto mb-1" />
                 <div className="text-2xl font-bold tabular-nums">{testScore}%</div>
-                <div className="text-xs text-muted-foreground">Test Score</div>
+                <div className="text-xs text-muted-foreground">Testergebnis</div>
               </div>
             )}
           </motion.div>
@@ -158,14 +164,14 @@ export function MissionComplete({
             <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 text-white shadow-lg">
               <Star className="h-6 w-6 fill-white" />
               <div className="text-left">
-                <div className="text-xs font-medium opacity-80">ACHIEVEMENT UNLOCKED</div>
+                <div className="text-xs font-medium opacity-80">ERRUNGENSCHAFT FREIGESCHALTET</div>
                 <div className="text-lg font-bold">
                   {testPassed ? 'Sprachmeister' : 'Fleißiger Lerner'}
                 </div>
                 <div className="text-xs opacity-80">
                   {testPassed
-                    ? 'Completed a full lesson with test pass'
-                    : 'Completed a full lesson'}
+                    ? 'Lektion mit bestandenem Test abgeschlossen'
+                    : 'Lektion vollständig bearbeitet'}
                 </div>
               </div>
             </div>
@@ -188,7 +194,7 @@ export function MissionComplete({
               size="lg"
             >
               <ArrowRight className="h-5 w-5" />
-              Next Lesson
+              Nächste Lektion
             </LinkButton>
             <div className="flex gap-2">
               <LinkButton
@@ -197,7 +203,7 @@ export function MissionComplete({
                 className="flex-1 rounded-xl gap-2"
               >
                 <Home className="h-4 w-4" />
-                Courses
+                Kurse
               </LinkButton>
               {onRetry && (
                 <Button
@@ -206,7 +212,7 @@ export function MissionComplete({
                   className="flex-1 rounded-xl gap-2"
                 >
                   <RotateCcw className="h-4 w-4" />
-                  Retry
+                  Wiederholen
                 </Button>
               )}
             </div>

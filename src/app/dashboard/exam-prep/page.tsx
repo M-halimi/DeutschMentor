@@ -55,7 +55,7 @@ export default function ExamPrepPage() {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <GraduationCap className="h-6 w-6 text-primary" />
-            <h1 className="text-2xl font-bold">Exam Preparation</h1>
+            <h1 className="text-2xl font-bold">Prüfungsvorbereitung</h1>
           </div>
         </div>
 
@@ -91,12 +91,12 @@ export default function ExamPrepPage() {
                     </div>
                   </div>
                   <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
-                    <span>{mod.total_points} points</span>
-                    <span>Pass: {mod.pass_threshold}%</span>
-                    {mod.time_limit_minutes && <span>{mod.time_limit_minutes} min</span>}
+                    <span>{mod.total_points} Punkte</span>
+                    <span>Bestanden: {mod.pass_threshold}%</span>
+                    {mod.time_limit_minutes && <span>{mod.time_limit_minutes} Min.</span>}
                   </div>
                   <LinkButton href={`/dashboard/exam-prep/${mod.id}`} className="w-full">
-                    Start Practice
+                    Üben starten
                   </LinkButton>
                 </CardContent>
               </Card>

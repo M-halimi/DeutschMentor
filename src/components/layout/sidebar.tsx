@@ -40,12 +40,12 @@ interface NavItem { href: string; label: string; icon: LucideIcon; badge?: strin
 
 const studentNav: NavItem[] = [
   { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/dashboard/learning', label: 'My Learning', icon: Bot },
-  { href: '/dashboard/analytics', label: 'Analytics', icon: BarChart3 },
+  { href: '/dashboard/learning', label: 'Mein Lernen', icon: Bot },
+  { href: '/dashboard/analytics', label: 'Statistiken', icon: BarChart3 },
 ]
 
 const courseNav: NavItem[] = [
-  { href: '/dashboard/courses', label: 'Courses', icon: BookOpen },
+  { href: '/dashboard/courses', label: 'Kurse', icon: BookOpen },
 ]
 
 const skillNav: NavItem[] = [
@@ -56,19 +56,19 @@ const skillNav: NavItem[] = [
 ]
 
 const resourceNav: NavItem[] = [
-  { href: '/dashboard/vocabulary', label: 'Vocabulary', icon: BookmarkPlus, badge: 'NEW' },
-  { href: '/dashboard/dictionary', label: 'Dictionary', icon: BookText, badge: 'NEW' },
-  { href: '/dashboard/grammar', label: 'Grammar', icon: Braces },
-  { href: '/dashboard/dictation', label: 'Dictation', icon: Ear },
-  { href: '/dashboard/expressions', label: 'Expressions', icon: MessageSquareText },
-  { href: '/dashboard/exam', label: 'Level Check', icon: GraduationCap },
-  { href: '/dashboard/exam-prep', label: 'Exam Prep', icon: Target },
-  { href: '/dashboard/certificates', label: 'Certificates', icon: Award },
+  { href: '/dashboard/vocabulary', label: 'Wortschatz', icon: BookmarkPlus, badge: 'NEU' },
+  { href: '/dashboard/dictionary', label: 'Wörterbuch', icon: BookText, badge: 'NEU' },
+  { href: '/dashboard/grammar', label: 'Grammatik', icon: Braces },
+  { href: '/dashboard/dictation', label: 'Diktat', icon: Ear },
+  { href: '/dashboard/expressions', label: 'Ausdrücke', icon: MessageSquareText },
+  { href: '/dashboard/exam', label: 'Einstufung', icon: GraduationCap },
+  { href: '/dashboard/exam-prep', label: 'Prüfungsvorbereitung', icon: Target },
+  { href: '/dashboard/certificates', label: 'Zertifikate', icon: Award },
 ]
 
 const arabicNav: NavItem[] = [
-  { href: '/dashboard/arabic/alphabet', label: 'Arabic Alphabet', icon: Languages },
-  { href: '/dashboard/vocabulary', label: 'Arabic Vocab', icon: BookmarkPlus },
+  { href: '/dashboard/arabic/alphabet', label: 'Arabisches Alphabet', icon: Languages },
+  { href: '/dashboard/vocabulary', label: 'Arabischer Wortschatz', icon: BookmarkPlus },
 ]
 
 function NavSection({ title, items, defaultOpen = true }: { title: string; items: NavItem[]; defaultOpen?: boolean }) {
@@ -170,26 +170,26 @@ export function Sidebar() {
           <ScrollArea className="flex-1 px-3 py-4">
             {user?.role === 'student' ? (
               <>
-                <NavSection title="Overview" items={studentNav} />
-                <NavSection title="Courses" items={courseNav} />
-                <NavSection title="Skills" items={skillNav} />
-                <NavSection title="Resources" items={resourceNav} />
+                <NavSection title="Übersicht" items={studentNav} />
+                <NavSection title="Kurse" items={courseNav} />
+                <NavSection title="Fertigkeiten" items={skillNav} />
+                <NavSection title="Lernmaterialien" items={resourceNav} />
                 <div className="my-2 border-t" />
-                <NavSection title="Arabic" items={arabicNav} defaultOpen={false} />
+                <NavSection title="Arabisch" items={arabicNav} defaultOpen={false} />
               </>
             ) : user?.role === 'teacher' ? (
-              <NavSection title="Teaching" items={[
+              <NavSection title="Unterricht" items={[
                 { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-                { href: '/dashboard/my-courses', label: 'My Courses', icon: BookOpen },
-                { href: '/dashboard/students', label: 'Students', icon: GraduationCap },
-                { href: '/dashboard/analytics', label: 'Analytics', icon: BarChart3 },
+                { href: '/dashboard/my-courses', label: 'Meine Kurse', icon: BookOpen },
+                { href: '/dashboard/students', label: 'Schüler', icon: GraduationCap },
+                { href: '/dashboard/analytics', label: 'Statistiken', icon: BarChart3 },
               ]} />
             ) : (
               <NavSection title="Admin" items={[
-                { href: '/admin', label: 'Admin Dashboard', icon: Shield },
-                { href: '/admin/users', label: 'Users', icon: Settings },
-                { href: '/admin/courses', label: 'Courses', icon: BookOpen },
-                { href: '/admin/analytics', label: 'Analytics', icon: BarChart3 },
+                { href: '/admin', label: 'Admin-Dashboard', icon: Shield },
+                { href: '/admin/users', label: 'Benutzer', icon: Settings },
+                { href: '/admin/courses', label: 'Kurse', icon: BookOpen },
+                { href: '/admin/analytics', label: 'Statistiken', icon: BarChart3 },
               ]} />
             )}
           </ScrollArea>
@@ -200,8 +200,8 @@ export function Sidebar() {
                 {user?.full_name?.charAt(0)?.toUpperCase() ?? 'U'}
               </div>
               <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-medium">{user?.full_name ?? 'User'}</p>
-                <p className="truncate text-xs text-muted-foreground capitalize">{user?.role ?? 'student'}</p>
+                <p className="truncate text-sm font-medium">{user?.full_name ?? 'Benutzer'}</p>
+                <p className="truncate text-xs text-muted-foreground capitalize">{user?.role === 'student' ? 'Schüler' : user?.role === 'teacher' ? 'Lehrer' : 'Admin'}</p>
               </div>
             </div>
             <Button
@@ -211,7 +211,7 @@ export function Sidebar() {
               onClick={signOut}
             >
               <LogOut className={cn('h-4 w-4', isRtl ? 'ml-2' : 'mr-2')} />
-              Sign Out
+              Abmelden
             </Button>
           </div>
         </motion.aside>

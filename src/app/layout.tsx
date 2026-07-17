@@ -16,9 +16,9 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'DeutschMentor AI - Your Personal German Coach',
-  description: 'Master German with AI-powered learning. Personalized lessons, real-time feedback, and exam preparation for Goethe and TELC.',
-  keywords: ['German learning', 'AI tutor', 'Goethe exam', 'Deutsch lernen', 'language learning'],
+  title: 'DeutschMentor — Dein persönlicher KI-Deutsch-Coach',
+  description: 'Meistere Deutsch mit KI-gestütztem Lernen. Personalisierte Lektionen, Echtzeit-Feedback und Prüfungsvorbereitung für Goethe und TELC.',
+  keywords: ['Deutsch lernen', 'KI-Tutor', 'Goethe Prüfung', 'German learning', 'AI tutor'],
 }
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="de" suppressHydrationWarning>
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans`}>
         <Providers>{children}</Providers>
       </body>

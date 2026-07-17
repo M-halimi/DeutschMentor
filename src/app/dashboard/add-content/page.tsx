@@ -75,7 +75,7 @@ export default function AddContentPage() {
       setResult(uploadRes)
       resetForm()
     } catch (err) {
-      toast.error('Upload failed. Please try again.')
+      toast.error('Hochladen fehlgeschlagen. Bitte versuche es erneut.')
     } finally {
       setIsProcessing(false)
     }
@@ -107,8 +107,8 @@ export default function AddContentPage() {
             <Headphones className="h-5 w-5" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Listening Content hinzufügen</h1>
-            <p className="text-muted-foreground">Upload your own German audio or connect external learning materials</p>
+            <h1 className="text-3xl font-bold tracking-tight">Hörinhalt hinzufügen</h1>
+            <p className="text-muted-foreground">Lade eigene deutsche Audiodateien hoch oder verbinde externe Lernmaterialien</p>
           </div>
         </div>
 
@@ -122,22 +122,22 @@ export default function AddContentPage() {
                       <CheckCircle className="h-8 w-8 text-emerald-500" />
                     </div>
                   </motion.div>
-                  <h2 className="text-xl font-bold mb-1">Content Added Successfully!</h2>
+                  <h2 className="text-xl font-bold mb-1">Inhalt erfolgreich hinzugefügt!</h2>
                   <p className="text-muted-foreground mb-1">{title}</p>
                   {extractionResult && (
                     <div className="flex items-center justify-center gap-3 flex-wrap mt-3 text-sm text-muted-foreground">
-                      <Badge variant="secondary">{extractionResult.vocabulary_count} words</Badge>
-                      <Badge variant="secondary">{extractionResult.phrases_count} phrases</Badge>
-                      <Badge variant="secondary">{extractionResult.grammar_points_count} grammar points</Badge>
-                      <Badge variant="secondary">{extractionResult.exercises_count} exercises</Badge>
+                      <Badge variant="secondary">{extractionResult.vocabulary_count} Wörter</Badge>
+                      <Badge variant="secondary">{extractionResult.phrases_count} Ausdrücke</Badge>
+                      <Badge variant="secondary">{extractionResult.grammar_points_count} Grammatikpunkte</Badge>
+                      <Badge variant="secondary">{extractionResult.exercises_count} Übungen</Badge>
                     </div>
                   )}
                   <div className="flex items-center justify-center gap-3 mt-6">
                     <Button variant="outline" onClick={() => { setResult(null); setExtractionResult(null) }}>
-                      Add Another
+                      Weiteren hinzufügen
                     </Button>
                     <Button onClick={() => window.location.href = '/dashboard/hoeren'}>
-                      Go to Listening
+                      Zu Hören gehen
                     </Button>
                   </div>
                 </CardContent>
@@ -147,15 +147,15 @@ export default function AddContentPage() {
             <motion.div key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6 max-w-2xl">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Source Type</CardTitle>
-                  <CardDescription>Choose how to add your German audio content</CardDescription>
+                  <CardTitle className="text-lg">Quelltyp</CardTitle>
+                  <CardDescription>Wähle, wie du deine deutschen Audio-Inhalte hinzufügen möchtest</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-3 gap-3">
                     {[
-                      { id: 'upload' as AddMethod, icon: Upload, label: 'Upload Audio', desc: 'MP3, WAV, or M4A file from your device' },
-                      { id: 'external_url' as AddMethod, icon: Globe, label: 'External URL', desc: 'Link to an online audio file or podcast' },
-                      { id: 'paste_transcript' as AddMethod, icon: FileText, label: 'Paste Transcript', desc: 'Paste the transcript text, generate audio via AI' },
+                      { id: 'upload' as AddMethod, icon: Upload, label: 'Audio hochladen', desc: 'MP3-, WAV- oder M4A-Datei von deinem Gerät' },
+                      { id: 'external_url' as AddMethod, icon: Globe, label: 'Externe URL', desc: 'Link zu einer Online-Audiodatei oder einem Podcast' },
+                      { id: 'paste_transcript' as AddMethod, icon: FileText, label: 'Transkript einfügen', desc: 'Transkripttext einfügen, Audio per KI generieren' },
                     ].map(({ id, icon: Icon, label, desc }) => (
                       <button
                         key={id}
@@ -177,21 +177,21 @@ export default function AddContentPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Content Details</CardTitle>
-                  <CardDescription>Describe what this audio content is about</CardDescription>
+                  <CardTitle className="text-lg">Inhaltsdetails</CardTitle>
+                  <CardDescription>Beschreibe, worum es in diesem Audioinhalt geht</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
-                      <label className="text-sm font-medium">Title *</label>
+                      <label className="text-sm font-medium">Titel *</label>
                       <Input
-                        placeholder="e.g., B1 Telc Listening Practice"
+                        placeholder="z. B. B1 TELC Hörpraxis"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-sm font-medium">CEFR Level *</label>
+                      <label className="text-sm font-medium">CEFR-Niveau *</label>
                       <select
                         value={level}
                         onChange={(e) => setLevel(e.target.value as GermanLevel)}
@@ -204,17 +204,17 @@ export default function AddContentPage() {
 
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
-                      <label className="text-sm font-medium">Description</label>
+                      <label className="text-sm font-medium">Beschreibung</label>
                       <Input
-                        placeholder="Brief description of the content"
+                        placeholder="Kurze Beschreibung des Inhalts"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-sm font-medium">Category / Theme</label>
+                      <label className="text-sm font-medium">Kategorie / Thema</label>
                       <Input
-                        placeholder="e.g., daily, travel, work, news"
+                        placeholder="z. B. Alltag, Reisen, Arbeit, Nachrichten"
                         value={category}
                         onChange={(e) => setCategory(e.target.value)}
                       />
@@ -222,9 +222,9 @@ export default function AddContentPage() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-medium">Source Label (optional)</label>
+                    <label className="text-sm font-medium">Quellbezeichnung (optional)</label>
                     <Input
-                      placeholder="e.g., 'Menschen B1 Kursbuch' or 'Goethe B2 Prüfung'"
+                      placeholder="z. B. 'Menschen B1 Kursbuch' oder 'Goethe B2 Prüfung'"
                       value={sourceLabel}
                       onChange={(e) => setSourceLabel(e.target.value)}
                     />
@@ -235,12 +235,12 @@ export default function AddContentPage() {
               <Card>
                 <CardHeader>
                   <CardTitle className="text-lg">
-                    {method === 'upload' ? 'Upload Audio File' : method === 'external_url' ? 'Connect External URL' : 'Paste Transcript'}
+                    {method === 'upload' ? 'Audiodatei hochladen' : method === 'external_url' ? 'Externe URL verbinden' : 'Transkript einfügen'}
                   </CardTitle>
                   <CardDescription>
-                    {method === 'upload' && 'Select an MP3, WAV, or M4A file from your device'}
-                    {method === 'external_url' && 'Paste a direct link to an audio file or podcast episode'}
-                    {method === 'paste_transcript' && 'Paste the full transcript and we\'ll generate exercises and extract learning content'}
+                    {method === 'upload' && 'Wähle eine MP3-, WAV- oder M4A-Datei von deinem Gerät'}
+                    {method === 'external_url' && 'Füge einen direkten Link zu einer Audiodatei oder Podcast-Episode ein'}
+                    {method === 'paste_transcript' && 'Füge das vollständige Transkript ein – wir generieren Übungen und extrahieren Lerninhalte'}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -259,12 +259,12 @@ export default function AddContentPage() {
                           >
                             <Upload className="h-10 w-10 mx-auto mb-3 text-muted-foreground" />
                             <p className="font-medium mb-1">
-                              {audioFile ? audioFile.name : 'Click to select an audio file'}
+                              {audioFile ? audioFile.name : 'Klicken, um eine Audiodatei auszuwählen'}
                             </p>
                             <p className="text-sm text-muted-foreground">
                               {audioFile
                                 ? `${(audioFile.size / 1024 / 1024).toFixed(1)} MB`
-                                : 'MP3, WAV, M4A — Max 50MB'}
+                                : 'MP3, WAV, M4A — Max. 50 MB'}
                             </p>
                           </div>
                           <input
@@ -276,7 +276,7 @@ export default function AddContentPage() {
                           />
                           {audioFile && (
                             <Button variant="outline" size="sm" onClick={() => setAudioFile(null)}>
-                              Remove file
+                              Datei entfernen
                             </Button>
                           )}
                         </div>
@@ -291,7 +291,7 @@ export default function AddContentPage() {
                           />
                           <p className="text-xs text-muted-foreground flex items-center gap-1">
                             <Link className="h-3 w-3" />
-                            Paste a direct audio URL. The transcript can be added later.
+                            Füge eine direkte Audio-URL ein. Das Transkript kann später hinzugefügt werden.
                           </p>
                         </div>
                       )}
@@ -299,9 +299,9 @@ export default function AddContentPage() {
                       {method === 'paste_transcript' && (
                         <div className="space-y-3">
                           <textarea
-                            placeholder="Paste the German transcript here...
-                  
-Example:
+                            placeholder="Füge das deutsche Transkript hier ein...
+
+Beispiel:
 Person A: Hallo, wie geht es dir?
 Person B: Mir geht es gut, danke! Und dir?
 Person A: Auch gut. Hast du schon die Hausaufgaben gemacht?
@@ -312,7 +312,7 @@ Person B: Ja, aber sie waren heute sehr schwer..."
                           />
                           <div className="flex items-center gap-2 text-xs text-muted-foreground">
                             <Sparkles className="h-3 w-3" />
-                            The system will automatically extract vocabulary, grammar, phrases, and generate exercises from the transcript
+                            Das System extrahiert automatisch Vokabeln, Grammatik, Ausdrücke und generiert Übungen aus dem Transkript
                           </div>
                         </div>
                       )}
@@ -326,7 +326,7 @@ Person B: Ja, aber sie waren heute sehr schwer..."
                   variant="outline"
                   onClick={() => window.location.href = '/dashboard/hoeren'}
                 >
-                  Cancel
+                  Abbrechen
                 </Button>
                 <Button
                   onClick={handleSubmit}
@@ -336,12 +336,12 @@ Person B: Ja, aber sie waren heute sehr schwer..."
                   {isProcessing ? (
                     <span className="flex items-center gap-2">
                       <Loader2 className="h-4 w-4 animate-spin" />
-                      Processing...
+                      Wird verarbeitet…
                     </span>
                   ) : (
                     <span className="flex items-center gap-2">
                       <Sparkles className="h-4 w-4" />
-                      Add Content
+                      Inhalt hinzufügen
                     </span>
                   )}
                 </Button>
@@ -354,9 +354,9 @@ Person B: Ja, aber sie waren heute sehr schwer..."
           <Card>
             <CardContent className="p-4 text-sm text-muted-foreground">
               <AlertCircle className="h-4 w-4 inline mr-1" />
-              Previous content was processed: {extractionResult.vocabulary_count} words,{' '}
-              {extractionResult.phrases_count} phrases, {extractionResult.grammar_points_count} grammar points,{' '}
-              {extractionResult.exercises_count} exercises extracted
+              Vorheriger Inhalt verarbeitet: {extractionResult.vocabulary_count} Wörter,{' '}
+              {extractionResult.phrases_count} Ausdrücke, {extractionResult.grammar_points_count} Grammatikpunkte,{' '}
+              {extractionResult.exercises_count} Übungen extrahiert
             </CardContent>
           </Card>
         )}

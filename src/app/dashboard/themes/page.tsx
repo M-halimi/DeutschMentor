@@ -216,27 +216,27 @@ export default function ThemesPage() {
         <AppShell>
           <div className="space-y-6 max-w-3xl mx-auto">
             <Button variant="outline" size="sm" onClick={goBack}>
-              <ArrowRight className="h-4 w-4 mr-1 rotate-180" /> Back to {selectedLesson.lesson.theme}
+              <ArrowRight className="h-4 w-4 mr-1 rotate-180" /> Zurück zu {selectedLesson.lesson.theme}
             </Button>
             <Card className="text-center py-10">
               <CardContent>
                 <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/30 mb-4">
                   <Sparkles className="h-10 w-10 text-emerald-500" />
                 </div>
-                <h2 className="text-2xl font-bold mb-1">Theme Complete!</h2>
+                <h2 className="text-2xl font-bold mb-1">Thema abgeschlossen!</h2>
                 <p className="text-muted-foreground mb-2">{audioLesson.title}</p>
                 <div className="text-5xl font-bold text-violet-600 dark:text-violet-400 mb-1">
                   {totalCorrect}<span className="text-2xl text-muted-foreground">/{exercises.length}</span>
                 </div>
                 <p className="text-sm text-muted-foreground mb-6">
-                  {Math.round((totalCorrect / Math.max(exercises.length, 1)) * 100)}% accuracy
+                  {Math.round((totalCorrect / Math.max(exercises.length, 1)) * 100)}% Genauigkeit
                 </p>
                 <div className="flex items-center justify-center gap-3">
                   <Button onClick={goBack} variant="outline">
-                    <ArrowRight className="h-4 w-4 mr-1 rotate-180" /> Themes
+                    <ArrowRight className="h-4 w-4 mr-1 rotate-180" /> Themen
                   </Button>
                   <Button onClick={resetLesson}>
-                    <RotateCcw className="h-4 w-4 mr-1" /> Try Again
+                    <RotateCcw className="h-4 w-4 mr-1" /> Nochmal versuchen
                   </Button>
                 </div>
               </CardContent>
@@ -248,7 +248,7 @@ export default function ThemesPage() {
                   <button onClick={() => setShowTranscript(!showTranscript)} className="flex items-center justify-between w-full text-left">
                     <div className="flex items-center gap-2">
                       <FileText className="h-4 w-4 text-muted-foreground" />
-                      <CardTitle className="text-sm font-medium">Transcript</CardTitle>
+<CardTitle className="text-sm font-medium">Transkript</CardTitle>
                     </div>
                     {showTranscript ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
                   </button>
@@ -272,9 +272,9 @@ export default function ThemesPage() {
                 <CardHeader className="pb-2">
                   <div className="flex gap-1">
                     {[
-                      { id: 'vocabulary' as const, label: 'Vocabulary', icon: BookMarked, count: themeVocab.length },
-                      { id: 'phrases' as const, label: 'Phrases', icon: Quote, count: themePhrases.length },
-                      { id: 'grammar' as const, label: 'Grammar', icon: Hash, count: themeGrammar.length },
+                      { id: 'vocabulary' as const, label: 'Wortschatz', icon: BookMarked, count: themeVocab.length },
+                      { id: 'phrases' as const, label: 'Ausdrücke', icon: Quote, count: themePhrases.length },
+                      { id: 'grammar' as const, label: 'Grammatik', icon: Hash, count: themeGrammar.length },
                     ].map(({ id, label, icon: Icon, count }) => (
                       <button key={id} onClick={() => setContentTab(id)}
                         className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${contentTab === id ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700' : 'text-muted-foreground hover:bg-muted'}`}>
@@ -333,7 +333,7 @@ export default function ThemesPage() {
         <div className="space-y-6 max-w-3xl mx-auto">
           <div className="flex items-center justify-between">
             <Button variant="outline" size="sm" onClick={goBack}>
-              <ArrowRight className="h-4 w-4 mr-1 rotate-180" /> Back
+              <ArrowRight className="h-4 w-4 mr-1 rotate-180" /> Zurück
             </Button>
             <Badge className="bg-violet-500/10 text-violet-600">{selectedLesson.lesson.theme}</Badge>
           </div>
@@ -389,20 +389,20 @@ export default function ThemesPage() {
               {audioLesson && (
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm mt-4 pt-4 border-t">
                   <div>
-                    <p className="text-xs text-muted-foreground mb-1">Level</p>
+                    <p className="text-xs text-muted-foreground mb-1">Niveau</p>
                     <Badge>{audioLesson.cefr_level || audioLesson.level}</Badge>
                   </div>
                   <div>
-                    <p className="text-xs text-muted-foreground mb-1">Duration</p>
+                    <p className="text-xs text-muted-foreground mb-1">Dauer</p>
                     <p className="font-medium flex items-center gap-1"><Clock className="h-3.5 w-3.5 text-muted-foreground" /> {audioLesson.estimated_duration || formatTime(audioLesson.duration_seconds)}</p>
                   </div>
                   <div>
-                    <p className="text-xs text-muted-foreground mb-1">Difficulty</p>
+                    <p className="text-xs text-muted-foreground mb-1">Schwierigkeit</p>
                     <div className="flex gap-0.5">{Array.from({ length: 5 }, (_, i) => <Star key={i} className={`h-3.5 w-3.5 ${i < audioLesson.difficulty_rating ? 'fill-amber-400 text-amber-400' : 'text-muted-foreground/30'}`} />)}</div>
                   </div>
                   <div>
-                    <p className="text-xs text-muted-foreground mb-1">Exercises</p>
-                    <p className="font-medium">{exercises.length} questions</p>
+                    <p className="text-xs text-muted-foreground mb-1">Übungen</p>
+                    <p className="font-medium">{exercises.length} Fragen</p>
                   </div>
                 </div>
               )}
@@ -415,12 +415,12 @@ export default function ThemesPage() {
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between mb-1">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm font-medium text-muted-foreground">Question {currentExerciseIdx + 1} of {exercises.length}</span>
+                    <span className="text-sm font-medium text-muted-foreground">Frage {currentExerciseIdx + 1} von {exercises.length}</span>
                     <Badge variant="secondary" className="text-xs">{currentExercise.question_type.replace('_', ' ')}</Badge>
                   </div>
                   {showResult && (
                     <span className={`flex items-center gap-1 text-sm font-medium ${results[results.length - 1]?.correct ? 'text-emerald-500' : 'text-red-400'}`}>
-                      {results[results.length - 1]?.correct ? <><CheckCircle className="h-4 w-4" /> Correct</> : <><XCircle className="h-4 w-4" /> Incorrect</>}
+                      {results[results.length - 1]?.correct ? <><CheckCircle className="h-4 w-4" /> Richtig</> : <><XCircle className="h-4 w-4" /> Falsch</>}
                     </span>
                   )}
                 </div>
@@ -481,29 +481,29 @@ export default function ThemesPage() {
 
                 {currentExercise.question_type === 'fill_blank' && (
                   <div className="space-y-3">
-                    <Input placeholder="Type your answer..." value={fillBlankAnswer} onChange={(e) => setFillBlankAnswer(e.target.value)} disabled={showResult} className="h-10 text-base" />
-                    {showResult && <p className="text-sm"><span className="text-muted-foreground">Correct: </span><span className="font-semibold text-emerald-600">{currentExercise.correct_answer}</span></p>}
+                    <Input placeholder="Tippe deine Antwort..." value={fillBlankAnswer} onChange={(e) => setFillBlankAnswer(e.target.value)} disabled={showResult} className="h-10 text-base" />
+                    {showResult && <p className="text-sm"><span className="text-muted-foreground">Richtig: </span><span className="font-semibold text-emerald-600">{currentExercise.correct_answer}</span></p>}
                   </div>
                 )}
 
                 {showResult && currentExercise.explanation && (
                   <div className="p-3 rounded-lg bg-muted/50 border text-sm">
-                    <p className="text-xs font-medium text-muted-foreground mb-1"><Lightbulb className="h-3 w-3 inline mr-1" />Explanation</p>
+                    <p className="text-xs font-medium text-muted-foreground mb-1"><Lightbulb className="h-3 w-3 inline mr-1" />Erklärung</p>
                     <p>{currentExercise.explanation}</p>
                   </div>
                 )}
 
                 <div className="flex items-center justify-between pt-2">
                   <Button variant="ghost" size="sm" onClick={() => { if (currentExerciseIdx > 0) { setCurrentExerciseIdx(p => p - 1); setSelectedAnswer(null); setShowResult(false); setFillBlankAnswer('') } }} disabled={currentExerciseIdx === 0}>
-                    Previous
+                    Zurück
                   </Button>
                   {!showResult ? (
                     <Button size="sm" onClick={handleSubmitAnswer} disabled={currentExercise.question_type === 'fill_blank' ? !fillBlankAnswer : !selectedAnswer} className="bg-violet-600 hover:bg-violet-700">
-                      Check Answer
+                      Antwort prüfen
                     </Button>
                   ) : (
                     <Button size="sm" onClick={nextExercise} className="bg-violet-600 hover:bg-violet-700">
-                      {currentExerciseIdx < exercises.length - 1 ? 'Next Question' : 'See Results'}
+                      {currentExerciseIdx < exercises.length - 1 ? 'Nächste Frage' : 'Ergebnisse ansehen'}
                     </Button>
                   )}
                 </div>
@@ -518,8 +518,8 @@ export default function ThemesPage() {
                 <button onClick={() => setShowTranscript(!showTranscript)} className="flex items-center justify-between w-full text-left">
                   <div className="flex items-center gap-2">
                     <FileText className="h-4 w-4 text-muted-foreground" />
-                    <CardTitle className="text-sm font-medium">Transcript</CardTitle>
-                    <Badge variant="outline" className="text-[10px]">Read after listening</Badge>
+                    <CardTitle className="text-sm font-medium">Transkript</CardTitle>
+                    <Badge variant="outline" className="text-[10px]">Nach dem Hören lesen</Badge>
                   </div>
                   {showTranscript ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
                 </button>
@@ -542,8 +542,8 @@ export default function ThemesPage() {
           {themeVocab.length > 0 && (
             <Card>
               <CardHeader>
-                <CardTitle className="text-sm flex items-center gap-2"><BookMarked className="h-4 w-4" /> Vocabulary from this Audio</CardTitle>
-                <CardDescription>Key vocabulary with native pronunciation</CardDescription>
+                <CardTitle className="text-sm flex items-center gap-2"><BookMarked className="h-4 w-4" /> Wortschatz aus diesem Audio</CardTitle>
+                <CardDescription>Wichtige Vokabeln mit Aussprache</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
@@ -569,8 +569,8 @@ export default function ThemesPage() {
           {themeGrammar.length > 0 && (
             <Card>
               <CardHeader>
-                <CardTitle className="text-sm flex items-center gap-2"><Hash className="h-4 w-4" /> Grammar from this Audio</CardTitle>
-                <CardDescription>Grammar structures used in the listening text</CardDescription>
+                <CardTitle className="text-sm flex items-center gap-2"><Hash className="h-4 w-4" /> Grammatik aus diesem Audio</CardTitle>
+                <CardDescription>Grammatikstrukturen aus dem Hörtext</CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
                 {themeGrammar.map((g: ListeningGrammarPoint) => (
@@ -597,7 +597,7 @@ export default function ThemesPage() {
       <AppShell>
         <div className="space-y-6">
           <Button variant="outline" size="sm" onClick={() => { setSelectedTheme(null); setLessons([]) }}>
-            <ArrowRight className="h-4 w-4 mr-1 rotate-180" /> All Themes
+            <ArrowRight className="h-4 w-4 mr-1 rotate-180" /> Alle Themen
           </Button>
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 text-white shadow-sm">
@@ -611,7 +611,7 @@ export default function ThemesPage() {
 
           <div className="flex gap-2 flex-wrap">
             <button onClick={() => setSelectedLevel('')} className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${!selectedLevel ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700' : 'text-muted-foreground hover:bg-muted'}`}>
-              All Levels
+              Alle Niveaus
             </button>
             {LEVELS.map(l => (
               <button key={l} onClick={() => setSelectedLevel(l)} className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${selectedLevel === l ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700' : 'text-muted-foreground hover:bg-muted'}`}>
@@ -639,19 +639,19 @@ export default function ThemesPage() {
                           <h3 className="font-medium text-sm">{lesson.title}</h3>
                           <Badge variant="secondary" className="text-[10px]">{lesson.content_type}</Badge>
                           <Badge variant="outline" className="text-[10px]">{lesson.level}</Badge>
-                          {isListening && hasReference && <Badge className="text-[10px] bg-violet-500/10 text-violet-600">Audio + Exercises</Badge>}
+                          {isListening && hasReference && <Badge className="text-[10px] bg-violet-500/10 text-violet-600">Audio + Übungen</Badge>}
                         </div>
                         {lesson.description && <p className="text-xs text-muted-foreground">{lesson.description}</p>}
                         {isListening && hasReference && (
                           <div className="flex items-center gap-2 mt-1.5 text-[10px] text-violet-600">
                             <Headphones className="h-3 w-3" />
-                            <span>Listen, answer questions, learn vocabulary & grammar</span>
+                            <span>Hören, Fragen beantworten, Wortschatz & Grammatik lernen</span>
                           </div>
                         )}
                       </div>
                       {isListening && hasReference ? (
                         <div className="flex items-center gap-1 text-violet-600 text-xs font-medium shrink-0">
-                          <span>Start</span>
+                          <span>Starten</span>
                           <ArrowRight className="h-4 w-4" />
                         </div>
                       ) : (
@@ -666,7 +666,7 @@ export default function ThemesPage() {
               <Card>
                 <CardContent className="p-8 text-center text-muted-foreground">
                   <Layers className="h-8 w-8 mx-auto mb-2 opacity-50" />
-                  <p className="text-sm">No lessons available for this theme yet.</p>
+                  <p className="text-sm">Noch keine Lektionen zu diesem Thema verfügbar.</p>
                 </CardContent>
               </Card>
             )}
@@ -684,8 +684,8 @@ export default function ThemesPage() {
             <Layers className="h-5 w-5" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Theme Learning</h1>
-            <p className="text-muted-foreground">Complete learning units organized by theme with vocabulary, listening, exercises, transcript, and grammar</p>
+            <h1 className="text-3xl font-bold tracking-tight">Themenlernen</h1>
+            <p className="text-muted-foreground">Komplette Lerneinheiten nach Themen mit Wortschatz, Hörverstehen, Übungen, Transkript und Grammatik</p>
           </div>
         </div>
 
@@ -704,8 +704,8 @@ export default function ThemesPage() {
                     </div>
                   </div>
                   <div className="flex items-center gap-2 mt-2">
-                    {availableThemes.includes(id) && <Badge variant="secondary" className="text-[10px]">Content available</Badge>}
-                    <Badge variant="outline" className="text-[10px]">Listening + Exercises</Badge>
+                    {availableThemes.includes(id) && <Badge variant="secondary" className="text-[10px]">Inhalt verfügbar</Badge>}
+                    <Badge variant="outline" className="text-[10px]">Hören + Übungen</Badge>
                   </div>
                 </CardContent>
               </Card>

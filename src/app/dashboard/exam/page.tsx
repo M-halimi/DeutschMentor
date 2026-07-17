@@ -47,20 +47,20 @@ interface LevelEvalResult {
 }
 
 const examModules: { icon: typeof Headphones; label: string; desc: string; duration: string; questions: number; value: ModuleType }[] = [
-  { icon: Headphones, label: 'Hören', desc: 'Listening comprehension', duration: '40 min', questions: 25, value: 'hoeren' },
-  { icon: BookOpen, label: 'Lesen', desc: 'Reading comprehension', duration: '60 min', questions: 30, value: 'lesen' },
-  { icon: Pen, label: 'Schreiben', desc: 'Writing', duration: '60 min', questions: 2, value: 'schreiben' },
-  { icon: Mic, label: 'Sprechen', desc: 'Speaking', duration: '15 min', questions: 3, value: 'sprechen' },
+  { icon: Headphones, label: 'Hören', desc: 'Hörverstehen', duration: '40 min', questions: 25, value: 'hoeren' },
+  { icon: BookOpen, label: 'Lesen', desc: 'Leseverstehen', duration: '60 min', questions: 30, value: 'lesen' },
+  { icon: Pen, label: 'Schreiben', desc: 'Schreiben', duration: '60 min', questions: 2, value: 'schreiben' },
+  { icon: Mic, label: 'Sprechen', desc: 'Sprechen', duration: '15 min', questions: 3, value: 'sprechen' },
 ]
 
 const GOETHE_EXAMS = ['A1', 'A2', 'B1', 'B2', 'C1'].map(l => ({ type: 'Goethe', level: l, modules: ['Hören', 'Lesen', 'Schreiben', 'Sprechen'] }))
 const TELC_EXAMS = ['A1', 'A2', 'B1', 'B2'].map(l => ({ type: 'TELC', level: l, modules: ['Hören', 'Lesen', 'Schreiben', 'Sprechen'] }))
 
 const EVAL_STEPS = [
-  { key: 'vocabulary', label: 'Vocabulary', description: 'Translate German words to English' },
-  { key: 'grammar', label: 'Grammar', description: 'Article and plural knowledge' },
-  { key: 'reading', label: 'Reading', description: 'Sentence comprehension' },
-  { key: 'listening', label: 'Listening', description: 'Listening comprehension check' },
+  { key: 'vocabulary', label: 'Wortschatz', description: 'Translate German words to English' },
+  { key: 'grammar', label: 'Grammatik', description: 'Article and plural knowledge' },
+  { key: 'reading', label: 'Lesen', description: 'Sentence comprehension' },
+  { key: 'listening', label: 'Hören', description: 'Listening comprehension check' },
 ] as const
 
 function getGrade(score: number) {
@@ -349,7 +349,7 @@ export default function ExamPage() {
                       <Input
                         value={answers[q.id] || ''}
                         onChange={(e) => setAnswers(prev => ({ ...prev, [q.id]: e.target.value }))}
-                        placeholder="Your answer..."
+                        placeholder="Deine Antwort..."
                         className="max-w-md"
                       />
                     </div>
@@ -360,7 +360,7 @@ export default function ExamPage() {
                       <textarea
                         value={answers[q.id] || ''}
                         onChange={(e) => setAnswers(prev => ({ ...prev, [q.id]: e.target.value }))}
-                        placeholder="Write your answer..."
+                        placeholder="Schreibe deine Antwort..."
                         className="w-full min-h-[80px] rounded-lg border border-input bg-transparent px-3 py-2 text-sm resize-y focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 outline-none"
                       />
                     </div>
@@ -372,10 +372,10 @@ export default function ExamPage() {
 
           <div className="flex items-center justify-between">
             <p className="text-sm text-muted-foreground">
-              {Object.keys(answers).length} of {examData.questions.length} answered
+              {Object.keys(answers).length} von {examData.questions.length} beantwortet
             </p>
             <Button onClick={submitExam} disabled={submitting || Object.keys(answers).length === 0}>
-              {submitting ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Submitting...</> : 'Submit Exam'}
+              {submitting ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Wird abgegeben...</> : 'Prüfung abgeben'}
             </Button>
           </div>
         </div>
@@ -406,10 +406,10 @@ export default function ExamPage() {
               <p className="text-lg font-semibold text-muted-foreground mb-4">{grade.grade} ({grade.note})</p>
               <div className="flex items-center justify-center gap-3">
                 <Button onClick={() => { setView('overview'); setExamData(null) }}>
-                  Back to Exams
+                  Zurück zu den Prüfungen
                 </Button>
                 <Button variant="outline" onClick={() => startExam(examData!.examType, examData!.level, examData!.module)}>
-                  Retry
+                  Wiederholen
                 </Button>
               </div>
             </CardContent>
@@ -417,7 +417,7 @@ export default function ExamPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-sm font-medium">Detailed Results</CardTitle>
+              <CardTitle className="text-sm font-medium">Detaillierte Ergebnisse</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-2">
@@ -426,12 +426,12 @@ export default function ExamPage() {
                     <div className="flex items-center gap-3 min-w-0">
                       {d.isCorrect ? <CheckCircle className="h-4 w-4 shrink-0 text-emerald-500" /> : <XCircle className="h-4 w-4 shrink-0 text-red-500" />}
                       <div className="min-w-0">
-                        <p className="text-sm font-medium truncate">Question {i + 1}</p>
-                        {!d.isCorrect && <p className="text-xs text-muted-foreground">Correct: {d.correctAnswer}</p>}
+                        <p className="text-sm font-medium truncate">Frage {i + 1}</p>
+                        {!d.isCorrect && <p className="text-xs text-muted-foreground">Richtig: {d.correctAnswer}</p>}
                       </div>
                     </div>
                     <Badge variant={d.isCorrect ? 'default' : 'destructive'} className="text-[10px]">
-                      {d.isCorrect ? 'Correct' : 'Incorrect'}
+                      {d.isCorrect ? 'Richtig' : 'Falsch'}
                     </Badge>
                   </div>
                 ))}
@@ -457,8 +457,8 @@ export default function ExamPage() {
                 <GraduationCap className="h-5 w-5" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold tracking-tight">Level Evaluation</h1>
-                <p className="text-sm text-muted-foreground">Answer questions to estimate your CEFR level</p>
+                <h1 className="text-2xl font-bold tracking-tight">Niveaueinschätzung</h1>
+                <p className="text-sm text-muted-foreground">Beantworte Fragen, um dein CEFR-Niveau zu bestimmen</p>
               </div>
             </div>
             <Badge variant="outline" className="text-sm px-3 py-1">{evalStep + 1} / 4</Badge>
@@ -489,10 +489,10 @@ export default function ExamPage() {
             <Card>
               <CardContent className="p-8 text-center">
                 <Headphones className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
-                <h3 className="text-lg font-semibold mb-2">Listening Comprehension</h3>
+                <h3 className="text-lg font-semibold mb-2">Hörverstehen</h3>
                 <p className="text-muted-foreground max-w-md mx-auto">
-                  For a thorough listening assessment, please use our dedicated Hören module.
-                  Click &quot;Submit Evaluation&quot; to complete your level evaluation.
+                  Für eine gründliche Hörprüfung nutze bitte unser spezielles Hören-Modul.
+                  Klicke auf &quot;Auswertung einreichen&quot;, um deine Niveaueinschätzung abzuschließen.
                 </p>
               </CardContent>
             </Card>
@@ -527,11 +527,11 @@ export default function ExamPage() {
 
           <div className="flex items-center justify-between">
             <Button variant="outline" onClick={() => setEvalView('form')}>
-              Cancel
+              Abbrechen
             </Button>
             <Button onClick={handleEvalNextStep} disabled={!allAnswered || evalLoading}>
               {evalLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
-              {evalLoading ? 'Evaluating...' : evalStep < 3 ? 'Next Step' : 'Submit Evaluation'}
+              {evalLoading ? 'Wird ausgewertet...' : evalStep < 3 ? 'Nächster Schritt' : 'Auswertung einreichen'}
             </Button>
           </div>
         </div>
@@ -548,32 +548,32 @@ export default function ExamPage() {
               <GraduationCap className="h-5 w-5" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold tracking-tight">Exam Preparation</h1>
-              <p className="text-muted-foreground">Prepare for Goethe and TELC exams with mock tests and practice</p>
+              <h1 className="text-3xl font-bold tracking-tight">Prüfungsvorbereitung</h1>
+              <p className="text-muted-foreground">Bereite dich mit Probeprüfungen und Übungen auf Goethe- und TELC-Prüfungen vor</p>
             </div>
           </div>
           <Button onClick={runLevelEvaluation} disabled={evalLoading}>
             {evalLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
-            Level Evaluation
+            Niveaueinschätzung
           </Button>
         </div>
 
         <div className="grid gap-4 md:grid-cols-4">
           <Card><CardContent className="p-4 text-center">
             <p className="text-2xl font-bold">{attempts?.length ?? 0}</p>
-            <p className="text-sm text-muted-foreground">Mock Exams</p>
+            <p className="text-sm text-muted-foreground">Probeprüfungen</p>
           </CardContent></Card>
           <Card><CardContent className="p-4 text-center">
             <p className="text-2xl font-bold">{passedCount}</p>
-            <p className="text-sm text-muted-foreground">Passed</p>
+            <p className="text-sm text-muted-foreground">Bestanden</p>
           </CardContent></Card>
           <Card><CardContent className="p-4 text-center">
             <p className="text-2xl font-bold">{avgScore}%</p>
-            <p className="text-sm text-muted-foreground">Average Score</p>
+            <p className="text-sm text-muted-foreground">Durchschnittspunktzahl</p>
           </CardContent></Card>
           <Card><CardContent className="p-4 text-center">
             <p className="text-2xl font-bold">{attempts?.filter(a => !a.passed).length ?? 0}</p>
-            <p className="text-sm text-muted-foreground">Needs Review</p>
+            <p className="text-sm text-muted-foreground">Wiederholung nötig</p>
           </CardContent></Card>
         </div>
 
@@ -588,22 +588,22 @@ export default function ExamPage() {
                         <Languages className="h-5 w-5" />
                       </div>
                       <div>
-                        <h3 className="font-semibold">Level Evaluation Result</h3>
-                        <p className="text-sm text-muted-foreground">Estimated CEFR level based on your performance</p>
+                        <h3 className="font-semibold">Ergebnis der Niveaueinschätzung</h3>
+                        <p className="text-sm text-muted-foreground">Geschätztes CEFR-Niveau basierend auf deiner Leistung</p>
                       </div>
                     </div>
-                    <Button variant="ghost" size="sm" onClick={() => { setShowEval(false); setEvalView('form') }}>Close</Button>
+                    <Button variant="ghost" size="sm" onClick={() => { setShowEval(false); setEvalView('form') }}>Schließen</Button>
                   </div>
                   <div className="flex items-center gap-4 mb-4">
                     <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-white text-2xl font-bold">
                       {evalResult.estimatedLevel}
                     </div>
                     <div>
-                      <p className="text-lg font-semibold">You are around <span className="text-cyan-600 dark:text-cyan-400">{evalResult.subLevel}</span></p>
+                      <p className="text-lg font-semibold">Du bist ungefähr auf Niveau <span className="text-cyan-600 dark:text-cyan-400">{evalResult.subLevel}</span></p>
                       <p className="text-sm text-muted-foreground">
                         {evalResult.examReadiness
-                          ? 'You are ready to attempt the exam at this level!'
-                          : `More practice needed before attempting ${evalResult.estimatedLevel} exam.`}
+                          ? 'Du bist bereit, die Prüfung auf diesem Niveau zu versuchen!'
+                          : `Mehr Übung nötig, bevor du die ${evalResult.estimatedLevel}-Prüfung versuchst.`}
                       </p>
                     </div>
                   </div>
@@ -617,13 +617,13 @@ export default function ExamPage() {
                   </div>
                   <div className="grid gap-3 sm:grid-cols-2 mb-3">
                     <div>
-                      <p className="text-xs font-semibold text-muted-foreground mb-1">Strengths</p>
+                      <p className="text-xs font-semibold text-muted-foreground mb-1">Stärken</p>
                       <div className="flex flex-wrap gap-1">
                         {evalResult.strengths.map(s => <Badge key={s} variant="default" className="text-[10px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">{s}</Badge>)}
                       </div>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-muted-foreground mb-1">Weaknesses</p>
+                      <p className="text-xs font-semibold text-muted-foreground mb-1">Schwächen</p>
                       <div className="flex flex-wrap gap-1">
                         {evalResult.weaknesses.map(w => <Badge key={w} variant="destructive" className="text-[10px]">{w}</Badge>)}
                       </div>
@@ -641,10 +641,10 @@ export default function ExamPage() {
 
         <Tabs value={activeTab} onValueChange={setActiveTab}>
           <TabsList>
-            <TabsTrigger value="overview">Overview</TabsTrigger>
+            <TabsTrigger value="overview">Übersicht</TabsTrigger>
             <TabsTrigger value="goethe">Goethe</TabsTrigger>
             <TabsTrigger value="telc">TELC</TabsTrigger>
-            <TabsTrigger value="mock">Mock Exams</TabsTrigger>
+            <TabsTrigger value="mock">Probeprüfungen</TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview" className="mt-6">
@@ -658,13 +658,13 @@ export default function ExamPage() {
                     <div className="flex items-center justify-between mb-4">
                       <div>
                         <h3 className="font-semibold text-lg">{exam.exam} {exam.level}</h3>
-                        <p className="text-sm text-muted-foreground">Practice progress</p>
+                        <p className="text-sm text-muted-foreground">Übungsfortschritt</p>
                       </div>
                       <Target className="h-8 w-8 text-muted-foreground" />
                     </div>
                     <div className="space-y-2">
                       <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground">Preparation</span>
+                        <span className="text-muted-foreground">Vorbereitung</span>
                         <span className="font-medium">{Math.floor(Math.random() * 60 + 20)}%</span>
                       </div>
                       <Progress value={Math.floor(Math.random() * 60 + 20)}>
@@ -680,7 +680,7 @@ export default function ExamPage() {
                       disabled={generating}
                     >
                       {generating ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
-                      Start Practice <ArrowRight className="ml-2 h-4 w-4" />
+                      Üben starten <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </CardContent>
                 </Card>
@@ -700,10 +700,10 @@ export default function ExamPage() {
                       <h3 className="font-semibold">{mod.label}</h3>
                       <p className="text-sm text-muted-foreground mb-3">{mod.desc}</p>
                       <div className="space-y-1 text-xs text-muted-foreground">
-                        <p>{mod.duration} · {mod.questions} questions</p>
+                        <p>{mod.duration} · {mod.questions} Fragen</p>
                       </div>
                       <Button size="sm" className="mt-4 w-full" variant="outline" onClick={() => startExam('goethe', 'B1', mod.value)} disabled={generating}>
-                        Practice
+                        Üben
                       </Button>
                     </CardContent>
                   </Card>
@@ -724,7 +724,7 @@ export default function ExamPage() {
                     <p className="text-sm text-muted-foreground mb-4">{exam.modules.join(' · ')}</p>
                     <Button className="w-full" onClick={() => startExam('goethe', exam.level, 'hoeren')} disabled={generating}>
                       {generating ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
-                      Start Mock Exam
+                      Probeprüfung starten
                     </Button>
                   </CardContent>
                 </Card>
@@ -744,7 +744,7 @@ export default function ExamPage() {
                     <p className="text-sm text-muted-foreground mb-4">{exam.modules.join(' · ')}</p>
                     <Button className="w-full" onClick={() => startExam('telc', exam.level, 'hoeren')} disabled={generating}>
                       {generating ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
-                      Start Mock Exam
+                      Probeprüfung starten
                     </Button>
                   </CardContent>
                 </Card>
@@ -772,7 +772,7 @@ export default function ExamPage() {
                           <div className="flex items-center gap-2">
                             <p className="font-semibold">{exam.exam_type.toUpperCase()} {exam.level} — {exam.module}</p>
                             <Badge variant={exam.passed ? 'default' : 'destructive'}>
-                              {exam.passed ? 'Passed' : 'Failed'}
+                              {exam.passed ? 'Bestanden' : 'Nicht bestanden'}
                             </Badge>
                           </div>
                           <p className="text-sm text-muted-foreground">
@@ -782,7 +782,7 @@ export default function ExamPage() {
                       </div>
                       <div className="text-right">
                         <p className="text-2xl font-bold">{exam.score}%</p>
-                        <p className="text-xs text-muted-foreground">of {exam.max_score}</p>
+                        <p className="text-xs text-muted-foreground">von {exam.max_score}</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -791,7 +791,7 @@ export default function ExamPage() {
             ) : (
               <Card>
                 <CardContent className="p-8 text-center text-muted-foreground">
-                  No mock exams attempted yet. Start one above!
+                  Noch keine Probeprüfungen versucht. Starte eine oben!
                 </CardContent>
               </Card>
             )}

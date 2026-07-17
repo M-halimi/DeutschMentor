@@ -16,6 +16,7 @@ import { Badge } from '@/components/ui/badge'
 import type { LessonExercise } from '@/types'
 import { StepHeader } from './step-header'
 import { XPCounter } from './xp-counter'
+import { useTranslation } from '@/lib/i18n/use-translation'
 
 export function ExerciseArena({
   exercises,
@@ -35,6 +36,7 @@ export function ExerciseArena({
   const [direction, setDirection] = useState(0)
   const [feedbackVisible, setFeedbackVisible] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
+  const { t } = useTranslation()
 
   const ex = exercises[current]
   const isCorrect = results[ex?.id]
@@ -103,8 +105,8 @@ export function ExerciseArena({
     <div>
       <StepHeader
         icon={Target}
-        title="Exercise Battle"
-        subtitle="Test your knowledge and build your streak"
+        title={t('exercise.battle-title')}
+        subtitle={t('exercise.subtitle')}
         step={3}
         total={8}
       />
@@ -115,7 +117,7 @@ export function ExerciseArena({
           <Flame className={`h-5 w-5 ${streak > 0 ? 'text-orange-500' : 'text-muted-foreground'}`} />
           <div>
             <div className="text-lg font-bold tabular-nums">{streak}</div>
-            <div className="text-[10px] text-muted-foreground leading-tight">STREAK</div>
+            <div className="text-[10px] text-muted-foreground leading-tight">{t('exercise.streak')}</div>
           </div>
         </div>
         <div className="h-8 w-px bg-border" />
@@ -123,7 +125,7 @@ export function ExerciseArena({
           <Zap className={`h-5 w-5 ${score > 0 ? 'text-yellow-500' : 'text-muted-foreground'}`} />
           <div>
             <div className="text-lg font-bold tabular-nums">{score}</div>
-            <div className="text-[10px] text-muted-foreground leading-tight">SCORE</div>
+            <div className="text-[10px] text-muted-foreground leading-tight">{t('exercise.score')}</div>
           </div>
         </div>
         <div className="flex-1" />
@@ -131,7 +133,7 @@ export function ExerciseArena({
           <div className="text-sm font-medium tabular-nums">
             {current + 1} / {exercises.length}
           </div>
-          <div className="text-[10px] text-muted-foreground leading-tight">QUESTION</div>
+          <div className="text-[10px] text-muted-foreground leading-tight">{t('exercise.question')}</div>
         </div>
       </div>
 
@@ -171,7 +173,7 @@ export function ExerciseArena({
               {ex.exercise_type.replace(/_/g, ' ')}
             </Badge>
             <span className="text-xs text-muted-foreground">
-              {ex.points ?? 10} pts
+              {t('exercise.pts', { pts: ex.points ?? 10 })}
             </span>
           </div>
 
@@ -236,7 +238,7 @@ export function ExerciseArena({
                 ref={inputRef}
                 value={answers[ex.id] ?? ''}
                 onChange={(e) => setAnswers((a) => ({ ...a, [ex.id]: e.target.value }))}
-                placeholder="Type your answer..."
+                placeholder={t('exercise.type-placeholder')}
                 disabled={!!results[ex.id]}
                 onKeyDown={(e) => e.key === 'Enter' && !results[ex.id] && checkAnswer()}
               />
@@ -255,7 +257,7 @@ export function ExerciseArena({
                 <CheckCircle2 className="h-5 w-5 text-green-600 shrink-0" />
                 <div>
                   <span className="text-sm font-medium text-green-700 dark:text-green-300">
-                    Correct! {streak > 1 && `🔥 ${streak}x streak!`}
+                    {t('exercise.correct')} {streak > 1 && `🔥 ${t('exercise.streak-bonus', { streak })}`}
                   </span>
                   {ex.explanation && (
                     <p className="text-xs text-green-600/70 mt-0.5">{ex.explanation}</p>
@@ -273,10 +275,10 @@ export function ExerciseArena({
                 <XCircle className="h-5 w-5 text-red-600 shrink-0 mt-0.5" />
                 <div>
                   <span className="text-sm font-medium text-red-700 dark:text-red-300">
-                    Not quite
+                    {t('exercise.wrong')}
                   </span>
                   <p className="text-xs text-red-600/70 mt-0.5">
-                    Correct answer: {ex.correct_answer}
+                    {t('exercise.correct-answer', { answer: ex.correct_answer })}
                   </p>
                   {ex.explanation && (
                     <p className="text-xs text-red-600/70 mt-0.5">{ex.explanation}</p>
@@ -294,7 +296,7 @@ export function ExerciseArena({
               className="mt-4"
             >
               <Button onClick={checkAnswer} className="w-full rounded-xl">
-                Check Answer
+                {t('exercise.check')}
               </Button>
             </motion.div>
           )}
@@ -309,7 +311,7 @@ export function ExerciseArena({
           disabled={current === 0}
           size="sm"
         >
-          Previous
+          {t('exercise.previous')}
         </Button>
 
         {allDone ? (
@@ -325,7 +327,7 @@ export function ExerciseArena({
             size="sm"
             className="rounded-full"
           >
-            Next Question
+            {t('exercise.next')}
           </Button>
         ) : (
           <div />

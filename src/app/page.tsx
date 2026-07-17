@@ -6,18 +6,18 @@ import { Button } from '@/components/ui/button'
 import { Sparkles, Headphones, BookOpen, Pen, Mic, ArrowRight, Star, Brain } from 'lucide-react'
 
 const features = [
-  { icon: Headphones, title: 'Hören', description: 'AI-powered listening exercises with real German audio', color: 'from-blue-500/20 to-blue-600/20' },
-  { icon: BookOpen, title: 'Lesen', description: 'Curated reading materials at every level', color: 'from-emerald-500/20 to-emerald-600/20' },
-  { icon: Pen, title: 'Schreiben', description: 'Smart writing assistant with grammar analysis', color: 'from-purple-500/20 to-purple-600/20' },
-  { icon: Mic, title: 'Sprechen', description: 'AI conversation partner for speaking practice', color: 'from-amber-500/20 to-amber-600/20' },
+  { icon: Headphones, title: 'Hören', description: 'KI-gestützte Hörübungen mit authentischen deutschen Dialogen', color: 'from-blue-500/20 to-blue-600/20' },
+  { icon: BookOpen, title: 'Lesen', description: 'Kuratierte Lesetexte für jedes Niveau', color: 'from-emerald-500/20 to-emerald-600/20' },
+  { icon: Pen, title: 'Schreiben', description: 'Intelligenter Schreibassistent mit Grammatikanalyse', color: 'from-purple-500/20 to-purple-600/20' },
+  { icon: Mic, title: 'Sprechen', description: 'KI-Gesprächspartner für Sprechpraxis', color: 'from-amber-500/20 to-amber-600/20' },
 ]
 
 const levels = [
-  { level: 'A1', label: 'Beginner', desc: 'Start your German journey' },
-  { level: 'A2', label: 'Elementary', desc: 'Build basic communication' },
-  { level: 'B1', label: 'Intermediate', desc: 'Handle everyday situations' },
-  { level: 'B2', label: 'Upper Intermediate', desc: 'Achieve fluency' },
-  { level: 'C1', label: 'Advanced', desc: 'Master the language' },
+  { level: 'A1', label: 'Anfänger', desc: 'Beginne deine Deutschreise' },
+  { level: 'A2', label: 'Grundlagen', desc: 'Baue grundlegende Kommunikation auf' },
+  { level: 'B1', label: 'Mittelstufe', desc: 'Bewältige Alltagssituationen' },
+  { level: 'B2', label: 'Fortgeschritten', desc: 'Erreiche Sprachgewandtheit' },
+  { level: 'C1', label: 'Kompetent', desc: 'Meistere die Sprache' },
 ]
 
 export default function LandingPage() {
@@ -32,9 +32,9 @@ export default function LandingPage() {
             <span className="text-lg font-semibold">DeutschMentor</span>
           </Link>
           <nav className="hidden items-center gap-6 md:flex">
-            <Link href="/login" className="text-sm font-medium text-muted-foreground hover:text-foreground">Sign In</Link>
+            <Link href="/login" className="text-sm font-medium text-muted-foreground hover:text-foreground">Anmelden</Link>
             <Link href="/signup">
-              <Button>Get Started Free</Button>
+              <Button>Kostenlos starten</Button>
             </Link>
           </nav>
         </div>
@@ -53,27 +53,27 @@ export default function LandingPage() {
           >
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border bg-muted/50 px-4 py-1.5 text-sm">
               <Sparkles className="h-3.5 w-3.5 text-primary" />
-              <span className="text-muted-foreground">Your AI-powered German language coach</span>
+              <span className="text-muted-foreground">Dein KI-gestützter Deutsch-Coach</span>
             </div>
             <h1 className="text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl">
-              Master German with
+              Meistere Deutsch mit
               <br />
               <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-                Your Personal AI Mentor
+                deinem persönlichen KI-Mentor
               </span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-              From A1 to C1. Personalized lessons, real-time feedback, and exam preparation for Goethe and TELC.
-              Your journey to German fluency starts here.
+              Von A1 bis C1. Personalisierte Lektionen, Echtzeit-Feedback und Prüfungsvorbereitung für Goethe und TELC.
+              Deine Reise zur deutschen Sprachgewandtheit beginnt hier.
             </p>
             <div className="mt-10 flex items-center justify-center gap-4">
               <Link href="/signup">
                 <Button size="lg">
-                  Start Learning Free <ArrowRight className="ml-2 h-4 w-4" />
+                  Kostenlos lernen <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
               <Link href="/login">
-                <Button size="lg" variant="outline">Sign In</Button>
+                <Button size="lg" variant="outline">Anmelden</Button>
               </Link>
             </div>
           </motion.div>
@@ -83,8 +83,8 @@ export default function LandingPage() {
       <section className="border-t py-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold">Master All Four Skills</h2>
-            <p className="mt-2 text-muted-foreground">Comprehensive training for complete fluency</p>
+            <h2 className="text-3xl font-bold">Meistere alle vier Fertigkeiten</h2>
+            <p className="mt-2 text-muted-foreground">Umfassendes Training für vollständige Sprachgewandtheit</p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, i) => (
@@ -112,8 +112,8 @@ export default function LandingPage() {
       <section className="border-t py-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold">From Beginner to Advanced</h2>
-            <p className="mt-2 text-muted-foreground">Structured learning paths for every level</p>
+            <h2 className="text-3xl font-bold">Vom Anfänger zum Fortgeschrittenen</h2>
+            <p className="mt-2 text-muted-foreground">Strukturierte Lernpfade für jedes Niveau</p>
           </div>
           <div className="grid gap-4 md:grid-cols-5">
             {levels.map((l, i) => (
@@ -146,19 +146,19 @@ export default function LandingPage() {
             <div className="mb-6 inline-flex rounded-full bg-primary/10 p-3">
               <Brain className="h-8 w-8 text-primary" />
             </div>
-            <h2 className="text-3xl font-bold">Ready to Start Your German Journey?</h2>
+            <h2 className="text-3xl font-bold">Bereit für deine Deutschreise?</h2>
             <p className="mx-auto mt-4 max-w-lg text-muted-foreground">
-              Join DeutschMentor AI and get your personal German coach. Free to start.
+              Werde Mitglied bei DeutschMentor und erhalte deinen persönlichen Deutsch-Coach. Kostenlos starten.
             </p>
             <div className="mt-8 flex items-center justify-center gap-3">
               <div className="flex items-center gap-1 text-sm text-muted-foreground">
                 <Star className="h-4 w-4 fill-yellow-500 text-yellow-500" />
-                No credit card required
+                Keine Kreditkarte erforderlich
               </div>
             </div>
             <Link href="/signup">
               <Button size="lg" className="mt-6">
-                Start Free <ArrowRight className="ml-2 h-4 w-4" />
+                Kostenlos starten <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </motion.div>
@@ -167,7 +167,7 @@ export default function LandingPage() {
 
       <footer className="border-t py-8">
         <div className="mx-auto max-w-7xl px-6 text-center text-sm text-muted-foreground">
-          <p>DeutschMentor AI - Your Personal German Coach</p>
+          <p>DeutschMentor — Dein persönlicher KI-Deutsch-Coach</p>
         </div>
       </footer>
     </div>

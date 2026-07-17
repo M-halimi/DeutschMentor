@@ -23,63 +23,63 @@ import {
 import type { GrammarExercise, GermanLevel } from '@/types'
 
 const LEVELS: { value: string; label: string }[] = [
-  { value: '', label: 'All Levels' },
-  { value: 'A1', label: 'A1 - Beginner' },
-  { value: 'A2', label: 'A2 - Elementary' },
-  { value: 'B1', label: 'B1 - Intermediate' },
-  { value: 'B2', label: 'B2 - Upper Intermediate' },
-  { value: 'C1', label: 'C1 - Advanced' },
+  { value: '', label: 'Alle Niveaus' },
+  { value: 'A1', label: 'A1 - Anfänger' },
+  { value: 'A2', label: 'A2 - Grundlagen' },
+  { value: 'B1', label: 'B1 - Mittelstufe' },
+  { value: 'B2', label: 'B2 - Fortgeschritten' },
+  { value: 'C1', label: 'C1 - Kompetent' },
 ]
 
 const CATEGORIES = [
-  { value: '', label: 'All Categories' },
-  { value: 'articles', label: 'Articles' },
-  { value: 'verbs', label: 'Verbs' },
-  { value: 'nouns', label: 'Nouns' },
-  { value: 'adjectives', label: 'Adjectives' },
-  { value: 'prepositions', label: 'Prepositions' },
-  { value: 'sentences', label: 'Sentences' },
-  { value: 'tenses', label: 'Tenses' },
-  { value: 'cases', label: 'Cases' },
+  { value: '', label: 'Alle Kategorien' },
+  { value: 'articles', label: 'Artikel' },
+  { value: 'verbs', label: 'Verben' },
+  { value: 'nouns', label: 'Nomen' },
+  { value: 'adjectives', label: 'Adjektive' },
+  { value: 'prepositions', label: 'Präpositionen' },
+  { value: 'sentences', label: 'Sätze' },
+  { value: 'tenses', label: 'Zeiten' },
+  { value: 'cases', label: 'Fälle' },
 ]
 
 const SUB_CATEGORIES: Record<string, { value: string; label: string }[]> = {
   articles: [
-    { value: 'definite', label: 'Definite' },
-    { value: 'indefinite', label: 'Indefinite' },
-    { value: 'negative', label: 'Negative' },
-    { value: 'possessive', label: 'Possessive' },
+    { value: 'definite', label: 'Bestimmt' },
+    { value: 'indefinite', label: 'Unbestimmt' },
+    { value: 'negative', label: 'Negativartikel' },
+    { value: 'possessive', label: 'Possessivartikel' },
   ],
   verbs: [
-    { value: 'present', label: 'Present Tense' },
-    { value: 'past', label: 'Past Tense' },
-    { value: 'modal', label: 'Modal Verbs' },
-    { value: 'separable', label: 'Separable Prefixes' },
-    { value: 'reflexive', label: 'Reflexive Verbs' },
+    { value: 'present', label: 'Präsens' },
+    { value: 'past', label: 'Vergangenheit' },
+    { value: 'modal', label: 'Modalverben' },
+    { value: 'separable', label: 'Trennbare Verben' },
+    { value: 'reflexive', label: 'Reflexive Verben' },
   ],
   nouns: [
-    { value: 'gender', label: 'Gender' },
-    { value: 'plural', label: 'Plural Forms' },
-    { value: 'compound', label: 'Compound Nouns' },
-    { value: 'n-declension', label: 'N-Declension' },
+    { value: 'gender', label: 'Genus' },
+    { value: 'plural', label: 'Pluralbildung' },
+    { value: 'compound', label: 'Komposita' },
+    { value: 'n-declension', label: 'N-Deklination' },
   ],
   adjectives: [
-    { value: 'declension', label: 'Adjective Declension' },
-    { value: 'comparison', label: 'Comparison' },
-    { value: 'position', label: 'Position' },
+    { value: 'declension', label: 'Adjektivdeklination' },
+    { value: 'comparison', label: 'Steigerung' },
+    { value: 'position', label: 'Stellung' },
   ],
   prepositions: [
-    { value: 'accusative', label: 'Accusative' },
-    { value: 'dative', label: 'Dative' },
-    { value: 'genitive', label: 'Genitive' },
-    { value: 'two-way', label: 'Two-Way Prepositions' },
+    { value: 'accusative', label: 'Akkusativ' },
+    { value: 'dative', label: 'Dativ' },
+    { value: 'genitive', label: 'Genitiv' },
+    { value: 'two-way', label: 'Wechselpräpositionen' },
   ],
   sentences: [
-    { value: 'word-order', label: 'Word Order' },
-    { value: 'negation', label: 'Negation' },
-    { value: 'questions', label: 'Questions' },
-    { value: 'conjunctions', label: 'Conjunctions' },
-    { value: 'relative-clauses', label: 'Relative Clauses' },
+    { value: 'word-order', label: 'Satzstellung' },
+    { value: 'negation', label: 'Verneinung' },
+    { value: 'questions', label: 'Fragen' },
+    { value: 'conjunctions', label: 'Konjunktionen' },
+    { value: 'relative-clauses', label: 'Relativsätze' },
   ],
   tenses: [
     { value: 'present', label: 'Präsens' },
@@ -89,19 +89,19 @@ const SUB_CATEGORIES: Record<string, { value: string; label: string }[]> = {
     { value: 'future', label: 'Futur I / Futur II' },
   ],
   cases: [
-    { value: 'nominative', label: 'Nominative' },
-    { value: 'accusative', label: 'Accusative' },
-    { value: 'dative', label: 'Dative' },
-    { value: 'genitive', label: 'Genitive' },
+    { value: 'nominative', label: 'Nominativ' },
+    { value: 'accusative', label: 'Akkusativ' },
+    { value: 'dative', label: 'Dativ' },
+    { value: 'genitive', label: 'Genitiv' },
   ],
 }
 
 const DIFFICULTY_OPTIONS = [
-  { value: 0, label: 'All Difficulties' },
-  { value: 1, label: '★ Easy' },
-  { value: 2, label: '★★ Fair' },
-  { value: 3, label: '★★★ Medium' },
-  { value: 4, label: '★★★★ Hard' },
+  { value: 0, label: 'Alle Schwierigkeiten' },
+  { value: 1, label: '★ Leicht' },
+  { value: 2, label: '★★ Mittel' },
+  { value: 3, label: '★★★ Schwierig' },
+  { value: 4, label: '★★★★ Schwer' },
   { value: 5, label: '★★★★★ Expert' },
 ]
 
@@ -382,16 +382,16 @@ export default function GrammarPage() {
             <Braces className="h-5 w-5" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Grammar</h1>
-            <p className="text-sm text-muted-foreground">Master German grammar with structured exercises</p>
+            <h1 className="text-3xl font-bold tracking-tight">Grammatik</h1>
+            <p className="text-sm text-muted-foreground">Beherrsche die deutsche Grammatik mit strukturierten Übungen</p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
           {[
-            { label: 'Exercises Done', value: exercisesCompleted, icon: ListChecks, color: 'text-orange-500', bg: 'from-orange-500/5 to-orange-500/10', border: 'border-orange-500/20' },
-            { label: 'Accuracy', value: `${accuracyRate}%`, icon: Target, color: accuracyRate >= 80 ? 'text-emerald-500' : accuracyRate >= 60 ? 'text-amber-500' : 'text-rose-500', bg: 'from-emerald-500/5 to-emerald-500/10', border: 'border-emerald-500/20' },
-            { label: 'Grammar Mastery', value: `${grammarMastery}%`, icon: GraduationCap, color: 'text-violet-500', bg: 'from-violet-500/5 to-violet-500/10', border: 'border-violet-500/20' },
+            { label: 'Übungen erledigt', value: exercisesCompleted, icon: ListChecks, color: 'text-orange-500', bg: 'from-orange-500/5 to-orange-500/10', border: 'border-orange-500/20' },
+            { label: 'Genauigkeit', value: `${accuracyRate}%`, icon: Target, color: accuracyRate >= 80 ? 'text-emerald-500' : accuracyRate >= 60 ? 'text-amber-500' : 'text-rose-500', bg: 'from-emerald-500/5 to-emerald-500/10', border: 'border-emerald-500/20' },
+            { label: 'Grammatik-Level', value: `${grammarMastery}%`, icon: GraduationCap, color: 'text-violet-500', bg: 'from-violet-500/5 to-violet-500/10', border: 'border-violet-500/20' },
           ].map(stat => (
             <Card key={stat.label} className={`bg-gradient-to-br ${stat.bg} ${stat.border}`}>
               <CardContent className="flex items-center gap-4 p-4">
@@ -409,35 +409,35 @@ export default function GrammarPage() {
 
         <div className="flex flex-wrap items-center gap-2">
           <Select value={level} onValueChange={v => { if (v !== null) { setLevel(v); setStarted(false); setCurrentIdx(0); setResults({ correct: 0, total: 0 }) } }}>
-            <SelectTrigger className="w-36 h-9 text-sm"><SelectValue placeholder="Level" /></SelectTrigger>
+            <SelectTrigger className="w-36 h-9 text-sm"><SelectValue placeholder="Niveau" /></SelectTrigger>
             <SelectContent>
               {LEVELS.map(l => <SelectItem key={l.value} value={l.value}>{l.label}</SelectItem>)}
             </SelectContent>
           </Select>
           <Select value={category} onValueChange={v => { if (v !== null) { setCategory(v); setSubCategory(''); setStarted(false); setCurrentIdx(0); setResults({ correct: 0, total: 0 }) } }}>
-            <SelectTrigger className="w-36 h-9 text-sm"><SelectValue placeholder="Category" /></SelectTrigger>
+            <SelectTrigger className="w-36 h-9 text-sm"><SelectValue placeholder="Kategorie" /></SelectTrigger>
             <SelectContent>
               {CATEGORIES.map(c => <SelectItem key={c.value} value={c.value}>{c.label}</SelectItem>)}
             </SelectContent>
           </Select>
           {subCategoryOptions.length > 0 && (
             <Select value={subCategory} onValueChange={v => { if (v !== null) { setSubCategory(v); setStarted(false); setCurrentIdx(0); setResults({ correct: 0, total: 0 }) } }}>
-              <SelectTrigger className="w-40 h-9 text-sm"><SelectValue placeholder="Sub-category" /></SelectTrigger>
+              <SelectTrigger className="w-40 h-9 text-sm"><SelectValue placeholder="Unterkategorie" /></SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Sub-categories</SelectItem>
+                <SelectItem value="">Alle Unterkategorien</SelectItem>
                 {subCategoryOptions.map(s => <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>)}
               </SelectContent>
             </Select>
           )}
           <Select value={String(difficulty)} onValueChange={v => { if (v !== null) setDifficulty(Number(v)); setStarted(false); setCurrentIdx(0); setResults({ correct: 0, total: 0 }) }}>
-            <SelectTrigger className="w-36 h-9 text-sm"><SelectValue placeholder="Difficulty" /></SelectTrigger>
+            <SelectTrigger className="w-36 h-9 text-sm"><SelectValue placeholder="Schwierigkeit" /></SelectTrigger>
             <SelectContent>
               {DIFFICULTY_OPTIONS.map(d => <SelectItem key={d.value} value={String(d.value)}>{d.label}</SelectItem>)}
             </SelectContent>
           </Select>
           {exercises && exercises.length > 0 && (
             <span className="text-sm text-muted-foreground ml-auto tabular-nums">
-              {exercises.length} exercise{exercises.length !== 1 ? 's' : ''} found
+              {exercises.length} Übung{exercises.length !== 1 ? 'en' : ''} gefunden
             </span>
           )}
         </div>
@@ -448,17 +448,17 @@ export default function GrammarPage() {
           <Card>
             <CardContent className="p-12 text-center">
               <BookOpen className="h-12 w-12 text-muted-foreground/40 mx-auto mb-4" />
-              <p className="text-muted-foreground">No grammar exercises match your filters.</p>
+              <p className="text-muted-foreground">Keine Grammatikübungen gefunden. Versuche andere Filter.</p>
             </CardContent>
           </Card>
         ) : showReview ? (
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-semibold flex items-center gap-2">
-                <BarChart3 className="h-5 w-5 text-primary" /> Review All Answers
+                <BarChart3 className="h-5 w-5 text-primary" /> Alle Antworten überprüfen
               </h2>
               <Button variant="outline" size="sm" onClick={() => setShowReview(false)}>
-                <ArrowRight className="h-4 w-4 mr-1.5" /> Back to Results
+                <ArrowRight className="h-4 w-4 mr-1.5" /> Zurück zu den Ergebnissen
               </Button>
             </div>
             {exercises.map((ex, i) => {
@@ -479,14 +479,14 @@ export default function GrammarPage() {
                       </div>
                       <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
                         <span className="text-muted-foreground">
-                          Your answer:{' '}
+                          Deine Antwort:{' '}
                           <span className={isCorrect ? 'text-emerald-500 font-medium' : 'text-rose-500 font-medium'}>
                             {ua?.answer ?? '—'}
                           </span>
                         </span>
                         {!isCorrect && (
                           <span className="text-muted-foreground">
-                            Correct:{' '}
+                            Richtig:{' '}
                             <span className="text-emerald-500 font-medium">{ex.correct_answer}</span>
                           </span>
                         )}
@@ -497,7 +497,7 @@ export default function GrammarPage() {
                             <XCircle className="h-4 w-4 text-rose-500" />
                           )}
                           <span className={isCorrect ? 'text-emerald-500' : 'text-rose-500'}>
-                            {isCorrect ? 'Correct' : 'Incorrect'}
+                            {isCorrect ? 'Richtig' : 'Falsch'}
                           </span>
                         </span>
                       </div>
@@ -575,7 +575,7 @@ export default function GrammarPage() {
                       {currentExercise.examples && currentExercise.examples.length > 0 && (
                         <div>
                           <p className="text-xs font-medium text-muted-foreground mb-1.5 flex items-center gap-1.5">
-                            <Hash className="h-3 w-3" /> Examples
+                            <Hash className="h-3 w-3" /> Beispiele
                           </p>
                           <ul className="space-y-1">
                             {currentExercise.examples.map((ex, i) => (
@@ -590,7 +590,7 @@ export default function GrammarPage() {
                         <div className="flex items-start gap-2 p-3 bg-amber-500/10 border border-amber-500/20 rounded-lg">
                           <AlertTriangle className="h-4 w-4 text-amber-500 mt-0.5 shrink-0" />
                           <div>
-                            <p className="text-xs font-semibold text-amber-600 dark:text-amber-400 mb-0.5">Exceptions</p>
+                            <p className="text-xs font-semibold text-amber-600 dark:text-amber-400 mb-0.5">Ausnahmen</p>
                             <ul className="text-xs text-muted-foreground space-y-0.5">
                               {currentExercise.exceptions.map((ex, i) => (
                                 <li key={i}>{ex}</li>
@@ -601,7 +601,7 @@ export default function GrammarPage() {
                       )}
                       {currentExercise.related_rules && currentExercise.related_rules.length > 0 && (
                         <div>
-                          <p className="text-xs font-medium text-muted-foreground mb-1.5">Related Rules</p>
+                          <p className="text-xs font-medium text-muted-foreground mb-1.5">Verwandte Regeln</p>
                           <div className="flex flex-wrap gap-1.5">
                             {currentExercise.related_rules.map((rule, i) => (
                               <Badge key={i} variant="secondary" className="text-[10px] cursor-default">
@@ -612,7 +612,7 @@ export default function GrammarPage() {
                         </div>
                       )}
                       <Button onClick={startPractice} className="w-full h-11 text-base mt-2">
-                        <Sparkles className="mr-2 h-4 w-4" /> Start Practicing
+                        <Sparkles className="mr-2 h-4 w-4" /> Üben starten
                       </Button>
                     </CardContent>
                   </Card>
@@ -740,14 +740,14 @@ export default function GrammarPage() {
                         </div>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-xs text-muted-foreground tabular-nums">
-                          Score: {results.correct}/{results.total + (selectedAnswer ? 1 : 0) - 1 + (showResult ? 1 : 0)}
-                        </span>
+                          <span className="text-xs text-muted-foreground tabular-nums">
+                            Punkte: {results.correct}/{results.total + (selectedAnswer ? 1 : 0) - 1 + (showResult ? 1 : 0)}
+                          </span>
                         <Button onClick={nextExercise} size="sm">
                           {currentIdx < exercises.length - 1 ? (
-                            <><ArrowRight className="h-4 w-4 mr-1.5" /> Next</>
+                            <><ArrowRight className="h-4 w-4 mr-1.5" /> Weiter</>
                           ) : (
-                            <><Award className="h-4 w-4 mr-1.5" /> See Results</>
+                            <><Award className="h-4 w-4 mr-1.5" /> Ergebnisse anzeigen</>
                           )}
                         </Button>
                       </div>
@@ -756,7 +756,7 @@ export default function GrammarPage() {
 
                   {!showResult && isFillBlank(currentExercise) && inputValue.trim() && (
                     <div className="text-xs text-center text-muted-foreground">
-                      Press <kbd className="px-1.5 py-0.5 rounded border bg-muted text-[10px] font-mono">Enter</kbd> to submit
+                      Drücke <kbd className="px-1.5 py-0.5 rounded border bg-muted text-[10px] font-mono">Enter</kbd> zum Bestätigen
                     </div>
                   )}
 
@@ -766,7 +766,7 @@ export default function GrammarPage() {
                       <kbd className="px-1.5 py-0.5 rounded border bg-muted text-[10px] font-mono ml-1">2</kbd>
                       <kbd className="px-1.5 py-0.5 rounded border bg-muted text-[10px] font-mono ml-1">3</kbd>
                       <kbd className="px-1.5 py-0.5 rounded border bg-muted text-[10px] font-mono ml-1">4</kbd>
-                      {' '} to select answers
+                      {' '} zur Auswahl
                     </div>
                   )}
                 </CardContent>
@@ -777,7 +777,7 @@ export default function GrammarPage() {
           <Card>
             <CardContent className="p-12 text-center text-muted-foreground">
               <BookOpen className="h-12 w-12 mx-auto mb-4 opacity-40" />
-              <p>No exercises found. Try different filters.</p>
+              <p>Keine Übungen gefunden. Versuche andere Filter.</p>
             </CardContent>
           </Card>
         )}

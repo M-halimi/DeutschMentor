@@ -19,15 +19,15 @@ import type { GermanLevel, WritingExerciseTypeFull, WritingExample } from '@/typ
 const LEVELS: (GermanLevel | 'C2')[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
 
 const TYPE_LABELS: Record<WritingExerciseTypeFull, string> = {
-  email_formal: 'Formal Email', email_informal: 'Informal Email', email_request: 'Request Email',
-  email_complaint: 'Complaint Email', email_application: 'Application Email', email_information: 'Information Request',
+  email_formal: 'Formelle E-Mail', email_informal: 'Informelle E-Mail', email_request: 'Anfrage-E-Mail',
+  email_complaint: 'Beschwerde-E-Mail', email_application: 'Bewerbungs-E-Mail', email_information: 'Informationsanfrage',
   beschwerde: 'Beschwerde', meinung: 'Meinung schreiben', argumentation: 'Argumentation',
   bewertung: 'Bewertung', beschreibung: 'Beschreibung', einladung: 'Einladung',
   formular: 'Formular', stellungnahme: 'Stellungnahme', bericht: 'Bericht', erfahrung: 'Erfahrung beschreiben',
 }
 
 const TYPE_CATEGORIES: Record<string, WritingExerciseTypeFull[]> = {
-  'Emails': ['email_formal', 'email_informal', 'email_request', 'email_complaint', 'email_application', 'email_information'],
+  'E-Mails': ['email_formal', 'email_informal', 'email_request', 'email_complaint', 'email_application', 'email_information'],
   'TELC / Goethe': ['beschwerde', 'meinung', 'argumentation', 'bewertung', 'beschreibung', 'einladung', 'formular', 'stellungnahme', 'bericht', 'erfahrung'],
 }
 
@@ -77,7 +77,7 @@ export default function WritingExamplesPage() {
       <AppShell>
         <div className="space-y-6 max-w-3xl">
           <Button variant="outline" size="sm" onClick={() => { setSelectedId(null); setSelectedExample(null) }}>
-            <ArrowLeft className="h-4 w-4 mr-1" /> Back to Library
+            <ArrowLeft className="h-4 w-4 mr-1" /> Zurück zur Übersicht
           </Button>
 
           <div>
@@ -91,7 +91,7 @@ export default function WritingExamplesPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-base flex items-center gap-2"><FileText className="h-4 w-4" /> Task Description</CardTitle>
+              <CardTitle className="text-base flex items-center gap-2"><FileText className="h-4 w-4" /> Aufgabenbeschreibung</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm whitespace-pre-wrap">{selectedExample.task_description}</p>
@@ -101,10 +101,10 @@ export default function WritingExamplesPage() {
           <Card className="border-emerald-200 dark:border-emerald-800">
             <CardHeader>
               <CardTitle className="text-base flex items-center gap-2 text-emerald-600 dark:text-emerald-400">
-                <CheckCircle className="h-4 w-4" /> Model Answer
+                <CheckCircle className="h-4 w-4" /> Musterlösung
                 <AudioPlayer text={selectedExample.example_answer} showSlow={true} />
               </CardTitle>
-              {selectedExample.word_count && <CardDescription>{selectedExample.word_count} words</CardDescription>}
+              {selectedExample.word_count && <CardDescription>{selectedExample.word_count} Wörter</CardDescription>}
             </CardHeader>
             <CardContent>
               <div className="p-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800">
@@ -116,7 +116,7 @@ export default function WritingExamplesPage() {
           {selectedExample.useful_vocabulary?.length > 0 && (
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm flex items-center gap-2"><BookMarked className="h-4 w-4" /> Useful Vocabulary</CardTitle>
+                <CardTitle className="text-sm flex items-center gap-2"><BookMarked className="h-4 w-4" /> Nützlicher Wortschatz</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -131,7 +131,7 @@ export default function WritingExamplesPage() {
           {selectedExample.useful_phrases?.length > 0 && (
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm flex items-center gap-2"><Quote className="h-4 w-4" /> Useful Phrases</CardTitle>
+                <CardTitle className="text-sm flex items-center gap-2"><Quote className="h-4 w-4" /> Nützliche Ausdrücke</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -146,7 +146,7 @@ export default function WritingExamplesPage() {
           {selectedExample.grammar_structures?.length > 0 && (
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm flex items-center gap-2"><Hash className="h-4 w-4" /> Grammar Structures</CardTitle>
+                <CardTitle className="text-sm flex items-center gap-2"><Hash className="h-4 w-4" /> Grammatikstrukturen</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -160,13 +160,13 @@ export default function WritingExamplesPage() {
 
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm flex items-center gap-2"><Lightbulb className="h-4 w-4" /> Explanation</CardTitle>
+              <CardTitle className="text-sm flex items-center gap-2"><Lightbulb className="h-4 w-4" /> Erklärung</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm">{selectedExample.explanation}</p>
               {selectedExample.why_good && (
                 <div className="mt-3 p-3 rounded-lg bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800">
-                  <p className="text-xs font-medium text-amber-600 dark:text-amber-400 mb-1 flex items-center gap-1"><Star className="h-3 w-3" /> Why this answer works</p>
+                  <p className="text-xs font-medium text-amber-600 dark:text-amber-400 mb-1 flex items-center gap-1"><Star className="h-3 w-3" /> Warum diese Antwort gut ist</p>
                   <p className="text-sm text-amber-700 dark:text-amber-300">{selectedExample.why_good}</p>
                 </div>
               )}
@@ -185,8 +185,8 @@ export default function WritingExamplesPage() {
             <FileText className="h-5 w-5" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Writing Examples</h1>
-            <p className="text-muted-foreground">Model answers for TELC / Goethe writing tasks</p>
+            <h1 className="text-3xl font-bold tracking-tight">Schreibbeispiele</h1>
+            <p className="text-muted-foreground">Musterlösungen für TELC / Goethe Schreibaufgaben</p>
           </div>
         </div>
 
@@ -195,14 +195,14 @@ export default function WritingExamplesPage() {
             <div className="flex flex-wrap items-center gap-3">
               <div className="relative flex-1 min-w-[200px]">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input placeholder="Search examples..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="pl-9 h-9" />
+                <Input placeholder="Beispiele durchsuchen..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="pl-9 h-9" />
               </div>
               <select value={levelFilter} onChange={(e) => setLevelFilter(e.target.value)} className="h-9 rounded-lg border border-input bg-transparent px-3 text-sm outline-none focus-visible:border-ring">
-                <option value="">All Levels</option>
+                <option value="">Alle Niveaus</option>
                 {LEVELS.map(l => <option key={l} value={l}>{l}</option>)}
               </select>
               <select value={typeFilter} onChange={(e) => setTypeFilter(e.target.value)} className="h-9 rounded-lg border border-input bg-transparent px-3 text-sm outline-none focus-visible:border-ring">
-                <option value="">All Types</option>
+                <option value="">Alle Typen</option>
                 {Object.entries(TYPE_CATEGORIES).map(([cat, types]) => (
                   <optgroup key={cat} label={cat}>
                     {types.map(t => <option key={t} value={t}>{TYPE_LABELS[t]}</option>)}
@@ -232,7 +232,7 @@ export default function WritingExamplesPage() {
                     <p className="text-sm text-muted-foreground line-clamp-2">{example.task_description}</p>
                     <div className="flex items-center gap-2 mt-3 text-xs text-muted-foreground">
                       <BookOpen className="h-3 w-3" />
-                      <span>{example.word_count ?? '?'} words</span>
+                      <span>{example.word_count ?? '?'} Wörter</span>
                       {example.theme && <><span>·</span><span>{example.theme}</span></>}
                     </div>
                   </CardContent>

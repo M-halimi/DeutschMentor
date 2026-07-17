@@ -151,7 +151,7 @@ function FlashcardFront({ word }: { word: Vocabulary }) {
       <div className="flex items-center gap-2 mt-2" onClick={e => e.stopPropagation()}>
         <AudioPlayer text={word.german_word} existingUrl={word.pronunciation_url} slowUrl={word.slow_pronunciation_url} />
       </div>
-      <p className="text-xs text-muted-foreground mt-auto pt-4">Tap to flip</p>
+      <p className="text-xs text-muted-foreground mt-auto pt-4">Zum Umdrehen tippen</p>
     </div>
   )
 }
@@ -159,7 +159,7 @@ function FlashcardFront({ word }: { word: Vocabulary }) {
 function FlashcardBack({ word }: { word: Vocabulary }) {
   return (
     <div className="flex flex-col items-center justify-center p-8 text-center min-h-[320px]">
-      <Badge variant="outline" className="mb-4 text-xs">Translation</Badge>
+      <Badge variant="outline" className="mb-4 text-xs">Übersetzung</Badge>
       <p className="text-3xl font-bold mb-3">{word.english_translation}</p>
       {(word.french_translation || word.arabic_translation) && (
         <div className="space-y-1 mb-4">
@@ -175,7 +175,7 @@ function FlashcardBack({ word }: { word: Vocabulary }) {
       <div className="flex items-center gap-1.5 mt-3">
         {word.synonyms?.length > 0 && <p className="text-xs text-muted-foreground">Syn: {word.synonyms.slice(0, 2).join(', ')}</p>}
       </div>
-      <p className="text-xs text-muted-foreground mt-auto pt-4">Tap to flip</p>
+      <p className="text-xs text-muted-foreground mt-auto pt-4">Zum Umdrehen tippen</p>
     </div>
   )
 }
@@ -347,7 +347,7 @@ export default function VocabularyPage() {
     setActiveTab('flashcards')
   }
 
-  const labelMap: Record<string, string> = { browse: 'Browse', flashcards: 'Flashcards', due: 'Due for Review', favorites: 'Favorites', practice: 'Practice' }
+  const labelMap: Record<string, string> = { browse: 'Durchsuchen', flashcards: 'Karteikarten', due: 'Wiederholung', favorites: 'Favoriten', practice: 'Üben' }
 
   if (isLoading) {
     return (
@@ -374,19 +374,19 @@ export default function VocabularyPage() {
             <BookmarkPlus className="h-5 w-5" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Vocabulary</h1>
-            <p className="text-sm text-muted-foreground">Build your German vocabulary with spaced repetition</p>
+            <h1 className="text-3xl font-bold tracking-tight">Wortschatz</h1>
+            <p className="text-sm text-muted-foreground">Baue deinen deutschen Wortschatz mit Karteikarten auf</p>
           </div>
         </div>
 
         {/* Stats */}
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {[
-            { label: 'Total Words', value: vocab?.length ?? 0, icon: BookOpen, color: 'text-indigo-500' },
-            { label: 'Mastered', value: masteredCount, icon: Award, color: 'text-amber-500' },
-            { label: 'Learning', value: learningCount, icon: Brain, color: 'text-violet-500' },
-            { label: 'Due for Review', value: dueForReview.length, icon: RotateCcw, color: dueForReview.length > 0 ? 'text-rose-500' : 'text-muted-foreground' },
-            { label: 'Streak', value: analytics?.current_streak ?? 0, icon: Star, color: 'text-orange-500' },
+            { label: 'Gesamtzahl', value: vocab?.length ?? 0, icon: BookOpen, color: 'text-indigo-500' },
+            { label: 'Gelernt', value: masteredCount, icon: Award, color: 'text-amber-500' },
+            { label: 'Lernend', value: learningCount, icon: Brain, color: 'text-violet-500' },
+            { label: 'Wiederholung', value: dueForReview.length, icon: RotateCcw, color: dueForReview.length > 0 ? 'text-rose-500' : 'text-muted-foreground' },
+            { label: 'Serie', value: analytics?.current_streak ?? 0, icon: Star, color: 'text-orange-500' },
           ].map(stat => (
             <Card key={stat.label} className="overflow-hidden">
               <CardContent className="p-4">
@@ -406,7 +406,7 @@ export default function VocabularyPage() {
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-            <Input placeholder="Search German, English, French or Arabic..." className="pl-9 h-10" value={search} onChange={e => setSearch(e.target.value)} />
+            <Input placeholder="Suche auf Deutsch, Englisch, Französisch oder Arabisch..." className="pl-9 h-10" value={search} onChange={e => setSearch(e.target.value)} />
             {search && (
               <Button variant="ghost" size="icon" className="absolute right-1 top-1/2 h-7 w-7 -translate-y-1/2" onClick={() => setSearch('')}>
                 <X className="h-4 w-4" />
@@ -415,7 +415,7 @@ export default function VocabularyPage() {
           </div>
           <div className="flex gap-2">
             <div className="flex rounded-lg border p-0.5 bg-muted/40">
-              {[{ label: 'All', value: '' }, ...LEVELS.map(l => ({ label: l, value: l }))].map(opt => (
+              {[{ label: 'Alle', value: '' }, ...LEVELS.map(l => ({ label: l, value: l }))].map(opt => (
                 <button key={opt.value} onClick={() => setSelectedLevel(opt.value)}
                   className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${selectedLevel === opt.value ? 'bg-background text-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}>
                   {opt.label}
@@ -424,10 +424,10 @@ export default function VocabularyPage() {
             </div>
             <Select value={selectedTheme} onValueChange={v => { if (v !== null) setSelectedTheme(v); }}>
               <SelectTrigger className="w-36 h-10">
-                <div className="flex items-center gap-2"><Filter className="h-3.5 w-3.5" /><SelectValue placeholder="Theme" /></div>
+                <div className="flex items-center gap-2"><Filter className="h-3.5 w-3.5" /><SelectValue placeholder="Thema" /></div>
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="All Themes">All Themes</SelectItem>
+                <SelectItem value="All Themes">Alle Themen</SelectItem>
                 {THEMES.map(t => <SelectItem key={t} value={t}>{t}</SelectItem>)}
               </SelectContent>
             </Select>
@@ -437,11 +437,11 @@ export default function VocabularyPage() {
         {/* Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab}>
           <TabsList className="w-full sm:w-auto flex-nowrap overflow-x-auto">
-            <TabsTrigger value="browse">Browse</TabsTrigger>
-            <TabsTrigger value="flashcards">Flashcards</TabsTrigger>
-            <TabsTrigger value="due">Due <span className="ml-1 rounded-full bg-rose-100 dark:bg-rose-900/40 text-rose-600 dark:text-rose-400 px-1.5 py-0 text-[10px] font-bold">{dueForReview.length}</span></TabsTrigger>
-            <TabsTrigger value="favorites"><Heart className="h-3.5 w-3.5 mr-1" />Favorites</TabsTrigger>
-            <TabsTrigger value="practice"><Brain className="h-3.5 w-3.5 mr-1" />Practice</TabsTrigger>
+            <TabsTrigger value="browse">Durchsuchen</TabsTrigger>
+            <TabsTrigger value="flashcards">Karteikarten</TabsTrigger>
+            <TabsTrigger value="due">Fällig <span className="ml-1 rounded-full bg-rose-100 dark:bg-rose-900/40 text-rose-600 dark:text-rose-400 px-1.5 py-0 text-[10px] font-bold">{dueForReview.length}</span></TabsTrigger>
+            <TabsTrigger value="favorites"><Heart className="h-3.5 w-3.5 mr-1" />Favoriten</TabsTrigger>
+            <TabsTrigger value="practice"><Brain className="h-3.5 w-3.5 mr-1" />Üben</TabsTrigger>
           </TabsList>
 
           {/* Browse Tab */}
@@ -449,7 +449,7 @@ export default function VocabularyPage() {
             {filteredWords.length === 0 ? (
               <Card><CardContent className="p-12 text-center">
                 <BookOpen className="h-12 w-12 text-muted-foreground/40 mx-auto mb-4" />
-                <p className="text-muted-foreground">{search || selectedTheme ? 'No words match your filters.' : 'No vocabulary words yet.'}</p>
+                <p className="text-muted-foreground">{search || selectedTheme ? 'Keine Wörter entsprechen deinen Filtern.' : 'Noch keine Vokabeln vorhanden.'}</p>
               </CardContent></Card>
             ) : (
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -471,14 +471,14 @@ export default function VocabularyPage() {
           <TabsContent value="flashcards" className="mt-6">
             <div className="mx-auto max-w-lg">
               <div className="flex items-center justify-between mb-4">
-                <p className="text-sm text-muted-foreground">{shuffledCards.cards.length} cards</p>
+                <p className="text-sm text-muted-foreground">{shuffledCards.cards.length} Karten</p>
                 <div className="flex items-center gap-2">
                   <Button variant={shuffleMode ? 'default' : 'outline'} size="sm" className="h-8 text-xs" onClick={() => setShuffleMode(s => !s)}>
-                    <Shuffle className={`h-3.5 w-3.5 mr-1 ${shuffleMode ? '' : ''}`} /> Shuffle
+                    <Shuffle className={`h-3.5 w-3.5 mr-1 ${shuffleMode ? '' : ''}`} /> Mischen
                   </Button>
                   {flashcardSource === 'due' && (
                     <Button variant="ghost" size="sm" className="h-8 text-xs" onClick={() => setFlashcardSource('all')}>
-                      <X className="h-3.5 w-3.5 mr-1" /> Clear filter
+                      <X className="h-3.5 w-3.5 mr-1" /> Filter zurücksetzen
                     </Button>
                   )}
                 </div>
@@ -487,9 +487,9 @@ export default function VocabularyPage() {
               {shuffledCards.cards.length === 0 ? (
                 <Card><CardContent className="p-12 text-center">
                   {flashcardSource === 'due' ? (
-                    <><CheckCircle2 className="h-12 w-12 text-green-500 mx-auto mb-4" /><p className="text-muted-foreground">No words due for review. Great job!</p></>
+                    <><CheckCircle2 className="h-12 w-12 text-green-500 mx-auto mb-4" /><p className="text-muted-foreground">Keine Wörter zur Wiederholung fällig. Gut gemacht!</p></>
                   ) : (
-                    <><BookOpen className="h-12 w-12 text-muted-foreground/40 mx-auto mb-4" /><p className="text-muted-foreground">No vocabulary words yet.</p></>
+                    <><BookOpen className="h-12 w-12 text-muted-foreground/40 mx-auto mb-4" /><p className="text-muted-foreground">Noch keine Vokabeln vorhanden.</p></>
                   )}
                 </CardContent></Card>
               ) : (
@@ -531,14 +531,14 @@ export default function VocabularyPage() {
 
                   <div className="flex gap-3">
                     <Button variant="destructive" size="lg" className="flex-1 text-base" onClick={() => { setFlipped(false); if (currentCard < shuffledCards.cards.length - 1) setCurrentCard(c => c + 1) }}>
-                      <ThumbsDown className="mr-2 h-5 w-5" /> Don&apos;t Know
+                      <ThumbsDown className="mr-2 h-5 w-5" /> Nicht gewusst
                     </Button>
                     <Button variant="default" size="lg" className="flex-1 text-base bg-green-600 hover:bg-green-700" onClick={() => {
                       saveVocab.mutate({ vocabularyId: shuffledCards.cards[currentCard].id, mastered: true })
                       setFlipped(false)
                       if (currentCard < shuffledCards.cards.length - 1) setCurrentCard(c => c + 1)
                     }}>
-                      <ThumbsUp className="mr-2 h-5 w-5" /> Know
+                      <ThumbsUp className="mr-2 h-5 w-5" /> Gewusst
                     </Button>
                   </div>
                 </>
@@ -551,14 +551,14 @@ export default function VocabularyPage() {
             {dueForReview.length === 0 ? (
               <Card><CardContent className="p-12 text-center">
                 <CheckCircle2 className="h-12 w-12 text-green-500 mx-auto mb-4" />
-                <p className="text-lg font-medium mb-1">All caught up!</p>
-                <p className="text-sm text-muted-foreground">No words due for review. Keep up the great work!</p>
+                <p className="text-lg font-medium mb-1">Alles erledigt!</p>
+                <p className="text-sm text-muted-foreground">Keine Wörter zur Wiederholung fällig. Weiter so!</p>
               </CardContent></Card>
             ) : (
               <>
                 <div className="flex items-center justify-between mb-4">
-                  <p className="text-sm text-muted-foreground">{dueForReview.length} words need review</p>
-                  <Button onClick={goToFlashcardsDue}><RotateCcw className="mr-2 h-4 w-4" /> Review Now</Button>
+                  <p className="text-sm text-muted-foreground">{dueForReview.length} Wörter zur Wiederholung</p>
+                  <Button onClick={goToFlashcardsDue}><RotateCcw className="mr-2 h-4 w-4" /> Jetzt wiederholen</Button>
                 </div>
                 <div className="space-y-2">
                   {dueForReview.map(uv => {
@@ -586,7 +586,7 @@ export default function VocabularyPage() {
                                 <AudioPlayer text={uv.vocabulary.german_word} existingUrl={uv.vocabulary.pronunciation_url} slowUrl={uv.vocabulary.slow_pronunciation_url} showSlow={false} />
                               </div>
                               <Button size="sm" className="h-8 text-xs" onClick={() => saveVocab.mutate({ vocabularyId: uv.vocabulary_id, mastered: true })}>
-                                <CheckCircle2 className="h-3.5 w-3.5 mr-1" /> Mastered
+                                <CheckCircle2 className="h-3.5 w-3.5 mr-1" /> Gelernt
                               </Button>
                             </div>
                           </CardContent>
@@ -604,8 +604,8 @@ export default function VocabularyPage() {
             {favorites.length === 0 ? (
               <Card><CardContent className="p-12 text-center">
                 <Heart className="h-12 w-12 text-rose-300 mx-auto mb-4" />
-                <p className="text-lg font-medium mb-1">No favorites yet</p>
-                <p className="text-sm text-muted-foreground">Click the heart icon on any word to add it to your favorites.</p>
+                <p className="text-lg font-medium mb-1">Keine Favoriten</p>
+                <p className="text-sm text-muted-foreground">Klicke auf das Herz-Symbol bei einem Wort, um es zu deinen Favoriten hinzuzufügen.</p>
               </CardContent></Card>
             ) : (
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -634,27 +634,27 @@ export default function VocabularyPage() {
                         <Brain className="h-5 w-5" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold">Practice Mode</h3>
-                        <p className="text-sm text-muted-foreground">Test your knowledge with multiple choice</p>
+                        <h3 className="text-lg font-semibold">Übungsmodus</h3>
+                        <p className="text-sm text-muted-foreground">Teste dein Wissen mit Multiple-Choice-Fragen</p>
                       </div>
                     </div>
                     <Separator />
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                       <div className="space-y-1.5">
-                        <label className="text-xs font-medium text-muted-foreground">Number of Words</label>
+                        <label className="text-xs font-medium text-muted-foreground">Anzahl Wörter</label>
                         <Select value={practiceConfig.count} onValueChange={v => { if (v !== null) setPracticeConfig(p => ({ ...p, count: v })); }}>
                           <SelectTrigger><SelectValue /></SelectTrigger>
                           <SelectContent>
-                            {[5, 10, 15, 20, 30, 50].map(n => <SelectItem key={n} value={String(n)}>{n} words</SelectItem>)}
+                            {[5, 10, 15, 20, 30, 50].map(n => <SelectItem key={n} value={String(n)}>{n} Wörter</SelectItem>)}
                           </SelectContent>
                         </Select>
                       </div>
                       <div className="space-y-1.5">
                         <label className="text-xs font-medium text-muted-foreground">Level</label>
                         <Select value={practiceConfig.level} onValueChange={v => { if (v !== null) setPracticeConfig(p => ({ ...p, level: v })); }}>
-                          <SelectTrigger><SelectValue placeholder="All" /></SelectTrigger>
+                          <SelectTrigger><SelectValue placeholder="Alle" /></SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="">All Levels</SelectItem>
+                            <SelectItem value="">Alle Niveaus</SelectItem>
                             {LEVELS.map(l => <SelectItem key={l} value={l}>{l}</SelectItem>)}
                           </SelectContent>
                         </Select>
@@ -662,18 +662,18 @@ export default function VocabularyPage() {
                       <div className="space-y-1.5">
                         <label className="text-xs font-medium text-muted-foreground">Theme</label>
                         <Select value={practiceConfig.theme} onValueChange={v => { if (v !== null) setPracticeConfig(p => ({ ...p, theme: v })); }}>
-                          <SelectTrigger><SelectValue placeholder="All" /></SelectTrigger>
+                          <SelectTrigger><SelectValue placeholder="Alle" /></SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="">All Themes</SelectItem>
+                            <SelectItem value="">Alle Themen</SelectItem>
                             {THEMES.map(t => <SelectItem key={t} value={t}>{t}</SelectItem>)}
                           </SelectContent>
                         </Select>
                       </div>
                     </div>
                     <Button className="w-full h-12 text-base" onClick={startPractice} disabled={(vocab?.length ?? 0) < 4}>
-                      <Sparkles className="mr-2 h-5 w-5" /> Start Practice
+                      <Sparkles className="mr-2 h-5 w-5" /> Üben starten
                     </Button>
-                    {(vocab?.length ?? 0) < 4 && <p className="text-xs text-muted-foreground text-center">Need at least 4 words in the vocabulary.</p>}
+                    {(vocab?.length ?? 0) < 4 && <p className="text-xs text-muted-foreground text-center">Mindestens 4 Wörter im Wortschatz erforderlich.</p>}
                   </CardContent>
                 </Card>
               ) : practiceActive && currentPracticeWord ? (
@@ -685,7 +685,7 @@ export default function VocabularyPage() {
                           <Award className={`h-5 w-5 ${practiceScore > 0 ? 'text-amber-500' : 'text-muted-foreground'}`} />
                           <span className="text-sm font-medium">{practiceScore}/{practiceIndex + (practiceAnswered ? 1 : 0)}</span>
                         </div>
-                        <span className="text-sm text-muted-foreground">Question {practiceIndex + 1} of {practiceWords.length}</span>
+                        <span className="text-sm text-muted-foreground">Frage {practiceIndex + 1} von {practiceWords.length}</span>
                       </div>
 
                       <Card className="border-2 border-primary/20">
@@ -700,7 +700,7 @@ export default function VocabularyPage() {
                         </CardContent>
                       </Card>
 
-                      <p className="text-sm font-medium text-center text-muted-foreground">What does this word mean?</p>
+                      <p className="text-sm font-medium text-center text-muted-foreground">Was bedeutet dieses Wort?</p>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {currentPracticeOptions.map((opt, idx) => {
@@ -734,7 +734,7 @@ export default function VocabularyPage() {
                                   <X className="h-5 w-5 text-rose-500 shrink-0 mt-0.5" />
                                 )}
                                 <div>
-                                  <p className="text-sm font-medium">{practiceSelected !== -1 && currentPracticeOptions[practiceSelected]?.id === currentPracticeWord.id ? 'Correct!' : 'Incorrect'}</p>
+                                  <p className="text-sm font-medium">{practiceSelected !== -1 && currentPracticeOptions[practiceSelected]?.id === currentPracticeWord.id ? 'Richtig!' : 'Falsch'}</p>
                                   {currentPracticeWord.example_sentence && (
                                     <p className="text-xs text-muted-foreground mt-1 italic">{currentPracticeWord.example_sentence}</p>
                                   )}
@@ -744,9 +744,9 @@ export default function VocabularyPage() {
                           </Card>
                           <Button className="w-full h-12 text-base" onClick={nextPractice}>
                             {practiceIndex < practiceWords.length - 1 ? (
-                              <><ArrowRight className="mr-2 h-5 w-5" /> Next Word</>
+                              <><ArrowRight className="mr-2 h-5 w-5" /> Nächstes Wort</>
                             ) : (
-                              <><Award className="mr-2 h-5 w-5" /> See Results</>
+                              <><Award className="mr-2 h-5 w-5" /> Ergebnisse ansehen</>
                             )}
                           </Button>
                         </motion.div>
@@ -762,25 +762,25 @@ export default function VocabularyPage() {
                         <Award className="h-8 w-8 text-white" />
                       </div>
                     </div>
-                    <h3 className="text-2xl font-bold">Practice Complete!</h3>
-                    <p className="text-muted-foreground">You scored <span className="font-bold text-foreground">{practiceScore}</span> out of <span className="font-bold text-foreground">{practiceWords.length}</span></p>
+                    <h3 className="text-2xl font-bold">Übung abgeschlossen!</h3>
+                    <p className="text-muted-foreground">Du hast <span className="font-bold text-foreground">{practiceScore}</span> von <span className="font-bold text-foreground">{practiceWords.length}</span> richtig</p>
                     <div className="flex justify-center">
                       <div className="h-2 w-64 rounded-full bg-muted overflow-hidden">
                         <div className="h-full rounded-full bg-gradient-to-r from-amber-400 to-green-500 transition-all" style={{ width: `${(practiceScore / practiceWords.length) * 100}%` }} />
                       </div>
                     </div>
                     <p className="text-lg font-semibold">
-                      {practiceScore === practiceWords.length ? 'Perfect score! Excellent!' :
-                       practiceScore >= practiceWords.length * 0.8 ? 'Great job! Almost perfect!' :
-                       practiceScore >= practiceWords.length * 0.6 ? 'Good effort! Keep practicing!' :
-                       'Keep studying and try again!'}
+                      {practiceScore === practiceWords.length ? 'Perfekt! Ausgezeichnet!' :
+                       practiceScore >= practiceWords.length * 0.8 ? 'Gut gemacht! Fast perfekt!' :
+                       practiceScore >= practiceWords.length * 0.6 ? 'Gute Arbeit! Übe weiter!' :
+                       'Weiter lernen und nochmal versuchen!'}
                     </p>
                     <div className="flex gap-3 pt-2">
                       <Button variant="outline" className="flex-1" onClick={() => { setPracticeActive(false); setPracticeConfigOpen(true) }}>
-                        <RefreshCw className="mr-2 h-4 w-4" /> New Practice
+                        <RefreshCw className="mr-2 h-4 w-4" /> Neue Übung
                       </Button>
                       <Button className="flex-1" onClick={() => { setPracticeActive(false); setPracticeConfigOpen(true); startPractice() }}>
-                        <RotateCcw className="mr-2 h-4 w-4" /> Retry
+                        <RotateCcw className="mr-2 h-4 w-4" /> Wiederholen
                       </Button>
                     </div>
                   </CardContent>

@@ -1,0 +1,422 @@
+export type SupportedLocale = 'en' | 'de' | 'fr' | 'ar'
+
+export const translations: Record<string, Record<SupportedLocale, string>> = {
+  // Navigation
+  'nav.courses': { en: 'Courses', de: 'Kurse', fr: 'Cours', ar: 'الدورات' },
+  'nav.dashboard': { en: 'Dashboard', de: 'Dashboard', fr: 'Tableau de bord', ar: 'لوحة التحكم' },
+  'nav.learning': { en: 'My Learning', de: 'Mein Lernen', fr: 'Mon apprentissage', ar: 'تعلمي' },
+  'nav.stats': { en: 'Statistics', de: 'Statistiken', fr: 'Statistiques', ar: 'الإحصائيات' },
+  'nav.listening': { en: 'Listening', de: 'Hören', fr: 'Compréhension orale', ar: 'الاستماع' },
+  'nav.reading': { en: 'Reading', de: 'Lesen', fr: 'Compréhension écrite', ar: 'القراءة' },
+  'nav.writing': { en: 'Writing', de: 'Schreiben', fr: 'Expression écrite', ar: 'الكتابة' },
+  'nav.speaking': { en: 'Speaking', de: 'Sprechen', fr: 'Expression orale', ar: 'التحدث' },
+  'nav.vocabulary': { en: 'Vocabulary', de: 'Wortschatz', fr: 'Vocabulaire', ar: 'المفردات' },
+  'nav.dictionary': { en: 'Dictionary', de: 'Wörterbuch', fr: 'Dictionnaire', ar: 'القاموس' },
+  'nav.grammar': { en: 'Grammar', de: 'Grammatik', fr: 'Grammaire', ar: 'القواعد' },
+  'nav.dictation': { en: 'Dictation', de: 'Diktat', fr: 'Dictée', ar: 'الإملاء' },
+  'nav.expressions': { en: 'Expressions', de: 'Ausdrücke', fr: 'Expressions', ar: 'التعابير' },
+  'nav.exam-prep': { en: 'Exam Prep', de: 'Prüfungsvorbereitung', fr: 'Préparation aux examens', ar: 'التحضير للامتحان' },
+  'nav.certificates': { en: 'Certificates', de: 'Zertifikate', fr: 'Certificats', ar: 'الشهادات' },
+  'nav.level-test': { en: 'Level Test', de: 'Einstufung', fr: 'Test de niveau', ar: 'اختبار المستوى' },
+  'nav.mentor': { en: 'AI Mentor', de: 'KI-Mentor', fr: 'Mentor IA', ar: 'المرشد الذكي' },
+
+  // Auth
+  'auth.login': { en: 'Log in', de: 'Anmelden', fr: 'Se connecter', ar: 'تسجيل الدخول' },
+  'auth.signup': { en: 'Sign up', de: 'Registrieren', fr: "S'inscrire", ar: 'إنشاء حساب' },
+  'auth.logout': { en: 'Log out', de: 'Abmelden', fr: 'Se déconnecter', ar: 'تسجيل الخروج' },
+  'auth.email': { en: 'Email', de: 'E-Mail', fr: 'Email', ar: 'البريد الإلكتروني' },
+  'auth.password': { en: 'Password', de: 'Passwort', fr: 'Mot de passe', ar: 'كلمة المرور' },
+  'auth.welcome-back': { en: 'Welcome back', de: 'Willkommen zurück', fr: 'Bon retour', ar: 'مرحباً بعودتك' },
+  'auth.create-account': { en: 'Create account', de: 'Konto erstellen', fr: 'Créer un compte', ar: 'إنشاء حساب' },
+  'auth.full-name': { en: 'Full name', de: 'Vollständiger Name', fr: 'Nom complet', ar: 'الاسم الكامل' },
+  'auth.no-account': { en: "Don't have an account?", de: 'Noch kein Konto?', fr: 'Pas encore de compte ?', ar: 'ليس لديك حساب؟' },
+  'auth.has-account': { en: 'Already have an account?', de: 'Bereits ein Konto?', fr: 'Déjà un compte ?', ar: 'لديك حساب بالفعل؟' },
+  'auth.logging-in': { en: 'Logging in...', de: 'Wird angemeldet…', fr: 'Connexion…', ar: 'جاري تسجيل الدخول…' },
+  'auth.creating': { en: 'Creating account...', de: 'Wird erstellt…', fr: 'Création…', ar: 'جاري الإنشاء…' },
+
+  // Lesson mission
+  'lesson.briefing': { en: 'Briefing', de: 'Einführung', fr: 'Introduction', ar: 'مقدمة' },
+  'lesson.grammar': { en: 'Grammar', de: 'Grammatik', fr: 'Grammaire', ar: 'القواعد' },
+  'lesson.vocabulary': { en: 'Vocabulary', de: 'Wortschatz', fr: 'Vocabulaire', ar: 'المفردات' },
+  'lesson.exercises': { en: 'Exercises', de: 'Übungen', fr: 'Exercices', ar: 'تمارين' },
+  'lesson.listening': { en: 'Listening', de: 'Hören', fr: 'Compréhension orale', ar: 'الاستماع' },
+  'lesson.reading': { en: 'Reading', de: 'Lesen', fr: 'Compréhension écrite', ar: 'القراءة' },
+  'lesson.speaking': { en: 'Speaking', de: 'Sprechen', fr: 'Expression orale', ar: 'التحدث' },
+  'lesson.writing': { en: 'Writing', de: 'Schreiben', fr: 'Expression écrite', ar: 'الكتابة' },
+  'lesson.review': { en: 'Review', de: 'Wiederholung', fr: 'Révision', ar: 'مراجعة' },
+  'lesson.test': { en: 'Test', de: 'Test', fr: 'Test', ar: 'اختبار' },
+  'lesson.complete': { en: 'Complete', de: 'Abschluss', fr: 'Terminé', ar: 'اكتمل' },
+  'lesson.start': { en: 'Start Lesson', de: 'Lektion starten', fr: 'Commencer la leçon', ar: 'بدء الدرس' },
+  'lesson.continue': { en: 'Continue', de: 'Weiter', fr: 'Continuer', ar: 'متابعة' },
+  'lesson.next-lesson': { en: 'Next Lesson', de: 'Nächste Lektion', fr: 'Leçon suivante', ar: 'الدرس التالي' },
+  'lesson.retry': { en: 'Retry', de: 'Wiederholen', fr: 'Réessayer', ar: 'إعادة المحاولة' },
+  'lesson.mission-complete': { en: 'Mission Complete!', de: 'Lektion abgeschlossen!', fr: 'Leçon terminée !', ar: 'تم إكمال الدرس!' },
+  'lesson.objectives': { en: 'Learning Objectives', de: 'Lernziele', fr: 'Objectifs', ar: 'الأهداف التعليمية' },
+  'lesson.sections': { en: 'Lesson Sections', de: 'Lektionsinhalte', fr: 'Contenu de la leçon', ar: 'محتوى الدرس' },
+  'lesson.stats-sections': { en: 'SECTIONS', de: 'BEREICHE', fr: 'SECTIONS', ar: 'الأقسام' },
+  'lesson.stats-activities': { en: 'ACTIVITIES', de: 'AKTIVITÄTEN', fr: 'ACTIVITÉS', ar: 'الأنشطة' },
+  'lesson.stats-minutes': { en: 'MINUTES', de: 'MINUTEN', fr: 'MINUTES', ar: 'الدقائق' },
+  'lesson.difficulty': { en: 'Difficulty', de: 'Schwierigkeit', fr: 'Difficulté', ar: 'المستوى' },
+  'lesson.real-life': { en: 'Everyday Use', de: 'Anwendung im Alltag', fr: 'Usage quotidien', ar: 'الاستخدام اليومي' },
+  'lesson.grammar-focus': { en: 'Grammar Focus', de: 'Grammatik', fr: 'Points de grammaire', ar: 'تركيز القواعد' },
+  'lesson.vocab-theme': { en: 'Vocabulary Theme', de: 'Wortschatzthema', fr: 'Thème de vocabulaire', ar: 'موضوع المفردات' },
+
+  // Step header
+  'step.step': { en: 'Step', de: 'Schritt', fr: 'Étape', ar: 'خطوة' },
+  'step.of': { en: 'of', de: 'von', fr: 'sur', ar: 'من' },
+
+  // Vocabulary deck
+  'vocab.title': { en: 'Vocabulary', de: 'Wortschatz', fr: 'Vocabulaire', ar: 'المفردات' },
+  'vocab.subtitle': { en: '{count} essential words', de: '{count} wichtige Wörter', fr: '{count} mots essentiels', ar: '{count} كلمة أساسية' },
+  'vocab.tap-hint': { en: 'Tap to reveal translation', de: 'Tippen für Übersetzung', fr: 'Appuyez pour voir la traduction', ar: 'اضغط لإظهار الترجمة' },
+  'vocab.translation': { en: 'Translation', de: 'Übersetzung', fr: 'Traduction', ar: 'الترجمة' },
+  'vocab.level': { en: 'Level: {level}', de: 'Niveau: {level}', fr: 'Niveau : {level}', ar: 'المستوى: {level}' },
+  'vocab.mark-learned': { en: 'Mark Learned', de: 'Gelernt markieren', fr: 'Marquer appris', ar: 'تحديد كمتعلَّم' },
+  'vocab.learned': { en: 'Learned', de: 'Gelernt', fr: 'Appris', ar: 'تم التعلم' },
+  'vocab.continue': { en: 'Continue', de: 'Weiter', fr: 'Continuer', ar: 'متابعة' },
+  'vocab.progress': { en: '{done} of {total} words learned', de: '{done} von {total} Wörtern gelernt', fr: '{done} sur {total} mots appris', ar: '{done} من {total} كلمة تم تعلمها' },
+
+  // Exercise arena
+  'exercise.battle-title': { en: 'Exercise Battle', de: 'Übungen', fr: 'Exercices', ar: 'تمارين' },
+  'exercise.subtitle': { en: 'Test your knowledge', de: 'Teste dein Wissen', fr: 'Teste tes connaissances', ar: 'اختبر معلوماتك' },
+  'exercise.streak': { en: 'STREAK', de: 'SERIE', fr: 'SÉRIE', ar: 'سلسلة' },
+  'exercise.score': { en: 'SCORE', de: 'PUNKTE', fr: 'SCORE', ar: 'النتيجة' },
+  'exercise.question': { en: 'QUESTION', de: 'FRAGE', fr: 'QUESTION', ar: 'سؤال' },
+  'exercise.type-placeholder': { en: 'Type your answer...', de: 'Gib deine Antwort ein...', fr: 'Tape ta réponse...', ar: 'اكتب إجابتك...' },
+  'exercise.correct': { en: 'Correct!', de: 'Richtig!', fr: 'Correct !', ar: 'صحيح!' },
+  'exercise.streak-bonus': { en: '{streak}x streak!', de: '{streak}x Serie!', fr: '{streak}x série !', ar: '{streak} سلسلة!' },
+  'exercise.wrong': { en: 'Not quite', de: 'Fast richtig', fr: 'Pas tout à fait', ar: 'ليس تماماً' },
+  'exercise.correct-answer': { en: 'Correct answer: {answer}', de: 'Richtige Antwort: {answer}', fr: 'Bonne réponse : {answer}', ar: 'الإجابة الصحيحة: {answer}' },
+  'exercise.check': { en: 'Check Answer', de: 'Prüfen', fr: 'Vérifier', ar: 'تحقق' },
+  'exercise.previous': { en: 'Previous', de: 'Zurück', fr: 'Précédent', ar: 'السابق' },
+  'exercise.next': { en: 'Next Question', de: 'Nächste Frage', fr: 'Question suivante', ar: 'السؤال التالي' },
+  'exercise.pts': { en: '{pts} pts', de: '{pts} Pkt.', fr: '{pts} pts', ar: '{pts} نقطة' },
+
+  // Final boss test
+  'test.title': { en: 'Final Test', de: 'Abschlusstest', fr: 'Test final', ar: 'الاختبار النهائي' },
+  'test.subtitle': { en: '{count} questions. {pass}% to pass.', de: '{count} Fragen. {pass}% zum Bestehen.', fr: '{count} questions. {pass}% pour réussir.', ar: '{count} سؤال. {pass}% للنجاح.' },
+  'test.results-title': { en: 'Test Results', de: 'Testergebnisse', fr: 'Résultats du test', ar: 'نتائج الاختبار' },
+  'test.passed-subtitle': { en: 'Mission accomplished!', de: 'Mission erfüllt!', fr: 'Mission accomplie !', ar: 'تمت المهمة!' },
+  'test.failed-subtitle': { en: 'Review and try again.', de: 'Wiederhole und versuche es erneut.', fr: 'Révise et réessaie.', ar: 'راجع وحاول مرة أخرى.' },
+  'test.passed': { en: 'Test Passed!', de: 'Bestanden!', fr: 'Test réussi !', ar: 'نجاح!' },
+  'test.failed': { en: 'Test Failed', de: 'Nicht bestanden', fr: 'Test échoué', ar: 'لم تنجح' },
+  'test.score': { en: '{score} / {total} points', de: '{score} / {total} Punkte', fr: '{score} / {total} points', ar: '{score} / {total} نقطة' },
+  'test.boss-defeated': { en: 'Boss Defeated!', de: 'Geschafft!', fr: 'Boss vaincu !', ar: 'تم التغلب على التحدي!' },
+  'test.retry': { en: 'Retry', de: 'Wiederholen', fr: 'Réessayer', ar: 'إعادة المحاولة' },
+  'test.your-answer': { en: 'Your answer:', de: 'Deine Antwort:', fr: 'Ta réponse :', ar: 'إجابتك:' },
+  'test.correct': { en: 'Correct:', de: 'Richtig:', fr: 'Correct :', ar: 'الصحيح:' },
+  'test.claim': { en: 'Claim Rewards', de: 'Belohnungen einfordern', fr: 'Réclamer les récompenses', ar: 'المطالبة بالمكافآت' },
+  'test.type-answer': { en: 'Type your answer...', de: 'Gib deine Antwort ein...', fr: 'Tape ta réponse...', ar: 'اكتب إجابتك...' },
+  'test.submitting': { en: 'Submitting...', de: 'Wird eingereicht…', fr: 'Soumission…', ar: 'جاري الإرسال…' },
+  'test.confirm': { en: 'Confirm Answer', de: 'Antwort bestätigen', fr: 'Confirmer la réponse', ar: 'تأكيد الإجابة' },
+  'test.wrong': { en: 'Wrong!', de: 'Falsch!', fr: 'Faux !', ar: 'خطأ!' },
+  'test.lives-left': { en: '{count} {count == 1 ? "life" : "lives"} remaining', de: 'Noch {count} Versuche', fr: '{count} vies restantes', ar: '{count} محاولات متبقية' },
+  'test.no-lives': { en: 'No lives left!', de: 'Keine Versuche mehr!', fr: 'Plus de vies !', ar: 'لا توجد محاولات متبقية!' },
+  'test.lives-exhausted': { en: 'No lives remaining. Submitting your answers...', de: 'Keine Versuche mehr. Deine Antworten werden eingereicht...', fr: "Plus de vies. Soumission des réponses...", ar: 'لا توجد محاولات متبقية. جاري إرسال إجاباتك...' },
+
+  // Mission complete
+  'complete.title': { en: 'Mission Complete!', de: 'Lektion abgeschlossen!', fr: 'Leçon terminée !', ar: 'تم إكمال الدرس!' },
+  'complete.xp-earned': { en: 'XP EARNED', de: 'XP VERDIENT', fr: 'XP GAGNÉS', ar: 'النقاط المكتسبة' },
+  'complete.words-learned': { en: 'Words Learned', de: 'Wörter gelernt', fr: 'Mots appris', ar: 'الكلمات المتعلمة' },
+  'complete.exercises-done': { en: 'Exercises Done', de: 'Übungen gemacht', fr: 'Exercices faits', ar: 'التمارين المنجزة' },
+  'complete.test-score': { en: 'Test Score', de: 'Testergebnis', fr: 'Score du test', ar: 'نتيجة الاختبار' },
+  'complete.achievement': { en: 'ACHIEVEMENT UNLOCKED', de: 'ERRUNGENSCHAFT FREIGESCHALTET', fr: 'SUCCÈS DÉBLOQUÉ', ar: 'تم فتح الإنجاز' },
+  'complete.achievement-pass': { en: 'Completed with test pass', de: 'Lektion mit bestandenem Test abgeschlossen', fr: 'Leçon réussie avec test', ar: 'أكملت الدرس مع نجاح في الاختبار' },
+  'complete.achievement-no-pass': { en: 'Lesson completed', de: 'Lektion vollständig bearbeitet', fr: 'Leçon terminée', ar: 'تم إكمال الدرس' },
+  'complete.achievement-sprachmeister': { en: 'Language Master', de: 'Sprachmeister', fr: 'Maître des langues', ar: 'سيد اللغات' },
+  'complete.achievement-lerner': { en: 'Diligent Learner', de: 'Fleißiger Lerner', fr: 'Apprenant assidu', ar: 'متعلم مجتهد' },
+
+  // Reading section
+  'reading.title': { en: 'Reading', de: 'Lesen', fr: 'Lecture', ar: 'القراءة' },
+  'reading.subtitle': { en: 'Read and understand the text', de: 'Lies den Text und verstehe den Inhalt', fr: 'Lis le texte et comprends le contenu', ar: 'اقرأ النص وافهم المحتوى' },
+  'reading.words': { en: '{count} words', de: '{count} Wörter', fr: '{count} mots', ar: '{count} كلمة' },
+  'reading.show-translation': { en: 'Show translation', de: 'Übersetzung anzeigen', fr: 'Afficher la traduction', ar: 'إظهار الترجمة' },
+  'reading.hide-translation': { en: 'Hide translation', de: 'Übersetzung ausblenden', fr: 'Masquer la traduction', ar: 'إخفاء الترجمة' },
+
+  // Listening section
+  'listening.title': { en: 'Listening', de: 'Hörverstehen', fr: 'Compréhension orale', ar: 'الاستماع' },
+  'listening.subtitle': { en: 'Listen and understand the content', de: 'Höre zu und verstehe die Inhalte', fr: 'Écoute et comprends le contenu', ar: 'استمع وافهم المحتوى' },
+  'listening.transcript': { en: 'Show transcript', de: 'Transkript anzeigen', fr: 'Afficher la transcription', ar: 'إظهار النص' },
+  'listening.hide-transcript': { en: 'Hide transcript', de: 'Transkript ausblenden', fr: 'Masquer la transcription', ar: 'إخفاء النص' },
+  'listening.speakers': { en: '{count} speakers', de: '{count} Sprecher', fr: '{count} intervenants', ar: '{count} متحدثون' },
+
+  // Speaking section
+  'speaking.title': { en: 'Speaking', de: 'Sprechen', fr: 'Expression orale', ar: 'التحدث' },
+  'speaking.subtitle': { en: 'Practice pronunciation and fluency', de: 'Übe deine Aussprache und fließendes Sprechen', fr: "Entraîne-toi à l'oral", ar: 'تمرن على النطق والطلاقة' },
+  'speaking.scenario': { en: 'Scenario', de: 'Szenario', fr: 'Scénario', ar: 'السيناريو' },
+  'speaking.helpful-vocab': { en: 'Helpful Vocabulary', de: 'Hilfreiche Vokabeln', fr: 'Vocabulaire utile', ar: 'مفردات مفيدة' },
+  'speaking.tips': { en: 'Tips', de: 'Tipps', fr: 'Conseils', ar: 'نصائح' },
+  'speaking.show-tips': { en: 'Show tips', de: 'Tipps anzeigen', fr: 'Afficher les conseils', ar: 'إظهار النصائح' },
+  'speaking.hide-tips': { en: 'Hide tips', de: 'Tipps ausblenden', fr: 'Masquer les conseils', ar: 'إخفاء النصائح' },
+
+  // Writing section
+  'writing.title': { en: 'Writing', de: 'Schreiben', fr: 'Expression écrite', ar: 'الكتابة' },
+  'writing.subtitle': { en: 'Write sentences and texts', de: 'Formuliere eigene Sätze und Texte', fr: 'Écris des phrases et des textes', ar: 'اكتب جملاً ونصوصاً' },
+  'writing.useful-vocab': { en: 'Useful Vocabulary', de: 'Nützliche Vokabeln', fr: 'Vocabulaire utile', ar: 'مفردات مفيدة' },
+  'writing.word-count': { en: '{count} words (min: {min}, max: {max})', de: '{count} Wörter (min: {min}, max: {max})', fr: '{count} mots (min : {min}, max : {max})', ar: '{count} كلمة (الحد الأدنى: {min}, الحد الأقصى: {max})' },
+  'writing.tips': { en: 'Tips', de: 'Tipps', fr: 'Conseils', ar: 'نصائح' },
+  'writing.complete': { en: 'Task completed', de: 'Aufgabe abgeschlossen', fr: 'Tâche terminée', ar: 'تم إكمال المهمة' },
+  'writing.mark-complete': { en: 'Mark task as complete', de: 'Aufgabe abschließen', fr: 'Marquer comme terminée', ar: 'تحديد كمكتملة' },
+  'writing.placeholder': { en: 'Write your text here...', de: 'Schreibe deinen Text hier...', fr: 'Écris ton texte ici...', ar: 'اكتب نصك هنا...' },
+
+  // Review section
+  'review.title': { en: 'Review', de: 'Wiederholung', fr: 'Révision', ar: 'مراجعة' },
+  'review.subtitle': { en: 'Consolidate what you learned', de: 'Fasse zusammen und festige dein Wissen', fr: 'Consolide ce que tu as appris', ar: 'راجع وثبت ما تعلمته' },
+  'review.summary': { en: 'Summary', de: 'Zusammenfassung', fr: 'Résumé', ar: 'ملخص' },
+  'review.key-points': { en: 'Key Points', de: 'Kernpunkte', fr: 'Points clés', ar: 'النقاط الرئيسية' },
+  'review.vocabulary': { en: 'Vocabulary', de: 'Wortschatz', fr: 'Vocabulaire', ar: 'المفردات' },
+  'review.common-mistakes': { en: 'Common Mistakes', de: 'Häufige Fehler', fr: 'Erreurs fréquentes', ar: 'الأخطاء الشائعة' },
+  'review.tips': { en: 'Tips', de: 'Tipps zum Weiterlernen', fr: 'Conseils', ar: 'نصائح' },
+
+  // Grammar section
+  'grammar.title': { en: 'Grammar', de: 'Grammatik', fr: 'Grammaire', ar: 'القواعد' },
+  'grammar.subtitle': { en: 'Learn the rules and apply them', de: 'Lerne die Regeln und wende sie an', fr: 'Apprends les règles et applique-les', ar: 'تعلم القواعد وطبقها' },
+  'grammar.rules': { en: 'Rules', de: 'Regeln', fr: 'Règles', ar: 'القواعد' },
+  'grammar.examples': { en: 'Examples', de: 'Beispiele', fr: 'Exemples', ar: 'أمثلة' },
+  'grammar.common-mistakes': { en: 'Common Mistakes', de: 'Häufige Fehler', fr: 'Erreurs fréquentes', ar: 'الأخطاء الشائعة' },
+  'grammar.continue-vocab': { en: 'Continue to Vocabulary', de: 'Weiter zum Wortschatz', fr: 'Continuer vers le vocabulaire', ar: 'متابعة إلى المفردات' },
+
+  // Additional reading keys
+  'reading.improve-comprehension': { en: 'Improve your reading comprehension', de: 'Verbessere dein Leseverständnis', fr: 'Améliore ta compréhension écrite', ar: 'حسّن فهمك للقراءة' },
+  'reading.difficulty': { en: 'Difficulty: {rating}/5', de: 'Schwierigkeit: {rating}/5', fr: 'Difficulté : {rating}/5', ar: 'المستوى: {rating}/5' },
+  'reading.translation-label': { en: 'Translation', de: 'Übersetzung', fr: 'Traduction', ar: 'الترجمة' },
+  'reading.listen-label': { en: 'Listen to this passage', de: 'Diesen Abschnitt anhören', fr: 'Écouter ce passage', ar: 'استمع إلى هذا المقطع' },
+
+  // Additional listening keys
+  'listening.train-ear': { en: 'Train your ear with real German dialogues', de: 'Trainiere dein Hörverständnis mit echten Dialogen', fr: "Entraîne ton oreille avec des dialogues authentiques", ar: 'درّب أذنك على الحوارات الألمانية الحقيقية' },
+  'listening.duration': { en: '{minutes} min', de: '{minutes} Min.', fr: '{minutes} min', ar: '{minutes} دقيقة' },
+  'listening.translation-available': { en: 'Translation available', de: 'Übersetzung verfügbar', fr: 'Traduction disponible', ar: 'الترجمة متاحة' },
+
+  // Additional speaking keys
+  'speaking.build-confidence': { en: 'Build your speaking confidence', de: 'Stärke dein Selbstvertrauen beim Sprechen', fr: "Gagne en confiance à l'oral", ar: 'ابنِ ثقتك في التحدث' },
+  'speaking.seconds-minimum': { en: '{seconds}s minimum', de: 'Mindestens {seconds} Sek.', fr: '{seconds} s minimum', ar: '{seconds} ثانية كحد أدنى' },
+  'speaking.encouragement': { en: "Speak clearly and try to use full sentences. Don't worry about mistakes — practice makes perfect!", de: 'Sprich deutlich und versuche, ganze Sätze zu bilden. Keine Angst vor Fehlern — Übung macht den Meister!', fr: "Parle clairement et essaie d'utiliser des phrases complètes. Ne t'inquiète pas des erreurs — c'est en forgeant qu'on devient forgeron !", ar: 'تحدث بوضوح وحاول استخدام جمل كاملة. لا تقلق بشأن الأخطاء — التكرار يعلم الشطار!' },
+
+  // Additional writing keys
+  'writing.express-yourself': { en: 'Express yourself in German', de: 'Drücke dich auf Deutsch aus', fr: "Exprime-toi en allemand", ar: 'عبر عن نفسك بالألمانية' },
+  'writing.grammar-focus': { en: 'Grammar focus', de: 'Grammatik-Schwerpunkt', fr: 'Point de grammaire', ar: 'تركيز قواعدي' },
+
+  // Additional review keys
+  'review.grammar-summary': { en: 'Grammar Summary', de: 'Grammatik-Zusammenfassung', fr: 'Résumé de grammaire', ar: 'ملخص القواعد' },
+  'review.watch-out-for': { en: 'Watch Out For', de: 'Achtung', fr: 'Attention', ar: 'انتبه' },
+
+  // Real life section
+  'reallife.title': { en: 'Everyday Language', de: 'Alltagssprache', fr: 'Langue quotidienne', ar: 'اللغة اليومية' },
+  'reallife.subtitle': { en: 'Use German in real situations', de: 'Wende Deutsch in realen Situationen an', fr: 'Utilise l\'allemand en situation réelle', ar: 'استخدم الألمانية في مواقف حقيقية' },
+  'reallife.expressions': { en: 'Useful Expressions', de: 'Nützliche Redewendungen', fr: 'Expressions utiles', ar: 'تعابير مفيدة' },
+  'reallife.dialogues': { en: 'Everyday Dialogues', de: 'Dialoge für den Alltag', fr: 'Dialogues quotidiens', ar: 'حوارات يومية' },
+  'reallife.idiom': { en: 'Idiom', de: 'Redewendung', fr: 'Expression idiomatique', ar: 'تعبير اصطلاحي' },
+
+  // Audio player
+  'audio.play-normal': { en: 'Play audio - normal speed', de: 'Audio abspielen - normale Geschwindigkeit', fr: 'Lire l\'audio - vitesse normale', ar: 'تشغيل الصوت - سرعة عادية' },
+  'audio.play-slow': { en: 'Play audio - slow speed', de: 'Audio abspielen - langsame Geschwindigkeit', fr: 'Lire l\'audio - vitesse lente', ar: 'تشغيل الصوت - سرعة بطيئة' },
+  'audio.replay': { en: 'Replay audio', de: 'Audio wiederholen', fr: 'Réécouter', ar: 'إعادة الصوت' },
+
+  // Translation toggle
+  'translate.title': { en: 'Translate', de: 'Übersetzen', fr: 'Traduire', ar: 'ترجمة' },
+  'translate.support': { en: 'Translation support', de: 'Übersetzungshilfe', fr: 'Aide à la traduction', ar: 'مساعدة الترجمة' },
+  'translate.hint-a': { en: 'Translations available for A1-A2 support', de: 'Übersetzungen für A1-A2 verfügbar', fr: 'Traductions disponibles pour A1-A2', ar: 'الترجمات متاحة لدعم A1-A2' },
+  'translate.hint-b': { en: 'Limit translations — think in German', de: 'Weniger Übersetzungen — denk auf Deutsch', fr: 'Limite les traductions — pense en allemand', ar: 'قلل الترجمة — فكر بالألمانية' },
+  'translate.hint-c': { en: 'German only by default at C level', de: 'Standardmäßig nur Deutsch auf C-Niveau', fr: 'Allemand seulement par défaut au niveau C', ar: 'الألمانية فقط افتراضياً في المستوى C' },
+  'translate.on': { en: 'ON', de: 'AN', fr: 'ACTIF', ar: 'مفعل' },
+
+  // Common
+  'common.save': { en: 'Save', de: 'Speichern', fr: 'Enregistrer', ar: 'حفظ' },
+  'common.cancel': { en: 'Cancel', de: 'Abbrechen', fr: 'Annuler', ar: 'إلغاء' },
+  'common.delete': { en: 'Delete', de: 'Löschen', fr: 'Supprimer', ar: 'حذف' },
+  'common.edit': { en: 'Edit', de: 'Bearbeiten', fr: 'Modifier', ar: 'تعديل' },
+  'common.back': { en: 'Back', de: 'Zurück', fr: 'Retour', ar: 'رجوع' },
+  'common.search': { en: 'Search', de: 'Suchen', fr: 'Rechercher', ar: 'بحث' },
+  'common.loading': { en: 'Loading...', de: 'Wird geladen…', fr: 'Chargement…', ar: 'جاري التحميل…' },
+  'common.error': { en: 'Error', de: 'Fehler', fr: 'Erreur', ar: 'خطأ' },
+  'common.success': { en: 'Success', de: 'Erfolg', fr: 'Succès', ar: 'نجاح' },
+  'common.all': { en: 'All', de: 'Alle', fr: 'Tout', ar: 'الكل' },
+  'common.none': { en: 'None', de: 'Keine', fr: 'Aucun', ar: 'لا شيء' },
+  'common.filter': { en: 'Filter', de: 'Filter', fr: 'Filtrer', ar: 'تصفية' },
+  'common.sort': { en: 'Sort', de: 'Sortieren', fr: 'Trier', ar: 'ترتيب' },
+  'common.level': { en: 'Level', de: 'Niveau', fr: 'Niveau', ar: 'المستوى' },
+  'common.category': { en: 'Category', de: 'Kategorie', fr: 'Catégorie', ar: 'الفئة' },
+  'common.topic': { en: 'Topic', de: 'Thema', fr: 'Sujet', ar: 'الموضوع' },
+  'common.duration': { en: 'Duration', de: 'Dauer', fr: 'Durée', ar: 'المدة' },
+  'common.minutes': { en: 'min', de: 'Min.', fr: 'min', ar: 'دقيقة' },
+  'common.download': { en: 'Download', de: 'Herunterladen', fr: 'Télécharger', ar: 'تحميل' },
+  'common.share': { en: 'Share', de: 'Teilen', fr: 'Partager', ar: 'مشاركة' },
+  'common.learn-more': { en: 'Learn more', de: 'Mehr erfahren', fr: 'En savoir plus', ar: 'اعرف المزيد' },
+  'common.view-all': { en: 'View all', de: 'Alle anzeigen', fr: 'Voir tout', ar: 'عرض الكل' },
+  'common.no-results': { en: 'No results found', de: 'Keine Ergebnisse gefunden', fr: 'Aucun résultat', ar: 'لا توجد نتائج' },
+  'common.retry': { en: 'Retry', de: 'Wiederholen', fr: 'Réessayer', ar: 'إعادة المحاولة' },
+  'common.close': { en: 'Close', de: 'Schließen', fr: 'Fermer', ar: 'إغلاق' },
+  'common.submit': { en: 'Submit', de: 'Absenden', fr: 'Soumettre', ar: 'إرسال' },
+  'common.optional': { en: 'optional', de: 'optional', fr: 'facultatif', ar: 'اختياري' },
+
+  // Errors
+  'error.not-found': { en: 'Page not found', de: 'Seite nicht gefunden', fr: 'Page non trouvée', ar: 'الصفحة غير موجودة' },
+  'error.generic': { en: 'Something went wrong', de: 'Etwas ist schiefgelaufen', fr: 'Quelque chose s\'est mal passé', ar: 'حدث خطأ ما' },
+  'error.unexpected': { en: 'An unexpected error occurred', de: 'Ein unerwarteter Fehler ist aufgetreten', fr: 'Une erreur inattendue s\'est produite', ar: 'حدث خطأ غير متوقع' },
+  'error.try-again': { en: 'Try Again', de: 'Erneut versuchen', fr: 'Réessayer', ar: 'حاول مرة أخرى' },
+  'error.go-home': { en: 'Go Home', de: 'Zur Startseite', fr: "Page d'accueil", ar: 'الصفحة الرئيسية' },
+  'error.lesson-not-found': { en: 'Lesson not found', de: 'Lektion nicht gefunden', fr: 'Leçon non trouvée', ar: 'الدرس غير موجود' },
+  'error.back-to-level': { en: 'Back to Level', de: 'Zurück zum Niveau', fr: 'Retour au niveau', ar: 'العودة إلى المستوى' },
+  'error.progress-save': { en: 'Failed to save progress', de: 'Fehler beim Speichern', fr: 'Échec de la sauvegarde', ar: 'فشل في حفظ التقدم' },
+
+  // Notifications / Toasts
+  'toast.progress-saved': { en: 'Progress saved', de: 'Fortschritt gespeichert', fr: 'Progrès sauvegardé', ar: 'تم حفظ التقدم' },
+  'toast.test-passed': { en: 'Test passed!', de: 'Test bestanden!', fr: 'Test réussi !', ar: 'نجاح في الاختبار!' },
+  'toast.test-failed': { en: 'Test failed. Try again!', de: 'Test nicht bestanden. Versuche es erneut!', fr: 'Test échoué. Réessaie !', ar: 'لم تنجح في الاختبار. حاول مرة أخرى!' },
+
+  // Podcast page
+  'podcast.all': { en: 'All', de: 'Alle', fr: 'Tous', ar: 'الكل' },
+  'podcast.restaurant': { en: 'Restaurant', de: 'Restaurant', fr: 'Restaurant', ar: 'مطعم' },
+  'podcast.hospital': { en: 'Hospital', de: 'Krankenhaus', fr: 'Hôpital', ar: 'مستشفى' },
+  'podcast.school': { en: 'School', de: 'Schule', fr: 'École', ar: 'مدرسة' },
+  'podcast.travel': { en: 'Travel', de: 'Reisen', fr: 'Voyage', ar: 'سفر' },
+  'podcast.work': { en: 'Work', de: 'Arbeit', fr: 'Travail', ar: 'عمل' },
+  'podcast.shopping': { en: 'Shopping', de: 'Einkaufen', fr: 'Shopping', ar: 'تسوق' },
+  'podcast.family': { en: 'Family', de: 'Familie', fr: 'Famille', ar: 'عائلة' },
+  'podcast.hobby': { en: 'Hobby', de: 'Hobby', fr: 'Loisir', ar: 'هواية' },
+  'podcast.news': { en: 'News', de: 'Nachrichten', fr: 'Actualités', ar: 'أخبار' },
+  'podcast.health': { en: 'Health', de: 'Gesundheit', fr: 'Santé', ar: 'صحة' },
+  'podcast.technology': { en: 'Technology', de: 'Technologie', fr: 'Technologie', ar: 'تكنولوجيا' },
+
+  // Grammar page
+  'grammar-page.type-answer': { en: 'Type your answer...', de: 'Gib deine Antwort ein...', fr: 'Tape ta réponse...', ar: 'اكتب إجابتك...' },
+  'grammar-page.level': { en: 'Level', de: 'Niveau', fr: 'Niveau', ar: 'المستوى' },
+  'grammar-page.category': { en: 'Category', de: 'Kategorie', fr: 'Catégorie', ar: 'الفئة' },
+  'grammar-page.subcategory': { en: 'Subcategory', de: 'Unterkategorie', fr: 'Sous-catégorie', ar: 'الفئة الفرعية' },
+  'grammar-page.difficulty': { en: 'Difficulty', de: 'Schwierigkeit', fr: 'Difficulté', ar: 'المستوى' },
+
+  // Exam prep
+  'exam-prep.title': { en: 'Exam Preparation', de: 'Prüfungsvorbereitung', fr: 'Préparation aux examens', ar: 'التحضير للامتحان' },
+  'exam-prep.points': { en: 'Points', de: 'Punkte', fr: 'Points', ar: 'النقاط' },
+  'exam-prep.passed': { en: 'Passed:', de: 'Bestanden:', fr: 'Réussi :', ar: 'نجح:' },
+  'exam-prep.start': { en: 'Start Practice', de: 'Üben starten', fr: 'Commencer', ar: 'بدء التمرين' },
+  'exam-prep.module-not-found': { en: 'Module not found', de: 'Modul nicht gefunden', fr: 'Module non trouvé', ar: 'الوحدة غير موجودة' },
+  'exam-prep.back': { en: 'Back to Exam Prep', de: 'Zurück zur Prüfungsvorbereitung', fr: 'Retour à la préparation', ar: 'العودة إلى التحضير للامتحان' },
+  'exam-prep.results': { en: 'Results', de: 'Ergebnisse', fr: 'Résultats', ar: 'النتائج' },
+  'exam-prep.passed-result': { en: 'Passed!', de: 'Bestanden!', fr: 'Réussi !', ar: 'نجاح!' },
+  'exam-prep.failed-result': { en: 'Not Quite', de: 'Leider nicht bestanden', fr: 'Pas tout à fait', ar: 'ليس تماماً' },
+  'exam-prep.points-pass': { en: '{points} points (pass: {pass}%)', de: '{points} Punkte (Bestehen: {pass}%)', fr: '{points} points (réussite : {pass}%)', ar: '{points} نقطة (النجاح: {pass}%)' },
+  'exam-prep.retry': { en: 'Retry', de: 'Wiederholen', fr: 'Réessayer', ar: 'إعادة المحاولة' },
+  'exam-prep.more-modules': { en: 'More Modules', de: 'Weitere Module', fr: 'Plus de modules', ar: 'المزيد من الوحدات' },
+  'exam-prep.your-answer': { en: 'Your answer:', de: 'Deine Antwort:', fr: 'Ta réponse :', ar: 'إجابتك:' },
+  'exam-prep.correct': { en: 'Correct:', de: 'Richtig:', fr: 'Correct :', ar: 'الصحيح:' },
+  'exam-prep.type-answer': { en: 'Type your answer', de: 'Gib deine Antwort ein', fr: 'Tape ta réponse', ar: 'اكتب إجابتك' },
+  'exam-prep.submit': { en: 'Submit Answers', de: 'Antworten einreichen', fr: 'Soumettre les réponses', ar: 'إرسال الإجابات' },
+
+  // Dashboard
+  'dashboard.welcome': { en: 'Welcome, {name}', de: 'Willkommen, {name}', fr: 'Bienvenue, {name}', ar: 'مرحباً، {name}' },
+  'dashboard.daily-goal': { en: "Today's Study Goal", de: 'Heutiges Lernziel', fr: 'Objectif du jour', ar: 'هدف اليوم' },
+  'dashboard.minutes-completed': { en: 'minutes completed', de: 'Minuten erledigt', fr: 'minutes effectuées', ar: 'الدقائق المنجزة' },
+  'dashboard.total-hours': { en: 'Total Study Hours', de: 'Lernstunden gesamt', fr: 'Heures d\'étude totales', ar: 'إجمالي ساعات التعلم' },
+  'dashboard.current-streak': { en: 'Current Streak', de: 'Aktuelle Serie', fr: 'Série actuelle', ar: 'السلسلة الحالية' },
+  'dashboard.lessons-completed': { en: 'Lessons Completed', de: 'Lektionen abgeschlossen', fr: 'Leçons terminées', ar: 'الدروس المكتملة' },
+  'dashboard.vocab-learned': { en: 'Vocabulary Learned', de: 'Wortschatz gelernt', fr: 'Vocabulaire appris', ar: 'المفردات المتعلمة' },
+  'dashboard.skill-scores': { en: 'Skill Scores', de: 'Fertigkeiten', fr: 'Compétences', ar: 'المهارات' },
+  'dashboard.skill-desc': { en: 'Your proficiency across all skills', de: 'Deine Fähigkeiten in allen Bereichen', fr: 'Ton niveau dans toutes les compétences', ar: 'كفاءتك في جميع المهارات' },
+  'dashboard.monthly-activity': { en: 'Monthly Activity', de: 'Monatliche Aktivität', fr: 'Activité mensuelle', ar: 'النشاط الشهري' },
+  'dashboard.activity-desc': { en: 'Study minutes per month', de: 'Lernminuten pro Monat', fr: 'Minutes d\'étude par mois', ar: 'دقائق التعلم شهرياً' },
+  'dashboard.weak-areas': { en: 'Weak Areas', de: 'Schwachstellen', fr: 'Points faibles', ar: 'نقاط الضعف' },
+  'dashboard.strong-areas': { en: 'Strong Areas', de: 'Stärken', fr: 'Points forts', ar: 'نقاط القوة' },
+  'dashboard.needs-practice': { en: 'Needs practice', de: 'Übungsbedarf', fr: 'À travailler', ar: 'يحتاج تمريناً' },
+  'dashboard.well-done': { en: 'Well done!', de: 'Gut gemacht!', fr: 'Bien joué !', ar: 'أحسنت!' },
+  'dashboard.today-plan': { en: "Today's Plan", de: 'Heutiger Lernplan', fr: 'Plan du jour', ar: 'خطة اليوم' },
+  'dashboard.plan-desc': { en: 'Your recommended study schedule', de: 'Dein empfohlener Lernplan', fr: 'Ton planning recommandé', ar: 'جدولك الدراسي الموصى به' },
+  'dashboard.quick-access': { en: 'Quick Access', de: 'Schnellzugriff', fr: 'Accès rapide', ar: 'وصول سريع' },
+  'dashboard.recent-activity': { en: 'Recent Activity', de: 'Letzte Aktivität', fr: 'Activité récente', ar: 'آخر نشاط' },
+  'dashboard.no-activity': { en: 'No recent activity yet.', de: 'Noch keine Aktivität.', fr: 'Aucune activité récente.', ar: 'لا يوجد نشاط حديث بعد.' },
+  'dashboard.start-learning': { en: 'Start a lesson or exercise to begin!', de: 'Starte eine Lektion oder Übung!', fr: 'Commence une leçon ou un exercice !', ar: 'ابدأ درساً أو تمريناً!' },
+  'dashboard.view-path': { en: 'View Full Learning Path', de: 'Lernpfad anzeigen', fr: 'Voir le parcours complet', ar: 'عرض مسار التعلم الكامل' },
+  'dashboard.min-daily': { en: 'min. daily', de: 'Min. Tagesziel', fr: 'min. par jour', ar: 'دقيقة يومياً' },
+  'dashboard.goal-progress': { en: "Today's Study Goal", de: 'Heutiges Lernziel', fr: 'Objectif du jour', ar: 'هدف اليوم' },
+  'dashboard.no-weak-areas': { en: 'No weak areas identified yet. Keep learning!', de: 'Noch keine Schwachstellen. Weiter so!', fr: 'Aucun point faible identifié. Continue !', ar: 'لم يتم تحديد نقاط ضعف. استمر في التعلم!' },
+  'dashboard.no-strong-areas': { en: 'Keep going to build your strengths!', de: 'Weiter üben, um deine Stärken auszubauen!', fr: 'Continue pour renforcer tes points forts !', ar: 'استمر في بناء نقاط قوتك!' },
+  'dashboard.no-plan': { en: 'No plan available for today.', de: 'Kein Plan für heute verfügbar.', fr: 'Aucun plan disponible pour aujourd\'hui.', ar: 'لا توجد خطة متاحة لليوم.' },
+
+  // Analytics
+  'analytics.title': { en: 'Learning Analytics', de: 'Lernstatistiken', fr: 'Statistiques d\'apprentissage', ar: 'إحصائيات التعلم' },
+  'analytics.desc': { en: 'Track your progress and improve', de: 'Verfolge deinen Fortschritt und verbessere dich', fr: 'Suis tes progrès et améliore-toi', ar: 'تابع تقدمك وتحسن' },
+  'analytics.study-hours': { en: 'Study Hours', de: 'Lernstunden', fr: 'Heures d\'étude', ar: 'ساعات التعلم' },
+  'analytics.total-time': { en: 'Total Time', de: 'Gesamtzeit', fr: 'Temps total', ar: 'الوقت الإجمالي' },
+  'analytics.streak': { en: 'Current Streak', de: 'Aktuelle Serie', fr: 'Série actuelle', ar: 'السلسلة الحالية' },
+  'analytics.days': { en: '{count} day{count != 1 ? "s" : ""} in a row', de: '{count} Tag{count != 1 ? "e" : ""} in Folge', fr: '{count} jour{count > 1 ? "s" : ""} d\'affilée', ar: '{count} يوم متتالٍ' },
+  'analytics.lessons-done': { en: 'Lessons Completed', de: 'Lektionen abgeschlossen', fr: 'Leçons terminées', ar: 'الدروس المكتملة' },
+  'analytics.completed': { en: 'Completed', de: 'Abgeschlossen', fr: 'Terminé', ar: 'مكتمل' },
+  'analytics.vocab': { en: 'Vocabulary', de: 'Wortschatz', fr: 'Vocabulaire', ar: 'المفردات' },
+  'analytics.words-learned': { en: 'Words Learned', de: 'Gelernte Wörter', fr: 'Mots appris', ar: 'الكلمات المتعلمة' },
+  'analytics.overview': { en: 'Overview', de: 'Übersicht', fr: 'Aperçu', ar: 'نظرة عامة' },
+  'analytics.skills': { en: 'Skills', de: 'Fertigkeiten', fr: 'Compétences', ar: 'المهارات' },
+  'analytics.activity': { en: 'Activity', de: 'Aktivität', fr: 'Activité', ar: 'النشاط' },
+  'analytics.improvement': { en: 'Areas to Improve', de: 'Verbesserungsbereiche', fr: 'Domaines à améliorer', ar: 'مجالات التحسين' },
+  'analytics.improvement-desc': { en: 'Topics that need more practice', de: 'Themen, die mehr Übung brauchen', fr: 'Sujets qui nécessitent plus de pratique', ar: 'المواضيع التي تحتاج المزيد من التمرين' },
+  'analytics.no-weak': { en: 'No weak areas identified yet. Keep practicing!', de: 'Noch keine Schwachstellen identifiziert. Weiter üben!', fr: 'Aucun point faible identifié. Continue !', ar: 'لم يتم تحديد نقاط ضعف. استمر في التمرين!' },
+  'analytics.strengths': { en: 'Strengths', de: 'Stärken', fr: 'Points forts', ar: 'نقاط القوة' },
+  'analytics.strengths-desc': { en: 'Mastered topics', de: 'Gemeisterte Themen', fr: 'Sujets maîtrisés', ar: 'المواضيع المتقنة' },
+  'analytics.no-strengths': { en: 'Do more exercises to build your strengths!', de: 'Mache mehr Übungen, um deine Stärken auszubauen!', fr: 'Fais plus d\'exercices pour renforcer tes points forts !', ar: 'قم بالمزيد من التمارين لبناء نقاط قوتك!' },
+  'analytics.cefr-progress': { en: 'CEFR Level Progress', de: 'CEFR-Niveau Fortschritt', fr: 'Progrès du niveau CECR', ar: 'تقدم مستوى CEFR' },
+  'analytics.cefr-desc': { en: 'Your estimated German level', de: 'Dein geschätztes Deutschniveau', fr: 'Ton niveau d\'allemand estimé', ar: 'مستوى الألمانية المقدر لك' },
+  'analytics.current': { en: 'Current', de: 'Aktuell', fr: 'Actuel', ar: 'الحالي' },
+  'analytics.next-goal': { en: 'Next goal: {level}', de: 'Nächstes Ziel: {level}', fr: 'Prochain objectif : {level}', ar: 'الهدف التالي: {level}' },
+  'analytics.exam-readiness': { en: 'Exam Readiness', de: 'Prüfungsbereitschaft', fr: 'Préparation aux examens', ar: 'الاستعداد للامتحان' },
+  'analytics.exam-desc': { en: 'How prepared you are for Goethe/TELC exams', de: 'Wie gut du auf Goethe-/TELC-Prüfungen vorbereitet bist', fr: 'Ton niveau de préparation aux examens Goethe/TELC', ar: 'مدى استعدادك لامتحانات Goethe/TELC' },
+  'analytics.monthly-title': { en: 'Monthly Learning Activity', de: 'Monatliche Lernaktivität', fr: 'Activité d\'apprentissage mensuelle', ar: 'النشاط التعليمي الشهري' },
+  'analytics.monthly-desc': { en: 'Minutes studied per month', de: 'Gelernte Minuten pro Monat', fr: 'Minutes d\'étude par mois', ar: 'دقائق التعلم شهرياً' },
+  'analytics.no-activity-data': { en: 'No activity data available yet.', de: 'Noch keine Aktivitätsdaten verfügbar.', fr: 'Aucune donnée d\'activité disponible.', ar: 'لا توجد بيانات نشاط متاحة بعد.' },
+  'analytics.recent-title': { en: 'Recent Activity', de: 'Letzte Aktivität', fr: 'Activité récente', ar: 'آخر نشاط' },
+  'analytics.recent-desc': { en: 'Your latest learning activities', de: 'Deine letzten Lernaktivitäten', fr: 'Tes dernières activités d\'apprentissage', ar: 'آخر أنشطتك التعليمية' },
+  'analytics.correct': { en: 'Correct', de: 'Richtig', fr: 'Correct', ar: 'صحيح' },
+  'analytics.wrong': { en: 'Wrong', de: 'Falsch', fr: 'Faux', ar: 'خطأ' },
+  'analytics.passed': { en: 'Passed', de: 'Bestanden', fr: 'Réussi', ar: 'نجاح' },
+  'analytics.failed': { en: 'Failed', de: 'Nicht bestanden', fr: 'Échoué', ar: 'لم ينجح' },
+
+  // Mentor
+  'mentor.title': { en: 'AI Mentor', de: 'KI-Mentor', fr: 'Mentor IA', ar: 'المرشد الذكي' },
+  'mentor.desc': { en: 'Your personal German teacher', de: 'Dein persönlicher Deutschlehrer', fr: 'Ton professeur d\'allemand personnel', ar: 'معلمك الشخصي للألمانية' },
+  'mentor.new-chat': { en: 'New Chat', de: 'Neue Unterhaltung', fr: 'Nouvelle conversation', ar: 'محادثة جديدة' },
+  'mentor.topic-placeholder': { en: 'Conversation topic...', de: 'Gesprächsthema...', fr: 'Sujet de conversation...', ar: 'موضوع المحادثة...' },
+  'mentor.cancel': { en: 'Cancel', de: 'Abbrechen', fr: 'Annuler', ar: 'إلغاء' },
+  'mentor.start': { en: 'Start', de: 'Starten', fr: 'Commencer', ar: 'ابدأ' },
+  'mentor.no-chats': { en: 'No conversations yet. Start a new one!', de: 'Noch keine Unterhaltungen. Starte eine neue!', fr: 'Aucune conversation. Commences-en une !', ar: 'لا توجد محادثات بعد. ابدأ واحدة جديدة!' },
+  'mentor.input-placeholder': { en: 'Ask your German teacher anything...', de: 'Frage deinen Deutschlehrer alles...', fr: 'Demande tout à ton professeur...', ar: 'اسأل معلمك الألمانية أي شيء...' },
+  'mentor.hero-title': { en: 'Your AI German Teacher', de: 'Dein KI-Deutschlehrer', fr: 'Ton professeur d\'allemand IA', ar: 'معلمك الألماني الذكي' },
+  'mentor.learn-now': { en: 'Learn Now', de: 'Jetzt lernen', fr: 'Apprendre maintenant', ar: 'تعلم الآن' },
+
+  // Courses
+  'courses.title': { en: 'German Courses', de: 'Deutschkurse', fr: 'Cours d\'allemand', ar: 'دورات الألمانية' },
+  'courses.desc': { en: 'Choose your level and start learning', de: 'Wähle dein Niveau und beginne zu lernen', fr: 'Choisis ton niveau et commence à apprendre', ar: 'اختر مستواك وابدأ التعلم' },
+  'courses.cefr-title': { en: 'CEFR-based Curriculum', de: 'CEFR-orientierter Lehrplan', fr: 'Programme basé sur le CECR', ar: 'منهج قائم على CEFR' },
+  'courses.modules': { en: '{count} modules', de: '{count} Module', fr: '{count} modules', ar: '{count} وحدات' },
+  'courses.lessons': { en: '{count} lessons', de: '{count} Lektionen', fr: '{count} leçons', ar: '{count} دروس' },
+  'courses.in-progress': { en: 'In Preparation', de: 'In Vorbereitung', fr: 'En préparation', ar: 'قيد التحضير' },
+  'courses.no-modules': { en: 'Modules for this level are being created.', de: 'Module für dieses Niveau werden erstellt.', fr: 'Les modules pour ce niveau sont en cours de création.', ar: 'يتم إنشاء وحدات لهذا المستوى.' },
+  'courses.no-lessons': { en: 'No lessons yet', de: 'Noch keine Lektionen', fr: 'Pas encore de leçons', ar: 'لا توجد دروس بعد' },
+  'courses.completed': { en: '{done}/{total} done', de: '{done}/{total} erledigt', fr: '{done}/{total} faits', ar: '{done}/{total} تم إنجازها' },
+
+  // Time
+  'time.just-now': { en: 'Just now', de: 'Gerade eben', fr: 'À l\'instant', ar: 'الآن' },
+  'time.minutes-ago': { en: '{count}m ago', de: 'vor {count} Min.', fr: 'il y a {count} min', ar: 'قبل {count} دقيقة' },
+  'time.hours-ago': { en: '{count}h ago', de: 'vor {count} Std.', fr: 'il y a {count} h', ar: 'قبل {count} ساعة' },
+  'time.days-ago': { en: '{count}d ago', de: 'vor {count} Tagen', fr: 'il y a {count} j', ar: 'قبل {count} يوم' },
+  'time.months-ago': { en: '{count}mo ago', de: 'vor {count} Monaten', fr: 'il y a {count} mois', ar: 'قبل {count} شهر' },
+
+  // Level labels
+  'level.a1': { en: 'Beginner A1', de: 'Anfänger A1', fr: 'Débutant A1', ar: 'مبتدئ A1' },
+  'level.a2': { en: 'Elementary A2', de: 'Grundlagen A2', fr: 'Élémentaire A2', ar: 'أساسي A2' },
+  'level.b1': { en: 'Intermediate B1', de: 'Mittelstufe B1', fr: 'Intermédiaire B1', ar: 'متوسط B1' },
+  'level.b2': { en: 'Upper Intermediate B2', de: 'Fortgeschritten B2', fr: 'Intermédiaire avancé B2', ar: 'فوق متوسط B2' },
+  'level.c1': { en: 'Advanced C1', de: 'Kompetent C1', fr: 'Avancé C1', ar: 'متقدم C1' },
+  'level.c2': { en: 'Mastery C2', de: 'Experte C2', fr: 'Maîtrise C2', ar: 'خبير C2' },
+}
+
+export type TranslationKey = keyof typeof translations
+
+export function t(key: string, locale: SupportedLocale, params?: Record<string, string | number>): string {
+  const entry = translations[key]
+  if (!entry) return key
+  let text = entry[locale] ?? entry['en'] ?? key
+  if (params) {
+    for (const [k, v] of Object.entries(params)) {
+      text = text.replace(`{${k}}`, String(v))
+    }
+  }
+  return text
+}

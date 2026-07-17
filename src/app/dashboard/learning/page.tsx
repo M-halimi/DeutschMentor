@@ -11,7 +11,7 @@ const modules = [
   {
     href: '/dashboard/hoeren',
     title: 'Hören',
-    desc: 'Audio lessons with real German speech and comprehension exercises.',
+    desc: 'Hörübungen mit authentischen deutschen Dialogen und Verständnisfragen.',
     icon: Headphones,
     color: 'from-blue-500/20 to-blue-600/20',
     gradient: 'from-blue-500 to-blue-600',
@@ -20,7 +20,7 @@ const modules = [
   {
     href: '/dashboard/lesen',
     title: 'Lesen',
-    desc: 'Read articles with vocabulary support and comprehension questions.',
+    desc: 'Lese Artikel mit Wortschatzhilfe und Verständnisfragen.',
     icon: BookOpen,
     color: 'from-emerald-500/20 to-emerald-600/20',
     gradient: 'from-emerald-500 to-emerald-600',
@@ -29,7 +29,7 @@ const modules = [
   {
     href: '/dashboard/schreiben',
     title: 'Schreiben',
-    desc: 'Practice writing with AI-powered grammar and style analysis.',
+    desc: 'Trainiere dein Schreiben mit KI-gestützter Grammatik- und Stilanalyse.',
     icon: Pen,
     color: 'from-purple-500/20 to-purple-600/20',
     gradient: 'from-purple-500 to-purple-600',
@@ -38,7 +38,7 @@ const modules = [
   {
     href: '/dashboard/sprechen',
     title: 'Sprechen',
-    desc: 'Record your voice and practice speaking with topic-based exercises.',
+    desc: 'Nimm deine Stimme auf und übe das Sprechen mit themenbasierten Aufgaben.',
     icon: Mic,
     color: 'from-amber-500/20 to-amber-600/20',
     gradient: 'from-amber-500 to-amber-600',
@@ -46,8 +46,8 @@ const modules = [
   },
   {
     href: '/dashboard/vocabulary',
-    title: 'Vocabulary',
-    desc: 'Build your vocabulary with flashcards and spaced repetition.',
+    title: 'Wortschatz',
+    desc: 'Erweitere deinen Wortschatz mit Karteikarten und Wiederholungen.',
     icon: BookmarkPlus,
     color: 'from-rose-500/20 to-rose-600/20',
     gradient: 'from-rose-500 to-rose-600',
@@ -55,8 +55,8 @@ const modules = [
   },
   {
     href: '/dashboard/grammar',
-    title: 'Grammar',
-    desc: 'Interactive grammar exercises with articles, verbs, tenses and more.',
+    title: 'Grammatik',
+    desc: 'Interaktive Grammatikübungen zu Artikeln, Verben, Zeiten und mehr.',
     icon: Braces,
     color: 'from-orange-500/20 to-orange-600/20',
     gradient: 'from-orange-500 to-orange-600',
@@ -64,8 +64,8 @@ const modules = [
   },
   {
     href: '/dashboard/dictation',
-    title: 'Dictation',
-    desc: 'Listen and type. Improve listening and writing simultaneously.',
+    title: 'Diktat',
+    desc: 'Hören und tippen. Verbessere gleichzeitig Hör- und Schreibfähigkeiten.',
     icon: Ear,
     color: 'from-indigo-500/20 to-indigo-600/20',
     gradient: 'from-indigo-500 to-indigo-600',
@@ -73,8 +73,8 @@ const modules = [
   },
   {
     href: '/dashboard/expressions',
-    title: 'Expressions',
-    desc: 'Learn essential idioms and expressions for natural conversation.',
+    title: 'Ausdrücke',
+    desc: 'Lerne wichtige Redewendungen für natürliche Gespräche.',
     icon: MessageSquareText,
     color: 'from-teal-500/20 to-teal-600/20',
     gradient: 'from-teal-500 to-teal-600',
@@ -82,8 +82,8 @@ const modules = [
   },
   {
     href: '/dashboard/exam',
-    title: 'Exam Prep',
-    desc: 'Prepare for Goethe and TELC exams with mock tests and practice.',
+    title: 'Prüfungsvorbereitung',
+    desc: 'Bereite dich mit Probeprüfungen auf Goethe- und TELC-Prüfungen vor.',
     icon: GraduationCap,
     color: 'from-cyan-500/20 to-cyan-600/20',
     gradient: 'from-cyan-500 to-cyan-600',
@@ -96,9 +96,9 @@ export default function LearningPage() {
     <AppShell>
       <div className="space-y-8">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">My Learning</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Mein Lernen</h1>
           <p className="text-muted-foreground mt-1">
-            Choose a module to start learning German
+            Wähle ein Modul, um mit dem Deutschlernen zu beginnen
           </p>
         </div>
 
@@ -127,7 +127,7 @@ export default function LearningPage() {
                     </CardHeader>
                     <CardContent>
                       <Button variant="ghost" className="group/btn w-full justify-between">
-                        Start Learning
+                        Lernen starten
                         <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                       </Button>
                     </CardContent>

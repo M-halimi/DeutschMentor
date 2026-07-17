@@ -146,6 +146,7 @@ export interface LessonVocabulary {
   german_word: string
   arabic_translation: string
   english_translation: string
+  french_translation: string | null
   article: string | null
   plural: string | null
   part_of_speech: string
@@ -257,6 +258,7 @@ export interface LessonExpression {
   german: string
   english_translation: string
   arabic_translation: string | null
+  french_translation: string | null
   usage_context: string | null
   formality: 'formal' | 'neutral' | 'informal' | 'slang' | null
   is_idiom: boolean
@@ -272,6 +274,7 @@ export interface LessonReadingContent {
   content: string
   english_translation: string | null
   arabic_translation: string | null
+  french_translation: string | null
   word_count: number | null
   difficulty_rating: number
   audio_url: string | null
@@ -285,6 +288,7 @@ export interface LessonListeningContent {
   transcript: string
   english_translation: string | null
   arabic_translation: string | null
+  french_translation: string | null
   audio_url: string | null
   duration_seconds: number | null
   speaker_count: number
@@ -798,6 +802,7 @@ export interface Expression {
   id: string
   german: string
   english: string
+  french: string | null
   usage_context: string
   level: GermanLevel
   category: string

@@ -14,10 +14,10 @@ import { useExpressions, useSaveExpression } from '@/hooks/use-progress'
 import { AudioPlayer } from '@/components/audio-player'
 
 const categories = [
-  { value: '', label: 'All' },
-  { value: 'everyday', label: 'Everyday' },
-  { value: 'conversation', label: 'Conversation' },
-  { value: 'idioms', label: 'Idioms' },
+  { value: '', label: 'Alle' },
+  { value: 'everyday', label: 'Alltag' },
+  { value: 'conversation', label: 'Gespräch' },
+  { value: 'idioms', label: 'Redewendungen' },
 ]
 
 export default function ExpressionsPage() {
@@ -61,19 +61,19 @@ export default function ExpressionsPage() {
             <MessageSquareText className="h-5 w-5" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Expressions</h1>
-            <p className="text-muted-foreground">Learn essential German expressions and idioms for natural conversation</p>
+            <h1 className="text-3xl font-bold tracking-tight">Ausdrücke</h1>
+            <p className="text-muted-foreground">Lerne wichtige deutsche Redewendungen und Ausdrücke für natürliche Gespräche</p>
           </div>
         </div>
 
         <div className="flex items-center gap-4">
           <div className="relative flex-1 max-w-md">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-            <Input placeholder="Search expressions..." className="pl-10" value={search} onChange={(e) => setSearch(e.target.value)} />
+            <Input placeholder="Ausdrücke durchsuchen..." className="pl-10" value={search} onChange={(e) => setSearch(e.target.value)} />
           </div>
           <Select value={level} onValueChange={(v) => { if (v !== null) setLevel(v) }}>
             <SelectTrigger className="w-28">
-              <SelectValue placeholder="Level" />
+              <SelectValue placeholder="Niveau" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="">All</SelectItem>
@@ -86,7 +86,7 @@ export default function ExpressionsPage() {
           </Select>
           <Select value={category} onValueChange={(v) => { if (v !== null) setCategory(v) }}>
             <SelectTrigger className="w-36">
-              <SelectValue placeholder="Category" />
+              <SelectValue placeholder="Kategorie" />
             </SelectTrigger>
             <SelectContent>
               {categories.map(c => (
@@ -136,7 +136,7 @@ export default function ExpressionsPage() {
           {filtered.length === 0 && (
             <Card className="col-span-2">
               <CardContent className="p-8 text-center text-muted-foreground">
-                No expressions found.
+                Keine Ausdrücke gefunden.
               </CardContent>
             </Card>
           )}

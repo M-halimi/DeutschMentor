@@ -34,7 +34,7 @@ function escape(val: string | null | undefined): string {
 
 function escapeArray(arr: string[]): string {
   if (!arr || arr.length === 0) return "'[]'"
-  return `'[${arr.map(a => `"${a.replace(/"/g, '\\"')}"`).join(',')}]'`
+  return `'[${arr.map(a => `"${a.replace(/"/g, '\\"').replace(/'/g, "''")}"`).join(',')}]'`
 }
 
 function textArray(arr: string[]): string {
@@ -116,9 +116,9 @@ function generateLevelSQL(level: CompleteLevel): string {
       // --- VOCABULARY ---
       if (l.vocab.length > 0) {
         const rows = l.vocab.map((v, vi) =>
-          `  (${escape(lid)}, ${escape(v.word)}, ${escape(v.arabic)}, ${escape(v.english)}, ${escape(v.article || null)}, ${escape(v.plural || null)}, ${escape(v.pos)}, ${escape(v.example)}, ${escape(v.exampleEn)}, ${escape(v.cefr || level.id)}, ${vi + 1})`
+          `  (${escape(lid)}, ${escape(v.word)}, ${escape(v.arabic)}, ${escape(v.english)}, ${escape(v.french || null)}, ${escape(v.article || null)}, ${escape(v.plural || null)}, ${escape(v.pos)}, ${escape(v.example)}, ${escape(v.exampleEn)}, ${escape(v.cefr || level.id)}, ${vi + 1})`
         )
-        lines.push(`  insert into public.lesson_vocabulary (lesson_id, german_word, arabic_translation, english_translation, article, plural, part_of_speech, example_sentence, example_translation, cefr_level, order_index) values`)
+        lines.push(`  insert into public.lesson_vocabulary (lesson_id, german_word, arabic_translation, english_translation, french_translation, article, plural, part_of_speech, example_sentence, example_translation, cefr_level, order_index) values`)
         lines.push(rows.join(',\n') + ';')
         lines.push(``)
       }
@@ -159,9 +159,9 @@ function generateLevelSQL(level: CompleteLevel): string {
       // --- EXPRESSIONS ---
       if (l.expressions.length > 0) {
         const rows = l.expressions.map((e, i) =>
-          `  (${escape(lid)}, ${escape(e.german)}, ${escape(e.english)}, ${escape(e.arabic)}, ${escape(`Used in ${m.title}`)}, ${escape(e.formality)}, false, ${i + 1})`
+          `  (${escape(lid)}, ${escape(e.german)}, ${escape(e.english)}, ${escape(e.arabic)}, ${escape(e.french || null)}, ${escape(`Used in ${m.title}`)}, ${escape(e.formality)}, false, ${i + 1})`
         )
-        lines.push(`  insert into public.lesson_expressions (lesson_id, german, english_translation, arabic_translation, usage_context, formality, is_idiom, order_index) values`)
+        lines.push(`  insert into public.lesson_expressions (lesson_id, german, english_translation, arabic_translation, french_translation, usage_context, formality, is_idiom, order_index) values`)
         lines.push(rows.join(',\n') + ';')
         lines.push(``)
       }
@@ -178,8 +178,8 @@ function generateLevelSQL(level: CompleteLevel): string {
       
       // --- READING ---
       if (l.reading) {
-        lines.push(`  insert into public.lesson_reading (lesson_id, title, content, english_translation, arabic_translation, word_count, difficulty_rating, source) values`)
-        lines.push(`  (${escape(lid)}, ${escape(l.reading.title)}, ${escape(l.reading.content)}, ${escape(l.reading.englishTranslation)}, ${escape(l.reading.arabicTranslation)}, ${l.reading.wordCount}, 1, ${escape('DeutschMentor Complete Curriculum')});`)
+        lines.push(`  insert into public.lesson_reading (lesson_id, title, content, english_translation, arabic_translation, french_translation, word_count, difficulty_rating, source) values`)
+        lines.push(`  (${escape(lid)}, ${escape(l.reading.title)}, ${escape(l.reading.content)}, ${escape(l.reading.englishTranslation)}, ${escape(l.reading.arabicTranslation)}, ${escape(l.reading.frenchTranslation || null)}, ${l.reading.wordCount}, 1, ${escape('DeutschMentor Complete Curriculum')});`)
         lines.push(``)
       }
       
@@ -188,8 +188,9 @@ function generateLevelSQL(level: CompleteLevel): string {
         const transcript = l.listening.lines.map(l => `[${l.speaker}]: ${l.german}`).join('\n\n')
         const enTranscript = l.listening.lines.map(l => `[${l.speaker}]: ${l.english}`).join('\n\n')
         const arTranscript = l.listening.lines.map(l => `[${l.speaker}]: ${l.arabic}`).join('\n\n')
-        lines.push(`  insert into public.lesson_listening (lesson_id, title, transcript, english_translation, arabic_translation, duration_seconds, speaker_count, scenario) values`)
-        lines.push(`  (${escape(lid)}, ${escape(l.listening.title)}, ${escape(transcript)}, ${escape(enTranscript)}, ${escape(arTranscript)}, ${l.listening.duration || 90}, ${l.listening.speakers.length}, ${escape(m.title)});`)
+        const frTranscript = l.listening.lines.map(l => `[${l.speaker}]: ${l.french || ''}`).join('\n\n')
+        lines.push(`  insert into public.lesson_listening (lesson_id, title, transcript, english_translation, arabic_translation, french_translation, duration_seconds, speaker_count, scenario) values`)
+        lines.push(`  (${escape(lid)}, ${escape(l.listening.title)}, ${escape(transcript)}, ${escape(enTranscript)}, ${escape(arTranscript)}, ${escape(frTranscript)}, ${l.listening.duration || 90}, ${l.listening.speakers.length}, ${escape(m.title)});`)
         lines.push(``)
       }
       
@@ -205,7 +206,7 @@ function generateLevelSQL(level: CompleteLevel): string {
       for (let wi = 0; wi < l.writing.length; wi++) {
         const w = l.writing[wi]
         lines.push(`  insert into public.lesson_writing (lesson_id, title, task, tips, vocabulary_hints, grammar_focus, word_limit_min, word_limit_max, order_index) values`)
-        lines.push(`  (${escape(lid)}, ${escape(w.title)}, ${escape(w.task)}, ${textArray(w.tips || [])}, ${textArray(w.vocabHints || [])}, ${escapeArray(['Sentence structure', 'Vocabulary usage'])}, ${w.wordLimit.min}, ${w.wordLimit.max}, ${wi + 1});`)
+        lines.push(`  (${escape(lid)}, ${escape(w.title)}, ${escape(w.task)}, ${textArray(w.tips || [])}, ${textArray(w.vocabHints || [])}, ${textArray(['Sentence structure', 'Vocabulary usage'])}, ${w.wordLimit.min}, ${w.wordLimit.max}, ${wi + 1});`)
       }
       if (l.writing.length > 0) lines.push(``)
       
@@ -333,9 +334,10 @@ function generateExamPrepSQL(): void {
     { level: 'C1', desc: 'Goethe C1 / TELC C1 / ÖSD C1', format: 'Reading: 70min, Listening: 40min, Writing: 80min, Speaking: 15min' },
     { level: 'C2', desc: 'Goethe C2 / TELC C2 / ÖSD C2 / TestDaF / DSH', format: 'Reading: 80min, Listening: 40min, Writing: 90min, Speaking: 20min' },
   ]
-  const examTypes = ['Goethe', 'TELC', 'ÖSD', 'TestDaF', 'DSH']
+  const examTypes = ['goethe', 'telc', 'osterreich', 'testdaf', 'dsh']
+  const EXAM_LABEL: Record<string, string> = { goethe: 'Goethe', telc: 'TELC', oesterreich: 'ÖSD', testdaf: 'TestDaF', dsh: 'DSH' }
   
-  lines.push(`INSERT INTO public.exam_prep_modules (id, level_id, title, description, exam_type, objectives, format, time_limit_minutes, passing_score, difficulty) VALUES`)
+  lines.push(`INSERT INTO public.exam_prep_modules (id, exam_type, level_id, title, description, module_type, time_limit_minutes, total_points, pass_threshold, is_published, order_index) VALUES`)
   
   const moduleRows: string[] = []
   const questionRows: string[] = []
@@ -343,26 +345,27 @@ function generateExamPrepSQL(): void {
   
   examLevels.forEach((el) => {
     examTypes.forEach((et, ti) => {
-      if ((et === 'TestDaF' || et === 'DSH') && (el.level !== 'C1' && el.level !== 'C2')) return
+      if ((et === 'testdaf' || et === 'dsh') && (el.level !== 'C1' && el.level !== 'C2')) return
       if (ti > 2 && el.level === 'A1') return
       
+      const label = EXAM_LABEL[et] || et
       const mid = uuid(`exam-${el.level}-${et}`)
-      const diff = el.level === 'A1' || el.level === 'A2' ? 'easy' : el.level === 'B1' || el.level === 'B2' ? 'medium' : 'hard'
-      moduleRows.push(`  (${escape(mid)}, ${escape(el.level)}, ${escape(`${et} ${el.level} Preparation`)}, ${escape(`Complete preparation for ${et} ${el.level} exam: ${el.desc}. Format: ${el.format}`)}, ${escape(et)}, ${escapeArray(['Understand exam format', 'Practice with mock questions', 'Learn exam strategies'])}, ${escape(el.format)}, 0, 60, ${escape(diff)})`)
+      moduleRows.push(`  (${escape(mid)}, ${escape(et)}, ${escape(el.level)}, ${escape(`${label} ${el.level} Preparation`)}, ${escape(`Complete preparation for ${label} ${el.level} exam: ${el.desc}. Format: ${el.format}`)}, 'full_mock', 0, 0, 60, true, 1)`)
+
       
       const sections = ['Leseverstehen', 'Hörverstehen', 'Schriftlicher Ausdruck', 'Mündlicher Ausdruck', 'Sprachbausteine', 'Wortschatz']
       for (let i = 0; i < 3; i++) {
         qi++
         const qid = uuid(`exam-q-${el.level}-${et}-${i}`)
         const section = sections[i % sections.length]
-        questionRows.push(`  (${escape(qid)}, ${escape(mid)}, ${escape(section)}, ${escape(`Mock question ${i+1} for ${et} ${el.level} ${section.toLowerCase()}`)}, 'multiple_choice', ${escapeArray(['Option A', 'Option B', 'Option C', 'Option D'])}, 'Option A', 1, ${i + 1})`)
+        questionRows.push(`  (${escape(qid)}, ${escape(mid)}, 'multiple_choice', ${escape(`Mock question ${i+1} for ${label} ${el.level} ${section.toLowerCase()}`)}, ${escapeArray(['Option A', 'Option B', 'Option C', 'Option D'])}, 'Option A', ${escape(section)}, NULL, NULL, 1, ${i + 1})`)
       }
     })
   })
   
   lines.push(moduleRows.join(',\n') + '\non conflict (id) do nothing;')
   lines.push(``)
-  lines.push(`INSERT INTO public.exam_prep_questions (id, module_id, section, question, question_type, options, correct_answer, points, order_index) VALUES`)
+  lines.push(`INSERT INTO public.exam_prep_questions (id, module_id, question_type, question, options, correct_answer, explanation, audio_url, image_url, points, order_index) VALUES`)
   lines.push(questionRows.join(',\n') + '\non conflict (id) do nothing;')
   
   const examOutPath = path.join(OUTPUT_DIR, 'seed_exam_prep_complete.sql')

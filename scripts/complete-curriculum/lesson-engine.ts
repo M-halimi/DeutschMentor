@@ -31,62 +31,62 @@ export interface LessonSpec {
 
 const VOCAB_DOMAINS: Record<string, VocabItem[]> = {
   greetings: [
-    { word: 'Hallo', arabic: 'مرحباً', english: 'hello', pos: 'interjection', cefr: 'A1', example: 'Hallo, wie geht es dir?', exampleEn: 'Hello, how are you?' },
-    { word: 'Guten Morgen', arabic: 'صباح الخير', english: 'good morning', pos: 'phrase', cefr: 'A1', example: 'Guten Morgen, Herr Müller.', exampleEn: 'Good morning, Mr. Müller.' },
-    { word: 'Guten Tag', arabic: 'نهارك سعيد', english: 'good day', pos: 'phrase', cefr: 'A1', example: 'Guten Tag, Frau Schmidt.', exampleEn: 'Good day, Mrs. Schmidt.' },
-    { word: 'Tschüss', arabic: 'مع السلامة', english: 'bye', pos: 'interjection', cefr: 'A1', example: 'Tschüss, bis morgen!', exampleEn: 'Bye, see you tomorrow!' },
-    { word: 'der Name', arabic: 'الاسم', english: 'name', article: 'der', plural: 'die Namen', pos: 'noun', cefr: 'A1', example: 'Mein Name ist Anna.', exampleEn: 'My name is Anna.' },
-    { word: 'wie', arabic: 'كيف', english: 'how', pos: 'adverb', cefr: 'A1', example: 'Wie heißt du?', exampleEn: 'What is your name?' },
-    { word: 'freuen', arabic: 'يسر', english: 'to be pleased', pos: 'verb', cefr: 'A1', example: 'Ich freue mich, dich kennenzulernen.', exampleEn: 'I am pleased to meet you.' },
-    { word: 'Willkommen', arabic: 'أهلاً وسهلاً', english: 'welcome', pos: 'interjection', cefr: 'A1', example: 'Willkommen in Deutschland!', exampleEn: 'Welcome to Germany!' },
+    { word: 'Hallo', arabic: 'مرحباً', english: 'hello', french: 'bonjour', pos: 'interjection', cefr: 'A1', example: 'Hallo, wie geht es dir?', exampleEn: 'Hello, how are you?' },
+    { word: 'Guten Morgen', arabic: 'صباح الخير', english: 'good morning', french: 'bonjour (le matin)', pos: 'phrase', cefr: 'A1', example: 'Guten Morgen, Herr Müller.', exampleEn: 'Good morning, Mr. Müller.' },
+    { word: 'Guten Tag', arabic: 'نهارك سعيد', english: 'good day', french: 'bonjour (l\'après-midi)', pos: 'phrase', cefr: 'A1', example: 'Guten Tag, Frau Schmidt.', exampleEn: 'Good day, Mrs. Schmidt.' },
+    { word: 'Tschüss', arabic: 'مع السلامة', english: 'bye', french: 'au revoir / salut', pos: 'interjection', cefr: 'A1', example: 'Tschüss, bis morgen!', exampleEn: 'Bye, see you tomorrow!' },
+    { word: 'der Name', arabic: 'الاسم', english: 'name', french: 'le nom', article: 'der', plural: 'die Namen', pos: 'noun', cefr: 'A1', example: 'Mein Name ist Anna.', exampleEn: 'My name is Anna.' },
+    { word: 'wie', arabic: 'كيف', english: 'how', french: 'comment', pos: 'adverb', cefr: 'A1', example: 'Wie heißt du?', exampleEn: 'What is your name?' },
+    { word: 'freuen', arabic: 'يسر', english: 'to be pleased', french: 'se réjouir', pos: 'verb', cefr: 'A1', example: 'Ich freue mich, dich kennenzulernen.', exampleEn: 'I am pleased to meet you.' },
+    { word: 'Willkommen', arabic: 'أهلاً وسهلاً', english: 'welcome', french: 'bienvenue', pos: 'interjection', cefr: 'A1', example: 'Willkommen in Deutschland!', exampleEn: 'Welcome to Germany!' },
   ],
   family: [
-    { word: 'die Familie', arabic: 'العائلة', english: 'family', article: 'die', plural: 'die Familien', pos: 'noun', cefr: 'A1', example: 'Meine Familie ist groß.', exampleEn: 'My family is big.' },
-    { word: 'der Vater', arabic: 'الأب', english: 'father', article: 'der', plural: 'die Väter', pos: 'noun', cefr: 'A1', example: 'Mein Vater ist Ingenieur.', exampleEn: 'My father is an engineer.' },
-    { word: 'die Mutter', arabic: 'الأم', english: 'mother', article: 'die', plural: 'die Mütter', pos: 'noun', cefr: 'A1', example: 'Meine Mutter kocht gut.', exampleEn: 'My mother cooks well.' },
-    { word: 'der Bruder', arabic: 'الأخ', english: 'brother', article: 'der', plural: 'die Brüder', pos: 'noun', cefr: 'A1', example: 'Mein Bruder ist 15 Jahre alt.', exampleEn: 'My brother is 15 years old.' },
-    { word: 'die Schwester', arabic: 'الأخت', english: 'sister', article: 'die', plural: 'die Schwestern', pos: 'noun', cefr: 'A1', example: 'Meine Schwester studiert Medizin.', exampleEn: 'My sister studies medicine.' },
-    { word: 'die Geschwister', arabic: 'الإخوة', english: 'siblings', article: 'die', pos: 'noun', cefr: 'A1', example: 'Hast du Geschwister?', exampleEn: 'Do you have siblings?' },
-    { word: 'der Sohn', arabic: 'الابن', english: 'son', article: 'der', plural: 'die Söhne', pos: 'noun', cefr: 'A1', example: 'Wir haben einen Sohn.', exampleEn: 'We have a son.' },
-    { word: 'die Tochter', arabic: 'الابنة', english: 'daughter', article: 'die', plural: 'die Töchter', pos: 'noun', cefr: 'A1', example: 'Meine Tochter geht zur Schule.', exampleEn: 'My daughter goes to school.' },
-    { word: 'die Großeltern', arabic: 'الأجداد', english: 'grandparents', article: 'die', pos: 'noun', cefr: 'A1', example: 'Meine Großeltern wohnen auf dem Land.', exampleEn: 'My grandparents live in the countryside.' },
-    { word: 'verheiratet', arabic: 'متزوج', english: 'married', pos: 'adjective', cefr: 'A1', example: 'Meine Eltern sind verheiratet.', exampleEn: 'My parents are married.' },
+    { word: 'die Familie', arabic: 'العائلة', english: 'family', french: 'la famille', article: 'die', plural: 'die Familien', pos: 'noun', cefr: 'A1', example: 'Meine Familie ist groß.', exampleEn: 'My family is big.' },
+    { word: 'der Vater', arabic: 'الأب', english: 'father', french: 'le père', article: 'der', plural: 'die Väter', pos: 'noun', cefr: 'A1', example: 'Mein Vater ist Ingenieur.', exampleEn: 'My father is an engineer.' },
+    { word: 'die Mutter', arabic: 'الأم', english: 'mother', french: 'la mère', article: 'die', plural: 'die Mütter', pos: 'noun', cefr: 'A1', example: 'Meine Mutter kocht gut.', exampleEn: 'My mother cooks well.' },
+    { word: 'der Bruder', arabic: 'الأخ', english: 'brother', french: 'le frère', article: 'der', plural: 'die Brüder', pos: 'noun', cefr: 'A1', example: 'Mein Bruder ist 15 Jahre alt.', exampleEn: 'My brother is 15 years old.' },
+    { word: 'die Schwester', arabic: 'الأخت', english: 'sister', french: 'la sœur', article: 'die', plural: 'die Schwestern', pos: 'noun', cefr: 'A1', example: 'Meine Schwester studiert Medizin.', exampleEn: 'My sister studies medicine.' },
+    { word: 'die Geschwister', arabic: 'الإخوة', english: 'siblings', french: 'les frères et sœurs', article: 'die', pos: 'noun', cefr: 'A1', example: 'Hast du Geschwister?', exampleEn: 'Do you have siblings?' },
+    { word: 'der Sohn', arabic: 'الابن', english: 'son', french: 'le fils', article: 'der', plural: 'die Söhne', pos: 'noun', cefr: 'A1', example: 'Wir haben einen Sohn.', exampleEn: 'We have a son.' },
+    { word: 'die Tochter', arabic: 'الابنة', english: 'daughter', french: 'la fille', article: 'die', plural: 'die Töchter', pos: 'noun', cefr: 'A1', example: 'Meine Tochter geht zur Schule.', exampleEn: 'My daughter goes to school.' },
+    { word: 'die Großeltern', arabic: 'الأجداد', english: 'grandparents', french: 'les grands-parents', article: 'die', pos: 'noun', cefr: 'A1', example: 'Meine Großeltern wohnen auf dem Land.', exampleEn: 'My grandparents live in the countryside.' },
+    { word: 'verheiratet', arabic: 'متزوج', english: 'married', french: 'marié(e)', pos: 'adjective', cefr: 'A1', example: 'Meine Eltern sind verheiratet.', exampleEn: 'My parents are married.' },
   ],
   food: [
-    { word: 'das Brot', arabic: 'الخبز', english: 'bread', article: 'das', plural: 'die Brote', pos: 'noun', cefr: 'A1', example: 'Ich kaufe ein Brot.', exampleEn: 'I buy a loaf of bread.' },
-    { word: 'die Milch', arabic: 'الحليب', english: 'milk', article: 'die', pos: 'noun', cefr: 'A1', example: 'Die Milch ist frisch.', exampleEn: 'The milk is fresh.' },
-    { word: 'der Käse', arabic: 'الجبن', english: 'cheese', article: 'der', pos: 'noun', cefr: 'A1', example: 'Der Käse schmeckt gut.', exampleEn: 'The cheese tastes good.' },
-    { word: 'der Apfel', arabic: 'التفاح', english: 'apple', article: 'der', plural: 'die Äpfel', pos: 'noun', cefr: 'A1', example: 'Der Apfel ist rot.', exampleEn: 'The apple is red.' },
-    { word: 'das Ei', arabic: 'البيضة', english: 'egg', article: 'das', plural: 'die Eier', pos: 'noun', cefr: 'A1', example: 'Ich esse ein Ei zum Frühstück.', exampleEn: 'I eat an egg for breakfast.' },
-    { word: 'das Obst', arabic: 'الفاكهة', english: 'fruit', article: 'das', pos: 'noun', cefr: 'A1', example: 'Obst ist gesund.', exampleEn: 'Fruit is healthy.' },
-    { word: 'das Gemüse', arabic: 'الخضروات', english: 'vegetables', article: 'das', pos: 'noun', cefr: 'A1', example: 'Ich kaufe Gemüse auf dem Markt.', exampleEn: 'I buy vegetables at the market.' },
-    { word: 'kochen', arabic: 'يطبخ', english: 'to cook', pos: 'verb', cefr: 'A1', example: 'Meine Mutter kocht gut.', exampleEn: 'My mother cooks well.' },
-    { word: 'der Fisch', arabic: 'السمك', english: 'fish', article: 'der', plural: 'die Fische', pos: 'noun', cefr: 'A1', example: 'Der Fisch ist frisch.', exampleEn: 'The fish is fresh.' },
-    { word: 'das Fleisch', arabic: 'اللحم', english: 'meat', article: 'das', pos: 'noun', cefr: 'A1', example: 'Ich esse nicht viel Fleisch.', exampleEn: 'I do not eat much meat.' },
+    { word: 'das Brot', arabic: 'الخبز', english: 'bread', french: 'le pain', article: 'das', plural: 'die Brote', pos: 'noun', cefr: 'A1', example: 'Ich kaufe ein Brot.', exampleEn: 'I buy a loaf of bread.' },
+    { word: 'die Milch', arabic: 'الحليب', english: 'milk', french: 'le lait', article: 'die', pos: 'noun', cefr: 'A1', example: 'Die Milch ist frisch.', exampleEn: 'The milk is fresh.' },
+    { word: 'der Käse', arabic: 'الجبن', english: 'cheese', french: 'le fromage', article: 'der', pos: 'noun', cefr: 'A1', example: 'Der Käse schmeckt gut.', exampleEn: 'The cheese tastes good.' },
+    { word: 'der Apfel', arabic: 'التفاح', english: 'apple', french: 'la pomme', article: 'der', plural: 'die Äpfel', pos: 'noun', cefr: 'A1', example: 'Der Apfel ist rot.', exampleEn: 'The apple is red.' },
+    { word: 'das Ei', arabic: 'البيضة', english: 'egg', french: 'l\'œuf', article: 'das', plural: 'die Eier', pos: 'noun', cefr: 'A1', example: 'Ich esse ein Ei zum Frühstück.', exampleEn: 'I eat an egg for breakfast.' },
+    { word: 'das Obst', arabic: 'الفاكهة', english: 'fruit', french: 'les fruits', article: 'das', pos: 'noun', cefr: 'A1', example: 'Obst ist gesund.', exampleEn: 'Fruit is healthy.' },
+    { word: 'das Gemüse', arabic: 'الخضروات', english: 'vegetables', french: 'les légumes', article: 'das', pos: 'noun', cefr: 'A1', example: 'Ich kaufe Gemüse auf dem Markt.', exampleEn: 'I buy vegetables at the market.' },
+    { word: 'kochen', arabic: 'يطبخ', english: 'to cook', french: 'cuisiner', pos: 'verb', cefr: 'A1', example: 'Meine Mutter kocht gut.', exampleEn: 'My mother cooks well.' },
+    { word: 'der Fisch', arabic: 'السمك', english: 'fish', french: 'le poisson', article: 'der', plural: 'die Fische', pos: 'noun', cefr: 'A1', example: 'Der Fisch ist frisch.', exampleEn: 'The fish is fresh.' },
+    { word: 'das Fleisch', arabic: 'اللحم', english: 'meat', french: 'la viande', article: 'das', pos: 'noun', cefr: 'A1', example: 'Ich esse nicht viel Fleisch.', exampleEn: 'I do not eat much meat.' },
   ],
   home: [
-    { word: 'das Haus', arabic: 'البيت', english: 'house', article: 'das', plural: 'die Häuser', pos: 'noun', cefr: 'A1', example: 'Das Haus ist groß.', exampleEn: 'The house is big.' },
-    { word: 'die Wohnung', arabic: 'الشقة', english: 'apartment', article: 'die', plural: 'die Wohnungen', pos: 'noun', cefr: 'A1', example: 'Meine Wohnung hat drei Zimmer.', exampleEn: 'My apartment has three rooms.' },
-    { word: 'das Zimmer', arabic: 'الغرفة', english: 'room', article: 'das', plural: 'die Zimmer', pos: 'noun', cefr: 'A1', example: 'Das Zimmer ist hell.', exampleEn: 'The room is bright.' },
-    { word: 'die Küche', arabic: 'المطبخ', english: 'kitchen', article: 'die', plural: 'die Küchen', pos: 'noun', cefr: 'A1', example: 'Die Küche ist modern.', exampleEn: 'The kitchen is modern.' },
-    { word: 'das Schlafzimmer', arabic: 'غرفة النوم', english: 'bedroom', article: 'das', pos: 'noun', cefr: 'A1', example: 'Mein Schlafzimmer ist gemütlich.', exampleEn: 'My bedroom is cozy.' },
-    { word: 'das Bad', arabic: 'الحمام', english: 'bathroom', article: 'das', plural: 'die Bäder', pos: 'noun', cefr: 'A1', example: 'Das Bad ist sauber.', exampleEn: 'The bathroom is clean.' },
-    { word: 'der Tisch', arabic: 'الطاولة', english: 'table', article: 'der', plural: 'die Tische', pos: 'noun', cefr: 'A1', example: 'Der Tisch ist aus Holz.', exampleEn: 'The table is made of wood.' },
-    { word: 'der Stuhl', arabic: 'الكرسي', english: 'chair', article: 'der', plural: 'die Stühle', pos: 'noun', cefr: 'A1', example: 'Der Stuhl ist bequem.', exampleEn: 'The chair is comfortable.' },
-    { word: 'das Bett', arabic: 'السرير', english: 'bed', article: 'das', plural: 'die Betten', pos: 'noun', cefr: 'A1', example: 'Das Bett ist groß.', exampleEn: 'The bed is big.' },
-    { word: 'wohnen', arabic: 'يسكن', english: 'to live', pos: 'verb', cefr: 'A1', example: 'Ich wohne in Berlin.', exampleEn: 'I live in Berlin.' },
+    { word: 'das Haus', arabic: 'البيت', english: 'house', french: 'la maison', article: 'das', plural: 'die Häuser', pos: 'noun', cefr: 'A1', example: 'Das Haus ist groß.', exampleEn: 'The house is big.' },
+    { word: 'die Wohnung', arabic: 'الشقة', english: 'apartment', french: 'l\'appartement', article: 'die', plural: 'die Wohnungen', pos: 'noun', cefr: 'A1', example: 'Meine Wohnung hat drei Zimmer.', exampleEn: 'My apartment has three rooms.' },
+    { word: 'das Zimmer', arabic: 'الغرفة', english: 'room', french: 'la chambre', article: 'das', plural: 'die Zimmer', pos: 'noun', cefr: 'A1', example: 'Das Zimmer ist hell.', exampleEn: 'The room is bright.' },
+    { word: 'die Küche', arabic: 'المطبخ', english: 'kitchen', french: 'la cuisine', article: 'die', plural: 'die Küchen', pos: 'noun', cefr: 'A1', example: 'Die Küche ist modern.', exampleEn: 'The kitchen is modern.' },
+    { word: 'das Schlafzimmer', arabic: 'غرفة النوم', english: 'bedroom', french: 'la chambre à coucher', article: 'das', pos: 'noun', cefr: 'A1', example: 'Mein Schlafzimmer ist gemütlich.', exampleEn: 'My bedroom is cozy.' },
+    { word: 'das Bad', arabic: 'الحمام', english: 'bathroom', french: 'la salle de bains', article: 'das', plural: 'die Bäder', pos: 'noun', cefr: 'A1', example: 'Das Bad ist sauber.', exampleEn: 'The bathroom is clean.' },
+    { word: 'der Tisch', arabic: 'الطاولة', english: 'table', french: 'la table', article: 'der', plural: 'die Tische', pos: 'noun', cefr: 'A1', example: 'Der Tisch ist aus Holz.', exampleEn: 'The table is made of wood.' },
+    { word: 'der Stuhl', arabic: 'الكرسي', english: 'chair', french: 'la chaise', article: 'der', plural: 'die Stühle', pos: 'noun', cefr: 'A1', example: 'Der Stuhl ist bequem.', exampleEn: 'The chair is comfortable.' },
+    { word: 'das Bett', arabic: 'السرير', english: 'bed', french: 'le lit', article: 'das', plural: 'die Betten', pos: 'noun', cefr: 'A1', example: 'Das Bett ist groß.', exampleEn: 'The bed is big.' },
+    { word: 'wohnen', arabic: 'يسكن', english: 'to live', french: 'habiter', pos: 'verb', cefr: 'A1', example: 'Ich wohne in Berlin.', exampleEn: 'I live in Berlin.' },
   ],
   daily_routine: [
-    { word: 'aufstehen', arabic: 'يستيقظ', english: 'to get up', pos: 'verb', cefr: 'A1', example: 'Ich stehe um 6 Uhr auf.', exampleEn: 'I get up at 6 o\'clock.' },
-    { word: 'frühstücken', arabic: 'يتناول الفطور', english: 'to have breakfast', pos: 'verb', cefr: 'A1', example: 'Ich frühstücke um 7 Uhr.', exampleEn: 'I have breakfast at 7 o\'clock.' },
-    { word: 'arbeiten', arabic: 'يعمل', english: 'to work', pos: 'verb', cefr: 'A1', example: 'Ich arbeite in einem Büro.', exampleEn: 'I work in an office.' },
-    { word: 'der Morgen', arabic: 'الصباح', english: 'morning', article: 'der', pos: 'noun', cefr: 'A1', example: 'Am Morgen dusche ich.', exampleEn: 'In the morning I shower.' },
-    { word: 'der Abend', arabic: 'المساء', english: 'evening', article: 'der', pos: 'noun', cefr: 'A1', example: 'Am Abend lese ich ein Buch.', exampleEn: 'In the evening I read a book.' },
-    { word: 'schlafen', arabic: 'ينام', english: 'to sleep', pos: 'verb', cefr: 'A1', example: 'Ich schlafe um 22 Uhr.', exampleEn: 'I sleep at 10 PM.' },
-    { word: 'die Arbeit', arabic: 'العمل', english: 'work', article: 'die', pos: 'noun', cefr: 'A1', example: 'Die Arbeit beginnt um 8 Uhr.', exampleEn: 'Work starts at 8 o\'clock.' },
-    { word: 'gehen', arabic: 'يذهب', english: 'to go', pos: 'verb', cefr: 'A1', example: 'Ich gehe zur Arbeit.', exampleEn: 'I go to work.' },
-    { word: 'die Uhr', arabic: 'الساعة', english: 'clock', article: 'die', plural: 'die Uhren', pos: 'noun', cefr: 'A1', example: 'Die Uhr zeigt 7 Uhr.', exampleEn: 'The clock shows 7 o\'clock.' },
-    { word: 'die Zeit', arabic: 'الوقت', english: 'time', article: 'die', pos: 'noun', cefr: 'A1', example: 'Ich habe keine Zeit.', exampleEn: 'I have no time.' },
+    { word: 'aufstehen', arabic: 'يستيقظ', english: 'to get up', french: 'se lever', pos: 'verb', cefr: 'A1', example: 'Ich stehe um 6 Uhr auf.', exampleEn: 'I get up at 6 o\'clock.' },
+    { word: 'frühstücken', arabic: 'يتناول الفطور', english: 'to have breakfast', french: 'prendre le petit déjeuner', pos: 'verb', cefr: 'A1', example: 'Ich frühstücke um 7 Uhr.', exampleEn: 'I have breakfast at 7 o\'clock.' },
+    { word: 'arbeiten', arabic: 'يعمل', english: 'to work', french: 'travailler', pos: 'verb', cefr: 'A1', example: 'Ich arbeite in einem Büro.', exampleEn: 'I work in an office.' },
+    { word: 'der Morgen', arabic: 'الصباح', english: 'morning', french: 'le matin', article: 'der', pos: 'noun', cefr: 'A1', example: 'Am Morgen dusche ich.', exampleEn: 'In the morning I shower.' },
+    { word: 'der Abend', arabic: 'المساء', english: 'evening', french: 'le soir', article: 'der', pos: 'noun', cefr: 'A1', example: 'Am Abend lese ich ein Buch.', exampleEn: 'In the evening I read a book.' },
+    { word: 'schlafen', arabic: 'ينام', english: 'to sleep', french: 'dormir', pos: 'verb', cefr: 'A1', example: 'Ich schlafe um 22 Uhr.', exampleEn: 'I sleep at 10 PM.' },
+    { word: 'die Arbeit', arabic: 'العمل', english: 'work', french: 'le travail', article: 'die', pos: 'noun', cefr: 'A1', example: 'Die Arbeit beginnt um 8 Uhr.', exampleEn: 'Work starts at 8 o\'clock.' },
+    { word: 'gehen', arabic: 'يذهب', english: 'to go', french: 'aller', pos: 'verb', cefr: 'A1', example: 'Ich gehe zur Arbeit.', exampleEn: 'I go to work.' },
+    { word: 'die Uhr', arabic: 'الساعة', english: 'clock', french: 'l\'horloge', article: 'die', plural: 'die Uhren', pos: 'noun', cefr: 'A1', example: 'Die Uhr zeigt 7 Uhr.', exampleEn: 'The clock shows 7 o\'clock.' },
+    { word: 'die Zeit', arabic: 'الوقت', english: 'time', french: 'le temps', article: 'die', pos: 'noun', cefr: 'A1', example: 'Ich habe keine Zeit.', exampleEn: 'I have no time.' },
   ],
   numbers: [
     { word: 'eins', arabic: 'واحد', english: 'one', pos: 'numeral', cefr: 'A1', example: 'Ich habe einen Bruder.', exampleEn: 'I have one brother.' },
@@ -178,10 +178,73 @@ const VOCAB_DOMAINS: Record<string, VocabItem[]> = {
     { word: 'die Kirche', arabic: 'الكنيسة', english: 'church', article: 'die', plural: 'die Kirchen', pos: 'noun', cefr: 'A1', example: 'Die Kirche ist alt.', exampleEn: 'The church is old.' },
     { word: 'der Park', arabic: 'الحديقة', english: 'park', article: 'der', plural: 'die Parks', pos: 'noun', cefr: 'A1', example: 'Der Park ist groß.', exampleEn: 'The park is big.' },
   ],
+  days_months: [
+    { word: 'der Montag', arabic: 'الاثنين', english: 'Monday', article: 'der', plural: 'die Montage', pos: 'noun', cefr: 'A1', example: 'Am Montag arbeite ich.', exampleEn: 'On Monday I work.' },
+    { word: 'der Dienstag', arabic: 'الثلاثاء', english: 'Tuesday', article: 'der', plural: 'die Dienstage', pos: 'noun', cefr: 'A1', example: 'Dienstag habe ich Unterricht.', exampleEn: 'On Tuesday I have class.' },
+    { word: 'der Mittwoch', arabic: 'الأربعاء', english: 'Wednesday', article: 'der', plural: 'die Mittwoche', pos: 'noun', cefr: 'A1', example: 'Am Mittwoch gehe ich einkaufen.', exampleEn: 'On Wednesday I go shopping.' },
+    { word: 'der Donnerstag', arabic: 'الخميس', english: 'Thursday', article: 'der', plural: 'die Donnerstage', pos: 'noun', cefr: 'A1', example: 'Donnerstag ist der Markt.', exampleEn: 'On Thursday is the market.' },
+    { word: 'der Freitag', arabic: 'الجمعة', english: 'Friday', article: 'der', plural: 'die Freitage', pos: 'noun', cefr: 'A1', example: 'Am Freitag feiern wir.', exampleEn: 'On Friday we celebrate.' },
+    { word: 'der Samstag', arabic: 'السبت', english: 'Saturday', article: 'der', plural: 'die Samstage', pos: 'noun', cefr: 'A1', example: 'Samstag is the German word for Saturday.', exampleEn: 'Samstag is the German word for Saturday.' },
+    { word: 'der Sonntag', arabic: 'الأحد', english: 'Sunday', article: 'der', plural: 'die Sonntage', pos: 'noun', cefr: 'A1', example: 'Am Sonntag ruhen wir uns aus.', exampleEn: 'On Sunday we rest.' },
+    { word: 'der Januar', arabic: 'يناير', english: 'January', article: 'der', pos: 'noun', cefr: 'A1', example: 'Der Januar ist kalt.', exampleEn: 'January is cold.' },
+    { word: 'der Februar', arabic: 'فبراير', english: 'February', article: 'der', pos: 'noun', cefr: 'A1', example: 'Im Februar hat es oft Schnee.', exampleEn: 'In February it often snows.' },
+    { word: 'der März', arabic: 'مارس', english: 'March', article: 'der', pos: 'noun', cefr: 'A1', example: 'Im März wird es wärmer.', exampleEn: 'In March it gets warmer.' },
+    { word: 'der April', arabic: 'أبريل', english: 'April', article: 'der', pos: 'noun', cefr: 'A1', example: 'Im April blühen die Blumen.', exampleEn: 'In April the flowers bloom.' },
+    { word: 'der Mai', arabic: 'مايو', english: 'May', article: 'der', pos: 'noun', cefr: 'A1', example: 'Der Mai ist ein schöner Monat.', exampleEn: 'May is a nice month.' },
+    { word: 'der Juni', arabic: 'يونيو', english: 'June', article: 'der', pos: 'noun', cefr: 'A1', example: 'Im Juni ist Sommer.', exampleEn: 'In June it is summer.' },
+    { word: 'der Juli', arabic: 'يوليو', english: 'July', article: 'der', pos: 'noun', cefr: 'A1', example: 'Der Juli ist heiß.', exampleEn: 'July is hot.' },
+    { word: 'der August', arabic: 'أغسطس', english: 'August', article: 'der', pos: 'noun', cefr: 'A1', example: 'Im August mache ich Urlaub.', exampleEn: 'In August I go on vacation.' },
+    { word: 'der September', arabic: 'سبتمبر', english: 'September', article: 'der', pos: 'noun', cefr: 'A1', example: 'Im September beginnt die Schule.', exampleEn: 'In September school starts.' },
+    { word: 'der Oktober', arabic: 'أكتوبر', english: 'October', article: 'der', pos: 'noun', cefr: 'A1', example: 'Im Oktober ist Oktoberfest.', exampleEn: 'In October is Oktoberfest.' },
+    { word: 'der November', arabic: 'نوفمبر', english: 'November', article: 'der', pos: 'noun', cefr: 'A1', example: 'Der November ist oft grau.', exampleEn: 'November is often gray.' },
+    { word: 'der Dezember', arabic: 'ديسمبر', english: 'December', article: 'der', pos: 'noun', cefr: 'A1', example: 'Im Dezember feiern wir Weihnachten.', exampleEn: 'In December we celebrate Christmas.' },
+    { word: 'heute', arabic: 'اليوم', english: 'today', pos: 'adverb', cefr: 'A1', example: 'Heute ist Montag.', exampleEn: 'Today is Monday.' },
+    { word: 'morgen', arabic: 'غداً', english: 'tomorrow', pos: 'adverb', cefr: 'A1', example: 'Morgen habe ich einen Termin.', exampleEn: 'Tomorrow I have an appointment.' },
+    { word: 'gestern', arabic: 'أمس', english: 'yesterday', pos: 'adverb', cefr: 'A1', example: 'Gestern war ich im Kino.', exampleEn: 'Yesterday I was at the cinema.' },
+  ],
+  classroom: [
+    { word: 'der Tisch', arabic: 'الطاولة', english: 'table', article: 'der', plural: 'die Tische', pos: 'noun', cefr: 'A1', example: 'Der Tisch ist braun.', exampleEn: 'The table is brown.' },
+    { word: 'der Stuhl', arabic: 'الكرسي', english: 'chair', article: 'der', plural: 'die Stühle', pos: 'noun', cefr: 'A1', example: 'Der Stuhl ist bequem.', exampleEn: 'The chair is comfortable.' },
+    { word: 'das Buch', arabic: 'الكتاب', english: 'book', article: 'das', plural: 'die Bücher', pos: 'noun', cefr: 'A1', example: 'Das Buch ist dick.', exampleEn: 'The book is thick.' },
+    { word: 'der Stift', arabic: 'القلم', english: 'pen', article: 'der', plural: 'die Stifte', pos: 'noun', cefr: 'A1', example: 'Der Stift schreibt blau.', exampleEn: 'The pen writes blue.' },
+    { word: 'der Bleistift', arabic: 'قلم الرصاص', english: 'pencil', article: 'der', plural: 'die Bleistifte', pos: 'noun', cefr: 'A1', example: 'Der Bleistift ist spitz.', exampleEn: 'The pencil is sharp.' },
+    { word: 'der Radiergummi', arabic: 'الممحاة', english: 'eraser', article: 'der', plural: 'die Radiergummis', pos: 'noun', cefr: 'A1', example: 'Mit dem Radiergummi kann ich radieren.', exampleEn: 'With the eraser I can erase.' },
+    { word: 'das Heft', arabic: 'الدفتر', english: 'notebook', article: 'das', plural: 'die Hefte', pos: 'noun', cefr: 'A1', example: 'Das Heft hat 100 Seiten.', exampleEn: 'The notebook has 100 pages.' },
+    { word: 'die Tafel', arabic: 'السبورة', english: 'blackboard', article: 'die', plural: 'die Tafeln', pos: 'noun', cefr: 'A1', example: 'Die Tafel ist grün.', exampleEn: 'The blackboard is green.' },
+    { word: 'der Rucksack', arabic: 'حقيبة الظهر', english: 'backpack', article: 'der', plural: 'die Rucksäcke', pos: 'noun', cefr: 'A1', example: 'Mein Rucksack ist schwer.', exampleEn: 'My backpack is heavy.' },
+    { word: 'der Unterricht', arabic: 'الدرس', english: 'lesson', article: 'der', pos: 'noun', cefr: 'A1', example: 'Der Unterricht beginnt um 9 Uhr.', exampleEn: 'The lesson starts at 9 o\'clock.' },
+  ],
+  basic_adjectives: [
+    { word: 'groß', arabic: 'كبير', english: 'big', pos: 'adjective', cefr: 'A1', example: 'Das Haus ist groß.', exampleEn: 'The house is big.' },
+    { word: 'klein', arabic: 'صغير', english: 'small', pos: 'adjective', cefr: 'A1', example: 'Die Wohnung ist klein.', exampleEn: 'The apartment is small.' },
+    { word: 'gut', arabic: 'جيد', english: 'good', pos: 'adjective', cefr: 'A1', example: 'Das Essen ist gut.', exampleEn: 'The food is good.' },
+    { word: 'schlecht', arabic: 'سيء', english: 'bad', pos: 'adjective', cefr: 'A1', example: 'Das Wetter ist schlecht.', exampleEn: 'The weather is bad.' },
+    { word: 'schön', arabic: 'جميل', english: 'beautiful', pos: 'adjective', cefr: 'A1', example: 'Die Stadt ist schön.', exampleEn: 'The city is beautiful.' },
+    { word: 'neu', arabic: 'جديد', english: 'new', pos: 'adjective', cefr: 'A1', example: 'Das Auto ist neu.', exampleEn: 'The car is new.' },
+    { word: 'alt', arabic: 'قديم', english: 'old', pos: 'adjective', cefr: 'A1', example: 'Der Tisch ist alt.', exampleEn: 'The table is old.' },
+    { word: 'jung', arabic: 'شاب', english: 'young', pos: 'adjective', cefr: 'A1', example: 'Mein Bruder ist jung.', exampleEn: 'My brother is young.' },
+    { word: 'schnell', arabic: 'سريع', english: 'fast', pos: 'adjective', cefr: 'A1', example: 'Der Zug ist schnell.', exampleEn: 'The train is fast.' },
+    { word: 'langsam', arabic: 'بطيء', english: 'slow', pos: 'adjective', cefr: 'A1', example: 'Die Schnecke ist langsam.', exampleEn: 'The snail is slow.' },
+    { word: 'teuer', arabic: 'غالي', english: 'expensive', pos: 'adjective', cefr: 'A1', example: 'Das Hotel ist teuer.', exampleEn: 'The hotel is expensive.' },
+    { word: 'billig', arabic: 'رخيص', english: 'cheap', pos: 'adjective', cefr: 'A1', example: 'Der Markt ist billig.', exampleEn: 'The market is cheap.' },
+    { word: 'wichtig', arabic: 'مهم', english: 'important', pos: 'adjective', cefr: 'A1', example: 'Das ist wichtig.', exampleEn: 'That is important.' },
+    { word: 'richtig', arabic: 'صحيح', english: 'correct', pos: 'adjective', cefr: 'A1', example: 'Die Antwort ist richtig.', exampleEn: 'The answer is correct.' },
+    { word: 'falsch', arabic: 'خطأ', english: 'wrong', pos: 'adjective', cefr: 'A1', example: 'Das ist falsch.', exampleEn: 'That is wrong.' },
+  ],
+  digital_basics: [
+    { word: 'der Computer', arabic: 'الحاسوب', english: 'computer', article: 'der', plural: 'die Computer', pos: 'noun', cefr: 'A1', example: 'Der Computer ist neu.', exampleEn: 'The computer is new.' },
+    { word: 'das Handy', arabic: 'الهاتف المحمول', english: 'mobile phone', article: 'das', plural: 'die Handys', pos: 'noun', cefr: 'A1', example: 'Mein Handy klingelt.', exampleEn: 'My phone is ringing.' },
+    { word: 'das Internet', arabic: 'الإنترنت', english: 'internet', article: 'das', pos: 'noun', cefr: 'A1', example: 'Das Internet ist schnell.', exampleEn: 'The internet is fast.' },
+    { word: 'die E-Mail', arabic: 'البريد الإلكتروني', english: 'email', article: 'die', plural: 'die E-Mails', pos: 'noun', cefr: 'A1', example: 'Ich schreibe eine E-Mail.', exampleEn: 'I write an email.' },
+    { word: 'die App', arabic: 'التطبيق', english: 'app', article: 'die', plural: 'die Apps', pos: 'noun', cefr: 'A1', example: 'Die App ist kostenlos.', exampleEn: 'The app is free.' },
+    { word: 'die Website', arabic: 'الموقع الإلكتروني', english: 'website', article: 'die', plural: 'die Websites', pos: 'noun', cefr: 'A1', example: 'Die Website ist interessant.', exampleEn: 'The website is interesting.' },
+    { word: 'surfen', arabic: 'يتصفح', english: 'to surf', pos: 'verb', cefr: 'A1', example: 'Ich surfe im Internet.', exampleEn: 'I surf the internet.' },
+    { word: 'tippen', arabic: 'يكتب على لوحة المفاتيح', english: 'to type', pos: 'verb', cefr: 'A1', example: 'Ich tippe eine Nachricht.', exampleEn: 'I type a message.' },
+  ],
   directions: [
-    { word: 'links', arabic: 'يسار', english: 'left', pos: 'adverb', cefr: 'A2', example: 'Biegen Sie links ab.', exampleEn: 'Turn left.' },
-    { word: 'rechts', arabic: 'يمين', english: 'right', pos: 'adverb', cefr: 'A2', example: 'Das Museum ist rechts.', exampleEn: 'The museum is on the right.' },
-    { word: 'geradeaus', arabic: 'مباشرة', english: 'straight ahead', pos: 'adverb', cefr: 'A2', example: 'Gehen Sie geradeaus.', exampleEn: 'Go straight ahead.' },
+    { word: 'links', arabic: 'يسار', english: 'left', pos: 'adverb', cefr: 'A1', example: 'Biegen Sie links ab.', exampleEn: 'Turn left.' },
+    { word: 'rechts', arabic: 'يمين', english: 'right', pos: 'adverb', cefr: 'A1', example: 'Das Museum ist rechts.', exampleEn: 'The museum is on the right.' },
+    { word: 'geradeaus', arabic: 'مباشرة', english: 'straight ahead', pos: 'adverb', cefr: 'A1', example: 'Gehen Sie geradeaus.', exampleEn: 'Go straight ahead.' },
     { word: 'die Kreuzung', arabic: 'التقاطع', english: 'intersection', article: 'die', plural: 'die Kreuzungen', pos: 'noun', cefr: 'A2', example: 'An der Kreuzung links.', exampleEn: 'At the intersection, turn left.' },
     { word: 'die Ecke', arabic: 'الزاوية', english: 'corner', article: 'die', plural: 'die Ecken', pos: 'noun', cefr: 'A2', example: 'Um die Ecke ist ein Café.', exampleEn: 'Around the corner is a café.' },
     { word: 'die Karte', arabic: 'الخريطة', english: 'map', article: 'die', plural: 'die Karten', pos: 'noun', cefr: 'A2', example: 'Haben Sie eine Karte?', exampleEn: 'Do you have a map?' },
@@ -582,7 +645,7 @@ const VOCAB_DOMAINS: Record<string, VocabItem[]> = {
 // ==============================
 
 const LEVEL_DOMAIN_MAP: Record<string, string[]> = {
-  A1: ['greetings', 'family', 'food', 'home', 'daily_routine', 'numbers', 'colors', 'body', 'clothes', 'weather'],
+  A1: ['greetings', 'family', 'food', 'home', 'daily_routine', 'numbers', 'colors', 'body', 'clothes', 'weather', 'days_months', 'classroom', 'basic_adjectives', 'digital_basics', 'directions'],
   A2: ['shopping', 'travel', 'restaurant', 'health', 'city', 'directions', 'hobbies', 'holidays', 'nature', 'animals'],
   B1: ['work', 'education', 'media', 'society', 'environment', 'technology', 'culture', 'sports', 'relationships', 'feelings'],
   B2: ['business', 'politics', 'science', 'economy', 'law', 'finance', 'art', 'literature', 'history', 'philosophy'],
@@ -1045,6 +1108,145 @@ const GRAMMAR_TOPICS_A1: Array<(spec: LessonSpec) => GrammarTopic> = [
     teacherNotes: ['Arabic has direct object pronouns attached to verbs; German uses separate words', 'Drill accusative pronouns with "sehen", "hören", "lieben"', 'Question word "wen?" (whom) introduces accusative pronouns naturally'],
     examNotes: ['Goethe A1: Accusative pronouns in "Kannst du...?" questions', 'TELC A1: Personal pronouns in short dialogues'],
   }),
+  (spec) => ({
+    title: 'Possessivartikel: mein, dein, sein, ihr (Possessive Articles)', titleArabic: 'أدوات الملكية',
+    explanation: 'German possessive articles agree with the noun they modify (gender of the owned item), not the owner. mein (my), dein (your, informal), sein (his/its), ihr (her/their), unser (our), euer (your plural), Ihr (your formal). They follow the same endings as "ein" in nominative and accusative.',
+    explanationArabic: 'أدوات الملكية في الألمانية تتفق مع الاسم الذي تعدله (جنس الشيء المملوك)، وليس المالك. mein (لي), dein (لك), sein (له), ihr (لها/لهم)',
+    rules: [
+      { rule: 'mein + masculine (Nom): mein Vater', note: 'Mein Vater ist Arzt.', arabic: 'mein + مذكر (رفع): mein Vater' },
+      { rule: 'mein + feminine (Nom): meine Mutter', note: 'Meine Mutter ist Lehrerin.', arabic: 'mein + مؤنث (رفع): meine Mutter' },
+      { rule: 'mein + neuter (Nom): mein Kind', note: 'Mein Kind ist klein.', arabic: 'mein + محايد (رفع): mein Kind' },
+      { rule: 'Possessive follows "ein" pattern: no ending in Nom masc/neut, add -e in Nom fem/plural', note: 'mein (masc/neut), meine (fem/plural)', arabic: 'الملكية تتبع نمط "ein"' },
+    ],
+    examples: [
+      { german: 'Mein Bruder heißt Max.', arabic: 'أخي اسمه ماكس.', english: 'My brother is called Max.' },
+      { german: 'Meine Mutter kocht gut.', arabic: 'أمي تطبخ جيداً.', english: 'My mother cooks well.' },
+      { german: 'Dein Hund ist süß.', arabic: 'كلبك لطيف.', english: 'Your dog is cute.' },
+      { german: 'Ihre Schwester studiert in Berlin.', arabic: 'أختها (أختهم) تدرس في برلين.', english: 'Her/Their sister studies in Berlin.' },
+    ],
+    mistakes: [
+      { mistake: 'Mein Mutter (using mein for feminine)', correction: 'Meine Mutter', explanation: 'With feminine nouns, possessive adds -e: meine.', arabic: 'مع الأسماء المؤنثة، تضيف الملكية -e: meine.' },
+      { mistake: 'Mein Schwester (wrong ending)', correction: 'Meine Schwester', explanation: '"Schwester" is feminine → meine.', arabic: '"Schwester" مؤنث → meine.' },
+    ],
+    memoryTip: 'Think of possessive mein like ein. If you know "ein Haus" and "eine Frau", you know "mein Haus" and "meine Frau". Same pattern!',
+    teacherNotes: ['Contrast with Arabic: Arabic possessives are suffixes (kitābī = mein Buch). German uses separate words.', 'Drill with family members: mein Vater, meine Mutter, mein Bruder, meine Schwester', 'Practice: exchange personal items and say "Das ist mein/dein..."'],
+    examNotes: ['Goethe A1: Possessive articles in Leseverstehen — identify who owns what', 'TELC A1: Possessives in speaking — "Mein Bruder wohnt in Berlin"'],
+  }),
+  (spec) => ({
+    title: 'sein und haben (To Be and To Have)', titleArabic: 'يكون ويملك',
+    explanation: '"Sein" (to be) and "haben" (to have) are the two most important verbs in German. They are irregular and used as auxiliary verbs too. sein: ich bin, du bist, er/sie/es ist, wir sind, ihr seid, sie/Sie sind. haben: ich habe, du hast, er/sie/es hat, wir haben, ihr habt, sie/Sie haben.',
+    explanationArabic: 'sein (يكون) و haben (يملك) هما أهم فعلين في الألمانية. هما غير منتظمين ويستخدمان أيضاً كأفعال مساعدة.',
+    rules: [
+      { rule: 'sein: ich bin, du bist, er/sie/es ist, wir sind, ihr seid, sie/Sie sind', note: 'Ich bin Ahmed. Du bist Student. Er ist Arzt.', arabic: 'تصريف sein' },
+      { rule: 'haben: ich habe, du hast, er/sie/es hat, wir haben, ihr habt, sie/Sie haben', note: 'Ich habe einen Bruder. Sie hat keine Zeit.', arabic: 'تصريف haben' },
+      { rule: 'Use sein for: profession, nationality, location, description', note: 'Ich bin Lehrer. Wir sind in Berlin. Das ist wichtig.', arabic: 'استخدم sein لـ: المهنة، الجنسية، المكان، الوصف' },
+      { rule: 'Use haben for: possession, age, feelings', note: 'Ich habe Hunger. Sie hat 20 Jahre.', arabic: 'استخدم haben لـ: الملكية، العمر، المشاعر' },
+    ],
+    examples: [
+      { german: 'Ich bin Student und lerne Deutsch.', arabic: 'أنا طالب وأتعلم الألمانية.', english: 'I am a student and I learn German.' },
+      { german: 'Du hast eine schöne Wohnung.', arabic: 'لديك شقة جميلة.', english: 'You have a nice apartment.' },
+      { german: 'Er ist Arzt und hat viel Arbeit.', arabic: 'هو طبيب ولديه الكثير من العمل.', english: 'He is a doctor and has a lot of work.' },
+      { german: 'Wir sind in Berlin und haben Zeit.', arabic: 'نحن في برلين ولدينا وقت.', english: 'We are in Berlin and have time.' },
+    ],
+    mistakes: [
+      { mistake: 'Ich bin 20 Jahre (using sein for age)', correction: 'Ich habe 20 Jahre / Ich bin 20 Jahre alt', explanation: 'In German, "haben" is used for age: "Wie alt bist du?" uses "sein" for age too. Confusing but important.', arabic: 'في الألمانية، يمكن استخدام haben وsein للعمر.' },
+      { mistake: 'Er hat krank (using haben for condition)', correction: 'Er ist krank', explanation: 'Health conditions use "sein", not "haben" in German.', arabic: 'الحالات الصحية تستخدم "sein" في الألمانية.' },
+    ],
+    memoryTip: 'S-E-I-N: "I am" = bin (B), "you are" = bist (B+S), "he is" = ist (I). H-A-B-E-N: ich habe (have), du hast (has+t), er hat (hat). The third person drops the -b-!',
+    teacherNotes: ['These two verbs cover 30% of A1 spoken German', 'Drill conjugations as a chant: "ich bin, du bist, er ist, wir sind, ihr seid, sie sind"', 'Use "Wer bist du?" and "Was hast du?" for natural practice'],
+    examNotes: ['Goethe A1: sein/haben in every section — they are unavoidable', 'TELC A1: Correct sein/haben conjugation is essential for passing'],
+  }),
+  (spec) => ({
+    title: 'W-Fragen (Question Words)', titleArabic: 'أدوات الاستفهام',
+    explanation: 'German question words (W-Wörter) all start with W. They ask for specific information. wer (who), was (what), wo (where), woher (where from), wohin (where to), wie (how), wann (when), warum (why), wie viel (how much). The verb stays in position 2, the question word is in position 1.',
+    explanationArabic: 'أدوات الاستفهام في الألمانية تبدأ كلها بحرف W. الفعل يبقى في الموضع 2، وأداة الاستفهام في الموضع 1.',
+    rules: [
+      { rule: 'Question word + verb + subject + rest', note: 'Wo wohnst du? Was machst du? Wie heißt du?', arabic: 'أداة الاستفهام + فعل + فاعل + بقية الجملة' },
+      { rule: 'wer (who) changes case: wer (Nom), wen (Akk), wem (Dat)', note: 'Wer ist das? Wen siehst du? Wem hilfst du?', arabic: 'wer تتغير حسب الحالة الإعرابية' },
+      { rule: 'wie = how, wo = where, wann = when, warum = why', note: 'Wie geht es dir? Wo ist der Bahnhof? Wann kommst du?', arabic: 'معاني أدوات الاستفهام' },
+    ],
+    examples: [
+      { german: 'Wie heißt du?', arabic: 'ما اسمك؟', english: 'What is your name?' },
+      { german: 'Wo wohnst du?', arabic: 'أين تسكن؟', english: 'Where do you live?' },
+      { german: 'Woher kommst du?', arabic: 'من أين أنت؟', english: 'Where do you come from?' },
+      { german: 'Was machst du beruflich?', arabic: 'ماذا تعمل؟', english: 'What do you do for a living?' },
+    ],
+    mistakes: [
+      { mistake: 'Du wohnst wo? (putting question word at the end)', correction: 'Wo wohnst du?', explanation: 'The question word ALWAYS comes first in German W-questions.', arabic: 'أداة الاستفهام دائماً تأتي أولاً في الأسئلة الألمانية.' },
+      { mistake: 'Was ist dein Name? (too literal from English)', correction: 'Wie heißt du?', explanation: 'German uses "Wie heißt du?" (How are you called?) not "Was ist dein Name?"', arabic: 'الألمانية تستخدم "Wie heißt du؟" وليس "Was ist dein Name؟"' },
+    ],
+    memoryTip: 'All question words start with W: Wer, Was, Wo, Woher, Wohin, Wie, Wann, Warum. Think "W = Question" in German!',
+    teacherNotes: ['Practice the 8 essential W-questions with students taking turns', 'Show the difference: Ja/Nein questions (verb first) vs W-questions (W-word first)', 'Roleplay: first day at school/work — use W-questions naturally'],
+    examNotes: ['Goethe A1: W-questions in Leseverstehen — understand the question word to find the answer', 'TELC A1: W-questions in speaking — ask your partner questions'],
+  }),
+  (spec) => ({
+    title: 'Negation: nicht und kein (Negation)', titleArabic: 'النفي: nicht و kein',
+    explanation: 'German has two ways to negate: "nicht" (not) negates verbs, adjectives, and adverbs. "kein" (no/none) negates nouns — it replaces "ein/eine". kein follows the same endings as ein and mein. Position of nicht: at the end for simple sentences, before the word it negates.',
+    explanationArabic: 'في الألمانية طريقتان للنفي: "nicht" (لا) ينفي الأفعال والصفات. "kein" (لا شيء) ينفي الأسماء - يحل محل "ein/eine".',
+    rules: [
+      { rule: 'nicht negates verbs, adjectives, adverbs, and proper nouns', note: 'Ich lerne nicht. Das Haus ist nicht groß. Das ist nicht Berlin.', arabic: 'nicht ينفي الأفعال والصفات' },
+      { rule: 'kein negates nouns with articles ein/eine', note: 'Ich habe kein Auto. (instead of: ein Auto). Er ist kein Arzt.', arabic: 'kein ينفي الأسماء التي تأخذ ein/eine' },
+      { rule: 'kein endings: kein (masc/neut Nom), keine (fem/plural Nom/Akk), keinen (masc Akk)', note: 'kein Hund (Nom), keine Katze, keinen Tisch (Akk)', arabic: 'تصريف kein حسب الجنس والحالة' },
+      { rule: 'nicht comes at the end of simple sentences', note: 'Ich arbeite heute nicht. Er kommt morgen nicht.', arabic: 'nicht يأتي في نهاية الجمل البسيطة' },
+    ],
+    examples: [
+      { german: 'Ich habe kein Auto, aber ein Fahrrad.', arabic: 'ليس لدي سيارة، لكن لدي دراجة.', english: 'I have no car, but a bicycle.' },
+      { german: 'Das ist nicht mein Buch.', arabic: 'هذا ليس كتابي.', english: 'That is not my book.' },
+      { german: 'Er ist nicht müde, er ist krank.', arabic: 'هو ليس متعباً، هو مريض.', english: 'He is not tired, he is sick.' },
+      { german: 'Wir haben keine Zeit.', arabic: 'ليس لدينا وقت.', english: 'We have no time.' },
+    ],
+    mistakes: [
+      { mistake: 'Ich habe nicht Auto (using nicht for nouns)', correction: 'Ich habe kein Auto', explanation: 'With nouns that have "ein", use "kein" instead of "nicht".', arabic: 'مع الأسماء التي تأخذ "ein"، استخدم "kein" بدلاً من "nicht".' },
+      { mistake: 'Kein Problem! (using kein for abstract, okay here, but:) Kein Hunger?', correction: 'Ich habe keinen Hunger.', explanation: '"Kein" with masculine nouns in accusative becomes "keinen".', arabic: '"kein" مع الأسماء المذكرة في حالة النصب يصبح "keinen".' },
+    ],
+    memoryTip: 'KEIN = KEIN + EIN. It\'s the negative of "ein/eine". If you can say "ein Bier", the negative is "kein Bier". If you can\'t say "ein", use "nicht": "Ich bin nicht müde."',
+    teacherNotes: ['Arabic has one negation word "لا" — German has two: nicht/kein', 'Practice: "Hast du ein Auto?" → "Nein, ich habe kein Auto."', 'Drill: "Bist du müde?" → "Nein, ich bin nicht müde."'],
+    examNotes: ['Goethe A1: kein/nicht distinction tested in grammar section', 'TELC A1: Negation in writing — use "kein" for nouns correctly'],
+  }),
+  (spec) => ({
+    title: 'möchten — Höfliche Bitten (Polite Requests)', titleArabic: 'möchten — الطلبات المهذبة',
+    explanation: '"Möchten" is the subjunctive form of "mögen" and means "would like". It is the most important word for polite requests in German. Conjugation: ich möchte, du möchtest, er/sie/es möchte, wir möchten, ihr möchtet, sie/Sie möchten. It is always followed by an infinitive at the end, or a noun.',
+    explanationArabic: '"Möchten" هي صيغة الشرط من "mögen" وتعني "أود". هي أهم كلمة للطلبات المهذبة في الألمانية.',
+    rules: [
+      { rule: 'möchten + noun: Ich möchte einen Kaffee.', note: 'Used like "I would like a..."', arabic: 'möchten + اسم' },
+      { rule: 'möchten + infinitive (at end): Ich möchte zahlen.', note: 'Verb goes to the end', arabic: 'möchten + فعل مصدر (في النهاية)' },
+      { rule: 'ich möchte, du möchtest, er/sie/es möchte, wir möchten', note: 'Similar to modal verb conjugation', arabic: 'تصريف möchten' },
+    ],
+    examples: [
+      { german: 'Ich möchte einen Kaffee, bitte.', arabic: 'أود فنجان قهوة من فضلك.', english: 'I would like a coffee, please.' },
+      { german: 'Wir möchten zahlen, bitte.', arabic: 'نود الدفع من فضلك.', english: 'We would like to pay, please.' },
+      { german: 'Möchtest du etwas essen?', arabic: 'هل ترغب في أكل شيء؟', english: 'Would you like something to eat?' },
+    ],
+    mistakes: [
+      { mistake: 'Ich will einen Kaffee (too direct)', correction: 'Ich möchte einen Kaffee.', explanation: '"Ich will" is too direct in restaurants. Use "möchten" for polite requests.', arabic: '"Ich will" مباشر جداً في المطاعم. استخدم "möchten" للطلبات المهذبة.' },
+      { mistake: 'Ich möchte ein Wasser (wrong article in accusative)', correction: 'Ich möchte ein Wasser / Ich möchte einen Kaffee.', explanation: '"Kaffee" is masculine → "einen" (Akkusativ). "Wasser" is neuter → "ein".', arabic: '"Kaffee" مذكر → "einen". "Wasser" محايد → "ein".' },
+    ],
+    memoryTip: 'MÖCHTEN = polite "want". Think: "I would LIKE" (polite) vs "I WANT" (direct). In Germany, always use möchten in restaurants and shops.',
+    teacherNotes: ['Roleplay ordering in a café: "Ich möchte..." is the most useful phrase', 'Show difference: "Ich will" (direct) vs "Ich möchte" (polite)', 'Practice with drinks and food items in accusative'],
+    examNotes: ['Goethe A1: möchten in speaking and listening — used in every roleplay', 'TELC A1: "Ich möchte..." is expected in the speaking section'],
+  }),
+  (spec) => ({
+    title: 'gern und mögen (Likes and Preferences)', titleArabic: 'gern و mögen (الإعجاب والتفضيل)',
+    explanation: 'Use "gern" (or "gerne") after a verb to express liking an activity: Ich lerne gern Deutsch. Use "mögen" to express liking things/nouns: Ich mag Schokolade. For disliking: "nicht gern" or "nicht mögen".',
+    explanationArabic: 'استخدم "gern" بعد الفعل للتعبير عن الإعجاب بنشاط. استخدم "mögen" للتعبير عن الإعجاب بأشياء.',
+    rules: [
+      { rule: 'verb + gern: Ich lerne gern. Ich reise gern.', note: '"gern" follows the verb', arabic: 'فعل + gern: تعبر عن الإعجاب بفعل شيء' },
+      { rule: 'mögen + noun: Ich mag Fußball. Sie mag Tiere.', note: 'mögen conjugation: ich mag, du magst, er/sie/es mag', arabic: 'mögen + اسم: تعبر عن الإعجاب بشيء' },
+      { rule: 'nicht gern = don\'t like to', note: 'Ich arbeite nicht gern am Sonntag.', arabic: 'nicht gern = لا أحب أن' },
+    ],
+    examples: [
+      { german: 'Ich lerne gern Deutsch.', arabic: 'أحب تعلم الألمانية.', english: 'I like learning German.' },
+      { german: 'Magst du Fußball?', arabic: 'هل تحب كرة القدم؟', english: 'Do you like soccer?' },
+      { german: 'Wir reisen nicht gern im Winter.', arabic: 'لا نحب السفر في الشتاء.', english: 'We don\'t like traveling in winter.' },
+    ],
+    mistakes: [
+      { mistake: 'Ich gern Deutsch lernen (placing gern at the beginning)', correction: 'Ich lerne gern Deutsch.', explanation: '"Gern" comes AFTER the conjugated verb, not before.', arabic: '"Gern" تأتي بعد الفعل المصرف.' },
+      { mistake: 'Ich mag Fußball spielen (using mögen for activities)', correction: 'Ich spiele gern Fußball.', explanation: 'For activities, use "gern" with the activity verb, not "mögen".', arabic: 'للأنشطة، استخدم "gern" مع فعل النشاط.' },
+    ],
+    memoryTip: 'GERN = "gladly" — put it right after the verb. I ride (Fahrrad) gladly → Ich fahre gern Fahrrad. MÖGEN = "to like" — use it for things: Ich mag Pizza.',
+    teacherNotes: ['Ask "Was machst du gern?" to practice', 'Use hobbies vocabulary: Sport, Lesen, Kochen, Reisen', 'Contrast with Arabic: "uhibbu" covers both uses'],
+    examNotes: ['Goethe A1: "gern" in speaking — talk about hobbies', 'TELC A1: mögen in Leseverstehen — identify preferences'],
+  }),
 ]
 
 const GRAMMAR_TOPICS_A2: Array<(spec: LessonSpec) => GrammarTopic> = [
@@ -1309,12 +1511,26 @@ const GRAMMAR_TOPICS_C2: Array<(spec: LessonSpec) => GrammarTopic> = [
   }),
 ]
 
+const A1_GRAMMAR_LOOKUP: Record<string, number> = {
+  present_tense: 0,
+  articles_nominative_akkusativ: 1,
+  personal_pronouns: 2,
+  possessive_articles: 3,
+  sein_haben: 4,
+  question_words: 5,
+  negation: 6,
+  mochten: 7,
+  gern_mogen: 8,
+}
+
 function generateLevelGrammar(spec: LessonSpec, cefr: string, sampleVocab: VocabItem[]): GrammarTopic | null {
   const topicIndex = spec.id.split('-').pop() || '0'
   const idx = parseInt(topicIndex, 10) || 0
 
   if (cefr === 'A1') {
-    const template = GRAMMAR_TOPICS_A1[idx % GRAMMAR_TOPICS_A1.length]
+    const grammarIdx = A1_GRAMMAR_LOOKUP[spec.grammarFocus] ?? (idx % 3)
+    const template = GRAMMAR_TOPICS_A1[grammarIdx]
+    if (!template) return null
     return { ...template(spec), teacherNotes: template(spec).teacherNotes || [], examNotes: template(spec).examNotes || [] }
   }
   if (cefr === 'A2') {
@@ -1344,6 +1560,17 @@ function generateLevelGrammar(spec: LessonSpec, cefr: string, sampleVocab: Vocab
 // MAIN COMPILER
 // ==============================
 
+const LESSON_TYPE_MAP: Record<string, string> = {
+  conversation: 'speaking',
+  culture: 'reading',
+  dialogue: 'speaking',
+  pronunciation: 'vocabulary',
+}
+
+function mapLessonType(t: string): string {
+  return LESSON_TYPE_MAP[t] || t
+}
+
 export function compileLesson(spec: LessonSpec, levelVocab: VocabItem[]): CompleteLesson {
   const cefr = spec.cefr
   const isA1 = cefr === 'A1'
@@ -1372,7 +1599,7 @@ export function compileLesson(spec: LessonSpec, levelVocab: VocabItem[]): Comple
     title: spec.title,
     description: spec.description,
     topic: spec.topic,
-    type: spec.type,
+    type: mapLessonType(spec.type),
     duration: spec.duration,
     orderIndex: spec.orderIndex,
     componentFlags: {
@@ -1579,7 +1806,7 @@ export function compileLesson(spec: LessonSpec, levelVocab: VocabItem[]): Comple
         front: `${v.article ? v.article + ' ' : ''}${v.word}${v.plural ? ` (${v.plural})` : ''}`,
         back: `${v.english} — ${v.arabic}`,
         hint: v.pos,
-        category: v.pos,
+        category: 'vocabulary',
       })),
       ...grammar.flatMap(g => g.examples.slice(0, 3).map((ex, i) => ({
         front: ex.german,

@@ -65,7 +65,7 @@ export default function MentorPage() {
   }
 
   async function createChat() {
-    const title = newChatTitle || `German Practice - ${new Date().toLocaleDateString()}`
+    const title = newChatTitle || `Deutsch Übung - ${new Date().toLocaleDateString()}`
     try {
       const res = await fetch('/api/mentor', {
         method: 'POST',
@@ -124,20 +124,20 @@ export default function MentorPage() {
               <GraduationCap className="h-5 w-5" />
             </div>
             <div>
-              <h1 className="text-lg font-bold tracking-tight">AI Mentor</h1>
-              <p className="text-xs text-muted-foreground">Your personal German teacher</p>
+              <h1 className="text-lg font-bold tracking-tight">KI-Mentor</h1>
+              <p className="text-xs text-muted-foreground">Dein persönlicher Deutschlehrer</p>
             </div>
           </div>
           <Button size="sm" onClick={() => setShowNewChat(true)} className="bg-amber-600 hover:bg-amber-700">
-            <Plus className="h-4 w-4 mr-1" /> New Conversation
+            <Plus className="h-4 w-4 mr-1" /> Neue Unterhaltung
           </Button>
           <AnimatePresence>
             {showNewChat && (
               <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="space-y-2">
-                <Input placeholder="Conversation title..." value={newChatTitle} onChange={(e) => setNewChatTitle(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && createChat()} />
+                <Input placeholder="Gesprächsthema..." value={newChatTitle} onChange={(e) => setNewChatTitle(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && createChat()} />
                 <div className="flex gap-2">
-                  <Button size="sm" variant="outline" onClick={() => setShowNewChat(false)}>Cancel</Button>
-                  <Button size="sm" onClick={createChat}>Start</Button>
+                  <Button size="sm" variant="outline" onClick={() => setShowNewChat(false)}>Abbrechen</Button>
+                  <Button size="sm" onClick={createChat}>Starten</Button>
                 </div>
               </motion.div>
             )}
@@ -156,7 +156,7 @@ export default function MentorPage() {
                   <Trash2 className="h-3.5 w-3.5 text-muted-foreground opacity-0 group-hover:opacity-100 hover:text-red-500 shrink-0 ml-2" onClick={(e) => { e.stopPropagation(); deleteChat(chat.id) }} />
                 </button>
               ))}
-              {chats.length === 0 && <p className="text-xs text-muted-foreground p-3 text-center">No conversations yet. Start a new one!</p>}
+              {chats.length === 0 && <p className="text-xs text-muted-foreground p-3 text-center">Noch keine Unterhaltungen. Starte eine neue!</p>}
             </div>
           </ScrollArea>
         </div>
@@ -202,7 +202,7 @@ export default function MentorPage() {
               </ScrollArea>
               <div className="flex gap-2 pt-4 border-t">
                 <Input
-                  placeholder="Ask your German teacher anything..."
+                  placeholder="Frage deinen Deutschlehrer alles..."
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
@@ -219,17 +219,17 @@ export default function MentorPage() {
                 <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-amber-100 dark:bg-amber-900/30 mb-4">
                   <GraduationCap className="h-8 w-8 text-amber-500" />
                 </div>
-                <h2 className="text-xl font-bold mb-2">Your AI German Teacher</h2>
+                <h2 className="text-xl font-bold mb-2">Dein KI-Deutschlehrer</h2>
                 <p className="text-muted-foreground mb-6">
-                  Practice conversations, get grammar explanations, correct your writing, 
-                  and prepare for Goethe/TELC exams. Your personal mentor adapts to your level.
+                  Übe Gespräche, erhalte Grammatikerklärungen, korrigiere deine Texte
+                  und bereite dich auf Goethe-/TELC-Prüfungen vor. Dein persönlicher Mentor passt sich deinem Niveau an.
                 </p>
                 <div className="grid grid-cols-2 gap-3 text-sm">
                   {[
-                    { icon: MessageSquare, text: 'Practice conversations in German' },
-                    { icon: BookOpen, text: 'Get grammar explanations' },
-                    { icon: Sparkles, text: 'Vocabulary suggestions' },
-                    { icon: AlertCircle, text: 'Mistake correction & feedback' },
+                    { icon: MessageSquare, text: 'Gespräche auf Deutsch üben' },
+                    { icon: BookOpen, text: 'Grammatikerklärungen erhalten' },
+                    { icon: Sparkles, text: 'Wortschatzvorschläge' },
+                    { icon: AlertCircle, text: 'Fehlerkorrektur & Feedback' },
                   ].map(({ icon: Icon, text }) => (
                     <div key={text} className="flex items-center gap-2 p-3 rounded-lg border">
                       <Icon className="h-4 w-4 text-amber-500 shrink-0" />
@@ -238,7 +238,7 @@ export default function MentorPage() {
                   ))}
                 </div>
                 <Button onClick={() => setShowNewChat(true)} className="mt-6 bg-amber-600 hover:bg-amber-700">
-                  <Plus className="h-4 w-4 mr-1" /> Start Learning
+                  <Plus className="h-4 w-4 mr-1" /> Jetzt lernen
                 </Button>
               </div>
             </div>

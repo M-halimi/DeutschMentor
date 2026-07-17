@@ -27,7 +27,7 @@ export interface LevelSpec {
 
 // Vocabulary domains mapped to levels
 export const LEVEL_VOCAB: Record<string, string[]> = {
-  A1: ['greetings', 'family', 'food', 'home', 'daily_routine', 'numbers', 'colors', 'body', 'clothes', 'weather'],
+  A1: ['greetings', 'family', 'food', 'home', 'daily_routine', 'numbers', 'colors', 'body', 'clothes', 'weather', 'days_months', 'classroom', 'basic_adjectives', 'digital_basics', 'directions'],
   A2: ['shopping', 'travel', 'restaurant', 'health', 'city', 'directions', 'hobbies', 'holidays', 'nature', 'animals'],
   B1: ['work', 'education', 'media', 'society', 'environment', 'technology', 'culture', 'sports', 'relationships', 'feelings'],
   B2: ['business', 'politics', 'science', 'economy', 'law', 'finance', 'art', 'literature', 'history', 'philosophy'],
@@ -58,8 +58,8 @@ export const CURRICULUM_SPECS: LevelSpec[] = [
           { id: 'L-A1-01-02', moduleId: 'M-A1-01', title: 'Das Alphabet', description: 'Learn the German alphabet, letter pronunciation, and spelling.', topic: 'Alphabet', type: 'pronunciation', duration: 30, orderIndex: 2, domain: 'greetings', grammarFocus: 'present_tense', cefr: 'A1' },
           { id: 'L-A1-01-03', moduleId: 'M-A1-01', title: 'Zahlen 1-20', description: 'Learn numbers from 1 to 20, age, and phone numbers.', topic: 'Numbers', type: 'vocabulary', duration: 25, orderIndex: 3, domain: 'numbers', grammarFocus: 'present_tense', cefr: 'A1' },
           { id: 'L-A1-01-04', moduleId: 'M-A1-01', title: 'Zahlen 21-100', description: 'Learn numbers 21-100, prices, and quantities.', topic: 'Numbers', type: 'vocabulary', duration: 25, orderIndex: 4, domain: 'numbers', grammarFocus: 'present_tense', cefr: 'A1' },
-          { id: 'L-A1-01-05', moduleId: 'M-A1-01', title: 'Länder und Nationalitäten', description: 'Learn country names and nationalities in German.', topic: 'Countries & Nationalities', type: 'vocabulary', duration: 30, orderIndex: 5, domain: 'greetings', grammarFocus: 'present_tense', cefr: 'A1' },
-          { id: 'L-A1-01-06', moduleId: 'M-A1-01', title: 'Erste Gespräche führen', description: 'Combine greetings, introductions, and basic questions in simple conversations.', topic: 'Basic Conversations', type: 'conversation', duration: 35, orderIndex: 6, domain: 'greetings', grammarFocus: 'present_tense', cefr: 'A1' },
+          { id: 'L-A1-01-05', moduleId: 'M-A1-01', title: 'Länder und Nationalitäten', description: 'Learn country names and nationalities in German.', topic: 'Countries & Nationalities', type: 'vocabulary', duration: 30, orderIndex: 5, domain: 'greetings', grammarFocus: 'sein_haben', cefr: 'A1' },
+          { id: 'L-A1-01-06', moduleId: 'M-A1-01', title: 'Erste Gespräche führen', description: 'Combine greetings, introductions, and basic questions in simple conversations.', topic: 'Basic Conversations', type: 'conversation', duration: 35, orderIndex: 6, domain: 'greetings', grammarFocus: 'question_words', cefr: 'A1' },
         ]
       },
       {
@@ -73,7 +73,7 @@ export const CURRICULUM_SPECS: LevelSpec[] = [
           { id: 'L-A1-02-03', moduleId: 'M-A1-02', title: 'Mein Tagesablauf', description: 'Describe your daily routine using regular verbs.', topic: 'Daily Routine', type: 'vocabulary', duration: 30, orderIndex: 3, domain: 'daily_routine', grammarFocus: 'present_tense', cefr: 'A1' },
           { id: 'L-A1-02-04', moduleId: 'M-A1-02', title: 'Die Uhrzeit', description: 'Learn how to tell time in formal and informal ways.', topic: 'Telling Time', type: 'vocabulary', duration: 25, orderIndex: 4, domain: 'daily_routine', grammarFocus: 'present_tense', cefr: 'A1' },
           { id: 'L-A1-02-05', moduleId: 'M-A1-02', title: 'Meine Familie vorstellen', description: 'Practice introducing and describing your family.', topic: 'Family Introduction', type: 'speaking', duration: 20, orderIndex: 5, domain: 'family', grammarFocus: 'possessive_articles', cefr: 'A1' },
-          { id: 'L-A1-02-06', moduleId: 'M-A1-02', title: 'Test: Familie und Alltag', description: 'Test your knowledge of Module 2.', topic: 'Module Test', type: 'test', duration: 25, orderIndex: 6, domain: 'family', grammarFocus: 'present_tense', cefr: 'A1' },
+          { id: 'L-A1-02-06', moduleId: 'M-A1-02', title: 'Test: Familie und Alltag', description: 'Test your knowledge of Module 2.', topic: 'Module Test', type: 'test', duration: 25, orderIndex: 6, domain: 'family', grammarFocus: 'possessive_articles', cefr: 'A1' },
         ]
       },
       {
@@ -82,8 +82,8 @@ export const CURRICULUM_SPECS: LevelSpec[] = [
         objectives: ['Describe your home and rooms', 'Name furniture and household items', 'Use definite and indefinite articles', 'Use adjectives after "sein"'],
         orderIndex: 3, estimatedHours: 4,
         lessons: [
-          { id: 'L-A1-03-01', moduleId: 'M-A1-03', title: 'Mein Zuhause', description: 'Learn rooms and basic furniture vocabulary with articles.', topic: 'Home & Rooms', type: 'vocabulary', duration: 30, orderIndex: 1, domain: 'home', grammarFocus: 'present_tense', cefr: 'A1' },
-          { id: 'L-A1-03-02', moduleId: 'M-A1-03', title: 'Möbel und Haushaltsgegenstände', description: 'Detailed furniture and household item vocabulary.', topic: 'Furniture', type: 'vocabulary', duration: 30, orderIndex: 2, domain: 'home', grammarFocus: 'present_tense', cefr: 'A1' },
+          { id: 'L-A1-03-01', moduleId: 'M-A1-03', title: 'Mein Zuhause', description: 'Learn rooms and basic furniture vocabulary with articles.', topic: 'Home & Rooms', type: 'vocabulary', duration: 30, orderIndex: 1, domain: 'home', grammarFocus: 'articles_nominative_akkusativ', cefr: 'A1' },
+          { id: 'L-A1-03-02', moduleId: 'M-A1-03', title: 'Möbel und Haushaltsgegenstände', description: 'Detailed furniture and household item vocabulary.', topic: 'Furniture', type: 'vocabulary', duration: 30, orderIndex: 2, domain: 'home', grammarFocus: 'articles_nominative_akkusativ', cefr: 'A1' },
           { id: 'L-A1-03-03', moduleId: 'M-A1-03', title: 'Die Wohnung beschreiben', description: 'Describe apartments using adjectives and prepositions.', topic: 'Describing Homes', type: 'grammar', duration: 30, orderIndex: 3, domain: 'home', grammarFocus: 'present_tense', cefr: 'A1' },
           { id: 'L-A1-03-04', moduleId: 'M-A1-03', title: 'Wohnungssuche', description: 'Learn how to read apartment ads and talk about housing.', topic: 'Apartment Hunting', type: 'reading', duration: 25, orderIndex: 4, domain: 'home', grammarFocus: 'present_tense', cefr: 'A1' },
           { id: 'L-A1-03-05', moduleId: 'M-A1-03', title: 'Meine Wohnung präsentieren', description: 'Present your apartment or ideal home.', topic: 'Presenting Home', type: 'speaking', duration: 20, orderIndex: 5, domain: 'home', grammarFocus: 'present_tense', cefr: 'A1' },
@@ -96,12 +96,12 @@ export const CURRICULUM_SPECS: LevelSpec[] = [
         objectives: ['Name foods and drinks', 'Shop for groceries', 'Order in a restaurant', 'Understand prices and pay', 'Use "möchten" for polite requests'],
         orderIndex: 4, estimatedHours: 5,
         lessons: [
-          { id: 'L-A1-04-01', moduleId: 'M-A1-04', title: 'Lebensmittel', description: 'Learn food and grocery vocabulary with articles.', topic: 'Food & Groceries', type: 'vocabulary', duration: 30, orderIndex: 1, domain: 'food', grammarFocus: 'present_tense', cefr: 'A1' },
-          { id: 'L-A1-04-02', moduleId: 'M-A1-04', title: 'Getränke und Mahlzeiten', description: 'Learn drinks and meal names.', topic: 'Drinks & Meals', type: 'vocabulary', duration: 25, orderIndex: 2, domain: 'food', grammarFocus: 'present_tense', cefr: 'A1' },
-          { id: 'L-A1-04-03', moduleId: 'M-A1-04', title: 'Im Supermarkt', description: 'Practice shopping conversations and understand prices.', topic: 'Shopping', type: 'dialogue', duration: 30, orderIndex: 3, domain: 'food', grammarFocus: 'present_tense', cefr: 'A1' },
-          { id: 'L-A1-04-04', moduleId: 'M-A1-04', title: 'Im Restaurant', description: 'Learn how to order food and interact in restaurants.', topic: 'Restaurant', type: 'dialogue', duration: 30, orderIndex: 4, domain: 'food', grammarFocus: 'present_tense', cefr: 'A1' },
+          { id: 'L-A1-04-01', moduleId: 'M-A1-04', title: 'Lebensmittel', description: 'Learn food and grocery vocabulary with articles.', topic: 'Food & Groceries', type: 'vocabulary', duration: 30, orderIndex: 1, domain: 'food', grammarFocus: 'articles_nominative_akkusativ', cefr: 'A1' },
+          { id: 'L-A1-04-02', moduleId: 'M-A1-04', title: 'Getränke und Mahlzeiten', description: 'Learn drinks and meal names.', topic: 'Drinks & Meals', type: 'vocabulary', duration: 25, orderIndex: 2, domain: 'food', grammarFocus: 'articles_nominative_akkusativ', cefr: 'A1' },
+          { id: 'L-A1-04-03', moduleId: 'M-A1-04', title: 'Im Supermarkt', description: 'Practice shopping conversations and understand prices.', topic: 'Shopping', type: 'dialogue', duration: 30, orderIndex: 3, domain: 'food', grammarFocus: 'mochten', cefr: 'A1' },
+          { id: 'L-A1-04-04', moduleId: 'M-A1-04', title: 'Im Restaurant', description: 'Learn how to order food and interact in restaurants.', topic: 'Restaurant', type: 'dialogue', duration: 30, orderIndex: 4, domain: 'food', grammarFocus: 'mochten', cefr: 'A1' },
           { id: 'L-A1-04-05', moduleId: 'M-A1-04', title: 'Mengen und Preise', description: 'Learn quantities, weights, and how to talk about prices.', topic: 'Quantities & Prices', type: 'vocabulary', duration: 25, orderIndex: 5, domain: 'food', grammarFocus: 'present_tense', cefr: 'A1' },
-          { id: 'L-A1-04-06', moduleId: 'M-A1-04', title: 'Test: Essen und Einkaufen', description: 'Test your knowledge of Module 4.', topic: 'Module Test', type: 'test', duration: 25, orderIndex: 6, domain: 'food', grammarFocus: 'present_tense', cefr: 'A1' },
+          { id: 'L-A1-04-06', moduleId: 'M-A1-04', title: 'Test: Essen und Einkaufen', description: 'Test your knowledge of Module 4.', topic: 'Module Test', type: 'test', duration: 25, orderIndex: 6, domain: 'food', grammarFocus: 'mochten', cefr: 'A1' },
         ]
       },
       {
@@ -115,7 +115,7 @@ export const CURRICULUM_SPECS: LevelSpec[] = [
           { id: 'L-A1-05-03', moduleId: 'M-A1-05', title: 'Telefonnummer und E-Mail', description: 'Practice giving phone numbers and email addresses.', topic: 'Contact Details', type: 'vocabulary', duration: 25, orderIndex: 3, domain: 'work', grammarFocus: 'present_tense', cefr: 'A1' },
           { id: 'L-A1-05-04', moduleId: 'M-A1-05', title: 'Im Büro', description: 'Learn office routines and basic workplace communication.', topic: 'Office Life', type: 'dialogue', duration: 30, orderIndex: 4, domain: 'work', grammarFocus: 'present_tense', cefr: 'A1' },
           { id: 'L-A1-05-05', moduleId: 'M-A1-05', title: 'Was sind Sie von Beruf?', description: 'Practice talking about professions and workplaces.', topic: 'Talking About Jobs', type: 'speaking', duration: 20, orderIndex: 5, domain: 'work', grammarFocus: 'sein_haben', cefr: 'A1' },
-          { id: 'L-A1-05-06', moduleId: 'M-A1-05', title: 'Test: Arbeit und Berufe', description: 'Test your knowledge of Module 5.', topic: 'Module Test', type: 'test', duration: 20, orderIndex: 6, domain: 'work', grammarFocus: 'present_tense', cefr: 'A1' },
+          { id: 'L-A1-05-06', moduleId: 'M-A1-05', title: 'Test: Arbeit und Berufe', description: 'Test your knowledge of Module 5.', topic: 'Module Test', type: 'test', duration: 20, orderIndex: 6, domain: 'work', grammarFocus: 'sein_haben', cefr: 'A1' },
         ]
       },
       {
@@ -125,10 +125,10 @@ export const CURRICULUM_SPECS: LevelSpec[] = [
         orderIndex: 6, estimatedHours: 5,
         lessons: [
           { id: 'L-A1-06-01', moduleId: 'M-A1-06', title: 'Verkehrsmittel', description: 'Learn transportation vocabulary: trains, buses, cars, planes.', topic: 'Transportation', type: 'vocabulary', duration: 30, orderIndex: 1, domain: 'travel', grammarFocus: 'present_tense', cefr: 'A1' },
-          { id: 'L-A1-06-02', moduleId: 'M-A1-06', title: 'Am Bahnhof', description: 'Learn how to buy tickets and navigate train stations.', topic: 'Train Station', type: 'dialogue', duration: 30, orderIndex: 2, domain: 'travel', grammarFocus: 'present_tense', cefr: 'A1' },
-          { id: 'L-A1-06-03', moduleId: 'M-A1-06', title: 'Hobbys und Freizeit', description: 'Learn vocabulary for hobbies, sports, and free time activities.', topic: 'Hobbies', type: 'vocabulary', duration: 30, orderIndex: 3, domain: 'hobbies', grammarFocus: 'present_tense', cefr: 'A1' },
+          { id: 'L-A1-06-02', moduleId: 'M-A1-06', title: 'Am Bahnhof', description: 'Learn how to buy tickets and navigate train stations.', topic: 'Train Station', type: 'dialogue', duration: 30, orderIndex: 2, domain: 'travel', grammarFocus: 'question_words', cefr: 'A1' },
+          { id: 'L-A1-06-03', moduleId: 'M-A1-06', title: 'Hobbys und Freizeit', description: 'Learn vocabulary for hobbies, sports, and free time activities.', topic: 'Hobbies', type: 'vocabulary', duration: 30, orderIndex: 3, domain: 'hobbies', grammarFocus: 'gern_mogen', cefr: 'A1' },
           { id: 'L-A1-06-04', moduleId: 'M-A1-06', title: 'Das Wetter', description: 'Learn basic weather expressions and seasons.', topic: 'Weather', type: 'vocabulary', duration: 25, orderIndex: 4, domain: 'weather', grammarFocus: 'present_tense', cefr: 'A1' },
-          { id: 'L-A1-06-05', moduleId: 'M-A1-06', title: 'Im Hotel', description: 'Learn how to book a room and interact at hotels.', topic: 'Hotel', type: 'dialogue', duration: 30, orderIndex: 5, domain: 'travel', grammarFocus: 'present_tense', cefr: 'A1' },
+          { id: 'L-A1-06-05', moduleId: 'M-A1-06', title: 'Im Hotel', description: 'Learn how to book a room and interact at hotels.', topic: 'Hotel', type: 'dialogue', duration: 30, orderIndex: 5, domain: 'travel', grammarFocus: 'mochten', cefr: 'A1' },
           { id: 'L-A1-06-06', moduleId: 'M-A1-06', title: 'A1 Abschlusstest', description: 'Comprehensive A1 level test.', topic: 'Level Test', type: 'test', duration: 45, orderIndex: 6, domain: 'travel', grammarFocus: 'present_tense', cefr: 'A1' },
         ]
       },

@@ -30,7 +30,7 @@ export async function GET(request: Request) {
           if (language) query = query.eq('language', language)
           if (level) query = query.eq('level', level)
           if (category) query = query.eq('category', category)
-          if (q) query = query.or(`german_word.ilike.%${q}%,english_translation.ilike.%${q}%`)
+          if (q) query = query.or(`german_word.ilike.%${q}%,english_translation.ilike.%${q}%,french_translation.ilike.%${q}%,arabic_translation.ilike.%${q}%`)
           const { data } = await query
           if (data?.length) results.push(...data.map(d => ({ type: 'vocabulary', data: d })))
           break
@@ -40,7 +40,7 @@ export async function GET(request: Request) {
           if (language) query = query.eq('language', language)
           if (level) query = query.eq('level', level)
           if (category) query = query.eq('category', category)
-          if (q) query = query.or(`german.ilike.%${q}%,english.ilike.%${q}%`)
+          if (q) query = query.or(`german.ilike.%${q}%,english.ilike.%${q}%,arabic_translation.ilike.%${q}%`)
           const { data } = await query
           if (data?.length) results.push(...data.map(d => ({ type: 'expressions', data: d })))
           break

@@ -170,12 +170,13 @@ export async function generateAudioUrl(text: string, lang: string = 'de'): Promi
         method: 'POST',
         headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: 'gpt-4o-mini-tts',
+          model: 'tts-1-hd',
           input: text,
           voice,
           response_format: 'mp3',
+          speed: lang === 'de' ? 0.95 : 1.0,
           instructions: lang === 'de'
-            ? 'You are a native German speaker. Read this text with a perfect German accent, natural rhythm, and correct pronunciation.'
+            ? 'You are a native German speaker from Berlin with a perfect standard German accent (Hochdeutsch). Read this text naturally with correct word stress, proper umlaut pronunciation (ä, ö, ü), authentic German intonation, and natural pacing. Pronounce every German word exactly as a native speaker would in a professional recording studio.'
             : undefined,
         }),
       })

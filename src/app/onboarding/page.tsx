@@ -15,10 +15,10 @@ import { toast } from 'sonner'
 import type { GermanLevel, LearningGoal, ExamType } from '@/types'
 
 const steps = [
-  { id: 'welcome', title: 'Welcome' },
-  { id: 'level', title: 'Your Level' },
-  { id: 'goals', title: 'Goals' },
-  { id: 'done', title: 'Ready' },
+  { id: 'welcome', title: 'Willkommen' },
+  { id: 'level', title: 'Dein Niveau' },
+  { id: 'goals', title: 'Ziele' },
+  { id: 'done', title: 'Bereit' },
 ]
 
 export default function OnboardingPage() {
@@ -116,15 +116,15 @@ export default function OnboardingPage() {
                 <CardHeader className="text-center">
                   <CardTitle className="text-2xl">Willkommen!</CardTitle>
                   <CardDescription>
-                    Let&apos;s personalize your German learning experience. This will only take a minute.
+                    Lass uns dein Deutsch-Lernerlebnis personalisieren. Dauert nur eine Minute.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
-                    <Label>What is your native language?</Label>
+                    <Label>Deine Muttersprache</Label>
                     <Select value={nativeLanguage} onValueChange={(v) => v && setNativeLanguage(v)}>
                       <SelectTrigger>
-                        <SelectValue placeholder="Select language" />
+                        <SelectValue placeholder="Sprache auswählen" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="English">English</SelectItem>
@@ -141,7 +141,7 @@ export default function OnboardingPage() {
                     </Select>
                   </div>
                   <Button className="w-full" onClick={() => setStep(1)}>
-                    Next Step <ArrowRight className="ml-2 h-4 w-4" />
+                    Weiter <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardContent>
               </Card>
@@ -157,12 +157,12 @@ export default function OnboardingPage() {
             >
               <Card>
                 <CardHeader>
-                  <CardTitle>Your German Level</CardTitle>
-                  <CardDescription>Select your current level and your target</CardDescription>
+                  <CardTitle>Dein Deutschniveau</CardTitle>
+                  <CardDescription>Wähle dein aktuelles Niveau und dein Zielniveau</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
-                    <Label>Current Level</Label>
+                    <Label>Aktuelles Niveau</Label>
                     <RadioGroup value={currentLevel} onValueChange={(v) => setCurrentLevel(v as GermanLevel)} className="grid grid-cols-6 gap-2">
                       {(['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] as GermanLevel[]).map((l) => (
                         <div key={l}>
@@ -176,7 +176,7 @@ export default function OnboardingPage() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label>Target Level</Label>
+                    <Label>Zielniveau</Label>
                     <RadioGroup value={targetLevel} onValueChange={(v) => setTargetLevel(v as GermanLevel)} className="grid grid-cols-6 gap-2">
                       {(['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] as GermanLevel[]).map((l) => (
                         <div key={l}>
@@ -191,10 +191,10 @@ export default function OnboardingPage() {
 
                   <div className="flex gap-2">
                     <Button variant="outline" onClick={() => setStep(0)}>
-                      <ArrowLeft className="mr-2 h-4 w-4" /> Back
+                      <ArrowLeft className="mr-2 h-4 w-4" /> Zurück
                     </Button>
                     <Button className="flex-1" onClick={() => setStep(2)}>
-                      Next <ArrowRight className="ml-2 h-4 w-4" />
+                      Weiter <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </div>
                 </CardContent>
@@ -211,19 +211,19 @@ export default function OnboardingPage() {
             >
               <Card>
                 <CardHeader>
-                  <CardTitle>Learning Goals</CardTitle>
-                  <CardDescription>Help us create your personalized plan</CardDescription>
+                  <CardTitle>Lernziele</CardTitle>
+                  <CardDescription>Hilf uns, deinen personalisierten Plan zu erstellen</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
-                    <Label>What is your main goal?</Label>
+                    <Label>Dein Hauptziel</Label>
                     <RadioGroup value={learningGoal} onValueChange={(v) => setLearningGoal(v as LearningGoal)}>
                       {[
-                        { value: 'exam_preparation', label: 'Exam Preparation', desc: 'Goethe / TELC certification' },
-                        { value: 'daily_conversation', label: 'Daily Conversation', desc: 'Speak confidently in daily life' },
-                        { value: 'business_german', label: 'Business German', desc: 'Professional communication' },
-                        { value: 'academic', label: 'Academic', desc: 'Study in German universities' },
-                        { value: 'relocation', label: 'Relocation', desc: 'Moving to a German-speaking country' },
+                        { value: 'exam_preparation', label: 'Prüfungsvorbereitung', desc: 'Goethe / TELC Zertifizierung' },
+                        { value: 'daily_conversation', label: 'Alltagskommunikation', desc: 'Sicher im täglichen Leben sprechen' },
+                        { value: 'business_german', label: 'Berufsdeutsch', desc: 'Professionelle Kommunikation' },
+                        { value: 'academic', label: 'Akademisch', desc: 'Studium an deutschen Hochschulen' },
+                        { value: 'relocation', label: 'Umzug', desc: 'Umzug in ein deutschsprachiges Land' },
                       ].map((g) => (
                         <div key={g.value}>
                           <RadioGroupItem value={g.value} id={g.value} className="peer sr-only" />
@@ -239,7 +239,7 @@ export default function OnboardingPage() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label>Daily study time (minutes)</Label>
+                    <Label>Tägliche Lernzeit (Minuten)</Label>
                     <RadioGroup value={dailyMinutes} onValueChange={setDailyMinutes} className="grid grid-cols-4 gap-2">
                       {['15', '30', '45', '60'].map((m) => (
                         <div key={m}>
@@ -254,7 +254,7 @@ export default function OnboardingPage() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label>Exam goal (optional)</Label>
+                    <Label>Prüfungsziel (optional)</Label>
                     <RadioGroup value={examGoal} onValueChange={(v) => setExamGoal(v as ExamType | '')} className="grid grid-cols-2 gap-2">
                       <div>
                         <RadioGroupItem value="goethe" id="goethe" className="peer sr-only" />
@@ -273,10 +273,10 @@ export default function OnboardingPage() {
 
                   <div className="flex gap-2">
                     <Button variant="outline" onClick={() => setStep(1)}>
-                      <ArrowLeft className="mr-2 h-4 w-4" /> Back
+                      <ArrowLeft className="mr-2 h-4 w-4" /> Zurück
                     </Button>
                     <Button className="flex-1" onClick={() => setStep(3)}>
-                      Review <ArrowRight className="ml-2 h-4 w-4" />
+                      Übersicht <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </div>
                 </CardContent>
@@ -293,33 +293,33 @@ export default function OnboardingPage() {
             >
               <Card>
                 <CardHeader className="text-center">
-                  <CardTitle className="text-2xl">You&apos;re All Set!</CardTitle>
+                  <CardTitle className="text-2xl">Bereit!</CardTitle>
                   <CardDescription>
-                    Your personalized German learning journey awaits.
+                    Deine personalisierte Deutschreise wartet auf dich.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="rounded-lg bg-muted p-4 space-y-2">
                     <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">Current Level</span>
+                      <span className="text-muted-foreground">Aktuelles Niveau</span>
                       <span className="font-medium">{currentLevel}</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">Target Level</span>
+                      <span className="text-muted-foreground">Zielniveau</span>
                       <span className="font-medium">{targetLevel}</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">Daily Goal</span>
+                      <span className="text-muted-foreground">Tägliches Ziel</span>
                       <span className="font-medium">{dailyMinutes} minutes</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">Main Goal</span>
+                      <span className="text-muted-foreground">Hauptziel</span>
                       <span className="font-medium capitalize">{learningGoal.replace(/_/g, ' ')}</span>
                     </div>
                   </div>
 
                   <Button className="w-full" onClick={handleComplete} disabled={loading}>
-                    {loading ? 'Setting up...' : 'Start Learning!'}
+                    {loading ? 'Wird eingerichtet...' : 'Jetzt lernen!'}
                   </Button>
                 </CardContent>
               </Card>

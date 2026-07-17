@@ -74,17 +74,17 @@ export default function LoginPage() {
 
         <Card>
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl">Welcome back</CardTitle>
-            <CardDescription>Sign in to continue your German journey</CardDescription>
+            <CardTitle className="text-2xl">Willkommen zurück</CardTitle>
+            <CardDescription>Melde dich an, um deine Deutschreise fortzusetzen</CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">E-Mail</Label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="you@example.com"
+                  placeholder="max@beispiel.de"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -92,12 +92,12 @@ export default function LoginPage() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password">Passwort</Label>
                 <div className="relative">
                   <Input
                     id="password"
                     type={showPassword ? 'text' : 'password'}
-                    placeholder="Enter your password"
+                    placeholder="Dein Passwort"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
@@ -119,15 +119,15 @@ export default function LoginPage() {
               )}
 
               <Button type="submit" className="w-full" disabled={loading}>
-                {loading ? 'Signing in...' : 'Sign In'}
+                {loading ? 'Wird angemeldet...' : 'Anmelden'}
               </Button>
             </form>
 
             <div className="mt-4 text-center">
               <p className="text-sm text-muted-foreground">
-                Don&apos;t have an account?{' '}
+                Noch kein Konto?{' '}
                 <Link href="/signup" className="font-medium text-primary hover:underline">
-                  Sign up
+                  Registrieren
                 </Link>
               </p>
             </div>

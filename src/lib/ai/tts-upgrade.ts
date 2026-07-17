@@ -41,6 +41,12 @@ const ELEVENLABS_GERMAN_VOICES: Record<string, string> = {
   berlin: 'EXAVITQu4vr2k7mVfH7p',
 }
 
+const GERMAN_VOICE_NAMES: Record<string, string> = {
+  '21m00Tcm4TlvDq8ikWAM': 'Rachel (natural)',
+  'ThT5KcBeYPX3keUQqHPh': 'Domi (warm)',
+  'EXAVITQu4vr2k7mVfH7p': 'Bella (professional)',
+}
+
 function getInstructions(text: string, lang: string): string {
   if (lang === 'de') {
     return 'You are a native German speaker from Berlin. Read the following German text with a perfect standard German accent (Hochdeutsch). Ensure natural rhythm, correct word stress, proper umlaut pronunciation (ä, ö, ü), and authentic German intonation. Do not add any English accent. Pronounce every German word exactly as a native speaker would.'
@@ -152,7 +158,7 @@ async function generateElevenLabs(text: string, lang: string, speed: number, voi
       body: JSON.stringify({
         text,
         model_id: 'eleven_multilingual_v2',
-        voice_settings: { stability: 0.5, similarity_boost: 0.75, speed: speed },
+        voice_settings: { stability: 0.3, similarity_boost: 0.85, style: 0.4, speed: speed },
       }),
     })
     if (!response.ok) {

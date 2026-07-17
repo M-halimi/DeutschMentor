@@ -61,11 +61,11 @@ export default function AnalyticsPage() {
             <BarChart3 className="h-5 w-5" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Learning Analytics</h1>
-            <p className="text-muted-foreground">Track your progress and identify areas for improvement</p>
+            <h1 className="text-3xl font-bold tracking-tight">Lernstatistiken</h1>
+            <p className="text-muted-foreground">Verfolge deinen Fortschritt und erkenne Verbesserungsbereiche</p>
           </div>
           <Badge variant="outline" className="ml-auto text-sm">
-            {analytics?.estimated_cefr_level ?? 'A1'} Level
+            {analytics?.estimated_cefr_level ?? 'A1'} Niveau
           </Badge>
         </div>
 
@@ -76,9 +76,9 @@ export default function AnalyticsPage() {
               <CardContent className="p-5">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-muted-foreground">Study Hours</p>
+                    <p className="text-sm text-muted-foreground">Lernstunden</p>
                     <p className="text-3xl font-bold mt-1">{hours}</p>
-                    <p className="text-xs text-muted-foreground mt-1">Total time</p>
+                    <p className="text-xs text-muted-foreground mt-1">Gesamtzeit</p>
                   </div>
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-500/10">
                     <Clock className="h-6 w-6 text-blue-500" />
@@ -93,9 +93,9 @@ export default function AnalyticsPage() {
               <CardContent className="p-5">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-muted-foreground">Current Streak</p>
+                    <p className="text-sm text-muted-foreground">Aktuelle Serie</p>
                     <p className="text-3xl font-bold mt-1">{streak}</p>
-                    <p className="text-xs text-muted-foreground mt-1">{streak === 1 ? 'day' : 'days'} in a row</p>
+                    <p className="text-xs text-muted-foreground mt-1">{streak === 1 ? 'Tag' : 'Tage'} in Folge</p>
                   </div>
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-orange-500/10">
                     <Flame className="h-6 w-6 text-orange-500" />
@@ -110,9 +110,9 @@ export default function AnalyticsPage() {
               <CardContent className="p-5">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-muted-foreground">Lessons Done</p>
+                    <p className="text-sm text-muted-foreground">Lektionen abgeschlossen</p>
                     <p className="text-3xl font-bold mt-1">{lessonsDone}</p>
-                    <p className="text-xs text-muted-foreground mt-1">Completed</p>
+                    <p className="text-xs text-muted-foreground mt-1">Abgeschlossen</p>
                   </div>
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/10">
                     <BookOpen className="h-6 w-6 text-emerald-500" />
@@ -127,9 +127,9 @@ export default function AnalyticsPage() {
               <CardContent className="p-5">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-muted-foreground">Vocabulary</p>
+                    <p className="text-sm text-muted-foreground">Wortschatz</p>
                     <p className="text-3xl font-bold mt-1">{vocabLearned}</p>
-                    <p className="text-xs text-muted-foreground mt-1">Words mastered</p>
+                    <p className="text-xs text-muted-foreground mt-1">Gelernte Wörter</p>
                   </div>
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-rose-500/10">
                     <Target className="h-6 w-6 text-rose-500" />
@@ -142,9 +142,9 @@ export default function AnalyticsPage() {
 
         <Tabs defaultValue="overview">
           <TabsList>
-            <TabsTrigger value="overview"><BarChart3 className="mr-2 h-4 w-4" /> Overview</TabsTrigger>
-            <TabsTrigger value="skills"><Award className="mr-2 h-4 w-4" /> Skills</TabsTrigger>
-            <TabsTrigger value="activity"><TrendingUp className="mr-2 h-4 w-4" /> Activity</TabsTrigger>
+            <TabsTrigger value="overview"><BarChart3 className="mr-2 h-4 w-4" /> Übersicht</TabsTrigger>
+            <TabsTrigger value="skills"><Award className="mr-2 h-4 w-4" /> Fertigkeiten</TabsTrigger>
+            <TabsTrigger value="activity"><TrendingUp className="mr-2 h-4 w-4" /> Aktivität</TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview" className="space-y-6 mt-6">
@@ -172,9 +172,9 @@ export default function AnalyticsPage() {
                 <CardHeader>
                   <CardTitle className="text-base flex items-center gap-2">
                     <TrendingDown className="h-4 w-4 text-amber-500" />
-                    Areas to Improve
+                    Verbesserungsbereiche
                   </CardTitle>
-                  <CardDescription>Topics that need more practice</CardDescription>
+                  <CardDescription>Themen, die mehr Übung brauchen</CardDescription>
                 </CardHeader>
                 <CardContent>
                   {weakTopics.length > 0 ? (
@@ -186,7 +186,7 @@ export default function AnalyticsPage() {
                       ))}
                     </div>
                   ) : (
-                    <p className="text-sm text-muted-foreground">No weak areas identified yet. Keep practicing!</p>
+                    <p className="text-sm text-muted-foreground">Noch keine Schwachstellen identifiziert. Weiter üben!</p>
                   )}
                 </CardContent>
               </Card>
@@ -195,9 +195,9 @@ export default function AnalyticsPage() {
                 <CardHeader>
                   <CardTitle className="text-base flex items-center gap-2">
                     <TrendingUp className="h-4 w-4 text-emerald-500" />
-                    Strong Areas
+                    Stärken
                   </CardTitle>
-                  <CardDescription>Topics you have mastered</CardDescription>
+                  <CardDescription>Gemeisterte Themen</CardDescription>
                 </CardHeader>
                 <CardContent>
                   {strongTopics.length > 0 ? (
@@ -209,7 +209,7 @@ export default function AnalyticsPage() {
                       ))}
                     </div>
                   ) : (
-                    <p className="text-sm text-muted-foreground">Complete more exercises to identify your strengths.</p>
+                    <p className="text-sm text-muted-foreground">Mache mehr Übungen, um deine Stärken zu identifizieren.</p>
                   )}
                 </CardContent>
               </Card>
@@ -220,9 +220,9 @@ export default function AnalyticsPage() {
               <CardHeader>
                 <CardTitle className="text-base flex items-center gap-2">
                   <Award className="h-4 w-4 text-primary" />
-                  CEFR Level Progress
+                  CEFR-Niveau Fortschritt
                 </CardTitle>
-                <CardDescription>Your estimated German proficiency level</CardDescription>
+                <CardDescription>Dein geschätztes Deutschniveau</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex items-center justify-between mb-4">
@@ -240,7 +240,7 @@ export default function AnalyticsPage() {
                           {level}
                         </div>
                         {level === current && (
-                          <span className="text-[10px] text-primary font-medium">Current</span>
+                          <span className="text-[10px] text-primary font-medium">Aktuell</span>
                         )}
                       </div>
                     )
@@ -253,7 +253,7 @@ export default function AnalyticsPage() {
                   />
                 </div>
                 <p className="text-xs text-muted-foreground mt-2">
-                  Next target: {['A1', 'A2', 'B1', 'B2', 'C1'][Math.min(['A1', 'A2', 'B1', 'B2', 'C1'].indexOf(analytics?.estimated_cefr_level ?? 'A1') + 1, 4)]}
+                  Nächstes Ziel: {['A1', 'A2', 'B1', 'B2', 'C1'][Math.min(['A1', 'A2', 'B1', 'B2', 'C1'].indexOf(analytics?.estimated_cefr_level ?? 'A1') + 1, 4)]}
                 </p>
               </CardContent>
             </Card>
@@ -264,9 +264,9 @@ export default function AnalyticsPage() {
                 <CardHeader>
                   <CardTitle className="text-base flex items-center gap-2">
                     <Target className="h-4 w-4 text-primary" />
-                    Exam Readiness
+                    Prüfungsbereitschaft
                   </CardTitle>
-                  <CardDescription>How prepared you are for Goethe/TELC exams</CardDescription>
+                  <CardDescription>Wie gut du auf Goethe-/TELC-Prüfungen vorbereitet bist</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="grid gap-4 md:grid-cols-4">
@@ -283,7 +283,7 @@ export default function AnalyticsPage() {
                           <p className="text-sm text-muted-foreground mb-1">{s.label}</p>
                           <p className="text-2xl font-bold">{readiness}%</p>
                           <Badge variant={isReady ? 'default' : 'secondary'} className="mt-1 text-xs">
-                            {isReady ? 'Exam Ready' : 'More Practice'}
+                            {isReady ? 'Bereit' : 'Mehr Übung nötig'}
                           </Badge>
                         </div>
                       )
@@ -306,7 +306,7 @@ export default function AnalyticsPage() {
                         </div>
                         <div>
                           <CardTitle className="text-base">{skill.name}</CardTitle>
-                          <CardDescription>{skill.score}% proficiency</CardDescription>
+                          <CardDescription>{skill.score}% Kenntnisse</CardDescription>
                         </div>
                       </div>
                     </CardHeader>
@@ -314,11 +314,11 @@ export default function AnalyticsPage() {
                       <Progress value={skill.score} className="h-3 mb-4" />
                       <div className="grid grid-cols-2 gap-2 text-sm">
                         <div className="p-2 rounded-lg bg-muted/50">
-                          <p className="text-muted-foreground">Exercises</p>
+                          <p className="text-muted-foreground">Übungen</p>
                           <p className="font-medium">{attempts?.filter((a: { exercise_type: string }) => a.exercise_type === skill.name.toLowerCase()).length ?? 0}</p>
                         </div>
                         <div className="p-2 rounded-lg bg-muted/50">
-                          <p className="text-muted-foreground">Accuracy</p>
+                          <p className="text-muted-foreground">Genauigkeit</p>
                           <p className="font-medium">{skill.score}%</p>
                         </div>
                       </div>
@@ -334,9 +334,9 @@ export default function AnalyticsPage() {
               <CardHeader>
                 <CardTitle className="text-base flex items-center gap-2">
                   <BarChart3 className="h-4 w-4 text-primary" />
-                  Monthly Study Activity
+                  Monatliche Lernaktivität
                 </CardTitle>
-                <CardDescription>Minutes studied per month</CardDescription>
+                <CardDescription>Gelernte Minuten pro Monat</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex items-end gap-2 h-40">
@@ -360,7 +360,7 @@ export default function AnalyticsPage() {
                 </div>
                 {monthlyData.every((m: number) => m === 0) && (
                   <p className="text-center text-sm text-muted-foreground py-8">
-                    No activity data yet. Start practicing to see your monthly progress!
+                    Noch keine Aktivitätsdaten. Beginne mit dem Üben, um deine monatlichen Fortschritte zu sehen!
                   </p>
                 )}
               </CardContent>
@@ -369,8 +369,8 @@ export default function AnalyticsPage() {
             {/* Recent Activity */}
             <Card>
               <CardHeader>
-                <CardTitle className="text-base">Recent Activity</CardTitle>
-                <CardDescription>Your latest learning activities</CardDescription>
+                <CardTitle className="text-base">Letzte Aktivität</CardTitle>
+                <CardDescription>Deine letzten Lernaktivitäten</CardDescription>
               </CardHeader>
               <CardContent>
                 {attempts && attempts.length > 0 ? (
@@ -390,11 +390,11 @@ export default function AnalyticsPage() {
                         <div className="flex-1 min-w-0">
                           <p className="text-sm font-medium capitalize">{attempt.exercise_type}</p>
                           <p className="text-xs text-muted-foreground">
-                            {new Date(attempt.created_at).toLocaleDateString()} · {attempt.correct ? 'Correct' : 'Incorrect'}
+                            {new Date(attempt.created_at).toLocaleDateString()} · {attempt.correct ? 'Richtig' : 'Falsch'}
                           </p>
                         </div>
                         <Badge variant={attempt.correct ? 'default' : 'secondary'} className="text-xs">
-                          {attempt.correct ? 'Pass' : 'Fail'}
+                          {attempt.correct ? 'Bestanden' : 'Nicht bestanden'}
                         </Badge>
                       </div>
                     ))}
@@ -402,7 +402,7 @@ export default function AnalyticsPage() {
                 ) : (
                   <div className="text-center py-8">
                     <BarChart3 className="h-12 w-12 text-muted-foreground mx-auto mb-3" />
-                    <p className="text-sm text-muted-foreground">No activity yet. Complete some exercises to see your progress!</p>
+                    <p className="text-sm text-muted-foreground">Noch keine Aktivität. Mache ein paar Übungen, um deinen Fortschritt zu sehen!</p>
                   </div>
                 )}
               </CardContent>

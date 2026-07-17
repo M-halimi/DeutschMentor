@@ -80,7 +80,7 @@ function DetailView({
     >
       <Button variant="ghost" size="sm" className="gap-2 -ml-2 text-muted-foreground" onClick={onBack}>
         <ArrowLeft className="h-4 w-4" />
-        Back to search
+        Zurück zur Suche
       </Button>
 
       <div className="rounded-xl border bg-card p-6 shadow-sm">
@@ -111,21 +111,21 @@ function DetailView({
       </div>
 
       <div className="rounded-xl border bg-card p-6 shadow-sm">
-        <SectionHeading icon={Languages} title="Translations" />
+        <SectionHeading icon={Languages} title="Übersetzungen" />
         <div className="grid gap-3 sm:grid-cols-3">
           <div className="rounded-lg bg-muted/50 p-3">
-            <p className="text-xs text-muted-foreground mb-1">English</p>
+              <p className="text-xs text-muted-foreground mb-1">Englisch</p>
             <p className="text-base font-medium">{entry.english_translation}</p>
           </div>
           {entry.french_translation && (
             <div className="rounded-lg bg-muted/50 p-3">
-              <p className="text-xs text-muted-foreground mb-1">French</p>
+              <p className="text-xs text-muted-foreground mb-1">Französisch</p>
               <p className="text-base font-medium">{entry.french_translation}</p>
             </div>
           )}
           {entry.arabic_translation && (
             <div className="rounded-lg bg-muted/50 p-3">
-              <p className="text-xs text-muted-foreground mb-1">Arabic</p>
+              <p className="text-xs text-muted-foreground mb-1">Arabisch</p>
               <p className="text-base font-medium" dir="rtl">{entry.arabic_translation}</p>
             </div>
           )}
@@ -133,16 +133,16 @@ function DetailView({
       </div>
 
       <div className="rounded-xl border bg-card p-6 shadow-sm">
-        <SectionHeading icon={BookOpen} title="Grammar" />
+        <SectionHeading icon={BookOpen} title="Grammatik" />
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-2">
-            <p className="text-xs text-muted-foreground uppercase tracking-wider">Word Type</p>
+            <p className="text-xs text-muted-foreground uppercase tracking-wider">Wortart</p>
             <p className="text-sm font-medium capitalize">{entry.word_type.replace('_', ' ')}</p>
           </div>
           {isNoun && (
             <>
               <div className="space-y-2">
-                <p className="text-xs text-muted-foreground uppercase tracking-wider">Article</p>
+                <p className="text-xs text-muted-foreground uppercase tracking-wider">Artikel</p>
                 <span className={`text-sm font-bold ${entry.article ? articleColors[entry.article] : ''}`}>
                   {entry.article ?? '—'}
                 </span>
@@ -160,7 +160,7 @@ function DetailView({
           {isVerb && (
             <>
               <div className="space-y-2">
-                <p className="text-xs text-muted-foreground uppercase tracking-wider">Infinitive</p>
+                <p className="text-xs text-muted-foreground uppercase tracking-wider">Infinitiv</p>
                 <p className="text-sm font-medium">{entry.infinitive ?? entry.german_word}</p>
               </div>
             </>
@@ -168,7 +168,7 @@ function DetailView({
         </div>
         {isVerb && entry.verb_conjugation && Object.keys(entry.verb_conjugation).length > 0 && (
           <div className="mt-4">
-            <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Conjugation</p>
+            <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Konjugation</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {Object.entries(entry.verb_conjugation).map(([tense, form]) => (
                 <div key={tense} className="rounded-lg bg-muted/50 p-2">
@@ -183,7 +183,7 @@ function DetailView({
 
       {entry.example_sentences && entry.example_sentences.length > 0 && (
         <div className="rounded-xl border bg-card p-6 shadow-sm">
-          <SectionHeading icon={Quote} title="Example Sentences" />
+          <SectionHeading icon={Quote} title="Beispielsätze" />
           <div className="space-y-3">
             {entry.example_sentences.map((sentence, i) => (
               <div key={i} className="flex items-start gap-3 rounded-lg bg-muted/50 p-3">
@@ -200,11 +200,11 @@ function DetailView({
 
       {(entry.synonyms.length > 0 || entry.antonyms.length > 0) && (
         <div className="rounded-xl border bg-card p-6 shadow-sm">
-          <SectionHeading icon={Sparkles} title="Synonyms & Antonyms" />
+          <SectionHeading icon={Sparkles} title="Synonyme & Antonyme" />
           <div className="flex flex-wrap gap-6">
             {entry.synonyms.length > 0 && (
               <div>
-                <p className="text-xs text-muted-foreground mb-2">Synonyms</p>
+                <p className="text-xs text-muted-foreground mb-2">Synonyme</p>
                 <div className="flex flex-wrap gap-1.5">
                   {entry.synonyms.map((s, i) => (
                     <Badge key={i} variant="secondary" className="text-xs">{s}</Badge>
@@ -214,7 +214,7 @@ function DetailView({
             )}
             {entry.antonyms.length > 0 && (
               <div>
-                <p className="text-xs text-muted-foreground mb-2">Antonyms</p>
+                <p className="text-xs text-muted-foreground mb-2">Antonyme</p>
                 <div className="flex flex-wrap gap-1.5">
                   {entry.antonyms.map((a, i) => (
                     <Badge key={i} variant="outline" className="text-xs">{a}</Badge>
@@ -228,7 +228,7 @@ function DetailView({
 
       {entry.word_family.length > 0 && (
         <div className="rounded-xl border bg-card p-6 shadow-sm">
-          <SectionHeading icon={Layers} title="Word Family" />
+          <SectionHeading icon={Layers} title="Wortfamilie" />
           <div className="flex flex-wrap gap-1.5">
             {entry.word_family.map((w, i) => (
               <Badge key={i} className="text-xs">{w}</Badge>
@@ -239,7 +239,7 @@ function DetailView({
 
       {entry.collocations.length > 0 && (
         <div className="rounded-xl border bg-card p-6 shadow-sm">
-          <SectionHeading icon={Hash} title="Collocations" />
+          <SectionHeading icon={Hash} title="Kollokationen" />
           <div className="flex flex-wrap gap-1.5">
             {entry.collocations.map((c, i) => (
               <Badge key={i} variant="outline" className="text-xs">{c}</Badge>
@@ -250,14 +250,14 @@ function DetailView({
 
       {entry.grammar_notes && (
         <div className="rounded-xl border bg-card p-6 shadow-sm">
-          <SectionHeading icon={AlertCircle} title="Grammar Notes" />
+          <SectionHeading icon={AlertCircle} title="Grammatikhinweise" />
           <p className="text-sm text-muted-foreground">{entry.grammar_notes}</p>
         </div>
       )}
 
       {entry.common_mistakes.length > 0 && (
         <div className="rounded-xl border bg-card p-6 shadow-sm">
-          <SectionHeading icon={AlertCircle} title="Common Mistakes" />
+          <SectionHeading icon={AlertCircle} title="Häufige Fehler" />
           <ul className="space-y-1.5">
             {entry.common_mistakes.map((m, i) => (
               <li key={i} className="flex items-start gap-2 text-sm">
@@ -271,7 +271,7 @@ function DetailView({
 
       {(entry.tags.length > 0 || entry.topic) && (
         <div className="rounded-xl border bg-card p-6 shadow-sm">
-          <SectionHeading icon={Tags} title="Tags & Topic" />
+          <SectionHeading icon={Tags} title="Tags & Thema" />
           <div className="flex flex-wrap items-center gap-2">
             {entry.topic && (
               <Badge variant="secondary" className="text-xs">{entry.topic}</Badge>
@@ -463,7 +463,7 @@ export default function DictionaryPage() {
           </div>
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Wörterbuch</h1>
-            <p className="text-sm text-muted-foreground">Comprehensive German dictionary with grammar, examples, and more</p>
+            <p className="text-sm text-muted-foreground">Umfassendes deutsches Wörterbuch mit Grammatik, Beispielen und mehr</p>
           </div>
         </div>
 
@@ -472,7 +472,7 @@ export default function DictionaryPage() {
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               ref={searchInputRef}
-              placeholder="Search German, English, French, or Arabic..."
+              placeholder="Suche auf Deutsch, Englisch, Französisch oder Arabisch..."
               className="pl-9 h-10"
               value={search}
               onChange={e => setSearch(e.target.value)}
@@ -482,7 +482,7 @@ export default function DictionaryPage() {
 
         <div className="flex flex-wrap gap-2">
           <div className="flex rounded-lg border p-0.5 bg-muted/40">
-            {[{ label: 'All', value: '' }, ...LEVELS.map(l => ({ label: l, value: l }))].map(opt => (
+            {[{ label: 'Alle', value: '' }, ...LEVELS.map(l => ({ label: l, value: l }))].map(opt => (
               <button
                 key={opt.value}
                 onClick={() => handleLevelChange(opt.value)}
@@ -502,7 +502,7 @@ export default function DictionaryPage() {
             onChange={e => handleWordTypeChange(e.target.value)}
             className="h-8 rounded-lg border bg-background px-2.5 py-1 text-xs font-medium text-muted-foreground"
           >
-            <option value="">All Types</option>
+            <option value="">Alle Typen</option>
             {WORD_TYPES.map(wt => (
               <option key={wt} value={wt}>{typeLabels[wt] ?? wt}</option>
             ))}
@@ -513,7 +513,7 @@ export default function DictionaryPage() {
             onChange={e => handleArticleChange(e.target.value)}
             className="h-8 rounded-lg border bg-background px-2.5 py-1 text-xs font-medium text-muted-foreground"
           >
-            <option value="">All Articles</option>
+            <option value="">Alle Artikel</option>
             {ARTICLES.map(a => (
               <option key={a} value={a}>{a}</option>
             ))}
@@ -521,7 +521,7 @@ export default function DictionaryPage() {
 
           <div className="relative">
             <Input
-              placeholder="Filter by topic..."
+              placeholder="Nach Thema filtern..."
               className="h-8 w-36 text-xs px-2.5"
               value={selectedTopic}
               onChange={e => handleTopicChange(e.target.value)}
@@ -531,7 +531,7 @@ export default function DictionaryPage() {
 
         <div className="flex items-center justify-between">
           <p className="text-sm text-muted-foreground">
-            {results ? `${results.total} result${results.total !== 1 ? 's' : ''}` : ''}
+            {results ? `${results.total} ${results.total === 1 ? 'Ergebnis' : 'Ergebnisse'}` : ''}
           </p>
           {hasActiveFilters && (
             <Button
@@ -540,7 +540,7 @@ export default function DictionaryPage() {
               className="h-7 text-xs text-muted-foreground"
               onClick={clearFilters}
             >
-              Clear filters
+              Filter zurücksetzen
             </Button>
           )}
         </div>
@@ -612,12 +612,12 @@ export default function DictionaryPage() {
                 </div>
               </div>
               <p className="text-lg font-medium mb-1">
-                {hasActiveFilters ? 'No entries found' : 'Welcome to the dictionary'}
+                {hasActiveFilters ? 'Keine Einträge gefunden' : 'Willkommen im Wörterbuch'}
               </p>
               <p className="text-sm text-muted-foreground max-w-sm mx-auto">
                 {hasActiveFilters
-                  ? 'Try adjusting your search or filters.'
-                  : 'Start typing in the search box above to look up German words.'}
+                  ? 'Versuche, deine Suche oder Filter anzupassen.'
+                  : 'Gib oben im Suchfeld ein, um deutsche Wörter nachzuschlagen.'}
               </p>
             </CardContent>
           </Card>

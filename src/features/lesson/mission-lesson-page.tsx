@@ -2,14 +2,20 @@
 
 import { useState, useCallback, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronLeft, BookOpen } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { ChevronLeft } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { LinkButton } from '@/components/shared/link-button'
 import { MissionStepper, type Step } from './components/mission-stepper'
 import { MissionBriefing } from './components/mission-briefing'
+import { GrammarFocus } from './components/grammar-focus'
 import { VocabularyDeck } from './components/vocabulary-deck'
 import { ExerciseArena } from './components/exercise-arena'
+import { ListeningSection } from './components/listening-section'
+import { ReadingSection } from './components/reading-section'
+import { SpeakingSection } from './components/speaking-section'
+import { WritingSection } from './components/writing-section'
+import { RealLifeSection } from './components/real-life-section'
+import { ReviewSection } from './components/review-section'
 import { FinalBossTest } from './components/final-boss-test'
 import { MissionComplete } from './components/mission-complete'
 import type { CourseLessonFull } from '@/types'
@@ -39,16 +45,33 @@ export function MissionLessonPage({
   const [testScore, setTestScore] = useState(0)
 
   const steps = useMemo(() => {
-    const s: Step[] = [{ id: 'briefing', label: 'Briefing' }]
+    const s: Step[] = [{ id: 'briefing', label: 'Einführung' }]
 
+    if (lesson.grammar.length > 0)
+      s.push({ id: 'grammar', label: 'Grammatik' })
     if (lesson.vocabulary.length > 0)
-      s.push({ id: 'vocabulary', label: 'Vocabulary' })
+      s.push({ id: 'vocabulary', label: 'Wortschatz' })
     if (lesson.exercises.length > 0)
-      s.push({ id: 'exercises', label: 'Exercises' })
+      s.push({ id: 'exercises', label: 'Übungen' })
+    if ((lesson.listening_content?.length ?? 0) > 0)
+      s.push({ id: 'listening', label: 'Hören' })
+    if ((lesson.reading_content?.length ?? 0) > 0)
+      s.push({ id: 'reading', label: 'Lesen' })
+    if ((lesson.speaking_prompts?.length ?? 0) > 0)
+      s.push({ id: 'speaking', label: 'Sprechen' })
+    if ((lesson.writing_prompts?.length ?? 0) > 0)
+      s.push({ id: 'writing', label: 'Schreiben' })
+    if (
+      (lesson.expressions?.length ?? 0) > 0 ||
+      (lesson.conversations?.length ?? 0) > 0
+    )
+      s.push({ id: 'real-life', label: 'Alltag' })
+    if ((lesson.review?.length ?? 0) > 0)
+      s.push({ id: 'review', label: 'Wiederholung' })
     if (lesson.test_questions.length > 0)
       s.push({ id: 'test', label: 'Test' })
 
-    s.push({ id: 'complete', label: 'Complete' })
+    s.push({ id: 'complete', label: 'Abschluss' })
     return s
   }, [lesson])
 
@@ -101,6 +124,11 @@ export function MissionLessonPage({
     }),
   }
 
+  const handleTestResult = useCallback((passed: boolean, score: number) => {
+    setTestPassed(passed)
+    setTestScore(score)
+  }, [])
+
   const renderStep = () => {
     const step = steps[currentStep]
 
@@ -113,6 +141,14 @@ export function MissionLessonPage({
               setCompletedSteps(new Set([0]))
               goToStep(1)
             }}
+          />
+        )
+
+      case 'grammar':
+        return (
+          <GrammarFocus
+            grammarItems={lesson.grammar}
+            onComplete={() => completeStep(lesson.grammar.length * 10)}
           />
         )
 
@@ -138,12 +174,62 @@ export function MissionLessonPage({
           />
         )
 
+      case 'listening':
+        return (
+          <ListeningSection
+            listening={lesson.listening_content ?? []}
+            onComplete={() => completeStep(20)}
+          />
+        )
+
+      case 'reading':
+        return (
+          <ReadingSection
+            reading={lesson.reading_content ?? []}
+            onComplete={() => completeStep(20)}
+          />
+        )
+
+      case 'speaking':
+        return (
+          <SpeakingSection
+            speaking={lesson.speaking_prompts ?? []}
+            onComplete={() => completeStep(25)}
+          />
+        )
+
+      case 'writing':
+        return (
+          <WritingSection
+            writing={lesson.writing_prompts ?? []}
+            onComplete={() => completeStep(25)}
+          />
+        )
+
+      case 'real-life':
+        return (
+          <RealLifeSection
+            expressions={lesson.expressions ?? []}
+            conversations={lesson.conversations ?? []}
+            onComplete={() => completeStep(15)}
+          />
+        )
+
+      case 'review':
+        return (
+          <ReviewSection
+            review={lesson.review ?? []}
+            onComplete={() => completeStep(15)}
+          />
+        )
+
       case 'test':
         return (
           <FinalBossTest
             questions={lesson.test_questions}
             onSubmit={handleTestSubmit}
             isPending={isTestPending ?? false}
+            onResult={handleTestResult}
           />
         )
 

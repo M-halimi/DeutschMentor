@@ -81,18 +81,18 @@ export default function DictationPage() {
             <Ear className="h-5 w-5" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Dictation</h1>
-            <p className="text-muted-foreground">Listen and type what you hear. Improve your listening and writing skills.</p>
+            <h1 className="text-3xl font-bold tracking-tight">Diktat</h1>
+            <p className="text-muted-foreground">Höre zu und tippe, was du hörst. Verbessere deine Hör- und Schreibfähigkeiten.</p>
           </div>
         </div>
 
         <div className="flex items-center gap-4">
           <Select value={level} onValueChange={(v) => { if (v) setLevel(v) }}>
             <SelectTrigger className="w-32">
-              <SelectValue placeholder="Level" />
+              <SelectValue placeholder="Niveau" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All levels</SelectItem>
+              <SelectItem value="">Alle Niveaus</SelectItem>
               <SelectItem value="A1">A1</SelectItem>
               <SelectItem value="A2">A2</SelectItem>
               <SelectItem value="B1">B1</SelectItem>
@@ -102,7 +102,7 @@ export default function DictationPage() {
           </Select>
           {selectedId && (
             <Button variant="outline" size="sm" onClick={() => { setSelectedId(null); setResult(null); setUserText('') }}>
-              Change Exercise
+              Übung wechseln
             </Button>
           )}
         </div>
@@ -125,7 +125,7 @@ export default function DictationPage() {
                       <Badge>{ex.level}</Badge>
                     </div>
                     <h3 className="font-semibold">{ex.title}</h3>
-                    <p className="text-xs text-muted-foreground mt-2">{ex.duration_seconds}s · {ex.full_text.split(/\s+/).length} words</p>
+                    <p className="text-xs text-muted-foreground mt-2">{ex.duration_seconds}s · {ex.full_text.split(/\s+/).length} Wörter</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -133,7 +133,7 @@ export default function DictationPage() {
             {(!exercises || exercises.length === 0) && (
               <Card className="col-span-full">
                 <CardContent className="p-8 text-center text-muted-foreground">
-                  No dictation exercises available.
+                  Keine Diktatübungen verfügbar.
                 </CardContent>
               </Card>
             )}
@@ -143,7 +143,7 @@ export default function DictationPage() {
             <Card>
               <CardHeader className="text-center">
                 <CardTitle>{selectedExercise.title}</CardTitle>
-                <CardDescription>Listen to the audio and type exactly what you hear</CardDescription>
+                <CardDescription>Höre dir das Audio an und tippe genau das, was du hörst</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="flex justify-center">
@@ -152,11 +152,11 @@ export default function DictationPage() {
                   </Button>
                 </div>
                 <p className="text-center text-sm text-muted-foreground">
-                  Click play, listen carefully, then type what you heard
+                  Klicke auf Play, höre genau hin und tippe dann, was du gehört hast
                 </p>
 
                 <Button variant="outline" size="sm" className="mx-auto flex" onClick={togglePlay}>
-                  <RefreshCw className="mr-2 h-4 w-4" /> Play Again
+                  <RefreshCw className="mr-2 h-4 w-4" /> Nochmal abspielen
                 </Button>
               </CardContent>
             </Card>
@@ -164,18 +164,18 @@ export default function DictationPage() {
             {!result ? (
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Your Answer</CardTitle>
-                  <CardDescription>Type the German text you heard</CardDescription>
+                  <CardTitle className="text-lg">Deine Antwort</CardTitle>
+                  <CardDescription>Tippe den gehörten deutschen Text</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <Textarea
-                    placeholder="Type what you heard..."
+                    placeholder="Tippe, was du gehört hast..."
                     className="min-h-[120px]"
                     value={userText}
                     onChange={(e) => setUserText(e.target.value)}
                   />
                   <Button onClick={handleSubmit} disabled={!userText.trim() || submitDictation.isPending} className="w-full">
-                    {submitDictation.isPending ? 'Checking...' : 'Check Answer'}
+                    {submitDictation.isPending ? 'Wird überprüft...' : 'Antwort prüfen'}
                   </Button>
                 </CardContent>
               </Card>
@@ -192,25 +192,25 @@ export default function DictationPage() {
                     </div>
                     <CardTitle className="text-2xl">{result.score}%</CardTitle>
                     <CardDescription>
-                      {result.correctCount} of {result.totalWords} words correct
+                      {result.correctCount} von {result.totalWords} Wörtern richtig
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div>
-                      <p className="text-sm font-medium mb-1">Expected:</p>
+                      <p className="text-sm font-medium mb-1">Erwartet:</p>
                       <p className="text-sm bg-muted p-3 rounded-lg">{selectedExercise.full_text}</p>
                     </div>
                     <div>
-                      <p className="text-sm font-medium mb-1">Your answer:</p>
+                      <p className="text-sm font-medium mb-1">Deine Antwort:</p>
                       <p className="text-sm bg-muted p-3 rounded-lg">{userText}</p>
                     </div>
                     {result.mistakes.length > 0 && (
                       <div>
-                        <p className="text-sm font-medium mb-2 text-amber-500">Mistakes ({result.mistakes.length}):</p>
+                        <p className="text-sm font-medium mb-2 text-amber-500">Fehler ({result.mistakes.length}):</p>
                         <div className="space-y-1">
                           {result.mistakes.map((m, i) => (
                             <div key={i} className="text-sm flex gap-2">
-                              <span className="text-destructive line-through">{m.original || '(missing)'}</span>
+                              <span className="text-destructive line-through">{m.original || '(fehlt)'}</span>
                               <span className="text-green-500">→ {m.expected}</span>
                             </div>
                           ))}
@@ -219,10 +219,10 @@ export default function DictationPage() {
                     )}
                     <div className="flex gap-2 pt-2">
                       <Button variant="outline" className="flex-1" onClick={resetExercise}>
-                        <RefreshCw className="mr-2 h-4 w-4" /> Try Again
+                        <RefreshCw className="mr-2 h-4 w-4" /> Nochmal versuchen
                       </Button>
                       <Button className="flex-1" onClick={() => { setSelectedId(null); setResult(null); setUserText('') }}>
-                        Next Exercise
+                        Nächste Übung
                       </Button>
                     </div>
                   </CardContent>

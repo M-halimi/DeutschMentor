@@ -36,8 +36,8 @@ export default function CoursesPage() {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold tracking-tight">German Courses</h1>
-            <p className="text-muted-foreground">Choose your level and start learning</p>
+            <h1 className="text-2xl font-bold tracking-tight">Deutschkurse</h1>
+            <p className="text-muted-foreground">Wähle dein Niveau und beginne zu lernen</p>
           </div>
         </div>
 
@@ -84,11 +84,11 @@ export default function CoursesPage() {
               <Sparkles className="h-5 w-5 text-violet-600" />
             </div>
             <div>
-              <h3 className="font-semibold mb-1">CEFR-Aligned Curriculum</h3>
+              <h3 className="font-semibold mb-1">CEFR-orientierter Lehrplan</h3>
               <p className="text-sm text-muted-foreground">
-                Our courses follow the Common European Framework of Reference for Languages (CEFR). 
-                Each level is designed with Goethe/TELC exam preparation in mind, covering all 
-                language skills: reading, writing, listening, and speaking.
+                Unsere Kurse folgen dem Gemeinsamen Europäischen Referenzrahmen für Sprachen (GER). 
+                Jedes Niveau ist auf die Goethe-/TELC-Prüfungen ausgerichtet und deckt alle 
+                Sprachfertigkeiten ab: Lesen, Schreiben, Hören und Sprechen.
               </p>
             </div>
           </CardContent>
