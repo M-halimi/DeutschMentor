@@ -2,7 +2,7 @@
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { createClient } from '@/lib/supabase/client'
-import type { DashboardStats, DailyPlan, LessonType, AudioLessonWithExercises, ArticleWithContent, DictationExercise, Expression, GrammarExercise, AudioLesson, Article, SpeakingSession, Vocabulary, UserVocabulary, ListeningAnalytics, LearningAnalytics, ExerciseAttempt, WritingPrompt, WritingExample, MentorChat, ThemeLesson, CourseModule, CourseLesson, CourseLessonFull, ExamPrepModule, ExamPrepAttempt, CourseCertificate } from '@/types'
+import type { DashboardStats, DailyPlan, LessonType, AudioLessonWithExercises, ArticleWithContent, DictationExercise, Expression, GrammarExercise, AudioLesson, Article, SpeakingSession, Vocabulary, UserVocabulary, VocabularyResponse, ListeningAnalytics, LearningAnalytics, ExerciseAttempt, WritingPrompt, WritingExample, MentorChat, ThemeLesson, CourseModule, CourseLesson, CourseLessonFull, ExamPrepModule, ExamPrepAttempt, CourseCertificate } from '@/types'
 
 export function useDashboardStats(userId: string | undefined) {
   return useQuery<DashboardStats>({
@@ -426,8 +426,8 @@ export function useSubmitGrammar() {
 }
 
 // Vocabulary hooks
-export function useVocabulary(level?: string, filters?: { theme?: string; word_type?: string; frequency?: string; search?: string }) {
-  return useQuery<Vocabulary[]>({
+export function useVocabulary(level?: string, filters?: { theme?: string; word_type?: string; frequency?: string; search?: string; page?: number; pageSize?: number }) {
+  return useQuery<VocabularyResponse>({
     queryKey: ['vocabulary', level, filters],
     queryFn: async () => {
       const params = new URLSearchParams()
@@ -436,6 +436,8 @@ export function useVocabulary(level?: string, filters?: { theme?: string; word_t
       if (filters?.word_type) params.set('word_type', filters.word_type)
       if (filters?.frequency) params.set('frequency', filters.frequency)
       if (filters?.search) params.set('search', filters.search)
+      if (filters?.page) params.set('page', String(filters.page))
+      if (filters?.pageSize) params.set('pageSize', String(filters.pageSize))
       const res = await fetch(`/api/vocabulary?${params}`)
       if (!res.ok) throw new Error('Failed')
       return res.json()
@@ -443,12 +445,14 @@ export function useVocabulary(level?: string, filters?: { theme?: string; word_t
   })
 }
 
-export function useVocabularyByTheme(theme: string | undefined) {
-  return useQuery<Vocabulary[]>({
-    queryKey: ['vocabulary', 'theme', theme],
+export function useVocabularyByTheme(theme: string | undefined, page?: number, pageSize?: number) {
+  return useQuery<VocabularyResponse>({
+    queryKey: ['vocabulary', 'theme', theme, page, pageSize],
     queryFn: async () => {
       const params = new URLSearchParams()
       if (theme) params.set('theme', theme)
+      if (page) params.set('page', String(page))
+      if (pageSize) params.set('pageSize', String(pageSize ?? 100))
       const res = await fetch(`/api/vocabulary?${params}`)
       if (!res.ok) throw new Error('Failed')
       return res.json()
@@ -457,8 +461,8 @@ export function useVocabularyByTheme(theme: string | undefined) {
   })
 }
 
-export function useVocabularySearch(query: string | undefined, filters?: { level?: string; word_type?: string; theme?: string }) {
-  return useQuery<Vocabulary[]>({
+export function useVocabularySearch(query: string | undefined, filters?: { level?: string; word_type?: string; theme?: string; page?: number; pageSize?: number }) {
+  return useQuery<VocabularyResponse>({
     queryKey: ['vocabulary', 'search', query, filters],
     queryFn: async () => {
       const params = new URLSearchParams()
@@ -466,6 +470,8 @@ export function useVocabularySearch(query: string | undefined, filters?: { level
       if (filters?.level) params.set('level', filters.level)
       if (filters?.word_type) params.set('word_type', filters.word_type)
       if (filters?.theme) params.set('theme', filters.theme)
+      if (filters?.page) params.set('page', String(filters.page))
+      if (filters?.pageSize) params.set('pageSize', String(filters.pageSize ?? 100))
       const res = await fetch(`/api/vocabulary?${params}`)
       if (!res.ok) throw new Error('Failed')
       return res.json()
@@ -585,13 +591,14 @@ export function useSearch(filters: SearchFilters) {
 }
 
 // Language-aware vocabulary hook
-export function useLanguageVocabulary(language: string, level?: string) {
-  return useQuery<Vocabulary[]>({
-    queryKey: ['vocabulary', language, level],
+export function useLanguageVocabulary(language: string, level?: string, page?: number) {
+  return useQuery<VocabularyResponse>({
+    queryKey: ['vocabulary', language, level, page],
     queryFn: async () => {
       const params = new URLSearchParams()
       params.set('language', language)
       if (level) params.set('level', level)
+      if (page) params.set('page', String(page))
       const res = await fetch(`/api/vocabulary?${params}`)
       if (!res.ok) throw new Error('Failed')
       return res.json()

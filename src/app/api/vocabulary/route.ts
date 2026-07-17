@@ -17,8 +17,11 @@ export async function GET(request: Request) {
     const difficultyScore = searchParams.get('difficulty_score')
     const tags = searchParams.get('tags')
     const searchParam = searchParams.get('search')
+    const page = Math.max(1, parseInt(searchParams.get('page') || '1'))
+    const pageSize = Math.min(200, Math.max(1, parseInt(searchParams.get('pageSize') || '100')))
+    const offset = (page - 1) * pageSize
 
-    let query = supabase.from('vocabulary').select('*').limit(1500)
+    let query = supabase.from('vocabulary').select('*', { count: 'exact' })
 
     if (level) query = query.eq('level', level)
     if (theme) query = query.eq('theme', theme)
@@ -34,13 +37,26 @@ export async function GET(request: Request) {
       )
     }
 
-    const { data, error } = await query
+    const { data, error, count } = await query
+      .order('german_word', { ascending: true })
+      .range(offset, offset + pageSize - 1)
 
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
-    return NextResponse.json(data)
+    const totalItems = count ?? 0
+    const totalPages = Math.ceil(totalItems / pageSize)
+
+    return NextResponse.json({
+      data: data ?? [],
+      totalItems,
+      totalPages,
+      page,
+      pageSize,
+      hasNextPage: page < totalPages,
+      hasPreviousPage: page > 1,
+    })
   } catch (error) {
     return NextResponse.json(
       { error: 'Failed to fetch vocabulary' },

@@ -155,9 +155,10 @@ export default function ExamPage() {
   const runLevelEvaluation = useCallback(async () => {
     setEvalLoading(true)
     try {
-      const res = await fetch('/api/vocabulary')
+      const res = await fetch('/api/vocabulary?pageSize=500')
       if (!res.ok) throw new Error('Failed')
-      const vocab: any[] = await res.json()
+      const vocabResp = await res.json()
+      const vocab: any[] = vocabResp.data ?? []
 
       const levels = ['A1', 'A2', 'B1', 'B2', 'C1']
       const wordsPerLevel = 2

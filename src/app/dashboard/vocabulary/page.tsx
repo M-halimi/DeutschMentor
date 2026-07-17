@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useMemo, useCallback, useRef, useEffect } from 'react'
+import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
 import { useQueryClient, useMutation } from '@tanstack/react-query'
+import { useSearchParams, useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { AppShell } from '@/components/layout/app-shell'
 import { Card, CardContent } from '@/components/ui/card'
@@ -180,7 +181,11 @@ function FlashcardBack({ word }: { word: Vocabulary }) {
   )
 }
 
+const PAGE_SIZES = [50, 100, 200] as const
+
 export default function VocabularyPage() {
+  const searchParams = useSearchParams()
+  const router = useRouter()
   const [search, setSearch] = useState('')
   const [selectedLevel, setSelectedLevel] = useState('')
   const [selectedTheme, setSelectedTheme] = useState('')
@@ -198,13 +203,45 @@ export default function VocabularyPage() {
   const [practiceSelected, setPracticeSelected] = useState(-1)
   const [practiceConfigOpen, setPracticeConfigOpen] = useState(true)
   const [practiceConfig, setPracticeConfig] = useState({ count: '10', level: '', theme: '' })
+  const [pageSize, setPageSize] = useState(100)
   const [now, setNow] = useState(() => Date.now())
+
+  const page = parseInt(searchParams.get('page') || '1')
+  const setPage = (p: number) => {
+    const params = new URLSearchParams(searchParams.toString())
+    if (p <= 1) params.delete('page')
+    else params.set('page', String(p))
+    router.replace(`/dashboard/vocabulary?${params}`, { scroll: false })
+  }
+
   useEffect(() => {
     const interval = setInterval(() => setNow(Date.now()), 60000)
     return () => clearInterval(interval)
   }, [])
+
+  // Reset to page 1 when filters change
+  const prevFilters = useRef({ selectedLevel: '', selectedTheme: '', search: '', pageSize: 100 })
+  useEffect(() => {
+    const prev = prevFilters.current
+    if (selectedLevel !== prev.selectedLevel || selectedTheme !== prev.selectedTheme || search !== prev.search || pageSize !== prev.pageSize) {
+      prevFilters.current = { selectedLevel, selectedTheme, search, pageSize }
+      if (page !== 1) {
+        const params = new URLSearchParams(searchParams.toString())
+        params.delete('page')
+        router.replace(`/dashboard/vocabulary?${params}`, { scroll: false })
+      }
+    }
+  }, [selectedLevel, selectedTheme, search, pageSize, page])
+
   const queryClient = useQueryClient()
-  const { data: vocab, isLoading } = useVocabulary()
+
+  const vocabFilters = {
+    theme: selectedTheme && selectedTheme !== 'All Themes' ? selectedTheme : undefined,
+    search: search || undefined,
+    page,
+    pageSize,
+  }
+  const { data: vocabResp, isLoading } = useVocabulary(selectedLevel || undefined, vocabFilters)
   const { data: userVocab } = useUserVocabulary()
   const { data: analytics } = useLearningAnalytics()
   const saveVocab = useSaveVocabulary()
@@ -215,33 +252,22 @@ export default function VocabularyPage() {
     return map
   }, [userVocab])
 
-  const filteredWords = useMemo(() => {
-    if (!vocab) return []
-    return vocab.filter(w => {
-      if (selectedLevel && w.level !== selectedLevel) return false
-      if (selectedTheme && w.theme !== selectedTheme) return false
-      if (search) {
-        const q = search.toLowerCase()
-        if (!w.german_word.toLowerCase().includes(q) && !w.english_translation.toLowerCase().includes(q) &&
-            !(w.french_translation?.toLowerCase().includes(q)) && !(w.arabic_translation?.toLowerCase().includes(q))) return false
-      }
-      return true
-    })
-  }, [vocab, selectedLevel, selectedTheme, search])
-
   const dueForReview = useMemo(() =>
     (userVocab ?? []).filter(uv => !uv.mastered && new Date(uv.next_review) <= new Date()),
   [userVocab])
 
   const favorites = useMemo(() => {
-    const favIds = new Set((userVocab ?? []).filter(uv => uv.is_favorite).map(uv => uv.vocabulary_id))
-    return (vocab ?? []).filter(w => favIds.has(w.id))
-  }, [vocab, userVocab])
+    const favMap = new Map<string, { vocabulary: Vocabulary }>()
+    ;(userVocab ?? []).filter(uv => uv.is_favorite).forEach(uv => favMap.set(uv.vocabulary_id, uv as any))
+    return [...favMap.values()].map(uv => uv.vocabulary).filter(Boolean)
+  }, [userVocab])
+
+  const vocabWords = vocabResp?.data ?? []
 
   const shuffledCards = useMemo(() => {
-    const source = flashcardSource === 'due' ? dueForReview.map(uv => uv.vocabulary).filter(Boolean) as Vocabulary[] : filteredWords
+    const source = flashcardSource === 'due' ? dueForReview.map(uv => uv.vocabulary).filter(Boolean) as Vocabulary[] : vocabWords
     if (shuffleMode && source.length > 0) {
-      const seed = source.length + (filteredWords.length * 31)
+      const seed = source.length + (vocabWords.length * 31)
       const indices = [...Array(source.length).keys()]
       for (let i = indices.length - 1; i > 0; i--) {
         const j = ((seed * 1103515245 + 12345) >> 16) % (i + 1)
@@ -250,7 +276,7 @@ export default function VocabularyPage() {
       return { cards: indices.map(i => source[i]), order: indices }
     }
     return { cards: source, order: [...Array(source.length).keys()] }
-  }, [filteredWords, dueForReview, flashcardSource, shuffleMode])
+  }, [vocabWords, dueForReview, flashcardSource, shuffleMode])
 
   const flashcardKey = `${shuffleMode}-${flashcardSource}`
   const [prevFlashcardKey, setPrevFlashcardKey] = useState(flashcardKey)
@@ -281,7 +307,7 @@ export default function VocabularyPage() {
   }, [saveVocab, userVocMap])
 
   const startPractice = useCallback(() => {
-    let pool = [...(vocab ?? [])]
+    let pool = [...vocabWords]
     if (practiceConfig.level) pool = pool.filter(w => w.level === practiceConfig.level)
     if (practiceConfig.theme) pool = pool.filter(w => w.theme === practiceConfig.theme)
     const count = Math.min(parseInt(practiceConfig.count) || 10, pool.length)
@@ -298,14 +324,14 @@ export default function VocabularyPage() {
     setPracticeSelected(-1)
     setPracticeConfigOpen(false)
     setPracticeActive(true)
-  }, [vocab, practiceConfig])
+  }, [vocabWords, practiceConfig])
 
   const currentPracticeWord = useMemo(() => practiceWords[practiceIndex] ?? null, [practiceWords, practiceIndex])
 
   const currentPracticeOptions = useMemo(() => {
-    if (!currentPracticeWord || !vocab) return []
-    const others = vocab.filter(w => w.id !== currentPracticeWord.id && w.english_translation !== currentPracticeWord.english_translation)
-    const idxA = (currentPracticeWord.id.length + vocab.length) % others.length
+    if (!currentPracticeWord || vocabWords.length === 0) return []
+    const others = vocabWords.filter(w => w.id !== currentPracticeWord.id && w.english_translation !== currentPracticeWord.english_translation)
+    const idxA = (currentPracticeWord.id.length + vocabWords.length) % others.length
     const opts = [currentPracticeWord,
       others[(idxA * 17 + 31) % others.length],
       others[(idxA * 19 + 53) % others.length],
@@ -314,7 +340,7 @@ export default function VocabularyPage() {
     const sorted = [opts[0]]
     const remaining = opts.slice(1).sort((a, b) => (a?.id ?? '').localeCompare(b?.id ?? ''))
     return [...sorted, ...remaining]
-  }, [currentPracticeWord, vocab])
+  }, [currentPracticeWord, vocabWords])
 
   const [prevPracticeIdx, setPrevPracticeIdx] = useState(practiceIndex)
   if (practiceIndex !== prevPracticeIdx) {
@@ -382,7 +408,7 @@ export default function VocabularyPage() {
         {/* Stats */}
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {[
-            { label: 'Gesamtzahl', value: vocab?.length ?? 0, icon: BookOpen, color: 'text-indigo-500' },
+            { label: 'Gesamtzahl', value: vocabResp?.totalItems ?? 0, icon: BookOpen, color: 'text-indigo-500' },
             { label: 'Gelernt', value: masteredCount, icon: Award, color: 'text-amber-500' },
             { label: 'Lernend', value: learningCount, icon: Brain, color: 'text-violet-500' },
             { label: 'Wiederholung', value: dueForReview.length, icon: RotateCcw, color: dueForReview.length > 0 ? 'text-rose-500' : 'text-muted-foreground' },
@@ -446,24 +472,75 @@ export default function VocabularyPage() {
 
           {/* Browse Tab */}
           <TabsContent value="browse" className="mt-6">
-            {filteredWords.length === 0 ? (
+            {vocabWords.length === 0 ? (
               <Card><CardContent className="p-12 text-center">
                 <BookOpen className="h-12 w-12 text-muted-foreground/40 mx-auto mb-4" />
                 <p className="text-muted-foreground">{search || selectedTheme ? 'Keine Wörter entsprechen deinen Filtern.' : 'Noch keine Vokabeln vorhanden.'}</p>
               </CardContent></Card>
             ) : (
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {filteredWords.map(word => (
-                  <WordCard key={word.id} word={word}
-                    mastered={userVocMap.get(word.id)?.mastered ?? false}
-                    isFav={userVocMap.get(word.id)?.is_favorite ?? false}
-                    onToggleFav={() => toggleFavorite.mutate(word.id)}
-                    onMastered={() => handleMastered(word.id)}
-                    expanded={expandedCardId === word.id}
-                    onToggleExpand={() => setExpandedCardId(expandedCardId === word.id ? null : word.id)}
-                  />
-                ))}
-              </div>
+              <>
+                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {vocabWords.map(word => (
+                    <WordCard key={word.id} word={word}
+                      mastered={userVocMap.get(word.id)?.mastered ?? false}
+                      isFav={userVocMap.get(word.id)?.is_favorite ?? false}
+                      onToggleFav={() => toggleFavorite.mutate(word.id)}
+                      onMastered={() => handleMastered(word.id)}
+                      expanded={expandedCardId === word.id}
+                      onToggleExpand={() => setExpandedCardId(expandedCardId === word.id ? null : word.id)}
+                    />
+                  ))}
+                </div>
+
+                {/* Pagination */}
+                {vocabResp && vocabResp.totalPages > 1 && (
+                  <div className="mt-8 space-y-3">
+                    <div className="flex items-center justify-center gap-1">
+                      <Button variant="outline" size="sm" disabled={!vocabResp.hasPreviousPage}
+                        onClick={() => setPage(page - 1)}>
+                        <ChevronLeft className="h-4 w-4 mr-1" /> Vorherige
+                      </Button>
+                      {(() => {
+                        const p = vocabResp.page
+                        const tp = vocabResp.totalPages
+                        const pages: (number | string)[] = []
+                        const start = Math.max(1, p - 2)
+                        const end = Math.min(tp, p + 2)
+                        if (start > 1) { pages.push(1); if (start > 2) pages.push('...') }
+                        for (let i = start; i <= end; i++) pages.push(i)
+                        if (end < tp) { if (end < tp - 1) pages.push('...'); pages.push(tp) }
+                        return pages.map((pg, idx) =>
+                          typeof pg === 'string' ? (
+                            <span key={`e${idx}`} className="px-2 text-muted-foreground text-sm">...</span>
+                          ) : (
+                            <Button key={pg} variant={pg === p ? 'default' : 'outline'} size="sm" className="min-w-[36px]"
+                              onClick={() => setPage(pg)}>
+                              {pg}
+                            </Button>
+                          )
+                        )
+                      })()}
+                      <Button variant="outline" size="sm" disabled={!vocabResp.hasNextPage}
+                        onClick={() => setPage(page + 1)}>
+                        Nächste <ChevronRight className="h-4 w-4 ml-1" />
+                      </Button>
+                    </div>
+                    <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
+                      <span>Zeige {((page - 1) * pageSize) + 1}–{Math.min(page * pageSize, vocabResp.totalItems)} von {vocabResp.totalItems.toLocaleString()} Wörtern</span>
+                      <span>Seite {vocabResp.page} von {vocabResp.totalPages}</span>
+                      <div className="flex items-center gap-1">
+                        <span className="text-xs">Pro Seite:</span>
+                        {PAGE_SIZES.map(ps => (
+                          <button key={ps} onClick={() => { setPageSize(ps); setPage(1) }}
+                            className={`px-2 py-0.5 text-xs rounded ${ps === pageSize ? 'bg-primary text-primary-foreground' : 'bg-muted hover:bg-muted/80'}`}>
+                            {ps}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </>
             )}
           </TabsContent>
 
@@ -670,10 +747,10 @@ export default function VocabularyPage() {
                         </Select>
                       </div>
                     </div>
-                    <Button className="w-full h-12 text-base" onClick={startPractice} disabled={(vocab?.length ?? 0) < 4}>
+                    <Button className="w-full h-12 text-base" onClick={startPractice} disabled={vocabWords.length < 4}>
                       <Sparkles className="mr-2 h-5 w-5" /> Üben starten
                     </Button>
-                    {(vocab?.length ?? 0) < 4 && <p className="text-xs text-muted-foreground text-center">Mindestens 4 Wörter im Wortschatz erforderlich.</p>}
+                    {vocabWords.length < 4 && <p className="text-xs text-muted-foreground text-center">Mindestens 4 Wörter im Wortschatz erforderlich.</p>}
                   </CardContent>
                 </Card>
               ) : practiceActive && currentPracticeWord ? (

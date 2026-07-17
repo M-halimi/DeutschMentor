@@ -1,4 +1,6 @@
-export type Role = 'student' | 'teacher' | 'admin'
+export type Role = 'student' | 'teacher' | 'admin' | 'super_admin' | 'content_manager' | 'support'
+export type UserStatus = 'active' | 'expired' | 'suspended' | 'pending' | 'trial' | 'lifetime' | 'cancelled'
+export type SubscriptionAction = 'created' | 'renewed' | 'extended' | 'suspended' | 'cancelled' | 'expired' | 'reactivated' | 'plan_changed' | 'trial_started' | 'lifetime_granted'
 
 export type GermanLevel = 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2'
 
@@ -49,8 +51,73 @@ export interface Profile {
   daily_study_minutes: number
   exam_goal: ExamType | null
   role: Role
+  status: UserStatus
+  status_reason: string | null
   created_at: string
   updated_at: string
+}
+
+export interface Role_ {
+  id: string
+  name: string
+  description: string | null
+  is_system: boolean
+  created_at: string
+}
+
+export interface Permission {
+  id: string
+  code: string
+  name: string
+  description: string | null
+  category: string
+  created_at: string
+}
+
+export interface Plan {
+  id: string
+  name: string
+  description: string | null
+  price_monthly: number
+  price_yearly: number
+  sort_order: number
+  is_public: boolean
+  created_at: string
+}
+
+export interface PlanFeature {
+  id: string
+  plan_id: string
+  feature_key: string
+  feature_value: string
+}
+
+export interface Subscription {
+  id: string
+  user_id: string
+  plan_id: string
+  plan?: Plan
+  status: UserStatus
+  start_date: string
+  end_date: string | null
+  duration_days: number | null
+  auto_renew: boolean
+  notes: string | null
+  created_at: string
+  updated_at: string
+}
+
+export interface SubscriptionHistory {
+  id: string
+  subscription_id: string
+  user_id: string
+  action: SubscriptionAction
+  performed_by: string | null
+  reason: string | null
+  previous_end_date: string | null
+  new_end_date: string | null
+  metadata: Record<string, any> | null
+  created_at: string
 }
 
 export interface Course {
@@ -544,6 +611,16 @@ export interface Vocabulary {
   created_at: string
 }
 
+export interface VocabularyResponse {
+  data: Vocabulary[]
+  totalItems: number
+  totalPages: number
+  page: number
+  pageSize: number
+  hasNextPage: boolean
+  hasPreviousPage: boolean
+}
+
 export interface UserVocabulary {
   id: string
   user_id: string
@@ -555,6 +632,149 @@ export interface UserVocabulary {
   is_favorite: boolean
   created_at: string
   updated_at: string
+}
+
+// Verb types
+export type VerbType = 'regular' | 'irregular' | 'mixed' | 'separable' | 'inseparable' | 'reflexive' | 'verb_preposition' | 'reflexive_preposition' | 'modal' | 'auxiliary'
+export type VerbTransitivity = 'intransitive' | 'transitive' | 'both'
+export type VerbObjectCase = 'akkusativ' | 'dativ' | 'genitiv' | 'akkusativ_dativ' | 'both' | 'none'
+export type VerbPrepositionCase = 'akkusativ' | 'dativ' | 'wechsel'
+export type VerbAuxiliary = 'haben' | 'sein' | 'both'
+export type VerbFrequency = 'very_common' | 'common' | 'less_common' | 'rare'
+export type ConjugationTense = 'praesens' | 'praeteritum' | 'perfekt' | 'plusquamperfekt' | 'futur_i' | 'futur_ii' | 'konjunktiv_ii' | 'imperativ' | 'passiv'
+export type ExampleDifficulty = 'beginner' | 'intermediate' | 'advanced'
+
+export interface Conjugation {
+  id: string
+  verb_id: string
+  tense: ConjugationTense
+  ich: string | null
+  du: string | null
+  er_sie_es: string | null
+  wir: string | null
+  ihr: string | null
+  Sie: string | null
+}
+
+export interface VerbExample {
+  id: string
+  verb_id: string
+  difficulty: ExampleDifficulty
+  german: string
+  english: string
+  arabic: string | null
+  french: string | null
+}
+
+export interface VerbCollocation {
+  id: string
+  verb_id: string
+  collocation: string
+  english: string
+  arabic: string | null
+  french: string | null
+}
+
+export interface VerbTypicalQuestion {
+  id: string
+  verb_id: string
+  german: string
+  english: string
+  arabic: string | null
+  french: string | null
+}
+
+export interface VerbCommonMistake {
+  id: string
+  verb_id: string
+  incorrect: string
+  correct: string
+  explanation: string
+  arabic_explanation: string | null
+  french_explanation: string | null
+}
+
+export interface VerbPrefixExplanation {
+  id: string
+  verb_id: string
+  prefix: string
+  explanation: string
+  example: string | null
+  english_explanation: string | null
+}
+
+export interface VerbFamilyMember {
+  id: string
+  verb_id: string
+  related_verb_id: string
+  relationship: string
+}
+
+export interface VerbLearningTip {
+  id: string
+  verb_id: string
+  tip_type: 'memory_trick' | 'usage_notes' | 'common_contexts' | 'formal_vs_informal'
+  content: string
+}
+
+export interface UserVerb {
+  id: string
+  user_id: string
+  verb_id: string
+  is_bookmarked: boolean
+  mastered: boolean
+  notes: string | null
+  last_studied: string | null
+  study_count: number
+  created_at: string
+  updated_at: string
+}
+
+export interface GermanVerb {
+  id: string
+  infinitive: string
+  english_translation: string
+  arabic_translation: string | null
+  french_translation: string | null
+  cefr_level: GermanLevel
+  frequency: VerbFrequency
+  verb_type: VerbType
+  transitivity: VerbTransitivity
+  object_case: VerbObjectCase
+  preposition: string | null
+  preposition_case: VerbPrepositionCase | null
+  is_reflexive: boolean
+  reflexive_pronoun: string | null
+  auxiliary: VerbAuxiliary
+  partizip_2: string
+  separable_prefix: string | null
+  ipa: string | null
+  stress: string | null
+  slug: string
+  synonyms: string[]
+  antonyms: string[]
+  tags: string[]
+  created_at: string
+  // Joined relations
+  conjugations?: Conjugation[]
+  examples?: VerbExample[]
+  collocations?: VerbCollocation[]
+  typical_questions?: VerbTypicalQuestion[]
+  common_mistakes?: VerbCommonMistake[]
+  prefix_explanations?: VerbPrefixExplanation[]
+  family_members?: VerbFamilyMember[]
+  learning_tips?: VerbLearningTip[]
+  user_verb?: UserVerb | null
+}
+
+export interface VerbListResponse {
+  data: GermanVerb[]
+  totalItems: number
+  totalPages: number
+  page: number
+  pageSize: number
+  hasNextPage: boolean
+  hasPreviousPage: boolean
 }
 
 export interface ReviewHistory {
