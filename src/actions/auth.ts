@@ -1,8 +1,10 @@
 'use server'
 
 import { createServerSupabaseClient } from '@/lib/supabase/server'
+import { createAdminClient } from '@/lib/supabase/admin'
 import { redirect } from 'next/navigation'
 import { revalidatePath } from 'next/cache'
+import { headers } from 'next/headers'
 
 export async function signUp(formData: FormData) {
   const supabase = await createServerSupabaseClient()
@@ -60,17 +62,71 @@ export async function signIn(formData: FormData) {
     return { error: 'Email and password are required' }
   }
 
-  const { error } = await supabase.auth.signInWithPassword({
+  const { error, data } = await supabase.auth.signInWithPassword({
     email,
     password,
   })
 
   if (error) {
+    await logSecurityEvent(null, email, 'LOGIN_FAILED', { error: error.message })
     return { error: error.message }
+  }
+
+  if (data.user) {
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('role, role_id, is_owner')
+      .eq('user_id', data.user.id)
+      .maybeSingle()
+
+    const isAdmin = profile && (
+      profile.is_owner === true ||
+      profile.role_id !== null ||
+      profile.role === 'admin' ||
+      profile.role === 'super_admin'
+    )
+
+    console.log('[AUTH:signIn] user:', data.user.id, 'role:', profile?.role, 'is_owner:', profile?.is_owner, 'isAdmin:', isAdmin)
+
+    await logSecurityEvent(data.user.id, email, 'LOGIN_SUCCESS', {
+      role: profile?.role || 'none',
+      isAdmin,
+      redirectTo: isAdmin ? '/admin' : profile?.role === 'teacher' ? '/teacher' : '/dashboard',
+    })
+
+    if (isAdmin) {
+      revalidatePath('/', 'layout')
+      redirect('/admin')
+    }
+    if (profile?.role === 'teacher') {
+      revalidatePath('/', 'layout')
+      redirect('/teacher')
+    }
   }
 
   revalidatePath('/', 'layout')
   redirect('/dashboard')
+}
+
+async function logSecurityEvent(userId: string | null, email: string | null, action: string, metadata: Record<string, unknown>) {
+  try {
+    const admin = createAdminClient()
+    const h = await headers()
+    await admin.rpc('log_audit_entry', {
+      p_user_id: userId,
+      p_action: action,
+      p_module: 'auth',
+      p_resource_type: 'session',
+      p_resource_id: null,
+      p_details: { ...metadata, email },
+      p_old_values: null,
+      p_new_values: null,
+      p_ip_address: h.get('x-forwarded-for') || h.get('x-real-ip'),
+      p_user_agent: h.get('user-agent'),
+    })
+  } catch {
+    // audit failures never break auth
+  }
 }
 
 export async function signOut() {

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { Suspense, useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
@@ -8,17 +8,36 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Sparkles, Eye, EyeOff } from 'lucide-react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
+import { toast } from 'sonner'
 import { createClient } from '@/lib/supabase/client'
 import { useAuthStore } from '@/stores/auth-store'
 
 export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="flex min-h-screen items-center justify-center">Loading...</div>}>
+      <LoginForm />
+    </Suspense>
+  )
+}
+
+function LoginForm() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const router = useRouter()
+  const searchParams = useSearchParams()
+
+  useEffect(() => {
+    if (searchParams.get('admin_denied') === 'true') {
+      toast.error('You do not have permission to access the administration panel.')
+    }
+    if (searchParams.get('redirect')) {
+      toast.info('Please log in to continue.')
+    }
+  }, [searchParams])
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -44,8 +63,27 @@ export default function LoginPage() {
         .select('*')
         .eq('user_id', session.user.id)
         .maybeSingle()
+
+      console.log('[AUTH:login] session user:', session.user.id, 'role:', profile?.role)
+
       if (profile) {
         useAuthStore.getState().setUser(profile)
+
+        const isAdmin = profile.is_owner === true ||
+          profile.role_id !== null ||
+          profile.role === 'admin' ||
+          profile.role === 'super_admin'
+
+        if (isAdmin) {
+          router.push('/admin')
+          return
+        }
+        if (profile.role === 'teacher') {
+          router.push('/teacher')
+          return
+        }
+        router.push('/dashboard')
+        return
       } else {
         router.push('/onboarding')
         return

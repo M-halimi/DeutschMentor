@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { createServerSupabaseClient } from '@/lib/supabase/server'
+import { isAdminUser, checkPermission } from '@/lib/rbac/permissions'
 
 const VALID_TABLES = ['vocabulary', 'expressions', 'grammar_exercises', 'audio_lessons', 'articles', 'dictation_exercises'] as const
 type ContentTable = typeof VALID_TABLES[number]
@@ -9,16 +10,16 @@ export async function GET(request: Request) {
     const supabase = await createServerSupabaseClient()
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-    const { data: profile } = await supabase.from('profiles').select('role').eq('user_id', user.id).single()
-    if (profile?.role !== 'admin' && profile?.role !== 'teacher') {
-      return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
-    }
+
+    const isAdmin = await isAdminUser(user.id)
+    if (!isAdmin) return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
+
+    const canView = await checkPermission(user.id, 'vocabulary.view')
+    if (!canView) return NextResponse.json({ error: 'Forbidden: View vocabulary permission required' }, { status: 403 })
 
     const { searchParams } = new URL(request.url)
     const table = searchParams.get('table') as ContentTable | null
-    if (!table || !VALID_TABLES.includes(table)) {
-      return NextResponse.json({ error: 'Invalid table' }, { status: 400 })
-    }
+    if (!table || !VALID_TABLES.includes(table)) return NextResponse.json({ error: 'Invalid table' }, { status: 400 })
 
     const page = parseInt(searchParams.get('page') || '1')
     const limit = Math.min(parseInt(searchParams.get('limit') || '50'), 100)
@@ -29,7 +30,6 @@ export async function GET(request: Request) {
       .select('*', { count: 'exact' })
       .order('created_at', { ascending: false })
       .range(offset, offset + limit - 1)
-
     if (error) return NextResponse.json({ error: error.message }, { status: 500 })
     return NextResponse.json({ data, total: count ?? 0, page, limit })
   } catch {
@@ -42,8 +42,9 @@ export async function POST(request: Request) {
     const supabase = await createServerSupabaseClient()
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-    const { data: profile } = await supabase.from('profiles').select('role').eq('user_id', user.id).single()
-    if (profile?.role !== 'admin') return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
+
+    const isAdmin = await isAdminUser(user.id)
+    if (!isAdmin) return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
 
     const body = await request.json()
     const { table, items } = body
@@ -63,8 +64,9 @@ export async function PUT(request: Request) {
     const supabase = await createServerSupabaseClient()
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-    const { data: profile } = await supabase.from('profiles').select('role').eq('user_id', user.id).single()
-    if (profile?.role !== 'admin') return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
+
+    const isAdmin = await isAdminUser(user.id)
+    if (!isAdmin) return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
 
     const body = await request.json()
     const { table, id, updates } = body
@@ -84,8 +86,9 @@ export async function DELETE(request: Request) {
     const supabase = await createServerSupabaseClient()
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-    const { data: profile } = await supabase.from('profiles').select('role').eq('user_id', user.id).single()
-    if (profile?.role !== 'admin') return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
+
+    const isAdmin = await isAdminUser(user.id)
+    if (!isAdmin) return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
 
     const body = await request.json()
     const { table, id } = body

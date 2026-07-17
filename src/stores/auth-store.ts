@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import type { Profile, Role } from '@/types'
 import { createClient } from '@/lib/supabase/client'
+import { useAdminStore } from '@/stores/admin-store'
 
 interface AuthState {
   user: Profile | null
@@ -27,6 +28,7 @@ export const useAuthStore = create<AuthState>((set) => ({
       const { data: { user: authUser }, error } = await supabase.auth.getUser()
 
       if (error || !authUser) {
+        console.log('[AUTH:fetchUser] no session')
         set({ user: null, isAuthenticated: false, isLoading: false })
         return
       }
@@ -38,12 +40,15 @@ export const useAuthStore = create<AuthState>((set) => ({
         .maybeSingle()
 
       if (!profile) {
+        console.log('[AUTH:fetchUser] no profile for', authUser.id)
         set({ user: null, isAuthenticated: false, isLoading: false })
         return
       }
 
+      console.log('[AUTH:fetchUser] user:', authUser.id, 'role:', profile.role)
       set({ user: profile, isAuthenticated: true, isLoading: false })
-    } catch {
+    } catch (err) {
+      console.log('[AUTH:fetchUser] error:', err)
       set({ user: null, isAuthenticated: false, isLoading: false })
     }
   },
@@ -56,6 +61,7 @@ export const useAuthStore = create<AuthState>((set) => ({
       // swallow sign out errors
     }
     set({ user: null, isAuthenticated: false, isLoading: false })
+    useAdminStore.getState().clearPermissions()
     if (typeof window !== 'undefined') {
       window.location.href = '/login'
     }

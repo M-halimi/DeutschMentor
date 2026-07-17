@@ -1,55 +1,49 @@
 import { NextResponse } from 'next/server'
 import { createAdminClient } from '@/lib/supabase/admin'
+import { createServerClient } from '@supabase/ssr'
+import { cookies } from 'next/headers'
+import { checkPermission } from '@/lib/rbac/permissions'
 
 export const dynamic = 'force-dynamic'
 
 export async function GET() {
   try {
+    const cookieStore = await cookies()
+    const supabase = createServerClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      { cookies: { getAll() { return cookieStore.getAll() }, setAll() {} } }
+    )
+    const { data: { user } } = await supabase.auth.getUser()
+    if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+
+    const canView = await checkPermission(user.id, 'analytics.view')
+    if (!canView) return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
+
     const admin = createAdminClient()
 
-    const [usersRes, activeUsersRes, coursesRes, levelsRes, subsRes] = await Promise.all([
-      admin.from('profiles').select('*', { count: 'exact', head: true }),
-      admin.from('profiles').select('*', { count: 'exact', head: true }).eq('status', 'active'),
-      admin.from('course_lessons').select('*', { count: 'exact', head: true }),
-      admin.from('profiles').select('current_level'),
-      admin.from('subscriptions').select('status'),
-    ])
+    const { count: totalUsers } = await admin.from('profiles').select('*', { count: 'exact', head: true })
+    const { count: activeUsers } = await admin.from('profiles').select('*', { count: 'exact', head: true }).eq('status', 'active')
 
-    const totalUsers = usersRes.count || 0
-    const activeUsers = activeUsersRes.count || 0
-    const totalCourses = coursesRes.count || 0
-
-    const levelDist: Record<string, number> = {}
-    for (const p of (levelsRes.data || [])) {
+    const { data: levelDist } = await admin.from('profiles').select('current_level')
+    const levelDistribution: Record<string, number> = {}
+    for (const p of levelDist || []) {
       const lvl = p.current_level || 'unknown'
-      levelDist[lvl] = (levelDist[lvl] || 0) + 1
+      levelDistribution[lvl] = (levelDistribution[lvl] || 0) + 1
     }
 
-    const subStats = { active: 0, expired: 0, suspended: 0, trial: 0, lifetime: 0, cancelled: 0 }
-    for (const s of (subsRes.data || [])) {
-      const st = s.status as keyof typeof subStats
-      if (subStats[st] !== undefined) subStats[st]++
-    }
+    const { count: totalCourses } = await admin.from('course_modules').select('*', { count: 'exact', head: true }).limit(0)
 
     return NextResponse.json({
-      totalUsers,
-      activeUsers,
-      activeRate: totalUsers > 0 ? Math.round((activeUsers / totalUsers) * 100) : 0,
-      totalCourses,
-      levelDistribution: levelDist,
-      subscriptionStats: subStats,
-      usersByStatus: {
-        total: totalUsers,
-        active: activeUsers,
-        expired: subStats.expired,
-        suspended: subStats.suspended,
-        trial: subStats.trial,
-        lifetime: subStats.lifetime,
-        cancelled: subStats.cancelled,
-      },
+      totalUsers: totalUsers || 0,
+      activeUsers: activeUsers || 0,
+      activeRate: totalUsers ? Math.round(((activeUsers || 0) / totalUsers) * 100) : 0,
+      levelDistribution,
+      totalCourses: totalCourses || 0,
+      subscriptionStats: { active: 0, trial: 0, expired: 0 },
     })
   } catch (error) {
-    console.error('Admin stats error:', error)
+    console.error('Stats fetch error:', error)
     return NextResponse.json({ error: 'Failed to fetch stats' }, { status: 500 })
   }
 }

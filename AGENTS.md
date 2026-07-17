@@ -30,3 +30,46 @@ The full A1-C2 curriculum was restored after seeds had `\'` escaping bugs. All 1
 
 ### Anon key
 `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNvbGtzeXhkbG1qdHRoaHVoYWNqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM3NzM1MzIsImV4cCI6MjA5OTM0OTUzMn0.xrjZ93c6VKRBJp1gMb7jkBB0t8VbjlITmfRIaHWSGzU`
+
+## RBAC System (Enterprise Admin)
+
+### Tables (migration 00036)
+- `roles` — System + custom roles (slug-based)
+- `permissions` — 138 granular permissions across 30 categories
+- `role_permissions` — Many-to-many role<->permission mapping
+- `invitations` — 7-day expiry invitation tokens
+- `audit_logs` — Full audit trail with old/new values, IP, user-agent
+
+### Profiles additions
+- `role_id` (FK→roles) — NULL = student, non-NULL = admin
+- `is_owner` (boolean) — Exactly one Platform Owner
+
+### Roles (pre-seeded)
+| Slug | Perms | Description |
+|------|-------|-------------|
+| `owner` | 138 | Full access, bypasses all checks |
+| `super-admin` | 120 | All except owner-only actions |
+| `admin` | 109 | Day-to-day operations |
+| `editor` | 43 | Content management |
+| `support` | 10 | User management, basic read |
+
+### Security rules (hard-coded in DB)
+- Owner: bypasses permission checks entirely (`check_permission` returns true)
+- Owner cannot be deleted, downgraded, or modified by other admins
+- System roles cannot be deleted or renamed
+- Only owner can create/edit/delete roles, manage staff, create invitations
+- All admin routes protected by backend middleware (`isAdminUser` check)
+
+### Key server-side files
+- `src/lib/rbac/permissions.ts` — checkPermission, isAdminUser, isOwner, requireOwner
+- `src/lib/rbac/audit.ts` — logAudit with IP/user-agent capture
+- `src/lib/rbac/middleware.ts` — requireAdmin, requirePermission, requireOwner middleware wrappers
+- `src/stores/admin-store.ts` — Client-side store with hasPermission, cached per user
+
+### Owner setup
+```bash
+OWNER_EMAIL=admin@example.com OWNER_PASSWORD=secure node scripts/setup-owner.mjs
+```
+
+### Debug endpoint
+`GET /api/debug` — Returns user, profile, role, permissions, admin status

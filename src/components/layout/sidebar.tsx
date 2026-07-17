@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { useAppStore } from '@/stores/app-store'
 import { useAuthStore } from '@/stores/auth-store'
+import { useAdminStore } from '@/stores/admin-store'
 import {
   LayoutDashboard,
   Headphones,
@@ -29,6 +30,10 @@ import {
   BookText,
   Award,
   CreditCard,
+  Users,
+  Key,
+  Mail,
+  History,
   type LucideIcon,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -134,10 +139,80 @@ function NavSection({ title, items, defaultOpen = true }: { title: string; items
   )
 }
 
+interface AdminNavItem { href: string; label: string; icon: LucideIcon; permission?: string; ownerOnly?: boolean }
+
+const adminNavSections: { title: string; items: AdminNavItem[] }[] = [
+  {
+    title: 'Dashboard',
+    items: [
+      { href: '/admin', label: 'Admin-Dashboard', icon: Shield, permission: 'dashboard.view' },
+    ],
+  },
+  {
+    title: 'Verwaltung',
+    items: [
+      { href: '/admin/users', label: 'Benutzer', icon: Users, permission: 'users.view' },
+      { href: '/admin/admin-users', label: 'Admin-Benutzer', icon: Shield, permission: 'staff.view', ownerOnly: true },
+      { href: '/admin/roles', label: 'Rollen', icon: Key, permission: 'roles.view', ownerOnly: true },
+      { href: '/admin/invitations', label: 'Einladungen', icon: Mail, permission: 'invitations.view', ownerOnly: true },
+    ],
+  },
+  {
+    title: 'Inhalte',
+    items: [
+      { href: '/admin/courses', label: 'Kurse', icon: BookOpen, permission: 'courses.view' },
+    ],
+  },
+  {
+    title: 'System',
+    items: [
+      { href: '/admin/analytics', label: 'Analysen', icon: BarChart3, permission: 'analytics.view' },
+      { href: '/admin/audit-logs', label: 'Audit-Logs', icon: History, permission: 'audit.view' },
+      { href: '/admin/settings', label: 'Einstellungen', icon: Settings, permission: 'settings.view', ownerOnly: true },
+    ],
+  },
+]
+
+function AdminNav() {
+  const { hasPermission, isOwner, loaded } = useAdminStore()
+
+  if (!loaded) {
+    return (
+      <div className="flex items-center justify-center py-8">
+        <div className="h-5 w-5 animate-spin rounded-full border-2 border-primary border-t-transparent" />
+      </div>
+    )
+  }
+
+  return (
+    <>
+      {adminNavSections.map(section => {
+        const visible = section.items.filter(item => {
+          if (item.ownerOnly && !isOwner) return false
+          if (!item.permission) return true
+          return hasPermission(item.permission)
+        })
+        if (visible.length === 0) return null
+        return <NavSection key={section.title} title={section.title} items={visible} />
+      })}
+    </>
+  )
+}
+
+function getRoleLabel(userRole?: string, adminRoleName?: string, isOwner?: boolean): string {
+  if (userRole === 'super_admin') return 'SUPER ADMIN'
+  if (isOwner) return 'OWNER'
+  if (adminRoleName) return adminRoleName.toUpperCase()
+  if (userRole === 'admin') return 'Admin'
+  if (userRole === 'teacher') return 'Lehrer'
+  return 'Schüler'
+}
+
 export function Sidebar() {
   const pathname = usePathname()
   const { sidebarOpen, toggleSidebar, direction } = useAppStore()
   const { user, signOut } = useAuthStore()
+  const { roleName, isOwner, loaded: adminLoaded } = useAdminStore()
   const isRtl = direction === 'rtl'
 
   return (
@@ -171,7 +246,9 @@ export function Sidebar() {
           </div>
 
           <ScrollArea className="flex-1 px-3 py-4">
-            {user?.role === 'student' ? (
+            {pathname.startsWith('/admin') ? (
+              <AdminNav />
+            ) : user?.role === 'student' ? (
               <>
                 <NavSection title="Übersicht" items={studentNav} />
                 <NavSection title="Kurse" items={courseNav} />
@@ -190,7 +267,7 @@ export function Sidebar() {
             ) : (
               <NavSection title="Admin" items={[
                 { href: '/admin', label: 'Admin-Dashboard', icon: Shield },
-                { href: '/admin/users', label: 'Benutzer', icon: Settings },
+                { href: '/admin/users', label: 'Benutzer', icon: Users },
                 { href: '/admin/courses', label: 'Kurse', icon: BookOpen },
                 { href: '/admin/analytics', label: 'Statistiken', icon: BarChart3 },
               ]} />
@@ -204,7 +281,9 @@ export function Sidebar() {
               </div>
               <div className="min-w-0 flex-1">
                 <p className="truncate text-sm font-medium">{user?.full_name ?? 'Benutzer'}</p>
-                <p className="truncate text-xs text-muted-foreground capitalize">{user?.role === 'student' ? 'Schüler' : user?.role === 'teacher' ? 'Lehrer' : 'Admin'}</p>
+                <p className="truncate text-xs text-muted-foreground">
+                  {getRoleLabel(user?.role, adminLoaded ? roleName : undefined, adminLoaded ? isOwner : false)}
+                </p>
               </div>
             </div>
             <Button

@@ -1,4 +1,4 @@
-export type Role = 'student' | 'teacher' | 'admin' | 'super_admin' | 'content_manager' | 'support'
+export type Role = 'student' | 'teacher' | 'admin' | 'super_admin' | 'owner' | 'content_manager' | 'support'
 export type UserStatus = 'active' | 'expired' | 'suspended' | 'pending' | 'trial' | 'lifetime' | 'cancelled'
 export type SubscriptionAction = 'created' | 'renewed' | 'extended' | 'suspended' | 'cancelled' | 'expired' | 'reactivated' | 'plan_changed' | 'trial_started' | 'lifetime_granted'
 
@@ -53,24 +53,77 @@ export interface Profile {
   role: Role
   status: UserStatus
   status_reason: string | null
+  role_id: string | null
+  is_owner: boolean
   created_at: string
   updated_at: string
 }
 
-export interface Role_ {
+// ==================== Enterprise Admin RBAC v2 ====================
+
+export interface RbacRole {
   id: string
   name: string
+  slug: string
   description: string | null
   is_system: boolean
   created_at: string
+  updated_at: string
+  permission_count?: number
+  user_count?: number
 }
 
-export interface Permission {
+export interface RbacPermission {
   id: string
-  code: string
   name: string
+  slug: string
   description: string | null
   category: string
+  created_at: string
+}
+
+export interface Invitation {
+  id: string
+  email: string
+  role_id: string
+  role_name?: string
+  invited_by: string
+  token: string
+  expires_at: string
+  accepted_at: string | null
+  revoked_at: string | null
+  created_at: string
+}
+
+export interface AuditLog {
+  id: string
+  user_id: string
+  action: string
+  module: string
+  resource_type: string
+  resource_id: string | null
+  details: Record<string, any>
+  old_values: Record<string, any> | null
+  new_values: Record<string, any> | null
+  ip_address: string | null
+  user_agent: string | null
+  created_at: string
+  user_email?: string
+  user_name?: string
+}
+
+export interface AuditLog {
+  id: string
+  user_id: string
+  user_name?: string
+  action: string
+  resource_type: string
+  resource_id: string | null
+  details: Record<string, any>
+  previous_values: Record<string, any> | null
+  new_values: Record<string, any> | null
+  ip_address: string | null
+  user_agent: string | null
   created_at: string
 }
 

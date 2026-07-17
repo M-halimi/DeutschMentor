@@ -29,7 +29,7 @@ export async function GET(request: Request) {
     if (!error && data.user) {
       const { data: existingProfile } = await supabase
         .from('profiles')
-        .select('current_level, full_name')
+        .select('current_level, full_name, role')
         .eq('user_id', data.user.id)
         .single()
 
@@ -42,10 +42,19 @@ export async function GET(request: Request) {
         }, { onConflict: 'user_id' })
       }
 
-      const needsOnboarding = !existingProfile
-      return NextResponse.redirect(
-        `${origin}${needsOnboarding ? '/onboarding' : '/dashboard'}`
-      )
+      if (!existingProfile) {
+        return NextResponse.redirect(`${origin}/onboarding`)
+      }
+
+      console.log('[AUTH:callback] user:', data.user.id, 'role:', existingProfile.role)
+
+      if (existingProfile.role === 'super_admin') {
+        return NextResponse.redirect(`${origin}/admin`)
+      }
+      if (existingProfile.role === 'teacher') {
+        return NextResponse.redirect(`${origin}/teacher`)
+      }
+      return NextResponse.redirect(`${origin}/dashboard`)
     }
   }
 

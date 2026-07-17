@@ -6,7 +6,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
 import { motion } from 'framer-motion'
-import { Shield, Users, BookOpen, BarChart3, TrendingUp, Activity, UserCheck, GraduationCap, CreditCard } from 'lucide-react'
+import { Shield, Users, BookOpen, BarChart3, TrendingUp, Activity, UserCheck, GraduationCap, CreditCard, Key, Mail, History, Settings as SettingsIcon } from 'lucide-react'
+import { useAdminStore } from '@/stores/admin-store'
 import Link from 'next/link'
 
 const levelColors: Record<string, string> = {
@@ -19,6 +20,7 @@ const levelColors: Record<string, string> = {
 }
 
 export default function AdminPage() {
+  const { hasPermission, isOwner, loaded } = useAdminStore()
   const [stats, setStats] = useState<any>(null)
   const [loading, setLoading] = useState(true)
 
@@ -29,14 +31,11 @@ export default function AdminPage() {
       .finally(() => setLoading(false))
   }, [])
 
-  if (loading) {
+  if (loading || !loaded) {
     return (
       <AppShell>
-        <div className="space-y-6">
-          <Skeleton className="h-8 w-64" />
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {[...Array(4)].map((_, i) => <Skeleton key={i} className="h-32" />)}
-          </div>
+        <div className="flex items-center justify-center h-64">
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
         </div>
       </AppShell>
     )
@@ -145,34 +144,48 @@ export default function AdminPage() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-4">
-          <Link
-            href="/admin/users"
-            className="inline-flex h-24 flex-col items-center justify-center gap-2 rounded-xl border border-border bg-background text-sm font-medium hover:bg-muted hover:text-foreground transition-colors"
-          >
-            <Users className="h-6 w-6" />
-            <span>Manage Users</span>
-          </Link>
-          <Link
-            href="/admin/users?tab=subscriptions"
-            className="inline-flex h-24 flex-col items-center justify-center gap-2 rounded-xl border border-border bg-background text-sm font-medium hover:bg-muted hover:text-foreground transition-colors"
-          >
-            <CreditCard className="h-6 w-6" />
-            <span>Subscriptions</span>
-          </Link>
-          <Link
-            href="/admin/courses"
-            className="inline-flex h-24 flex-col items-center justify-center gap-2 rounded-xl border border-border bg-background text-sm font-medium hover:bg-muted hover:text-foreground transition-colors"
-          >
-            <BookOpen className="h-6 w-6" />
-            <span>Manage Courses</span>
-          </Link>
-          <Link
-            href="/admin/analytics"
-            className="inline-flex h-24 flex-col items-center justify-center gap-2 rounded-xl border border-border bg-background text-sm font-medium hover:bg-muted hover:text-foreground transition-colors"
-          >
-            <BarChart3 className="h-6 w-6" />
-            <span>View Analytics</span>
-          </Link>
+          {hasPermission('users.view') && (
+            <Link href="/admin/users" className="inline-flex h-24 flex-col items-center justify-center gap-2 rounded-xl border border-border bg-background text-sm font-medium hover:bg-muted hover:text-foreground transition-colors">
+              <Users className="h-6 w-6" />
+              <span>Benutzer</span>
+            </Link>
+          )}
+          {isOwner && hasPermission('staff.view') && (
+            <Link href="/admin/admin-users" className="inline-flex h-24 flex-col items-center justify-center gap-2 rounded-xl border border-border bg-background text-sm font-medium hover:bg-muted hover:text-foreground transition-colors">
+              <Shield className="h-6 w-6" />
+              <span>Admin-Benutzer</span>
+            </Link>
+          )}
+          {isOwner && hasPermission('roles.view') && (
+            <Link href="/admin/roles" className="inline-flex h-24 flex-col items-center justify-center gap-2 rounded-xl border border-border bg-background text-sm font-medium hover:bg-muted hover:text-foreground transition-colors">
+              <Key className="h-6 w-6" />
+              <span>Rollen</span>
+            </Link>
+          )}
+          {hasPermission('courses.view') && (
+            <Link href="/admin/courses" className="inline-flex h-24 flex-col items-center justify-center gap-2 rounded-xl border border-border bg-background text-sm font-medium hover:bg-muted hover:text-foreground transition-colors">
+              <BookOpen className="h-6 w-6" />
+              <span>Kurse</span>
+            </Link>
+          )}
+          {hasPermission('analytics.view') && (
+            <Link href="/admin/analytics" className="inline-flex h-24 flex-col items-center justify-center gap-2 rounded-xl border border-border bg-background text-sm font-medium hover:bg-muted hover:text-foreground transition-colors">
+              <BarChart3 className="h-6 w-6" />
+              <span>Analysen</span>
+            </Link>
+          )}
+          {hasPermission('logs.view') && (
+            <Link href="/admin/audit-logs" className="inline-flex h-24 flex-col items-center justify-center gap-2 rounded-xl border border-border bg-background text-sm font-medium hover:bg-muted hover:text-foreground transition-colors">
+              <History className="h-6 w-6" />
+              <span>Audit-Logs</span>
+            </Link>
+          )}
+          {isOwner && hasPermission('settings.view') && (
+            <Link href="/admin/settings" className="inline-flex h-24 flex-col items-center justify-center gap-2 rounded-xl border border-border bg-background text-sm font-medium hover:bg-muted hover:text-foreground transition-colors">
+              <SettingsIcon className="h-6 w-6" />
+              <span>Einstellungen</span>
+            </Link>
+          )}
         </div>
       </div>
     </AppShell>

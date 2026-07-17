@@ -62,11 +62,9 @@ export function TranslationToggle({ cefr, defaultVisible, onLanguageChange, comp
 
   return (
     <Popover>
-      <PopoverTrigger asChild>
-        <Button variant="outline" size="sm" className="gap-2">
-          <Languages className="h-4 w-4" />
-          <span>Translate</span>
-        </Button>
+      <PopoverTrigger className="inline-flex items-center gap-2 rounded-md border border-input bg-background px-3 py-1.5 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground">
+        <Languages className="h-4 w-4" />
+        <span>Translate</span>
       </PopoverTrigger>
       <PopoverContent className="w-56 p-3" align="end">
         <div className="space-y-2">
