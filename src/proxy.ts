@@ -2,12 +2,14 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createServerClient } from '@supabase/ssr'
 
 const protectedRoutes = ['/dashboard', '/admin', '/onboarding']
-const publicRoutes = ['/', '/login', '/signup']
+const publicRoutes = ['/', '/login', '/signup', '/account-expired', '/account-suspended']
+const subscriptionExemptRoutes = ['/account-expired', '/account-suspended', '/api/auth', '/api/subscriptions']
 
 export default async function proxy(req: NextRequest) {
   const path = req.nextUrl.pathname
   const isProtectedRoute = protectedRoutes.some(route => path.startsWith(route))
   const isPublicRoute = publicRoutes.includes(path)
+  const isApiRoute = path.startsWith('/api/')
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
@@ -49,11 +51,28 @@ export default async function proxy(req: NextRequest) {
       return NextResponse.redirect(loginUrl)
     }
 
+    if (isAuthenticated && !isApiRoute && !subscriptionExemptRoutes.some(r => path.startsWith(r))) {
+      // Check subscription status
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('status')
+        .eq('user_id', user.id)
+        .single()
+
+      if (profile) {
+        if (profile.status === 'expired') {
+          return NextResponse.redirect(new URL('/account-expired', req.nextUrl))
+        }
+        if (profile.status === 'suspended') {
+          return NextResponse.redirect(new URL('/account-suspended', req.nextUrl))
+        }
+      }
+    }
+
     if (isAuthenticated && isPublicRoute && path !== '/signup' && path !== '/login') {
       return NextResponse.redirect(new URL('/dashboard', req.nextUrl))
     }
   } catch {
-    // Supabase not reachable — allow public routes, block protected ones
     if (isProtectedRoute) {
       return NextResponse.redirect(new URL('/login', req.nextUrl))
     }

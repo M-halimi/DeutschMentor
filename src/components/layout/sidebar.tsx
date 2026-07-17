@@ -28,6 +28,7 @@ import {
   Target,
   BookText,
   Award,
+  CreditCard,
   type LucideIcon,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -57,6 +58,7 @@ const skillNav: NavItem[] = [
 
 const resourceNav: NavItem[] = [
   { href: '/dashboard/vocabulary', label: 'Wortschatz', icon: BookmarkPlus, badge: 'NEU' },
+  { href: '/dashboard/verbs', label: 'Verben', icon: Sparkles, badge: 'NEU' },
   { href: '/dashboard/dictionary', label: 'Wörterbuch', icon: BookText, badge: 'NEU' },
   { href: '/dashboard/grammar', label: 'Grammatik', icon: Braces },
   { href: '/dashboard/dictation', label: 'Diktat', icon: Ear },
@@ -64,6 +66,7 @@ const resourceNav: NavItem[] = [
   { href: '/dashboard/exam', label: 'Einstufung', icon: GraduationCap },
   { href: '/dashboard/exam-prep', label: 'Prüfungsvorbereitung', icon: Target },
   { href: '/dashboard/certificates', label: 'Zertifikate', icon: Award },
+  { href: '/subscription', label: 'Abo', icon: CreditCard },
 ]
 
 const arabicNav: NavItem[] = [
