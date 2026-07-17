@@ -1,5 +1,7 @@
 export type Role = 'student' | 'teacher' | 'admin' | 'super_admin' | 'owner' | 'content_manager' | 'support'
-export type UserStatus = 'active' | 'expired' | 'suspended' | 'pending' | 'trial' | 'lifetime' | 'cancelled'
+export type UserStatus = 'active' | 'expired' | 'suspended' | 'banned' | 'pending' | 'trial' | 'lifetime' | 'cancelled'
+export type SupportTicketStatus = 'open' | 'in_progress' | 'closed' | 'resolved'
+export type SuspensionReason = 'payment_issue' | 'abuse' | 'rules_violation' | 'suspicious_activity' | 'other'
 export type SubscriptionAction = 'created' | 'renewed' | 'extended' | 'suspended' | 'cancelled' | 'expired' | 'reactivated' | 'plan_changed' | 'trial_started' | 'lifetime_granted'
 
 export type GermanLevel = 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2'
@@ -55,8 +57,44 @@ export interface Profile {
   status_reason: string | null
   role_id: string | null
   is_owner: boolean
+  suspension_reason: string | null
+  suspension_note: string | null
+  suspended_at: string | null
+  suspended_by: string | null
+  suspension_expires_at: string | null
   created_at: string
   updated_at: string
+}
+
+export interface ProfileStatusHistory {
+  id: string
+  user_id: string
+  old_status: string | null
+  new_status: string
+  reason: string | null
+  changed_by: string | null
+  created_at: string
+}
+
+export interface SupportTicket {
+  id: string
+  user_id: string
+  subject: string
+  message: string
+  status: SupportTicketStatus
+  suspension_reason: string | null
+  created_at: string
+  updated_at: string
+  replies?: SupportTicketReply[]
+}
+
+export interface SupportTicketReply {
+  id: string
+  ticket_id: string
+  user_id: string
+  message: string
+  is_admin: boolean
+  created_at: string
 }
 
 // ==================== Enterprise Admin RBAC v2 ====================

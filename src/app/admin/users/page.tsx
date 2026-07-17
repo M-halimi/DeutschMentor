@@ -2,20 +2,26 @@
 
 import { useCallback, useEffect, useState } from 'react'
 import { AppShell } from '@/components/layout/app-shell'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Skeleton } from '@/components/ui/skeleton'
 import {
+  Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter,
+} from '@/components/ui/dialog'
+import {
   Search, Shield, MoreHorizontal, ChevronLeft, ChevronRight,
-  CheckCircle2, XCircle, AlertTriangle, Clock,
+  CheckCircle2, XCircle, AlertTriangle, Clock, Ban, UserCheck, History,
 } from 'lucide-react'
 import {
   DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { toast } from 'sonner'
 
 interface UserProfile {
   id: string
@@ -25,6 +31,11 @@ interface UserProfile {
   role: string
   current_level: string
   status: string
+  status_reason: string | null
+  suspension_reason: string | null
+  suspension_note: string | null
+  suspended_at: string | null
+  suspension_expires_at: string | null
   created_at: string
 }
 
@@ -35,6 +46,7 @@ const statusIcons: Record<string, any> = {
   trial: Clock,
   lifetime: CheckCircle2,
   cancelled: XCircle,
+  banned: Ban,
 }
 
 const statusColors: Record<string, string> = {
@@ -44,7 +56,23 @@ const statusColors: Record<string, string> = {
   trial: 'text-blue-500 border-blue-500',
   lifetime: 'text-purple-500 border-purple-500',
   cancelled: 'text-gray-400 border-gray-400',
+  banned: 'text-red-600 border-red-600',
 }
+
+const SUSPENSION_REASONS = [
+  { value: 'payment_issue', label: 'Payment Issue' },
+  { value: 'abuse', label: 'Abuse' },
+  { value: 'rules_violation', label: 'Violation of Rules' },
+  { value: 'suspicious_activity', label: 'Suspicious Activity' },
+  { value: 'other', label: 'Other' },
+]
+
+const SUSPENSION_DURATIONS = [
+  { value: '24h', label: '24 hours', getDate: () => new Date(Date.now() + 24 * 60 * 60 * 1000) },
+  { value: '7d', label: '7 days', getDate: () => new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) },
+  { value: '30d', label: '30 days', getDate: () => new Date(Date.now() + 30 * 24 * 60 * 60 * 1000) },
+  { value: 'permanent', label: 'Permanent', getDate: () => null },
+]
 
 export default function AdminUsersPage() {
   const [users, setUsers] = useState<UserProfile[]>([])
@@ -54,6 +82,14 @@ export default function AdminUsersPage() {
   const [search, setSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState('')
   const [loading, setLoading] = useState(true)
+  const [selectedUser, setSelectedUser] = useState<UserProfile | null>(null)
+  const [suspendReason, setSuspendReason] = useState('')
+  const [suspendNote, setSuspendNote] = useState('')
+  const [suspendDuration, setSuspendDuration] = useState('7d')
+  const [showSuspendDialog, setShowSuspendDialog] = useState(false)
+  const [showStatusHistory, setShowStatusHistory] = useState(false)
+  const [statusHistory, setStatusHistory] = useState<any[]>([])
+  const [actionLoading, setActionLoading] = useState(false)
   const searchParams = useSearchParams()
   const router = useRouter()
 
@@ -74,13 +110,71 @@ export default function AdminUsersPage() {
 
   useEffect(() => { fetchUsers() }, [fetchUsers])
 
-  const updateUser = async (userId: string, updates: Record<string, any>) => {
+  async function updateUser(userId: string, updates: Record<string, any>) {
+    setActionLoading(true)
     const res = await fetch('/api/admin/users', {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ user_id: userId, ...updates }),
     })
-    if (res.ok) fetchUsers()
+    if (res.ok) {
+      toast.success('User updated successfully')
+      fetchUsers()
+    } else {
+      const err = await res.json()
+      toast.error(err.error || 'Failed to update user')
+    }
+    setActionLoading(false)
+  }
+
+  function openSuspendDialog(user: UserProfile) {
+    setSelectedUser(user)
+    setSuspendReason('')
+    setSuspendNote('')
+    setSuspendDuration('7d')
+    setShowSuspendDialog(true)
+  }
+
+  async function handleSuspend() {
+    if (!selectedUser || !suspendReason) return
+    const duration = SUSPENSION_DURATIONS.find(d => d.value === suspendDuration)
+    const expiresAt = duration?.getDate()
+    await updateUser(selectedUser.user_id, {
+      status: 'suspended',
+      suspension_reason: SUSPENSION_REASONS.find(r => r.value === suspendReason)?.label || suspendReason,
+      suspension_note: suspendNote || null,
+      suspension_expires_at: expiresAt?.toISOString() || null,
+    })
+    setShowSuspendDialog(false)
+    setSelectedUser(null)
+  }
+
+  async function handleUnsuspend(user: UserProfile) {
+    if (!confirm(`Remove suspension for ${user.full_name || user.email}?`)) return
+    await updateUser(user.user_id, { status: 'active' })
+  }
+
+  async function handleBan(user: UserProfile) {
+    if (!confirm(`Are you sure you want to permanently ban ${user.full_name || user.email}? This cannot be undone.`)) return
+    await updateUser(user.user_id, {
+      status: 'banned',
+      suspension_reason: 'Permanently banned by admin',
+      suspended_at: new Date().toISOString(),
+      suspended_by: 'admin',
+    })
+  }
+
+  async function openStatusHistory(user: UserProfile) {
+    setSelectedUser(user)
+    setStatusHistory([])
+    setShowStatusHistory(true)
+    try {
+      const res = await fetch(`/api/admin/users/history?user_id=${user.user_id}`)
+      if (res.ok) {
+        const data = await res.json()
+        setStatusHistory(data.data || [])
+      }
+    } catch {}
   }
 
   const totalPages = Math.ceil(total / pageSize)
@@ -111,8 +205,8 @@ export default function AdminUsersPage() {
           </div>
         </div>
 
-        <div className="flex gap-2">
-          <div className="relative flex-1">
+        <div className="flex flex-wrap gap-2">
+          <div className="relative flex-1 min-w-[200px]">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               placeholder="Search by name or email..."
@@ -121,7 +215,7 @@ export default function AdminUsersPage() {
               onChange={e => { setSearch(e.target.value); setPage(1) }}
             />
           </div>
-          {['', 'active', 'expired', 'suspended', 'trial', 'lifetime'].map(s => (
+          {['', 'active', 'suspended', 'banned', 'expired', 'trial', 'lifetime'].map(s => (
             <Button
               key={s}
               variant={statusFilter === s ? 'default' : 'outline'}
@@ -141,78 +235,100 @@ export default function AdminUsersPage() {
                 {[...Array(5)].map((_, i) => <Skeleton key={i} className="h-12 w-full" />)}
               </div>
             ) : (
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Name</TableHead>
-                    <TableHead>Email</TableHead>
-                    <TableHead>Role</TableHead>
-                    <TableHead>Level</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Joined</TableHead>
-                    <TableHead className="w-10"></TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {users.length === 0 ? (
+              <div className="overflow-x-auto">
+                <Table>
+                  <TableHeader>
                     <TableRow>
-                      <TableCell colSpan={7} className="text-center text-muted-foreground py-8">
-                        No users found
-                      </TableCell>
+                      <TableHead>Name</TableHead>
+                      <TableHead>Email</TableHead>
+                      <TableHead>Role</TableHead>
+                      <TableHead>Level</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead>Reason</TableHead>
+                      <TableHead>Joined</TableHead>
+                      <TableHead className="w-10"></TableHead>
                     </TableRow>
-                  ) : (
-                    users.map((user) => {
-                      const StatusIcon = statusIcons[user.status] || Clock
-                      return (
-                        <TableRow key={user.id}>
-                          <TableCell className="font-medium">{user.full_name || 'Unnamed'}</TableCell>
-                          <TableCell className="text-muted-foreground">{user.email || '—'}</TableCell>
-                          <TableCell>
-                            <Badge variant={user.role === 'admin' ? 'default' : user.role === 'teacher' ? 'secondary' : 'outline'} className="capitalize">
-                              {user.role}
-                            </Badge>
-                          </TableCell>
-                          <TableCell>{user.current_level || '—'}</TableCell>
-                          <TableCell>
-                            <Badge variant="outline" className={`gap-1 capitalize ${statusColors[user.status] || ''}`}>
-                              <StatusIcon className="h-3 w-3" />
-                              {user.status}
-                            </Badge>
-                          </TableCell>
-                          <TableCell className="text-sm text-muted-foreground">
-                            {new Date(user.created_at).toLocaleDateString()}
-                          </TableCell>
-                          <TableCell>
-                            <DropdownMenu>
-                              <DropdownMenuTrigger>
-                                <Button variant="ghost" size="icon"><MoreHorizontal className="h-4 w-4" /></Button>
-                              </DropdownMenuTrigger>
-                              <DropdownMenuContent align="end" className="w-40">
-                                {user.status !== 'suspended' && (
-                                  <DropdownMenuItem onClick={() => updateUser(user.user_id, { status: 'suspended', status_reason: 'Admin action' })}>
-                                    Suspend
+                  </TableHeader>
+                  <TableBody>
+                    {users.length === 0 ? (
+                      <TableRow>
+                        <TableCell colSpan={8} className="text-center text-muted-foreground py-8">
+                          No users found
+                        </TableCell>
+                      </TableRow>
+                    ) : (
+                      users.map((user) => {
+                        const StatusIcon = statusIcons[user.status] || Clock
+                        return (
+                          <TableRow key={user.id}>
+                            <TableCell className="font-medium">{user.full_name || 'Unnamed'}</TableCell>
+                            <TableCell className="text-muted-foreground">{user.email || '—'}</TableCell>
+                            <TableCell>
+                              <Badge variant={user.role === 'admin' ? 'default' : user.role === 'teacher' ? 'secondary' : 'outline'} className="capitalize">
+                                {user.role}
+                              </Badge>
+                            </TableCell>
+                            <TableCell>{user.current_level || '—'}</TableCell>
+                            <TableCell>
+                              <Badge variant="outline" className={`gap-1 capitalize ${statusColors[user.status] || ''}`}>
+                                <StatusIcon className="h-3 w-3" />
+                                {user.status === 'banned' ? 'Banned' : user.status}
+                              </Badge>
+                            </TableCell>
+                            <TableCell className="text-sm text-muted-foreground max-w-[200px] truncate">
+                              {user.suspension_reason || user.status_reason || '—'}
+                            </TableCell>
+                            <TableCell className="text-sm text-muted-foreground whitespace-nowrap">
+                              {new Date(user.created_at).toLocaleDateString()}
+                            </TableCell>
+                            <TableCell>
+                              <DropdownMenu>
+                                <DropdownMenuTrigger>
+                                  <Button variant="ghost" size="icon"><MoreHorizontal className="h-4 w-4" /></Button>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent align="end" className="w-44">
+                                  {user.status !== 'suspended' && (
+                                    <DropdownMenuItem onClick={() => openSuspendDialog(user)}>
+                                      <AlertTriangle className="h-4 w-4 mr-2 text-amber-500" />
+                                      Suspend
+                                    </DropdownMenuItem>
+                                  )}
+                                  {user.status === 'suspended' && (
+                                    <DropdownMenuItem onClick={() => handleUnsuspend(user)}>
+                                      <UserCheck className="h-4 w-4 mr-2 text-emerald-500" />
+                                      Unsuspend
+                                    </DropdownMenuItem>
+                                  )}
+                                  {(user.status !== 'active' && user.status !== 'suspended') && (
+                                    <DropdownMenuItem onClick={() => updateUser(user.user_id, { status: 'active', status_reason: null })}>
+                                      <CheckCircle2 className="h-4 w-4 mr-2 text-emerald-500" />
+                                      Activate
+                                    </DropdownMenuItem>
+                                  )}
+                                  {user.status !== 'banned' && (
+                                    <>
+                                      <DropdownMenuSeparator />
+                                      <DropdownMenuItem onClick={() => handleBan(user)} className="text-destructive">
+                                        <Ban className="h-4 w-4 mr-2" />
+                                        Ban Permanently
+                                      </DropdownMenuItem>
+                                    </>
+                                  )}
+                                  <DropdownMenuSeparator />
+                                  <DropdownMenuItem onClick={() => openStatusHistory(user)}>
+                                    <History className="h-4 w-4 mr-2" />
+                                    Status History
                                   </DropdownMenuItem>
-                                )}
-                                {user.status !== 'active' && (
-                                  <DropdownMenuItem onClick={() => updateUser(user.user_id, { status: 'active', status_reason: null })}>
-                                    Activate
-                                  </DropdownMenuItem>
-                                )}
-                                <DropdownMenuSeparator />
-                                {['student', 'teacher', 'admin'].filter(r => r !== user.role).map(role => (
-                                  <DropdownMenuItem key={role} onClick={() => updateUser(user.user_id, { role })} className="capitalize">
-                                    Set as {role}
-                                  </DropdownMenuItem>
-                                ))}
-                              </DropdownMenuContent>
-                            </DropdownMenu>
-                          </TableCell>
-                        </TableRow>
-                      )
-                    })
-                  )}
-                </TableBody>
-              </Table>
+                                </DropdownMenuContent>
+                              </DropdownMenu>
+                            </TableCell>
+                          </TableRow>
+                        )
+                      })
+                    )}
+                  </TableBody>
+                </Table>
+              </div>
             )}
           </CardHeader>
         </Card>
@@ -253,6 +369,120 @@ export default function AdminUsersPage() {
           </div>
         )}
       </div>
+
+      {/* Suspend Dialog */}
+      <Dialog open={showSuspendDialog} onOpenChange={setShowSuspendDialog}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <AlertTriangle className="h-5 w-5 text-amber-500" />
+              Suspend User
+            </DialogTitle>
+            <DialogDescription>
+              {selectedUser?.full_name || selectedUser?.email || ''}
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4">
+            <div>
+              <label className="text-sm font-medium">Reason</label>
+              <Select value={suspendReason} onValueChange={(v: string | null) => { if (v !== null) setSuspendReason(v) }}>
+                <SelectTrigger className="mt-1">
+                  <SelectValue placeholder="Select a reason" />
+                </SelectTrigger>
+                <SelectContent>
+                  {SUSPENSION_REASONS.map(r => (
+                    <SelectItem key={r.value} value={r.value}>{r.label}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div>
+              <label className="text-sm font-medium">Duration</label>
+              <Select value={suspendDuration} onValueChange={(v: string | null) => { if (v !== null) setSuspendDuration(v) }}>
+                <SelectTrigger className="mt-1">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {SUSPENSION_DURATIONS.map(d => (
+                    <SelectItem key={d.value} value={d.value}>{d.label}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div>
+              <label className="text-sm font-medium">Internal Note</label>
+              <p className="text-xs text-muted-foreground mb-1">Only visible to admins</p>
+              <Textarea
+                value={suspendNote}
+                onChange={e => setSuspendNote(e.target.value)}
+                placeholder="Add internal notes about this suspension..."
+                className="min-h-[80px]"
+              />
+            </div>
+          </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setShowSuspendDialog(false)}>Cancel</Button>
+            <Button
+              variant="destructive"
+              onClick={handleSuspend}
+              disabled={!suspendReason || actionLoading}
+            >
+              {actionLoading ? 'Suspending...' : 'Confirm Suspension'}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* Status History Dialog */}
+      <Dialog open={showStatusHistory} onOpenChange={setShowStatusHistory}>
+        <DialogContent className="sm:max-w-lg">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <History className="h-5 w-5 text-primary" />
+              Status History
+            </DialogTitle>
+            <DialogDescription>
+              {selectedUser?.full_name || selectedUser?.email || ''}
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-3 max-h-80 overflow-y-auto">
+            {statusHistory.length === 0 ? (
+              <p className="text-sm text-muted-foreground text-center py-4">No status changes recorded</p>
+            ) : (
+              statusHistory.map((entry: any) => (
+                <div key={entry.id} className="flex items-start gap-3 rounded-lg border p-3">
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 text-sm">
+                      <Badge variant="outline" className="text-xs">
+                        {entry.old_status || '—'}
+                      </Badge>
+                      <span className="text-muted-foreground">→</span>
+                      <Badge className={`text-xs ${
+                        entry.new_status === 'suspended' ? 'bg-amber-500' :
+                        entry.new_status === 'banned' ? 'bg-destructive' :
+                        entry.new_status === 'active' ? 'bg-emerald-500' : ''
+                      }`}>
+                        {entry.new_status}
+                      </Badge>
+                    </div>
+                    {entry.reason && (
+                      <p className="text-xs text-muted-foreground mt-1">{entry.reason}</p>
+                    )}
+                    <p className="text-xs text-muted-foreground mt-1">
+                      {new Date(entry.created_at).toLocaleString()}
+                    </p>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setShowStatusHistory(false)}>Close</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </AppShell>
   )
 }

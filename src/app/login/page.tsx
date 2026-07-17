@@ -69,6 +69,17 @@ function LoginForm() {
       if (profile) {
         useAuthStore.getState().setUser(profile)
 
+        // Check if account is suspended or banned
+        if (profile.status === 'suspended' || profile.status === 'banned') {
+          router.push(`/account-suspended?reason=${profile.status}`)
+          return
+        }
+
+        if (profile.status === 'expired') {
+          router.push('/account-expired')
+          return
+        }
+
         const isAdmin = profile.is_owner === true ||
           profile.role_id !== null ||
           profile.role === 'admin' ||

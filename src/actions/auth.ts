@@ -75,9 +75,25 @@ export async function signIn(formData: FormData) {
   if (data.user) {
     const { data: profile } = await supabase
       .from('profiles')
-      .select('role, role_id, is_owner')
+      .select('role, role_id, is_owner, status, suspension_reason, status_reason')
       .eq('user_id', data.user.id)
       .maybeSingle()
+
+    // Check if account is suspended or banned
+    if (profile?.status === 'suspended' || profile?.status === 'banned') {
+      await logSecurityEvent(data.user.id, email, 'LOGIN_BLOCKED', {
+        status: profile.status,
+        reason: profile.suspension_reason || profile.status_reason || 'No reason provided',
+      })
+      revalidatePath('/', 'layout')
+      redirect(`/account-suspended?reason=${profile.status}`)
+    }
+
+    // Auto-expire overdue suspensions
+    if (profile?.status === 'expired') {
+      revalidatePath('/', 'layout')
+      redirect('/account-expired')
+    }
 
     const isAdmin = profile && (
       profile.is_owner === true ||

@@ -80,7 +80,7 @@ export async function PATCH(req: NextRequest) {
 
     const { data: target, error: fetchError } = await admin
       .from('profiles')
-      .select('user_id, role, status, is_owner')
+      .select('user_id, role, status, is_owner, suspension_reason')
       .eq('user_id', user_id)
       .single()
 
@@ -101,11 +101,30 @@ export async function PATCH(req: NextRequest) {
       status: 'status',
       status_reason: 'status_reason',
       role: 'role',
+      suspension_reason: 'suspension_reason',
+      suspension_note: 'suspension_note',
+      suspension_expires_at: 'suspension_expires_at',
     }
 
     const dbUpdates: Record<string, any> = {}
     for (const [key, dbKey] of Object.entries(allowedFields)) {
       if (key in updates) dbUpdates[dbKey] = updates[key]
+    }
+
+    // Auto-set suspension timestamps when suspending
+    if (updates.status === 'suspended' && target.status !== 'suspended') {
+      dbUpdates.suspended_at = new Date().toISOString()
+      dbUpdates.suspended_by = user.id
+    }
+
+    // Clear suspension fields when restoring
+    if (updates.status === 'active' && target.status === 'suspended') {
+      dbUpdates.suspension_reason = null
+      dbUpdates.suspension_note = null
+      dbUpdates.suspended_at = null
+      dbUpdates.suspended_by = null
+      dbUpdates.suspension_expires_at = null
+      dbUpdates.status_reason = null
     }
 
     if (Object.keys(dbUpdates).length === 0) {
@@ -121,10 +140,22 @@ export async function PATCH(req: NextRequest) {
 
     if (updateError) throw updateError
 
+    // Log status change to profile_status_history
+    if (updates.status && updates.status !== target.status) {
+      await admin.rpc('log_profile_status_change', {
+        p_user_id: user_id,
+        p_old_status: target.status,
+        p_new_status: updates.status,
+        p_reason: updates.suspension_reason || updates.status_reason || null,
+        p_changed_by: user.id,
+      })
+    }
+
     const changes: string[] = []
-    if (updates.status) changes.push(`status → ${updates.status}`)
+    if (updates.status) changes.push(`status: ${target.status} → ${updates.status}`)
     if (updates.role) changes.push(`role → ${updates.role}`)
-    if (updates.status_reason) changes.push(`reason: ${updates.status_reason}`)
+    if (updates.suspension_reason) changes.push(`reason: ${updates.suspension_reason}`)
+    if (updates.suspension_expires_at) changes.push(`expires: ${updates.suspension_expires_at}`)
 
     await logAudit({
       userId: user.id,
