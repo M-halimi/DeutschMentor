@@ -164,8 +164,15 @@ export function deriveStem(infinitive: string): string {
  *   "ankommen" → "kommen"
  *   "aufstehen" → "stehen"
  *   "verstehen" → "verstehen" (inseparable)
+ *   "sich anmelden" → "melden"
  */
 export function getBaseVerb(infinitive: string): string {
+  // Handle reflexive verbs first: strip "sich " prefix
+  let workingInfinitive = infinitive
+  if (infinitive.startsWith('sich ')) {
+    workingInfinitive = infinitive.slice(5) // Remove "sich "
+  }
+
   // Known separable prefixes
   const separablePrefixes = [
     'ab', 'an', 'auf', 'aus', 'bei', 'da', 'dar', 'dabei', 'dafür',
@@ -234,18 +241,18 @@ export function getBaseVerb(infinitive: string): string {
   ])
 
   for (const prefix of separablePrefixes) {
-    if (infinitive.startsWith(prefix) && infinitive.length > prefix.length) {
-      const base = infinitive.slice(prefix.length)
+    if (workingInfinitive.startsWith(prefix) && workingInfinitive.length > prefix.length) {
+      const base = workingInfinitive.slice(prefix.length)
       if (base.length >= 3) {
         // Check if this is a known non-separable verb
-        if (nonSeparableExceptions.has(infinitive)) {
+        if (nonSeparableExceptions.has(workingInfinitive)) {
           continue
         }
         return base
       }
     }
   }
-  return infinitive
+  return workingInfinitive
 }
 
 /**

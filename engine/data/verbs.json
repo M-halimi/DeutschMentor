@@ -4969,82 +4969,82 @@
   },
   "vorstellen": {
     "verb": "vorstellen",
-    "english": "to introduce",
-    "category": "separable",
+    "english": "to introduce oneself",
+    "category": "regular",
     "auxiliary": "haben",
     "praesens": {
-      "ich": "stelle vor",
-      "du": "stellst vor",
-      "er_sie_es": "stellt vor",
-      "wir": "stellen vor",
-      "ihr": "stellt vor",
-      "Sie": "stellen vor",
-      "sie": "stellen vor"
+      "ich": "stelle mich vor",
+      "du": "stellst dich vor",
+      "er_sie_es": "stellt sich vor",
+      "wir": "stellen uns vor",
+      "ihr": "stellt euch vor",
+      "Sie": "stellen sich vor",
+      "sie": "stellen sich vor"
     },
     "praeteritum": {
-      "ich": "stellte vor",
-      "du": "stelltest vor",
-      "er_sie_es": "stellte vor",
-      "wir": "stellten vor",
-      "ihr": "stelltet vor",
-      "Sie": "stellten vor",
-      "sie": "stellten vor"
+      "ich": "stellte vor mich",
+      "du": "stelltest vor dich",
+      "er_sie_es": "stellte vor sich",
+      "wir": "stellten vor uns",
+      "ihr": "stelltet vor euch",
+      "Sie": "stellten vor sich",
+      "sie": "stellten vor sich"
     },
     "perfekt": {
-      "ich": "habe vorgestellt",
-      "du": "hast vorgestellt",
-      "er_sie_es": "hat vorgestellt",
-      "wir": "haben vorgestellt",
-      "ihr": "habt vorgestellt",
-      "Sie": "haben vorgestellt",
-      "sie": "haben vorgestellt"
+      "ich": "habe mich vorgestellt",
+      "du": "hast dich vorgestellt",
+      "er_sie_es": "hat sich vorgestellt",
+      "wir": "haben uns vorgestellt",
+      "ihr": "habt euch vorgestellt",
+      "Sie": "haben sich vorgestellt",
+      "sie": "haben sich vorgestellt"
     },
     "plusquamperfekt": {
-      "ich": "hatte vorgestellt",
-      "du": "hattest vorgestellt",
-      "er_sie_es": "hatte vorgestellt",
-      "wir": "hatten vorgestellt",
-      "ihr": "hattet vorgestellt",
-      "Sie": "hatten vorgestellt",
-      "sie": "hatten vorgestellt"
+      "ich": "hatte mich vorgestellt",
+      "du": "hattest dich vorgestellt",
+      "er_sie_es": "hatte sich vorgestellt",
+      "wir": "hatten uns vorgestellt",
+      "ihr": "hattet euch vorgestellt",
+      "Sie": "hatten sich vorgestellt",
+      "sie": "hatten sich vorgestellt"
     },
     "futur_i": {
-      "ich": "werde vorstellen",
-      "du": "wirst vorstellen",
-      "er_sie_es": "wird vorstellen",
-      "wir": "werden vorstellen",
-      "ihr": "werdet vorstellen",
-      "Sie": "werden vorstellen",
-      "sie": "werden vorstellen"
+      "ich": "werde mich vorstellen",
+      "du": "wirst dich vorstellen",
+      "er_sie_es": "wird sich vorstellen",
+      "wir": "werden sich vorstellen",
+      "ihr": "werdet sich vorstellen",
+      "Sie": "werden sich vorstellen",
+      "sie": "werden sich vorstellen"
     },
     "futur_ii": {
-      "ich": "werde vorgestellt haben",
-      "du": "wirst vorgestellt haben",
-      "er_sie_es": "wird vorgestellt haben",
-      "wir": "werden vorgestellt haben",
-      "ihr": "werdet vorgestellt haben",
-      "Sie": "werden vorgestellt haben",
-      "sie": "werden vorgestellt haben"
+      "ich": "werde mich vorgestellt haben",
+      "du": "wirst dich vorgestellt haben",
+      "er_sie_es": "wird sich vorgestellt haben",
+      "wir": "werden uns vorgestellt haben",
+      "ihr": "werdet euch vorgestellt haben",
+      "Sie": "werden sich vorgestellt haben",
+      "sie": "werden sich vorgestellt haben"
     },
     "konjunktiv_ii": {
-      "ich": "stellte vor",
-      "du": "stelltest vor",
-      "er_sie_es": "stellte vor",
-      "wir": "stellten vor",
-      "ihr": "stelltet vor",
-      "Sie": "stellten vor",
-      "sie": "stellten vor"
+      "ich": "stellte vor mich",
+      "du": "stelltest vor dich",
+      "er_sie_es": "stellte vor sich",
+      "wir": "stellten vor uns",
+      "ihr": "stelltet vor euch",
+      "Sie": "stellten vor sich",
+      "sie": "stellten vor sich"
     },
     "imperativ": {
-      "du": "Stell vor",
-      "ihr": "Stellt vor",
+      "du": "Stell dich vor",
+      "ihr": "Stellt euch vor",
       "sie": null,
-      "Sie": "Stellen Sie vor",
-      "wir": "Stellen wir vor"
+      "Sie": "Stellen Sie sich vor",
+      "wir": "Stellen wir uns vor"
     },
     "partizip_i": "vorstellend",
     "partizip_ii": "vorgestellt",
-    "infinitiv_mit_zu": "vorzustellen"
+    "infinitiv_mit_zu": "sich vorzustellen"
   },
   "anfangen": {
     "verb": "anfangen",
@@ -5763,78 +5763,78 @@
     "category": "regular",
     "auxiliary": "haben",
     "praesens": {
-      "ich": "wünsche",
-      "du": "wünschst",
-      "er_sie_es": "wünscht",
-      "wir": "wünschen",
-      "ihr": "wünscht",
-      "Sie": "wünschen",
-      "sie": "wünschen"
+      "ich": "wünsche mich",
+      "du": "wünschst dich",
+      "er_sie_es": "wünscht sich",
+      "wir": "wünschen uns",
+      "ihr": "wünscht euch",
+      "Sie": "wünschen sich",
+      "sie": "wünschen sich"
     },
     "praeteritum": {
-      "ich": "wünschte",
-      "du": "wünschtest",
-      "er_sie_es": "wünschte",
-      "wir": "wünschten",
-      "ihr": "wünschtet",
-      "Sie": "wünschten",
-      "sie": "wünschten"
+      "ich": "wünschte mich",
+      "du": "wünschtest dich",
+      "er_sie_es": "wünschte sich",
+      "wir": "wünschten uns",
+      "ihr": "wünschtet euch",
+      "Sie": "wünschten sich",
+      "sie": "wünschten sich"
     },
     "perfekt": {
-      "ich": "habe gewünscht",
-      "du": "hast gewünscht",
-      "er_sie_es": "hat gewünscht",
-      "wir": "haben gewünscht",
-      "ihr": "habt gewünscht",
-      "Sie": "haben gewünscht",
-      "sie": "haben gewünscht"
+      "ich": "habe mich gewünscht",
+      "du": "hast dich gewünscht",
+      "er_sie_es": "hat sich gewünscht",
+      "wir": "haben uns gewünscht",
+      "ihr": "habt euch gewünscht",
+      "Sie": "haben sich gewünscht",
+      "sie": "haben sich gewünscht"
     },
     "plusquamperfekt": {
-      "ich": "hatte gewünscht",
-      "du": "hattest gewünscht",
-      "er_sie_es": "hatte gewünscht",
-      "wir": "hatten gewünscht",
-      "ihr": "hattet gewünscht",
-      "Sie": "hatten gewünscht",
-      "sie": "hatten gewünscht"
+      "ich": "hatte mich gewünscht",
+      "du": "hattest dich gewünscht",
+      "er_sie_es": "hatte sich gewünscht",
+      "wir": "hatten uns gewünscht",
+      "ihr": "hattet euch gewünscht",
+      "Sie": "hatten sich gewünscht",
+      "sie": "hatten sich gewünscht"
     },
     "futur_i": {
-      "ich": "werde wünschen",
-      "du": "wirst wünschen",
-      "er_sie_es": "wird wünschen",
-      "wir": "werden wünschen",
-      "ihr": "werdet wünschen",
-      "Sie": "werden wünschen",
-      "sie": "werden wünschen"
+      "ich": "werde mich wünschen",
+      "du": "wirst dich wünschen",
+      "er_sie_es": "wird sich wünschen",
+      "wir": "werden sich wünschen",
+      "ihr": "werdet sich wünschen",
+      "Sie": "werden sich wünschen",
+      "sie": "werden sich wünschen"
     },
     "futur_ii": {
-      "ich": "werde gewünscht haben",
-      "du": "wirst gewünscht haben",
-      "er_sie_es": "wird gewünscht haben",
-      "wir": "werden gewünscht haben",
-      "ihr": "werdet gewünscht haben",
-      "Sie": "werden gewünscht haben",
-      "sie": "werden gewünscht haben"
+      "ich": "werde mich gewünscht haben",
+      "du": "wirst dich gewünscht haben",
+      "er_sie_es": "wird sich gewünscht haben",
+      "wir": "werden uns gewünscht haben",
+      "ihr": "werdet euch gewünscht haben",
+      "Sie": "werden sich gewünscht haben",
+      "sie": "werden sich gewünscht haben"
     },
     "konjunktiv_ii": {
-      "ich": "wünschte",
-      "du": "wünschtest",
-      "er_sie_es": "wünschte",
-      "wir": "wünschten",
-      "ihr": "wünschtet",
-      "Sie": "wünschten",
-      "sie": "wünschten"
+      "ich": "wünschte mich",
+      "du": "wünschtest dich",
+      "er_sie_es": "wünschte sich",
+      "wir": "wünschten uns",
+      "ihr": "wünschtet euch",
+      "Sie": "wünschten sich",
+      "sie": "wünschten sich"
     },
     "imperativ": {
-      "du": "Wünsch",
-      "ihr": "Wünscht",
+      "du": "Wünsch dich",
+      "ihr": "Wünscht euch",
       "sie": null,
-      "Sie": "Wünschen Sie",
-      "wir": "Wünschen wir"
+      "Sie": "Wünschen Sie sich",
+      "wir": "Wünschen wir uns"
     },
     "partizip_i": "wünschend",
     "partizip_ii": "gewünscht",
-    "infinitiv_mit_zu": "zu wünschen"
+    "infinitiv_mit_zu": "sich zu wünschen"
   },
   "danken": {
     "verb": "danken",
@@ -7181,82 +7181,82 @@
   },
   "setzen": {
     "verb": "setzen",
-    "english": "to set, put (seated)",
+    "english": "to sit down",
     "category": "regular",
     "auxiliary": "haben",
     "praesens": {
-      "ich": "setze",
-      "du": "setzt",
-      "er_sie_es": "setzt",
-      "wir": "setzen",
-      "ihr": "setzt",
-      "Sie": "setzen",
-      "sie": "setzen"
+      "ich": "setze mich",
+      "du": "setzt dich",
+      "er_sie_es": "setzt sich",
+      "wir": "setzen uns",
+      "ihr": "setzt euch",
+      "Sie": "setzen sich",
+      "sie": "setzen sich"
     },
     "praeteritum": {
-      "ich": "setzte",
-      "du": "setztest",
-      "er_sie_es": "setzte",
-      "wir": "setzten",
-      "ihr": "setztet",
-      "Sie": "setzten",
-      "sie": "setzten"
+      "ich": "setzte mich",
+      "du": "setztest dich",
+      "er_sie_es": "setzte sich",
+      "wir": "setzten uns",
+      "ihr": "setztet euch",
+      "Sie": "setzten sich",
+      "sie": "setzten sich"
     },
     "perfekt": {
-      "ich": "habe gesetzt",
-      "du": "hast gesetzt",
-      "er_sie_es": "hat gesetzt",
-      "wir": "haben gesetzt",
-      "ihr": "habt gesetzt",
-      "Sie": "haben gesetzt",
-      "sie": "haben gesetzt"
+      "ich": "habe mich gesetzt",
+      "du": "hast dich gesetzt",
+      "er_sie_es": "hat sich gesetzt",
+      "wir": "haben uns gesetzt",
+      "ihr": "habt euch gesetzt",
+      "Sie": "haben sich gesetzt",
+      "sie": "haben sich gesetzt"
     },
     "plusquamperfekt": {
-      "ich": "hatte gesetzt",
-      "du": "hattest gesetzt",
-      "er_sie_es": "hatte gesetzt",
-      "wir": "hatten gesetzt",
-      "ihr": "hattet gesetzt",
-      "Sie": "hatten gesetzt",
-      "sie": "hatten gesetzt"
+      "ich": "hatte mich gesetzt",
+      "du": "hattest dich gesetzt",
+      "er_sie_es": "hatte sich gesetzt",
+      "wir": "hatten uns gesetzt",
+      "ihr": "hattet euch gesetzt",
+      "Sie": "hatten sich gesetzt",
+      "sie": "hatten sich gesetzt"
     },
     "futur_i": {
-      "ich": "werde setzen",
-      "du": "wirst setzen",
-      "er_sie_es": "wird setzen",
-      "wir": "werden setzen",
-      "ihr": "werdet setzen",
-      "Sie": "werden setzen",
-      "sie": "werden setzen"
+      "ich": "werde mich setzen",
+      "du": "wirst dich setzen",
+      "er_sie_es": "wird sich setzen",
+      "wir": "werden sich setzen",
+      "ihr": "werdet sich setzen",
+      "Sie": "werden sich setzen",
+      "sie": "werden sich setzen"
     },
     "futur_ii": {
-      "ich": "werde gesetzt haben",
-      "du": "wirst gesetzt haben",
-      "er_sie_es": "wird gesetzt haben",
-      "wir": "werden gesetzt haben",
-      "ihr": "werdet gesetzt haben",
-      "Sie": "werden gesetzt haben",
-      "sie": "werden gesetzt haben"
+      "ich": "werde mich gesetzt haben",
+      "du": "wirst dich gesetzt haben",
+      "er_sie_es": "wird sich gesetzt haben",
+      "wir": "werden uns gesetzt haben",
+      "ihr": "werdet euch gesetzt haben",
+      "Sie": "werden sich gesetzt haben",
+      "sie": "werden sich gesetzt haben"
     },
     "konjunktiv_ii": {
-      "ich": "setzte",
-      "du": "setztest",
-      "er_sie_es": "setzte",
-      "wir": "setzten",
-      "ihr": "setztet",
-      "Sie": "setzten",
-      "sie": "setzten"
+      "ich": "setzte mich",
+      "du": "setztest dich",
+      "er_sie_es": "setzte sich",
+      "wir": "setzten uns",
+      "ihr": "setztet euch",
+      "Sie": "setzten sich",
+      "sie": "setzten sich"
     },
     "imperativ": {
-      "du": "Setz",
-      "ihr": "Setzt",
+      "du": "Setz dich",
+      "ihr": "Setzt euch",
       "sie": null,
-      "Sie": "Setzen Sie",
-      "wir": "Setzen wir"
+      "Sie": "Setzen Sie sich",
+      "wir": "Setzen wir uns"
     },
     "partizip_i": "setzend",
     "partizip_ii": "gesetzt",
-    "infinitiv_mit_zu": "zu setzen"
+    "infinitiv_mit_zu": "sich zu setzen"
   },
   "bringen": {
     "verb": "bringen",
@@ -12079,82 +12079,82 @@
   },
   "verlassen": {
     "verb": "verlassen",
-    "english": "to leave",
-    "category": "strong",
+    "english": "to rely on",
+    "category": "regular",
     "auxiliary": "haben",
     "praesens": {
-      "ich": "verlasse",
-      "du": "verlässt",
-      "er_sie_es": "verlässt",
-      "wir": "verlassen",
-      "ihr": "verlasst",
-      "Sie": "verlassen",
-      "sie": "verlassen"
+      "ich": "verlasse mich",
+      "du": "verlässt dich",
+      "er_sie_es": "verlässt sich",
+      "wir": "verlassen uns",
+      "ihr": "verlasst euch",
+      "Sie": "verlassen sich",
+      "sie": "verlassen sich"
     },
     "praeteritum": {
-      "ich": "ließ",
-      "du": "ließt",
-      "er_sie_es": "ließ",
-      "wir": "ließen",
-      "ihr": "ließt",
-      "Sie": "ließen",
-      "sie": "ließen"
+      "ich": "ließ mich",
+      "du": "ließt dich",
+      "er_sie_es": "ließ sich",
+      "wir": "ließen uns",
+      "ihr": "ließt euch",
+      "Sie": "ließen sich",
+      "sie": "ließen sich"
     },
     "perfekt": {
-      "ich": "habe verlassen",
-      "du": "hast verlassen",
-      "er_sie_es": "hat verlassen",
-      "wir": "haben verlassen",
-      "ihr": "habt verlassen",
-      "Sie": "haben verlassen",
-      "sie": "haben verlassen"
+      "ich": "habe mich verlassen",
+      "du": "hast dich verlassen",
+      "er_sie_es": "hat sich verlassen",
+      "wir": "haben uns verlassen",
+      "ihr": "habt euch verlassen",
+      "Sie": "haben sich verlassen",
+      "sie": "haben sich verlassen"
     },
     "plusquamperfekt": {
-      "ich": "hatte verlassen",
-      "du": "hattest verlassen",
-      "er_sie_es": "hatte verlassen",
-      "wir": "hatten verlassen",
-      "ihr": "hattet verlassen",
-      "Sie": "hatten verlassen",
-      "sie": "hatten verlassen"
+      "ich": "hatte mich verlassen",
+      "du": "hattest dich verlassen",
+      "er_sie_es": "hatte sich verlassen",
+      "wir": "hatten uns verlassen",
+      "ihr": "hattet euch verlassen",
+      "Sie": "hatten sich verlassen",
+      "sie": "hatten sich verlassen"
     },
     "futur_i": {
-      "ich": "werde verlassen",
-      "du": "wirst verlassen",
-      "er_sie_es": "wird verlassen",
-      "wir": "werden verlassen",
-      "ihr": "werdet verlassen",
-      "Sie": "werden verlassen",
-      "sie": "werden verlassen"
+      "ich": "werde mich verlassen",
+      "du": "wirst dich verlassen",
+      "er_sie_es": "wird sich verlassen",
+      "wir": "werden sich verlassen",
+      "ihr": "werdet sich verlassen",
+      "Sie": "werden sich verlassen",
+      "sie": "werden sich verlassen"
     },
     "futur_ii": {
-      "ich": "werde verlassen haben",
-      "du": "wirst verlassen haben",
-      "er_sie_es": "wird verlassen haben",
-      "wir": "werden verlassen haben",
-      "ihr": "werdet verlassen haben",
-      "Sie": "werden verlassen haben",
-      "sie": "werden verlassen haben"
+      "ich": "werde mich verlassen haben",
+      "du": "wirst dich verlassen haben",
+      "er_sie_es": "wird sich verlassen haben",
+      "wir": "werden uns verlassen haben",
+      "ihr": "werdet euch verlassen haben",
+      "Sie": "werden sich verlassen haben",
+      "sie": "werden sich verlassen haben"
     },
     "konjunktiv_ii": {
-      "ich": "ließe",
-      "du": "ließest",
-      "er_sie_es": "ließe",
-      "wir": "ließen",
-      "ihr": "ließet",
-      "Sie": "ließen",
-      "sie": "ließen"
+      "ich": "ließe mich",
+      "du": "ließest dich",
+      "er_sie_es": "ließe sich",
+      "wir": "ließen uns",
+      "ihr": "ließet euch",
+      "Sie": "ließen sich",
+      "sie": "ließen sich"
     },
     "imperativ": {
-      "du": "Verlass",
-      "ihr": "Verlasst",
+      "du": "Verlass dich",
+      "ihr": "Verlasst euch",
       "sie": null,
-      "Sie": "Verlassen Sie",
-      "wir": "Verlassen wir"
+      "Sie": "Verlassen Sie sich",
+      "wir": "Verlassen wir uns"
     },
     "partizip_i": "verlassend",
     "partizip_ii": "verlassen",
-    "infinitiv_mit_zu": "zu verlassen"
+    "infinitiv_mit_zu": "sich zu verlassen"
   },
   "erreichen": {
     "verb": "erreichen",
@@ -15871,82 +15871,82 @@
   },
   "einstellen": {
     "verb": "einstellen",
-    "english": "to hire",
-    "category": "separable",
+    "english": "to adjust",
+    "category": "regular",
     "auxiliary": "haben",
     "praesens": {
-      "ich": "stelle ein",
-      "du": "stellst ein",
-      "er_sie_es": "stellt ein",
-      "wir": "stellen ein",
-      "ihr": "stellt ein",
-      "Sie": "stellen ein",
-      "sie": "stellen ein"
+      "ich": "stelle mich ein",
+      "du": "stellst dich ein",
+      "er_sie_es": "stellt sich ein",
+      "wir": "stellen uns ein",
+      "ihr": "stellt euch ein",
+      "Sie": "stellen sich ein",
+      "sie": "stellen sich ein"
     },
     "praeteritum": {
-      "ich": "stellte ein",
-      "du": "stelltest ein",
-      "er_sie_es": "stellte ein",
-      "wir": "stellten ein",
-      "ihr": "stelltet ein",
-      "Sie": "stellten ein",
-      "sie": "stellten ein"
+      "ich": "stellte ein mich",
+      "du": "stelltest ein dich",
+      "er_sie_es": "stellte ein sich",
+      "wir": "stellten ein uns",
+      "ihr": "stelltet ein euch",
+      "Sie": "stellten ein sich",
+      "sie": "stellten ein sich"
     },
     "perfekt": {
-      "ich": "habe eingestellt",
-      "du": "hast eingestellt",
-      "er_sie_es": "hat eingestellt",
-      "wir": "haben eingestellt",
-      "ihr": "habt eingestellt",
-      "Sie": "haben eingestellt",
-      "sie": "haben eingestellt"
+      "ich": "habe mich eingestellt",
+      "du": "hast dich eingestellt",
+      "er_sie_es": "hat sich eingestellt",
+      "wir": "haben uns eingestellt",
+      "ihr": "habt euch eingestellt",
+      "Sie": "haben sich eingestellt",
+      "sie": "haben sich eingestellt"
     },
     "plusquamperfekt": {
-      "ich": "hatte eingestellt",
-      "du": "hattest eingestellt",
-      "er_sie_es": "hatte eingestellt",
-      "wir": "hatten eingestellt",
-      "ihr": "hattet eingestellt",
-      "Sie": "hatten eingestellt",
-      "sie": "hatten eingestellt"
+      "ich": "hatte mich eingestellt",
+      "du": "hattest dich eingestellt",
+      "er_sie_es": "hatte sich eingestellt",
+      "wir": "hatten uns eingestellt",
+      "ihr": "hattet euch eingestellt",
+      "Sie": "hatten sich eingestellt",
+      "sie": "hatten sich eingestellt"
     },
     "futur_i": {
-      "ich": "werde einstellen",
-      "du": "wirst einstellen",
-      "er_sie_es": "wird einstellen",
-      "wir": "werden einstellen",
-      "ihr": "werdet einstellen",
-      "Sie": "werden einstellen",
-      "sie": "werden einstellen"
+      "ich": "werde mich einstellen",
+      "du": "wirst dich einstellen",
+      "er_sie_es": "wird sich einstellen",
+      "wir": "werden sich einstellen",
+      "ihr": "werdet sich einstellen",
+      "Sie": "werden sich einstellen",
+      "sie": "werden sich einstellen"
     },
     "futur_ii": {
-      "ich": "werde eingestellt haben",
-      "du": "wirst eingestellt haben",
-      "er_sie_es": "wird eingestellt haben",
-      "wir": "werden eingestellt haben",
-      "ihr": "werdet eingestellt haben",
-      "Sie": "werden eingestellt haben",
-      "sie": "werden eingestellt haben"
+      "ich": "werde mich eingestellt haben",
+      "du": "wirst dich eingestellt haben",
+      "er_sie_es": "wird sich eingestellt haben",
+      "wir": "werden uns eingestellt haben",
+      "ihr": "werdet euch eingestellt haben",
+      "Sie": "werden sich eingestellt haben",
+      "sie": "werden sich eingestellt haben"
     },
     "konjunktiv_ii": {
-      "ich": "stellte ein",
-      "du": "stelltest ein",
-      "er_sie_es": "stellte ein",
-      "wir": "stellten ein",
-      "ihr": "stelltet ein",
-      "Sie": "stellten ein",
-      "sie": "stellten ein"
+      "ich": "stellte ein mich",
+      "du": "stelltest ein dich",
+      "er_sie_es": "stellte ein sich",
+      "wir": "stellten ein uns",
+      "ihr": "stelltet ein euch",
+      "Sie": "stellten ein sich",
+      "sie": "stellten ein sich"
     },
     "imperativ": {
-      "du": "Stell ein",
-      "ihr": "Stellt ein",
+      "du": "Stell dich ein",
+      "ihr": "Stellt euch ein",
       "sie": null,
-      "Sie": "Stellen Sie ein",
-      "wir": "Stellen wir ein"
+      "Sie": "Stellen Sie sich ein",
+      "wir": "Stellen wir uns ein"
     },
     "partizip_i": "einstellend",
     "partizip_ii": "eingestellt",
-    "infinitiv_mit_zu": "einzustellen"
+    "infinitiv_mit_zu": "sich einzustellen"
   },
   "entlassen": {
     "verb": "entlassen",
@@ -16583,160 +16583,160 @@
   "wiederholen": {
     "verb": "wiederholen",
     "english": "to repeat",
-    "category": "inseparable",
+    "category": "regular",
     "auxiliary": "haben",
     "praesens": {
-      "ich": "wiederhole",
-      "du": "wiederholst",
-      "er_sie_es": "wiederholt",
-      "wir": "wiederholen",
-      "ihr": "wiederholt",
-      "Sie": "wiederholen",
-      "sie": "wiederholen"
+      "ich": "wiederhole mich",
+      "du": "wiederholst dich",
+      "er_sie_es": "wiederholt sich",
+      "wir": "wiederholen uns",
+      "ihr": "wiederholt euch",
+      "Sie": "wiederholen sich",
+      "sie": "wiederholen sich"
     },
     "praeteritum": {
-      "ich": "wiederholte",
-      "du": "wiederholtest",
-      "er_sie_es": "wiederholte",
-      "wir": "wiederholten",
-      "ihr": "wiederholtet",
-      "Sie": "wiederholten",
-      "sie": "wiederholten"
+      "ich": "wiederholte mich",
+      "du": "wiederholtest dich",
+      "er_sie_es": "wiederholte sich",
+      "wir": "wiederholten uns",
+      "ihr": "wiederholtet euch",
+      "Sie": "wiederholten sich",
+      "sie": "wiederholten sich"
     },
     "perfekt": {
-      "ich": "habe wiederholt",
-      "du": "hast wiederholt",
-      "er_sie_es": "hat wiederholt",
-      "wir": "haben wiederholt",
-      "ihr": "habt wiederholt",
-      "Sie": "haben wiederholt",
-      "sie": "haben wiederholt"
+      "ich": "habe mich wiederholt",
+      "du": "hast dich wiederholt",
+      "er_sie_es": "hat sich wiederholt",
+      "wir": "haben uns wiederholt",
+      "ihr": "habt euch wiederholt",
+      "Sie": "haben sich wiederholt",
+      "sie": "haben sich wiederholt"
     },
     "plusquamperfekt": {
-      "ich": "hatte wiederholt",
-      "du": "hattest wiederholt",
-      "er_sie_es": "hatte wiederholt",
-      "wir": "hatten wiederholt",
-      "ihr": "hattet wiederholt",
-      "Sie": "hatten wiederholt",
-      "sie": "hatten wiederholt"
+      "ich": "hatte mich wiederholt",
+      "du": "hattest dich wiederholt",
+      "er_sie_es": "hatte sich wiederholt",
+      "wir": "hatten uns wiederholt",
+      "ihr": "hattet euch wiederholt",
+      "Sie": "hatten sich wiederholt",
+      "sie": "hatten sich wiederholt"
     },
     "futur_i": {
-      "ich": "werde wiederholen",
-      "du": "wirst wiederholen",
-      "er_sie_es": "wird wiederholen",
-      "wir": "werden wiederholen",
-      "ihr": "werdet wiederholen",
-      "Sie": "werden wiederholen",
-      "sie": "werden wiederholen"
+      "ich": "werde mich wiederholen",
+      "du": "wirst dich wiederholen",
+      "er_sie_es": "wird sich wiederholen",
+      "wir": "werden sich wiederholen",
+      "ihr": "werdet sich wiederholen",
+      "Sie": "werden sich wiederholen",
+      "sie": "werden sich wiederholen"
     },
     "futur_ii": {
-      "ich": "werde wiederholt haben",
-      "du": "wirst wiederholt haben",
-      "er_sie_es": "wird wiederholt haben",
-      "wir": "werden wiederholt haben",
-      "ihr": "werdet wiederholt haben",
-      "Sie": "werden wiederholt haben",
-      "sie": "werden wiederholt haben"
+      "ich": "werde mich wiederholt haben",
+      "du": "wirst dich wiederholt haben",
+      "er_sie_es": "wird sich wiederholt haben",
+      "wir": "werden uns wiederholt haben",
+      "ihr": "werdet euch wiederholt haben",
+      "Sie": "werden sich wiederholt haben",
+      "sie": "werden sich wiederholt haben"
     },
     "konjunktiv_ii": {
-      "ich": "wiederholte",
-      "du": "wiederholtest",
-      "er_sie_es": "wiederholte",
-      "wir": "wiederholten",
-      "ihr": "wiederholtet",
-      "Sie": "wiederholten",
-      "sie": "wiederholten"
+      "ich": "wiederholte mich",
+      "du": "wiederholtest dich",
+      "er_sie_es": "wiederholte sich",
+      "wir": "wiederholten uns",
+      "ihr": "wiederholtet euch",
+      "Sie": "wiederholten sich",
+      "sie": "wiederholten sich"
     },
     "imperativ": {
-      "du": "Wiederhol",
-      "ihr": "Wiederholt",
+      "du": "Wiederhol dich",
+      "ihr": "Wiederholt euch",
       "sie": null,
-      "Sie": "Wiederholen Sie",
-      "wir": "Wiederholen wir"
+      "Sie": "Wiederholen Sie sich",
+      "wir": "Wiederholen wir uns"
     },
     "partizip_i": "wiederholend",
     "partizip_ii": "wiederholt",
-    "infinitiv_mit_zu": "zu wiederholen"
+    "infinitiv_mit_zu": "sich zu wiederholen"
   },
   "vorbereiten": {
     "verb": "vorbereiten",
     "english": "to prepare",
-    "category": "separable",
+    "category": "regular",
     "auxiliary": "haben",
     "praesens": {
-      "ich": "bereite vor",
-      "du": "bereitest vor",
-      "er_sie_es": "bereitet vor",
-      "wir": "bereiten vor",
-      "ihr": "bereitet vor",
-      "Sie": "bereiten vor",
-      "sie": "bereiten vor"
+      "ich": "bereite mich vor",
+      "du": "bereitest dich vor",
+      "er_sie_es": "bereitet sich vor",
+      "wir": "bereiten uns vor",
+      "ihr": "bereitet euch vor",
+      "Sie": "bereiten sich vor",
+      "sie": "bereiten sich vor"
     },
     "praeteritum": {
-      "ich": "bereitete vor",
-      "du": "bereitetest vor",
-      "er_sie_es": "bereitete vor",
-      "wir": "bereiteten vor",
-      "ihr": "bereitetet vor",
-      "Sie": "bereiteten vor",
-      "sie": "bereiteten vor"
+      "ich": "bereitete vor mich",
+      "du": "bereitetest vor dich",
+      "er_sie_es": "bereitete vor sich",
+      "wir": "bereiteten vor uns",
+      "ihr": "bereitetet vor euch",
+      "Sie": "bereiteten vor sich",
+      "sie": "bereiteten vor sich"
     },
     "perfekt": {
-      "ich": "habe vorbereitet",
-      "du": "hast vorbereitet",
-      "er_sie_es": "hat vorbereitet",
-      "wir": "haben vorbereitet",
-      "ihr": "habt vorbereitet",
-      "Sie": "haben vorbereitet",
-      "sie": "haben vorbereitet"
+      "ich": "habe mich vorbereitet",
+      "du": "hast dich vorbereitet",
+      "er_sie_es": "hat sich vorbereitet",
+      "wir": "haben uns vorbereitet",
+      "ihr": "habt euch vorbereitet",
+      "Sie": "haben sich vorbereitet",
+      "sie": "haben sich vorbereitet"
     },
     "plusquamperfekt": {
-      "ich": "hatte vorbereitet",
-      "du": "hattest vorbereitet",
-      "er_sie_es": "hatte vorbereitet",
-      "wir": "hatten vorbereitet",
-      "ihr": "hattet vorbereitet",
-      "Sie": "hatten vorbereitet",
-      "sie": "hatten vorbereitet"
+      "ich": "hatte mich vorbereitet",
+      "du": "hattest dich vorbereitet",
+      "er_sie_es": "hatte sich vorbereitet",
+      "wir": "hatten uns vorbereitet",
+      "ihr": "hattet euch vorbereitet",
+      "Sie": "hatten sich vorbereitet",
+      "sie": "hatten sich vorbereitet"
     },
     "futur_i": {
-      "ich": "werde vorbereiten",
-      "du": "wirst vorbereiten",
-      "er_sie_es": "wird vorbereiten",
-      "wir": "werden vorbereiten",
-      "ihr": "werdet vorbereiten",
-      "Sie": "werden vorbereiten",
-      "sie": "werden vorbereiten"
+      "ich": "werde mich vorbereiten",
+      "du": "wirst dich vorbereiten",
+      "er_sie_es": "wird sich vorbereiten",
+      "wir": "werden sich vorbereiten",
+      "ihr": "werdet sich vorbereiten",
+      "Sie": "werden sich vorbereiten",
+      "sie": "werden sich vorbereiten"
     },
     "futur_ii": {
-      "ich": "werde vorbereitet haben",
-      "du": "wirst vorbereitet haben",
-      "er_sie_es": "wird vorbereitet haben",
-      "wir": "werden vorbereitet haben",
-      "ihr": "werdet vorbereitet haben",
-      "Sie": "werden vorbereitet haben",
-      "sie": "werden vorbereitet haben"
+      "ich": "werde mich vorbereitet haben",
+      "du": "wirst dich vorbereitet haben",
+      "er_sie_es": "wird sich vorbereitet haben",
+      "wir": "werden uns vorbereitet haben",
+      "ihr": "werdet euch vorbereitet haben",
+      "Sie": "werden sich vorbereitet haben",
+      "sie": "werden sich vorbereitet haben"
     },
     "konjunktiv_ii": {
-      "ich": "bereitete vor",
-      "du": "bereitetest vor",
-      "er_sie_es": "bereitete vor",
-      "wir": "bereiteten vor",
-      "ihr": "bereitetet vor",
-      "Sie": "bereiteten vor",
-      "sie": "bereiteten vor"
+      "ich": "bereitete vor mich",
+      "du": "bereitetest vor dich",
+      "er_sie_es": "bereitete vor sich",
+      "wir": "bereiteten vor uns",
+      "ihr": "bereitetet vor euch",
+      "Sie": "bereiteten vor sich",
+      "sie": "bereiteten vor sich"
     },
     "imperativ": {
-      "du": "Bereite vor",
-      "ihr": "Bereitet vor",
+      "du": "Bereite dich vor",
+      "ihr": "Bereitet euch vor",
       "sie": null,
-      "Sie": "Bereiten Sie vor",
-      "wir": "Bereiten wir vor"
+      "Sie": "Bereiten Sie sich vor",
+      "wir": "Bereiten wir uns vor"
     },
     "partizip_i": "vorbereitend",
     "partizip_ii": "vorbereitet",
-    "infinitiv_mit_zu": "vorzubereiten"
+    "infinitiv_mit_zu": "sich vorzubereiten"
   },
   "konzentrieren": {
     "verb": "konzentrieren",
@@ -19347,82 +19347,82 @@
   },
   "umziehen": {
     "verb": "umziehen",
-    "english": "to move",
-    "category": "separable",
+    "english": "to change clothes",
+    "category": "regular",
     "auxiliary": "sein",
     "praesens": {
-      "ich": "umziehe",
-      "du": "umziehst",
-      "er_sie_es": "umzieht",
-      "wir": "umziehen",
-      "ihr": "umzieht",
-      "Sie": "umziehen",
-      "sie": "umziehen"
+      "ich": "umziehe mich",
+      "du": "umziehst dich",
+      "er_sie_es": "umzieht sich",
+      "wir": "umziehen uns",
+      "ihr": "umzieht euch",
+      "Sie": "umziehen sich",
+      "sie": "umziehen sich"
     },
     "praeteritum": {
-      "ich": "umziehte",
-      "du": "umziehtest",
-      "er_sie_es": "umziehte",
-      "wir": "umziehten",
-      "ihr": "umziehtet",
-      "Sie": "umziehten",
-      "sie": "umziehten"
+      "ich": "umziehte mich",
+      "du": "umziehtest dich",
+      "er_sie_es": "umziehte sich",
+      "wir": "umziehten uns",
+      "ihr": "umziehtet euch",
+      "Sie": "umziehten sich",
+      "sie": "umziehten sich"
     },
     "perfekt": {
-      "ich": "bin umgezogen",
-      "du": "bist umgezogen",
-      "er_sie_es": "ist umgezogen",
-      "wir": "sind umgezogen",
-      "ihr": "seid umgezogen",
-      "Sie": "sind umgezogen",
-      "sie": "sind umgezogen"
+      "ich": "bin mich umgezogen",
+      "du": "bist dich umgezogen",
+      "er_sie_es": "ist sich umgezogen",
+      "wir": "sind uns umgezogen",
+      "ihr": "seid euch umgezogen",
+      "Sie": "sind sich umgezogen",
+      "sie": "sind sich umgezogen"
     },
     "plusquamperfekt": {
-      "ich": "war umgezogen",
-      "du": "warst umgezogen",
-      "er_sie_es": "war umgezogen",
-      "wir": "waren umgezogen",
-      "ihr": "wart umgezogen",
-      "Sie": "waren umgezogen",
-      "sie": "waren umgezogen"
+      "ich": "war mich umgezogen",
+      "du": "warst dich umgezogen",
+      "er_sie_es": "war sich umgezogen",
+      "wir": "waren uns umgezogen",
+      "ihr": "wart euch umgezogen",
+      "Sie": "waren sich umgezogen",
+      "sie": "waren sich umgezogen"
     },
     "futur_i": {
-      "ich": "werde umziehen",
-      "du": "wirst umziehen",
-      "er_sie_es": "wird umziehen",
-      "wir": "werden umziehen",
-      "ihr": "werdet umziehen",
-      "Sie": "werden umziehen",
-      "sie": "werden umziehen"
+      "ich": "werde mich umziehen",
+      "du": "wirst dich umziehen",
+      "er_sie_es": "wird sich umziehen",
+      "wir": "werden sich umziehen",
+      "ihr": "werdet sich umziehen",
+      "Sie": "werden sich umziehen",
+      "sie": "werden sich umziehen"
     },
     "futur_ii": {
-      "ich": "werde umgezogen sein",
-      "du": "wirst umgezogen sein",
-      "er_sie_es": "wird umgezogen sein",
-      "wir": "werden umgezogen sein",
-      "ihr": "werdet umgezogen sein",
-      "Sie": "werden umgezogen sein",
-      "sie": "werden umgezogen sein"
+      "ich": "werde mich umgezogen sein",
+      "du": "wirst dich umgezogen sein",
+      "er_sie_es": "wird sich umgezogen sein",
+      "wir": "werden uns umgezogen sein",
+      "ihr": "werdet euch umgezogen sein",
+      "Sie": "werden sich umgezogen sein",
+      "sie": "werden sich umgezogen sein"
     },
     "konjunktiv_ii": {
-      "ich": "umziehte",
-      "du": "umziehtest",
-      "er_sie_es": "umziehte",
-      "wir": "umziehten",
-      "ihr": "umziehtet",
-      "Sie": "umziehten",
-      "sie": "umziehten"
+      "ich": "umziehte mich",
+      "du": "umziehtest dich",
+      "er_sie_es": "umziehte sich",
+      "wir": "umziehten uns",
+      "ihr": "umziehtet euch",
+      "Sie": "umziehten sich",
+      "sie": "umziehten sich"
     },
     "imperativ": {
-      "du": "Umzieh",
-      "ihr": "Umzieht",
+      "du": "Umzieh dich",
+      "ihr": "Umzieht euch",
       "sie": null,
-      "Sie": "Umziehen Sie",
-      "wir": "Umziehen wir"
+      "Sie": "Umziehen Sie sich",
+      "wir": "Umziehen wir uns"
     },
     "partizip_i": "umziehend",
     "partizip_ii": "umgezogen",
-    "infinitiv_mit_zu": "zu umziehen"
+    "infinitiv_mit_zu": "sich zu umziehen"
   },
   "einrichten": {
     "verb": "einrichten",
@@ -21164,82 +21164,82 @@
   },
   "verabreden": {
     "verb": "verabreden",
-    "english": "to arrange (meeting)",
+    "english": "to arrange to meet",
     "category": "regular",
     "auxiliary": "haben",
     "praesens": {
-      "ich": "verabrede",
-      "du": "verabredest",
-      "er_sie_es": "verabredet",
-      "wir": "verabreden",
-      "ihr": "verabredet",
-      "Sie": "verabreden",
-      "sie": "verabreden"
+      "ich": "verabrede mich",
+      "du": "verabredest dich",
+      "er_sie_es": "verabredet sich",
+      "wir": "verabreden uns",
+      "ihr": "verabredet euch",
+      "Sie": "verabreden sich",
+      "sie": "verabreden sich"
     },
     "praeteritum": {
-      "ich": "verabredete",
-      "du": "verabredetest",
-      "er_sie_es": "verabredete",
-      "wir": "verabredeten",
-      "ihr": "verabredetet",
-      "Sie": "verabredeten",
-      "sie": "verabredeten"
+      "ich": "verabredete mich",
+      "du": "verabredetest dich",
+      "er_sie_es": "verabredete sich",
+      "wir": "verabredeten uns",
+      "ihr": "verabredetet euch",
+      "Sie": "verabredeten sich",
+      "sie": "verabredeten sich"
     },
     "perfekt": {
-      "ich": "habe verabredet",
-      "du": "hast verabredet",
-      "er_sie_es": "hat verabredet",
-      "wir": "haben verabredet",
-      "ihr": "habt verabredet",
-      "Sie": "haben verabredet",
-      "sie": "haben verabredet"
+      "ich": "habe mich verabredet",
+      "du": "hast dich verabredet",
+      "er_sie_es": "hat sich verabredet",
+      "wir": "haben uns verabredet",
+      "ihr": "habt euch verabredet",
+      "Sie": "haben sich verabredet",
+      "sie": "haben sich verabredet"
     },
     "plusquamperfekt": {
-      "ich": "hatte verabredet",
-      "du": "hattest verabredet",
-      "er_sie_es": "hatte verabredet",
-      "wir": "hatten verabredet",
-      "ihr": "hattet verabredet",
-      "Sie": "hatten verabredet",
-      "sie": "hatten verabredet"
+      "ich": "hatte mich verabredet",
+      "du": "hattest dich verabredet",
+      "er_sie_es": "hatte sich verabredet",
+      "wir": "hatten uns verabredet",
+      "ihr": "hattet euch verabredet",
+      "Sie": "hatten sich verabredet",
+      "sie": "hatten sich verabredet"
     },
     "futur_i": {
-      "ich": "werde verabreden",
-      "du": "wirst verabreden",
-      "er_sie_es": "wird verabreden",
-      "wir": "werden verabreden",
-      "ihr": "werdet verabreden",
-      "Sie": "werden verabreden",
-      "sie": "werden verabreden"
+      "ich": "werde mich verabreden",
+      "du": "wirst dich verabreden",
+      "er_sie_es": "wird sich verabreden",
+      "wir": "werden sich verabreden",
+      "ihr": "werdet sich verabreden",
+      "Sie": "werden sich verabreden",
+      "sie": "werden sich verabreden"
     },
     "futur_ii": {
-      "ich": "werde verabredet haben",
-      "du": "wirst verabredet haben",
-      "er_sie_es": "wird verabredet haben",
-      "wir": "werden verabredet haben",
-      "ihr": "werdet verabredet haben",
-      "Sie": "werden verabredet haben",
-      "sie": "werden verabredet haben"
+      "ich": "werde mich verabredet haben",
+      "du": "wirst dich verabredet haben",
+      "er_sie_es": "wird sich verabredet haben",
+      "wir": "werden uns verabredet haben",
+      "ihr": "werdet euch verabredet haben",
+      "Sie": "werden sich verabredet haben",
+      "sie": "werden sich verabredet haben"
     },
     "konjunktiv_ii": {
-      "ich": "verabredete",
-      "du": "verabredetest",
-      "er_sie_es": "verabredete",
-      "wir": "verabredeten",
-      "ihr": "verabredetet",
-      "Sie": "verabredeten",
-      "sie": "verabredeten"
+      "ich": "verabredete mich",
+      "du": "verabredetest dich",
+      "er_sie_es": "verabredete sich",
+      "wir": "verabredeten uns",
+      "ihr": "verabredetet euch",
+      "Sie": "verabredeten sich",
+      "sie": "verabredeten sich"
     },
     "imperativ": {
-      "du": "Verabrede",
-      "ihr": "Verabredet",
+      "du": "Verabrede dich",
+      "ihr": "Verabredet euch",
       "sie": null,
-      "Sie": "Verabreden Sie",
-      "wir": "Verabreden wir"
+      "Sie": "Verabreden Sie sich",
+      "wir": "Verabreden wir uns"
     },
     "partizip_i": "verabredend",
     "partizip_ii": "verabredet",
-    "infinitiv_mit_zu": "zu verabreden"
+    "infinitiv_mit_zu": "sich zu verabreden"
   },
   "verschieben": {
     "verb": "verschieben",
@@ -22347,6 +22347,2455 @@
     "partizip_ii": "verboten",
     "infinitiv_mit_zu": "zu verbieten"
   },
+  "bedanken": {
+    "verb": "bedanken",
+    "english": "to thank",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "bedanke mich",
+      "du": "bedankst dich",
+      "er_sie_es": "bedankt sich",
+      "wir": "bedanken uns",
+      "ihr": "bedankt euch",
+      "Sie": "bedanken sich",
+      "sie": "bedanken sich"
+    },
+    "praeteritum": {
+      "ich": "bedankte mich",
+      "du": "bedanktest dich",
+      "er_sie_es": "bedankte sich",
+      "wir": "bedankten uns",
+      "ihr": "bedanktet euch",
+      "Sie": "bedankten sich",
+      "sie": "bedankten sich"
+    },
+    "perfekt": {
+      "ich": "habe mich bedankt",
+      "du": "hast dich bedankt",
+      "er_sie_es": "hat sich bedankt",
+      "wir": "haben uns bedankt",
+      "ihr": "habt euch bedankt",
+      "Sie": "haben sich bedankt",
+      "sie": "haben sich bedankt"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich bedankt",
+      "du": "hattest dich bedankt",
+      "er_sie_es": "hatte sich bedankt",
+      "wir": "hatten uns bedankt",
+      "ihr": "hattet euch bedankt",
+      "Sie": "hatten sich bedankt",
+      "sie": "hatten sich bedankt"
+    },
+    "futur_i": {
+      "ich": "werde mich bedanken",
+      "du": "wirst dich bedanken",
+      "er_sie_es": "wird sich bedanken",
+      "wir": "werden sich bedanken",
+      "ihr": "werdet sich bedanken",
+      "Sie": "werden sich bedanken",
+      "sie": "werden sich bedanken"
+    },
+    "futur_ii": {
+      "ich": "werde mich bedankt haben",
+      "du": "wirst dich bedankt haben",
+      "er_sie_es": "wird sich bedankt haben",
+      "wir": "werden uns bedankt haben",
+      "ihr": "werdet euch bedankt haben",
+      "Sie": "werden sich bedankt haben",
+      "sie": "werden sich bedankt haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "bedankte mich",
+      "du": "bedanktest dich",
+      "er_sie_es": "bedankte sich",
+      "wir": "bedankten uns",
+      "ihr": "bedanktet euch",
+      "Sie": "bedankten sich",
+      "sie": "bedankten sich"
+    },
+    "imperativ": {
+      "du": "Bedank dich",
+      "ihr": "Bedankt euch",
+      "sie": null,
+      "Sie": "Bedanken Sie sich",
+      "wir": "Bedanken wir uns"
+    },
+    "partizip_i": "bedankend",
+    "partizip_ii": "bedankt",
+    "infinitiv_mit_zu": "sich zu bedanken"
+  },
+  "beeilen": {
+    "verb": "beeilen",
+    "english": "to hurry",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "beeile mich",
+      "du": "beeilst dich",
+      "er_sie_es": "beeilt sich",
+      "wir": "beeilen uns",
+      "ihr": "beeilt euch",
+      "Sie": "beeilen sich",
+      "sie": "beeilen sich"
+    },
+    "praeteritum": {
+      "ich": "beeilte mich",
+      "du": "beeiltest dich",
+      "er_sie_es": "beeilte sich",
+      "wir": "beeilten uns",
+      "ihr": "beeiltet euch",
+      "Sie": "beeilten sich",
+      "sie": "beeilten sich"
+    },
+    "perfekt": {
+      "ich": "habe mich beeilt",
+      "du": "hast dich beeilt",
+      "er_sie_es": "hat sich beeilt",
+      "wir": "haben uns beeilt",
+      "ihr": "habt euch beeilt",
+      "Sie": "haben sich beeilt",
+      "sie": "haben sich beeilt"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich beeilt",
+      "du": "hattest dich beeilt",
+      "er_sie_es": "hatte sich beeilt",
+      "wir": "hatten uns beeilt",
+      "ihr": "hattet euch beeilt",
+      "Sie": "hatten sich beeilt",
+      "sie": "hatten sich beeilt"
+    },
+    "futur_i": {
+      "ich": "werde mich beeilen",
+      "du": "wirst dich beeilen",
+      "er_sie_es": "wird sich beeilen",
+      "wir": "werden sich beeilen",
+      "ihr": "werdet sich beeilen",
+      "Sie": "werden sich beeilen",
+      "sie": "werden sich beeilen"
+    },
+    "futur_ii": {
+      "ich": "werde mich beeilt haben",
+      "du": "wirst dich beeilt haben",
+      "er_sie_es": "wird sich beeilt haben",
+      "wir": "werden uns beeilt haben",
+      "ihr": "werdet euch beeilt haben",
+      "Sie": "werden sich beeilt haben",
+      "sie": "werden sich beeilt haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "beeilte mich",
+      "du": "beeiltest dich",
+      "er_sie_es": "beeilte sich",
+      "wir": "beeilten uns",
+      "ihr": "beeiltet euch",
+      "Sie": "beeilten sich",
+      "sie": "beeilten sich"
+    },
+    "imperativ": {
+      "du": "Beeil dich",
+      "ihr": "Beeilt euch",
+      "sie": null,
+      "Sie": "Beeilen Sie sich",
+      "wir": "Beeilen wir uns"
+    },
+    "partizip_i": "beeilend",
+    "partizip_ii": "beeilt",
+    "infinitiv_mit_zu": "sich zu beeilen"
+  },
+  "befinden": {
+    "verb": "befinden",
+    "english": "to be located",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "befinde mich",
+      "du": "befindest dich",
+      "er_sie_es": "befindet sich",
+      "wir": "befinden uns",
+      "ihr": "befindet euch",
+      "Sie": "befinden sich",
+      "sie": "befinden sich"
+    },
+    "praeteritum": {
+      "ich": "fand mich",
+      "du": "fandst dich",
+      "er_sie_es": "fand sich",
+      "wir": "fanden uns",
+      "ihr": "fandt euch",
+      "Sie": "fanden sich",
+      "sie": "fanden sich"
+    },
+    "perfekt": {
+      "ich": "habe mich befunden",
+      "du": "hast dich befunden",
+      "er_sie_es": "hat sich befunden",
+      "wir": "haben uns befunden",
+      "ihr": "habt euch befunden",
+      "Sie": "haben sich befunden",
+      "sie": "haben sich befunden"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich befunden",
+      "du": "hattest dich befunden",
+      "er_sie_es": "hatte sich befunden",
+      "wir": "hatten uns befunden",
+      "ihr": "hattet euch befunden",
+      "Sie": "hatten sich befunden",
+      "sie": "hatten sich befunden"
+    },
+    "futur_i": {
+      "ich": "werde mich befinden",
+      "du": "wirst dich befinden",
+      "er_sie_es": "wird sich befinden",
+      "wir": "werden sich befinden",
+      "ihr": "werdet sich befinden",
+      "Sie": "werden sich befinden",
+      "sie": "werden sich befinden"
+    },
+    "futur_ii": {
+      "ich": "werde mich befunden haben",
+      "du": "wirst dich befunden haben",
+      "er_sie_es": "wird sich befunden haben",
+      "wir": "werden uns befunden haben",
+      "ihr": "werdet euch befunden haben",
+      "Sie": "werden sich befunden haben",
+      "sie": "werden sich befunden haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "fände mich",
+      "du": "fändest dich",
+      "er_sie_es": "fände sich",
+      "wir": "fänden uns",
+      "ihr": "fändet euch",
+      "Sie": "fänden sich",
+      "sie": "fänden sich"
+    },
+    "imperativ": {
+      "du": "Befinde dich",
+      "ihr": "Befindet euch",
+      "sie": null,
+      "Sie": "Befinden Sie sich",
+      "wir": "Befinden wir uns"
+    },
+    "partizip_i": "befindend",
+    "partizip_ii": "befunden",
+    "infinitiv_mit_zu": "sich zu befinden"
+  },
+  "beklagen": {
+    "verb": "beklagen",
+    "english": "to complain",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "beklage mich",
+      "du": "beklagst dich",
+      "er_sie_es": "beklagt sich",
+      "wir": "beklagen uns",
+      "ihr": "beklagt euch",
+      "Sie": "beklagen sich",
+      "sie": "beklagen sich"
+    },
+    "praeteritum": {
+      "ich": "beklagte mich",
+      "du": "beklagtest dich",
+      "er_sie_es": "beklagte sich",
+      "wir": "beklagten uns",
+      "ihr": "beklagtet euch",
+      "Sie": "beklagten sich",
+      "sie": "beklagten sich"
+    },
+    "perfekt": {
+      "ich": "habe mich beklagt",
+      "du": "hast dich beklagt",
+      "er_sie_es": "hat sich beklagt",
+      "wir": "haben uns beklagt",
+      "ihr": "habt euch beklagt",
+      "Sie": "haben sich beklagt",
+      "sie": "haben sich beklagt"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich beklagt",
+      "du": "hattest dich beklagt",
+      "er_sie_es": "hatte sich beklagt",
+      "wir": "hatten uns beklagt",
+      "ihr": "hattet euch beklagt",
+      "Sie": "hatten sich beklagt",
+      "sie": "hatten sich beklagt"
+    },
+    "futur_i": {
+      "ich": "werde mich beklagen",
+      "du": "wirst dich beklagen",
+      "er_sie_es": "wird sich beklagen",
+      "wir": "werden sich beklagen",
+      "ihr": "werdet sich beklagen",
+      "Sie": "werden sich beklagen",
+      "sie": "werden sich beklagen"
+    },
+    "futur_ii": {
+      "ich": "werde mich beklagt haben",
+      "du": "wirst dich beklagt haben",
+      "er_sie_es": "wird sich beklagt haben",
+      "wir": "werden uns beklagt haben",
+      "ihr": "werdet euch beklagt haben",
+      "Sie": "werden sich beklagt haben",
+      "sie": "werden sich beklagt haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "beklagte mich",
+      "du": "beklagtest dich",
+      "er_sie_es": "beklagte sich",
+      "wir": "beklagten uns",
+      "ihr": "beklagtet euch",
+      "Sie": "beklagten sich",
+      "sie": "beklagten sich"
+    },
+    "imperativ": {
+      "du": "Beklag dich",
+      "ihr": "Beklagt euch",
+      "sie": null,
+      "Sie": "Beklagen Sie sich",
+      "wir": "Beklagen wir uns"
+    },
+    "partizip_i": "beklagend",
+    "partizip_ii": "beklagt",
+    "infinitiv_mit_zu": "sich zu beklagen"
+  },
+  "entscheiden": {
+    "verb": "entscheiden",
+    "english": "to decide",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "entscheide mich",
+      "du": "entscheidest dich",
+      "er_sie_es": "entscheidet sich",
+      "wir": "entscheiden uns",
+      "ihr": "entscheidet euch",
+      "Sie": "entscheiden sich",
+      "sie": "entscheiden sich"
+    },
+    "praeteritum": {
+      "ich": "schied mich",
+      "du": "schiedst dich",
+      "er_sie_es": "schied sich",
+      "wir": "schieden uns",
+      "ihr": "schiedt euch",
+      "Sie": "schieden sich",
+      "sie": "schieden sich"
+    },
+    "perfekt": {
+      "ich": "habe mich entschieden",
+      "du": "hast dich entschieden",
+      "er_sie_es": "hat sich entschieden",
+      "wir": "haben uns entschieden",
+      "ihr": "habt euch entschieden",
+      "Sie": "haben sich entschieden",
+      "sie": "haben sich entschieden"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich entschieden",
+      "du": "hattest dich entschieden",
+      "er_sie_es": "hatte sich entschieden",
+      "wir": "hatten uns entschieden",
+      "ihr": "hattet euch entschieden",
+      "Sie": "hatten sich entschieden",
+      "sie": "hatten sich entschieden"
+    },
+    "futur_i": {
+      "ich": "werde mich entscheiden",
+      "du": "wirst dich entscheiden",
+      "er_sie_es": "wird sich entscheiden",
+      "wir": "werden sich entscheiden",
+      "ihr": "werdet sich entscheiden",
+      "Sie": "werden sich entscheiden",
+      "sie": "werden sich entscheiden"
+    },
+    "futur_ii": {
+      "ich": "werde mich entschieden haben",
+      "du": "wirst dich entschieden haben",
+      "er_sie_es": "wird sich entschieden haben",
+      "wir": "werden uns entschieden haben",
+      "ihr": "werdet euch entschieden haben",
+      "Sie": "werden sich entschieden haben",
+      "sie": "werden sich entschieden haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "schiede mich",
+      "du": "schiedest dich",
+      "er_sie_es": "schiede sich",
+      "wir": "schieden uns",
+      "ihr": "schiedet euch",
+      "Sie": "schieden sich",
+      "sie": "schieden sich"
+    },
+    "imperativ": {
+      "du": "Entscheide dich",
+      "ihr": "Entscheidet euch",
+      "sie": null,
+      "Sie": "Entscheiden Sie sich",
+      "wir": "Entscheiden wir uns"
+    },
+    "partizip_i": "entscheidend",
+    "partizip_ii": "entschieden",
+    "infinitiv_mit_zu": "sich zu entscheiden"
+  },
+  "einigen": {
+    "verb": "einigen",
+    "english": "to agree",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "ige mich ein",
+      "du": "igst dich ein",
+      "er_sie_es": "igt sich ein",
+      "wir": "igen uns ein",
+      "ihr": "igt euch ein",
+      "Sie": "igen sich ein",
+      "sie": "igen sich ein"
+    },
+    "praeteritum": {
+      "ich": "igte ein mich",
+      "du": "igtest ein dich",
+      "er_sie_es": "igte ein sich",
+      "wir": "igten ein uns",
+      "ihr": "igtet ein euch",
+      "Sie": "igten ein sich",
+      "sie": "igten ein sich"
+    },
+    "perfekt": {
+      "ich": "habe mich geeinigt",
+      "du": "hast dich geeinigt",
+      "er_sie_es": "hat sich geeinigt",
+      "wir": "haben uns geeinigt",
+      "ihr": "habt euch geeinigt",
+      "Sie": "haben sich geeinigt",
+      "sie": "haben sich geeinigt"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich geeinigt",
+      "du": "hattest dich geeinigt",
+      "er_sie_es": "hatte sich geeinigt",
+      "wir": "hatten uns geeinigt",
+      "ihr": "hattet euch geeinigt",
+      "Sie": "hatten sich geeinigt",
+      "sie": "hatten sich geeinigt"
+    },
+    "futur_i": {
+      "ich": "werde mich einigen",
+      "du": "wirst dich einigen",
+      "er_sie_es": "wird sich einigen",
+      "wir": "werden sich einigen",
+      "ihr": "werdet sich einigen",
+      "Sie": "werden sich einigen",
+      "sie": "werden sich einigen"
+    },
+    "futur_ii": {
+      "ich": "werde mich geeinigt haben",
+      "du": "wirst dich geeinigt haben",
+      "er_sie_es": "wird sich geeinigt haben",
+      "wir": "werden uns geeinigt haben",
+      "ihr": "werdet euch geeinigt haben",
+      "Sie": "werden sich geeinigt haben",
+      "sie": "werden sich geeinigt haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "igte ein mich",
+      "du": "igtest ein dich",
+      "er_sie_es": "igte ein sich",
+      "wir": "igten ein uns",
+      "ihr": "igtet ein euch",
+      "Sie": "igten ein sich",
+      "sie": "igten ein sich"
+    },
+    "imperativ": {
+      "du": "Ig dich ein",
+      "ihr": "Igt euch ein",
+      "sie": null,
+      "Sie": "Igen Sie sich ein",
+      "wir": "Igen wir uns ein"
+    },
+    "partizip_i": "einigend",
+    "partizip_ii": "geeinigt",
+    "infinitiv_mit_zu": "sich einzuigen"
+  },
+  "einleben": {
+    "verb": "einleben",
+    "english": "to settle in",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "lebe mich ein",
+      "du": "lebst dich ein",
+      "er_sie_es": "lebt sich ein",
+      "wir": "leben uns ein",
+      "ihr": "lebt euch ein",
+      "Sie": "leben sich ein",
+      "sie": "leben sich ein"
+    },
+    "praeteritum": {
+      "ich": "lebte ein mich",
+      "du": "lebtest ein dich",
+      "er_sie_es": "lebte ein sich",
+      "wir": "lebten ein uns",
+      "ihr": "lebtet ein euch",
+      "Sie": "lebten ein sich",
+      "sie": "lebten ein sich"
+    },
+    "perfekt": {
+      "ich": "habe mich eingelebt",
+      "du": "hast dich eingelebt",
+      "er_sie_es": "hat sich eingelebt",
+      "wir": "haben uns eingelebt",
+      "ihr": "habt euch eingelebt",
+      "Sie": "haben sich eingelebt",
+      "sie": "haben sich eingelebt"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich eingelebt",
+      "du": "hattest dich eingelebt",
+      "er_sie_es": "hatte sich eingelebt",
+      "wir": "hatten uns eingelebt",
+      "ihr": "hattet euch eingelebt",
+      "Sie": "hatten sich eingelebt",
+      "sie": "hatten sich eingelebt"
+    },
+    "futur_i": {
+      "ich": "werde mich einleben",
+      "du": "wirst dich einleben",
+      "er_sie_es": "wird sich einleben",
+      "wir": "werden sich einleben",
+      "ihr": "werdet sich einleben",
+      "Sie": "werden sich einleben",
+      "sie": "werden sich einleben"
+    },
+    "futur_ii": {
+      "ich": "werde mich eingelebt haben",
+      "du": "wirst dich eingelebt haben",
+      "er_sie_es": "wird sich eingelebt haben",
+      "wir": "werden uns eingelebt haben",
+      "ihr": "werdet euch eingelebt haben",
+      "Sie": "werden sich eingelebt haben",
+      "sie": "werden sich eingelebt haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "lebte ein mich",
+      "du": "lebtest ein dich",
+      "er_sie_es": "lebte ein sich",
+      "wir": "lebten ein uns",
+      "ihr": "lebtet ein euch",
+      "Sie": "lebten ein sich",
+      "sie": "lebten ein sich"
+    },
+    "imperativ": {
+      "du": "Leb dich ein",
+      "ihr": "Lebt euch ein",
+      "sie": null,
+      "Sie": "Leben Sie sich ein",
+      "wir": "Leben wir uns ein"
+    },
+    "partizip_i": "einlebend",
+    "partizip_ii": "eingelebt",
+    "infinitiv_mit_zu": "sich einzuleben"
+  },
+  "informieren": {
+    "verb": "informieren",
+    "english": "to inform oneself",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "informiere mich",
+      "du": "informierst dich",
+      "er_sie_es": "informiert sich",
+      "wir": "informieren uns",
+      "ihr": "informiert euch",
+      "Sie": "informieren sich",
+      "sie": "informieren sich"
+    },
+    "praeteritum": {
+      "ich": "informierte mich",
+      "du": "informiertest dich",
+      "er_sie_es": "informierte sich",
+      "wir": "informierten uns",
+      "ihr": "informiertet euch",
+      "Sie": "informierten sich",
+      "sie": "informierten sich"
+    },
+    "perfekt": {
+      "ich": "habe mich informiert",
+      "du": "hast dich informiert",
+      "er_sie_es": "hat sich informiert",
+      "wir": "haben uns informiert",
+      "ihr": "habt euch informiert",
+      "Sie": "haben sich informiert",
+      "sie": "haben sich informiert"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich informiert",
+      "du": "hattest dich informiert",
+      "er_sie_es": "hatte sich informiert",
+      "wir": "hatten uns informiert",
+      "ihr": "hattet euch informiert",
+      "Sie": "hatten sich informiert",
+      "sie": "hatten sich informiert"
+    },
+    "futur_i": {
+      "ich": "werde mich informieren",
+      "du": "wirst dich informieren",
+      "er_sie_es": "wird sich informieren",
+      "wir": "werden sich informieren",
+      "ihr": "werdet sich informieren",
+      "Sie": "werden sich informieren",
+      "sie": "werden sich informieren"
+    },
+    "futur_ii": {
+      "ich": "werde mich informiert haben",
+      "du": "wirst dich informiert haben",
+      "er_sie_es": "wird sich informiert haben",
+      "wir": "werden uns informiert haben",
+      "ihr": "werdet euch informiert haben",
+      "Sie": "werden sich informiert haben",
+      "sie": "werden sich informiert haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "informierte mich",
+      "du": "informiertest dich",
+      "er_sie_es": "informierte sich",
+      "wir": "informierten uns",
+      "ihr": "informiertet euch",
+      "Sie": "informierten sich",
+      "sie": "informierten sich"
+    },
+    "imperativ": {
+      "du": "Informier dich",
+      "ihr": "Informiert euch",
+      "sie": null,
+      "Sie": "Informieren Sie sich",
+      "wir": "Informieren wir uns"
+    },
+    "partizip_i": "informierend",
+    "partizip_ii": "informiert",
+    "infinitiv_mit_zu": "sich zu informieren"
+  },
+  "interessieren": {
+    "verb": "interessieren",
+    "english": "to be interested",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "interessiere mich",
+      "du": "interessierst dich",
+      "er_sie_es": "interessiert sich",
+      "wir": "interessieren uns",
+      "ihr": "interessiert euch",
+      "Sie": "interessieren sich",
+      "sie": "interessieren sich"
+    },
+    "praeteritum": {
+      "ich": "interessierte mich",
+      "du": "interessiertest dich",
+      "er_sie_es": "interessierte sich",
+      "wir": "interessierten uns",
+      "ihr": "interessiertet euch",
+      "Sie": "interessierten sich",
+      "sie": "interessierten sich"
+    },
+    "perfekt": {
+      "ich": "habe mich interessiert",
+      "du": "hast dich interessiert",
+      "er_sie_es": "hat sich interessiert",
+      "wir": "haben uns interessiert",
+      "ihr": "habt euch interessiert",
+      "Sie": "haben sich interessiert",
+      "sie": "haben sich interessiert"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich interessiert",
+      "du": "hattest dich interessiert",
+      "er_sie_es": "hatte sich interessiert",
+      "wir": "hatten uns interessiert",
+      "ihr": "hattet euch interessiert",
+      "Sie": "hatten sich interessiert",
+      "sie": "hatten sich interessiert"
+    },
+    "futur_i": {
+      "ich": "werde mich interessieren",
+      "du": "wirst dich interessieren",
+      "er_sie_es": "wird sich interessieren",
+      "wir": "werden sich interessieren",
+      "ihr": "werdet sich interessieren",
+      "Sie": "werden sich interessieren",
+      "sie": "werden sich interessieren"
+    },
+    "futur_ii": {
+      "ich": "werde mich interessiert haben",
+      "du": "wirst dich interessiert haben",
+      "er_sie_es": "wird sich interessiert haben",
+      "wir": "werden uns interessiert haben",
+      "ihr": "werdet euch interessiert haben",
+      "Sie": "werden sich interessiert haben",
+      "sie": "werden sich interessiert haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "interessierte mich",
+      "du": "interessiertest dich",
+      "er_sie_es": "interessierte sich",
+      "wir": "interessierten uns",
+      "ihr": "interessiertet euch",
+      "Sie": "interessierten sich",
+      "sie": "interessierten sich"
+    },
+    "imperativ": {
+      "du": "Interessier dich",
+      "ihr": "Interessiert euch",
+      "sie": null,
+      "Sie": "Interessieren Sie sich",
+      "wir": "Interessieren wir uns"
+    },
+    "partizip_i": "interessierend",
+    "partizip_ii": "interessiert",
+    "infinitiv_mit_zu": "sich zu interessieren"
+  },
+  "irren": {
+    "verb": "irren",
+    "english": "to be mistaken",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "irre mich",
+      "du": "irrst dich",
+      "er_sie_es": "irrt sich",
+      "wir": "irren uns",
+      "ihr": "irrt euch",
+      "Sie": "irren sich",
+      "sie": "irren sich"
+    },
+    "praeteritum": {
+      "ich": "irrte mich",
+      "du": "irrtest dich",
+      "er_sie_es": "irrte sich",
+      "wir": "irrten uns",
+      "ihr": "irrtet euch",
+      "Sie": "irrten sich",
+      "sie": "irrten sich"
+    },
+    "perfekt": {
+      "ich": "habe mich geirrt",
+      "du": "hast dich geirrt",
+      "er_sie_es": "hat sich geirrt",
+      "wir": "haben uns geirrt",
+      "ihr": "habt euch geirrt",
+      "Sie": "haben sich geirrt",
+      "sie": "haben sich geirrt"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich geirrt",
+      "du": "hattest dich geirrt",
+      "er_sie_es": "hatte sich geirrt",
+      "wir": "hatten uns geirrt",
+      "ihr": "hattet euch geirrt",
+      "Sie": "hatten sich geirrt",
+      "sie": "hatten sich geirrt"
+    },
+    "futur_i": {
+      "ich": "werde mich irren",
+      "du": "wirst dich irren",
+      "er_sie_es": "wird sich irren",
+      "wir": "werden sich irren",
+      "ihr": "werdet sich irren",
+      "Sie": "werden sich irren",
+      "sie": "werden sich irren"
+    },
+    "futur_ii": {
+      "ich": "werde mich geirrt haben",
+      "du": "wirst dich geirrt haben",
+      "er_sie_es": "wird sich geirrt haben",
+      "wir": "werden uns geirrt haben",
+      "ihr": "werdet euch geirrt haben",
+      "Sie": "werden sich geirrt haben",
+      "sie": "werden sich geirrt haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "irrte mich",
+      "du": "irrtest dich",
+      "er_sie_es": "irrte sich",
+      "wir": "irrten uns",
+      "ihr": "irrtet euch",
+      "Sie": "irrten sich",
+      "sie": "irrten sich"
+    },
+    "imperativ": {
+      "du": "Irr dich",
+      "ihr": "Irrt euch",
+      "sie": null,
+      "Sie": "Irren Sie sich",
+      "wir": "Irren wir uns"
+    },
+    "partizip_i": "irrend",
+    "partizip_ii": "geirrt",
+    "infinitiv_mit_zu": "sich zu irren"
+  },
+  "lohnen": {
+    "verb": "lohnen",
+    "english": "to be worth it",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "lohne mich",
+      "du": "lohnst dich",
+      "er_sie_es": "lohnt sich",
+      "wir": "lohnen uns",
+      "ihr": "lohnt euch",
+      "Sie": "lohnen sich",
+      "sie": "lohnen sich"
+    },
+    "praeteritum": {
+      "ich": "lohnete mich",
+      "du": "lohnetest dich",
+      "er_sie_es": "lohnete sich",
+      "wir": "lohneten uns",
+      "ihr": "lohnetet euch",
+      "Sie": "lohneten sich",
+      "sie": "lohneten sich"
+    },
+    "perfekt": {
+      "ich": "habe mich gelohnt",
+      "du": "hast dich gelohnt",
+      "er_sie_es": "hat sich gelohnt",
+      "wir": "haben uns gelohnt",
+      "ihr": "habt euch gelohnt",
+      "Sie": "haben sich gelohnt",
+      "sie": "haben sich gelohnt"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich gelohnt",
+      "du": "hattest dich gelohnt",
+      "er_sie_es": "hatte sich gelohnt",
+      "wir": "hatten uns gelohnt",
+      "ihr": "hattet euch gelohnt",
+      "Sie": "hatten sich gelohnt",
+      "sie": "hatten sich gelohnt"
+    },
+    "futur_i": {
+      "ich": "werde mich lohnen",
+      "du": "wirst dich lohnen",
+      "er_sie_es": "wird sich lohnen",
+      "wir": "werden sich lohnen",
+      "ihr": "werdet sich lohnen",
+      "Sie": "werden sich lohnen",
+      "sie": "werden sich lohnen"
+    },
+    "futur_ii": {
+      "ich": "werde mich gelohnt haben",
+      "du": "wirst dich gelohnt haben",
+      "er_sie_es": "wird sich gelohnt haben",
+      "wir": "werden uns gelohnt haben",
+      "ihr": "werdet euch gelohnt haben",
+      "Sie": "werden sich gelohnt haben",
+      "sie": "werden sich gelohnt haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "lohnete mich",
+      "du": "lohnetest dich",
+      "er_sie_es": "lohnete sich",
+      "wir": "lohneten uns",
+      "ihr": "lohnetet euch",
+      "Sie": "lohneten sich",
+      "sie": "lohneten sich"
+    },
+    "imperativ": {
+      "du": "Lohn dich",
+      "ihr": "Lohnt euch",
+      "sie": null,
+      "Sie": "Lohnen Sie sich",
+      "wir": "Lohnen wir uns"
+    },
+    "partizip_i": "lohnend",
+    "partizip_ii": "gelohnt",
+    "infinitiv_mit_zu": "sich zu lohnen"
+  },
+  "melden": {
+    "verb": "melden",
+    "english": "to report/contact",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "melde mich",
+      "du": "meldest dich",
+      "er_sie_es": "meldet sich",
+      "wir": "melden uns",
+      "ihr": "meldet euch",
+      "Sie": "melden sich",
+      "sie": "melden sich"
+    },
+    "praeteritum": {
+      "ich": "meldete mich",
+      "du": "meldetest dich",
+      "er_sie_es": "meldete sich",
+      "wir": "meldeten uns",
+      "ihr": "meldetet euch",
+      "Sie": "meldeten sich",
+      "sie": "meldeten sich"
+    },
+    "perfekt": {
+      "ich": "habe mich gemeldet",
+      "du": "hast dich gemeldet",
+      "er_sie_es": "hat sich gemeldet",
+      "wir": "haben uns gemeldet",
+      "ihr": "habt euch gemeldet",
+      "Sie": "haben sich gemeldet",
+      "sie": "haben sich gemeldet"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich gemeldet",
+      "du": "hattest dich gemeldet",
+      "er_sie_es": "hatte sich gemeldet",
+      "wir": "hatten uns gemeldet",
+      "ihr": "hattet euch gemeldet",
+      "Sie": "hatten sich gemeldet",
+      "sie": "hatten sich gemeldet"
+    },
+    "futur_i": {
+      "ich": "werde mich melden",
+      "du": "wirst dich melden",
+      "er_sie_es": "wird sich melden",
+      "wir": "werden sich melden",
+      "ihr": "werdet sich melden",
+      "Sie": "werden sich melden",
+      "sie": "werden sich melden"
+    },
+    "futur_ii": {
+      "ich": "werde mich gemeldet haben",
+      "du": "wirst dich gemeldet haben",
+      "er_sie_es": "wird sich gemeldet haben",
+      "wir": "werden uns gemeldet haben",
+      "ihr": "werdet euch gemeldet haben",
+      "Sie": "werden sich gemeldet haben",
+      "sie": "werden sich gemeldet haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "meldete mich",
+      "du": "meldetest dich",
+      "er_sie_es": "meldete sich",
+      "wir": "meldeten uns",
+      "ihr": "meldetet euch",
+      "Sie": "meldeten sich",
+      "sie": "meldeten sich"
+    },
+    "imperativ": {
+      "du": "Melde dich",
+      "ihr": "Meldet euch",
+      "sie": null,
+      "Sie": "Melden Sie sich",
+      "wir": "Melden wir uns"
+    },
+    "partizip_i": "meldend",
+    "partizip_ii": "gemeldet",
+    "infinitiv_mit_zu": "sich zu melden"
+  },
+  "nähern": {
+    "verb": "nähern",
+    "english": "to approach",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "nähere mich",
+      "du": "näherst dich",
+      "er_sie_es": "nähert sich",
+      "wir": "näheren uns",
+      "ihr": "nähert euch",
+      "Sie": "näheren sich",
+      "sie": "näheren sich"
+    },
+    "praeteritum": {
+      "ich": "näherte mich",
+      "du": "nähertest dich",
+      "er_sie_es": "näherte sich",
+      "wir": "näherten uns",
+      "ihr": "nähertet euch",
+      "Sie": "näherten sich",
+      "sie": "näherten sich"
+    },
+    "perfekt": {
+      "ich": "habe mich genähert",
+      "du": "hast dich genähert",
+      "er_sie_es": "hat sich genähert",
+      "wir": "haben uns genähert",
+      "ihr": "habt euch genähert",
+      "Sie": "haben sich genähert",
+      "sie": "haben sich genähert"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich genähert",
+      "du": "hattest dich genähert",
+      "er_sie_es": "hatte sich genähert",
+      "wir": "hatten uns genähert",
+      "ihr": "hattet euch genähert",
+      "Sie": "hatten sich genähert",
+      "sie": "hatten sich genähert"
+    },
+    "futur_i": {
+      "ich": "werde mich nähern",
+      "du": "wirst dich nähern",
+      "er_sie_es": "wird sich nähern",
+      "wir": "werden sich nähern",
+      "ihr": "werdet sich nähern",
+      "Sie": "werden sich nähern",
+      "sie": "werden sich nähern"
+    },
+    "futur_ii": {
+      "ich": "werde mich genähert haben",
+      "du": "wirst dich genähert haben",
+      "er_sie_es": "wird sich genähert haben",
+      "wir": "werden uns genähert haben",
+      "ihr": "werdet euch genähert haben",
+      "Sie": "werden sich genähert haben",
+      "sie": "werden sich genähert haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "näherte mich",
+      "du": "nähertest dich",
+      "er_sie_es": "näherte sich",
+      "wir": "näherten uns",
+      "ihr": "nähertet euch",
+      "Sie": "näherten sich",
+      "sie": "näherten sich"
+    },
+    "imperativ": {
+      "du": "Näher dich",
+      "ihr": "Nähert euch",
+      "sie": null,
+      "Sie": "Nähern Sie sich",
+      "wir": "Nähern wir uns"
+    },
+    "partizip_i": "nähernd",
+    "partizip_ii": "genähert",
+    "infinitiv_mit_zu": "sich zu nähern"
+  },
+  "orientieren": {
+    "verb": "orientieren",
+    "english": "to orient oneself",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "orientiere mich",
+      "du": "orientierst dich",
+      "er_sie_es": "orientiert sich",
+      "wir": "orientieren uns",
+      "ihr": "orientiert euch",
+      "Sie": "orientieren sich",
+      "sie": "orientieren sich"
+    },
+    "praeteritum": {
+      "ich": "orientierte mich",
+      "du": "orientiertest dich",
+      "er_sie_es": "orientierte sich",
+      "wir": "orientierten uns",
+      "ihr": "orientiertet euch",
+      "Sie": "orientierten sich",
+      "sie": "orientierten sich"
+    },
+    "perfekt": {
+      "ich": "habe mich orientiert",
+      "du": "hast dich orientiert",
+      "er_sie_es": "hat sich orientiert",
+      "wir": "haben uns orientiert",
+      "ihr": "habt euch orientiert",
+      "Sie": "haben sich orientiert",
+      "sie": "haben sich orientiert"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich orientiert",
+      "du": "hattest dich orientiert",
+      "er_sie_es": "hatte sich orientiert",
+      "wir": "hatten uns orientiert",
+      "ihr": "hattet euch orientiert",
+      "Sie": "hatten sich orientiert",
+      "sie": "hatten sich orientiert"
+    },
+    "futur_i": {
+      "ich": "werde mich orientieren",
+      "du": "wirst dich orientieren",
+      "er_sie_es": "wird sich orientieren",
+      "wir": "werden sich orientieren",
+      "ihr": "werdet sich orientieren",
+      "Sie": "werden sich orientieren",
+      "sie": "werden sich orientieren"
+    },
+    "futur_ii": {
+      "ich": "werde mich orientiert haben",
+      "du": "wirst dich orientiert haben",
+      "er_sie_es": "wird sich orientiert haben",
+      "wir": "werden uns orientiert haben",
+      "ihr": "werdet euch orientiert haben",
+      "Sie": "werden sich orientiert haben",
+      "sie": "werden sich orientiert haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "orientierte mich",
+      "du": "orientiertest dich",
+      "er_sie_es": "orientierte sich",
+      "wir": "orientierten uns",
+      "ihr": "orientiertet euch",
+      "Sie": "orientierten sich",
+      "sie": "orientierten sich"
+    },
+    "imperativ": {
+      "du": "Orientier dich",
+      "ihr": "Orientiert euch",
+      "sie": null,
+      "Sie": "Orientieren Sie sich",
+      "wir": "Orientieren wir uns"
+    },
+    "partizip_i": "orientierend",
+    "partizip_ii": "orientiert",
+    "infinitiv_mit_zu": "sich zu orientieren"
+  },
+  "registrieren": {
+    "verb": "registrieren",
+    "english": "to register",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "registriere mich",
+      "du": "registrierst dich",
+      "er_sie_es": "registriert sich",
+      "wir": "registrieren uns",
+      "ihr": "registriert euch",
+      "Sie": "registrieren sich",
+      "sie": "registrieren sich"
+    },
+    "praeteritum": {
+      "ich": "registrierte mich",
+      "du": "registriertest dich",
+      "er_sie_es": "registrierte sich",
+      "wir": "registrierten uns",
+      "ihr": "registriertet euch",
+      "Sie": "registrierten sich",
+      "sie": "registrierten sich"
+    },
+    "perfekt": {
+      "ich": "habe mich registriert",
+      "du": "hast dich registriert",
+      "er_sie_es": "hat sich registriert",
+      "wir": "haben uns registriert",
+      "ihr": "habt euch registriert",
+      "Sie": "haben sich registriert",
+      "sie": "haben sich registriert"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich registriert",
+      "du": "hattest dich registriert",
+      "er_sie_es": "hatte sich registriert",
+      "wir": "hatten uns registriert",
+      "ihr": "hattet euch registriert",
+      "Sie": "hatten sich registriert",
+      "sie": "hatten sich registriert"
+    },
+    "futur_i": {
+      "ich": "werde mich registrieren",
+      "du": "wirst dich registrieren",
+      "er_sie_es": "wird sich registrieren",
+      "wir": "werden sich registrieren",
+      "ihr": "werdet sich registrieren",
+      "Sie": "werden sich registrieren",
+      "sie": "werden sich registrieren"
+    },
+    "futur_ii": {
+      "ich": "werde mich registriert haben",
+      "du": "wirst dich registriert haben",
+      "er_sie_es": "wird sich registriert haben",
+      "wir": "werden uns registriert haben",
+      "ihr": "werdet euch registriert haben",
+      "Sie": "werden sich registriert haben",
+      "sie": "werden sich registriert haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "registrierte mich",
+      "du": "registriertest dich",
+      "er_sie_es": "registrierte sich",
+      "wir": "registrierten uns",
+      "ihr": "registriertet euch",
+      "Sie": "registrierten sich",
+      "sie": "registrierten sich"
+    },
+    "imperativ": {
+      "du": "Registrier dich",
+      "ihr": "Registriert euch",
+      "sie": null,
+      "Sie": "Registrieren Sie sich",
+      "wir": "Registrieren wir uns"
+    },
+    "partizip_i": "registrierend",
+    "partizip_ii": "registriert",
+    "infinitiv_mit_zu": "sich zu registrieren"
+  },
+  "schützen": {
+    "verb": "schützen",
+    "english": "to protect oneself",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "schütze mich",
+      "du": "schützt dich",
+      "er_sie_es": "schützt sich",
+      "wir": "schützen uns",
+      "ihr": "schützt euch",
+      "Sie": "schützen sich",
+      "sie": "schützen sich"
+    },
+    "praeteritum": {
+      "ich": "schützte mich",
+      "du": "schütztest dich",
+      "er_sie_es": "schützte sich",
+      "wir": "schützten uns",
+      "ihr": "schütztet euch",
+      "Sie": "schützten sich",
+      "sie": "schützten sich"
+    },
+    "perfekt": {
+      "ich": "habe mich geschützt",
+      "du": "hast dich geschützt",
+      "er_sie_es": "hat sich geschützt",
+      "wir": "haben uns geschützt",
+      "ihr": "habt euch geschützt",
+      "Sie": "haben sich geschützt",
+      "sie": "haben sich geschützt"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich geschützt",
+      "du": "hattest dich geschützt",
+      "er_sie_es": "hatte sich geschützt",
+      "wir": "hatten uns geschützt",
+      "ihr": "hattet euch geschützt",
+      "Sie": "hatten sich geschützt",
+      "sie": "hatten sich geschützt"
+    },
+    "futur_i": {
+      "ich": "werde mich schützen",
+      "du": "wirst dich schützen",
+      "er_sie_es": "wird sich schützen",
+      "wir": "werden sich schützen",
+      "ihr": "werdet sich schützen",
+      "Sie": "werden sich schützen",
+      "sie": "werden sich schützen"
+    },
+    "futur_ii": {
+      "ich": "werde mich geschützt haben",
+      "du": "wirst dich geschützt haben",
+      "er_sie_es": "wird sich geschützt haben",
+      "wir": "werden uns geschützt haben",
+      "ihr": "werdet euch geschützt haben",
+      "Sie": "werden sich geschützt haben",
+      "sie": "werden sich geschützt haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "schützte mich",
+      "du": "schütztest dich",
+      "er_sie_es": "schützte sich",
+      "wir": "schützten uns",
+      "ihr": "schütztet euch",
+      "Sie": "schützten sich",
+      "sie": "schützten sich"
+    },
+    "imperativ": {
+      "du": "Schütz dich",
+      "ihr": "Schützt euch",
+      "sie": null,
+      "Sie": "Schützen Sie sich",
+      "wir": "Schützen wir uns"
+    },
+    "partizip_i": "schützend",
+    "partizip_ii": "geschützt",
+    "infinitiv_mit_zu": "sich zu schützen"
+  },
+  "verbessern": {
+    "verb": "verbessern",
+    "english": "to improve",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "verbessere mich",
+      "du": "verbesserst dich",
+      "er_sie_es": "verbessert sich",
+      "wir": "verbesseren uns",
+      "ihr": "verbessert euch",
+      "Sie": "verbesseren sich",
+      "sie": "verbesseren sich"
+    },
+    "praeteritum": {
+      "ich": "verbesserte mich",
+      "du": "verbessertest dich",
+      "er_sie_es": "verbesserte sich",
+      "wir": "verbesserten uns",
+      "ihr": "verbessertet euch",
+      "Sie": "verbesserten sich",
+      "sie": "verbesserten sich"
+    },
+    "perfekt": {
+      "ich": "habe mich verbessert",
+      "du": "hast dich verbessert",
+      "er_sie_es": "hat sich verbessert",
+      "wir": "haben uns verbessert",
+      "ihr": "habt euch verbessert",
+      "Sie": "haben sich verbessert",
+      "sie": "haben sich verbessert"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich verbessert",
+      "du": "hattest dich verbessert",
+      "er_sie_es": "hatte sich verbessert",
+      "wir": "hatten uns verbessert",
+      "ihr": "hattet euch verbessert",
+      "Sie": "hatten sich verbessert",
+      "sie": "hatten sich verbessert"
+    },
+    "futur_i": {
+      "ich": "werde mich verbessern",
+      "du": "wirst dich verbessern",
+      "er_sie_es": "wird sich verbessern",
+      "wir": "werden sich verbessern",
+      "ihr": "werdet sich verbessern",
+      "Sie": "werden sich verbessern",
+      "sie": "werden sich verbessern"
+    },
+    "futur_ii": {
+      "ich": "werde mich verbessert haben",
+      "du": "wirst dich verbessert haben",
+      "er_sie_es": "wird sich verbessert haben",
+      "wir": "werden uns verbessert haben",
+      "ihr": "werdet euch verbessert haben",
+      "Sie": "werden sich verbessert haben",
+      "sie": "werden sich verbessert haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "verbesserte mich",
+      "du": "verbessertest dich",
+      "er_sie_es": "verbesserte sich",
+      "wir": "verbesserten uns",
+      "ihr": "verbessertet euch",
+      "Sie": "verbesserten sich",
+      "sie": "verbesserten sich"
+    },
+    "imperativ": {
+      "du": "Verbesser dich",
+      "ihr": "Verbessert euch",
+      "sie": null,
+      "Sie": "Verbessern Sie sich",
+      "wir": "Verbessern wir uns"
+    },
+    "partizip_i": "verbessernd",
+    "partizip_ii": "verbessert",
+    "infinitiv_mit_zu": "sich zu verbessern"
+  },
+  "wehren": {
+    "verb": "wehren",
+    "english": "to defend oneself",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "wehre mich",
+      "du": "wehrst dich",
+      "er_sie_es": "wehrt sich",
+      "wir": "wehren uns",
+      "ihr": "wehrt euch",
+      "Sie": "wehren sich",
+      "sie": "wehren sich"
+    },
+    "praeteritum": {
+      "ich": "wehrte mich",
+      "du": "wehrtest dich",
+      "er_sie_es": "wehrte sich",
+      "wir": "wehrten uns",
+      "ihr": "wehrtet euch",
+      "Sie": "wehrten sich",
+      "sie": "wehrten sich"
+    },
+    "perfekt": {
+      "ich": "habe mich gewehrt",
+      "du": "hast dich gewehrt",
+      "er_sie_es": "hat sich gewehrt",
+      "wir": "haben uns gewehrt",
+      "ihr": "habt euch gewehrt",
+      "Sie": "haben sich gewehrt",
+      "sie": "haben sich gewehrt"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich gewehrt",
+      "du": "hattest dich gewehrt",
+      "er_sie_es": "hatte sich gewehrt",
+      "wir": "hatten uns gewehrt",
+      "ihr": "hattet euch gewehrt",
+      "Sie": "hatten sich gewehrt",
+      "sie": "hatten sich gewehrt"
+    },
+    "futur_i": {
+      "ich": "werde mich wehren",
+      "du": "wirst dich wehren",
+      "er_sie_es": "wird sich wehren",
+      "wir": "werden sich wehren",
+      "ihr": "werdet sich wehren",
+      "Sie": "werden sich wehren",
+      "sie": "werden sich wehren"
+    },
+    "futur_ii": {
+      "ich": "werde mich gewehrt haben",
+      "du": "wirst dich gewehrt haben",
+      "er_sie_es": "wird sich gewehrt haben",
+      "wir": "werden uns gewehrt haben",
+      "ihr": "werdet euch gewehrt haben",
+      "Sie": "werden sich gewehrt haben",
+      "sie": "werden sich gewehrt haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "wehrte mich",
+      "du": "wehrtest dich",
+      "er_sie_es": "wehrte sich",
+      "wir": "wehrten uns",
+      "ihr": "wehrtet euch",
+      "Sie": "wehrten sich",
+      "sie": "wehrten sich"
+    },
+    "imperativ": {
+      "du": "Wehr dich",
+      "ihr": "Wehrt euch",
+      "sie": null,
+      "Sie": "Wehren Sie sich",
+      "wir": "Wehren wir uns"
+    },
+    "partizip_i": "wehrend",
+    "partizip_ii": "gewehrt",
+    "infinitiv_mit_zu": "sich zu wehren"
+  },
+  "auskennen": {
+    "verb": "auskennen",
+    "english": "to know well",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "kenne mich aus",
+      "du": "kennst dich aus",
+      "er_sie_es": "kennt sich aus",
+      "wir": "kennen uns aus",
+      "ihr": "kennt euch aus",
+      "Sie": "kennen sich aus",
+      "sie": "kennen sich aus"
+    },
+    "praeteritum": {
+      "ich": "kannte aus mich",
+      "du": "kanntest aus dich",
+      "er_sie_es": "kannte aus sich",
+      "wir": "kannten aus uns",
+      "ihr": "kanntet aus euch",
+      "Sie": "kannten aus sich",
+      "sie": "kannten aus sich"
+    },
+    "perfekt": {
+      "ich": "habe mich ausgekannt",
+      "du": "hast dich ausgekannt",
+      "er_sie_es": "hat sich ausgekannt",
+      "wir": "haben uns ausgekannt",
+      "ihr": "habt euch ausgekannt",
+      "Sie": "haben sich ausgekannt",
+      "sie": "haben sich ausgekannt"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich ausgekannt",
+      "du": "hattest dich ausgekannt",
+      "er_sie_es": "hatte sich ausgekannt",
+      "wir": "hatten uns ausgekannt",
+      "ihr": "hattet euch ausgekannt",
+      "Sie": "hatten sich ausgekannt",
+      "sie": "hatten sich ausgekannt"
+    },
+    "futur_i": {
+      "ich": "werde mich auskennen",
+      "du": "wirst dich auskennen",
+      "er_sie_es": "wird sich auskennen",
+      "wir": "werden sich auskennen",
+      "ihr": "werdet sich auskennen",
+      "Sie": "werden sich auskennen",
+      "sie": "werden sich auskennen"
+    },
+    "futur_ii": {
+      "ich": "werde mich ausgekannt haben",
+      "du": "wirst dich ausgekannt haben",
+      "er_sie_es": "wird sich ausgekannt haben",
+      "wir": "werden uns ausgekannt haben",
+      "ihr": "werdet euch ausgekannt haben",
+      "Sie": "werden sich ausgekannt haben",
+      "sie": "werden sich ausgekannt haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "kännte aus mich",
+      "du": "känntest aus dich",
+      "er_sie_es": "kännte aus sich",
+      "wir": "kännten aus uns",
+      "ihr": "känntet aus euch",
+      "Sie": "kännten aus sich",
+      "sie": "kännten aus sich"
+    },
+    "imperativ": {
+      "du": "Kenn dich aus",
+      "ihr": "Kennt euch aus",
+      "sie": null,
+      "Sie": "Kennen Sie sich aus",
+      "wir": "Kennen wir uns aus"
+    },
+    "partizip_i": "auskennend",
+    "partizip_ii": "ausgekannt",
+    "infinitiv_mit_zu": "sich auszukennen"
+  },
+  "ausdrücken": {
+    "verb": "ausdrücken",
+    "english": "to express oneself",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "drücke mich aus",
+      "du": "drückst dich aus",
+      "er_sie_es": "drückt sich aus",
+      "wir": "drücken uns aus",
+      "ihr": "drückt euch aus",
+      "Sie": "drücken sich aus",
+      "sie": "drücken sich aus"
+    },
+    "praeteritum": {
+      "ich": "drückte aus mich",
+      "du": "drücktest aus dich",
+      "er_sie_es": "drückte aus sich",
+      "wir": "drückten aus uns",
+      "ihr": "drücktet aus euch",
+      "Sie": "drückten aus sich",
+      "sie": "drückten aus sich"
+    },
+    "perfekt": {
+      "ich": "habe mich ausgedrückt",
+      "du": "hast dich ausgedrückt",
+      "er_sie_es": "hat sich ausgedrückt",
+      "wir": "haben uns ausgedrückt",
+      "ihr": "habt euch ausgedrückt",
+      "Sie": "haben sich ausgedrückt",
+      "sie": "haben sich ausgedrückt"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich ausgedrückt",
+      "du": "hattest dich ausgedrückt",
+      "er_sie_es": "hatte sich ausgedrückt",
+      "wir": "hatten uns ausgedrückt",
+      "ihr": "hattet euch ausgedrückt",
+      "Sie": "hatten sich ausgedrückt",
+      "sie": "hatten sich ausgedrückt"
+    },
+    "futur_i": {
+      "ich": "werde mich ausdrücken",
+      "du": "wirst dich ausdrücken",
+      "er_sie_es": "wird sich ausdrücken",
+      "wir": "werden sich ausdrücken",
+      "ihr": "werdet sich ausdrücken",
+      "Sie": "werden sich ausdrücken",
+      "sie": "werden sich ausdrücken"
+    },
+    "futur_ii": {
+      "ich": "werde mich ausgedrückt haben",
+      "du": "wirst dich ausgedrückt haben",
+      "er_sie_es": "wird sich ausgedrückt haben",
+      "wir": "werden uns ausgedrückt haben",
+      "ihr": "werdet euch ausgedrückt haben",
+      "Sie": "werden sich ausgedrückt haben",
+      "sie": "werden sich ausgedrückt haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "drückte aus mich",
+      "du": "drücktest aus dich",
+      "er_sie_es": "drückte aus sich",
+      "wir": "drückten aus uns",
+      "ihr": "drücktet aus euch",
+      "Sie": "drückten aus sich",
+      "sie": "drückten aus sich"
+    },
+    "imperativ": {
+      "du": "Drück dich aus",
+      "ihr": "Drückt euch aus",
+      "sie": null,
+      "Sie": "Drücken Sie sich aus",
+      "wir": "Drücken wir uns aus"
+    },
+    "partizip_i": "ausdrückend",
+    "partizip_ii": "ausgedrückt",
+    "infinitiv_mit_zu": "sich auszudrücken"
+  },
+  "abgewöhnen": {
+    "verb": "abgewöhnen",
+    "english": "to break a habit",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "gewöhne mich ab",
+      "du": "gewöhnst dich ab",
+      "er_sie_es": "gewöhnt sich ab",
+      "wir": "gewöhnen uns ab",
+      "ihr": "gewöhnt euch ab",
+      "Sie": "gewöhnen sich ab",
+      "sie": "gewöhnen sich ab"
+    },
+    "praeteritum": {
+      "ich": "gewöhnete ab mich",
+      "du": "gewöhnetest ab dich",
+      "er_sie_es": "gewöhnete ab sich",
+      "wir": "gewöhneten ab uns",
+      "ihr": "gewöhnetet ab euch",
+      "Sie": "gewöhneten ab sich",
+      "sie": "gewöhneten ab sich"
+    },
+    "perfekt": {
+      "ich": "habe mich abgewöhnt",
+      "du": "hast dich abgewöhnt",
+      "er_sie_es": "hat sich abgewöhnt",
+      "wir": "haben uns abgewöhnt",
+      "ihr": "habt euch abgewöhnt",
+      "Sie": "haben sich abgewöhnt",
+      "sie": "haben sich abgewöhnt"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich abgewöhnt",
+      "du": "hattest dich abgewöhnt",
+      "er_sie_es": "hatte sich abgewöhnt",
+      "wir": "hatten uns abgewöhnt",
+      "ihr": "hattet euch abgewöhnt",
+      "Sie": "hatten sich abgewöhnt",
+      "sie": "hatten sich abgewöhnt"
+    },
+    "futur_i": {
+      "ich": "werde mich abgewöhnen",
+      "du": "wirst dich abgewöhnen",
+      "er_sie_es": "wird sich abgewöhnen",
+      "wir": "werden sich abgewöhnen",
+      "ihr": "werdet sich abgewöhnen",
+      "Sie": "werden sich abgewöhnen",
+      "sie": "werden sich abgewöhnen"
+    },
+    "futur_ii": {
+      "ich": "werde mich abgewöhnt haben",
+      "du": "wirst dich abgewöhnt haben",
+      "er_sie_es": "wird sich abgewöhnt haben",
+      "wir": "werden uns abgewöhnt haben",
+      "ihr": "werdet euch abgewöhnt haben",
+      "Sie": "werden sich abgewöhnt haben",
+      "sie": "werden sich abgewöhnt haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "gewöhnete ab mich",
+      "du": "gewöhnetest ab dich",
+      "er_sie_es": "gewöhnete ab sich",
+      "wir": "gewöhneten ab uns",
+      "ihr": "gewöhnetet ab euch",
+      "Sie": "gewöhneten ab sich",
+      "sie": "gewöhneten ab sich"
+    },
+    "imperativ": {
+      "du": "Gewöhn dich ab",
+      "ihr": "Gewöhnt euch ab",
+      "sie": null,
+      "Sie": "Gewöhnen Sie sich ab",
+      "wir": "Gewöhnen wir uns ab"
+    },
+    "partizip_i": "abgewöhnend",
+    "partizip_ii": "abgewöhnt",
+    "infinitiv_mit_zu": "sich abzugewöhnen"
+  },
+  "angewöhnen": {
+    "verb": "angewöhnen",
+    "english": "to get used to",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "gewöhne mich an",
+      "du": "gewöhnst dich an",
+      "er_sie_es": "gewöhnt sich an",
+      "wir": "gewöhnen uns an",
+      "ihr": "gewöhnt euch an",
+      "Sie": "gewöhnen sich an",
+      "sie": "gewöhnen sich an"
+    },
+    "praeteritum": {
+      "ich": "gewöhnete an mich",
+      "du": "gewöhnetest an dich",
+      "er_sie_es": "gewöhnete an sich",
+      "wir": "gewöhneten an uns",
+      "ihr": "gewöhnetet an euch",
+      "Sie": "gewöhneten an sich",
+      "sie": "gewöhneten an sich"
+    },
+    "perfekt": {
+      "ich": "habe mich angewöhnt",
+      "du": "hast dich angewöhnt",
+      "er_sie_es": "hat sich angewöhnt",
+      "wir": "haben uns angewöhnt",
+      "ihr": "habt euch angewöhnt",
+      "Sie": "haben sich angewöhnt",
+      "sie": "haben sich angewöhnt"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich angewöhnt",
+      "du": "hattest dich angewöhnt",
+      "er_sie_es": "hatte sich angewöhnt",
+      "wir": "hatten uns angewöhnt",
+      "ihr": "hattet euch angewöhnt",
+      "Sie": "hatten sich angewöhnt",
+      "sie": "hatten sich angewöhnt"
+    },
+    "futur_i": {
+      "ich": "werde mich angewöhnen",
+      "du": "wirst dich angewöhnen",
+      "er_sie_es": "wird sich angewöhnen",
+      "wir": "werden sich angewöhnen",
+      "ihr": "werdet sich angewöhnen",
+      "Sie": "werden sich angewöhnen",
+      "sie": "werden sich angewöhnen"
+    },
+    "futur_ii": {
+      "ich": "werde mich angewöhnt haben",
+      "du": "wirst dich angewöhnt haben",
+      "er_sie_es": "wird sich angewöhnt haben",
+      "wir": "werden uns angewöhnt haben",
+      "ihr": "werdet euch angewöhnt haben",
+      "Sie": "werden sich angewöhnt haben",
+      "sie": "werden sich angewöhnt haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "gewöhnete an mich",
+      "du": "gewöhnetest an dich",
+      "er_sie_es": "gewöhnete an sich",
+      "wir": "gewöhneten an uns",
+      "ihr": "gewöhnetet an euch",
+      "Sie": "gewöhneten an sich",
+      "sie": "gewöhneten an sich"
+    },
+    "imperativ": {
+      "du": "Gewöhn dich an",
+      "ihr": "Gewöhnt euch an",
+      "sie": null,
+      "Sie": "Gewöhnen Sie sich an",
+      "wir": "Gewöhnen wir uns an"
+    },
+    "partizip_i": "angewöhnend",
+    "partizip_ii": "angewöhnt",
+    "infinitiv_mit_zu": "sich anzugewöhnen"
+  },
+  "aufregen": {
+    "verb": "aufregen",
+    "english": "to get upset",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "rege mich auf",
+      "du": "regst dich auf",
+      "er_sie_es": "regt sich auf",
+      "wir": "regen uns auf",
+      "ihr": "regt euch auf",
+      "Sie": "regen sich auf",
+      "sie": "regen sich auf"
+    },
+    "praeteritum": {
+      "ich": "regte auf mich",
+      "du": "regtest auf dich",
+      "er_sie_es": "regte auf sich",
+      "wir": "regten auf uns",
+      "ihr": "regtet auf euch",
+      "Sie": "regten auf sich",
+      "sie": "regten auf sich"
+    },
+    "perfekt": {
+      "ich": "habe mich aufgeregt",
+      "du": "hast dich aufgeregt",
+      "er_sie_es": "hat sich aufgeregt",
+      "wir": "haben uns aufgeregt",
+      "ihr": "habt euch aufgeregt",
+      "Sie": "haben sich aufgeregt",
+      "sie": "haben sich aufgeregt"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich aufgeregt",
+      "du": "hattest dich aufgeregt",
+      "er_sie_es": "hatte sich aufgeregt",
+      "wir": "hatten uns aufgeregt",
+      "ihr": "hattet euch aufgeregt",
+      "Sie": "hatten sich aufgeregt",
+      "sie": "hatten sich aufgeregt"
+    },
+    "futur_i": {
+      "ich": "werde mich aufregen",
+      "du": "wirst dich aufregen",
+      "er_sie_es": "wird sich aufregen",
+      "wir": "werden sich aufregen",
+      "ihr": "werdet sich aufregen",
+      "Sie": "werden sich aufregen",
+      "sie": "werden sich aufregen"
+    },
+    "futur_ii": {
+      "ich": "werde mich aufgeregt haben",
+      "du": "wirst dich aufgeregt haben",
+      "er_sie_es": "wird sich aufgeregt haben",
+      "wir": "werden uns aufgeregt haben",
+      "ihr": "werdet euch aufgeregt haben",
+      "Sie": "werden sich aufgeregt haben",
+      "sie": "werden sich aufgeregt haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "regte auf mich",
+      "du": "regtest auf dich",
+      "er_sie_es": "regte auf sich",
+      "wir": "regten auf uns",
+      "ihr": "regtet auf euch",
+      "Sie": "regten auf sich",
+      "sie": "regten auf sich"
+    },
+    "imperativ": {
+      "du": "Reg dich auf",
+      "ihr": "Regt euch auf",
+      "sie": null,
+      "Sie": "Regen Sie sich auf",
+      "wir": "Regen wir uns auf"
+    },
+    "partizip_i": "aufregend",
+    "partizip_ii": "aufgeregt",
+    "infinitiv_mit_zu": "sich aufzuregen"
+  },
+  "beschäftigen": {
+    "verb": "beschäftigen",
+    "english": "to occupy oneself",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "beschäftige mich",
+      "du": "beschäftigst dich",
+      "er_sie_es": "beschäftigt sich",
+      "wir": "beschäftigen uns",
+      "ihr": "beschäftigt euch",
+      "Sie": "beschäftigen sich",
+      "sie": "beschäftigen sich"
+    },
+    "praeteritum": {
+      "ich": "beschäftigte mich",
+      "du": "beschäftigtest dich",
+      "er_sie_es": "beschäftigte sich",
+      "wir": "beschäftigten uns",
+      "ihr": "beschäftigtet euch",
+      "Sie": "beschäftigten sich",
+      "sie": "beschäftigten sich"
+    },
+    "perfekt": {
+      "ich": "habe mich beschäftigt",
+      "du": "hast dich beschäftigt",
+      "er_sie_es": "hat sich beschäftigt",
+      "wir": "haben uns beschäftigt",
+      "ihr": "habt euch beschäftigt",
+      "Sie": "haben sich beschäftigt",
+      "sie": "haben sich beschäftigt"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich beschäftigt",
+      "du": "hattest dich beschäftigt",
+      "er_sie_es": "hatte sich beschäftigt",
+      "wir": "hatten uns beschäftigt",
+      "ihr": "hattet euch beschäftigt",
+      "Sie": "hatten sich beschäftigt",
+      "sie": "hatten sich beschäftigt"
+    },
+    "futur_i": {
+      "ich": "werde mich beschäftigen",
+      "du": "wirst dich beschäftigen",
+      "er_sie_es": "wird sich beschäftigen",
+      "wir": "werden sich beschäftigen",
+      "ihr": "werdet sich beschäftigen",
+      "Sie": "werden sich beschäftigen",
+      "sie": "werden sich beschäftigen"
+    },
+    "futur_ii": {
+      "ich": "werde mich beschäftigt haben",
+      "du": "wirst dich beschäftigt haben",
+      "er_sie_es": "wird sich beschäftigt haben",
+      "wir": "werden uns beschäftigt haben",
+      "ihr": "werdet euch beschäftigt haben",
+      "Sie": "werden sich beschäftigt haben",
+      "sie": "werden sich beschäftigt haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "beschäftigte mich",
+      "du": "beschäftigtest dich",
+      "er_sie_es": "beschäftigte sich",
+      "wir": "beschäftigten uns",
+      "ihr": "beschäftigtet euch",
+      "Sie": "beschäftigten sich",
+      "sie": "beschäftigten sich"
+    },
+    "imperativ": {
+      "du": "Beschäftig dich",
+      "ihr": "Beschäftigt euch",
+      "sie": null,
+      "Sie": "Beschäftigen Sie sich",
+      "wir": "Beschäftigen wir uns"
+    },
+    "partizip_i": "beschäftigend",
+    "partizip_ii": "beschäftigt",
+    "infinitiv_mit_zu": "sich zu beschäftigen"
+  },
+  "entfernen": {
+    "verb": "entfernen",
+    "english": "to move away",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "entferne mich",
+      "du": "entfernst dich",
+      "er_sie_es": "entfernt sich",
+      "wir": "entfernen uns",
+      "ihr": "entfernt euch",
+      "Sie": "entfernen sich",
+      "sie": "entfernen sich"
+    },
+    "praeteritum": {
+      "ich": "entfernte mich",
+      "du": "entferntest dich",
+      "er_sie_es": "entfernte sich",
+      "wir": "entfernten uns",
+      "ihr": "entferntet euch",
+      "Sie": "entfernten sich",
+      "sie": "entfernten sich"
+    },
+    "perfekt": {
+      "ich": "habe mich entfernt",
+      "du": "hast dich entfernt",
+      "er_sie_es": "hat sich entfernt",
+      "wir": "haben uns entfernt",
+      "ihr": "habt euch entfernt",
+      "Sie": "haben sich entfernt",
+      "sie": "haben sich entfernt"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich entfernt",
+      "du": "hattest dich entfernt",
+      "er_sie_es": "hatte sich entfernt",
+      "wir": "hatten uns entfernt",
+      "ihr": "hattet euch entfernt",
+      "Sie": "hatten sich entfernt",
+      "sie": "hatten sich entfernt"
+    },
+    "futur_i": {
+      "ich": "werde mich entfernen",
+      "du": "wirst dich entfernen",
+      "er_sie_es": "wird sich entfernen",
+      "wir": "werden sich entfernen",
+      "ihr": "werdet sich entfernen",
+      "Sie": "werden sich entfernen",
+      "sie": "werden sich entfernen"
+    },
+    "futur_ii": {
+      "ich": "werde mich entfernt haben",
+      "du": "wirst dich entfernt haben",
+      "er_sie_es": "wird sich entfernt haben",
+      "wir": "werden uns entfernt haben",
+      "ihr": "werdet euch entfernt haben",
+      "Sie": "werden sich entfernt haben",
+      "sie": "werden sich entfernt haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "entfernte mich",
+      "du": "entferntest dich",
+      "er_sie_es": "entfernte sich",
+      "wir": "entfernten uns",
+      "ihr": "entferntet euch",
+      "Sie": "entfernten sich",
+      "sie": "entfernten sich"
+    },
+    "imperativ": {
+      "du": "Entfern dich",
+      "ihr": "Entfernt euch",
+      "sie": null,
+      "Sie": "Entfernen Sie sich",
+      "wir": "Entfernen wir uns"
+    },
+    "partizip_i": "entfernend",
+    "partizip_ii": "entfernt",
+    "infinitiv_mit_zu": "sich zu entfernen"
+  },
+  "ergeben": {
+    "verb": "ergeben",
+    "english": "to result",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "ergebe mich",
+      "du": "ergibst dich",
+      "er_sie_es": "ergibt sich",
+      "wir": "ergeben uns",
+      "ihr": "ergebt euch",
+      "Sie": "ergeben sich",
+      "sie": "ergeben sich"
+    },
+    "praeteritum": {
+      "ich": "gab mich",
+      "du": "gabst dich",
+      "er_sie_es": "gab sich",
+      "wir": "gaben uns",
+      "ihr": "gabt euch",
+      "Sie": "gaben sich",
+      "sie": "gaben sich"
+    },
+    "perfekt": {
+      "ich": "habe mich ergeben",
+      "du": "hast dich ergeben",
+      "er_sie_es": "hat sich ergeben",
+      "wir": "haben uns ergeben",
+      "ihr": "habt euch ergeben",
+      "Sie": "haben sich ergeben",
+      "sie": "haben sich ergeben"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich ergeben",
+      "du": "hattest dich ergeben",
+      "er_sie_es": "hatte sich ergeben",
+      "wir": "hatten uns ergeben",
+      "ihr": "hattet euch ergeben",
+      "Sie": "hatten sich ergeben",
+      "sie": "hatten sich ergeben"
+    },
+    "futur_i": {
+      "ich": "werde mich ergeben",
+      "du": "wirst dich ergeben",
+      "er_sie_es": "wird sich ergeben",
+      "wir": "werden sich ergeben",
+      "ihr": "werdet sich ergeben",
+      "Sie": "werden sich ergeben",
+      "sie": "werden sich ergeben"
+    },
+    "futur_ii": {
+      "ich": "werde mich ergeben haben",
+      "du": "wirst dich ergeben haben",
+      "er_sie_es": "wird sich ergeben haben",
+      "wir": "werden uns ergeben haben",
+      "ihr": "werdet euch ergeben haben",
+      "Sie": "werden sich ergeben haben",
+      "sie": "werden sich ergeben haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "gäbe mich",
+      "du": "gäbest dich",
+      "er_sie_es": "gäbe sich",
+      "wir": "gäben uns",
+      "ihr": "gäbet euch",
+      "Sie": "gäben sich",
+      "sie": "gäben sich"
+    },
+    "imperativ": {
+      "du": "Ergib dich",
+      "ihr": "Ergebt euch",
+      "sie": null,
+      "Sie": "Ergeben Sie sich",
+      "wir": "Ergeben wir uns"
+    },
+    "partizip_i": "ergebend",
+    "partizip_ii": "ergeben",
+    "infinitiv_mit_zu": "sich zu ergeben"
+  },
+  "handeln": {
+    "verb": "handeln",
+    "english": "to act/trade",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "handle",
+      "du": "handelst",
+      "er_sie_es": "handelt",
+      "wir": "handelen",
+      "ihr": "handelt",
+      "Sie": "handelen",
+      "sie": "handelen"
+    },
+    "praeteritum": {
+      "ich": "handelte",
+      "du": "handeltest",
+      "er_sie_es": "handelte",
+      "wir": "handelten",
+      "ihr": "handeltet",
+      "Sie": "handelten",
+      "sie": "handelten"
+    },
+    "perfekt": {
+      "ich": "habe gehandelt",
+      "du": "hast gehandelt",
+      "er_sie_es": "hat gehandelt",
+      "wir": "haben gehandelt",
+      "ihr": "habt gehandelt",
+      "Sie": "haben gehandelt",
+      "sie": "haben gehandelt"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte gehandelt",
+      "du": "hattest gehandelt",
+      "er_sie_es": "hatte gehandelt",
+      "wir": "hatten gehandelt",
+      "ihr": "hattet gehandelt",
+      "Sie": "hatten gehandelt",
+      "sie": "hatten gehandelt"
+    },
+    "futur_i": {
+      "ich": "werde handeln",
+      "du": "wirst handeln",
+      "er_sie_es": "wird handeln",
+      "wir": "werden handeln",
+      "ihr": "werdet handeln",
+      "Sie": "werden handeln",
+      "sie": "werden handeln"
+    },
+    "futur_ii": {
+      "ich": "werde gehandelt haben",
+      "du": "wirst gehandelt haben",
+      "er_sie_es": "wird gehandelt haben",
+      "wir": "werden gehandelt haben",
+      "ihr": "werdet gehandelt haben",
+      "Sie": "werden gehandelt haben",
+      "sie": "werden gehandelt haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "handelte",
+      "du": "handeltest",
+      "er_sie_es": "handelte",
+      "wir": "handelten",
+      "ihr": "handeltet",
+      "Sie": "handelten",
+      "sie": "handelten"
+    },
+    "imperativ": {
+      "du": "Handle",
+      "ihr": "Handelt",
+      "sie": null,
+      "Sie": "Handeln Sie",
+      "wir": "Handeln wir"
+    },
+    "partizip_i": "handelnd",
+    "partizip_ii": "gehandelt",
+    "infinitiv_mit_zu": "zu handeln"
+  },
+  "niederlassen": {
+    "verb": "niederlassen",
+    "english": "to settle down",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "lasse mich nieder",
+      "du": "lässt dich nieder",
+      "er_sie_es": "lässt sich nieder",
+      "wir": "lassen uns nieder",
+      "ihr": "lasst euch nieder",
+      "Sie": "lassen sich nieder",
+      "sie": "lassen sich nieder"
+    },
+    "praeteritum": {
+      "ich": "ließ nieder mich",
+      "du": "ließt nieder dich",
+      "er_sie_es": "ließ nieder sich",
+      "wir": "ließen nieder uns",
+      "ihr": "ließt nieder euch",
+      "Sie": "ließen nieder sich",
+      "sie": "ließen nieder sich"
+    },
+    "perfekt": {
+      "ich": "habe mich niedergelassen",
+      "du": "hast dich niedergelassen",
+      "er_sie_es": "hat sich niedergelassen",
+      "wir": "haben uns niedergelassen",
+      "ihr": "habt euch niedergelassen",
+      "Sie": "haben sich niedergelassen",
+      "sie": "haben sich niedergelassen"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich niedergelassen",
+      "du": "hattest dich niedergelassen",
+      "er_sie_es": "hatte sich niedergelassen",
+      "wir": "hatten uns niedergelassen",
+      "ihr": "hattet euch niedergelassen",
+      "Sie": "hatten sich niedergelassen",
+      "sie": "hatten sich niedergelassen"
+    },
+    "futur_i": {
+      "ich": "werde mich niederlassen",
+      "du": "wirst dich niederlassen",
+      "er_sie_es": "wird sich niederlassen",
+      "wir": "werden sich niederlassen",
+      "ihr": "werdet sich niederlassen",
+      "Sie": "werden sich niederlassen",
+      "sie": "werden sich niederlassen"
+    },
+    "futur_ii": {
+      "ich": "werde mich niedergelassen haben",
+      "du": "wirst dich niedergelassen haben",
+      "er_sie_es": "wird sich niedergelassen haben",
+      "wir": "werden uns niedergelassen haben",
+      "ihr": "werdet euch niedergelassen haben",
+      "Sie": "werden sich niedergelassen haben",
+      "sie": "werden sich niedergelassen haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "ließe nieder mich",
+      "du": "ließest nieder dich",
+      "er_sie_es": "ließe nieder sich",
+      "wir": "ließen nieder uns",
+      "ihr": "ließet nieder euch",
+      "Sie": "ließen nieder sich",
+      "sie": "ließen nieder sich"
+    },
+    "imperativ": {
+      "du": "Lass dich nieder",
+      "ihr": "Lasst euch nieder",
+      "sie": null,
+      "Sie": "Lassen Sie sich nieder",
+      "wir": "Lassen wir uns nieder"
+    },
+    "partizip_i": "niederlassend",
+    "partizip_ii": "niedergelassen",
+    "infinitiv_mit_zu": "sich niederzulassen"
+  },
+  "reduzieren": {
+    "verb": "reduzieren",
+    "english": "to reduce",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "reduziere mich",
+      "du": "reduzierst dich",
+      "er_sie_es": "reduziert sich",
+      "wir": "reduzieren uns",
+      "ihr": "reduziert euch",
+      "Sie": "reduzieren sich",
+      "sie": "reduzieren sich"
+    },
+    "praeteritum": {
+      "ich": "reduzierte mich",
+      "du": "reduziertest dich",
+      "er_sie_es": "reduzierte sich",
+      "wir": "reduzierten uns",
+      "ihr": "reduziertet euch",
+      "Sie": "reduzierten sich",
+      "sie": "reduzierten sich"
+    },
+    "perfekt": {
+      "ich": "habe mich reduziert",
+      "du": "hast dich reduziert",
+      "er_sie_es": "hat sich reduziert",
+      "wir": "haben uns reduziert",
+      "ihr": "habt euch reduziert",
+      "Sie": "haben sich reduziert",
+      "sie": "haben sich reduziert"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich reduziert",
+      "du": "hattest dich reduziert",
+      "er_sie_es": "hatte sich reduziert",
+      "wir": "hatten uns reduziert",
+      "ihr": "hattet euch reduziert",
+      "Sie": "hatten sich reduziert",
+      "sie": "hatten sich reduziert"
+    },
+    "futur_i": {
+      "ich": "werde mich reduzieren",
+      "du": "wirst dich reduzieren",
+      "er_sie_es": "wird sich reduzieren",
+      "wir": "werden sich reduzieren",
+      "ihr": "werdet sich reduzieren",
+      "Sie": "werden sich reduzieren",
+      "sie": "werden sich reduzieren"
+    },
+    "futur_ii": {
+      "ich": "werde mich reduziert haben",
+      "du": "wirst dich reduziert haben",
+      "er_sie_es": "wird sich reduziert haben",
+      "wir": "werden uns reduziert haben",
+      "ihr": "werdet euch reduziert haben",
+      "Sie": "werden sich reduziert haben",
+      "sie": "werden sich reduziert haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "reduzierte mich",
+      "du": "reduziertest dich",
+      "er_sie_es": "reduzierte sich",
+      "wir": "reduzierten uns",
+      "ihr": "reduziertet euch",
+      "Sie": "reduzierten sich",
+      "sie": "reduzierten sich"
+    },
+    "imperativ": {
+      "du": "Reduzier dich",
+      "ihr": "Reduziert euch",
+      "sie": null,
+      "Sie": "Reduzieren Sie sich",
+      "wir": "Reduzieren wir uns"
+    },
+    "partizip_i": "reduzierend",
+    "partizip_ii": "reduziert",
+    "infinitiv_mit_zu": "sich zu reduzieren"
+  },
+  "täuschen": {
+    "verb": "täuschen",
+    "english": "to be mistaken",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "täusche mich",
+      "du": "täuschst dich",
+      "er_sie_es": "täuscht sich",
+      "wir": "täuschen uns",
+      "ihr": "täuscht euch",
+      "Sie": "täuschen sich",
+      "sie": "täuschen sich"
+    },
+    "praeteritum": {
+      "ich": "täuschte mich",
+      "du": "täuschtest dich",
+      "er_sie_es": "täuschte sich",
+      "wir": "täuschten uns",
+      "ihr": "täuschtet euch",
+      "Sie": "täuschten sich",
+      "sie": "täuschten sich"
+    },
+    "perfekt": {
+      "ich": "habe mich getäuscht",
+      "du": "hast dich getäuscht",
+      "er_sie_es": "hat sich getäuscht",
+      "wir": "haben uns getäuscht",
+      "ihr": "habt euch getäuscht",
+      "Sie": "haben sich getäuscht",
+      "sie": "haben sich getäuscht"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich getäuscht",
+      "du": "hattest dich getäuscht",
+      "er_sie_es": "hatte sich getäuscht",
+      "wir": "hatten uns getäuscht",
+      "ihr": "hattet euch getäuscht",
+      "Sie": "hatten sich getäuscht",
+      "sie": "hatten sich getäuscht"
+    },
+    "futur_i": {
+      "ich": "werde mich täuschen",
+      "du": "wirst dich täuschen",
+      "er_sie_es": "wird sich täuschen",
+      "wir": "werden sich täuschen",
+      "ihr": "werdet sich täuschen",
+      "Sie": "werden sich täuschen",
+      "sie": "werden sich täuschen"
+    },
+    "futur_ii": {
+      "ich": "werde mich getäuscht haben",
+      "du": "wirst dich getäuscht haben",
+      "er_sie_es": "wird sich getäuscht haben",
+      "wir": "werden uns getäuscht haben",
+      "ihr": "werdet euch getäuscht haben",
+      "Sie": "werden sich getäuscht haben",
+      "sie": "werden sich getäuscht haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "täuschte mich",
+      "du": "täuschtest dich",
+      "er_sie_es": "täuschte sich",
+      "wir": "täuschten uns",
+      "ihr": "täuschtet euch",
+      "Sie": "täuschten sich",
+      "sie": "täuschten sich"
+    },
+    "imperativ": {
+      "du": "Täusch dich",
+      "ihr": "Täuscht euch",
+      "sie": null,
+      "Sie": "Täuschen Sie sich",
+      "wir": "Täuschen wir uns"
+    },
+    "partizip_i": "täuschend",
+    "partizip_ii": "getäuscht",
+    "infinitiv_mit_zu": "sich zu täuschen"
+  },
+  "vornehmen": {
+    "verb": "vornehmen",
+    "english": "to intend",
+    "category": "regular",
+    "auxiliary": "haben",
+    "praesens": {
+      "ich": "nehme mich vor",
+      "du": "nimmst dich vor",
+      "er_sie_es": "nimmt sich vor",
+      "wir": "nehmen uns vor",
+      "ihr": "nehmt euch vor",
+      "Sie": "nehmen sich vor",
+      "sie": "nehmen sich vor"
+    },
+    "praeteritum": {
+      "ich": "nahm vor mich",
+      "du": "nahmst vor dich",
+      "er_sie_es": "nahm vor sich",
+      "wir": "nahmen vor uns",
+      "ihr": "nahmt vor euch",
+      "Sie": "nahmen vor sich",
+      "sie": "nahmen vor sich"
+    },
+    "perfekt": {
+      "ich": "habe mich vorgenommen",
+      "du": "hast dich vorgenommen",
+      "er_sie_es": "hat sich vorgenommen",
+      "wir": "haben uns vorgenommen",
+      "ihr": "habt euch vorgenommen",
+      "Sie": "haben sich vorgenommen",
+      "sie": "haben sich vorgenommen"
+    },
+    "plusquamperfekt": {
+      "ich": "hatte mich vorgenommen",
+      "du": "hattest dich vorgenommen",
+      "er_sie_es": "hatte sich vorgenommen",
+      "wir": "hatten uns vorgenommen",
+      "ihr": "hattet euch vorgenommen",
+      "Sie": "hatten sich vorgenommen",
+      "sie": "hatten sich vorgenommen"
+    },
+    "futur_i": {
+      "ich": "werde mich vornehmen",
+      "du": "wirst dich vornehmen",
+      "er_sie_es": "wird sich vornehmen",
+      "wir": "werden sich vornehmen",
+      "ihr": "werdet sich vornehmen",
+      "Sie": "werden sich vornehmen",
+      "sie": "werden sich vornehmen"
+    },
+    "futur_ii": {
+      "ich": "werde mich vorgenommen haben",
+      "du": "wirst dich vorgenommen haben",
+      "er_sie_es": "wird sich vorgenommen haben",
+      "wir": "werden uns vorgenommen haben",
+      "ihr": "werdet euch vorgenommen haben",
+      "Sie": "werden sich vorgenommen haben",
+      "sie": "werden sich vorgenommen haben"
+    },
+    "konjunktiv_ii": {
+      "ich": "nähme vor mich",
+      "du": "nähmest vor dich",
+      "er_sie_es": "nähme vor sich",
+      "wir": "nähmen vor uns",
+      "ihr": "nähmet vor euch",
+      "Sie": "nähmen vor sich",
+      "sie": "nähmen vor sich"
+    },
+    "imperativ": {
+      "du": "Nimm dich vor",
+      "ihr": "Nehmt euch vor",
+      "sie": null,
+      "Sie": "Nehmen Sie sich vor",
+      "wir": "Nehmen wir uns vor"
+    },
+    "partizip_i": "vornehmend",
+    "partizip_ii": "vorgenommen",
+    "infinitiv_mit_zu": "sich vorzunehmen"
+  },
   "wissen": {
     "verb": "wissen",
     "english": "to know (a fact)",
@@ -22503,85 +24952,6 @@
     "partizip_i": "denkend",
     "partizip_ii": "gedacht",
     "infinitiv_mit_zu": "zu denken"
-  },
-  "handeln": {
-    "verb": "handeln",
-    "english": "to act/trade",
-    "category": "regular",
-    "auxiliary": "haben",
-    "praesens": {
-      "ich": "handle",
-      "du": "handelst",
-      "er_sie_es": "handelt",
-      "wir": "handelen",
-      "ihr": "handelt",
-      "Sie": "handelen",
-      "sie": "handelen"
-    },
-    "praeteritum": {
-      "ich": "handelte",
-      "du": "handeltest",
-      "er_sie_es": "handelte",
-      "wir": "handelten",
-      "ihr": "handeltet",
-      "Sie": "handelten",
-      "sie": "handelten"
-    },
-    "perfekt": {
-      "ich": "habe gehandelt",
-      "du": "hast gehandelt",
-      "er_sie_es": "hat gehandelt",
-      "wir": "haben gehandelt",
-      "ihr": "habt gehandelt",
-      "Sie": "haben gehandelt",
-      "sie": "haben gehandelt"
-    },
-    "plusquamperfekt": {
-      "ich": "hatte gehandelt",
-      "du": "hattest gehandelt",
-      "er_sie_es": "hatte gehandelt",
-      "wir": "hatten gehandelt",
-      "ihr": "hattet gehandelt",
-      "Sie": "hatten gehandelt",
-      "sie": "hatten gehandelt"
-    },
-    "futur_i": {
-      "ich": "werde handeln",
-      "du": "wirst handeln",
-      "er_sie_es": "wird handeln",
-      "wir": "werden handeln",
-      "ihr": "werdet handeln",
-      "Sie": "werden handeln",
-      "sie": "werden handeln"
-    },
-    "futur_ii": {
-      "ich": "werde gehandelt haben",
-      "du": "wirst gehandelt haben",
-      "er_sie_es": "wird gehandelt haben",
-      "wir": "werden gehandelt haben",
-      "ihr": "werdet gehandelt haben",
-      "Sie": "werden gehandelt haben",
-      "sie": "werden gehandelt haben"
-    },
-    "konjunktiv_ii": {
-      "ich": "handelte",
-      "du": "handeltest",
-      "er_sie_es": "handelte",
-      "wir": "handelten",
-      "ihr": "handeltet",
-      "Sie": "handelten",
-      "sie": "handelten"
-    },
-    "imperativ": {
-      "du": "Handle",
-      "ihr": "Handelt",
-      "sie": null,
-      "Sie": "Handeln Sie",
-      "wir": "Handeln wir"
-    },
-    "partizip_i": "handelnd",
-    "partizip_ii": "gehandelt",
-    "infinitiv_mit_zu": "zu handeln"
   },
   "aussehen": {
     "verb": "aussehen",
