@@ -519,6 +519,7 @@ export function conjugate(entry: GermanVerbEntry): VerbConjugations {
   }
 
   // --- KONJUNKTIV II ---
+  let konjunktiviiIsWuerdeForm = false
   let konjunktivii: ConjugationResult = {}
   if (entry.konjunktivII) {
     konjunktivii = conjToResult(entry.konjunktivII)
@@ -527,6 +528,10 @@ export function conjugate(entry: GermanVerbEntry): VerbConjugations {
   } else if (modal) {
     konjunktivii = conjToResult(modal.konjunktivII)
   } else {
+    konjunktiviiIsWuerdeForm = true
+    // Konjunktiv II uses the infinitive. For separable verbs the prefix stays
+    // attached to the infinitive (e.g. "würde anbieten"), so we use the full
+    // infinitive here and deliberately do NOT apply the separable prefix below.
     if (entry.reflexive) {
       for (const p of PERSONS) {
         konjunktivii[p] = `würde ${pronouns[p]} ${baseInfinitiveForCompound}`
@@ -588,13 +593,17 @@ export function conjugate(entry: GermanVerbEntry): VerbConjugations {
       result.praeteritum = applySepReflexive(praeteritum)
       result.futuri = futuri
       result.futurii = futurii
-      result.konjunktivii = applySepReflexive(konjunktivii)
+      // Konjunktiv II keeps the prefix attached to the infinitive ("würde sich vorstellen").
+      // Only append the prefix for stem-based forms (e.g. "nähme" -> "nähme mit"), never for the
+      // synthetic "würde <infinitive>" form which already embeds the prefix.
+      result.konjunktivii = konjunktiviiIsWuerdeForm ? konjunktivii : applySepReflexive(konjunktivii)
     } else {
       result.praesens = applySep(praesens)
       result.praeteritum = applySep(praeteritum)
       result.futuri = futuri
       result.futurii = futurii
-      result.konjunktivii = applySep(konjunktivii)
+      // Konjunktiv II keeps the prefix attached to the infinitive ("würde anbieten").
+      result.konjunktivii = konjunktiviiIsWuerdeForm ? konjunktivii : applySep(konjunktivii)
     }
     const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1)
     const addSep = (s: string | null) => {
