@@ -1,6 +1,8 @@
 export type Role = 'student' | 'teacher' | 'admin' | 'super_admin' | 'owner' | 'content_manager' | 'support'
 export type UserStatus = 'active' | 'expired' | 'suspended' | 'banned' | 'pending' | 'trial' | 'lifetime' | 'cancelled'
-export type SupportTicketStatus = 'open' | 'in_progress' | 'closed' | 'resolved'
+export type SupportTicketStatus = 'open' | 'in_progress' | 'waiting_user' | 'resolved' | 'closed'
+export type SupportTicketPriority = 'low' | 'normal' | 'high' | 'urgent'
+export type SupportTicketCategory = 'account_suspension' | 'payment' | 'technical' | 'other'
 export type SuspensionReason = 'payment_issue' | 'abuse' | 'rules_violation' | 'suspicious_activity' | 'other'
 export type SubscriptionAction = 'created' | 'renewed' | 'extended' | 'suspended' | 'cancelled' | 'expired' | 'reactivated' | 'plan_changed' | 'trial_started' | 'lifetime_granted'
 
@@ -57,6 +59,7 @@ export interface Profile {
   status_reason: string | null
   role_id: string | null
   is_owner: boolean
+  language: string
   suspension_reason: string | null
   suspension_note: string | null
   suspended_at: string | null
@@ -82,10 +85,16 @@ export interface SupportTicket {
   subject: string
   message: string
   status: SupportTicketStatus
+  priority: SupportTicketPriority
+  category: SupportTicketCategory
+  ticket_number: string | null
   suspension_reason: string | null
+  admin_reply: string | null
+  closed_at: string | null
   created_at: string
   updated_at: string
   replies?: SupportTicketReply[]
+  user?: Pick<Profile, 'email' | 'full_name' | 'status' | 'suspension_reason' | 'suspended_at' | 'suspension_expires_at' | 'role'>
 }
 
 export interface SupportTicketReply {

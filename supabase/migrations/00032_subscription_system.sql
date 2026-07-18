@@ -2,7 +2,7 @@
 -- RBAC + subscription enforcement + audit history
 
 -- ==================== ROLES ====================
-create table public.roles (
+create table if not exists public.roles (
   id uuid primary key default gen_random_uuid(),
   name text not null unique check (name in ('super_admin','admin','teacher','content_manager','support','student')),
   description text,
@@ -11,7 +11,7 @@ create table public.roles (
 );
 
 -- ==================== PERMISSIONS ====================
-create table public.permissions (
+create table if not exists public.permissions (
   id uuid primary key default gen_random_uuid(),
   code text not null unique,
   name text not null,
@@ -20,7 +20,7 @@ create table public.permissions (
   created_at timestamptz not null default now()
 );
 
-create table public.role_permissions (
+create table if not exists public.role_permissions (
   id uuid primary key default gen_random_uuid(),
   role_id uuid not null references public.roles(id) on delete cascade,
   permission_id uuid not null references public.permissions(id) on delete cascade,
@@ -28,7 +28,7 @@ create table public.role_permissions (
 );
 
 -- ==================== PLANS ====================
-create table public.plans (
+create table if not exists public.plans (
   id uuid primary key default gen_random_uuid(),
   name text not null unique check (name in ('free','basic','premium','pro','enterprise','lifetime')),
   description text,
@@ -39,7 +39,7 @@ create table public.plans (
   created_at timestamptz not null default now()
 );
 
-create table public.plan_features (
+create table if not exists public.plan_features (
   id uuid primary key default gen_random_uuid(),
   plan_id uuid not null references public.plans(id) on delete cascade,
   feature_key text not null,
@@ -48,9 +48,13 @@ create table public.plan_features (
 );
 
 -- ==================== SUBSCRIPTIONS ====================
-create type public.subscription_status as enum ('active','expired','suspended','pending','trial','lifetime','cancelled');
+  do $$ begin
+    create type public.subscription_status as enum ('active','expired','suspended','pending','trial','lifetime','cancelled');
+  exception
+    when duplicate_object then null;
+  end $$;
 
-create table public.subscriptions (
+create table if not exists public.subscriptions (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references auth.users(id) on delete cascade,
   plan_id uuid not null references public.plans(id),
@@ -64,16 +68,20 @@ create table public.subscriptions (
   updated_at timestamptz not null default now()
 );
 
-create index idx_subscriptions_user_id on public.subscriptions(user_id);
-create index idx_subscriptions_status on public.subscriptions(status);
-create index idx_subscriptions_end_date on public.subscriptions(end_date);
+create index if not exists idx_subscriptions_user_id on public.subscriptions(user_id);
+create index if not exists idx_subscriptions_status on public.subscriptions(status);
+create index if not exists idx_subscriptions_end_date on public.subscriptions(end_date);
 
 -- ==================== SUBSCRIPTION HISTORY ====================
-create type public.subscription_action as enum (
-  'created','renewed','extended','suspended','cancelled','expired','reactivated','plan_changed','trial_started','lifetime_granted'
-);
+  do $$ begin
+    create type public.subscription_action as enum (
+      'created','renewed','extended','suspended','cancelled','expired','reactivated','plan_changed','trial_started','lifetime_granted'
+    );
+  exception
+    when duplicate_object then null;
+  end $$;
 
-create table public.subscription_history (
+create table if not exists public.subscription_history (
   id uuid primary key default gen_random_uuid(),
   subscription_id uuid not null references public.subscriptions(id) on delete cascade,
   user_id uuid not null references auth.users(id) on delete cascade,
@@ -86,11 +94,11 @@ create table public.subscription_history (
   created_at timestamptz not null default now()
 );
 
-create index idx_sub_history_sub on public.subscription_history(subscription_id);
-create index idx_sub_history_user on public.subscription_history(user_id);
+create index if not exists idx_sub_history_sub on public.subscription_history(subscription_id);
+create index if not exists idx_sub_history_user on public.subscription_history(user_id);
 
 -- ==================== USER ACTIVITY LOG ====================
-create table public.user_activity_log (
+create table if not exists public.user_activity_log (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references auth.users(id) on delete cascade,
   action text not null,
@@ -100,8 +108,8 @@ create table public.user_activity_log (
   created_at timestamptz not null default now()
 );
 
-create index idx_activity_user on public.user_activity_log(user_id);
-create index idx_activity_created on public.user_activity_log(created_at);
+create index if not exists idx_activity_user on public.user_activity_log(user_id);
+create index if not exists idx_activity_created on public.user_activity_log(created_at);
 
 -- ==================== USER PROFILES EXTENSION ====================
 -- Add status and status_reason to existing profiles
@@ -109,7 +117,7 @@ alter table public.profiles add column if not exists status subscription_status 
 alter table public.profiles add column if not exists status_reason text;
 
 -- ==================== INDEXES ====================
-create index idx_profiles_status on public.profiles(status);
+create index if not exists idx_profiles_status on public.profiles(status);
 
 -- ==================== RLS ====================
 alter table public.roles enable row level security;
@@ -122,27 +130,27 @@ alter table public.subscription_history enable row level security;
 alter table public.user_activity_log enable row level security;
 
 -- Public read for roles, permissions, plans
-create policy "public_read_roles" on public.roles for select using (true);
-create policy "public_read_permissions" on public.permissions for select using (true);
-create policy "public_read_plans" on public.plans for select using (true);
-create policy "public_read_plan_features" on public.plan_features for select using (true);
+do $$ begin drop policy if exists public_read_roles on public.roles; create policy "public_read_roles" on public.roles for select using (true); end $$;
+do $$ begin drop policy if exists public_read_permissions on public.permissions; create policy "public_read_permissions" on public.permissions for select using (true); end $$;
+do $$ begin drop policy if exists public_read_plans on public.plans; create policy "public_read_plans" on public.plans for select using (true); end $$;
+do $$ begin drop policy if exists public_read_plan_features on public.plan_features; create policy "public_read_plan_features" on public.plan_features for select using (true); end $$;
 
 -- Users read own subscription
-create policy "user_select_sub" on public.subscriptions for select using (auth.uid() = user_id);
-create policy "user_select_sub_history" on public.subscription_history for select using (auth.uid() = user_id);
+do $$ begin drop policy if exists user_select_sub on public.subscriptions; create policy "user_select_sub" on public.subscriptions for select using (auth.uid() = user_id); end $$;
+do $$ begin drop policy if exists user_select_sub_history on public.subscription_history; create policy "user_select_sub_history" on public.subscription_history for select using (auth.uid() = user_id); end $$;
 
 -- Admin full access
-create policy "admin_all_subscriptions" on public.subscriptions for all using (auth.jwt() ->> 'role' = 'admin');
-create policy "admin_all_sub_history" on public.subscription_history for all using (auth.jwt() ->> 'role' = 'admin');
-create policy "admin_all_roles" on public.roles for all using (auth.jwt() ->> 'role' = 'admin');
-create policy "admin_all_permissions" on public.permissions for all using (auth.jwt() ->> 'role' = 'admin');
-create policy "admin_all_role_permissions" on public.role_permissions for all using (auth.jwt() ->> 'role' = 'admin');
-create policy "admin_all_plans" on public.plans for all using (auth.jwt() ->> 'role' = 'admin');
-create policy "admin_all_plan_features" on public.plan_features for all using (auth.jwt() ->> 'role' = 'admin');
+do $$ begin drop policy if exists admin_all_subscriptions on public.subscriptions; create policy "admin_all_subscriptions" on public.subscriptions for all using (auth.jwt() ->> 'role' = 'admin'); end $$;
+do $$ begin drop policy if exists admin_all_sub_history on public.subscription_history; create policy "admin_all_sub_history" on public.subscription_history for all using (auth.jwt() ->> 'role' = 'admin'); end $$;
+do $$ begin drop policy if exists admin_all_roles on public.roles; create policy "admin_all_roles" on public.roles for all using (auth.jwt() ->> 'role' = 'admin'); end $$;
+do $$ begin drop policy if exists admin_all_permissions on public.permissions; create policy "admin_all_permissions" on public.permissions for all using (auth.jwt() ->> 'role' = 'admin'); end $$;
+do $$ begin drop policy if exists admin_all_role_permissions on public.role_permissions; create policy "admin_all_role_permissions" on public.role_permissions for all using (auth.jwt() ->> 'role' = 'admin'); end $$;
+do $$ begin drop policy if exists admin_all_plans on public.plans; create policy "admin_all_plans" on public.plans for all using (auth.jwt() ->> 'role' = 'admin'); end $$;
+do $$ begin drop policy if exists admin_all_plan_features on public.plan_features; create policy "admin_all_plan_features" on public.plan_features for all using (auth.jwt() ->> 'role' = 'admin'); end $$;
 
 -- ==================== FUNCTIONS ====================
 -- Auto-create subscription for new users
-create function public.handle_new_user_subscription()
+create or replace function public.handle_new_user_subscription()
 returns trigger as $$
 begin
   insert into public.subscriptions (user_id, plan_id, status, start_date, end_date, duration_days, auto_renew)
@@ -158,7 +166,7 @@ create trigger on_auth_user_created_subscription
   for each row execute function public.handle_new_user_subscription();
 
 -- Check if subscription is expired (call from middleware)
-create function public.is_subscription_expired(p_user_id uuid)
+create or replace function public.is_subscription_expired(p_user_id uuid)
 returns boolean as $$
 declare
   v_status subscription_status;

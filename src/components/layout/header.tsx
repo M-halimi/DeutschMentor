@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { useAppStore } from '@/stores/app-store'
 import { useTheme } from 'next-themes'
 import { Moon, Sun, Menu, Bell } from 'lucide-react'
+import { LanguageSwitcher } from '@/components/i18n/language-switcher'
 export function Header() {
   const { toggleSidebar } = useAppStore()
   const { theme, setTheme } = useTheme()
@@ -17,6 +18,7 @@ export function Header() {
       <div className="flex-1" />
 
       <div className="flex items-center gap-2">
+        <LanguageSwitcher />
         <button
           className="h-8 w-8 inline-flex items-center justify-center rounded-md hover:bg-accent"
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}

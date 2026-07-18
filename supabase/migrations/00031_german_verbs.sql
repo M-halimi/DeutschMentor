@@ -2,25 +2,57 @@
 -- Supports 3,500+ verbs with full conjugation, examples, collocations, etc.
 
 -- Verb types enum
-create type verb_type as enum (
-  'regular', 'irregular', 'mixed', 'separable', 'inseparable',
-  'reflexive', 'verb_preposition', 'reflexive_preposition',
-  'modal', 'auxiliary'
-);
+do $$ begin
+  create type verb_type as enum (
+    'regular', 'irregular', 'mixed', 'separable', 'inseparable',
+    'reflexive', 'verb_preposition', 'reflexive_preposition',
+    'modal', 'auxiliary'
+  );
+exception
+  when duplicate_object then null;
+end $$;
 
-create type verb_transitivity as enum ('intransitive', 'transitive', 'both');
-create type verb_object_case as enum ('akkusativ', 'dativ', 'genitiv', 'akkusativ_dativ', 'both', 'none');
-create type verb_preposition_case as enum ('akkusativ', 'dativ', 'wechsel');
-create type verb_auxiliary as enum ('haben', 'sein', 'both');
-create type verb_frequency as enum ('very_common', 'common', 'less_common', 'rare');
-create type conjugation_tense as enum (
-  'praesens', 'praeteritum', 'perfekt', 'plusquamperfekt',
-  'futur_i', 'futur_ii', 'konjunktiv_ii', 'imperativ', 'passiv'
-);
-create type example_difficulty as enum ('beginner', 'intermediate', 'advanced');
+do $$ begin
+  create type verb_transitivity as enum ('intransitive', 'transitive', 'both');
+exception
+  when duplicate_object then null;
+end $$;
+do $$ begin
+  create type verb_object_case as enum ('akkusativ', 'dativ', 'genitiv', 'akkusativ_dativ', 'both', 'none');
+exception
+  when duplicate_object then null;
+end $$;
+do $$ begin
+  create type verb_preposition_case as enum ('akkusativ', 'dativ', 'wechsel');
+exception
+  when duplicate_object then null;
+end $$;
+do $$ begin
+  create type verb_auxiliary as enum ('haben', 'sein', 'both');
+exception
+  when duplicate_object then null;
+end $$;
+do $$ begin
+  create type verb_frequency as enum ('very_common', 'common', 'less_common', 'rare');
+exception
+  when duplicate_object then null;
+end $$;
+do $$ begin
+  create type conjugation_tense as enum (
+    'praesens', 'praeteritum', 'perfekt', 'plusquamperfekt',
+    'futur_i', 'futur_ii', 'konjunktiv_ii', 'imperativ', 'passiv'
+  );
+exception
+  when duplicate_object then null;
+end $$;
+do $$ begin
+  create type example_difficulty as enum ('beginner', 'intermediate', 'advanced');
+exception
+  when duplicate_object then null;
+end $$;
 
 -- Main verbs table
-create table public.german_verbs (
+create table if not exists public.german_verbs (
   id uuid primary key default gen_random_uuid(),
   infinitive text not null,
   english_translation text not null,
@@ -48,7 +80,7 @@ create table public.german_verbs (
 );
 
 -- Conjugations
-create table public.verb_conjugations (
+create table if not exists public.verb_conjugations (
   id uuid primary key default gen_random_uuid(),
   verb_id uuid not null references public.german_verbs(id) on delete cascade,
   tense conjugation_tense not null,
@@ -62,7 +94,7 @@ create table public.verb_conjugations (
 );
 
 -- Example sentences
-create table public.verb_examples (
+create table if not exists public.verb_examples (
   id uuid primary key default gen_random_uuid(),
   verb_id uuid not null references public.german_verbs(id) on delete cascade,
   difficulty example_difficulty not null,
@@ -73,7 +105,7 @@ create table public.verb_examples (
 );
 
 -- Collocations
-create table public.verb_collocations (
+create table if not exists public.verb_collocations (
   id uuid primary key default gen_random_uuid(),
   verb_id uuid not null references public.german_verbs(id) on delete cascade,
   collocation text not null,
@@ -83,7 +115,7 @@ create table public.verb_collocations (
 );
 
 -- Typical questions
-create table public.verb_typical_questions (
+create table if not exists public.verb_typical_questions (
   id uuid primary key default gen_random_uuid(),
   verb_id uuid not null references public.german_verbs(id) on delete cascade,
   german text not null,
@@ -93,7 +125,7 @@ create table public.verb_typical_questions (
 );
 
 -- Common mistakes
-create table public.verb_common_mistakes (
+create table if not exists public.verb_common_mistakes (
   id uuid primary key default gen_random_uuid(),
   verb_id uuid not null references public.german_verbs(id) on delete cascade,
   incorrect text not null,
@@ -104,7 +136,7 @@ create table public.verb_common_mistakes (
 );
 
 -- Prefix explanations
-create table public.verb_prefix_explanations (
+create table if not exists public.verb_prefix_explanations (
   id uuid primary key default gen_random_uuid(),
   verb_id uuid not null references public.german_verbs(id) on delete cascade,
   prefix text not null,
@@ -114,7 +146,7 @@ create table public.verb_prefix_explanations (
 );
 
 -- Verb family members
-create table public.verb_family_members (
+create table if not exists public.verb_family_members (
   id uuid primary key default gen_random_uuid(),
   verb_id uuid not null references public.german_verbs(id) on delete cascade,
   related_verb_id uuid not null references public.german_verbs(id) on delete cascade,
@@ -123,7 +155,7 @@ create table public.verb_family_members (
 );
 
 -- Similar verbs
-create table public.verb_similar_verbs (
+create table if not exists public.verb_similar_verbs (
   id uuid primary key default gen_random_uuid(),
   verb_id uuid not null references public.german_verbs(id) on delete cascade,
   similar_verb_id uuid not null references public.german_verbs(id) on delete cascade,
@@ -132,7 +164,7 @@ create table public.verb_similar_verbs (
 );
 
 -- Learning tips
-create table public.verb_learning_tips (
+create table if not exists public.verb_learning_tips (
   id uuid primary key default gen_random_uuid(),
   verb_id uuid not null references public.german_verbs(id) on delete cascade,
   tip_type text not null check (tip_type in ('memory_trick','usage_notes','common_contexts','formal_vs_informal')),
@@ -140,7 +172,7 @@ create table public.verb_learning_tips (
 );
 
 -- User progress on verbs
-create table public.user_verbs (
+create table if not exists public.user_verbs (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references auth.users(id) on delete cascade,
   verb_id uuid not null references public.german_verbs(id) on delete cascade,
@@ -155,28 +187,28 @@ create table public.user_verbs (
 );
 
 -- Indexes
-create index idx_verbs_infinitive on public.german_verbs(infinitive);
-create index idx_verbs_cefr_level on public.german_verbs(cefr_level);
-create index idx_verbs_verb_type on public.german_verbs(verb_type);
-create index idx_verbs_frequency on public.german_verbs(frequency);
-create index idx_verbs_is_reflexive on public.german_verbs(is_reflexive);
-create index idx_verbs_preposition on public.german_verbs(preposition);
-create index idx_verbs_object_case on public.german_verbs(object_case);
-create index idx_verbs_slug on public.german_verbs(slug);
-create index idx_verbs_tags on public.german_verbs using gin(tags);
-create index idx_verbs_created_at on public.german_verbs(created_at);
-create index idx_verb_conjugations_verb_id on public.verb_conjugations(verb_id);
-create index idx_verb_examples_verb_id on public.verb_examples(verb_id);
-create index idx_verb_collocations_verb_id on public.verb_collocations(verb_id);
-create index idx_verb_mistakes_verb_id on public.verb_common_mistakes(verb_id);
-create index idx_verb_tips_verb_id on public.verb_learning_tips(verb_id);
-create index idx_verb_family_verb_id on public.verb_family_members(verb_id);
-create index idx_user_verbs_user_id on public.user_verbs(user_id);
-create index idx_user_verbs_verb_id on public.user_verbs(verb_id);
+create index if not exists idx_verbs_infinitive on public.german_verbs(infinitive);
+create index if not exists idx_verbs_cefr_level on public.german_verbs(cefr_level);
+create index if not exists idx_verbs_verb_type on public.german_verbs(verb_type);
+create index if not exists idx_verbs_frequency on public.german_verbs(frequency);
+create index if not exists idx_verbs_is_reflexive on public.german_verbs(is_reflexive);
+create index if not exists idx_verbs_preposition on public.german_verbs(preposition);
+create index if not exists idx_verbs_object_case on public.german_verbs(object_case);
+create index if not exists idx_verbs_slug on public.german_verbs(slug);
+create index if not exists idx_verbs_tags on public.german_verbs using gin(tags);
+create index if not exists idx_verbs_created_at on public.german_verbs(created_at);
+create index if not exists idx_verb_conjugations_verb_id on public.verb_conjugations(verb_id);
+create index if not exists idx_verb_examples_verb_id on public.verb_examples(verb_id);
+create index if not exists idx_verb_collocations_verb_id on public.verb_collocations(verb_id);
+create index if not exists idx_verb_mistakes_verb_id on public.verb_common_mistakes(verb_id);
+create index if not exists idx_verb_tips_verb_id on public.verb_learning_tips(verb_id);
+create index if not exists idx_verb_family_verb_id on public.verb_family_members(verb_id);
+create index if not exists idx_user_verbs_user_id on public.user_verbs(user_id);
+create index if not exists idx_user_verbs_verb_id on public.user_verbs(verb_id);
 
 -- Full-text search
 -- Full-text search via trigger (to_tsvector is STABLE, cannot be GENERATED)
-create function public.verbs_search_update() returns trigger as $$
+create or replace function public.verbs_search_update() returns trigger as $$
 begin
   new.search_vector := to_tsvector('german', coalesce(new.infinitive, '') || ' ' ||
     coalesce(new.english_translation, '') || ' ' ||
@@ -188,13 +220,18 @@ begin
 end;
 $$ language plpgsql;
 
-alter table public.german_verbs add column search_vector tsvector;
+do $$ begin
+  alter table public.german_verbs add column search_vector tsvector;
+exception
+  when duplicate_column then null;
+end $$;
 
+drop trigger if exists verbs_search_trigger on public.german_verbs;
 create trigger verbs_search_trigger
   before insert or update on public.german_verbs
   for each row execute function public.verbs_search_update();
 
-create index idx_verbs_search on public.german_verbs using gin(search_vector);
+create index if not exists idx_verbs_search on public.german_verbs using gin(search_vector);
 
 -- RLS
 alter table public.german_verbs enable row level security;
@@ -210,31 +247,103 @@ alter table public.verb_learning_tips enable row level security;
 alter table public.user_verbs enable row level security;
 
 -- Public read for all verb content
-create policy "public_select_verbs" on public.german_verbs for select using (true);
-create policy "public_select_conjugations" on public.verb_conjugations for select using (true);
-create policy "public_select_examples" on public.verb_examples for select using (true);
-create policy "public_select_collocations" on public.verb_collocations for select using (true);
-create policy "public_select_questions" on public.verb_typical_questions for select using (true);
-create policy "public_select_mistakes" on public.verb_common_mistakes for select using (true);
-create policy "public_select_prefixes" on public.verb_prefix_explanations for select using (true);
-create policy "public_select_family" on public.verb_family_members for select using (true);
-create policy "public_select_similar" on public.verb_similar_verbs for select using (true);
-create policy "public_select_tips" on public.verb_learning_tips for select using (true);
+do $$ begin
+  drop policy if exists public_select_verbs on public.german_verbs;
+  create policy "public_select_verbs" on public.german_verbs for select using (true);
+end $$;
+do $$ begin
+  drop policy if exists public_select_conjugations on public.verb_conjugations;
+  create policy "public_select_conjugations" on public.verb_conjugations for select using (true);
+end $$;
+do $$ begin
+  drop policy if exists public_select_examples on public.verb_examples;
+  create policy "public_select_examples" on public.verb_examples for select using (true);
+end $$;
+do $$ begin
+  drop policy if exists public_select_collocations on public.verb_collocations;
+  create policy "public_select_collocations" on public.verb_collocations for select using (true);
+end $$;
+do $$ begin
+  drop policy if exists public_select_questions on public.verb_typical_questions;
+  create policy "public_select_questions" on public.verb_typical_questions for select using (true);
+end $$;
+do $$ begin
+  drop policy if exists public_select_mistakes on public.verb_common_mistakes;
+  create policy "public_select_mistakes" on public.verb_common_mistakes for select using (true);
+end $$;
+do $$ begin
+  drop policy if exists public_select_prefixes on public.verb_prefix_explanations;
+  create policy "public_select_prefixes" on public.verb_prefix_explanations for select using (true);
+end $$;
+do $$ begin
+  drop policy if exists public_select_family on public.verb_family_members;
+  create policy "public_select_family" on public.verb_family_members for select using (true);
+end $$;
+do $$ begin
+  drop policy if exists public_select_similar on public.verb_similar_verbs;
+  create policy "public_select_similar" on public.verb_similar_verbs for select using (true);
+end $$;
+do $$ begin
+  drop policy if exists public_select_tips on public.verb_learning_tips;
+  create policy "public_select_tips" on public.verb_learning_tips for select using (true);
+end $$;
 
 -- User verbs: own data only
-create policy "user_verbs_select" on public.user_verbs for select using (auth.uid() = user_id);
-create policy "user_verbs_insert" on public.user_verbs for insert with check (auth.uid() = user_id);
-create policy "user_verbs_update" on public.user_verbs for update using (auth.uid() = user_id);
-create policy "user_verbs_delete" on public.user_verbs for delete using (auth.uid() = user_id);
+do $$ begin
+  drop policy if exists user_verbs_select on public.user_verbs;
+  create policy "user_verbs_select" on public.user_verbs for select using (auth.uid() = user_id);
+end $$;
+do $$ begin
+  drop policy if exists user_verbs_insert on public.user_verbs;
+  create policy "user_verbs_insert" on public.user_verbs for insert with check (auth.uid() = user_id);
+end $$;
+do $$ begin
+  drop policy if exists user_verbs_update on public.user_verbs;
+  create policy "user_verbs_update" on public.user_verbs for update using (auth.uid() = user_id);
+end $$;
+do $$ begin
+  drop policy if exists user_verbs_delete on public.user_verbs;
+  create policy "user_verbs_delete" on public.user_verbs for delete using (auth.uid() = user_id);
+end $$;
 
 -- Admin can write verb content
-create policy "admin_all_verbs" on public.german_verbs for all using (auth.jwt() ->> 'role' = 'admin');
-create policy "admin_all_conjugations" on public.verb_conjugations for all using (auth.jwt() ->> 'role' = 'admin');
-create policy "admin_all_examples" on public.verb_examples for all using (auth.jwt() ->> 'role' = 'admin');
-create policy "admin_all_collocations" on public.verb_collocations for all using (auth.jwt() ->> 'role' = 'admin');
-create policy "admin_all_questions" on public.verb_typical_questions for all using (auth.jwt() ->> 'role' = 'admin');
-create policy "admin_all_mistakes" on public.verb_common_mistakes for all using (auth.jwt() ->> 'role' = 'admin');
-create policy "admin_all_prefixes" on public.verb_prefix_explanations for all using (auth.jwt() ->> 'role' = 'admin');
-create policy "admin_all_family" on public.verb_family_members for all using (auth.jwt() ->> 'role' = 'admin');
-create policy "admin_all_similar" on public.verb_similar_verbs for all using (auth.jwt() ->> 'role' = 'admin');
-create policy "admin_all_tips" on public.verb_learning_tips for all using (auth.jwt() ->> 'role' = 'admin');
+do $$ begin
+  drop policy if exists admin_all_verbs on public.german_verbs;
+  create policy "admin_all_verbs" on public.german_verbs for all using (auth.jwt() ->> 'role' = 'admin');
+end $$;
+do $$ begin
+  drop policy if exists admin_all_conjugations on public.verb_conjugations;
+  create policy "admin_all_conjugations" on public.verb_conjugations for all using (auth.jwt() ->> 'role' = 'admin');
+end $$;
+do $$ begin
+  drop policy if exists admin_all_examples on public.verb_examples;
+  create policy "admin_all_examples" on public.verb_examples for all using (auth.jwt() ->> 'role' = 'admin');
+end $$;
+do $$ begin
+  drop policy if exists admin_all_collocations on public.verb_collocations;
+  create policy "admin_all_collocations" on public.verb_collocations for all using (auth.jwt() ->> 'role' = 'admin');
+end $$;
+do $$ begin
+  drop policy if exists admin_all_questions on public.verb_typical_questions;
+  create policy "admin_all_questions" on public.verb_typical_questions for all using (auth.jwt() ->> 'role' = 'admin');
+end $$;
+do $$ begin
+  drop policy if exists admin_all_mistakes on public.verb_common_mistakes;
+  create policy "admin_all_mistakes" on public.verb_common_mistakes for all using (auth.jwt() ->> 'role' = 'admin');
+end $$;
+do $$ begin
+  drop policy if exists admin_all_prefixes on public.verb_prefix_explanations;
+  create policy "admin_all_prefixes" on public.verb_prefix_explanations for all using (auth.jwt() ->> 'role' = 'admin');
+end $$;
+do $$ begin
+  drop policy if exists admin_all_family on public.verb_family_members;
+  create policy "admin_all_family" on public.verb_family_members for all using (auth.jwt() ->> 'role' = 'admin');
+end $$;
+do $$ begin
+  drop policy if exists admin_all_similar on public.verb_similar_verbs;
+  create policy "admin_all_similar" on public.verb_similar_verbs for all using (auth.jwt() ->> 'role' = 'admin');
+end $$;
+do $$ begin
+  drop policy if exists admin_all_tips on public.verb_learning_tips;
+  create policy "admin_all_tips" on public.verb_learning_tips for all using (auth.jwt() ->> 'role' = 'admin');
+end $$;

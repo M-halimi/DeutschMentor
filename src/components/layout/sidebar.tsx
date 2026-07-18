@@ -34,54 +34,58 @@ import {
   Key,
   Mail,
   History,
+  MessageSquare,
   type LucideIcon,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Badge } from '@/components/ui/badge'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect, useMemo } from 'react'
+import { useTranslation } from '@/lib/i18n/use-translation'
 
-interface NavItem { href: string; label: string; icon: LucideIcon; badge?: string }
+interface NavItem { href: string; icon: LucideIcon; badge?: string; tKey: string }
 
 const studentNav: NavItem[] = [
-  { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/dashboard/learning', label: 'Mein Lernen', icon: Bot },
-  { href: '/dashboard/analytics', label: 'Statistiken', icon: BarChart3 },
+  { href: '/dashboard', tKey: 'nav.dashboard', icon: LayoutDashboard },
+  { href: '/dashboard/learning', tKey: 'nav.learning', icon: Bot },
+  { href: '/dashboard/analytics', tKey: 'nav.stats', icon: BarChart3 },
 ]
 
 const courseNav: NavItem[] = [
-  { href: '/dashboard/courses', label: 'Kurse', icon: BookOpen },
+  { href: '/dashboard/courses', tKey: 'nav.courses', icon: BookOpen },
 ]
 
 const skillNav: NavItem[] = [
-  { href: '/dashboard/hoeren', label: 'Hören', icon: Headphones },
-  { href: '/dashboard/lesen', label: 'Lesen', icon: BookOpen },
-  { href: '/dashboard/schreiben', label: 'Schreiben', icon: Pen },
-  { href: '/dashboard/sprechen', label: 'Sprechen', icon: Mic },
+  { href: '/dashboard/hoeren', tKey: 'nav.listening', icon: Headphones },
+  { href: '/dashboard/lesen', tKey: 'nav.reading', icon: BookOpen },
+  { href: '/dashboard/schreiben', tKey: 'nav.writing', icon: Pen },
+  { href: '/dashboard/sprechen', tKey: 'nav.speaking', icon: Mic },
 ]
 
 const resourceNav: NavItem[] = [
-  { href: '/dashboard/vocabulary', label: 'Wortschatz', icon: BookmarkPlus, badge: 'NEU' },
-  { href: '/dashboard/verbs', label: 'Verben', icon: Sparkles, badge: 'NEU' },
-  { href: '/dashboard/dictionary', label: 'Wörterbuch', icon: BookText, badge: 'NEU' },
-  { href: '/dashboard/grammar', label: 'Grammatik', icon: Braces },
-  { href: '/dashboard/dictation', label: 'Diktat', icon: Ear },
-  { href: '/dashboard/expressions', label: 'Ausdrücke', icon: MessageSquareText },
-  { href: '/dashboard/exam', label: 'Einstufung', icon: GraduationCap },
-  { href: '/dashboard/exam-prep', label: 'Prüfungsvorbereitung', icon: Target },
-  { href: '/dashboard/certificates', label: 'Zertifikate', icon: Award },
-  { href: '/subscription', label: 'Abo', icon: CreditCard },
+  { href: '/dashboard/vocabulary', tKey: 'nav.vocabulary', icon: BookmarkPlus, badge: 'NEU' },
+  { href: '/dashboard/verbs', tKey: 'nav.verbs', icon: Sparkles, badge: 'NEU' },
+  { href: '/dashboard/dictionary', tKey: 'nav.dictionary', icon: BookText, badge: 'NEU' },
+  { href: '/dashboard/grammar', tKey: 'nav.grammar', icon: Braces },
+  { href: '/dashboard/dictation', tKey: 'nav.dictation', icon: Ear },
+  { href: '/dashboard/expressions', tKey: 'nav.expressions', icon: MessageSquareText },
+  { href: '/dashboard/exam', tKey: 'nav.level-test', icon: GraduationCap },
+  { href: '/dashboard/exam-prep', tKey: 'nav.exam-prep', icon: Target },
+  { href: '/dashboard/certificates', tKey: 'nav.certificates', icon: Award },
+  { href: '/subscription', tKey: 'nav.subscription', icon: CreditCard },
+  { href: '/support/tickets', tKey: 'nav.support', icon: MessageSquare },
 ]
 
 const arabicNav: NavItem[] = [
-  { href: '/dashboard/arabic/alphabet', label: 'Arabisches Alphabet', icon: Languages },
-  { href: '/dashboard/vocabulary', label: 'Arabischer Wortschatz', icon: BookmarkPlus },
+  { href: '/dashboard/arabic/alphabet', tKey: 'nav.arabic-alphabet', icon: Languages },
+  { href: '/dashboard/vocabulary', tKey: 'nav.arabic-vocabulary', icon: BookmarkPlus },
 ]
 
-function NavSection({ title, items, defaultOpen = true }: { title: string; items: NavItem[]; defaultOpen?: boolean }) {
+function NavSection({ titleTKey, items, defaultOpen = true }: { titleTKey: string; items: NavItem[]; defaultOpen?: boolean }) {
   const pathname = usePathname()
   const [open, setOpen] = useState(defaultOpen)
+  const { t } = useTranslation()
 
   return (
     <div className="mb-2">
@@ -89,7 +93,7 @@ function NavSection({ title, items, defaultOpen = true }: { title: string; items
         onClick={() => setOpen(!open)}
         className="flex w-full items-center justify-between px-3 py-1.5 text-xs font-medium text-muted-foreground uppercase tracking-wider hover:text-foreground transition-colors"
       >
-        <span>{title}</span>
+        <span>{t(titleTKey)}</span>
         <ChevronDown className={cn('h-3 w-3 transition-transform', open && 'rotate-180')} />
       </button>
       <AnimatePresence initial={false}>
@@ -116,7 +120,7 @@ function NavSection({ title, items, defaultOpen = true }: { title: string; items
                     )}
                   >
                     <item.icon className="h-4 w-4 shrink-0" />
-                    <span className="truncate flex-1">{item.label}</span>
+                    <span className="truncate flex-1">{t(item.tKey)}</span>
                     {item.badge && (
                       <Badge variant="default" className="h-5 px-1.5 text-[10px] font-bold uppercase">
                         {item.badge}
@@ -139,42 +143,61 @@ function NavSection({ title, items, defaultOpen = true }: { title: string; items
   )
 }
 
-interface AdminNavItem { href: string; label: string; icon: LucideIcon; permission?: string; ownerOnly?: boolean }
+interface AdminNavItem { href: string; icon: LucideIcon; permission?: string; ownerOnly?: boolean; badge?: string; tKey: string }
 
-const adminNavSections: { title: string; items: AdminNavItem[] }[] = [
+const adminNavSections: { titleTKey: string; items: AdminNavItem[] }[] = [
   {
-    title: 'Dashboard',
+    titleTKey: 'nav.dashboard',
     items: [
-      { href: '/admin', label: 'Admin-Dashboard', icon: Shield, permission: 'dashboard.view' },
+      { href: '/admin', tKey: 'nav.admin-dashboard', icon: Shield, permission: 'dashboard.view' },
     ],
   },
   {
-    title: 'Verwaltung',
+    titleTKey: 'sidebar.administration',
     items: [
-      { href: '/admin/users', label: 'Benutzer', icon: Users, permission: 'users.view' },
-      { href: '/admin/admin-users', label: 'Admin-Benutzer', icon: Shield, permission: 'staff.view', ownerOnly: true },
-      { href: '/admin/roles', label: 'Rollen', icon: Key, permission: 'roles.view', ownerOnly: true },
-      { href: '/admin/invitations', label: 'Einladungen', icon: Mail, permission: 'invitations.view', ownerOnly: true },
+      { href: '/admin/users', tKey: 'nav.users', icon: Users, permission: 'users.view' },
+      { href: '/admin/admin-users', tKey: 'nav.admin-users', icon: Shield, permission: 'staff.view', ownerOnly: true },
+      { href: '/admin/roles', tKey: 'nav.roles', icon: Key, permission: 'roles.view', ownerOnly: true },
+      { href: '/admin/invitations', tKey: 'nav.invitations', icon: Mail, permission: 'invitations.view', ownerOnly: true },
+      { href: '/admin/support/tickets', tKey: 'nav.support-tickets', icon: MessageSquare },
     ],
   },
   {
-    title: 'Inhalte',
+    titleTKey: 'sidebar.content',
     items: [
-      { href: '/admin/courses', label: 'Kurse', icon: BookOpen, permission: 'courses.view' },
+      { href: '/admin/courses', tKey: 'nav.courses', icon: BookOpen, permission: 'courses.view' },
     ],
   },
   {
-    title: 'System',
+    titleTKey: 'sidebar.system',
     items: [
-      { href: '/admin/analytics', label: 'Analysen', icon: BarChart3, permission: 'analytics.view' },
-      { href: '/admin/audit-logs', label: 'Audit-Logs', icon: History, permission: 'audit.view' },
-      { href: '/admin/settings', label: 'Einstellungen', icon: Settings, permission: 'settings.view', ownerOnly: true },
+      { href: '/admin/analytics', tKey: 'nav.analytics', icon: BarChart3, permission: 'analytics.view' },
+      { href: '/admin/audit-logs', tKey: 'nav.audit-logs', icon: History, permission: 'audit.view' },
+      { href: '/admin/settings', tKey: 'nav.settings', icon: Settings, permission: 'settings.view', ownerOnly: true },
     ],
   },
 ]
 
 function AdminNav() {
   const { hasPermission, isOwner, loaded } = useAdminStore()
+  const [openCount, setOpenCount] = useState(0)
+
+  useEffect(() => {
+    fetch('/api/support/tickets?status=open')
+      .then(res => res.ok ? res.json() : { total: 0 })
+      .then(data => setOpenCount(data.total || 0))
+      .catch(() => {})
+  }, [])
+
+  const sections = useMemo(() => adminNavSections.map(section => ({
+    ...section,
+    items: section.items.map(item => {
+      if (item.href === '/admin/support/tickets' && openCount > 0) {
+        return { ...item, badge: String(openCount) }
+      }
+      return item
+    }),
+  })), [openCount])
 
   if (!loaded) {
     return (
@@ -186,34 +209,36 @@ function AdminNav() {
 
   return (
     <>
-      {adminNavSections.map(section => {
+      {sections.map(section => {
         const visible = section.items.filter(item => {
           if (item.ownerOnly && !isOwner) return false
           if (!item.permission) return true
           return hasPermission(item.permission)
         })
         if (visible.length === 0) return null
-        return <NavSection key={section.title} title={section.title} items={visible} />
+        return <NavSection key={section.titleTKey} titleTKey={section.titleTKey} items={visible} />
       })}
     </>
   )
 }
 
-function getRoleLabel(userRole?: string, adminRoleName?: string, isOwner?: boolean): string {
-  if (userRole === 'super_admin') return 'SUPER ADMIN'
-  if (isOwner) return 'OWNER'
-  if (adminRoleName) return adminRoleName.toUpperCase()
-  if (userRole === 'admin') return 'Admin'
-  if (userRole === 'teacher') return 'Lehrer'
-  return 'Schüler'
+function RoleLabel({ userRole, adminRoleName, isOwner }: { userRole?: string; adminRoleName?: string; isOwner?: boolean }) {
+  const { t } = useTranslation()
+  if (userRole === 'super_admin') return <>{'SUPER ADMIN'}</>
+  if (isOwner) return <>{'OWNER'}</>
+  if (adminRoleName) return <>{adminRoleName.toUpperCase()}</>
+  if (userRole === 'admin') return <>{t('role.admin')}</>
+  if (userRole === 'teacher') return <>{t('role.teacher')}</>
+  return <>{t('role.student')}</>
 }
 
 export function Sidebar() {
   const pathname = usePathname()
-  const { sidebarOpen, toggleSidebar, direction } = useAppStore()
+  const { sidebarOpen, toggleSidebar } = useAppStore()
   const { user, signOut } = useAuthStore()
-  const { roleName, isOwner, loaded: adminLoaded } = useAdminStore()
-  const isRtl = direction === 'rtl'
+  const { roleName, isOwner: adminIsOwner, loaded: adminLoaded } = useAdminStore()
+  const { t, isRTL } = useTranslation()
+  const isRtl = isRTL
 
   return (
     <AnimatePresence>
@@ -250,26 +275,26 @@ export function Sidebar() {
               <AdminNav />
             ) : user?.role === 'student' ? (
               <>
-                <NavSection title="Übersicht" items={studentNav} />
-                <NavSection title="Kurse" items={courseNav} />
-                <NavSection title="Fertigkeiten" items={skillNav} />
-                <NavSection title="Lernmaterialien" items={resourceNav} />
+                <NavSection titleTKey="sidebar.student" items={studentNav} />
+                <NavSection titleTKey="nav.courses" items={courseNav} />
+                <NavSection titleTKey="sidebar.skills" items={skillNav} />
+                <NavSection titleTKey="sidebar.resources" items={resourceNav} />
                 <div className="my-2 border-t" />
-                <NavSection title="Arabisch" items={arabicNav} defaultOpen={false} />
+                <NavSection titleTKey="sidebar.arabic" items={arabicNav} defaultOpen={false} />
               </>
             ) : user?.role === 'teacher' ? (
-              <NavSection title="Unterricht" items={[
-                { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-                { href: '/dashboard/my-courses', label: 'Meine Kurse', icon: BookOpen },
-                { href: '/dashboard/students', label: 'Schüler', icon: GraduationCap },
-                { href: '/dashboard/analytics', label: 'Statistiken', icon: BarChart3 },
+              <NavSection titleTKey="sidebar.teacher" items={[
+                { href: '/dashboard', tKey: 'nav.dashboard', icon: LayoutDashboard },
+                { href: '/dashboard/my-courses', tKey: 'nav.my-courses', icon: BookOpen },
+                { href: '/dashboard/students', tKey: 'nav.students', icon: GraduationCap },
+                { href: '/dashboard/analytics', tKey: 'nav.stats', icon: BarChart3 },
               ]} />
             ) : (
-              <NavSection title="Admin" items={[
-                { href: '/admin', label: 'Admin-Dashboard', icon: Shield },
-                { href: '/admin/users', label: 'Benutzer', icon: Users },
-                { href: '/admin/courses', label: 'Kurse', icon: BookOpen },
-                { href: '/admin/analytics', label: 'Statistiken', icon: BarChart3 },
+              <NavSection titleTKey="sidebar.admin" items={[
+                { href: '/admin', tKey: 'nav.admin-dashboard', icon: Shield },
+                { href: '/admin/users', tKey: 'nav.users', icon: Users },
+                { href: '/admin/courses', tKey: 'nav.courses', icon: BookOpen },
+                { href: '/admin/analytics', tKey: 'nav.stats', icon: BarChart3 },
               ]} />
             )}
           </ScrollArea>
@@ -280,9 +305,9 @@ export function Sidebar() {
                 {user?.full_name?.charAt(0)?.toUpperCase() ?? 'U'}
               </div>
               <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-medium">{user?.full_name ?? 'Benutzer'}</p>
+                <p className="truncate text-sm font-medium">{user?.full_name ?? t('common.user')}</p>
                 <p className="truncate text-xs text-muted-foreground">
-                  {getRoleLabel(user?.role, adminLoaded ? roleName : undefined, adminLoaded ? isOwner : false)}
+                  <RoleLabel userRole={user?.role} adminRoleName={adminLoaded ? roleName : undefined} isOwner={adminLoaded ? adminIsOwner : false} />
                 </p>
               </div>
             </div>
@@ -293,7 +318,7 @@ export function Sidebar() {
               onClick={signOut}
             >
               <LogOut className={cn('h-4 w-4', isRtl ? 'ml-2' : 'mr-2')} />
-              Abmelden
+              {t('auth.logout')}
             </Button>
           </div>
         </motion.aside>

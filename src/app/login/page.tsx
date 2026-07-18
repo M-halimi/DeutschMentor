@@ -69,6 +69,15 @@ function LoginForm() {
       if (profile) {
         useAuthStore.getState().setUser(profile)
 
+        // Sync language preference from cookie to profile on each login
+        const langFromCookie = document.cookie.split('; ').find(r => r.startsWith('preferred_lang='))
+        if (langFromCookie) {
+          const langVal = langFromCookie.split('=')[1]
+          if (langVal !== profile.language && ['de', 'en', 'fr', 'ar'].includes(langVal)) {
+            await supabase.from('profiles').update({ language: langVal }).eq('user_id', session.user.id)
+          }
+        }
+
         // Check if account is suspended or banned
         if (profile.status === 'suspended' || profile.status === 'banned') {
           router.push(`/account-suspended?reason=${profile.status}`)

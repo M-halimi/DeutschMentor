@@ -1,6 +1,6 @@
-export type SupportedLocale = 'en' | 'de' | 'fr' | 'ar'
+import type { Locale } from './config'
 
-export const translations: Record<string, Record<SupportedLocale, string>> = {
+export const translations: Record<string, Record<Locale, string>> = {
   // Navigation
   'nav.courses': { en: 'Courses', de: 'Kurse', fr: 'Cours', ar: 'الدورات' },
   'nav.dashboard': { en: 'Dashboard', de: 'Dashboard', fr: 'Tableau de bord', ar: 'لوحة التحكم' },
@@ -19,6 +19,38 @@ export const translations: Record<string, Record<SupportedLocale, string>> = {
   'nav.certificates': { en: 'Certificates', de: 'Zertifikate', fr: 'Certificats', ar: 'الشهادات' },
   'nav.level-test': { en: 'Level Test', de: 'Einstufung', fr: 'Test de niveau', ar: 'اختبار المستوى' },
   'nav.mentor': { en: 'AI Mentor', de: 'KI-Mentor', fr: 'Mentor IA', ar: 'المرشد الذكي' },
+  'nav.verbs': { en: 'Verbs', de: 'Verben', fr: 'Verbes', ar: 'الأفعال' },
+  'nav.subscription': { en: 'Subscription', de: 'Abo', fr: 'Abonnement', ar: 'اشتراك' },
+  'nav.support': { en: 'Support', de: 'Support', fr: 'Support', ar: 'الدعم' },
+  'nav.arabic-alphabet': { en: 'Arabic Alphabet', de: 'Arabisches Alphabet', fr: 'Alphabet arabe', ar: 'الأبجدية العربية' },
+  'nav.arabic-vocabulary': { en: 'Arabic Vocabulary', de: 'Arabischer Wortschatz', fr: 'Vocabulaire arabe', ar: 'المفردات العربية' },
+  'nav.my-courses': { en: 'My Courses', de: 'Meine Kurse', fr: 'Mes cours', ar: 'دوراتي' },
+  'nav.students': { en: 'Students', de: 'Schüler', fr: 'Étudiants', ar: 'الطلاب' },
+  'nav.admin-dashboard': { en: 'Admin Dashboard', de: 'Admin-Dashboard', fr: 'Tableau de bord admin', ar: 'لوحة تحكم المشرف' },
+  'nav.users': { en: 'Users', de: 'Benutzer', fr: 'Utilisateurs', ar: 'المستخدمون' },
+  'nav.admin-users': { en: 'Admin Users', de: 'Admin-Benutzer', fr: 'Administrateurs', ar: 'مشرفون' },
+  'nav.roles': { en: 'Roles', de: 'Rollen', fr: 'Rôles', ar: 'الأدوار' },
+  'nav.invitations': { en: 'Invitations', de: 'Einladungen', fr: 'Invitations', ar: 'الدعوات' },
+  'nav.support-tickets': { en: 'Support Tickets', de: 'Support-Tickets', fr: 'Tickets de support', ar: 'تذاكر الدعم' },
+  'nav.analytics': { en: 'Analytics', de: 'Analysen', fr: 'Analytiques', ar: 'التحليلات' },
+  'nav.audit-logs': { en: 'Audit Logs', de: 'Audit-Logs', fr: 'Journaux d\'audit', ar: 'سجلات التدقيق' },
+  'nav.settings': { en: 'Settings', de: 'Einstellungen', fr: 'Paramètres', ar: 'الإعدادات' },
+  // Sidebar sections
+  'sidebar.student': { en: 'Overview', de: 'Übersicht', fr: 'Aperçu', ar: 'نظرة عامة' },
+  'sidebar.skills': { en: 'Skills', de: 'Fertigkeiten', fr: 'Compétences', ar: 'المهارات' },
+  'sidebar.resources': { en: 'Resources', de: 'Lernmaterialien', fr: 'Ressources', ar: 'الموارد' },
+  'sidebar.arabic': { en: 'Arabic', de: 'Arabisch', fr: 'Arabe', ar: 'العربية' },
+  'sidebar.teacher': { en: 'Teaching', de: 'Unterricht', fr: 'Enseignement', ar: 'التدريس' },
+  'sidebar.admin': { en: 'Admin', de: 'Admin', fr: 'Admin', ar: 'المشرف' },
+  'sidebar.administration': { en: 'Administration', de: 'Verwaltung', fr: 'Administration', ar: 'الإدارة' },
+  'sidebar.content': { en: 'Content', de: 'Inhalte', fr: 'Contenu', ar: 'المحتوى' },
+  'sidebar.system': { en: 'System', de: 'System', fr: 'Système', ar: 'النظام' },
+
+  // Roles
+  'role.admin': { en: 'Admin', de: 'Admin', fr: 'Admin', ar: 'مشرف' },
+  'role.teacher': { en: 'Teacher', de: 'Lehrer', fr: 'Enseignant', ar: 'معلم' },
+  'role.student': { en: 'Student', de: 'Schüler', fr: 'Étudiant', ar: 'طالب' },
+  'common.user': { en: 'User', de: 'Benutzer', fr: 'Utilisateur', ar: 'مستخدم' },
 
   // Auth
   'auth.login': { en: 'Log in', de: 'Anmelden', fr: 'Se connecter', ar: 'تسجيل الدخول' },
@@ -409,7 +441,7 @@ export const translations: Record<string, Record<SupportedLocale, string>> = {
 
 export type TranslationKey = keyof typeof translations
 
-export function t(key: string, locale: SupportedLocale, params?: Record<string, string | number>): string {
+export function t(key: string, locale: Locale, params?: Record<string, string | number>): string {
   const entry = translations[key]
   if (!entry) return key
   let text = entry[locale] ?? entry['en'] ?? key

@@ -79,8 +79,14 @@ export async function signIn(formData: FormData) {
       .eq('user_id', data.user.id)
       .maybeSingle()
 
+    // If no profile found, redirect to onboarding
+    if (!profile) {
+      revalidatePath('/', 'layout')
+      redirect('/onboarding')
+    }
+
     // Check if account is suspended or banned
-    if (profile?.status === 'suspended' || profile?.status === 'banned') {
+    if (profile.status === 'suspended' || profile.status === 'banned') {
       await logSecurityEvent(data.user.id, email, 'LOGIN_BLOCKED', {
         status: profile.status,
         reason: profile.suspension_reason || profile.status_reason || 'No reason provided',
@@ -89,39 +95,39 @@ export async function signIn(formData: FormData) {
       redirect(`/account-suspended?reason=${profile.status}`)
     }
 
-    // Auto-expire overdue suspensions
-    if (profile?.status === 'expired') {
+    if (profile.status === 'expired') {
       revalidatePath('/', 'layout')
       redirect('/account-expired')
     }
 
-    const isAdmin = profile && (
+    const isAdmin = (
       profile.is_owner === true ||
       profile.role_id !== null ||
       profile.role === 'admin' ||
       profile.role === 'super_admin'
     )
 
-    console.log('[AUTH:signIn] user:', data.user.id, 'role:', profile?.role, 'is_owner:', profile?.is_owner, 'isAdmin:', isAdmin)
+    console.log('[AUTH:signIn] user:', data.user.id, 'role:', profile.role, 'is_owner:', profile.is_owner, 'isAdmin:', isAdmin)
 
     await logSecurityEvent(data.user.id, email, 'LOGIN_SUCCESS', {
-      role: profile?.role || 'none',
+      role: profile.role,
       isAdmin,
-      redirectTo: isAdmin ? '/admin' : profile?.role === 'teacher' ? '/teacher' : '/dashboard',
+      redirectTo: isAdmin ? '/admin' : profile.role === 'teacher' ? '/teacher' : '/dashboard',
     })
 
     if (isAdmin) {
       revalidatePath('/', 'layout')
       redirect('/admin')
     }
-    if (profile?.role === 'teacher') {
+    if (profile.role === 'teacher') {
       revalidatePath('/', 'layout')
       redirect('/teacher')
     }
+    revalidatePath('/', 'layout')
+    redirect('/dashboard')
   }
 
-  revalidatePath('/', 'layout')
-  redirect('/dashboard')
+  return { error: 'Login failed' }
 }
 
 async function logSecurityEvent(userId: string | null, email: string | null, action: string, metadata: Record<string, unknown>) {

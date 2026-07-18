@@ -3,11 +3,12 @@
 import { Sidebar } from './sidebar'
 import { Header } from './header'
 import { useAppStore } from '@/stores/app-store'
+import { useTranslation } from '@/lib/i18n/use-translation'
 import { cn } from '@/lib/utils'
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const sidebarOpen = useAppStore((s) => s.sidebarOpen)
-  const direction = useAppStore((s) => s.direction)
+  const { direction } = useTranslation()
   const marginClass = direction === 'rtl'
     ? (sidebarOpen ? 'mr-[280px]' : 'mr-0')
     : (sidebarOpen ? 'ml-[280px]' : 'ml-0')

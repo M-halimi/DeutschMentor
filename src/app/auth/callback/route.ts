@@ -13,9 +13,7 @@ export async function GET(request: Request) {
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
       {
         cookies: {
-          getAll() {
-            return cookieStore.getAll()
-          },
+          getAll() { return cookieStore.getAll() },
           setAll(cookiesToSet) {
             cookiesToSet.forEach(({ name, value, options }) =>
               cookieStore.set(name, value, options)
@@ -27,28 +25,35 @@ export async function GET(request: Request) {
 
     const { data, error } = await supabase.auth.exchangeCodeForSession(code)
     if (!error && data.user) {
-      const { data: existingProfile } = await supabase
+      const adminClient = createServerClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.SUPABASE_SERVICE_ROLE_KEY!,
+        { cookies: { getAll: () => [], setAll: () => {} } }
+      )
+
+      const { data: existingProfile } = await adminClient
         .from('profiles')
-        .select('current_level, full_name, role')
+        .select('current_level, full_name, role, status, role_id, is_owner')
         .eq('user_id', data.user.id)
-        .single()
+        .maybeSingle()
 
       if (!existingProfile) {
-        await supabase.from('profiles').upsert({
+        await adminClient.from('profiles').upsert({
           user_id: data.user.id,
           email: data.user.email,
           full_name: data.user.user_metadata?.full_name ?? data.user.email?.split('@')[0] ?? 'User',
           role: 'student',
         }, { onConflict: 'user_id' })
-      }
 
-      if (!existingProfile) {
         return NextResponse.redirect(`${origin}/onboarding`)
       }
 
-      console.log('[AUTH:callback] user:', data.user.id, 'role:', existingProfile.role)
+      // Check suspension before any other redirect
+      if (existingProfile.status === 'suspended' || existingProfile.status === 'banned') {
+        return NextResponse.redirect(`${origin}/account-suspended?reason=${existingProfile.status}`)
+      }
 
-      if (existingProfile.role === 'super_admin') {
+      if (existingProfile.role === 'super_admin' || existingProfile.is_owner || existingProfile.role_id) {
         return NextResponse.redirect(`${origin}/admin`)
       }
       if (existingProfile.role === 'teacher') {
