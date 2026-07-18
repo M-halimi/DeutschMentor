@@ -185,11 +185,69 @@ export function getBaseVerb(infinitive: string): string {
     'hinterher',
   ].sort((a, b) => b.length - a.length) // longest first
 
+  // Verbs that LOOK like they have a separable prefix but DON'T (inseparable or non-existent base)
+  const nonSeparableExceptions = new Set([
+    // "ant" verbs
+    'antworten', 'antasten', 'antichambrieren', 'antipathie', 'antizipieren', 'antreiben', 'antreten',
+    // "an" verbs that are not separable (inseparable prefix "an" like anfangen = separable, but anhaben = inseparable?)
+    // Actually check each one...
+    // "be" verbs - inseparable
+    'beachten', 'beantworten', 'beantragen', 'beachten', 'beachten', 'bereichern', 'bearbeiten', 'beauftragen',
+    'beobachten', 'beachten', 'beenden', 'beengen', 'begegnen', 'begreifen', 'behandeln', 'behaupten',
+    'beheimaten', 'beherrschen', 'behüten', 'beinhalten', 'bejahen', 'bekennen', 'beklagen', 'bekommen',
+    'bekräftigen', 'belasten', 'belauschen', 'belächeln', 'beliefern', 'belohnen', 'bemerken', 'bemühen',
+    'benachrichten', 'benennen', 'benötigen', 'benutzen', 'beobachten', 'beordern', 'bequemen', 'beraten',
+    'berauschen', 'bereden', 'berichten', 'beruhen', 'beschäftigen', 'beschließen', 'beschreiben',
+    'beschützen', 'beschweren', 'beschwören', 'beseitigen', 'besetzen', 'besiegen', 'besitzen',
+    'besondern', 'besorgen', 'besprechen', 'bestehen', 'besteuern', 'bestimmen', 'bestrafen',
+    'bestreichen', 'bestreiten', 'betrachten', 'betrauern', 'betreiben', 'betreten', 'betrügen',
+    'betrinken', 'betteln', 'beugen', 'beurteilen', 'bevorzugen', 'bewegen', 'beweisen', 'bezahlen',
+    'bezichtigen', 'bezweifeln',
+    // "ent" verbs - inseparable
+    'enthalten', 'entdecken', 'entfernen', 'entgegen', 'entgehen', 'enthalten', 'entladen', 'entrichten',
+    'enttäuschen', 'entwickeln', 'entzünden', 'entziehen',
+    // "er" verbs - inseparable
+    'erhalten', 'erklären', 'erleben', 'erlauben', 'erledigen', 'erleben', 'erreichen', 'erscheinen',
+    'ersparen', 'erwarten', 'erzählen', 'erzielen', 'erzwingen',
+    // "ver" verbs - inseparable
+    'verstehen', 'verlieren', 'vergessen', 'verzeihen', 'versuchen', 'verkaufen', 'verzehren',
+    'versprechen', 'verstehen', 'verzeihen', 'verlassen', 'verstehen', 'verzeihen',
+    // "zer" verbs - inseparable
+    'zerbrechen', 'zerfallen', 'zerstören', 'zerlegen', 'zerreißen',
+    // "miss" verbs - inseparable
+    'missachten', 'missbrauchen', 'misslingen', 'missverstehen',
+    // "wider" verbs - inseparable
+    'widersprechen', 'widerstehen', 'widerlegen',
+    // "ge" verbs - inseparable (usually)
+    'gelten', 'gehorchen', 'genehmigen', 'genießen', 'glauben', 'gleichen', 'gelingen',
+    // other non-separable
+    'untersuchen', 'unterhalten', 'unterzeichnen', 'unterstützen',
+    'wiederholen', 'wiedersehen', 'wiederkommen', 'wiedergeben', 'wiederfinden',
+    // "ant" = "antworten" - but also "antreiben", "antreten" which ARE separable
+    // "an" can be both - "anfangen" (sep), "anhören" (sep), but "anerkennen" (insep)
+    'anerkennen', 'anbieten', 'angeben', 'angehören', 'angewöhnen', 'annehmen', 'ansprechen',
+    // "be" is always inseparable
+    // "emp" is always inseparable
+    // "ent" is usually inseparable
+    // "er" is usually inseparable
+    // "ge" is usually inseparable
+    // "ver" is usually inseparable
+    // "zer" is always inseparable
+    // "miss" is always inseparable
+    // "wider" is usually inseparable
+    // "zu" is usually separable (zuhören, zumachen) but not always
+    // "wider" is inseparable
+    // "an" can be both - need more specific list
+  ])
+
   for (const prefix of separablePrefixes) {
     if (infinitive.startsWith(prefix) && infinitive.length > prefix.length) {
-      // Exception: some verbs look separable but aren't (e.g., "wiederholen")
       const base = infinitive.slice(prefix.length)
       if (base.length >= 3) {
+        // Check if this is a known non-separable verb
+        if (nonSeparableExceptions.has(infinitive)) {
+          continue
+        }
         return base
       }
     }
@@ -614,20 +672,20 @@ export function generateImperativ(
     wirForm = wirStem + ' wir'
   }
 
+  // Apply reflexive pronoun FIRST (before separable prefix for correct German word order)
+  if (verb.isReflexive) {
+    if (duForm) duForm = duForm + ' dich'
+    if (ihrForm) ihrForm = ihrForm + ' euch'
+    if (SieForm) SieForm = SieForm + ' sich'
+    if (wirForm) wirForm = wirForm + ' uns'
+  }
+
   // Apply separable prefix
   if (prefix) {
     if (duForm) duForm = duForm + ' ' + prefix
     if (ihrForm) ihrForm = ihrForm + ' ' + prefix
     if (SieForm) SieForm = SieForm + ' ' + prefix
     if (wirForm) wirForm = wirForm + ' ' + prefix
-  }
-
-  // Apply reflexive pronoun
-  if (verb.isReflexive) {
-    if (duForm) duForm = duForm + ' dich'
-    if (ihrForm) ihrForm = ihrForm + ' euch'
-    if (SieForm) SieForm = SieForm + ' sich'
-    if (wirForm) wirForm = wirForm + ' uns'
   }
 
   return { du: duForm, ihr: ihrForm, sie: null, Sie: SieForm, wir: wirForm }

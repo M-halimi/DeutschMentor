@@ -48,7 +48,7 @@ const verbTypeLabels: Record<string, string> = {
 }
 
 const pronounLabels: Record<string, string> = {
-  ich: 'ich', du: 'du', er_sie_es: 'er/sie/es', wir: 'wir', ihr: 'ihr', sie: 'sie', Sie: 'Sie',
+  ich: 'ich', du: 'du', er_sie_es: 'er/sie/es', wir: 'wir', ihr: 'ihr', sie: 'sie/Sie',
 }
 
 function ConjugationTable({ conjugations, verb }: { conjugations: Conjugation[]; verb: GermanVerb }) {
@@ -78,17 +78,29 @@ function ConjugationTable({ conjugations, verb }: { conjugations: Conjugation[];
             </tr>
           </thead>
           <tbody>
-            {(['ich', 'du', 'er_sie_es', 'wir', 'ihr', 'sie', 'Sie'] as const).map(pronoun => {
-              const value = tense?.[pronoun]
-              return (
-                <tr key={pronoun} className="border-b last:border-0 hover:bg-muted/30">
-                  <td className="p-3 text-muted-foreground font-medium">{pronounLabels[pronoun]}</td>
-                  <td className="p-3 font-semibold">
-                    {value ?? '—'}
-                  </td>
-                </tr>
-              )
-            })}
+            {(() => {
+              const isImperativ = selectedTense === 'imperativ'
+              if (isImperativ) {
+                return (['du', 'ihr', 'Sie', 'wir'] as const).map(pronoun => {
+                  const value = pronoun === 'Sie' ? tense?.sie : tense?.[pronoun]
+                  return (
+                    <tr key={pronoun} className="border-b last:border-0 hover:bg-muted/30">
+                      <td className="p-3 text-muted-foreground font-medium">{pronounLabels[pronoun]}</td>
+                      <td className="p-3 font-semibold">{value ?? '—'}</td>
+                    </tr>
+                  )
+                })
+              }
+              return (['ich', 'du', 'er_sie_es', 'wir', 'ihr', 'sie'] as const).map(pronoun => {
+                const value = tense?.[pronoun]
+                return (
+                  <tr key={pronoun} className="border-b last:border-0 hover:bg-muted/30">
+                    <td className="p-3 text-muted-foreground font-medium">{pronounLabels[pronoun]}</td>
+                    <td className="p-3 font-semibold">{value ?? '—'}</td>
+                  </tr>
+                )
+              })
+            })()}
           </tbody>
         </table>
       </div>

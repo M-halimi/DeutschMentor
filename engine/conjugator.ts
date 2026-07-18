@@ -97,7 +97,7 @@ export function conjugatePraesens(verb: VerbEntry): ConjugationSet {
           changeVowel = change
         } else if (verb.vowelChange?.present_du) {
           changeVowel = verb.vowelChange.present_du
-        } else if (irregular?.presentVowel) {
+        } else if (irregular?.presentVowel && !irregular.noPresentVowelChange) {
           changeVowel = irregular.presentVowel
         }
 

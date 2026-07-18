@@ -754,7 +754,6 @@ export interface Conjugation {
   wir: string | null
   ihr: string | null
   sie: string | null
-  Sie: string | null
 }
 
 export interface VerbExample {

@@ -118,7 +118,9 @@ const HARD_PARTIZIP_II: Record<string, string> = {
 function deduplicate(verbs: VerbEntry[]): VerbEntry[] {
   const seen = new Set<string>()
   return verbs.filter(v => {
-    const key = v.infinitive.replace(/^sich\s+/, '')
+    const base = v.infinitive.replace(/^sich\s+/, '')
+    const isReflexive = v.infinitive.startsWith('sich ') || v.isReflexive
+    const key = isReflexive ? `sich ${base}` : base
     if (seen.has(key)) return false
     seen.add(key)
     return true
@@ -139,7 +141,7 @@ function fixVerbMetadata(verb: VerbEntry): VerbEntry {
   if (['sein', 'haben', 'werden'].includes(fixed.infinitive)) fixed.category = 'auxiliary'
   if (fixed.infinitive === 'wissen') fixed.category = 'modal'
   const irreg = getIrregularEntry(fixed.infinitive)
-  if (irreg?.presentVowel) {
+  if (irreg?.presentVowel && !irreg.noPresentVowelChange) {
     fixed.vowelChange = { present_du: irreg.presentVowel, present_er: irreg.presentVowel }
   }
   return fixed

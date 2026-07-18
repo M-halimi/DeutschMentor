@@ -21,6 +21,8 @@ export interface IrregularVerbEntry {
   pattern?: string
   /** Notes */
   notes?: string
+  /** Set true for verbs like "kommen" that LOOK like they should have vowel change but don't */
+  noPresentVowelChange?: boolean
 }
 
 /**
@@ -248,6 +250,7 @@ export const IRREGULAR_VERBS_DATABASE: Record<string, IrregularVerbEntry> = {
     partizipII: 'gekommen',
     pattern: '4a',
     notes: 'special: du/er kommt (no vowel change in practise)',
+    noPresentVowelChange: true
   },
   quellen: { infinitive: 'quellen', presentVowel: 'i', preteriteStem: 'quoll', partizipII: 'gequollen', pattern: '4' },
   schelten: { infinitive: 'schelten', presentVowel: 'i', preteriteStem: 'schalt', partizipII: 'gescholten', pattern: '4' },
