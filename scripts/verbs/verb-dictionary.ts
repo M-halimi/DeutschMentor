@@ -41,6 +41,7 @@ export function verbEntryToGermanVerbEntry(v: VerbEntry): GermanVerbEntry {
     separable: isSep,
     reflexive: isRef,
     reflexivePronoun: isRef ? { akk: true } : undefined,
+    reflexivePronounCase: v.reflexivePronounCase,
     auxiliary: v.aux === 'both' ? 'haben' : v.aux,
     transitive: v.tr === 'transitive' || v.tr === 'both',
     partizipII: v.p2,

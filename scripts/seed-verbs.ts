@@ -87,6 +87,19 @@ async function seedVerbs() {
   let misInserted = 0
   let tipInserted = 0
 
+  // Fetch reflexive verb metadata from database for enrichment
+  console.log('Fetching reflexive verb metadata from database...')
+  const { data: reflexiveMeta, error: metaError } = await supabase
+    .from('german_verbs')
+    .select('infinitive, reflexive_pronoun_case, object_case, preposition, preposition_case, transitivity')
+    .eq('is_reflexive', true)
+  
+  if (metaError) {
+    console.error('  Failed to fetch metadata:', metaError.message)
+  }
+  
+  const metaMap = new Map(reflexiveMeta?.map(m => [m.infinitive, m]) || [])
+
   console.log('Clearing old enrichment data...')
   await clearEnrichment()
 
@@ -143,11 +156,38 @@ async function seedVerbs() {
     }
 
     // --- Enrichment: batch per verb ---
-    const examples = generateExamples(verb).map(e => ({ verb_id: verbRow!.id, ...e }))
-    const collocations = generateCollocations(verb).map(c => ({ verb_id: verbRow!.id, ...c }))
-    const questions = generateQuestions(verb).map(q => ({ verb_id: verbRow!.id, ...q }))
-    const mistakes = generateMistakes(verb).map(m => ({ verb_id: verbRow!.id, ...m }))
-    const tips = generateTips(verb).map(t => ({ verb_id: verbRow!.id, ...t }))
+    // Merge database metadata for reflexive verbs
+    let enrichVerb = { ...verb }
+    if (verb.reflexive) {
+      const meta = metaMap.get(verb.infinitive)
+      if (meta) {
+        // Derive requiresObject from object_case and preposition
+        const requiresObj = meta.object_case !== 'none' || meta.preposition !== null
+        // Derive placeholder from object_case
+        let placeholder = 'etwas'
+        if (meta.object_case === 'dativ') placeholder = 'jemandem'
+        else if (meta.object_case === 'genitiv') placeholder = 'dessen'
+        
+        enrichVerb = {
+          ...verb,
+          reflexivePronounCase: meta.reflexive_pronoun_case || verb.reflexivePronounCase,
+          requiresObject: requiresObj,
+          objectPlaceholder: placeholder,
+          requiredPreposition: meta.preposition || undefined,
+          prepositionCase: meta.preposition_case || undefined,
+          transitivity: meta.transitivity || verb.tr,
+          object_case: meta.object_case || verb.obj,
+          preposition: meta.preposition || verb.prep,
+          preposition_case: meta.preposition_case || verb.prepCase,
+        }
+      }
+    }
+
+    const examples = generateExamples(enrichVerb).map(e => ({ verb_id: verbRow!.id, ...e }))
+    const collocations = generateCollocations(enrichVerb).map(c => ({ verb_id: verbRow!.id, ...c }))
+    const questions = generateQuestions(enrichVerb).map(q => ({ verb_id: verbRow!.id, ...q }))
+    const mistakes = generateMistakes(enrichVerb).map(m => ({ verb_id: verbRow!.id, ...m }))
+    const tips = generateTips(enrichVerb).map(t => ({ verb_id: verbRow!.id, ...t }))
 
     if (examples.length > 0) {
       const { error } = await supabase.from('verb_examples').insert(examples)

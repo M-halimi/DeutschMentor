@@ -1,3 +1,5 @@
+export type ReflexivePronounCase = 'akkusativ' | 'dativ' | 'both';
+
 export interface VerbEntry {
   infinitive: string
   en: string
@@ -12,6 +14,7 @@ export interface VerbEntry {
   prepCase?: 'akkusativ' | 'dativ' | 'wechsel'
   reflexive?: boolean
   reflexivePronoun?: string
+  reflexivePronounCase?: ReflexivePronounCase
   aux: 'haben' | 'sein' | 'both'
   p2: string
   sep?: string
@@ -20,6 +23,11 @@ export interface VerbEntry {
   syn?: string[]
   ant?: string[]
   tags?: string[]
+  // Reflexive metadata (from audit)
+  requiresObject?: boolean
+  objectPlaceholder?: string
+  requiredPreposition?: string
+  prepositionCase?: 'akkusativ' | 'dativ' | 'genitiv' | 'none'
 }
 
 export interface VerbGroup {
@@ -50,6 +58,7 @@ export interface GermanVerbEntry {
   separable: boolean
   reflexive: boolean
   reflexivePronoun?: { akk?: boolean; dat?: boolean }
+  reflexivePronounCase?: ReflexivePronounCase
   auxiliary: 'haben' | 'sein'
   transitive?: boolean
   vowelChange?: { present?: { du?: string; er_sie_es?: string } }

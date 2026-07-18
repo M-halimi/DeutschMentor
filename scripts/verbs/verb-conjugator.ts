@@ -897,6 +897,22 @@ function splitSeparable(infinitive: string, declaredPrefix?: string): { base: st
   return { base: infinitive, prefix: '' }
 }
 
+// Reflexive pronouns by case
+const REFLEXIVE_PRONOUNS = {
+  akkusativ: { ich: 'mich', du: 'dich', er_sie_es: 'sich', wir: 'uns', ihr: 'euch', Sie: 'sich' },
+  dativ: { ich: 'mir', du: 'dir', er_sie_es: 'sich', wir: 'uns', ihr: 'euch', Sie: 'sich' },
+}
+
+function addReflexivePronouns(forms: ConjugationResult, pronounCase: 'akkusativ' | 'dativ'): ConjugationResult {
+  const pronouns = REFLEXIVE_PRONOUNS[pronounCase]
+  const result: ConjugationResult = {}
+  for (const person of persons) {
+    const form = forms[person]
+    result[person] = form ? `${form} ${pronouns[person]}` : null
+  }
+  return result
+}
+
 export function generateConjugations(
   infinitive: string,
   verbType: string,
@@ -904,6 +920,7 @@ export function generateConjugations(
   auxiliary: string,
   separablePrefix: string,
   isReflexive: boolean,
+  reflexivePronounCase: 'akkusativ' | 'dativ' | 'both' = 'akkusativ',
   praeteritumStem?: string
 ): VerbConjugations {
   const prefix = separablePrefix || ''
@@ -1065,15 +1082,40 @@ export function generateConjugations(
   // Passiv (only for transitive verbs)
   const passiv: ConjugationResult | null = null
 
+  // Add reflexive pronouns if needed
+  let finalPraesens = praesens
+  let finalPraeteritum = praeteritum
+  let finalPerfekt = perfekt
+  let finalPlusquamperfekt = plusquamperfekt
+  let finalFuturi = futuri
+  let finalFuturii = futurii
+  let finalKonjunktivii = konjunktivii
+  let finalImperativ = imperativ
+
+  if (isReflexive && reflexivePronounCase !== 'both') {
+    finalPraesens = addReflexivePronouns(praesens, reflexivePronounCase)
+    finalPraeteritum = addReflexivePronouns(praeteritum, reflexivePronounCase)
+    finalPerfekt = addReflexivePronouns(perfekt, reflexivePronounCase)
+    finalPlusquamperfekt = addReflexivePronouns(plusquamperfekt, reflexivePronounCase)
+    finalFuturi = addReflexivePronouns(futuri, reflexivePronounCase)
+    finalFuturii = addReflexivePronouns(futurii, reflexivePronounCase)
+    finalKonjunktivii = addReflexivePronouns(konjunktivii, reflexivePronounCase)
+    // Imperativ: du/wir/ihr/Sie get reflexive pronouns
+    finalImperativ = addReflexivePronouns(imperativ, reflexivePronounCase)
+    // Remove ich and er_sie_es from imperativ (they're already null)
+    finalImperativ.ich = null
+    finalImperativ.er_sie_es = null
+  }
+
   return {
-    praesens,
-    praeteritum,
-    perfekt,
-    plusquamperfekt,
-    futuri,
-    futurii,
-    konjunktivii,
-    imperativ,
+    praesens: finalPraesens,
+    praeteritum: finalPraeteritum,
+    perfekt: finalPerfekt,
+    plusquamperfekt: finalPlusquamperfekt,
+    futuri: finalFuturi,
+    futurii: finalFuturii,
+    konjunktivii: finalKonjunktivii,
+    imperativ: finalImperativ,
     passiv
   }
 }

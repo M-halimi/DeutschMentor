@@ -388,13 +388,17 @@ export function conjugate(entry: GermanVerbEntry): VerbConjugations {
   const pattern = findPattern(baseInfinitive)
   const patData = pattern ? strongPatterns[pattern] : null
 
-  // Priority 1: Manual dictionary (praeteritum fully specified)
-  // Priority 2: Exceptional verb
-  // Priority 3: Modal verb
-  // Priority 4: Strong pattern
-  // Priority 5: Regular fallback
+  // Reflexive pronoun setup (must be before tense generation for Futur/Konjunktiv)
+  const reflexivePronounsAkk: Record<string, string> = {
+    ich: 'mich', du: 'dich', er_sie_es: 'sich', wir: 'uns', ihr: 'euch', Sie: 'sich',
+  }
+  const reflexivePronounsDat: Record<string, string> = {
+    ich: 'mir', du: 'dir', er_sie_es: 'sich', wir: 'uns', ihr: 'euch', Sie: 'sich',
+  }
+  const useDat = entry.reflexivePronounCase === 'dativ'
+  const pronouns = useDat ? reflexivePronounsDat : reflexivePronounsAkk
 
-  // --- PRÄSENS ---
+  // Helper functions
   let praesens: ConjugationResult
   if (exc?.praesens) {
     praesens = conjToResult(exc.praesens)
@@ -479,22 +483,43 @@ export function conjugate(entry: GermanVerbEntry): VerbConjugations {
     wir: `${auxPraet.wir} ${p2}`, ihr: `${auxPraet.ihr} ${p2}`, Sie: `${auxPraet.Sie} ${p2}`,
   }
 
+  // For reflexive verbs in Futur I, Futur II, Konjunktiv II: use base infinitive (without "sich")
+  // and add reflexive pronoun before it
+  const baseInfinitiveForCompound = entry.reflexive ? baseInfinitive : entry.infinitive
+  const infAux = entry.auxiliary === 'sein' ? 'sein' : 'haben'
+
   // --- FUTUR I ---
-  const infinitiveFull = entry.infinitive
-  const futuri: ConjugationResult = {
-    ich: `werde ${infinitiveFull}`, du: `wirst ${infinitiveFull}`, er_sie_es: `wird ${infinitiveFull}`,
-    wir: `werden ${infinitiveFull}`, ihr: `werdet ${infinitiveFull}`, Sie: `werden ${infinitiveFull}`,
+  const futuri: ConjugationResult = {}
+  if (entry.reflexive) {
+    for (const p of PERSONS) {
+      futuri[p] = `werde ${pronouns[p]} ${baseInfinitiveForCompound}`
+    }
+  } else {
+    futuri.ich = `werde ${baseInfinitiveForCompound}`
+    futuri.du = `wirst ${baseInfinitiveForCompound}`
+    futuri.er_sie_es = `wird ${baseInfinitiveForCompound}`
+    futuri.wir = `werden ${baseInfinitiveForCompound}`
+    futuri.ihr = `werdet ${baseInfinitiveForCompound}`
+    futuri.Sie = `werden ${baseInfinitiveForCompound}`
   }
 
   // --- FUTUR II ---
-  const infAux = entry.auxiliary === 'sein' ? 'sein' : 'haben'
-  const futurii: ConjugationResult = {
-    ich: `werde ${p2} ${infAux}`, du: `wirst ${p2} ${infAux}`, er_sie_es: `wird ${p2} ${infAux}`,
-    wir: `werden ${p2} ${infAux}`, ihr: `werdet ${p2} ${infAux}`, Sie: `werden ${p2} ${infAux}`,
+  const futurii: ConjugationResult = {}
+  if (entry.reflexive) {
+    for (const p of PERSONS) {
+      futurii[p] = `werde ${pronouns[p]} ${p2} ${infAux}`
+    }
+  } else {
+    futurii.ich = `werde ${p2} ${infAux}`
+    futurii.du = `wirst ${p2} ${infAux}`
+    futurii.er_sie_es = `wird ${p2} ${infAux}`
+    futurii.wir = `werden ${p2} ${infAux}`
+    futurii.ihr = `werdet ${p2} ${infAux}`
+    futurii.Sie = `werden ${p2} ${infAux}`
   }
 
   // --- KONJUNKTIV II ---
-  let konjunktivii: ConjugationResult
+  let konjunktivii: ConjugationResult = {}
   if (entry.konjunktivII) {
     konjunktivii = conjToResult(entry.konjunktivII)
   } else if (exc?.konjunktivII) {
@@ -502,9 +527,15 @@ export function conjugate(entry: GermanVerbEntry): VerbConjugations {
   } else if (modal) {
     konjunktivii = conjToResult(modal.konjunktivII)
   } else {
-    konjunktivii = {
-      ich: `würde ${infinitiveFull}`, du: `würdest ${infinitiveFull}`, er_sie_es: `würde ${infinitiveFull}`,
-      wir: `würden ${infinitiveFull}`, ihr: `würdet ${infinitiveFull}`, Sie: `würden ${infinitiveFull}`,
+    if (entry.reflexive) {
+      for (const p of PERSONS) {
+        konjunktivii[p] = `würde ${pronouns[p]} ${baseInfinitiveForCompound}`
+      }
+    } else {
+      konjunktivii = {
+        ich: `würde ${baseInfinitiveForCompound}`, du: `würdest ${baseInfinitiveForCompound}`, er_sie_es: `würde ${baseInfinitiveForCompound}`,
+        wir: `würden ${baseInfinitiveForCompound}`, ihr: `würdet ${baseInfinitiveForCompound}`, Sie: `würden ${baseInfinitiveForCompound}`,
+      }
     }
   }
 
@@ -528,18 +559,10 @@ export function conjugate(entry: GermanVerbEntry): VerbConjugations {
   }
 
   // --- REFLEXIVE PRONOUN APPLICATION ---
-  const reflexivePronouns: Record<string, string> = {
-    ich: 'mich', du: 'dich', er_sie_es: 'sich', wir: 'uns', ihr: 'euch', Sie: 'sich',
-  }
-  const reflexivePronounsDat: Record<string, string> = {
-    ich: 'mir', du: 'dir', er_sie_es: 'sich', wir: 'uns', ihr: 'euch', Sie: 'sich',
-  }
-
   const applyReflexive = (forms: ConjugationResult): ConjugationResult => {
-    const useDat = entry.reflexivePronoun?.dat
     const result: ConjugationResult = {}
     for (const p of PERSONS) {
-      const pron = useDat ? reflexivePronounsDat[p] : reflexivePronouns[p]
+      const pron = pronouns[p]
       result[p] = forms[p] ? `${forms[p]} ${pron}` : null
     }
     return result
@@ -583,20 +606,17 @@ export function conjugate(entry: GermanVerbEntry): VerbConjugations {
     if (result.imperativ.Sie) result.imperativ.Sie = addSep(imperativ.Sie)
   }
 
-  // Apply reflexive
+  // Apply reflexive (only to tenses that don't already have pronouns)
   if (entry.reflexive) {
-    for (const tense of ['praesens', 'praeteritum', 'perfekt', 'plusquamperfekt', 'futuri', 'futurii', 'konjunktivii'] as const) {
+    for (const tense of ['praesens', 'praeteritum', 'perfekt', 'plusquamperfekt'] as const) {
       result[tense] = applyReflexive(result[tense]!)
     }
-    if (!entry.separable) {
-      if (result.imperativ.du) result.imperativ.du = `${result.imperativ.du} ${reflexivePronouns.du}`
-      if (result.imperativ.ihr) result.imperativ.ihr = `${result.imperativ.ihr} ${reflexivePronouns.ihr}`
-      if (result.imperativ.Sie) result.imperativ.Sie = `${result.imperativ.Sie} ${reflexivePronouns.Sie}`
-    } else {
-      if (result.imperativ.du) result.imperativ.du = `${result.imperativ.du} ${reflexivePronouns.du}`
-      if (result.imperativ.ihr) result.imperativ.ihr = `${result.imperativ.ihr} ${reflexivePronouns.ihr}`
-      if (result.imperativ.Sie) result.imperativ.Sie = `${result.imperativ.Sie} ${reflexivePronouns.Sie}`
-    }
+    // Futur I, Futur II, Konjunktiv II already have pronouns added above
+    const useDat = entry.reflexivePronounCase === 'dativ'
+    const pronouns = useDat ? reflexivePronounsDat : reflexivePronounsAkk
+    if (result.imperativ.du) result.imperativ.du = `${result.imperativ.du} ${pronouns.du}`
+    if (result.imperativ.ihr) result.imperativ.ihr = `${result.imperativ.ihr} ${pronouns.ihr}`
+    if (result.imperativ.Sie) result.imperativ.Sie = `${result.imperativ.Sie} ${pronouns.Sie}`
   }
 
   // Final imperative formatting: capitalize and add !
