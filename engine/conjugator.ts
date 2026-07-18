@@ -150,7 +150,13 @@ export function conjugatePraesens(verb: VerbEntry): ConjugationSet {
     // --- Handle reflexive pronouns ---
     if (verb.isReflexive) {
       const reflexivePronoun = getReflexivePronoun(person)
-      conjugated = conjugated + ' ' + reflexivePronoun
+      // In Präsens, reflexive pronoun comes BEFORE separable prefix
+      if (prefix) {
+        // Insert pronoun before the prefix
+        conjugated = conjugated.replace(' ' + prefix, ' ' + reflexivePronoun + ' ' + prefix)
+      } else {
+        conjugated = conjugated + ' ' + reflexivePronoun
+      }
     }
 
     conjugation[person] = conjugated

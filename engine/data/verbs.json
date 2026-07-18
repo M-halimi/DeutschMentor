@@ -6395,13 +6395,13 @@
     "category": "regular",
     "auxiliary": "haben",
     "praesens": {
-      "ich": "ziehe an mich",
-      "du": "ziehst an dich",
-      "er_sie_es": "zieht an sich",
-      "wir": "ziehen an uns",
-      "ihr": "zieht an euch",
-      "Sie": "ziehen an sich",
-      "sie": "ziehen an sich"
+      "ich": "ziehe mich an",
+      "du": "ziehst dich an",
+      "er_sie_es": "zieht sich an",
+      "wir": "ziehen uns an",
+      "ihr": "zieht euch an",
+      "Sie": "ziehen sich an",
+      "sie": "ziehen sich an"
     },
     "praeteritum": {
       "ich": "zog an mich",
@@ -6474,13 +6474,13 @@
     "category": "regular",
     "auxiliary": "haben",
     "praesens": {
-      "ich": "ziehe aus mich",
-      "du": "ziehst aus dich",
-      "er_sie_es": "zieht aus sich",
-      "wir": "ziehen aus uns",
-      "ihr": "zieht aus euch",
-      "Sie": "ziehen aus sich",
-      "sie": "ziehen aus sich"
+      "ich": "ziehe mich aus",
+      "du": "ziehst dich aus",
+      "er_sie_es": "zieht sich aus",
+      "wir": "ziehen uns aus",
+      "ihr": "zieht euch aus",
+      "Sie": "ziehen sich aus",
+      "sie": "ziehen sich aus"
     },
     "praeteritum": {
       "ich": "zog aus mich",
@@ -12557,13 +12557,13 @@
     "category": "regular",
     "auxiliary": "haben",
     "praesens": {
-      "ich": "ruhe aus mich",
-      "du": "ruhst aus dich",
-      "er_sie_es": "ruht aus sich",
-      "wir": "ruhen aus uns",
-      "ihr": "ruht aus euch",
-      "Sie": "ruhen aus sich",
-      "sie": "ruhen aus sich"
+      "ich": "ruhe mich aus",
+      "du": "ruhst dich aus",
+      "er_sie_es": "ruht sich aus",
+      "wir": "ruhen uns aus",
+      "ihr": "ruht euch aus",
+      "Sie": "ruhen sich aus",
+      "sie": "ruhen sich aus"
     },
     "praeteritum": {
       "ich": "ruhte aus mich",
@@ -20378,13 +20378,13 @@
     "category": "regular",
     "auxiliary": "haben",
     "praesens": {
-      "ich": "melde an mich",
-      "du": "meldest an dich",
-      "er_sie_es": "meldet an sich",
-      "wir": "melden an uns",
-      "ihr": "meldet an euch",
-      "Sie": "melden an sich",
-      "sie": "melden an sich"
+      "ich": "melde mich an",
+      "du": "meldest dich an",
+      "er_sie_es": "meldet sich an",
+      "wir": "melden uns an",
+      "ihr": "meldet euch an",
+      "Sie": "melden sich an",
+      "sie": "melden sich an"
     },
     "praeteritum": {
       "ich": "meldete an mich",
@@ -20457,13 +20457,13 @@
     "category": "regular",
     "auxiliary": "haben",
     "praesens": {
-      "ich": "melde ab mich",
-      "du": "meldest ab dich",
-      "er_sie_es": "meldet ab sich",
-      "wir": "melden ab uns",
-      "ihr": "meldet ab euch",
-      "Sie": "melden ab sich",
-      "sie": "melden ab sich"
+      "ich": "melde mich ab",
+      "du": "meldest dich ab",
+      "er_sie_es": "meldet sich ab",
+      "wir": "melden uns ab",
+      "ihr": "meldet euch ab",
+      "Sie": "melden sich ab",
+      "sie": "melden sich ab"
     },
     "praeteritum": {
       "ich": "meldete ab mich",
@@ -20773,22 +20773,22 @@
     "category": "separable",
     "auxiliary": "haben",
     "praesens": {
-      "ich": "anbiete",
-      "du": "anbietest",
-      "er_sie_es": "anbietet",
-      "wir": "anbieten",
-      "ihr": "anbietet",
-      "Sie": "anbieten",
-      "sie": "anbieten"
+      "ich": "biete an",
+      "du": "bietest an",
+      "er_sie_es": "bietet an",
+      "wir": "bieten an",
+      "ihr": "bietet an",
+      "Sie": "bieten an",
+      "sie": "bieten an"
     },
     "praeteritum": {
-      "ich": "bot",
-      "du": "botst",
-      "er_sie_es": "bot",
-      "wir": "boten",
-      "ihr": "bott",
-      "Sie": "boten",
-      "sie": "boten"
+      "ich": "bot an",
+      "du": "botst an",
+      "er_sie_es": "bot an",
+      "wir": "boten an",
+      "ihr": "bott an",
+      "Sie": "boten an",
+      "sie": "boten an"
     },
     "perfekt": {
       "ich": "habe angeboten",
@@ -20827,24 +20827,24 @@
       "sie": "werden angeboten haben"
     },
     "konjunktiv_ii": {
-      "ich": "böte",
-      "du": "bötest",
-      "er_sie_es": "böte",
-      "wir": "böten",
-      "ihr": "bötet",
-      "Sie": "böten",
-      "sie": "böten"
+      "ich": "böte an",
+      "du": "bötest an",
+      "er_sie_es": "böte an",
+      "wir": "böten an",
+      "ihr": "bötet an",
+      "Sie": "böten an",
+      "sie": "böten an"
     },
     "imperativ": {
-      "du": "Anbiete",
-      "ihr": "Anbietet",
+      "du": "Biete an",
+      "ihr": "Bietet an",
       "sie": null,
-      "Sie": "Anbieten Sie",
-      "wir": "Anbieten wir"
+      "Sie": "Bieten Sie an",
+      "wir": "Bieten wir an"
     },
     "partizip_i": "anbietend",
     "partizip_ii": "angeboten",
-    "infinitiv_mit_zu": "zu anbieten"
+    "infinitiv_mit_zu": "anzubieten"
   },
   "annehmen": {
     "verb": "annehmen",
@@ -20852,22 +20852,22 @@
     "category": "separable",
     "auxiliary": "haben",
     "praesens": {
-      "ich": "annehme",
-      "du": "annihmst",
-      "er_sie_es": "annihmt",
-      "wir": "annehmen",
-      "ihr": "annehmt",
-      "Sie": "annehmen",
-      "sie": "annehmen"
+      "ich": "nehme an",
+      "du": "nimmst an",
+      "er_sie_es": "nimmt an",
+      "wir": "nehmen an",
+      "ihr": "nehmt an",
+      "Sie": "nehmen an",
+      "sie": "nehmen an"
     },
     "praeteritum": {
-      "ich": "nahm",
-      "du": "nahmst",
-      "er_sie_es": "nahm",
-      "wir": "nahmen",
-      "ihr": "nahmt",
-      "Sie": "nahmen",
-      "sie": "nahmen"
+      "ich": "nahm an",
+      "du": "nahmst an",
+      "er_sie_es": "nahm an",
+      "wir": "nahmen an",
+      "ihr": "nahmt an",
+      "Sie": "nahmen an",
+      "sie": "nahmen an"
     },
     "perfekt": {
       "ich": "habe angenommen",
@@ -20906,24 +20906,24 @@
       "sie": "werden angenommen haben"
     },
     "konjunktiv_ii": {
-      "ich": "nähme",
-      "du": "nähmest",
-      "er_sie_es": "nähme",
-      "wir": "nähmen",
-      "ihr": "nähmet",
-      "Sie": "nähmen",
-      "sie": "nähmen"
+      "ich": "nähme an",
+      "du": "nähmest an",
+      "er_sie_es": "nähme an",
+      "wir": "nähmen an",
+      "ihr": "nähmet an",
+      "Sie": "nähmen an",
+      "sie": "nähmen an"
     },
     "imperativ": {
-      "du": "Annimm",
-      "ihr": "Annehmt",
+      "du": "Nimm an",
+      "ihr": "Nehmt an",
       "sie": null,
-      "Sie": "Annehmen Sie",
-      "wir": "Annehmen wir"
+      "Sie": "Nehmen Sie an",
+      "wir": "Nehmen wir an"
     },
     "partizip_i": "annehmend",
     "partizip_ii": "angenommen",
-    "infinitiv_mit_zu": "zu annehmen"
+    "infinitiv_mit_zu": "anzunehmen"
   },
   "ablehnen": {
     "verb": "ablehnen",

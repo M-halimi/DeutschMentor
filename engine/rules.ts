@@ -185,15 +185,18 @@ export function getBaseVerb(infinitive: string): string {
     'hinterher',
   ].sort((a, b) => b.length - a.length) // longest first
 
-  // Verbs that LOOK like they have a separable prefix but DON'T (inseparable or non-existent base)
+  // Verbs that LOOK like they have a separable prefix but DON'T (truly inseparable)
+  // Only includes verbs where the prefix is NEVER separable in standard German
   const nonSeparableExceptions = new Set([
-    // "ant" verbs
-    'antworten', 'antasten', 'antichambrieren', 'antipathie', 'antizipieren', 'antreiben', 'antreten',
-    // "an" verbs that are not separable (inseparable prefix "an" like anfangen = separable, but anhaben = inseparable?)
-    // Actually check each one...
+    // "ant" verbs - inseparable
+    'antworten', 'antasten', 'antichambrieren', 'antipathie', 'antizipieren',
+    // "an" verbs - ONLY truly inseparable ones
+    'andauern', 'andeuten', 'anerkennen', 'anfühlen', 'angehören', 'anheimfallen',
+    'anlächeln', 'anmutzen', 'ansinnen',
+    'anstatt', 'anstimmen', 'anverwandeln', 'anzweifeln',
     // "be" verbs - inseparable
-    'beachten', 'beantworten', 'beantragen', 'beachten', 'beachten', 'bereichern', 'bearbeiten', 'beauftragen',
-    'beobachten', 'beachten', 'beenden', 'beengen', 'begegnen', 'begreifen', 'behandeln', 'behaupten',
+    'beachten', 'beantworten', 'beantragen', 'bereichern', 'bearbeiten', 'beauftragen',
+    'beobachten', 'beenden', 'beengen', 'begegnen', 'begreifen', 'behandeln', 'behaupten',
     'beheimaten', 'beherrschen', 'behüten', 'beinhalten', 'bejahen', 'bekennen', 'beklagen', 'bekommen',
     'bekräftigen', 'belasten', 'belauschen', 'belächeln', 'beliefern', 'belohnen', 'bemerken', 'bemühen',
     'benachrichten', 'benennen', 'benötigen', 'benutzen', 'beobachten', 'beordern', 'bequemen', 'beraten',
@@ -203,15 +206,17 @@ export function getBaseVerb(infinitive: string): string {
     'bestreichen', 'bestreiten', 'betrachten', 'betrauern', 'betreiben', 'betreten', 'betrügen',
     'betrinken', 'betteln', 'beugen', 'beurteilen', 'bevorzugen', 'bewegen', 'beweisen', 'bezahlen',
     'bezichtigen', 'bezweifeln',
+    // "emp" verbs - inseparable
+    'empfangen', 'empfehlen', 'empfinden', 'empören', 'emporschnellen', 'emporsteigen',
     // "ent" verbs - inseparable
-    'enthalten', 'entdecken', 'entfernen', 'entgegen', 'entgehen', 'enthalten', 'entladen', 'entrichten',
+    'enthalten', 'entdecken', 'entfernen', 'entgegen', 'entgehen', 'entladen', 'entrichten',
     'enttäuschen', 'entwickeln', 'entzünden', 'entziehen',
     // "er" verbs - inseparable
-    'erhalten', 'erklären', 'erleben', 'erlauben', 'erledigen', 'erleben', 'erreichen', 'erscheinen',
+    'erhalten', 'erklären', 'erleben', 'erlauben', 'erledigen', 'erreichen', 'erscheinen',
     'ersparen', 'erwarten', 'erzählen', 'erzielen', 'erzwingen',
     // "ver" verbs - inseparable
     'verstehen', 'verlieren', 'vergessen', 'verzeihen', 'versuchen', 'verkaufen', 'verzehren',
-    'versprechen', 'verstehen', 'verzeihen', 'verlassen', 'verstehen', 'verzeihen',
+    'versprechen', 'verlassen', 'verzeihen',
     // "zer" verbs - inseparable
     'zerbrechen', 'zerfallen', 'zerstören', 'zerlegen', 'zerreißen',
     // "miss" verbs - inseparable
@@ -223,21 +228,9 @@ export function getBaseVerb(infinitive: string): string {
     // other non-separable
     'untersuchen', 'unterhalten', 'unterzeichnen', 'unterstützen',
     'wiederholen', 'wiedersehen', 'wiederkommen', 'wiedergeben', 'wiederfinden',
-    // "ant" = "antworten" - but also "antreiben", "antreten" which ARE separable
-    // "an" can be both - "anfangen" (sep), "anhören" (sep), but "anerkennen" (insep)
-    'anerkennen', 'anbieten', 'angeben', 'angehören', 'angewöhnen', 'annehmen', 'ansprechen',
-    // "be" is always inseparable
-    // "emp" is always inseparable
-    // "ent" is usually inseparable
-    // "er" is usually inseparable
-    // "ge" is usually inseparable
-    // "ver" is usually inseparable
-    // "zer" is always inseparable
-    // "miss" is always inseparable
-    // "wider" is usually inseparable
-    // "zu" is usually separable (zuhören, zumachen) but not always
-    // "wider" is inseparable
-    // "an" can be both - need more specific list
+    // "zu" verbs that are inseparable
+    'zugeben', 'zumessen', 'zumuten', 'zurechtkommen', 'zurechtweisen',
+    'zurückhalten', 'zurückweisen', 'zusammenfassen', 'zusammenhängen',
   ])
 
   for (const prefix of separablePrefixes) {
