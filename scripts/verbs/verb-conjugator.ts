@@ -309,7 +309,7 @@ const manualIrregulars: Record<string, {
   },
   'kommen': {
     praesens: {},
-    praeteritum: { ich: 'kam', du: 'kamst', er_sie_es: 'kam', wir: 'kamen', ihr: 'kam', Sie: 'kamen' },
+    praeteritum: { ich: 'kam', du: 'kamst', er_sie_es: 'kam', wir: 'kamen', ihr: 'kamt', Sie: 'kamen' },
     partizip_2: 'gekommen',
     konjunktiv_ii: {}
   },
@@ -375,13 +375,13 @@ const manualIrregulars: Record<string, {
   },
   'heißen': {
     praesens: { ich: 'heiße', du: 'heißt', er_sie_es: 'heißt', wir: 'heißen', ihr: 'heißt', Sie: 'heißen' },
-    praeteritum: { ich: 'hieß', du: 'hießt', er_sie_es: 'hieß', wir: 'hießen', ihr: 'hießet', Sie: 'hießen' },
+    praeteritum: { ich: 'hieß', du: 'hießt', er_sie_es: 'hieß', wir: 'hießen', ihr: 'hießt', Sie: 'hießen' },
     partizip_2: 'geheißen',
     konjunktiv_ii: {}
   },
   'schlafen': {
     praesens: {},
-    praeteritum: { ich: 'schlief', du: 'schliefst', er_sie_es: 'schlief', wir: 'schliefen', ihr: 'schlief', Sie: 'schliefen' },
+    praeteritum: { ich: 'schlief', du: 'schliefst', er_sie_es: 'schlief', wir: 'schliefen', ihr: 'schlieft', Sie: 'schliefen' },
     partizip_2: 'geschlafen',
     konjunktiv_ii: {}
   },
@@ -393,7 +393,7 @@ const manualIrregulars: Record<string, {
   },
   'fangen': {
     praesens: {},
-    praeteritum: { ich: 'fing', du: 'fingst', er_sie_es: 'fing', wir: 'fingen', ihr: 'finget', Sie: 'fingen' },
+    praeteritum: { ich: 'fing', du: 'fingst', er_sie_es: 'fing', wir: 'fingen', ihr: 'fingt', Sie: 'fingen' },
     partizip_2: 'gefangen',
     konjunktiv_ii: {}
   },
@@ -421,7 +421,7 @@ const manualIrregulars: Record<string, {
     partizip_2: 'geschwommen',
     konjunktiv_ii: {}
   },
-  'singe': {
+  'singen': {
     praesens: {},
     praeteritum: { ich: 'sang', du: 'sangst', er_sie_es: 'sang', wir: 'sangen', ihr: 'sangt', Sie: 'sangen' },
     partizip_2: 'gesungen',
@@ -441,7 +441,7 @@ const manualIrregulars: Record<string, {
   },
   'gewinnen': {
     praesens: {},
-    praeteritum: { ich: 'gewann', du: 'gewannst', er_sie_es: 'gewann', wir: 'gewannen', ihr: 'gewann', Sie: 'gewannen' },
+    praeteritum: { ich: 'gewann', du: 'gewannst', er_sie_es: 'gewann', wir: 'gewannen', ihr: 'gewannt', Sie: 'gewannen' },
     partizip_2: 'gewonnen',
     konjunktiv_ii: {}
   },
@@ -453,7 +453,7 @@ const manualIrregulars: Record<string, {
   },
   'schneiden': {
     praesens: {},
-    praeteritum: { ich: 'schnitt', du: 'schnittst', er_sie_es: 'schnitt', wir: 'schnitten', ihr: 'schnitte', Sie: 'schnitten' },
+    praeteritum: { ich: 'schnitt', du: 'schnittst', er_sie_es: 'schnitt', wir: 'schnitten', ihr: 'schnittet', Sie: 'schnitten' },
     partizip_2: 'geschnitten',
     konjunktiv_ii: {}
   },
@@ -537,7 +537,7 @@ const manualIrregulars: Record<string, {
   },
   'geschehen': {
     praesens: { ich: 'geschehe', du: 'geschiehst', er_sie_es: 'geschieht', wir: 'geschehen', ihr: 'gescheht', Sie: 'geschehen' },
-    praeteritum: { ich: 'geschah', du: 'geschahst', er_sie_es: 'geschah', wir: 'geschachen', ihr: 'geschaht', Sie: 'geschachen' },
+    praeteritum: { ich: 'geschah', du: 'geschahst', er_sie_es: 'geschah', wir: 'geschahen', ihr: 'geschaht', Sie: 'geschahen' },
     partizip_2: 'geschehen',
     konjunktiv_ii: {}
   },
@@ -567,7 +567,7 @@ const manualIrregulars: Record<string, {
   },
   'backen': {
     praesens: {},
-    praeteritum: { ich: 'buk', du: 'bukst', er_sie_es: 'buk', wir: 'buchen', ihr: 'bukt', Sie: 'buchen' },
+    praeteritum: { ich: 'backte', du: 'backtest', er_sie_es: 'backte', wir: 'backten', ihr: 'backtet', Sie: 'backten' },
     partizip_2: 'gebacken',
     konjunktiv_ii: {}
   },
@@ -596,15 +596,21 @@ const manualIrregulars: Record<string, {
     konjunktiv_ii: {}
   },
   'verderben': {
-    praesens: { ich: 'verderbe', du: 'verdirst', er_sie_es: 'verdirt', wir: 'verderben', ihr: 'verderbt', Sie: 'verderben' },
+    praesens: { ich: 'verderbe', du: 'verdirbst', er_sie_es: 'verdirbt', wir: 'verderben', ihr: 'verderbt', Sie: 'verderben' },
     praeteritum: { ich: 'verdarb', du: 'verdarbst', er_sie_es: 'verdarb', wir: 'verdarben', ihr: 'verdarbt', Sie: 'verdarben' },
     partizip_2: 'verdorben',
     konjunktiv_ii: {}
   },
   'löschen': {
     praesens: {},
-    praeteritum: { ich: 'losch', du: 'loschst', er_sie_es: 'losch', wir: 'löschten', ihr: 'loscht', Sie: 'löschten' },
-    partizip_2: 'geloschen',
+    praeteritum: { ich: 'löschte', du: 'löschtest', er_sie_es: 'löschte', wir: 'löschten', ihr: 'löschtet', Sie: 'löschten' },
+    partizip_2: 'gelöscht',
+    konjunktiv_ii: {}
+  },
+  'erlöschen': {
+    praesens: { ich: 'erlösche', du: 'erlischst', er_sie_es: 'erlischt', wir: 'erlöschen', ihr: 'erlöscht', Sie: 'erlöschen' },
+    praeteritum: { ich: 'erlosch', du: 'erloschst', er_sie_es: 'erlosch', wir: 'erloschen', ihr: 'erloscht', Sie: 'erloschen' },
+    partizip_2: 'erloschen',
     konjunktiv_ii: {}
   },
   'schaffen': {
@@ -870,6 +876,27 @@ function applyVowelChange(stem: string, change: string): string {
   return stem.slice(0, idx) + change + stem.slice(idx + 1)
 }
 
+// Recognized separable prefixes (longest first to avoid partial matches)
+const KNOWN_SEPARABLE_PREFIXES = [
+  'auf', 'an', 'ab', 'aus', 'bei', 'ein', 'mit', 'nach', 'vor', 'zu',
+  'zurück', 'zusammen', 'weg', 'her', 'hin', 'los', 'fort', 'weiter',
+  'fern', 'statt', 'um', 'durch', 'über', 'unter', 'wieder'
+].sort((a, b) => b.length - a.length)
+
+function splitSeparable(infinitive: string, declaredPrefix?: string): { base: string; prefix: string } {
+  if (declaredPrefix) {
+    if (infinitive.startsWith(declaredPrefix)) {
+      return { base: infinitive.slice(declaredPrefix.length), prefix: declaredPrefix }
+    }
+  }
+  for (const p of KNOWN_SEPARABLE_PREFIXES) {
+    if (infinitive.startsWith(p) && infinitive.length > p.length + 2) {
+      return { base: infinitive.slice(p.length), prefix: p }
+    }
+  }
+  return { base: infinitive, prefix: '' }
+}
+
 export function generateConjugations(
   infinitive: string,
   verbType: string,
@@ -879,9 +906,12 @@ export function generateConjugations(
   isReflexive: boolean,
   praeteritumStem?: string
 ): VerbConjugations {
-  const manual = manualIrregulars[infinitive]
-  const st = stem(infinitive)
   const prefix = separablePrefix || ''
+  const { base: baseForLookup } = prefix
+    ? splitSeparable(infinitive, prefix)
+    : { base: infinitive }
+  const manual = manualIrregulars[infinitive] || manualIrregulars[baseForLookup]
+  const st = stem(prefix ? baseForLookup : infinitive)
   const useAux = auxiliary === 'both' ? 'sein' : auxiliary
 
   function applySep(base: string): string {

@@ -39,6 +39,22 @@ function p(verb: VerbEntry): string {
   return verb.infinitive.replace(/^sich\s+/, '')
 }
 
+/** Return the "full" infinitive (for display) */
+function fullInf(verb: VerbEntry): string {
+  return verb.infinitive.replace(/^sich\s+/, '')
+}
+
+/** Strip the separable prefix from the infinitive to get the bare verb string */
+function baseInf(verb: VerbEntry): string {
+  const inf = p(verb)
+  return verb.sep ? inf.slice(verb.sep.length) : inf
+}
+
+/** Stem of the bare verb (no prefix) */
+function baseStem(verb: VerbEntry): string {
+  return baseInf(verb).replace(/(en|n)$/, '')
+}
+
 function stem(infinitive: string): string {
   return infinitive.replace(/(en|n)$/, '')
 }
@@ -75,40 +91,41 @@ function dativPrep(): string {
 
 export function generateExamples(verb: VerbEntry): VerbExampleRow[] {
   const base = p(verb)
-  const st = stem(base)
-  const capitalized = capitalize(st)
+  const bSt = baseStem(verb)             // stem WITHOUT prefix
+  const st = stem(base)                  // full infinitive stem (with prefix, for non-separable forms)
+  const capitalized = capitalize(bSt)
   const isSep = verb.type === 'separable'
   const prefix = verb.sep || ''
   const hasAkkusativ = verb.obj === 'akkusativ' || verb.obj === 'akkusativ_dativ'
 
   const results: VerbExampleRow[] = []
 
-  const du = duForm(st)
-  const er = erForm(st)
+  const du = duForm(bSt)                // conjugated du from BASE stem
+  const er = erForm(bSt)
 
   if (verb.level === 'A1' || verb.level === 'A2') {
     if (verb.reflexive) {
       results.push({
         difficulty: 'beginner',
-        german: `Ich ${st}e mich.`,
+        german: `Ich ${bSt}e mich.`,
         english: `I ${base} myself.`,
         arabic: `أنا ${verb.ar || 'أ' + base} نفسي.`,
-        french: `Je me ${st}e.`,
+        french: `Je me ${bSt}e.`,
       })
       results.push({
         difficulty: 'beginner',
         german: `${capitalize(du)} du dich?`,
         english: `Do you ${base} yourself?`,
         arabic: `هل ${verb.ar ? 'ت' + verb.ar.slice(1) : 'ت' + base} نفسك؟`,
-        french: `Est-ce que tu te ${st}es ?`,
+        french: `Est-ce que tu te ${bSt}es ?`,
       })
     } else if (verb.type === 'modal') {
       results.push({
         difficulty: 'beginner',
-        german: `Ich ${st}e das machen.`,
+        german: `Ich ${bSt}e das machen.`,
         english: `I ${base} to do that.`,
         arabic: `أنا ${verb.ar || 'أستطيع'} فعل ذلك.`,
-        french: `Je ${st}e faire ça.`,
+        french: `Je ${bSt}e faire ça.`,
       })
       results.push({
         difficulty: 'beginner',
@@ -120,10 +137,10 @@ export function generateExamples(verb: VerbEntry): VerbExampleRow[] {
     } else if (isSep) {
       results.push({
         difficulty: 'beginner',
-        german: `Ich ${prefix}${st}e.`,
+        german: `Ich ${bSt}e ${prefix}.`,
         english: `I ${base} (${prefix}).`,
         arabic: `أنا ${verb.ar || base}.`,
-        french: `Je ${st}e ${prefix}.`,
+        french: `Je ${bSt}e ${prefix}.`,
       })
       results.push({
         difficulty: 'beginner',
@@ -135,10 +152,10 @@ export function generateExamples(verb: VerbEntry): VerbExampleRow[] {
     } else if (hasAkkusativ) {
       results.push({
         difficulty: 'beginner',
-        german: `Ich ${st}e das.`,
+        german: `Ich ${bSt}e das.`,
         english: `I ${base} that.`,
         arabic: `أنا ${verb.ar || 'أ' + base} ذلك.`,
-        french: `Je ${st}e ça.`,
+        french: `Je ${bSt}e ça.`,
       })
       results.push({
         difficulty: 'beginner',
@@ -150,10 +167,10 @@ export function generateExamples(verb: VerbEntry): VerbExampleRow[] {
     } else {
       results.push({
         difficulty: 'beginner',
-        german: `Ich ${st}e.`,
+        german: `Ich ${bSt}e.`,
         english: `I ${base}.`,
         arabic: `أنا ${verb.ar || 'أ' + base}.`,
-        french: `Je ${st}e.`,
+        french: `Je ${bSt}e.`,
       })
       results.push({
         difficulty: 'beginner',
@@ -170,24 +187,24 @@ export function generateExamples(verb: VerbEntry): VerbExampleRow[] {
       german: `Er ${auxVerb} gestern ${verb.p2}.`,
       english: `He ${verb.aux === 'sein' || verb.aux === 'both' ? 'went/has' : 'has'} ${verb.p2} yesterday.`,
       arabic: `هو ${verb.ar || ''} البارحة.`,
-      french: `Il a ${st}é hier.`,
+      french: `Il a ${bSt}é hier.`,
     })
 
     if (hasAkkusativ && !verb.reflexive) {
       results.push({
         difficulty: 'intermediate',
-        german: `Ich ${st}e jeden Tag ${akkusativPrep()} meine Arbeit.`,
+        german: `Ich ${bSt}e jeden Tag ${akkusativPrep()} meine Arbeit.`,
         english: `I ${base} every day for my work.`,
         arabic: `أنا ${verb.ar || 'أ' + base} كل يوم لعملي.`,
-        french: `Je ${st}e tous les jours pour mon travail.`,
+        french: `Je ${bSt}e tous les jours pour mon travail.`,
       })
     } else if (isSep) {
       results.push({
         difficulty: 'intermediate',
-        german: `Ich muss heute ${prefix}${base}en.`,
+        german: `Ich muss heute ${verb.infinitive}.`,
         english: `I have to ${base} today.`,
         arabic: `يجب علي أن ${verb.ar || 'أ' + base} اليوم.`,
-        french: `Je dois ${st}er aujourd'hui.`,
+        french: `Je dois ${bSt}er aujourd'hui.`,
       })
     }
   }
@@ -197,121 +214,122 @@ export function generateExamples(verb: VerbEntry): VerbExampleRow[] {
 
 export function generateCollocations(verb: VerbEntry): VerbCollocationRow[] {
   const display = infinitiveDisplay(verb)
-  const base = p(verb)
+  const inf = fullInf(verb)
   const prefix = verb.sep || ''
 
   const results: VerbCollocationRow[] = []
 
   if (verb.reflexive) {
     results.push({
-      collocation: `sich ${base}en + über ${verb.obj === 'akkusativ' ? 'Akkusativ' : 'Akkusativ'}`,
-      english: `to ${base} about`,
-      arabic: `أن ${verb.ar || 'ي' + base} عن`,
-      french: `se ${base}er de`,
+      collocation: `sich ${inf} + über ${verb.obj === 'akkusativ' ? 'Akkusativ' : 'Akkusativ'}`,
+      english: `to ${inf} about`,
+      arabic: `أن ${verb.ar || 'ي' + inf} عن`,
+      french: `se ${inf}er de`,
     })
   } else if (prefix) {
     results.push({
-      collocation: `${prefix}${base}en + Dativ`,
-      english: `to ${base} (sep.)`,
-      arabic: `أن ${verb.ar || 'ي' + base} (منفصل)`,
-      french: `${base}er (séparable)`,
+      collocation: `${inf} + Dativ`,
+      english: `to ${inf} (sep.)`,
+      arabic: `أن ${verb.ar || 'ي' + inf} (منفصل)`,
+      french: `${inf}er (séparable)`,
     })
   } else if (verb.obj === 'akkusativ' || verb.obj === 'both') {
     results.push({
-      collocation: `jdn./etw. ${base}en`,
-      english: `to ${base} sb./sth.`,
-      arabic: `أن ${verb.ar || 'ي' + base} شخصًا/شيئًا`,
-      french: `${base}er qn./qc.`,
+      collocation: `jdn./etw. ${inf}`,
+      english: `to ${inf} sb./sth.`,
+      arabic: `أن ${verb.ar || 'ي' + inf} شخصًا/شيئًا`,
+      french: `${inf}er qn./qc.`,
     })
   } else if (verb.obj === 'dativ') {
     results.push({
-      collocation: `jdm. ${base}en`,
-      english: `to ${base} sb. (dative)`,
-      arabic: `أن ${verb.ar || 'ي' + base} لشخص`,
-      french: `${base}er à qn.`,
+      collocation: `jdm. ${inf}`,
+      english: `to ${inf} sb. (dative)`,
+      arabic: `أن ${verb.ar || 'ي' + inf} لشخص`,
+      french: `${inf}er à qn.`,
     })
   } else {
     results.push({
-      collocation: `${base}en`,
-      english: `to ${base}`,
-      arabic: `أن ${verb.ar || 'ي' + base}`,
-      french: `${base}er`,
+      collocation: `${inf}`,
+      english: `to ${inf}`,
+      arabic: `أن ${verb.ar || 'ي' + inf}`,
+      french: `${inf}er`,
     })
   }
 
   if (verb.aux === 'sein') {
     results.push({
-      collocation: `mit dem Auto ${base}en`,
-      english: `to ${base} by car`,
-      arabic: `أن ${verb.ar || 'ي' + base} بالسيارة`,
-      french: `${base}er en voiture`,
+      collocation: `mit dem Auto ${inf}`,
+      english: `to ${inf} by car`,
+      arabic: `أن ${verb.ar || 'ي' + inf} بالسيارة`,
+      french: `${inf}er en voiture`,
     })
   }
 
   results.push({
-    collocation: `${base}en + ${akkusativPrep()} + Akkusativ`,
-    english: `to ${base} (with prep)`,
-    arabic: `أن ${verb.ar || 'ي' + base} مع حرف جر`,
-    french: `${base}er avec préposition`,
+    collocation: `${inf} + ${akkusativPrep()} + Akkusativ`,
+    english: `to ${inf} (with prep)`,
+    arabic: `أن ${verb.ar || 'ي' + inf} مع حرف جر`,
+    french: `${inf}er avec préposition`,
   })
 
   return results.slice(0, 4)
 }
 
 export function generateQuestions(verb: VerbEntry): VerbQuestionRow[] {
-  const base = p(verb)
-  const st = stem(base)
-  const du = duForm(st)
+  const inf = fullInf(verb)
+  const bSt = baseStem(verb)
+  const du = duForm(bSt)
   const capitalized = capitalize(du)
   const prefix = verb.sep || ''
-  const sepStr = prefix ? ` ${prefix}` : ''
   const results: VerbQuestionRow[] = []
 
   results.push({
-    german: `${capitalized} du gern?`,
-    english: `Do you like to ${base}?`,
-    arabic: `هل تحب ${verb.ar || 'أن ت' + base}؟`,
-    french: `Aimes-tu ${base}er ?`,
+    german: `${capitalized} du gern${prefix ? ` ${prefix}` : ''}?`,
+    english: `Do you like to ${inf}?`,
+    arabic: `هل تحب ${verb.ar || 'أن ت' + inf}؟`,
+    french: `Aimes-tu ${inf}er ?`,
   })
 
   if (verb.obj !== 'none' && !verb.reflexive) {
+    const withSep = prefix ? ` ${prefix}` : ''
     results.push({
-      german: `Was ${du} du${sepStr}?`,
-      english: `What do you ${base}?`,
-      arabic: `ماذا ${verb.ar ? 'ت' + verb.ar.slice(1) : 'ت' + base}؟`,
-      french: `Qu'est-ce que tu ${du}${sepStr} ?`,
+      german: `Was ${du} du${withSep}?`,
+      english: `What do you ${inf}?`,
+      arabic: `ماذا ${verb.ar ? 'ت' + verb.ar.slice(1) : 'ت' + inf}؟`,
+      french: `Qu'est-ce que tu ${du}${withSep} ?`,
     })
   }
 
+  const withSep = prefix ? ` ${prefix}` : ''
   if (verb.aux === 'sein') {
     results.push({
-      german: `Wann ${du} du${sepStr}?`,
-      english: `When do you ${base}?`,
-      arabic: `متى ${verb.ar ? 'ت' + verb.ar.slice(1) : 'ت' + base}؟`,
-      french: `Quand ${du}-tu${sepStr} ?`,
+      german: `Wann ${du} du${withSep}?`,
+      english: `When do you ${inf}?`,
+      arabic: `متى ${verb.ar ? 'ت' + verb.ar.slice(1) : 'ت' + inf}؟`,
+      french: `Quand ${du}-tu${withSep} ?`,
     })
   } else {
     results.push({
-      german: `Wie oft ${du} du${sepStr}?`,
-      english: `How often do you ${base}?`,
-      arabic: `كم مرة ${verb.ar ? 'ت' + verb.ar.slice(1) : 'ت' + base}؟`,
-      french: `À quelle fréquence ${du}-tu${sepStr} ?`,
+      german: `Wie oft ${du} du${withSep}?`,
+      english: `How often do you ${inf}?`,
+      arabic: `كم مرة ${verb.ar ? 'ت' + verb.ar.slice(1) : 'ت' + inf}؟`,
+      french: `À quelle fréquence ${du}-tu${withSep} ?`,
     })
   }
 
   if (verb.reflexive) {
     results.push({
-      german: `${capitalized} du dich?`,
-      english: `Do you ${base} yourself?`,
-      arabic: `هل ${verb.ar ? 'ت' + verb.ar.slice(1) : 'ت' + base} نفسك؟`,
-      french: `Est-ce que tu te ${st}es ?`,
+      german: `${capitalized} du dich${prefix ? ` ${prefix}` : ''}?`,
+      english: `Do you ${inf} yourself?`,
+      arabic: `هل ${verb.ar ? 'ت' + verb.ar.slice(1) : 'ت' + inf} نفسك؟`,
+      french: `Est-ce que tu te ${bSt}es${prefix ? ` ${prefix}` : ''} ?`,
     })
   } else if (prefix) {
     results.push({
       german: `Wann ${du} du ${prefix}?`,
-      english: `When do you ${prefix}${base}?`,
-      arabic: `متى ${verb.ar ? 'ت' + verb.ar.slice(1) : 'ت' + base} ${prefix}؟`,
-      french: `Quand est-ce que tu ${st}es ${prefix} ?`,
+      english: `When do you ${inf}?`,
+      arabic: `متى ${verb.ar ? 'ت' + verb.ar.slice(1) : 'ت' + inf} ${prefix}؟`,
+      french: `Quand est-ce que tu ${bSt}es ${prefix} ?`,
     })
   }
 
@@ -320,15 +338,15 @@ export function generateQuestions(verb: VerbEntry): VerbQuestionRow[] {
 
 export function generateMistakes(verb: VerbEntry): VerbMistakeRow[] {
   const base = p(verb)
-  const st = stem(base)
+  const bSt = baseStem(verb)
   const display = infinitiveDisplay(verb)
   const prefix = verb.sep || ''
   const results: VerbMistakeRow[] = []
 
   if (verb.reflexive) {
     results.push({
-      incorrect: `Ich ${st}e.`,
-      correct: `Ich ${st}e mich.`,
+      incorrect: `Ich ${bSt}e.`,
+      correct: `Ich ${bSt}e mich.`,
       explanation: `"${display}" is reflexive. Always include the reflexive pronoun (mich/dich/sich...).`,
       arabic_explanation: `"${display}" هو فعل انعكاسي. أضف دائماً الضمير الانعكاسي (mich/dich/sich...)`,
       french_explanation: `"${display}" est un verbe réfléchi. Ajoutez toujours le pronom réfléchi (mich/dich/sich...).`,
@@ -337,8 +355,8 @@ export function generateMistakes(verb: VerbEntry): VerbMistakeRow[] {
 
   if (prefix) {
     results.push({
-      incorrect: `Ich ${st}e ${prefix}.`,
-      correct: `Ich ${prefix}${st}e.`,
+      incorrect: `Ich ${prefix}${bSt}e.`,
+      correct: `Ich ${bSt}e ${prefix}.`,
       explanation: `In main clauses, the prefix "${prefix}" moves to the end.`,
       arabic_explanation: `في الجمل الرئيسية، البادئة "${prefix}" تنتقل إلى النهاية.`,
       french_explanation: `Dans les propositions principales, le préfixe "${prefix}" se déplace à la fin.`,

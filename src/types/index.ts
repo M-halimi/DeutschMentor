@@ -753,6 +753,7 @@ export interface Conjugation {
   er_sie_es: string | null
   wir: string | null
   ihr: string | null
+  sie: string | null
   Sie: string | null
 }
 

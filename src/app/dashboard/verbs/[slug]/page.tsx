@@ -48,7 +48,7 @@ const verbTypeLabels: Record<string, string> = {
 }
 
 const pronounLabels: Record<string, string> = {
-  ich: 'ich', du: 'du', er_sie_es: 'er/sie/es', wir: 'wir', ihr: 'ihr', Sie: 'Sie',
+  ich: 'ich', du: 'du', er_sie_es: 'er/sie/es', wir: 'wir', ihr: 'ihr', sie: 'sie', Sie: 'Sie',
 }
 
 function ConjugationTable({ conjugations, verb }: { conjugations: Conjugation[]; verb: GermanVerb }) {
@@ -78,13 +78,13 @@ function ConjugationTable({ conjugations, verb }: { conjugations: Conjugation[];
             </tr>
           </thead>
           <tbody>
-            {(['ich', 'du', 'er_sie_es', 'wir', 'ihr', 'Sie'] as const).map(pronoun => {
+            {(['ich', 'du', 'er_sie_es', 'wir', 'ihr', 'sie', 'Sie'] as const).map(pronoun => {
               const value = tense?.[pronoun]
               return (
                 <tr key={pronoun} className="border-b last:border-0 hover:bg-muted/30">
                   <td className="p-3 text-muted-foreground font-medium">{pronounLabels[pronoun]}</td>
                   <td className="p-3 font-semibold">
-                    {verb.separable_prefix && value ? `${verb.separable_prefix}${value}`.replace('—', '') : value ?? '—'}
+                    {value ?? '—'}
                   </td>
                 </tr>
               )

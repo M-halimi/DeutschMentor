@@ -66,7 +66,7 @@ export const a2Verbs: VerbEntry[] = [
   { infinitive: 'einladen', en: 'to invite', ar: 'يدعو', fr: 'inviter', level: 'A2', freq: 'very_common', type: 'separable', tr: 'transitive', obj: 'akkusativ', aux: 'haben', p2: 'eingeladen', sep: 'ein', tags: ['social', 'celebrations'] },
 
   // === WORK & PROFESSION ===
-  { infinitive: 'bewerben', en: 'to apply', ar: 'يتقدم', fr: 'postuler', level: 'A2', freq: 'common', type: 'separable', tr: 'intransitive', obj: 'none', aux: 'haben', p2: 'beworben', sep: 'be-', tags: ['work', 'career'] },
+  { infinitive: 'bewerben', en: 'to apply', ar: 'يتقدم', fr: 'postuler', level: 'A2', freq: 'common', type: 'inseparable', tr: 'intransitive', obj: 'none', aux: 'haben', p2: 'beworben', tags: ['work', 'career'] },
   { infinitive: 'unterschreiben', en: 'to sign', ar: 'يوقع', fr: 'signer', level: 'A2', freq: 'common', type: 'inseparable', tr: 'transitive', obj: 'akkusativ', aux: 'haben', p2: 'unterschrieben', tags: ['work', 'office'] },
   { infinitive: 'kündigen', en: 'to resign, cancel', ar: 'يستقيل', fr: 'démissionner', level: 'A2', freq: 'common', type: 'regular', tr: 'intransitive', obj: 'none', aux: 'haben', p2: 'gekündigt', tags: ['work', 'career'] },
   { infinitive: 'einstellen', en: 'to hire', ar: 'يوظف', fr: 'embaucher', level: 'A2', freq: 'common', type: 'separable', tr: 'transitive', obj: 'akkusativ', aux: 'haben', p2: 'eingestellt', sep: 'ein', tags: ['work', 'business'] },
@@ -81,7 +81,7 @@ export const a2Verbs: VerbEntry[] = [
   { infinitive: 'prüfen', en: 'to test, examine', ar: 'يمتحن', fr: 'examiner', level: 'A2', freq: 'common', type: 'regular', tr: 'transitive', obj: 'akkusativ', aux: 'haben', p2: 'geprüft', tags: ['education', 'school'] },
   { infinitive: 'bestehen', en: 'to pass (exam)', ar: 'ينجح', fr: 'réussir', level: 'A2', freq: 'very_common', type: 'irregular', tr: 'intransitive', obj: 'none', aux: 'haben', p2: 'bestanden', tags: ['education', 'achievement'] },
   { infinitive: 'durchfallen', en: 'to fail (exam)', ar: 'يرسب', fr: 'échouer', level: 'A2', freq: 'common', type: 'separable', tr: 'intransitive', obj: 'none', aux: 'sein', p2: 'durchgefallen', sep: 'durch', tags: ['education', 'school'] },
-  { infinitive: 'wiederholen', en: 'to repeat', ar: 'يكرر', fr: 'répéter', level: 'A2', freq: 'very_common', type: 'regular', tr: 'transitive', obj: 'akkusativ', aux: 'haben', p2: 'wiederholt', tags: ['education', 'actions'] },
+  { infinitive: 'wiederholen', en: 'to repeat', ar: 'يكرر', fr: 'répéter', level: 'A2', freq: 'very_common', type: 'inseparable', tr: 'transitive', obj: 'akkusativ', aux: 'haben', p2: 'wiederholt', tags: ['education', 'actions'] },
   { infinitive: 'vorbereiten', en: 'to prepare', ar: 'يحضر', fr: 'préparer', level: 'A2', freq: 'very_common', type: 'separable', tr: 'transitive', obj: 'akkusativ', aux: 'haben', p2: 'vorbereitet', sep: 'vor', tags: ['education', 'work'] },
   { infinitive: 'sich konzentrieren', en: 'to concentrate', ar: 'يركز', fr: 'se concentrer', level: 'A2', freq: 'common', type: 'reflexive', tr: 'intransitive', obj: 'none', aux: 'haben', p2: 'konzentriert', reflexive: true, reflexivePronoun: 'sich', tags: ['education', 'work'] },
   { infinitive: 'aufpassen', en: 'to pay attention', ar: 'ينتبه', fr: 'faire attention', level: 'A2', freq: 'common', type: 'separable', tr: 'intransitive', obj: 'none', aux: 'haben', p2: 'aufgepasst', sep: 'auf', tags: ['education', 'school'] },
@@ -186,8 +186,6 @@ export const a2Verbs: VerbEntry[] = [
 
 { infinitive: 'vermieten', en: 'to rent out', ar: 'يؤجر', fr: 'louer (donner)', level: 'A2', freq: 'common', type: 'regular', tr: 'transitive', obj: 'akkusativ', aux: 'haben', p2: 'vermietet', tags: ['house', 'housing'] },
 
-{ infinitive: 'besichtigen', en: 'to inspect/view', ar: 'يعاين', fr: 'visiter', level: 'A2', freq: 'common', type: 'regular', tr: 'transitive', obj: 'akkusativ', aux: 'haben', p2: 'besichtigt', tags: ['housing'] },
-
 { infinitive: 'putzen', en: 'to clean', ar: 'ينظف', fr: 'nettoyer', level: 'A2', freq: 'very_common', type: 'regular', tr: 'transitive', obj: 'akkusativ', aux: 'haben', p2: 'geputzt', tags: ['house', 'daily_life'] },
 
 { infinitive: 'aufräumen', en: 'to tidy up', ar: 'يرتب', fr: 'ranger', level: 'A2', freq: 'very_common', type: 'separable', tr: 'transitive', obj: 'akkusativ', aux: 'haben', p2: 'aufgeräumt', sep: 'auf', tags: ['house'] },
@@ -198,26 +196,21 @@ export const a2Verbs: VerbEntry[] = [
 // === COMMUNICATION ===
 { infinitive: 'besprechen', en: 'to discuss', ar: 'يناقش', fr: 'discuter', level: 'A2', freq: 'very_common', type: 'regular', tr: 'transitive', obj: 'akkusativ', aux: 'haben', p2: 'besprochen', tags: ['communication'] },
 
-{ infinitive: 'antworten', en: 'to answer', ar: 'يجيب', fr: 'répondre', level: 'A2', freq: 'very_common', type: 'regular', tr: 'intransitive', obj: 'dativ', aux: 'haben', p2: 'geantwortet', tags: ['communication'] },
+{ infinitive: 'antworten', en: 'to answer', ar: 'يجيب', fr: 'répondre', level: 'A1', freq: 'very_common', type: 'regular', tr: 'intransitive', obj: 'dativ', aux: 'haben', p2: 'geantwortet', tags: ['communication'] },
 
-{ infinitive: 'fragen', en: 'to ask', ar: 'يسأل', fr: 'demander', level: 'A2', freq: 'very_common', type: 'regular', tr: 'transitive', obj: 'akkusativ', aux: 'haben', p2: 'gefragt', tags: ['communication'] },
+{ infinitive: 'fragen', en: 'to ask', ar: 'يسأل', fr: 'demander', level: 'A1', freq: 'very_common', type: 'regular', tr: 'transitive', obj: 'akkusativ', aux: 'haben', p2: 'gefragt', tags: ['communication'] },
 
-{ infinitive: 'erzählen', en: 'to tell', ar: 'يحكي', fr: 'raconter', level: 'A2', freq: 'very_common', type: 'regular', tr: 'transitive', obj: 'akkusativ', aux: 'haben', p2: 'erzählt', tags: ['communication'] },
+{ infinitive: 'erzählen', en: 'to tell', ar: 'يحكي', fr: 'raconter', level: 'A1', freq: 'very_common', type: 'regular', tr: 'transitive', obj: 'akkusativ', aux: 'haben', p2: 'erzählt', tags: ['communication'] },
 
 { infinitive: 'beschweren', en: 'to complain', ar: 'يشتكي', fr: 'se plaindre', level: 'A2', freq: 'common', type: 'regular', tr: 'transitive', obj: 'akkusativ', aux: 'haben', p2: 'beschwert', tags: ['service'] },
 
 
 // === JOB & CAREER ===
-{ infinitive: 'arbeiten', en: 'to work', ar: 'يعمل', fr: 'travailler', level: 'A2', freq: 'very_common', type: 'regular', tr: 'intransitive', obj: 'none', aux: 'haben', p2: 'gearbeitet', tags: ['work'] },
-
-{ infinitive: 'verdienen', en: 'to earn', ar: 'يكسب', fr: 'gagner', level: 'A2', freq: 'very_common', type: 'regular', tr: 'transitive', obj: 'akkusativ', aux: 'haben', p2: 'verdient', tags: ['work', 'money'] },
+{ infinitive: 'arbeiten', en: 'to work', ar: 'يعمل', fr: 'travailler', level: 'A1', freq: 'very_common', type: 'regular', tr: 'intransitive', obj: 'none', aux: 'haben', p2: 'gearbeitet', tags: ['work'] },
 
 { infinitive: 'sich bewerben', en: 'to apply', ar: 'يتقدم للعمل', fr: 'postuler', level: 'A2', freq: 'very_common', type: 'reflexive', tr: 'intransitive', obj: 'none', aux: 'haben', p2: 'beworben', reflexive: true, reflexivePronoun:'sich', tags:['work','career'] },
 
 { infinitive: 'vorstellen', en: 'to introduce/present', ar: 'يقدم / يعرف', fr: 'présenter', level: 'A2', freq: 'very_common', type: 'separable', tr: 'transitive', obj:'akkusativ', aux:'haben', p2:'vorgestellt', sep:'vor', tags:['communication','work'] },
-
-{ infinitive: 'verdienen', en: 'to earn money', ar:'يكسب المال', fr:'gagner', level:'A2', freq:'very_common', type:'regular', tr:'transitive', obj:'akkusativ', aux:'haben', p2:'verdient', tags:['money'] },
-
 
 // === IMPORTANT DAILY VERBS ===
 { infinitive:'ändern', en:'to change', ar:'يغير', fr:'changer', level:'A2', freq:'very_common', type:'regular', tr:'transitive', obj:'akkusativ', aux:'haben', p2:'geändert', tags:['daily_life'] },

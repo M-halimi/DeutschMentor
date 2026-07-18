@@ -134,12 +134,12 @@ const manualIrregulars = {
   'lassen': { praesens: {}, praeteritum: { ich: 'ließ', du: 'ließt', er_sie_es: 'ließ', wir: 'ließen', ihr: 'ließt', Sie: 'ließen' }, partizip_2: 'gelassen', konjunktiv_ii: {} },
   'lesen': { praesens: { ich: 'lese', du: 'liest', er_sie_es: 'liest', wir: 'lesen', ihr: 'lest', Sie: 'lesen' }, praeteritum: { ich: 'las', du: 'last', er_sie_es: 'las', wir: 'lasen', ihr: 'last', Sie: 'lasen' }, partizip_2: 'gelesen', konjunktiv_ii: {} },
   'sehen': { praesens: { ich: 'sehe', du: 'siehst', er_sie_es: 'sieht', wir: 'sehen', ihr: 'seht', Sie: 'sehen' }, praeteritum: { ich: 'sah', du: 'sahst', er_sie_es: 'sah', wir: 'sahen', ihr: 'saht', Sie: 'sahen' }, partizip_2: 'gesehen', konjunktiv_ii: {} },
-  'geben': { praesens: { ich: 'gebe', du: 'gibst', er_sie_es: 'gibt', wir: 'geben', ihr: 'gebt', Sie: 'geben' }, praeteritum: { ich: 'gab', du: 'gabst', er_sie_es: 'gab', wir: 'gaben', ihr: 'gabt', Sie: 'gabten' }, partizip_2: 'gegeben', konjunktiv_ii: {} },
+  'geben': { praesens: { ich: 'gebe', du: 'gibst', er_sie_es: 'gibt', wir: 'geben', ihr: 'gebt', Sie: 'geben' }, praeteritum: { ich: 'gab', du: 'gabst', er_sie_es: 'gab', wir: 'gaben', ihr: 'gabt', Sie: 'gaben' }, partizip_2: 'gegeben', konjunktiv_ii: {} },
   'nehmen': { praesens: { ich: 'nehme', du: 'nimmst', er_sie_es: 'nimmt', wir: 'nehmen', ihr: 'nehmt', Sie: 'nehmen' }, praeteritum: { ich: 'nahm', du: 'nahmst', er_sie_es: 'nahm', wir: 'nahmen', ihr: 'nahmt', Sie: 'nahmen' }, partizip_2: 'genommen', konjunktiv_ii: {} },
   'essen': { praesens: { ich: 'esse', du: 'isst', er_sie_es: 'isst', wir: 'essen', ihr: 'esst', Sie: 'essen' }, praeteritum: { ich: 'aß', du: 'aßt', er_sie_es: 'aß', wir: 'aßen', ihr: 'aßt', Sie: 'aßen' }, partizip_2: 'gegessen', konjunktiv_ii: {} },
   'fahren': { praesens: {}, praeteritum: { ich: 'fuhr', du: 'fuhrst', er_sie_es: 'fuhr', wir: 'fuhren', ihr: 'fuhrt', Sie: 'fuhren' }, partizip_2: 'gefahren', konjunktiv_ii: {} },
   'sprechen': { praesens: { ich: 'spreche', du: 'sprichst', er_sie_es: 'spricht', wir: 'sprechen', ihr: 'sprecht', Sie: 'sprechen' }, praeteritum: { ich: 'sprach', du: 'sprachst', er_sie_es: 'sprach', wir: 'sprachen', ihr: 'spracht', Sie: 'sprachen' }, partizip_2: 'gesprochen', konjunktiv_ii: {} },
-  'kommen': { praesens: {}, praeteritum: { ich: 'kam', du: 'kamst', er_sie_es: 'kam', wir: 'kamen', ihr: 'kam', Sie: 'kamen' }, partizip_2: 'gekommen', konjunktiv_ii: {} },
+  'kommen': { praesens: {}, praeteritum: { ich: 'kam', du: 'kamst', er_sie_es: 'kam', wir: 'kamen', ihr: 'kamt', Sie: 'kamen' }, partizip_2: 'gekommen', konjunktiv_ii: {} },
   'finden': { praesens: {}, praeteritum: { ich: 'fand', du: 'fandst', er_sie_es: 'fand', wir: 'fanden', ihr: 'fandet', Sie: 'fanden' }, partizip_2: 'gefunden', konjunktiv_ii: {} },
   'bleiben': { praesens: {}, praeteritum: { ich: 'blieb', du: 'bliebst', er_sie_es: 'blieb', wir: 'blieben', ihr: 'bliebt', Sie: 'blieben' }, partizip_2: 'geblieben', konjunktiv_ii: {} },
   'liegen': { praesens: {}, praeteritum: { ich: 'lag', du: 'lagst', er_sie_es: 'lag', wir: 'lagen', ihr: 'lagt', Sie: 'lagen' }, partizip_2: 'gelegen', konjunktiv_ii: {} },
@@ -150,10 +150,10 @@ const manualIrregulars = {
   'helfen': { praesens: { ich: 'helfe', du: 'hilfst', er_sie_es: 'hilft', wir: 'helfen', ihr: 'helft', Sie: 'helfen' }, praeteritum: { ich: 'half', du: 'halfst', er_sie_es: 'half', wir: 'halfen', ihr: 'halft', Sie: 'halfen' }, partizip_2: 'geholfen', konjunktiv_ii: {} },
   'tragen': { praesens: {}, praeteritum: { ich: 'trug', du: 'trugst', er_sie_es: 'trug', wir: 'trugen', ihr: 'trugt', Sie: 'trugen' }, partizip_2: 'getragen', konjunktiv_ii: {} },
   'laufen': { praesens: {}, praeteritum: { ich: 'lief', du: 'liefst', er_sie_es: 'lief', wir: 'liefen', ihr: 'lieft', Sie: 'liefen' }, partizip_2: 'gelaufen', konjunktiv_ii: {} },
-  'heißen': { praesens: { ich: 'heiße', du: 'heißt', er_sie_es: 'heißt', wir: 'heißen', ihr: 'heißt', Sie: 'heißen' }, praeteritum: { ich: 'hieß', du: 'hießt', er_sie_es: 'hieß', wir: 'hießen', ihr: 'hießet', Sie: 'hießen' }, partizip_2: 'geheißen', konjunktiv_ii: {} },
-  'schlafen': { praesens: {}, praeteritum: { ich: 'schlief', du: 'schliefst', er_sie_es: 'schlief', wir: 'schliefen', ihr: 'schlief', Sie: 'schliefen' }, partizip_2: 'geschlafen', konjunktiv_ii: {} },
+  'heißen': { praesens: { ich: 'heiße', du: 'heißt', er_sie_es: 'heißt', wir: 'heißen', ihr: 'heißt', Sie: 'heißen' }, praeteritum: { ich: 'hieß', du: 'hießt', er_sie_es: 'hieß', wir: 'hießen', ihr: 'hießt', Sie: 'hießen' }, partizip_2: 'geheißen', konjunktiv_ii: {} },
+  'schlafen': { praesens: {}, praeteritum: { ich: 'schlief', du: 'schliefst', er_sie_es: 'schlief', wir: 'schliefen', ihr: 'schlieft', Sie: 'schliefen' }, partizip_2: 'geschlafen', konjunktiv_ii: {} },
   'halten': { praesens: {}, praeteritum: { ich: 'hielt', du: 'hieltst', er_sie_es: 'hielt', wir: 'hielten', ihr: 'hieltet', Sie: 'hielten' }, partizip_2: 'gehalten', konjunktiv_ii: {} },
-  'fangen': { praesens: {}, praeteritum: { ich: 'fing', du: 'fingst', er_sie_es: 'fing', wir: 'fingen', ihr: 'finget', Sie: 'fingen' }, partizip_2: 'gefangen', konjunktiv_ii: {} },
+  'fangen': { praesens: {}, praeteritum: { ich: 'fing', du: 'fingst', er_sie_es: 'fing', wir: 'fingen', ihr: 'fingt', Sie: 'fingen' }, partizip_2: 'gefangen', konjunktiv_ii: {} },
   'sterben': { praesens: { ich: 'sterbe', du: 'stirbst', er_sie_es: 'stirbt', wir: 'sterben', ihr: 'sterbt', Sie: 'sterben' }, praeteritum: { ich: 'starb', du: 'starbst', er_sie_es: 'starb', wir: 'starben', ihr: 'starbt', Sie: 'starben' }, partizip_2: 'gestorben', konjunktiv_ii: {} },
   'werfen': { praesens: { ich: 'werfe', du: 'wirfst', er_sie_es: 'wirft', wir: 'werfen', ihr: 'werft', Sie: 'werfen' }, praeteritum: { ich: 'warf', du: 'warfst', er_sie_es: 'warf', wir: 'warfen', ihr: 'warft', Sie: 'warfen' }, partizip_2: 'geworfen', konjunktiv_ii: {} },
   'fliegen': { praesens: {}, praeteritum: { ich: 'flog', du: 'flogst', er_sie_es: 'flog', wir: 'flogen', ihr: 'flogt', Sie: 'flogen' }, partizip_2: 'geflogen', konjunktiv_ii: {} },
@@ -161,9 +161,9 @@ const manualIrregulars = {
   'singen': { praesens: {}, praeteritum: { ich: 'sang', du: 'sangst', er_sie_es: 'sang', wir: 'sangen', ihr: 'sangt', Sie: 'sangen' }, partizip_2: 'gesungen', konjunktiv_ii: {} },
   'trinken': { praesens: {}, praeteritum: { ich: 'trank', du: 'trankst', er_sie_es: 'trank', wir: 'tranken', ihr: 'trankt', Sie: 'tranken' }, partizip_2: 'getrunken', konjunktiv_ii: {} },
   'beginnen': { praesens: {}, praeteritum: { ich: 'begann', du: 'begannst', er_sie_es: 'begann', wir: 'begannen', ihr: 'begannt', Sie: 'begannen' }, partizip_2: 'begonnen', konjunktiv_ii: {} },
-  'gewinnen': { praesens: {}, praeteritum: { ich: 'gewann', du: 'gewannst', er_sie_es: 'gewann', wir: 'gewannen', ihr: 'gewann', Sie: 'gewannen' }, partizip_2: 'gewonnen', konjunktiv_ii: {} },
+  'gewinnen': { praesens: {}, praeteritum: { ich: 'gewann', du: 'gewannst', er_sie_es: 'gewann', wir: 'gewannen', ihr: 'gewannt', Sie: 'gewannen' }, partizip_2: 'gewonnen', konjunktiv_ii: {} },
   'bitten': { praesens: {}, praeteritum: { ich: 'bat', du: 'batst', er_sie_es: 'bat', wir: 'baten', ihr: 'batet', Sie: 'baten' }, partizip_2: 'gebeten', konjunktiv_ii: {} },
-  'schneiden': { praesens: {}, praeteritum: { ich: 'schnitt', du: 'schnittst', er_sie_es: 'schnitt', wir: 'schnitten', ihr: 'schnitte', Sie: 'schnitten' }, partizip_2: 'geschnitten', konjunktiv_ii: {} },
+  'schneiden': { praesens: {}, praeteritum: { ich: 'schnitt', du: 'schnittst', er_sie_es: 'schnitt', wir: 'schnitten', ihr: 'schnittet', Sie: 'schnitten' }, partizip_2: 'geschnitten', konjunktiv_ii: {} },
   'leiden': { praesens: {}, praeteritum: { ich: 'litt', du: 'littst', er_sie_es: 'litt', wir: 'litten', ihr: 'littet', Sie: 'litten' }, partizip_2: 'gelitten', konjunktiv_ii: {} },
   'streiten': { praesens: {}, praeteritum: { ich: 'stritt', du: 'strittst', er_sie_es: 'stritt', wir: 'stritten', ihr: 'strittet', Sie: 'stritten' }, partizip_2: 'gestritten', konjunktiv_ii: {} },
   'reiten': { praesens: {}, praeteritum: { ich: 'ritt', du: 'rittst', er_sie_es: 'ritt', wir: 'ritten', ihr: 'rittet', Sie: 'ritten' }, partizip_2: 'geritten', konjunktiv_ii: {} },
@@ -177,18 +177,19 @@ const manualIrregulars = {
   'schießen': { praesens: {}, praeteritum: { ich: 'schoss', du: 'schossest', er_sie_es: 'schoss', wir: 'schossen', ihr: 'schosst', Sie: 'schossen' }, partizip_2: 'geschossen', konjunktiv_ii: {} },
   'beweisen': { praesens: {}, praeteritum: { ich: 'bewies', du: 'bewiesest', er_sie_es: 'bewies', wir: 'bewiesen', ihr: 'bewiest', Sie: 'bewiesen' }, partizip_2: 'bewiesen', konjunktiv_ii: {} },
   'erschrecken': { praesens: { ich: 'erschrecke', du: 'erschrickst', er_sie_es: 'erschrickt', wir: 'erschrecken', ihr: 'erschreckt', Sie: 'erschrecken' }, praeteritum: { ich: 'erschrak', du: 'erschrakst', er_sie_es: 'erschrak', wir: 'erschraken', ihr: 'erschrakt', Sie: 'erschraken' }, partizip_2: 'erschrocken', konjunktiv_ii: {} },
-  'geschehen': { praesens: { ich: 'geschehe', du: 'geschiehst', er_sie_es: 'geschieht', wir: 'geschehen', ihr: 'gescheht', Sie: 'geschehen' }, praeteritum: { ich: 'geschah', du: 'geschahst', er_sie_es: 'geschah', wir: 'geschachen', ihr: 'geschaht', Sie: 'geschachen' }, partizip_2: 'geschehen', konjunktiv_ii: {} },
+  'geschehen': { praesens: { ich: 'geschehe', du: 'geschiehst', er_sie_es: 'geschieht', wir: 'geschehen', ihr: 'gescheht', Sie: 'geschehen' }, praeteritum: { ich: 'geschah', du: 'geschahst', er_sie_es: 'geschah', wir: 'geschahen', ihr: 'geschaht', Sie: 'geschahen' }, partizip_2: 'geschehen', konjunktiv_ii: {} },
   'empfehlen': { praesens: { ich: 'empfehle', du: 'empfiehlst', er_sie_es: 'empfiehlt', wir: 'empfehlen', ihr: 'empfehlt', Sie: 'empfehlen' }, praeteritum: { ich: 'empfahl', du: 'empfahlst', er_sie_es: 'empfahl', wir: 'empfahlen', ihr: 'empfahlt', Sie: 'empfahlen' }, partizip_2: 'empfohlen', konjunktiv_ii: {} },
   'rufen': { praesens: {}, praeteritum: { ich: 'rief', du: 'riefst', er_sie_es: 'rief', wir: 'riefen', ihr: 'rieft', Sie: 'riefen' }, partizip_2: 'gerufen', konjunktiv_ii: {} },
   'stoßen': { praesens: {}, praeteritum: { ich: 'stieß', du: 'stießest', er_sie_es: 'stieß', wir: 'stießen', ihr: 'stießt', Sie: 'stießen' }, partizip_2: 'gestoßen', konjunktiv_ii: {} },
   'wachsen': { praesens: {}, praeteritum: { ich: 'wuchs', du: 'wuchsest', er_sie_es: 'wuchs', wir: 'wuchsen', ihr: 'wuchst', Sie: 'wuchsen' }, partizip_2: 'gewachsen', konjunktiv_ii: {} },
-  'backen': { praesens: {}, praeteritum: { ich: 'buk', du: 'bukst', er_sie_es: 'buk', wir: 'buchen', ihr: 'bukt', Sie: 'buchen' }, partizip_2: 'gebacken', konjunktiv_ii: {} },
+  'backen': { praesens: {}, praeteritum: { ich: 'backte', du: 'backtest', er_sie_es: 'backte', wir: 'backten', ihr: 'backtet', Sie: 'backten' }, partizip_2: 'gebacken', konjunktiv_ii: {} },
   'laden': { praesens: {}, praeteritum: { ich: 'lud', du: 'ludst', er_sie_es: 'lud', wir: 'luden', ihr: 'ludet', Sie: 'luden' }, partizip_2: 'geladen', konjunktiv_ii: {} },
   'schelten': { praesens: { ich: 'schelte', du: 'schiltst', er_sie_es: 'schilt', wir: 'schelten', ihr: 'scheltet', Sie: 'schelten' }, praeteritum: { ich: 'schalt', du: 'schaltst', er_sie_es: 'schalt', wir: 'schalten', ihr: 'schaltet', Sie: 'schalten' }, partizip_2: 'gescholten', konjunktiv_ii: {} },
   'gelten': { praesens: { ich: 'gelte', du: 'giltst', er_sie_es: 'gilt', wir: 'gelten', ihr: 'geltet', Sie: 'gelten' }, praeteritum: { ich: 'galt', du: 'galtst', er_sie_es: 'galt', wir: 'galten', ihr: 'galtet', Sie: 'galten' }, partizip_2: 'gegolten', konjunktiv_ii: {} },
   'bergen': { praesens: { ich: 'berge', du: 'birgst', er_sie_es: 'birgt', wir: 'bergen', ihr: 'bergt', Sie: 'bergen' }, praeteritum: { ich: 'barg', du: 'bargst', er_sie_es: 'barg', wir: 'bargen', ihr: 'bargt', Sie: 'bargen' }, partizip_2: 'geborgen', konjunktiv_ii: {} },
-  'verderben': { praesens: { ich: 'verderbe', du: 'verdirst', er_sie_es: 'verdirt', wir: 'verderben', ihr: 'verderbt', Sie: 'verderben' }, praeteritum: { ich: 'verdarb', du: 'verdarbst', er_sie_es: 'verdarb', wir: 'verdarben', ihr: 'verdarbt', Sie: 'verdarben' }, partizip_2: 'verdorben', konjunktiv_ii: {} },
-  'löschen': { praesens: {}, praeteritum: { ich: 'losch', du: 'loschst', er_sie_es: 'losch', wir: 'löschten', ihr: 'loscht', Sie: 'löschten' }, partizip_2: 'geloschen', konjunktiv_ii: {} },
+  'verderben': { praesens: { ich: 'verderbe', du: 'verdirbst', er_sie_es: 'verdirbt', wir: 'verderben', ihr: 'verderbt', Sie: 'verderben' }, praeteritum: { ich: 'verdarb', du: 'verdarbst', er_sie_es: 'verdarb', wir: 'verdarben', ihr: 'verdarbt', Sie: 'verdarben' }, partizip_2: 'verdorben', konjunktiv_ii: {} },
+  'löschen': { praesens: {}, praeteritum: { ich: 'löschte', du: 'löschtest', er_sie_es: 'löschte', wir: 'löschten', ihr: 'löschtet', Sie: 'löschten' }, partizip_2: 'gelöscht', konjunktiv_ii: {} },
+  'erlöschen': { praesens: { ich: 'erlösche', du: 'erlischst', er_sie_es: 'erlischt', wir: 'erlöschen', ihr: 'erlöscht', Sie: 'erlöschen' }, praeteritum: { ich: 'erlosch', du: 'erloschst', er_sie_es: 'erlosch', wir: 'erloschen', ihr: 'erloscht', Sie: 'erloschen' }, partizip_2: 'erloschen', konjunktiv_ii: {} },
   'schaffen': { praesens: {}, praeteritum: { ich: 'schuf', du: 'schufst', er_sie_es: 'schuf', wir: 'schufen', ihr: 'schuft', Sie: 'schufen' }, partizip_2: 'geschaffen', konjunktiv_ii: {} },
   'schweigen': { praesens: {}, praeteritum: { ich: 'schwieg', du: 'schwiegst', er_sie_es: 'schwieg', wir: 'schwiegen', ihr: 'schwiegt', Sie: 'schwiegen' }, partizip_2: 'geschwiegen', konjunktiv_ii: {} },
   'hängen': { praesens: {}, praeteritum: { ich: 'hing', du: 'hingst', er_sie_es: 'hing', wir: 'hingen', ihr: 'hingt', Sie: 'hingen' }, partizip_2: 'gehangen', konjunktiv_ii: {} },
@@ -216,10 +217,24 @@ const manualIrregulars = {
   'stecken': { praesens: {}, praeteritum: { ich: 'steckte', du: 'stecktest', er_sie_es: 'steckte', wir: 'steckten', ihr: 'stecktet', Sie: 'steckten' }, partizip_2: 'gesteckt', konjunktiv_ii: {} },
 }
 
-function getBaseInfin(infinitive, separablePrefix) {
-  if (!separablePrefix) return infinitive
-  if (infinitive.startsWith(separablePrefix)) return infinitive.slice(separablePrefix.length)
-  return infinitive
+const KNOWN_SEPARABLE_PREFIXES = [
+  'auf', 'an', 'ab', 'aus', 'bei', 'ein', 'mit', 'nach', 'vor', 'zu',
+  'zurück', 'zusammen', 'weg', 'her', 'hin', 'los', 'fort', 'weiter',
+  'fern', 'statt', 'um', 'durch', 'über', 'unter', 'wieder'
+].sort((a, b) => b.length - a.length)
+
+function splitSeparable(infinitive, declaredPrefix) {
+  if (declaredPrefix) {
+    if (infinitive.startsWith(declaredPrefix)) {
+      return { base: infinitive.slice(declaredPrefix.length), prefix: declaredPrefix }
+    }
+  }
+  for (const p of KNOWN_SEPARABLE_PREFIXES) {
+    if (infinitive.startsWith(p) && infinitive.length > p.length + 2) {
+      return { base: infinitive.slice(p.length), prefix: p }
+    }
+  }
+  return { base: infinitive, prefix: '' }
 }
 
 function endsDent(s) { return /[dt]$/.test(s) }
@@ -233,9 +248,9 @@ function wirForm(st) {
 }
 
 function generateRegularPraesens(infinitive, separablePrefix) {
-  const baseInf = getBaseInfin(infinitive, separablePrefix)
-  const st = stem(baseInf)
   const prefix = separablePrefix || ''
+  const baseInf = prefix ? splitSeparable(infinitive, prefix).base : infinitive
+  const st = stem(baseInf)
   const suffix = prefix ? ` ${prefix}` : ''
 
   return {
@@ -249,9 +264,9 @@ function generateRegularPraesens(infinitive, separablePrefix) {
 }
 
 function generateRegularPraeteritum(infinitive, separablePrefix) {
-  const baseInf = getBaseInfin(infinitive, separablePrefix)
-  const st = stem(baseInf)
   const prefix = separablePrefix || ''
+  const baseInf = prefix ? splitSeparable(infinitive, prefix).base : infinitive
+  const st = stem(baseInf)
   const suffix = prefix ? ` ${prefix}` : ''
   return {
     ich: `${st}te${suffix}`,
@@ -264,16 +279,18 @@ function generateRegularPraeteritum(infinitive, separablePrefix) {
 }
 
 function generateConjugations(infinitive, verbType, partizip2, auxiliary, separablePrefix, isReflexive) {
-  const baseInf = getBaseInfin(infinitive, separablePrefix)
-  const manual = manualIrregulars[baseInf] || manualIrregulars[infinitive]
-  const st = stem(baseInf)
   const prefix = separablePrefix || ''
+  const { base: baseForLookup } = prefix
+    ? splitSeparable(infinitive, prefix)
+    : { base: infinitive }
+  const manual = manualIrregulars[infinitive] || manualIrregulars[baseForLookup]
+  const st = stem(prefix ? baseForLookup : infinitive)
   const useAux = auxiliary === 'both' ? 'sein' : auxiliary
   const suffix = prefix ? ` ${prefix}` : ''
   const suffixed = (form) => prefix && !form.includes(' ') ? `${form} ${prefix}` : form
 
   const insepPrefixes = ['be', 'ge', 'er', 'ver', 'zer', 'ent', 'emp', 'miss', 'wider', 'hinter']
-  const hasInsepPrefix = insepPrefixes.some(p => baseInf.startsWith(p) && baseInf.length > p.length + 2)
+  const hasInsepPrefix = insepPrefixes.some(p => baseForLookup.startsWith(p) && baseForLookup.length > p.length + 2)
 
   let p2 = partizip2
   if (!p2) {
@@ -343,7 +360,7 @@ function generateConjugations(infinitive, verbType, partizip2, auxiliary, separa
     plusquamperfekt[p] = `${auxPraet[p]} ${p2}`
   }
 
-  const fullInfin = prefix ? `${prefix}${baseInf}` : infinitive
+  const fullInfin = prefix ? `${prefix}${baseForLookup}` : infinitive
   const infinitiveAux = auxVerb === 'sein' ? 'sein' : 'haben'
 
   const futuri = { ich: `werde ${fullInfin}`, du: `wirst ${fullInfin}`, er_sie_es: `wird ${fullInfin}`, wir: `werden ${fullInfin}`, ihr: `werdet ${fullInfin}`, Sie: `werden ${fullInfin}` }
@@ -438,7 +455,8 @@ function fixVerbData(v) {
 
   // Fix 8: Ensure p2 is set
   if (!v.p2) {
-    const st = stem(getBaseInfin(v.infinitive, v.sep))
+    const baseForP2 = v.sep ? splitSeparable(v.infinitive, v.sep).base : v.infinitive
+    const st = stem(baseForP2)
     if (v.type === 'regular') {
       v.p2 = v.sep ? `${v.sep}ge${st}t` : `ge${st}t`
     } else {
