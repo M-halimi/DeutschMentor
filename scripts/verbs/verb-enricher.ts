@@ -356,8 +356,9 @@ export function generateQuestions(verb: VerbEntry): VerbQuestionRow[] {
   })
 
   if (verb.reflexive) {
+    const duRefl = getReflexivePronoun('du', reflCase)
     results.push({
-      german: `${capitalized} du dich${prefix ? ` ${prefix}` : ''}?`,
+      german: `${capitalized} du ${duRefl}${prefix ? ` ${prefix}` : ''}?`,
       english: `Do you ${inf} yourself?`,
       arabic: `هل ${verb.ar ? 'ت' + verb.ar.slice(1) : 'ت' + inf} نفسك؟`,
       french: `Est-ce que tu te ${bSt}es${prefix ? ` ${prefix}` : ''} ?`,

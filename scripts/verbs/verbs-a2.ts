@@ -302,7 +302,7 @@ export const a2Verbs: VerbEntry[] = [
   { infinitive: 'sich verbessern',
   reflexivePronounCase: 'akkusativ', en: 'to improve', ar: 'يتحسن', fr: 's\'améliorer', level: 'A2', freq: 'common', type: 'reflexive', tr: 'intransitive', obj: 'none', aux: 'haben', p2: 'verbessert', reflexive: true, reflexivePronoun: 'sich', tags: ['improvement'] },
   { infinitive: 'sich vorstellen',
-  reflexivePronounCase: 'akkusativ', en: 'to introduce oneself', ar: 'يقدم نفسه / يتخيل', fr: 'se présenter', level: 'A2', freq: 'very_common', type: 'reflexive', tr: 'intransitive', obj: 'none', aux: 'haben', p2: 'vorgestellt', reflexive: true, reflexivePronoun: 'sich', sep: 'vor', tags: ['communication', 'introduction'] },
+  reflexivePronounCase: 'dativ', en: 'to introduce oneself', ar: 'يقدم نفسه / يتخيل', fr: 'se présenter', level: 'A2', freq: 'very_common', type: 'reflexive', tr: 'intransitive', obj: 'none', aux: 'haben', p2: 'vorgestellt', reflexive: true, reflexivePronoun: 'sich', sep: 'vor', tags: ['communication', 'introduction'] },
   { infinitive: 'sich vorbereiten',
   reflexivePronounCase: 'akkusativ', en: 'to prepare', ar: 'يستعد', fr: 'se préparer', level: 'A2', freq: 'very_common', type: 'reflexive', tr: 'intransitive', obj: 'none', aux: 'haben', p2: 'vorbereitet', reflexive: true, reflexivePronoun: 'sich', sep: 'vor', tags: ['preparation'] },
   { infinitive: 'sich wehren',
@@ -340,5 +340,5 @@ export const a2Verbs: VerbEntry[] = [
   { infinitive: 'sich verlassen',
   reflexivePronounCase: 'akkusativ', en: 'to rely on', ar: 'يعتمد على / يغادر', fr: 'compter sur', level: 'A2', freq: 'very_common', type: 'reflexive', tr: 'intransitive', obj: 'none', aux: 'haben', p2: 'verlassen', reflexive: true, reflexivePronoun: 'sich', sep: 'ver', tags: ['trust'] },
   { infinitive: 'sich vornehmen',
-  reflexivePronounCase: 'akkusativ', en: 'to intend', ar: 'ينوي / يقرر القيام بـ', fr: 'se proposer', level: 'A2', freq: 'common', type: 'reflexive', tr: 'intransitive', obj: 'none', aux: 'haben', p2: 'vorgenommen', reflexive: true, reflexivePronoun: 'sich', sep: 'vor', tags: ['intentions'] },
+  reflexivePronounCase: 'dativ', en: 'to intend', ar: 'ينوي / يقرر القيام بـ', fr: 'se proposer', level: 'A2', freq: 'common', type: 'reflexive', tr: 'intransitive', obj: 'none', aux: 'haben', p2: 'vorgenommen', reflexive: true, reflexivePronoun: 'sich', sep: 'vor', tags: ['intentions'] },
 ]
