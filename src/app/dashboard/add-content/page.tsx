@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef } from 'react'
+import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
 import { AppShell } from '@/components/layout/app-shell'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
@@ -21,6 +22,7 @@ const LEVELS: GermanLevel[] = ['A1', 'A2', 'B1', 'B2', 'C1']
 type AddMethod = 'upload' | 'external_url' | 'paste_transcript'
 
 export default function AddContentPage() {
+  const router = useRouter()
   const [method, setMethod] = useState<AddMethod>('upload')
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
@@ -136,7 +138,7 @@ export default function AddContentPage() {
                     <Button variant="outline" onClick={() => { setResult(null); setExtractionResult(null) }}>
                       Weiteren hinzufügen
                     </Button>
-                    <Button onClick={() => window.location.href = '/dashboard/hoeren'}>
+                    <Button onClick={() => router.push('/dashboard/hoeren')}>
                       Zu Hören gehen
                     </Button>
                   </div>
@@ -324,7 +326,7 @@ Person B: Ja, aber sie waren heute sehr schwer..."
               <div className="flex items-center justify-end gap-3">
                 <Button
                   variant="outline"
-                  onClick={() => window.location.href = '/dashboard/hoeren'}
+                  onClick={() => router.push('/dashboard/hoeren')}
                 >
                   Abbrechen
                 </Button>

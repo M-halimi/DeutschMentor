@@ -54,22 +54,22 @@ export default function CoursesPage() {
             ))}
           </div>
         ) : (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {levels?.map((level) => {
               const gradient = levelGradients[level.id] ?? 'from-gray-500 to-gray-600'
               return (
-                <Link key={level.id} href={`/dashboard/courses/${level.id.toLowerCase()}`}>
-                  <Card className="group cursor-pointer hover:shadow-lg transition-all duration-200 overflow-hidden">
-                    <div className={`h-2 bg-gradient-to-r ${gradient}`} />
+                <Link key={level.id} href={`/dashboard/courses/${level.id.toLowerCase()}`} className="group block">
+                  <Card className="overflow-hidden border-border/50 transition-all duration-200 hover:border-primary/30 hover:shadow-md">
+                    <div className={`h-1.5 bg-gradient-to-r ${gradient}`} />
                     <CardContent className="p-5">
                       <div className="flex items-start justify-between mb-3">
                         <Badge variant="outline" className="text-sm font-bold px-3 py-1">
                           {level.id}
                         </Badge>
-                        <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                        <ArrowRight className="h-4 w-4 text-muted-foreground transition-all duration-200 group-hover:text-primary group-hover:translate-x-0.5" />
                       </div>
-                      <h3 className="font-semibold text-lg mb-1">{level.title}</h3>
-                      <p className="text-sm text-muted-foreground line-clamp-2">{level.description}</p>
+                      <h3 className="font-semibold text-lg mb-1 group-hover:text-primary transition-colors">{level.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">{level.description}</p>
                     </CardContent>
                   </Card>
                 </Link>

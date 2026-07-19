@@ -17,7 +17,6 @@ import {
   GraduationCap,
   Settings,
   Shield,
-  ChevronLeft,
   ChevronDown,
   LogOut,
   Sparkles,
@@ -35,13 +34,12 @@ import {
   Mail,
   History,
   MessageSquare,
+  X,
   type LucideIcon,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { ScrollArea } from '@/components/ui/scroll-area'
 import { Badge } from '@/components/ui/badge'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useCallback } from 'react'
 import { useTranslation } from '@/lib/i18n/use-translation'
 
 interface NavItem { href: string; icon: LucideIcon; badge?: string; tKey: string }
@@ -82,63 +80,53 @@ const arabicNav: NavItem[] = [
   { href: '/dashboard/vocabulary', tKey: 'nav.arabic-vocabulary', icon: BookmarkPlus },
 ]
 
-function NavSection({ titleTKey, items, defaultOpen = true }: { titleTKey: string; items: NavItem[]; defaultOpen?: boolean }) {
+function NavLink({ item, onNavigate }: { item: NavItem; onNavigate?: () => void }) {
   const pathname = usePathname()
+  const isActive = pathname === item.href
+  return (
+    <Link
+      href={item.href}
+      onClick={onNavigate}
+        className={cn(
+          'group flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1',
+          'motion-safe:transition-all motion-safe:duration-150',
+          isActive
+            ? 'bg-primary/10 text-primary'
+            : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'
+        )}
+    >
+      <item.icon className="h-4 w-4 shrink-0" />
+      <span className="truncate flex-1">{item.tKey === 'nav.verbs' ? 'Verben' : item.tKey === 'nav.vocabulary' ? 'Vokabeln' : item.tKey === 'nav.dictionary' ? 'Wörterbuch' : item.tKey === 'nav.grammar' ? 'Grammatik' : item.tKey === 'nav.dictation' ? 'Diktat' : item.tKey === 'nav.expressions' ? 'Ausdrücke' : item.tKey === 'nav.level-test' ? 'Einstufungstest' : item.tKey === 'nav.exam-prep' ? 'Prüfungsvorbereitung' : item.tKey === 'nav.certificates' ? 'Zertifikate' : item.tKey === 'nav.subscription' ? 'Abo' : item.tKey === 'nav.support' ? 'Support' : item.tKey === 'nav.dashboard' ? 'Dashboard' : item.tKey === 'nav.learning' ? 'Lernen' : item.tKey === 'nav.stats' ? 'Statistiken' : item.tKey === 'nav.courses' ? 'Kurse' : item.tKey === 'nav.listening' ? 'Hören' : item.tKey === 'nav.reading' ? 'Lesen' : item.tKey === 'nav.writing' ? 'Schreiben' : item.tKey === 'nav.speaking' ? 'Sprechen' : item.tKey === 'nav.arabic-alphabet' ? 'Arabisches Alphabet' : item.tKey === 'nav.arabic-vocabulary' ? 'Arabisch Vokabeln' : item.tKey}</span>
+      {item.badge && (
+        <Badge variant="default" className="h-5 px-1.5 text-[10px] font-bold uppercase shrink-0">
+          {item.badge}
+        </Badge>
+      )}
+      {isActive && <span className="absolute left-0 top-1/2 -translate-y-1/2 h-5 w-0.5 rounded-full bg-primary" />}
+    </Link>
+  )
+}
+
+function NavSection({ titleTKey, items, defaultOpen = true, onNavigate }: { titleTKey: string; items: NavItem[]; defaultOpen?: boolean; onNavigate?: () => void }) {
   const [open, setOpen] = useState(defaultOpen)
-  const { t } = useTranslation()
 
   return (
-    <div className="mb-2">
+    <div className="mb-1">
       <button
         onClick={() => setOpen(!open)}
-        className="flex w-full items-center justify-between px-3 py-1.5 text-xs font-medium text-muted-foreground uppercase tracking-wider hover:text-foreground transition-colors"
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setOpen(!open) } }}
+        className="flex w-full items-center justify-between px-3 py-1.5 text-xs font-medium text-muted-foreground uppercase tracking-wider hover:text-foreground transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1"
       >
-        <span>{t(titleTKey)}</span>
-        <ChevronDown className={cn('h-3 w-3 transition-transform', open && 'rotate-180')} />
+        <span className="truncate">{titleTKey === 'sidebar.student' ? 'Student' : titleTKey === 'sidebar.skills' ? 'Fertigkeiten' : titleTKey === 'sidebar.resources' ? 'Ressourcen' : titleTKey === 'sidebar.arabic' ? 'Arabisch' : titleTKey === 'nav.courses' ? 'Kurse' : titleTKey}</span>
+        <ChevronDown className={cn('h-3 w-3 shrink-0 motion-safe:transition-transform motion-safe:duration-200', open && 'rotate-180')} />
       </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="overflow-hidden"
-          >
-            <div className="flex flex-col gap-0.5">
-              {items.map((item) => {
-                const isActive = pathname === item.href
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={cn(
-                      'flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors relative',
-                      isActive
-                        ? 'bg-primary/10 text-primary'
-                        : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'
-                    )}
-                  >
-                    <item.icon className="h-4 w-4 shrink-0" />
-                    <span className="truncate flex-1">{t(item.tKey)}</span>
-                    {item.badge && (
-                      <Badge variant="default" className="h-5 px-1.5 text-[10px] font-bold uppercase">
-                        {item.badge}
-                      </Badge>
-                    )}
-                    {isActive && (
-                      <motion.div
-                        layoutId="active-nav"
-                        className="absolute left-0 top-1/2 -translate-y-1/2 h-5 w-0.5 rounded-full bg-primary"
-                      />
-                    )}
-                  </Link>
-                )
-              })}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {open && (
+        <div className="flex flex-col gap-0.5 mt-0.5 pl-1 relative">
+          {items.map((item) => (
+            <NavLink key={item.href} item={item} onNavigate={onNavigate} />
+          ))}
+        </div>
+      )}
     </div>
   )
 }
@@ -178,7 +166,7 @@ const adminNavSections: { titleTKey: string; items: AdminNavItem[] }[] = [
   },
 ]
 
-function AdminNav() {
+function AdminNav({ onNavigate }: { onNavigate?: () => void }) {
   const { hasPermission, isOwner, loaded } = useAdminStore()
   const [openCount, setOpenCount] = useState(0)
 
@@ -216,20 +204,19 @@ function AdminNav() {
           return hasPermission(item.permission)
         })
         if (visible.length === 0) return null
-        return <NavSection key={section.titleTKey} titleTKey={section.titleTKey} items={visible} />
+        return <NavSection key={section.titleTKey} titleTKey={section.titleTKey} items={visible} onNavigate={onNavigate} />
       })}
     </>
   )
 }
 
 function RoleLabel({ userRole, adminRoleName, isOwner }: { userRole?: string; adminRoleName?: string; isOwner?: boolean }) {
-  const { t } = useTranslation()
-  if (userRole === 'super_admin') return <>{'SUPER ADMIN'}</>
-  if (isOwner) return <>{'OWNER'}</>
+  if (userRole === 'super_admin') return <>SUPER ADMIN</>
+  if (isOwner) return <>OWNER</>
   if (adminRoleName) return <>{adminRoleName.toUpperCase()}</>
-  if (userRole === 'admin') return <>{t('role.admin')}</>
-  if (userRole === 'teacher') return <>{t('role.teacher')}</>
-  return <>{t('role.student')}</>
+  if (userRole === 'admin') return <>ADMIN</>
+  if (userRole === 'teacher') return <>Lehrer</>
+  return <>Schüler</>
 }
 
 export function Sidebar() {
@@ -237,92 +224,114 @@ export function Sidebar() {
   const { sidebarOpen, toggleSidebar } = useAppStore()
   const { user, signOut } = useAuthStore()
   const { roleName, isOwner: adminIsOwner, loaded: adminLoaded } = useAdminStore()
-  const { t, isRTL } = useTranslation()
-  const isRtl = isRTL
+  const { isRTL } = useTranslation()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => { setMounted(true) }, [])
+
+  const closeSidebar = useCallback(() => {
+    if (sidebarOpen && window.innerWidth < 1024) {
+      toggleSidebar()
+    }
+  }, [sidebarOpen, toggleSidebar])
+
+  if (!mounted) return null
 
   return (
-    <AnimatePresence>
+    <>
       {sidebarOpen && (
-        <motion.aside
-          initial={{ [isRtl ? 'x' : 'x']: isRtl ? 280 : -280 }}
-          animate={{ x: 0 }}
-          exit={{ x: isRtl ? 280 : -280 }}
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
-          className={cn(
-            'fixed top-0 z-40 flex h-screen w-[280px] flex-col border-r bg-sidebar',
-            isRtl ? 'right-0 border-l' : 'left-0 border-r'
-          )}
-        >
-          <div className="flex h-16 items-center justify-between border-b px-4">
-            <Link href="/dashboard" className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary/60 text-primary-foreground shadow-sm">
-                <Sparkles className="h-4 w-4" />
-              </div>
-              <span className="text-base font-bold tracking-tight">DeutschMentor</span>
-            </Link>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="h-8 w-8 text-muted-foreground hover:text-foreground"
-              onClick={toggleSidebar}
-            >
-              <ChevronLeft className={cn('h-4 w-4', isRtl && 'rotate-180')} />
-            </Button>
-          </div>
-
-          <ScrollArea className="flex-1 px-3 py-4">
-            {pathname.startsWith('/admin') ? (
-              <AdminNav />
-            ) : user?.role === 'student' ? (
-              <>
-                <NavSection titleTKey="sidebar.student" items={studentNav} />
-                <NavSection titleTKey="nav.courses" items={courseNav} />
-                <NavSection titleTKey="sidebar.skills" items={skillNav} />
-                <NavSection titleTKey="sidebar.resources" items={resourceNav} />
-                <div className="my-2 border-t" />
-                <NavSection titleTKey="sidebar.arabic" items={arabicNav} defaultOpen={false} />
-              </>
-            ) : user?.role === 'teacher' ? (
-              <NavSection titleTKey="sidebar.teacher" items={[
-                { href: '/dashboard', tKey: 'nav.dashboard', icon: LayoutDashboard },
-                { href: '/dashboard/my-courses', tKey: 'nav.my-courses', icon: BookOpen },
-                { href: '/dashboard/students', tKey: 'nav.students', icon: GraduationCap },
-                { href: '/dashboard/analytics', tKey: 'nav.stats', icon: BarChart3 },
-              ]} />
-            ) : (
-              <NavSection titleTKey="sidebar.admin" items={[
-                { href: '/admin', tKey: 'nav.admin-dashboard', icon: Shield },
-                { href: '/admin/users', tKey: 'nav.users', icon: Users },
-                { href: '/admin/courses', tKey: 'nav.courses', icon: BookOpen },
-                { href: '/admin/analytics', tKey: 'nav.stats', icon: BarChart3 },
-              ]} />
-            )}
-          </ScrollArea>
-
-          <div className="border-t p-3">
-            <div className="mb-2 flex items-center gap-3 rounded-lg px-2 py-2">
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary/60 text-sm font-medium text-primary-foreground shadow-sm">
-                {user?.full_name?.charAt(0)?.toUpperCase() ?? 'U'}
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-medium">{user?.full_name ?? t('common.user')}</p>
-                <p className="truncate text-xs text-muted-foreground">
-                  <RoleLabel userRole={user?.role} adminRoleName={adminLoaded ? roleName : undefined} isOwner={adminLoaded ? adminIsOwner : false} />
-                </p>
-              </div>
-            </div>
-            <Button
-              variant="ghost"
-              size="sm"
-              className="w-full justify-start text-muted-foreground hover:text-foreground hover:bg-destructive/10"
-              onClick={signOut}
-            >
-              <LogOut className={cn('h-4 w-4', isRtl ? 'ml-2' : 'mr-2')} />
-              {t('auth.logout')}
-            </Button>
-          </div>
-        </motion.aside>
+        <div
+          className="fixed inset-0 z-30 bg-black/40 backdrop-blur-sm lg:hidden"
+          onClick={closeSidebar}
+          aria-hidden="true"
+        />
       )}
-    </AnimatePresence>
+
+      <aside
+        className={cn(
+          'fixed top-0 z-40 flex h-full flex-col border-r bg-sidebar motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out',
+          'w-[280px]',
+          isRTL ? 'right-0 border-l' : 'left-0 border-r',
+          sidebarOpen
+            ? 'translate-x-0'
+            : isRTL
+              ? 'translate-x-full'
+              : '-translate-x-full',
+          'lg:translate-x-0'
+        )}
+        role="navigation"
+        aria-label="Hauptnavigation"
+      >
+        <div className="flex h-16 shrink-0 items-center justify-between border-b px-4">
+          <Link href="/dashboard" className="flex items-center gap-2" onClick={closeSidebar}>
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary/60 text-primary-foreground shadow-sm">
+              <Sparkles className="h-4 w-4" />
+            </div>
+            <span className="text-base font-bold tracking-tight">DeutschMentor</span>
+          </Link>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-8 w-8 text-muted-foreground hover:text-foreground lg:hidden"
+            onClick={toggleSidebar}
+            aria-label="Sidebar schließen"
+          >
+            <X className="h-4 w-4" />
+          </Button>
+        </div>
+
+        <nav className="flex-1 overflow-y-auto overflow-x-hidden px-3 py-4 scrollbar-thin">
+          {pathname.startsWith('/admin') ? (
+            <AdminNav onNavigate={closeSidebar} />
+          ) : user?.role === 'student' ? (
+            <>
+              <NavSection titleTKey="sidebar.student" items={studentNav} onNavigate={closeSidebar} />
+              <NavSection titleTKey="nav.courses" items={courseNav} onNavigate={closeSidebar} />
+              <NavSection titleTKey="sidebar.skills" items={skillNav} onNavigate={closeSidebar} />
+              <NavSection titleTKey="sidebar.resources" items={resourceNav} onNavigate={closeSidebar} />
+              <div className="my-2 border-t" />
+              <NavSection titleTKey="sidebar.arabic" items={arabicNav} defaultOpen={false} onNavigate={closeSidebar} />
+            </>
+          ) : user?.role === 'teacher' ? (
+            <NavSection titleTKey="sidebar.teacher" items={[
+              { href: '/dashboard', tKey: 'nav.dashboard', icon: LayoutDashboard },
+              { href: '/dashboard/my-courses', tKey: 'nav.my-courses', icon: BookOpen },
+              { href: '/dashboard/students', tKey: 'nav.students', icon: GraduationCap },
+              { href: '/dashboard/analytics', tKey: 'nav.stats', icon: BarChart3 },
+            ]} onNavigate={closeSidebar} />
+          ) : (
+            <NavSection titleTKey="sidebar.admin" items={[
+              { href: '/admin', tKey: 'nav.admin-dashboard', icon: Shield },
+              { href: '/admin/users', tKey: 'nav.users', icon: Users },
+              { href: '/admin/courses', tKey: 'nav.courses', icon: BookOpen },
+              { href: '/admin/analytics', tKey: 'nav.stats', icon: BarChart3 },
+            ]} onNavigate={closeSidebar} />
+          )}
+        </nav>
+
+        <div className="shrink-0 border-t p-3">
+          <div className="mb-2 flex items-center gap-3 rounded-lg px-2 py-2">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary/60 text-sm font-medium text-primary-foreground shadow-sm">
+              {user?.full_name?.charAt(0)?.toUpperCase() ?? 'U'}
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="truncate text-sm font-medium">{user?.full_name ?? 'Benutzer'}</p>
+              <p className="truncate text-xs text-muted-foreground">
+                <RoleLabel userRole={user?.role} adminRoleName={adminLoaded ? roleName : undefined} isOwner={adminLoaded ? adminIsOwner : false} />
+              </p>
+            </div>
+          </div>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="w-full justify-start text-muted-foreground hover:text-foreground hover:bg-destructive/10"
+            onClick={() => { signOut(); closeSidebar() }}
+          >
+            <LogOut className={cn('h-4 w-4', isRTL ? 'ml-2' : 'mr-2')} />
+            Abmelden
+          </Button>
+        </div>
+      </aside>
+    </>
   )
 }

@@ -3,7 +3,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
-import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import { AppShell } from '@/components/layout/app-shell'
 import { Card, CardContent } from '@/components/ui/card'
@@ -56,19 +55,19 @@ export default function CourseLevelPage() {
 
   return (
     <AppShell>
-      <div className="space-y-6">
-        <div className="flex items-center gap-4">
-          <LinkButton href="/dashboard/courses" variant="ghost" size="icon">
+      <div className="space-y-6 max-w-3xl">
+        <div className="flex items-center gap-3">
+          <LinkButton href="/dashboard/courses" variant="ghost" size="icon" className="shrink-0">
             <ChevronLeft className="h-4 w-4" />
           </LinkButton>
-          <div>
-            <div className="flex items-center gap-2">
-              <div className={`h-3 w-3 rounded-full bg-gradient-to-r ${meta.gradient}`} />
-              <h1 className="text-2xl font-bold tracking-tight">{meta.title}</h1>
+          <div className="flex items-center gap-3 min-w-0">
+            <div className={`h-3 w-3 shrink-0 rounded-full bg-gradient-to-r ${meta.gradient}`} />
+            <div className="min-w-0">
+              <h1 className="text-2xl font-bold tracking-tight truncate">{meta.title}</h1>
+              <p className="text-muted-foreground text-sm">
+                {modules?.length ?? 0} Modul{(modules?.length ?? 0) !== 1 ? 'e' : ''}
+              </p>
             </div>
-            <p className="text-muted-foreground text-sm ml-5">
-              {modules?.length ?? 0} Modul{(modules?.length ?? 0) !== 1 ? 'e' : ''}
-            </p>
           </div>
         </div>
 
@@ -124,81 +123,73 @@ function ModuleCard({ mod, gradient, levelParam, isExpanded, onToggle }: {
   const totalCount = lessons?.length ?? 0
 
   return (
-    <Card className="overflow-hidden hover:shadow-md transition-shadow">
+    <Card className="overflow-hidden border-border/50 transition-all duration-200">
       <button onClick={onToggle} className="w-full text-left">
-        <div className={`h-1.5 bg-gradient-to-r ${gradient}`} />
+        <div className={`h-1 bg-gradient-to-r ${gradient}`} />
         <CardContent className="p-5">
-          <div className="flex items-start justify-between mb-2">
-            <div className="flex-1">
-              <div className="flex items-center gap-2">
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0 flex-1">
+              <div className="flex items-center gap-2 flex-wrap">
                 <h3 className="font-semibold text-lg">{mod.title}</h3>
-                <Badge variant="secondary" className="shrink-0 text-xs">
+                <Badge variant="secondary" className="shrink-0 text-xs font-medium">
                   {mod.lesson_count ?? 0} Lektionen
                 </Badge>
               </div>
-              <p className="text-sm text-muted-foreground mt-0.5">{mod.description}</p>
+              <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{mod.description}</p>
             </div>
-            <ChevronDown className={`h-5 w-5 text-muted-foreground shrink-0 mt-1 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+            <ChevronDown className={`h-5 w-5 text-muted-foreground shrink-0 mt-1 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
           </div>
 
-          <div className="flex items-center gap-4 text-xs text-muted-foreground">
-            <span className="flex items-center gap-1">
-              <Clock className="h-3 w-3" />
+          <div className="flex items-center gap-4 mt-3 text-xs text-muted-foreground">
+            <span className="flex items-center gap-1.5">
+              <Clock className="h-3.5 w-3.5" />
               {mod.estimated_hours}h
             </span>
             {completedCount > 0 && (
-              <span className="flex items-center gap-1 text-green-600">
-                <CheckCircle2 className="h-3 w-3" />
+              <span className="flex items-center gap-1.5 text-green-600 dark:text-green-500">
+                <CheckCircle2 className="h-3.5 w-3.5" />
                 {completedCount}/{totalCount} erledigt
               </span>
             )}
           </div>
 
           {(mod.progress ?? 0) > 0 && (
-            <Progress value={mod.progress ?? null} className="h-1 mt-3" />
+            <Progress value={mod.progress ?? null} className="h-1.5 mt-3" />
           )}
         </CardContent>
       </button>
 
-      <AnimatePresence>
-        {isExpanded && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="overflow-hidden"
-          >
-            <div className="border-t px-5 py-3 space-y-1">
-              {lessons?.map((lesson) => (
-                <Link
-                  key={lesson.id}
-                  href={`/dashboard/courses/${levelParam}/${lesson.id}`}
-                  className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm hover:bg-accent transition-colors group"
-                >
-                  <div className={`shrink-0 ${lesson.progress === 100 ? 'text-green-500' : 'text-muted-foreground'}`}>
-                    {lesson.progress === 100 ? (
-                      <CheckCircle2 className="h-4 w-4" />
-                    ) : (
-                      <PlayCircle className="h-4 w-4 group-hover:text-primary transition-colors" />
-                    )}
-                  </div>
-                  <span className="flex-1 font-medium">{lesson.title}</span>
-                  <span className="text-xs text-muted-foreground">{lesson.duration_minutes} min</span>
-                  {lesson.score !== null && lesson.score !== undefined && (
-                    <Badge variant={lesson.score >= 60 ? 'default' : 'secondary'} className="text-xs">
-                      {lesson.score}%
-                    </Badge>
+      {isExpanded && (
+        <div className="border-t">
+          <div className="px-5 py-3 space-y-0.5">
+            {lessons?.map((lesson) => (
+              <Link
+                key={lesson.id}
+                href={`/dashboard/courses/${levelParam}/${lesson.id}`}
+                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm hover:bg-accent transition-colors group"
+              >
+                <div className={`shrink-0 ${lesson.progress === 100 ? 'text-green-500' : 'text-muted-foreground'}`}>
+                  {lesson.progress === 100 ? (
+                    <CheckCircle2 className="h-4 w-4" />
+                  ) : (
+                    <PlayCircle className="h-4 w-4 group-hover:text-primary transition-colors" />
                   )}
-                </Link>
-              ))}
-              {(!lessons || lessons.length === 0) && (
-                <p className="text-sm text-muted-foreground text-center py-4">Noch keine Lektionen</p>
-              )}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                </div>
+                <span className="flex-1 font-medium truncate">{lesson.title}</span>
+                <span className="text-xs text-muted-foreground shrink-0">{lesson.duration_minutes} min</span>
+                {lesson.score !== null && lesson.score !== undefined && (
+                  <Badge variant={lesson.score >= 60 ? 'default' : 'secondary'} className="text-xs shrink-0">
+                    {lesson.score}%
+                  </Badge>
+                )}
+              </Link>
+            ))}
+            {(!lessons || lessons.length === 0) && (
+              <p className="text-sm text-muted-foreground text-center py-4">Noch keine Lektionen</p>
+            )}
+          </div>
+        </div>
+      )}
     </Card>
   )
 }

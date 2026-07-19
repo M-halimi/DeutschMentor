@@ -11,7 +11,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { BookOpen, Plus, Pencil, Trash2, Loader2, ChevronLeft } from 'lucide-react'
 import { useState } from 'react'
 import { toast } from 'sonner'
-import { useParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import type { LessonType } from '@/types'
 import { LinkButton } from '@/components/shared/link-button'
 
@@ -42,6 +42,7 @@ const LESSON_TYPES: { value: LessonType; label: string }[] = [
 
 export default function AdminModuleLessonsPage() {
   const params = useParams()
+  const router = useRouter()
   const levelId = params.levelId as string
   const moduleId = params.moduleId as string
   const queryClient = useQueryClient()
@@ -71,7 +72,7 @@ export default function AdminModuleLessonsPage() {
       setNewLesson({ title: '', description: '', topic: '', lesson_type: 'vocabulary', duration_minutes: 30, order_index: 1 })
       toast.success('Lesson created')
       if (data?.data?.[0]?.id) {
-        window.location.href = `/admin/courses/${levelId}/${moduleId}/${data.data[0].id}`
+        router.push(`/admin/courses/${levelId}/${moduleId}/${data.data[0].id}`)
       }
     },
     onError: () => toast.error('Failed to create lesson'),

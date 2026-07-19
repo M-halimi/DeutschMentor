@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect, useMemo } from 'react'
+import { useRouter } from 'next/navigation'
 import { AppShell } from '@/components/layout/app-shell'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -69,6 +70,7 @@ const questionTypeLabels: Record<ListeningQuestionType, string> = {
 }
 
 export default function HoerenPage() {
+  const router = useRouter()
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [currentExerciseIdx, setCurrentExerciseIdx] = useState(0)
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null)
@@ -455,7 +457,7 @@ export default function HoerenPage() {
               <h1 className="text-3xl font-bold tracking-tight">Hören</h1>
               <p className="text-muted-foreground">Prüfungsorientiertes Hörverstehenstraining</p>
             </div>
-            <Button variant="outline" size="sm" onClick={() => window.location.href = '/dashboard/add-content'} className="shrink-0">
+            <Button variant="outline" size="sm" onClick={() => router.push('/dashboard/add-content')} className="shrink-0">
               <Upload className="h-4 w-4 mr-1" /> Inhalt hinzufügen
             </Button>
           </div>

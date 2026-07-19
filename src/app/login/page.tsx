@@ -15,7 +15,7 @@ import { useAuthStore } from '@/stores/auth-store'
 
 export default function LoginPage() {
   return (
-    <Suspense fallback={<div className="flex min-h-screen items-center justify-center">Loading...</div>}>
+    <Suspense fallback={<div className="flex min-h-screen items-center justify-center p-4"><div className="h-8 w-8 animate-spin rounded-full border-2 border-primary border-t-transparent" /></div>}>
       <LoginForm />
     </Suspense>
   )
@@ -29,6 +29,7 @@ function LoginForm() {
   const [loading, setLoading] = useState(false)
   const router = useRouter()
   const searchParams = useSearchParams()
+  const fetchUser = useAuthStore((s) => s.fetchUser)
 
   useEffect(() => {
     if (searchParams.get('admin_denied') === 'true') {
@@ -56,60 +57,39 @@ function LoginForm() {
       return
     }
 
-    const { data: { session } } = await supabase.auth.getSession()
-    if (session?.user) {
-      const { data: profile } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('user_id', session.user.id)
-        .maybeSingle()
+    await fetchUser()
+    const { user: profile } = useAuthStore.getState()
 
-      console.log('[AUTH:login] session user:', session.user.id, 'role:', profile?.role)
+    if (profile) {
+      useAuthStore.getState().setUser(profile)
 
-      if (profile) {
-        useAuthStore.getState().setUser(profile)
-
-        // Sync language preference from cookie to profile on each login
-        const langFromCookie = document.cookie.split('; ').find(r => r.startsWith('preferred_lang='))
-        if (langFromCookie) {
-          const langVal = langFromCookie.split('=')[1]
-          if (langVal !== profile.language && ['de', 'en', 'fr', 'ar'].includes(langVal)) {
-            await supabase.from('profiles').update({ language: langVal }).eq('user_id', session.user.id)
-          }
-        }
-
-        // Check if account is suspended or banned
-        if (profile.status === 'suspended' || profile.status === 'banned') {
-          router.push(`/account-suspended?reason=${profile.status}`)
-          return
-        }
-
-        if (profile.status === 'expired') {
-          router.push('/account-expired')
-          return
-        }
-
-        const isAdmin = profile.is_owner === true ||
-          profile.role_id !== null ||
-          profile.role === 'admin' ||
-          profile.role === 'super_admin'
-
-        if (isAdmin) {
-          router.push('/admin')
-          return
-        }
-        if (profile.role === 'teacher') {
-          router.push('/teacher')
-          return
-        }
-        router.push('/dashboard')
-        return
-      } else {
-        router.push('/onboarding')
+      if (profile.status === 'suspended' || profile.status === 'banned') {
+        router.push(`/account-suspended?reason=${profile.status}`)
         return
       }
+
+      if (profile.status === 'expired') {
+        router.push('/account-expired')
+        return
+      }
+
+      const isAdmin = profile.is_owner === true ||
+        profile.role_id !== null ||
+        profile.role === 'admin' ||
+        profile.role === 'super_admin'
+
+      if (isAdmin) {
+        router.push('/admin')
+        return
+      }
+      if (profile.role === 'teacher') {
+        router.push('/teacher')
+        return
+      }
+      router.push('/dashboard')
+      return
     }
-    router.push('/dashboard')
+    router.push('/onboarding')
   }
 
   return (

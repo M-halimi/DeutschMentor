@@ -28,7 +28,6 @@ export const useAuthStore = create<AuthState>((set) => ({
       const { data: { user: authUser }, error } = await supabase.auth.getUser()
 
       if (error || !authUser) {
-        console.log('[AUTH:fetchUser] no session')
         set({ user: null, isAuthenticated: false, isLoading: false })
         return
       }
@@ -40,15 +39,12 @@ export const useAuthStore = create<AuthState>((set) => ({
         .maybeSingle()
 
       if (!profile) {
-        console.log('[AUTH:fetchUser] no profile for', authUser.id)
         set({ user: null, isAuthenticated: false, isLoading: false })
         return
       }
 
-      console.log('[AUTH:fetchUser] user:', authUser.id, 'role:', profile.role)
       set({ user: profile, isAuthenticated: true, isLoading: false })
-    } catch (err) {
-      console.log('[AUTH:fetchUser] error:', err)
+    } catch {
       set({ user: null, isAuthenticated: false, isLoading: false })
     }
   },
@@ -58,13 +54,10 @@ export const useAuthStore = create<AuthState>((set) => ({
       const supabase = createClient()
       await supabase.auth.signOut()
     } catch {
-      // swallow sign out errors
+      // swallow
     }
     set({ user: null, isAuthenticated: false, isLoading: false })
     useAdminStore.getState().clearPermissions()
-    if (typeof window !== 'undefined') {
-      window.location.href = '/login'
-    }
   },
 }))
 
