@@ -17,6 +17,7 @@ import {
   GraduationCap,
   Settings,
   Shield,
+  ShieldAlert,
   ChevronDown,
   LogOut,
   Sparkles,
@@ -157,6 +158,8 @@ const adminNavSections: { titleTKey: string; items: AdminNavItem[] }[] = [
     titleTKey: 'sidebar.content',
     items: [
       { href: '/admin/courses', tKey: 'nav.courses', icon: BookOpen, permission: 'courses.view' },
+      { href: '/admin/verbs', tKey: 'nav.verbs', icon: BookText, permission: 'courses.view' },
+      { href: '/admin/verbs/audit', tKey: 'nav.verb-audit', icon: ShieldAlert, permission: 'dashboard.view' },
     ],
   },
   {
