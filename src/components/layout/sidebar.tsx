@@ -34,6 +34,7 @@ import {
   Mail,
   History,
   MessageSquare,
+  Activity,
   X,
   type LucideIcon,
 } from 'lucide-react'
@@ -41,6 +42,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import { useTranslation } from '@/lib/i18n/use-translation'
+import { usePresence } from '@/hooks/use-presence'
 
 interface NavItem { href: string; icon: LucideIcon; badge?: string; tKey: string }
 
@@ -138,6 +140,7 @@ const adminNavSections: { titleTKey: string; items: AdminNavItem[] }[] = [
     titleTKey: 'nav.dashboard',
     items: [
       { href: '/admin', tKey: 'nav.admin-dashboard', icon: Shield, permission: 'dashboard.view' },
+      { href: '/admin/live-users', tKey: 'nav.live-users', icon: Activity, permission: 'users.live' },
     ],
   },
   {
@@ -219,12 +222,25 @@ function RoleLabel({ userRole, adminRoleName, isOwner }: { userRole?: string; ad
   return <>Schüler</>
 }
 
+function timeAgo(date: Date): string {
+  const seconds = Math.floor((Date.now() - date.getTime()) / 1000)
+  if (seconds < 10) return 'gerade eben'
+  if (seconds < 60) return `vor ${seconds}s`
+  const minutes = Math.floor(seconds / 60)
+  if (minutes < 60) return `vor ${minutes} Min.`
+  const hours = Math.floor(minutes / 60)
+  if (hours < 24) return `vor ${hours} Std.`
+  const days = Math.floor(hours / 24)
+  return `vor ${days} Tag${days > 1 ? 'en' : ''}`
+}
+
 export function Sidebar() {
   const pathname = usePathname()
   const { sidebarOpen, toggleSidebar } = useAppStore()
   const { user, signOut } = useAuthStore()
   const { roleName, isOwner: adminIsOwner, loaded: adminLoaded } = useAdminStore()
   const { isRTL } = useTranslation()
+  const { isOnline, lastSeen } = usePresence()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => { setMounted(true) }, [])
@@ -311,13 +327,34 @@ export function Sidebar() {
 
         <div className="shrink-0 border-t p-3">
           <div className="mb-2 flex items-center gap-3 rounded-lg px-2 py-2">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary/60 text-sm font-medium text-primary-foreground shadow-sm">
-              {user?.full_name?.charAt(0)?.toUpperCase() ?? 'U'}
+            <div className="relative shrink-0">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary/60 text-sm font-medium text-primary-foreground shadow-sm">
+                {user?.full_name?.charAt(0)?.toUpperCase() ?? 'U'}
+              </div>
+              <span className="absolute -bottom-0.5 -right-0.5 flex h-3 w-3" role="status" aria-label={isOnline ? 'Online' : 'Offline'}>
+                {isOnline ? (
+                  <>
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75 motion-reduce:animate-none" />
+                    <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-500 ring-2 ring-background" />
+                  </>
+                ) : (
+                  <span className="relative inline-flex h-3 w-3 rounded-full bg-muted-foreground/40 ring-2 ring-background" />
+                )}
+              </span>
             </div>
             <div className="min-w-0 flex-1">
-              <p className="truncate text-sm font-medium">{user?.full_name ?? 'Benutzer'}</p>
+              <div className="flex items-center gap-1.5">
+                <p className="truncate text-sm font-medium">{user?.full_name ?? 'Benutzer'}</p>
+                {isOnline && (
+                  <span className="shrink-0 rounded-full bg-emerald-500/15 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-500 leading-none">Online</span>
+                )}
+              </div>
               <p className="truncate text-xs text-muted-foreground">
-                <RoleLabel userRole={user?.role} adminRoleName={adminLoaded ? roleName : undefined} isOwner={adminLoaded ? adminIsOwner : false} />
+                {!isOnline && lastSeen ? (
+                  <span>Zuletzt gesehen {timeAgo(lastSeen)}</span>
+                ) : (
+                  <RoleLabel userRole={user?.role} adminRoleName={adminLoaded ? roleName : undefined} isOwner={adminLoaded ? adminIsOwner : false} />
+                )}
               </p>
             </div>
           </div>
