@@ -1,4 +1,4 @@
-import type { VerbEntry } from './types'
+import type { VerbEntry, ReflexivePronounCase } from './types'
 
 export interface VerbExampleRow {
   difficulty: 'beginner' | 'intermediate' | 'advanced'
@@ -67,10 +67,10 @@ function erForm(st: string): string {
   return `${st}t`
 }
 
-function getReflexivePronoun(person: string, reflexiveCase: 'akkusativ' | 'dativ'): string {
-  const akk = { ich: 'mich', du: 'dich', er_sie_es: 'sich', wir: 'uns', ihr: 'euch', Sie: 'sich' }
-  const dat = { ich: 'mir', du: 'dir', er_sie_es: 'sich', wir: 'uns', ihr: 'euch', Sie: 'sich' }
-  return reflexiveCase === 'dativ' ? dat[person as keyof typeof dat] : akk[person as keyof typeof akk]
+function getReflexivePronoun(person: string, reflexiveCase: ReflexivePronounCase = 'akkusativ'): string {
+  const akk: Record<string, string> = { ich: 'mich', du: 'dich', er_sie_es: 'sich', wir: 'uns', ihr: 'euch', Sie: 'sich' }
+  const dat: Record<string, string> = { ich: 'mir', du: 'dir', er_sie_es: 'sich', wir: 'uns', ihr: 'euch', Sie: 'sich' }
+  return reflexiveCase === 'dativ' ? dat[person] ?? 'sich' : akk[person] ?? 'sich'
 }
 
 // Verbs that MANDATORILY require a direct object (in addition to reflexive pronoun)
@@ -90,26 +90,22 @@ const VERBS_WITH_OPTIONAL_BODY_PART = new Set([
 ]);
 
 function getPlaceholder(verb: VerbEntry): string {
-  // Only return placeholder for reflexive verbs that MANDATORILY require a direct object
   if (VERBS_REQUIRING_OBJECT.has(verb.infinitive)) return 'etwas'
   if (VERBS_REQUIRING_OBJECT_AND_PREP.has(verb.infinitive)) return 'etwas'
-  
-  // For non-reflexive verbs, use the object case
-  if (!verb.reflexive) {
-    if (verb.objectPlaceholder) return verb.objectPlaceholder
-    if (verb.requiredPreposition) return 'etwas'
-    if (verb.obj === 'akkusativ' || verb.obj === 'both' || verb.obj === 'akkusativ_dativ') return 'etwas'
-    if (verb.obj === 'dativ') return 'jemandem'
-  }
-  return '' // No placeholder for reflexive verbs that don't require an object
+  if (verb.objectPlaceholder) return verb.objectPlaceholder
+  if ((verb.prep ?? verb.requiredPreposition)) return 'etwas'
+  if (verb.obj === 'akkusativ' || verb.obj === 'both' || verb.obj === 'akkusativ_dativ') return 'etwas'
+  if (verb.obj === 'dativ') return 'jemandem'
+  return ''
 }
 
 function requiresDirectObject(verb: VerbEntry): boolean {
-  return VERBS_REQUIRING_OBJECT.has(verb.infinitive)
+  return VERBS_REQUIRING_OBJECT.has(verb.infinitive) || (verb.obj !== undefined && verb.obj !== 'none')
 }
 
 function requiresObjectAndPrep(verb: VerbEntry): boolean {
-  return VERBS_REQUIRING_OBJECT_AND_PREP.has(verb.infinitive)
+  return false
+  // Replaced by DB-driven prep field. Previously: VERBS_REQUIRING_OBJECT_AND_PREP.has(verb.infinitive)
 }
 
 function hasOptionalBodyPart(verb: VerbEntry): boolean {
@@ -119,7 +115,6 @@ function hasOptionalBodyPart(verb: VerbEntry): boolean {
 function getFullExample(verb: VerbEntry, person: string, tense: 'present' | 'perfekt' = 'present'): string {
   const base = p(verb)
   const bSt = baseStem(verb)
-  const st = stem(base)
   const prefix = verb.sep || ''
   const reflCase = verb.reflexivePronounCase || 'akkusativ'
   const reflPron = getReflexivePronoun(person, reflCase)
@@ -135,22 +130,19 @@ function getFullExample(verb: VerbEntry, person: string, tense: 'present' | 'per
     else if (person === 'Sie') verbForm = `${bSt}en`
   }
   
-  // Add separable prefix
-  if (prefix && person !== 'ich' && person !== 'er_sie_es' && person !== 'Sie') {
-    // For non-ich/er/Sie, the prefix goes to end in main clause
-    // But for simplicity in examples, we'll keep it simple
-  }
-  
   const placeholder = getPlaceholder(verb)
-  const prep = verb.requiredPreposition || ''
-  const prepCase = verb.prepositionCase || ''
+  const prep = (verb.prep ?? verb.requiredPreposition) || ''
   
   let example = `Ich ${verbForm} ${reflPron}`
-  if (verb.requiresObject) {
+  const fullInf = verb.infinitive
+  if (requiresDirectObject(verb) || requiresObjectAndPrep(verb)) {
     example += ` ${placeholder}`
   }
   if (prep) {
     example += ` ${prep} ${placeholder}`
+  }
+  if (prefix) {
+    example += ` ${prefix}`
   }
   
   return example
@@ -162,7 +154,7 @@ export function generateExamples(verb: VerbEntry): VerbExampleRow[] {
   const prefix = verb.sep || ''
   const reflCase = verb.reflexivePronounCase || 'akkusativ'
   const placeholder = getPlaceholder(verb)
-  const prep = verb.requiredPreposition || ''
+  const prep = (verb.prep ?? verb.requiredPreposition) || ''
   
   const results: VerbExampleRow[] = []
 
@@ -188,31 +180,46 @@ export function generateExamples(verb: VerbEntry): VerbExampleRow[] {
         ichSentence += ` ${prep} ${placeholder}`
         duSentence += ` ${prep} ${placeholder}`
       }
+      if (prefix) {
+        ichSentence += ` ${prefix}`
+        duSentence += ` ${prefix}`
+      }
       
       results.push({
         difficulty: 'beginner',
         german: ichSentence + '.',
-        english: `I ${base} myself${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}.`,
-        arabic: `أنا ${verb.ar || 'أ' + base} نفسي${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}.`,
-        french: `Je me ${bSt}e${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}.`,
+        english: reflCase === 'dativ'
+          ? `I ${base}${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}.`
+          : `I ${base} myself${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}.`,
+        arabic: reflCase === 'dativ'
+          ? `أنا ${verb.ar || 'أ' + base}${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}.`
+          : `أنا ${verb.ar || 'أ' + base} نفسي${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}.`,
+        french: reflCase === 'dativ'
+          ? `Je ${bSt}e${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}.`
+          : `Je me ${bSt}e${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}.`,
       })
       
       results.push({
         difficulty: 'beginner',
         german: duSentence + '?',
-        english: `Do you ${base} yourself${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}?`,
-        arabic: `هل ${verb.ar ? 'ت' + verb.ar.slice(1) : 'ت' + base} نفسك${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}؟`,
-        french: `Est-ce que tu te ${bSt}es${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''} ?`,
+        english: reflCase === 'dativ'
+          ? `Do you ${base}${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}?`
+          : `Do you ${base} yourself${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}?`,
+        arabic: reflCase === 'dativ'
+          ? `هل ${verb.ar ? 'ت' + verb.ar.slice(1) : 'ت' + base}${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}؟`
+          : `هل ${verb.ar ? 'ت' + verb.ar.slice(1) : 'ت' + base} نفسك${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}؟`,
+        french: reflCase === 'dativ'
+          ? `Est-ce que tu ${bSt}es${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''} ?`
+          : `Est-ce que tu te ${bSt}es${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''} ?`,
       })
     }
   }
 
-  // Intermediate - Perfekt (reflexive pronoun BEFORE participle)
-  let perfekt = `Er hat ${verb.p2}`
+  // Intermediate - Perfekt (correct word order: auxiliary + pronoun + object + participle)
+  let perfekt = `Er hat`
   if (verb.reflexive) {
-    const erPron = getReflexivePronoun('er_sie_es', reflCase)
-    // Correct German word order: auxiliary + reflexive pronoun + participle
-    perfekt = `Er hat ${getReflexivePronoun('er_sie_es', reflCase)} ${verb.p2}`
+    // Reflexive pronoun goes after auxiliary, before object and participle
+    perfekt += ` ${getReflexivePronoun('er_sie_es', reflCase)}`
   }
   if (requiresDirectObject(verb) || requiresObjectAndPrep(verb)) {
     perfekt += ` ${placeholder}`
@@ -220,6 +227,7 @@ export function generateExamples(verb: VerbEntry): VerbExampleRow[] {
   if (prep) {
     perfekt += ` ${prep} ${placeholder}`
   }
+  perfekt += ` ${verb.p2}`
   
   results.push({
     difficulty: 'intermediate',
@@ -235,13 +243,20 @@ export function generateExamples(verb: VerbEntry): VerbExampleRow[] {
     if (verb.reflexive) advSentence += ` ${getReflexivePronoun('ich', reflCase)}`
     if (requiresDirectObject(verb) || requiresObjectAndPrep(verb)) advSentence += ` ${placeholder}`
     if (prep) advSentence += ` ${prep} ${placeholder}`
+    if (prefix) advSentence += ` ${prefix}`
     
     results.push({
       difficulty: 'advanced',
       german: advSentence + '.',
-      english: `I ${base}${verb.reflexive ? ' myself' : ''}${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}.`,
-      arabic: `أنا ${verb.ar || 'أ' + base}${verb.reflexive ? ' نفسي' : ''}${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}.`,
-      french: `Je ${bSt}e ${verb.reflexive ? 'me' : ''}${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}.`,
+      english: reflCase === 'dativ'
+        ? `I ${base}${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}.`
+        : `I ${base} myself${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}.`,
+      arabic: reflCase === 'dativ'
+        ? `أنا ${verb.ar || 'أ' + base}${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}.`
+        : `أنا ${verb.ar || 'أ' + base} نفسي${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}.`,
+      french: reflCase === 'dativ'
+        ? `Je ${bSt}e${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}.`
+        : `Je me ${bSt}e${requiresDirectObject(verb) || requiresObjectAndPrep(verb) ? ` ${placeholder}` : ''}${prep ? ` ${prep} ${placeholder}` : ''}.`,
     })
   }
 
@@ -254,7 +269,7 @@ export function generateCollocations(verb: VerbEntry): VerbCollocationRow[] {
   const prefix = verb.sep || ''
   const reflCase = verb.reflexivePronounCase || 'akkusativ'
   const placeholder = getPlaceholder(verb)
-  const prep = verb.requiredPreposition || ''
+  const prep = (verb.prep ?? verb.requiredPreposition) || ''
   const prepCase = verb.prepositionCase || ''
   const hasBodyPart = hasOptionalBodyPart(verb)
 
@@ -359,9 +374,15 @@ export function generateQuestions(verb: VerbEntry): VerbQuestionRow[] {
     const duRefl = getReflexivePronoun('du', reflCase)
     results.push({
       german: `${capitalized} du ${duRefl}${prefix ? ` ${prefix}` : ''}?`,
-      english: `Do you ${inf} yourself?`,
-      arabic: `هل ${verb.ar ? 'ت' + verb.ar.slice(1) : 'ت' + inf} نفسك؟`,
-      french: `Est-ce que tu te ${bSt}es${prefix ? ` ${prefix}` : ''} ?`,
+      english: reflCase === 'dativ'
+        ? `Do you ${inf} (for yourself)?`
+        : `Do you ${inf} yourself?`,
+      arabic: reflCase === 'dativ'
+        ? `هل ${verb.ar ? 'ت' + verb.ar.slice(1) : 'ت' + inf} (لنفسك)؟`
+        : `هل ${verb.ar ? 'ت' + verb.ar.slice(1) : 'ت' + inf} نفسك؟`,
+      french: reflCase === 'dativ'
+        ? `Est-ce que tu ${bSt}es${prefix ? ` ${prefix}` : ''} (pour toi) ?`
+        : `Est-ce que tu te ${bSt}es${prefix ? ` ${prefix}` : ''} ?`,
     })
   } else if (verb.obj !== 'none') {
     const withSep = prefix ? ` ${prefix}` : ''
@@ -399,20 +420,33 @@ export function generateMistakes(verb: VerbEntry): VerbMistakeRow[] {
   const display = verb.infinitive.replace(/^sich\s+/, '')
   const prefix = verb.sep || ''
   const reflCase = verb.reflexivePronounCase || 'akkusativ'
+  const placeholder = getPlaceholder(verb)
+  const prep = (verb.prep ?? verb.requiredPreposition) || ''
+  const hasDirectObj = requiresDirectObject(verb)
+  const needsObj = hasDirectObj && !prep
   const results: VerbMistakeRow[] = []
 
+  // Combined reflexiv + object + separable mistake (all in one)
   if (verb.reflexive) {
     const ichPron = getReflexivePronoun('ich', reflCase)
-    results.push({
-      incorrect: `Ich ${bSt}e.`,
-      correct: `Ich ${bSt}e ${ichPron}.`,
-      explanation: `"${display}" is reflexive. Always include the reflexive pronoun (${reflCase === 'dativ' ? 'mir/dir/sich' : 'mich/dich/sich'}).`,
-      arabic_explanation: `"${display}" هو فعل انعكاسي. أضف دائماً الضمير الانعكاسي (${reflCase === 'dativ' ? 'mir/dir/sich' : 'mich/dich/sich'}).`,
-      french_explanation: `"${display}" est un verbe réfléchi. Ajoutez toujours le pronom réfléchi (${reflCase === 'dativ' ? 'me/te/se' : 'me/te/se'}).`,
+    let incorrect = `Ich ${bSt}e.`
+    let correct = `Ich ${bSt}e ${ichPron}`
+    if (needsObj) correct += ` ${placeholder}`
+    if (prep) correct += ` ${prep} ${placeholder}`
+    if (prefix) correct += ` ${prefix}`
+    correct += '.'
+
+    let explanation = `"${display}" is reflexive. Always include the reflexive pronoun (${reflCase === 'dativ' ? 'mir/dir/sich' : 'mich/dich/sich'})`
+    if (needsObj) explanation += ` and a direct object (${placeholder})`
+    if (prep) explanation += ` with the preposition "${prep}"`
+    explanation += '.'
+    results.push({ incorrect, correct, explanation,
+      arabic_explanation: `"${display}" هو فعل انعكاسي. أضف دائماً الضمير الانعكاسي${needsObj || prep ? ' والمفعول به' : ''}.`,
+      french_explanation: `"${display}" est un verbe réfléchi. Ajoutez toujours le pronom réfléchi${needsObj || prep ? ' et un objet' : ''}.`,
     })
   }
 
-  if (prefix) {
+  if (prefix && !verb.reflexive) {
     results.push({
       incorrect: `Ich ${prefix}${bSt}e.`,
       correct: `Ich ${bSt}e ${prefix}.`,
@@ -452,24 +486,6 @@ export function generateMistakes(verb: VerbEntry): VerbMistakeRow[] {
     })
   }
 
-  // Missing object/preposition mistake
-  if (verb.requiresObject || verb.requiredPreposition) {
-    let incorrect = `Ich ${bSt}e`
-    if (verb.reflexive) incorrect += ` ${getReflexivePronoun('ich', verb.reflexivePronounCase || 'akkusativ')}`
-    
-    let correct = incorrect
-    if (verb.requiresObject) correct += ` ${getPlaceholder(verb)}`
-    if (verb.requiredPreposition) correct += ` ${verb.requiredPreposition} ${getPlaceholder(verb)}`
-    
-    results.push({
-      incorrect: incorrect + '.',
-      correct: correct + '.',
-      explanation: `"${display}" requires ${verb.requiresObject ? 'an object' : ''}${verb.requiresObject && verb.requiredPreposition ? ' and ' : ''}${verb.requiredPreposition ? `the preposition "${verb.requiredPreposition}"` : ''}.`,
-      arabic_explanation: `"${display}" يتطلب ${verb.requiresObject ? 'مفعولاً به' : ''}${verb.requiresObject && verb.requiredPreposition ? ' و' : ''}${verb.requiredPreposition ? `حرف الجر "${verb.requiredPreposition}"` : ''}.`,
-      french_explanation: `"${display}" nécessite ${verb.requiresObject ? 'un objet' : ''}${verb.requiresObject && verb.requiredPreposition ? ' et ' : ''}${verb.requiredPreposition ? `la préposition "${verb.requiredPreposition}"` : ''}.`,
-    })
-  }
-
   return results.slice(0, 2)
 }
 
@@ -479,10 +495,17 @@ export function generateTips(verb: VerbEntry): VerbTipRow[] {
   const results: VerbTipRow[] = []
 
   if (verb.reflexive) {
-    const pronouns = reflCase === 'dativ' ? 'mir/dir/sich/uns/euch/sich' : 'mich/dich/sich/uns/euch/sich'
+    let pronounDesc = ''
+    if (reflCase === 'dativ') {
+      pronounDesc = 'Dativ (mir/dir/sich/uns/euch/sich)'
+    } else if (reflCase === 'both') {
+      pronounDesc = 'Akkusativ or Dativ depending on context: e.g., "Ich wasche mich" vs "Ich wasche mir die Hände"'
+    } else {
+      pronounDesc = 'Akkusativ (mich/dich/sich/uns/euch/sich)'
+    }
     results.push({
       tip_type: 'usage_notes',
-      content: `"${display}" is reflexive (${reflCase}). The reflexive pronoun changes based on the subject: ${pronouns}.`,
+      content: `"${display}" is reflexive (${pronounDesc}).`,
     })
   }
 
@@ -535,10 +558,10 @@ export function generateTips(verb: VerbEntry): VerbTipRow[] {
     })
   }
 
-  if (verb.requiredPreposition) {
+  if ((verb.prep ?? verb.requiredPreposition)) {
     results.push({
       tip_type: 'usage_notes',
-      content: `"${display}" requires the preposition "${verb.requiredPreposition}" (+ ${verb.prepositionCase}). Always use it: sich ${p(verb)} ${verb.requiredPreposition} ${verb.objectPlaceholder || 'etwas'}.`,
+      content: `"${display}" requires the preposition "${(verb.prep ?? verb.requiredPreposition)}" (+ ${verb.prepositionCase}). Always use it: sich ${p(verb)} ${(verb.prep ?? verb.requiredPreposition)} ${verb.objectPlaceholder || 'etwas'}.`,
     })
   }
 

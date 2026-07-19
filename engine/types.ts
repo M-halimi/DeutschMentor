@@ -67,6 +67,8 @@ export interface VerbEntry {
   isReflexive?: boolean
   /** Reflexive pronoun: "sich" */
   reflexivePronoun?: string
+  /** Reflexive pronoun case: 'akkusativ' (mich/dich/sich) or 'dativ' (mir/dir/sich) */
+  reflexivePronounCase?: 'akkusativ' | 'dativ'
   /** Partizip II (can be auto-generated) */
   partizipII?: string
   /** Stem (can be auto-derived from infinitive) */

@@ -6,7 +6,7 @@ export interface ReflexiveVerbMeta {
   reflexiveCase: 'akkusativ' | 'dativ';
   requiresObject: boolean;
   objectCase: 'akkusativ' | 'dativ' | 'genitiv' | 'none';
-  objectPlaceholder: string; // 'etwas', 'jemanden', 'sich', etc.
+  objectPlaceholder: string | null; // 'etwas', 'jemanden', 'sich', etc.
   requiredPreposition: string | null; // e.g., 'für', 'an', 'auf', 'mit', 'um', 'bei', 'von', 'in', 'über', 'gegen', 'vor'
   prepositionCase: 'akkusativ' | 'dativ' | 'genitiv' | 'none';
   transitivity: 'transitive' | 'intransitive' | 'both';
@@ -588,7 +588,7 @@ export const reflexiveVerbMeta: ReflexiveVerbMeta[] = [
   },
   {
     infinitive: 'sich vornehmen',
-    reflexiveCase: 'akkusativ',
+    reflexiveCase: 'dativ',
     requiresObject: true,
     objectCase: 'akkusativ',
     objectPlaceholder: 'etwas (Vorhaben)',
@@ -596,7 +596,19 @@ export const reflexiveVerbMeta: ReflexiveVerbMeta[] = [
     prepositionCase: 'none',
     transitivity: 'transitive',
     exampleWithObject: 'Ich nehme mir vor, mehr zu lesen.',
-    notes: 'Requires Akkusativ object (clause/infinitive). Looks like dativ but is Akkusativ reflexive + Akk object.'
+    notes: 'True dativ reflexive (mir/dir/sich). Requires a plan/intention as object or a zu-infinitive clause.'
+  },
+  {
+    infinitive: 'sich gewöhnen',
+    reflexiveCase: 'akkusativ',
+    requiresObject: false,
+    objectCase: 'none',
+    objectPlaceholder: null,
+    requiredPreposition: 'an',
+    prepositionCase: 'akkusativ',
+    transitivity: 'intransitive',
+    exampleWithObject: 'Ich gewöhne mich an die Kälte.',
+    notes: 'Mandatory "an + Akk". The reflexive pronoun is Akkusativ.'
   },
   {
     infinitive: 'sich fühlen',

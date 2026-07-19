@@ -44,6 +44,7 @@ function parseVerbFile(filePath: string): VerbEntry[] {
     const praeteritumStem = getVal('praeteritumStem')
     const isReflexive = getBool('isReflexive')
     const reflexivePronoun = getVal('reflexivePronoun')
+    const reflexivePronounCase = getVal('reflexivePronounCase') as 'akkusativ' | 'dativ' | undefined
     let category: VerbEntry['category'] = 'regular'
     if (['sein', 'haben', 'werden'].includes(infinitive)) {
       category = 'auxiliary'
@@ -81,7 +82,7 @@ function parseVerbFile(filePath: string): VerbEntry[] {
       infinitive, en, level, category, auxiliary,
       stem, partizipII: partizipII ?? irreg?.partizipII,
       praeteritumStem: praeteritumStem ?? irreg?.preteriteStem,
-      isReflexive, reflexivePronoun, vowelChange,
+      isReflexive, reflexivePronoun, reflexivePronounCase, vowelChange,
     })
   }
   return verbs

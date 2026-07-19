@@ -337,8 +337,8 @@ function validate(conj: VerbConjugations, infinitive: string, entry: GermanVerbE
           }
         }
       }
-      if (entry.reflexive && person === 'ich' && tense === 'praesens') {
-        if (!value.includes(' mich') && !value.includes(' mir')) {
+      if (entry.reflexive && (tense === 'praesens' || tense === 'perfekt' || tense === 'plusquamperfekt')) {
+        if (person === 'ich' && !value.includes(' mich') && !value.includes(' mir')) {
           errors.push(`${tense}.${person}: reflexive verb "${infinitive}" must include reflexive pronoun`)
         }
       }
@@ -388,7 +388,7 @@ export function conjugate(entry: GermanVerbEntry): VerbConjugations {
   const pattern = findPattern(baseInfinitive)
   const patData = pattern ? strongPatterns[pattern] : null
 
-  // Reflexive pronoun setup (must be before tense generation for Futur/Konjunktiv)
+  // Reflexive pronoun setup
   const reflexivePronounsAkk: Record<string, string> = {
     ich: 'mich', du: 'dich', er_sie_es: 'sich', wir: 'uns', ihr: 'euch', Sie: 'sich',
   }
@@ -397,6 +397,11 @@ export function conjugate(entry: GermanVerbEntry): VerbConjugations {
   }
   const useDat = entry.reflexivePronounCase === 'dativ'
   const pronouns = useDat ? reflexivePronounsDat : reflexivePronounsAkk
+
+  // Full infinitive without "sich" but WITH separable prefix (for compound tenses)
+  const infinitiveWithoutSich = entry.reflexive
+    ? entry.infinitive.replace(/^sich\s+/i, '')
+    : entry.infinitive
 
   // Helper functions
   let praesens: ConjugationResult
@@ -471,29 +476,35 @@ export function conjugate(entry: GermanVerbEntry): VerbConjugations {
     }
   }
 
-  // --- PERFEKT ---
-  const perfekt: ConjugationResult = {
-    ich: `${auxSet.ich} ${p2}`, du: `${auxSet.du} ${p2}`, er_sie_es: `${auxSet.er_sie_es} ${p2}`,
-    wir: `${auxSet.wir} ${p2}`, ihr: `${auxSet.ihr} ${p2}`, Sie: `${auxSet.Sie} ${p2}`,
+  // --- PERFEKT (reflexive pronoun goes AFTER auxiliary, BEFORE participle) ---
+  const perfekt: ConjugationResult = {}
+  for (const p of PERSONS) {
+    perfekt[p] = entry.reflexive
+      ? `${auxSet[p]} ${pronouns[p]} ${p2}`
+      : `${auxSet[p]} ${p2}`
   }
 
-  // --- PLUSQUAMPERFEKT ---
-  const plusquamperfekt: ConjugationResult = {
-    ich: `${auxPraet.ich} ${p2}`, du: `${auxPraet.du} ${p2}`, er_sie_es: `${auxPraet.er_sie_es} ${p2}`,
-    wir: `${auxPraet.wir} ${p2}`, ihr: `${auxPraet.ihr} ${p2}`, Sie: `${auxPraet.Sie} ${p2}`,
+  // --- PLUSQUAMPERFEKT (reflexive pronoun goes AFTER auxiliary, BEFORE participle) ---
+  const plusquamperfekt: ConjugationResult = {}
+  for (const p of PERSONS) {
+    plusquamperfekt[p] = entry.reflexive
+      ? `${auxPraet[p]} ${pronouns[p]} ${p2}`
+      : `${auxPraet[p]} ${p2}`
   }
 
-  // For reflexive verbs in Futur I, Futur II, Konjunktiv II: use base infinitive (without "sich")
-  // and add reflexive pronoun before it
-  const baseInfinitiveForCompound = entry.reflexive ? baseInfinitive : entry.infinitive
+  // For compound tenses, use infinitive without "sich" but WITH separable prefix
+  const baseInfinitiveForCompound = infinitiveWithoutSich
   const infAux = entry.auxiliary === 'sein' ? 'sein' : 'haben'
 
   // --- FUTUR I ---
   const futuri: ConjugationResult = {}
   if (entry.reflexive) {
-    for (const p of PERSONS) {
-      futuri[p] = `werde ${pronouns[p]} ${baseInfinitiveForCompound}`
-    }
+    futuri.ich = `werde ${pronouns.ich} ${baseInfinitiveForCompound}`
+    futuri.du = `wirst ${pronouns.du} ${baseInfinitiveForCompound}`
+    futuri.er_sie_es = `wird ${pronouns.er_sie_es} ${baseInfinitiveForCompound}`
+    futuri.wir = `werden ${pronouns.wir} ${baseInfinitiveForCompound}`
+    futuri.ihr = `werdet ${pronouns.ihr} ${baseInfinitiveForCompound}`
+    futuri.Sie = `werden ${pronouns.Sie} ${baseInfinitiveForCompound}`
   } else {
     futuri.ich = `werde ${baseInfinitiveForCompound}`
     futuri.du = `wirst ${baseInfinitiveForCompound}`
@@ -506,9 +517,12 @@ export function conjugate(entry: GermanVerbEntry): VerbConjugations {
   // --- FUTUR II ---
   const futurii: ConjugationResult = {}
   if (entry.reflexive) {
-    for (const p of PERSONS) {
-      futurii[p] = `werde ${pronouns[p]} ${p2} ${infAux}`
-    }
+    futurii.ich = `werde ${pronouns.ich} ${p2} ${infAux}`
+    futurii.du = `wirst ${pronouns.du} ${p2} ${infAux}`
+    futurii.er_sie_es = `wird ${pronouns.er_sie_es} ${p2} ${infAux}`
+    futurii.wir = `werden ${pronouns.wir} ${p2} ${infAux}`
+    futurii.ihr = `werdet ${pronouns.ihr} ${p2} ${infAux}`
+    futurii.Sie = `werden ${pronouns.Sie} ${p2} ${infAux}`
   } else {
     futurii.ich = `werde ${p2} ${infAux}`
     futurii.du = `wirst ${p2} ${infAux}`
@@ -533,9 +547,12 @@ export function conjugate(entry: GermanVerbEntry): VerbConjugations {
     // attached to the infinitive (e.g. "würde anbieten"), so we use the full
     // infinitive here and deliberately do NOT apply the separable prefix below.
     if (entry.reflexive) {
-      for (const p of PERSONS) {
-        konjunktivii[p] = `würde ${pronouns[p]} ${baseInfinitiveForCompound}`
-      }
+      konjunktivii.ich = `würde ${pronouns.ich} ${baseInfinitiveForCompound}`
+      konjunktivii.du = `würdest ${pronouns.du} ${baseInfinitiveForCompound}`
+      konjunktivii.er_sie_es = `würde ${pronouns.er_sie_es} ${baseInfinitiveForCompound}`
+      konjunktivii.wir = `würden ${pronouns.wir} ${baseInfinitiveForCompound}`
+      konjunktivii.ihr = `würdet ${pronouns.ihr} ${baseInfinitiveForCompound}`
+      konjunktivii.Sie = `würden ${pronouns.Sie} ${baseInfinitiveForCompound}`
     } else {
       konjunktivii = {
         ich: `würde ${baseInfinitiveForCompound}`, du: `würdest ${baseInfinitiveForCompound}`, er_sie_es: `würde ${baseInfinitiveForCompound}`,
@@ -593,39 +610,43 @@ export function conjugate(entry: GermanVerbEntry): VerbConjugations {
       result.praeteritum = applySepReflexive(praeteritum)
       result.futuri = futuri
       result.futurii = futurii
-      // Konjunktiv II keeps the prefix attached to the infinitive ("würde sich vorstellen").
-      // Only append the prefix for stem-based forms (e.g. "nähme" -> "nähme mit"), never for the
-      // synthetic "würde <infinitive>" form which already embeds the prefix.
       result.konjunktivii = konjunktiviiIsWuerdeForm ? konjunktivii : applySepReflexive(konjunktivii)
     } else {
       result.praesens = applySep(praesens)
       result.praeteritum = applySep(praeteritum)
       result.futuri = futuri
       result.futurii = futurii
-      // Konjunktiv II keeps the prefix attached to the infinitive ("würde anbieten").
       result.konjunktivii = konjunktiviiIsWuerdeForm ? konjunktivii : applySep(konjunktivii)
     }
-    const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1)
-    const addSep = (s: string | null) => {
-      const clean = (s || '').replace(/!$/, '').trim()
-      return clean ? cap(`${clean} ${prefix}`) + '!' : ''
+    // Non-reflexive separable imperative: add prefix after stem
+    if (!entry.reflexive) {
+      const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1)
+      const addSep = (s: string | null) => {
+        const clean = (s || '').replace(/!$/, '').trim()
+        return clean ? cap(`${clean} ${prefix}`) + '!' : ''
+      }
+      if (result.imperativ.du) result.imperativ.du = addSep(imperativ.du)
+      if (result.imperativ.ihr) result.imperativ.ihr = addSep(imperativ.ihr)
+      if (result.imperativ.Sie) result.imperativ.Sie = addSep(imperativ.Sie)
     }
-    if (result.imperativ.du) result.imperativ.du = addSep(imperativ.du)
-    if (result.imperativ.ihr) result.imperativ.ihr = addSep(imperativ.ihr)
-    if (result.imperativ.Sie) result.imperativ.Sie = addSep(imperativ.Sie)
   }
 
-  // Apply reflexive (only to tenses that don't already have pronouns)
+  // Apply reflexive pronoun
   if (entry.reflexive) {
-    for (const tense of ['praesens', 'praeteritum', 'perfekt', 'plusquamperfekt'] as const) {
+    for (const tense of ['praesens', 'praeteritum'] as const) {
       result[tense] = applyReflexive(result[tense]!)
     }
-    // Futur I, Futur II, Konjunktiv II already have pronouns added above
-    const useDat = entry.reflexivePronounCase === 'dativ'
-    const pronouns = useDat ? reflexivePronounsDat : reflexivePronounsAkk
-    if (result.imperativ.du) result.imperativ.du = `${result.imperativ.du} ${pronouns.du}`
-    if (result.imperativ.ihr) result.imperativ.ihr = `${result.imperativ.ihr} ${pronouns.ihr}`
-    if (result.imperativ.Sie) result.imperativ.Sie = `${result.imperativ.Sie} ${pronouns.Sie}`
+    // Perfekt/Plusquamperfekt already have pronouns in correct position (after auxiliary)
+
+    // Imperative: pronoun BEFORE separable prefix
+    const fmtReflImp = (baseForm: string | null, pron: string, sepPrefix: string) => {
+      if (!baseForm) return null
+      const clean = baseForm.replace(/!$/, '').trim()
+      return sepPrefix ? `${clean} ${pron} ${sepPrefix}` : `${clean} ${pron}`
+    }
+    result.imperativ.du = fmtReflImp(imperativ.du, pronouns.du, prefix)
+    result.imperativ.ihr = fmtReflImp(imperativ.ihr, pronouns.ihr, prefix)
+    result.imperativ.Sie = fmtReflImp(imperativ.Sie, pronouns.Sie, prefix)
   }
 
   // Final imperative formatting: capitalize and add !

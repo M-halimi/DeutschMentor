@@ -4973,8 +4973,8 @@
     "category": "regular",
     "auxiliary": "haben",
     "praesens": {
-      "ich": "stelle mich vor",
-      "du": "stellst dich vor",
+      "ich": "stelle mir vor",
+      "du": "stellst dir vor",
       "er_sie_es": "stellt sich vor",
       "wir": "stellen uns vor",
       "ihr": "stellt euch vor",
@@ -4982,8 +4982,8 @@
       "sie": "stellen sich vor"
     },
     "praeteritum": {
-      "ich": "stellte vor mich",
-      "du": "stelltest vor dich",
+      "ich": "stellte vor mir",
+      "du": "stelltest vor dir",
       "er_sie_es": "stellte vor sich",
       "wir": "stellten vor uns",
       "ihr": "stelltet vor euch",
@@ -4991,8 +4991,8 @@
       "sie": "stellten vor sich"
     },
     "perfekt": {
-      "ich": "habe mich vorgestellt",
-      "du": "hast dich vorgestellt",
+      "ich": "habe mir vorgestellt",
+      "du": "hast dir vorgestellt",
       "er_sie_es": "hat sich vorgestellt",
       "wir": "haben uns vorgestellt",
       "ihr": "habt euch vorgestellt",
@@ -5000,8 +5000,8 @@
       "sie": "haben sich vorgestellt"
     },
     "plusquamperfekt": {
-      "ich": "hatte mich vorgestellt",
-      "du": "hattest dich vorgestellt",
+      "ich": "hatte mir vorgestellt",
+      "du": "hattest dir vorgestellt",
       "er_sie_es": "hatte sich vorgestellt",
       "wir": "hatten uns vorgestellt",
       "ihr": "hattet euch vorgestellt",
@@ -5009,17 +5009,17 @@
       "sie": "hatten sich vorgestellt"
     },
     "futur_i": {
-      "ich": "werde mich vorstellen",
-      "du": "wirst dich vorstellen",
+      "ich": "werde mir vorstellen",
+      "du": "wirst dir vorstellen",
       "er_sie_es": "wird sich vorstellen",
-      "wir": "werden sich vorstellen",
-      "ihr": "werdet sich vorstellen",
+      "wir": "werden uns vorstellen",
+      "ihr": "werdet euch vorstellen",
       "Sie": "werden sich vorstellen",
       "sie": "werden sich vorstellen"
     },
     "futur_ii": {
-      "ich": "werde mich vorgestellt haben",
-      "du": "wirst dich vorgestellt haben",
+      "ich": "werde mir vorgestellt haben",
+      "du": "wirst dir vorgestellt haben",
       "er_sie_es": "wird sich vorgestellt haben",
       "wir": "werden uns vorgestellt haben",
       "ihr": "werdet euch vorgestellt haben",
@@ -5027,8 +5027,8 @@
       "sie": "werden sich vorgestellt haben"
     },
     "konjunktiv_ii": {
-      "ich": "stellte vor mich",
-      "du": "stelltest vor dich",
+      "ich": "stellte vor mir",
+      "du": "stelltest vor dir",
       "er_sie_es": "stellte vor sich",
       "wir": "stellten vor uns",
       "ihr": "stelltet vor euch",
@@ -5036,7 +5036,7 @@
       "sie": "stellten vor sich"
     },
     "imperativ": {
-      "du": "Stell dich vor",
+      "du": "Stell dir vor",
       "ihr": "Stellt euch vor",
       "sie": null,
       "Sie": "Stellen Sie sich vor",
@@ -5763,8 +5763,8 @@
     "category": "regular",
     "auxiliary": "haben",
     "praesens": {
-      "ich": "wünsche mich",
-      "du": "wünschst dich",
+      "ich": "wünsche mir",
+      "du": "wünschst dir",
       "er_sie_es": "wünscht sich",
       "wir": "wünschen uns",
       "ihr": "wünscht euch",
@@ -5772,8 +5772,8 @@
       "sie": "wünschen sich"
     },
     "praeteritum": {
-      "ich": "wünschte mich",
-      "du": "wünschtest dich",
+      "ich": "wünschte mir",
+      "du": "wünschtest dir",
       "er_sie_es": "wünschte sich",
       "wir": "wünschten uns",
       "ihr": "wünschtet euch",
@@ -5781,8 +5781,8 @@
       "sie": "wünschten sich"
     },
     "perfekt": {
-      "ich": "habe mich gewünscht",
-      "du": "hast dich gewünscht",
+      "ich": "habe mir gewünscht",
+      "du": "hast dir gewünscht",
       "er_sie_es": "hat sich gewünscht",
       "wir": "haben uns gewünscht",
       "ihr": "habt euch gewünscht",
@@ -5790,8 +5790,8 @@
       "sie": "haben sich gewünscht"
     },
     "plusquamperfekt": {
-      "ich": "hatte mich gewünscht",
-      "du": "hattest dich gewünscht",
+      "ich": "hatte mir gewünscht",
+      "du": "hattest dir gewünscht",
       "er_sie_es": "hatte sich gewünscht",
       "wir": "hatten uns gewünscht",
       "ihr": "hattet euch gewünscht",
@@ -5799,17 +5799,17 @@
       "sie": "hatten sich gewünscht"
     },
     "futur_i": {
-      "ich": "werde mich wünschen",
-      "du": "wirst dich wünschen",
+      "ich": "werde mir wünschen",
+      "du": "wirst dir wünschen",
       "er_sie_es": "wird sich wünschen",
-      "wir": "werden sich wünschen",
-      "ihr": "werdet sich wünschen",
+      "wir": "werden uns wünschen",
+      "ihr": "werdet euch wünschen",
       "Sie": "werden sich wünschen",
       "sie": "werden sich wünschen"
     },
     "futur_ii": {
-      "ich": "werde mich gewünscht haben",
-      "du": "wirst dich gewünscht haben",
+      "ich": "werde mir gewünscht haben",
+      "du": "wirst dir gewünscht haben",
       "er_sie_es": "wird sich gewünscht haben",
       "wir": "werden uns gewünscht haben",
       "ihr": "werdet euch gewünscht haben",
@@ -5817,8 +5817,8 @@
       "sie": "werden sich gewünscht haben"
     },
     "konjunktiv_ii": {
-      "ich": "wünschte mich",
-      "du": "wünschtest dich",
+      "ich": "wünschte mir",
+      "du": "wünschtest dir",
       "er_sie_es": "wünschte sich",
       "wir": "wünschten uns",
       "ihr": "wünschtet euch",
@@ -5826,7 +5826,7 @@
       "sie": "wünschten sich"
     },
     "imperativ": {
-      "du": "Wünsch dich",
+      "du": "Wünsch dir",
       "ihr": "Wünscht euch",
       "sie": null,
       "Sie": "Wünschen Sie sich",
@@ -6434,8 +6434,8 @@
       "ich": "werde mich anziehen",
       "du": "wirst dich anziehen",
       "er_sie_es": "wird sich anziehen",
-      "wir": "werden sich anziehen",
-      "ihr": "werdet sich anziehen",
+      "wir": "werden uns anziehen",
+      "ihr": "werdet euch anziehen",
       "Sie": "werden sich anziehen",
       "sie": "werden sich anziehen"
     },
@@ -6513,8 +6513,8 @@
       "ich": "werde mich ausziehen",
       "du": "wirst dich ausziehen",
       "er_sie_es": "wird sich ausziehen",
-      "wir": "werden sich ausziehen",
-      "ihr": "werdet sich ausziehen",
+      "wir": "werden uns ausziehen",
+      "ihr": "werdet euch ausziehen",
       "Sie": "werden sich ausziehen",
       "sie": "werden sich ausziehen"
     },
@@ -6592,8 +6592,8 @@
       "ich": "werde mich waschen",
       "du": "wirst dich waschen",
       "er_sie_es": "wird sich waschen",
-      "wir": "werden sich waschen",
-      "ihr": "werdet sich waschen",
+      "wir": "werden uns waschen",
+      "ihr": "werdet euch waschen",
       "Sie": "werden sich waschen",
       "sie": "werden sich waschen"
     },
@@ -7224,8 +7224,8 @@
       "ich": "werde mich setzen",
       "du": "wirst dich setzen",
       "er_sie_es": "wird sich setzen",
-      "wir": "werden sich setzen",
-      "ihr": "werdet sich setzen",
+      "wir": "werden uns setzen",
+      "ihr": "werdet euch setzen",
       "Sie": "werden sich setzen",
       "sie": "werden sich setzen"
     },
@@ -9831,8 +9831,8 @@
       "ich": "werde mich erinnern",
       "du": "wirst dich erinnern",
       "er_sie_es": "wird sich erinnern",
-      "wir": "werden sich erinnern",
-      "ihr": "werdet sich erinnern",
+      "wir": "werden uns erinnern",
+      "ihr": "werdet euch erinnern",
       "Sie": "werden sich erinnern",
       "sie": "werden sich erinnern"
     },
@@ -10779,8 +10779,8 @@
       "ich": "werde mich rasieren",
       "du": "wirst dich rasieren",
       "er_sie_es": "wird sich rasieren",
-      "wir": "werden sich rasieren",
-      "ihr": "werdet sich rasieren",
+      "wir": "werden uns rasieren",
+      "ihr": "werdet euch rasieren",
       "Sie": "werden sich rasieren",
       "sie": "werden sich rasieren"
     },
@@ -10858,8 +10858,8 @@
       "ich": "werde mich duschen",
       "du": "wirst dich duschen",
       "er_sie_es": "wird sich duschen",
-      "wir": "werden sich duschen",
-      "ihr": "werdet sich duschen",
+      "wir": "werden uns duschen",
+      "ihr": "werdet euch duschen",
       "Sie": "werden sich duschen",
       "sie": "werden sich duschen"
     },
@@ -12122,8 +12122,8 @@
       "ich": "werde mich verlassen",
       "du": "wirst dich verlassen",
       "er_sie_es": "wird sich verlassen",
-      "wir": "werden sich verlassen",
-      "ihr": "werdet sich verlassen",
+      "wir": "werden uns verlassen",
+      "ihr": "werdet euch verlassen",
       "Sie": "werden sich verlassen",
       "sie": "werden sich verlassen"
     },
@@ -12596,8 +12596,8 @@
       "ich": "werde mich ausruhen",
       "du": "wirst dich ausruhen",
       "er_sie_es": "wird sich ausruhen",
-      "wir": "werden sich ausruhen",
-      "ihr": "werdet sich ausruhen",
+      "wir": "werden uns ausruhen",
+      "ihr": "werdet euch ausruhen",
       "Sie": "werden sich ausruhen",
       "sie": "werden sich ausruhen"
     },
@@ -12675,8 +12675,8 @@
       "ich": "werde mich kämmen",
       "du": "wirst dich kämmen",
       "er_sie_es": "wird sich kämmen",
-      "wir": "werden sich kämmen",
-      "ihr": "werdet sich kämmen",
+      "wir": "werden uns kämmen",
+      "ihr": "werdet euch kämmen",
       "Sie": "werden sich kämmen",
       "sie": "werden sich kämmen"
     },
@@ -12991,8 +12991,8 @@
       "ich": "werde mich erkälten",
       "du": "wirst dich erkälten",
       "er_sie_es": "wird sich erkälten",
-      "wir": "werden sich erkälten",
-      "ihr": "werdet sich erkälten",
+      "wir": "werden uns erkälten",
+      "ihr": "werdet euch erkälten",
       "Sie": "werden sich erkälten",
       "sie": "werden sich erkälten"
     },
@@ -13228,8 +13228,8 @@
       "ich": "werde mich fühlen",
       "du": "wirst dich fühlen",
       "er_sie_es": "wird sich fühlen",
-      "wir": "werden sich fühlen",
-      "ihr": "werdet sich fühlen",
+      "wir": "werden uns fühlen",
+      "ihr": "werdet euch fühlen",
       "Sie": "werden sich fühlen",
       "sie": "werden sich fühlen"
     },
@@ -13307,8 +13307,8 @@
       "ich": "werde mich erholen",
       "du": "wirst dich erholen",
       "er_sie_es": "wird sich erholen",
-      "wir": "werden sich erholen",
-      "ihr": "werdet sich erholen",
+      "wir": "werden uns erholen",
+      "ihr": "werdet euch erholen",
       "Sie": "werden sich erholen",
       "sie": "werden sich erholen"
     },
@@ -14334,8 +14334,8 @@
       "ich": "werde mich unterhalten",
       "du": "wirst dich unterhalten",
       "er_sie_es": "wird sich unterhalten",
-      "wir": "werden sich unterhalten",
-      "ihr": "werdet sich unterhalten",
+      "wir": "werden uns unterhalten",
+      "ihr": "werdet euch unterhalten",
       "Sie": "werden sich unterhalten",
       "sie": "werden sich unterhalten"
     },
@@ -15756,8 +15756,8 @@
       "ich": "werde mich bewerben",
       "du": "wirst dich bewerben",
       "er_sie_es": "wird sich bewerben",
-      "wir": "werden sich bewerben",
-      "ihr": "werdet sich bewerben",
+      "wir": "werden uns bewerben",
+      "ihr": "werdet euch bewerben",
       "Sie": "werden sich bewerben",
       "sie": "werden sich bewerben"
     },
@@ -15914,8 +15914,8 @@
       "ich": "werde mich einstellen",
       "du": "wirst dich einstellen",
       "er_sie_es": "wird sich einstellen",
-      "wir": "werden sich einstellen",
-      "ihr": "werdet sich einstellen",
+      "wir": "werden uns einstellen",
+      "ihr": "werdet euch einstellen",
       "Sie": "werden sich einstellen",
       "sie": "werden sich einstellen"
     },
@@ -16625,8 +16625,8 @@
       "ich": "werde mich wiederholen",
       "du": "wirst dich wiederholen",
       "er_sie_es": "wird sich wiederholen",
-      "wir": "werden sich wiederholen",
-      "ihr": "werdet sich wiederholen",
+      "wir": "werden uns wiederholen",
+      "ihr": "werdet euch wiederholen",
       "Sie": "werden sich wiederholen",
       "sie": "werden sich wiederholen"
     },
@@ -16704,8 +16704,8 @@
       "ich": "werde mich vorbereiten",
       "du": "wirst dich vorbereiten",
       "er_sie_es": "wird sich vorbereiten",
-      "wir": "werden sich vorbereiten",
-      "ihr": "werdet sich vorbereiten",
+      "wir": "werden uns vorbereiten",
+      "ihr": "werdet euch vorbereiten",
       "Sie": "werden sich vorbereiten",
       "sie": "werden sich vorbereiten"
     },
@@ -16783,8 +16783,8 @@
       "ich": "werde mich konzentrieren",
       "du": "wirst dich konzentrieren",
       "er_sie_es": "wird sich konzentrieren",
-      "wir": "werden sich konzentrieren",
-      "ihr": "werdet sich konzentrieren",
+      "wir": "werden uns konzentrieren",
+      "ihr": "werdet euch konzentrieren",
       "Sie": "werden sich konzentrieren",
       "sie": "werden sich konzentrieren"
     },
@@ -18126,8 +18126,8 @@
       "ich": "werde mich entspannen",
       "du": "wirst dich entspannen",
       "er_sie_es": "wird sich entspannen",
-      "wir": "werden sich entspannen",
-      "ihr": "werdet sich entspannen",
+      "wir": "werden uns entspannen",
+      "ihr": "werdet euch entspannen",
       "Sie": "werden sich entspannen",
       "sie": "werden sich entspannen"
     },
@@ -18205,8 +18205,8 @@
       "ich": "werde mich ärgern",
       "du": "wirst dich ärgern",
       "er_sie_es": "wird sich ärgern",
-      "wir": "werden sich ärgern",
-      "ihr": "werdet sich ärgern",
+      "wir": "werden uns ärgern",
+      "ihr": "werdet euch ärgern",
       "Sie": "werden sich ärgern",
       "sie": "werden sich ärgern"
     },
@@ -18284,8 +18284,8 @@
       "ich": "werde mich freuen",
       "du": "wirst dich freuen",
       "er_sie_es": "wird sich freuen",
-      "wir": "werden sich freuen",
-      "ihr": "werdet sich freuen",
+      "wir": "werden uns freuen",
+      "ihr": "werdet euch freuen",
       "Sie": "werden sich freuen",
       "sie": "werden sich freuen"
     },
@@ -18363,8 +18363,8 @@
       "ich": "werde mich wundern",
       "du": "wirst dich wundern",
       "er_sie_es": "wird sich wundern",
-      "wir": "werden sich wundern",
-      "ihr": "werdet sich wundern",
+      "wir": "werden uns wundern",
+      "ihr": "werdet euch wundern",
       "Sie": "werden sich wundern",
       "sie": "werden sich wundern"
     },
@@ -18442,8 +18442,8 @@
       "ich": "werde mich langweilen",
       "du": "wirst dich langweilen",
       "er_sie_es": "wird sich langweilen",
-      "wir": "werden sich langweilen",
-      "ihr": "werdet sich langweilen",
+      "wir": "werden uns langweilen",
+      "ihr": "werdet euch langweilen",
       "Sie": "werden sich langweilen",
       "sie": "werden sich langweilen"
     },
@@ -18521,8 +18521,8 @@
       "ich": "werde mich schämen",
       "du": "wirst dich schämen",
       "er_sie_es": "wird sich schämen",
-      "wir": "werden sich schämen",
-      "ihr": "werdet sich schämen",
+      "wir": "werden uns schämen",
+      "ihr": "werdet euch schämen",
       "Sie": "werden sich schämen",
       "sie": "werden sich schämen"
     },
@@ -18600,8 +18600,8 @@
       "ich": "werde mich kümmern",
       "du": "wirst dich kümmern",
       "er_sie_es": "wird sich kümmern",
-      "wir": "werden sich kümmern",
-      "ihr": "werdet sich kümmern",
+      "wir": "werden uns kümmern",
+      "ihr": "werdet euch kümmern",
       "Sie": "werden sich kümmern",
       "sie": "werden sich kümmern"
     },
@@ -18679,8 +18679,8 @@
       "ich": "werde mich sorgen",
       "du": "wirst dich sorgen",
       "er_sie_es": "wird sich sorgen",
-      "wir": "werden sich sorgen",
-      "ihr": "werdet sich sorgen",
+      "wir": "werden uns sorgen",
+      "ihr": "werdet euch sorgen",
       "Sie": "werden sich sorgen",
       "sie": "werden sich sorgen"
     },
@@ -18758,8 +18758,8 @@
       "ich": "werde mich gewöhnen",
       "du": "wirst dich gewöhnen",
       "er_sie_es": "wird sich gewöhnen",
-      "wir": "werden sich gewöhnen",
-      "ihr": "werdet sich gewöhnen",
+      "wir": "werden uns gewöhnen",
+      "ihr": "werdet euch gewöhnen",
       "Sie": "werden sich gewöhnen",
       "sie": "werden sich gewöhnen"
     },
@@ -18837,8 +18837,8 @@
       "ich": "werde mich treffen",
       "du": "wirst dich treffen",
       "er_sie_es": "wird sich treffen",
-      "wir": "werden sich treffen",
-      "ihr": "werdet sich treffen",
+      "wir": "werden uns treffen",
+      "ihr": "werdet euch treffen",
       "Sie": "werden sich treffen",
       "sie": "werden sich treffen"
     },
@@ -18916,8 +18916,8 @@
       "ich": "werde mich verabschieden",
       "du": "wirst dich verabschieden",
       "er_sie_es": "wird sich verabschieden",
-      "wir": "werden sich verabschieden",
-      "ihr": "werdet sich verabschieden",
+      "wir": "werden uns verabschieden",
+      "ihr": "werdet euch verabschieden",
       "Sie": "werden sich verabschieden",
       "sie": "werden sich verabschieden"
     },
@@ -18995,8 +18995,8 @@
       "ich": "werde mich verlieben",
       "du": "wirst dich verlieben",
       "er_sie_es": "wird sich verlieben",
-      "wir": "werden sich verlieben",
-      "ihr": "werdet sich verlieben",
+      "wir": "werden uns verlieben",
+      "ihr": "werdet euch verlieben",
       "Sie": "werden sich verlieben",
       "sie": "werden sich verlieben"
     },
@@ -19074,8 +19074,8 @@
       "ich": "werde mich streiten",
       "du": "wirst dich streiten",
       "er_sie_es": "wird sich streiten",
-      "wir": "werden sich streiten",
-      "ihr": "werdet sich streiten",
+      "wir": "werden uns streiten",
+      "ihr": "werdet euch streiten",
       "Sie": "werden sich streiten",
       "sie": "werden sich streiten"
     },
@@ -19153,8 +19153,8 @@
       "ich": "werde mich vertragen",
       "du": "wirst dich vertragen",
       "er_sie_es": "wird sich vertragen",
-      "wir": "werden sich vertragen",
-      "ihr": "werdet sich vertragen",
+      "wir": "werden uns vertragen",
+      "ihr": "werdet euch vertragen",
       "Sie": "werden sich vertragen",
       "sie": "werden sich vertragen"
     },
@@ -19232,8 +19232,8 @@
       "ich": "werde mich trennen",
       "du": "wirst dich trennen",
       "er_sie_es": "wird sich trennen",
-      "wir": "werden sich trennen",
-      "ihr": "werdet sich trennen",
+      "wir": "werden uns trennen",
+      "ihr": "werdet euch trennen",
       "Sie": "werden sich trennen",
       "sie": "werden sich trennen"
     },
@@ -19390,8 +19390,8 @@
       "ich": "werde mich umziehen",
       "du": "wirst dich umziehen",
       "er_sie_es": "wird sich umziehen",
-      "wir": "werden sich umziehen",
-      "ihr": "werdet sich umziehen",
+      "wir": "werden uns umziehen",
+      "ihr": "werdet euch umziehen",
       "Sie": "werden sich umziehen",
       "sie": "werden sich umziehen"
     },
@@ -20417,8 +20417,8 @@
       "ich": "werde mich anmelden",
       "du": "wirst dich anmelden",
       "er_sie_es": "wird sich anmelden",
-      "wir": "werden sich anmelden",
-      "ihr": "werdet sich anmelden",
+      "wir": "werden uns anmelden",
+      "ihr": "werdet euch anmelden",
       "Sie": "werden sich anmelden",
       "sie": "werden sich anmelden"
     },
@@ -20496,8 +20496,8 @@
       "ich": "werde mich abmelden",
       "du": "wirst dich abmelden",
       "er_sie_es": "wird sich abmelden",
-      "wir": "werden sich abmelden",
-      "ihr": "werdet sich abmelden",
+      "wir": "werden uns abmelden",
+      "ihr": "werdet euch abmelden",
       "Sie": "werden sich abmelden",
       "sie": "werden sich abmelden"
     },
@@ -21128,8 +21128,8 @@
       "ich": "werde mich entschuldigen",
       "du": "wirst dich entschuldigen",
       "er_sie_es": "wird sich entschuldigen",
-      "wir": "werden sich entschuldigen",
-      "ihr": "werdet sich entschuldigen",
+      "wir": "werden uns entschuldigen",
+      "ihr": "werdet euch entschuldigen",
       "Sie": "werden sich entschuldigen",
       "sie": "werden sich entschuldigen"
     },
@@ -21207,8 +21207,8 @@
       "ich": "werde mich verabreden",
       "du": "wirst dich verabreden",
       "er_sie_es": "wird sich verabreden",
-      "wir": "werden sich verabreden",
-      "ihr": "werdet sich verabreden",
+      "wir": "werden uns verabreden",
+      "ihr": "werdet euch verabreden",
       "Sie": "werden sich verabreden",
       "sie": "werden sich verabreden"
     },
@@ -22392,8 +22392,8 @@
       "ich": "werde mich bedanken",
       "du": "wirst dich bedanken",
       "er_sie_es": "wird sich bedanken",
-      "wir": "werden sich bedanken",
-      "ihr": "werdet sich bedanken",
+      "wir": "werden uns bedanken",
+      "ihr": "werdet euch bedanken",
       "Sie": "werden sich bedanken",
       "sie": "werden sich bedanken"
     },
@@ -22471,8 +22471,8 @@
       "ich": "werde mich beeilen",
       "du": "wirst dich beeilen",
       "er_sie_es": "wird sich beeilen",
-      "wir": "werden sich beeilen",
-      "ihr": "werdet sich beeilen",
+      "wir": "werden uns beeilen",
+      "ihr": "werdet euch beeilen",
       "Sie": "werden sich beeilen",
       "sie": "werden sich beeilen"
     },
@@ -22550,8 +22550,8 @@
       "ich": "werde mich befinden",
       "du": "wirst dich befinden",
       "er_sie_es": "wird sich befinden",
-      "wir": "werden sich befinden",
-      "ihr": "werdet sich befinden",
+      "wir": "werden uns befinden",
+      "ihr": "werdet euch befinden",
       "Sie": "werden sich befinden",
       "sie": "werden sich befinden"
     },
@@ -22629,8 +22629,8 @@
       "ich": "werde mich beklagen",
       "du": "wirst dich beklagen",
       "er_sie_es": "wird sich beklagen",
-      "wir": "werden sich beklagen",
-      "ihr": "werdet sich beklagen",
+      "wir": "werden uns beklagen",
+      "ihr": "werdet euch beklagen",
       "Sie": "werden sich beklagen",
       "sie": "werden sich beklagen"
     },
@@ -22708,8 +22708,8 @@
       "ich": "werde mich entscheiden",
       "du": "wirst dich entscheiden",
       "er_sie_es": "wird sich entscheiden",
-      "wir": "werden sich entscheiden",
-      "ihr": "werdet sich entscheiden",
+      "wir": "werden uns entscheiden",
+      "ihr": "werdet euch entscheiden",
       "Sie": "werden sich entscheiden",
       "sie": "werden sich entscheiden"
     },
@@ -22787,8 +22787,8 @@
       "ich": "werde mich einigen",
       "du": "wirst dich einigen",
       "er_sie_es": "wird sich einigen",
-      "wir": "werden sich einigen",
-      "ihr": "werdet sich einigen",
+      "wir": "werden uns einigen",
+      "ihr": "werdet euch einigen",
       "Sie": "werden sich einigen",
       "sie": "werden sich einigen"
     },
@@ -22866,8 +22866,8 @@
       "ich": "werde mich einleben",
       "du": "wirst dich einleben",
       "er_sie_es": "wird sich einleben",
-      "wir": "werden sich einleben",
-      "ihr": "werdet sich einleben",
+      "wir": "werden uns einleben",
+      "ihr": "werdet euch einleben",
       "Sie": "werden sich einleben",
       "sie": "werden sich einleben"
     },
@@ -22945,8 +22945,8 @@
       "ich": "werde mich informieren",
       "du": "wirst dich informieren",
       "er_sie_es": "wird sich informieren",
-      "wir": "werden sich informieren",
-      "ihr": "werdet sich informieren",
+      "wir": "werden uns informieren",
+      "ihr": "werdet euch informieren",
       "Sie": "werden sich informieren",
       "sie": "werden sich informieren"
     },
@@ -23024,8 +23024,8 @@
       "ich": "werde mich interessieren",
       "du": "wirst dich interessieren",
       "er_sie_es": "wird sich interessieren",
-      "wir": "werden sich interessieren",
-      "ihr": "werdet sich interessieren",
+      "wir": "werden uns interessieren",
+      "ihr": "werdet euch interessieren",
       "Sie": "werden sich interessieren",
       "sie": "werden sich interessieren"
     },
@@ -23103,8 +23103,8 @@
       "ich": "werde mich irren",
       "du": "wirst dich irren",
       "er_sie_es": "wird sich irren",
-      "wir": "werden sich irren",
-      "ihr": "werdet sich irren",
+      "wir": "werden uns irren",
+      "ihr": "werdet euch irren",
       "Sie": "werden sich irren",
       "sie": "werden sich irren"
     },
@@ -23182,8 +23182,8 @@
       "ich": "werde mich lohnen",
       "du": "wirst dich lohnen",
       "er_sie_es": "wird sich lohnen",
-      "wir": "werden sich lohnen",
-      "ihr": "werdet sich lohnen",
+      "wir": "werden uns lohnen",
+      "ihr": "werdet euch lohnen",
       "Sie": "werden sich lohnen",
       "sie": "werden sich lohnen"
     },
@@ -23261,8 +23261,8 @@
       "ich": "werde mich melden",
       "du": "wirst dich melden",
       "er_sie_es": "wird sich melden",
-      "wir": "werden sich melden",
-      "ihr": "werdet sich melden",
+      "wir": "werden uns melden",
+      "ihr": "werdet euch melden",
       "Sie": "werden sich melden",
       "sie": "werden sich melden"
     },
@@ -23340,8 +23340,8 @@
       "ich": "werde mich nähern",
       "du": "wirst dich nähern",
       "er_sie_es": "wird sich nähern",
-      "wir": "werden sich nähern",
-      "ihr": "werdet sich nähern",
+      "wir": "werden uns nähern",
+      "ihr": "werdet euch nähern",
       "Sie": "werden sich nähern",
       "sie": "werden sich nähern"
     },
@@ -23419,8 +23419,8 @@
       "ich": "werde mich orientieren",
       "du": "wirst dich orientieren",
       "er_sie_es": "wird sich orientieren",
-      "wir": "werden sich orientieren",
-      "ihr": "werdet sich orientieren",
+      "wir": "werden uns orientieren",
+      "ihr": "werdet euch orientieren",
       "Sie": "werden sich orientieren",
       "sie": "werden sich orientieren"
     },
@@ -23498,8 +23498,8 @@
       "ich": "werde mich registrieren",
       "du": "wirst dich registrieren",
       "er_sie_es": "wird sich registrieren",
-      "wir": "werden sich registrieren",
-      "ihr": "werdet sich registrieren",
+      "wir": "werden uns registrieren",
+      "ihr": "werdet euch registrieren",
       "Sie": "werden sich registrieren",
       "sie": "werden sich registrieren"
     },
@@ -23577,8 +23577,8 @@
       "ich": "werde mich schützen",
       "du": "wirst dich schützen",
       "er_sie_es": "wird sich schützen",
-      "wir": "werden sich schützen",
-      "ihr": "werdet sich schützen",
+      "wir": "werden uns schützen",
+      "ihr": "werdet euch schützen",
       "Sie": "werden sich schützen",
       "sie": "werden sich schützen"
     },
@@ -23656,8 +23656,8 @@
       "ich": "werde mich verbessern",
       "du": "wirst dich verbessern",
       "er_sie_es": "wird sich verbessern",
-      "wir": "werden sich verbessern",
-      "ihr": "werdet sich verbessern",
+      "wir": "werden uns verbessern",
+      "ihr": "werdet euch verbessern",
       "Sie": "werden sich verbessern",
       "sie": "werden sich verbessern"
     },
@@ -23735,8 +23735,8 @@
       "ich": "werde mich wehren",
       "du": "wirst dich wehren",
       "er_sie_es": "wird sich wehren",
-      "wir": "werden sich wehren",
-      "ihr": "werdet sich wehren",
+      "wir": "werden uns wehren",
+      "ihr": "werdet euch wehren",
       "Sie": "werden sich wehren",
       "sie": "werden sich wehren"
     },
@@ -23814,8 +23814,8 @@
       "ich": "werde mich auskennen",
       "du": "wirst dich auskennen",
       "er_sie_es": "wird sich auskennen",
-      "wir": "werden sich auskennen",
-      "ihr": "werdet sich auskennen",
+      "wir": "werden uns auskennen",
+      "ihr": "werdet euch auskennen",
       "Sie": "werden sich auskennen",
       "sie": "werden sich auskennen"
     },
@@ -23893,8 +23893,8 @@
       "ich": "werde mich ausdrücken",
       "du": "wirst dich ausdrücken",
       "er_sie_es": "wird sich ausdrücken",
-      "wir": "werden sich ausdrücken",
-      "ihr": "werdet sich ausdrücken",
+      "wir": "werden uns ausdrücken",
+      "ihr": "werdet euch ausdrücken",
       "Sie": "werden sich ausdrücken",
       "sie": "werden sich ausdrücken"
     },
@@ -23933,8 +23933,8 @@
     "category": "regular",
     "auxiliary": "haben",
     "praesens": {
-      "ich": "gewöhne mich ab",
-      "du": "gewöhnst dich ab",
+      "ich": "gewöhne mir ab",
+      "du": "gewöhnst dir ab",
       "er_sie_es": "gewöhnt sich ab",
       "wir": "gewöhnen uns ab",
       "ihr": "gewöhnt euch ab",
@@ -23942,8 +23942,8 @@
       "sie": "gewöhnen sich ab"
     },
     "praeteritum": {
-      "ich": "gewöhnete ab mich",
-      "du": "gewöhnetest ab dich",
+      "ich": "gewöhnete ab mir",
+      "du": "gewöhnetest ab dir",
       "er_sie_es": "gewöhnete ab sich",
       "wir": "gewöhneten ab uns",
       "ihr": "gewöhnetet ab euch",
@@ -23951,8 +23951,8 @@
       "sie": "gewöhneten ab sich"
     },
     "perfekt": {
-      "ich": "habe mich abgewöhnt",
-      "du": "hast dich abgewöhnt",
+      "ich": "habe mir abgewöhnt",
+      "du": "hast dir abgewöhnt",
       "er_sie_es": "hat sich abgewöhnt",
       "wir": "haben uns abgewöhnt",
       "ihr": "habt euch abgewöhnt",
@@ -23960,8 +23960,8 @@
       "sie": "haben sich abgewöhnt"
     },
     "plusquamperfekt": {
-      "ich": "hatte mich abgewöhnt",
-      "du": "hattest dich abgewöhnt",
+      "ich": "hatte mir abgewöhnt",
+      "du": "hattest dir abgewöhnt",
       "er_sie_es": "hatte sich abgewöhnt",
       "wir": "hatten uns abgewöhnt",
       "ihr": "hattet euch abgewöhnt",
@@ -23969,17 +23969,17 @@
       "sie": "hatten sich abgewöhnt"
     },
     "futur_i": {
-      "ich": "werde mich abgewöhnen",
-      "du": "wirst dich abgewöhnen",
+      "ich": "werde mir abgewöhnen",
+      "du": "wirst dir abgewöhnen",
       "er_sie_es": "wird sich abgewöhnen",
-      "wir": "werden sich abgewöhnen",
-      "ihr": "werdet sich abgewöhnen",
+      "wir": "werden uns abgewöhnen",
+      "ihr": "werdet euch abgewöhnen",
       "Sie": "werden sich abgewöhnen",
       "sie": "werden sich abgewöhnen"
     },
     "futur_ii": {
-      "ich": "werde mich abgewöhnt haben",
-      "du": "wirst dich abgewöhnt haben",
+      "ich": "werde mir abgewöhnt haben",
+      "du": "wirst dir abgewöhnt haben",
       "er_sie_es": "wird sich abgewöhnt haben",
       "wir": "werden uns abgewöhnt haben",
       "ihr": "werdet euch abgewöhnt haben",
@@ -23987,8 +23987,8 @@
       "sie": "werden sich abgewöhnt haben"
     },
     "konjunktiv_ii": {
-      "ich": "gewöhnete ab mich",
-      "du": "gewöhnetest ab dich",
+      "ich": "gewöhnete ab mir",
+      "du": "gewöhnetest ab dir",
       "er_sie_es": "gewöhnete ab sich",
       "wir": "gewöhneten ab uns",
       "ihr": "gewöhnetet ab euch",
@@ -23996,7 +23996,7 @@
       "sie": "gewöhneten ab sich"
     },
     "imperativ": {
-      "du": "Gewöhn dich ab",
+      "du": "Gewöhn dir ab",
       "ihr": "Gewöhnt euch ab",
       "sie": null,
       "Sie": "Gewöhnen Sie sich ab",
@@ -24012,8 +24012,8 @@
     "category": "regular",
     "auxiliary": "haben",
     "praesens": {
-      "ich": "gewöhne mich an",
-      "du": "gewöhnst dich an",
+      "ich": "gewöhne mir an",
+      "du": "gewöhnst dir an",
       "er_sie_es": "gewöhnt sich an",
       "wir": "gewöhnen uns an",
       "ihr": "gewöhnt euch an",
@@ -24021,8 +24021,8 @@
       "sie": "gewöhnen sich an"
     },
     "praeteritum": {
-      "ich": "gewöhnete an mich",
-      "du": "gewöhnetest an dich",
+      "ich": "gewöhnete an mir",
+      "du": "gewöhnetest an dir",
       "er_sie_es": "gewöhnete an sich",
       "wir": "gewöhneten an uns",
       "ihr": "gewöhnetet an euch",
@@ -24030,8 +24030,8 @@
       "sie": "gewöhneten an sich"
     },
     "perfekt": {
-      "ich": "habe mich angewöhnt",
-      "du": "hast dich angewöhnt",
+      "ich": "habe mir angewöhnt",
+      "du": "hast dir angewöhnt",
       "er_sie_es": "hat sich angewöhnt",
       "wir": "haben uns angewöhnt",
       "ihr": "habt euch angewöhnt",
@@ -24039,8 +24039,8 @@
       "sie": "haben sich angewöhnt"
     },
     "plusquamperfekt": {
-      "ich": "hatte mich angewöhnt",
-      "du": "hattest dich angewöhnt",
+      "ich": "hatte mir angewöhnt",
+      "du": "hattest dir angewöhnt",
       "er_sie_es": "hatte sich angewöhnt",
       "wir": "hatten uns angewöhnt",
       "ihr": "hattet euch angewöhnt",
@@ -24048,17 +24048,17 @@
       "sie": "hatten sich angewöhnt"
     },
     "futur_i": {
-      "ich": "werde mich angewöhnen",
-      "du": "wirst dich angewöhnen",
+      "ich": "werde mir angewöhnen",
+      "du": "wirst dir angewöhnen",
       "er_sie_es": "wird sich angewöhnen",
-      "wir": "werden sich angewöhnen",
-      "ihr": "werdet sich angewöhnen",
+      "wir": "werden uns angewöhnen",
+      "ihr": "werdet euch angewöhnen",
       "Sie": "werden sich angewöhnen",
       "sie": "werden sich angewöhnen"
     },
     "futur_ii": {
-      "ich": "werde mich angewöhnt haben",
-      "du": "wirst dich angewöhnt haben",
+      "ich": "werde mir angewöhnt haben",
+      "du": "wirst dir angewöhnt haben",
       "er_sie_es": "wird sich angewöhnt haben",
       "wir": "werden uns angewöhnt haben",
       "ihr": "werdet euch angewöhnt haben",
@@ -24066,8 +24066,8 @@
       "sie": "werden sich angewöhnt haben"
     },
     "konjunktiv_ii": {
-      "ich": "gewöhnete an mich",
-      "du": "gewöhnetest an dich",
+      "ich": "gewöhnete an mir",
+      "du": "gewöhnetest an dir",
       "er_sie_es": "gewöhnete an sich",
       "wir": "gewöhneten an uns",
       "ihr": "gewöhnetet an euch",
@@ -24075,7 +24075,7 @@
       "sie": "gewöhneten an sich"
     },
     "imperativ": {
-      "du": "Gewöhn dich an",
+      "du": "Gewöhn dir an",
       "ihr": "Gewöhnt euch an",
       "sie": null,
       "Sie": "Gewöhnen Sie sich an",
@@ -24130,8 +24130,8 @@
       "ich": "werde mich aufregen",
       "du": "wirst dich aufregen",
       "er_sie_es": "wird sich aufregen",
-      "wir": "werden sich aufregen",
-      "ihr": "werdet sich aufregen",
+      "wir": "werden uns aufregen",
+      "ihr": "werdet euch aufregen",
       "Sie": "werden sich aufregen",
       "sie": "werden sich aufregen"
     },
@@ -24209,8 +24209,8 @@
       "ich": "werde mich beschäftigen",
       "du": "wirst dich beschäftigen",
       "er_sie_es": "wird sich beschäftigen",
-      "wir": "werden sich beschäftigen",
-      "ihr": "werdet sich beschäftigen",
+      "wir": "werden uns beschäftigen",
+      "ihr": "werdet euch beschäftigen",
       "Sie": "werden sich beschäftigen",
       "sie": "werden sich beschäftigen"
     },
@@ -24288,8 +24288,8 @@
       "ich": "werde mich entfernen",
       "du": "wirst dich entfernen",
       "er_sie_es": "wird sich entfernen",
-      "wir": "werden sich entfernen",
-      "ihr": "werdet sich entfernen",
+      "wir": "werden uns entfernen",
+      "ihr": "werdet euch entfernen",
       "Sie": "werden sich entfernen",
       "sie": "werden sich entfernen"
     },
@@ -24367,8 +24367,8 @@
       "ich": "werde mich ergeben",
       "du": "wirst dich ergeben",
       "er_sie_es": "wird sich ergeben",
-      "wir": "werden sich ergeben",
-      "ihr": "werdet sich ergeben",
+      "wir": "werden uns ergeben",
+      "ihr": "werdet euch ergeben",
       "Sie": "werden sich ergeben",
       "sie": "werden sich ergeben"
     },
@@ -24525,8 +24525,8 @@
       "ich": "werde mich niederlassen",
       "du": "wirst dich niederlassen",
       "er_sie_es": "wird sich niederlassen",
-      "wir": "werden sich niederlassen",
-      "ihr": "werdet sich niederlassen",
+      "wir": "werden uns niederlassen",
+      "ihr": "werdet euch niederlassen",
       "Sie": "werden sich niederlassen",
       "sie": "werden sich niederlassen"
     },
@@ -24604,8 +24604,8 @@
       "ich": "werde mich reduzieren",
       "du": "wirst dich reduzieren",
       "er_sie_es": "wird sich reduzieren",
-      "wir": "werden sich reduzieren",
-      "ihr": "werdet sich reduzieren",
+      "wir": "werden uns reduzieren",
+      "ihr": "werdet euch reduzieren",
       "Sie": "werden sich reduzieren",
       "sie": "werden sich reduzieren"
     },
@@ -24683,8 +24683,8 @@
       "ich": "werde mich täuschen",
       "du": "wirst dich täuschen",
       "er_sie_es": "wird sich täuschen",
-      "wir": "werden sich täuschen",
-      "ihr": "werdet sich täuschen",
+      "wir": "werden uns täuschen",
+      "ihr": "werdet euch täuschen",
       "Sie": "werden sich täuschen",
       "sie": "werden sich täuschen"
     },
@@ -24723,8 +24723,8 @@
     "category": "regular",
     "auxiliary": "haben",
     "praesens": {
-      "ich": "nehme mich vor",
-      "du": "nimmst dich vor",
+      "ich": "nehme mir vor",
+      "du": "nimmst dir vor",
       "er_sie_es": "nimmt sich vor",
       "wir": "nehmen uns vor",
       "ihr": "nehmt euch vor",
@@ -24732,8 +24732,8 @@
       "sie": "nehmen sich vor"
     },
     "praeteritum": {
-      "ich": "nahm vor mich",
-      "du": "nahmst vor dich",
+      "ich": "nahm vor mir",
+      "du": "nahmst vor dir",
       "er_sie_es": "nahm vor sich",
       "wir": "nahmen vor uns",
       "ihr": "nahmt vor euch",
@@ -24741,8 +24741,8 @@
       "sie": "nahmen vor sich"
     },
     "perfekt": {
-      "ich": "habe mich vorgenommen",
-      "du": "hast dich vorgenommen",
+      "ich": "habe mir vorgenommen",
+      "du": "hast dir vorgenommen",
       "er_sie_es": "hat sich vorgenommen",
       "wir": "haben uns vorgenommen",
       "ihr": "habt euch vorgenommen",
@@ -24750,8 +24750,8 @@
       "sie": "haben sich vorgenommen"
     },
     "plusquamperfekt": {
-      "ich": "hatte mich vorgenommen",
-      "du": "hattest dich vorgenommen",
+      "ich": "hatte mir vorgenommen",
+      "du": "hattest dir vorgenommen",
       "er_sie_es": "hatte sich vorgenommen",
       "wir": "hatten uns vorgenommen",
       "ihr": "hattet euch vorgenommen",
@@ -24759,17 +24759,17 @@
       "sie": "hatten sich vorgenommen"
     },
     "futur_i": {
-      "ich": "werde mich vornehmen",
-      "du": "wirst dich vornehmen",
+      "ich": "werde mir vornehmen",
+      "du": "wirst dir vornehmen",
       "er_sie_es": "wird sich vornehmen",
-      "wir": "werden sich vornehmen",
-      "ihr": "werdet sich vornehmen",
+      "wir": "werden uns vornehmen",
+      "ihr": "werdet euch vornehmen",
       "Sie": "werden sich vornehmen",
       "sie": "werden sich vornehmen"
     },
     "futur_ii": {
-      "ich": "werde mich vorgenommen haben",
-      "du": "wirst dich vorgenommen haben",
+      "ich": "werde mir vorgenommen haben",
+      "du": "wirst dir vorgenommen haben",
       "er_sie_es": "wird sich vorgenommen haben",
       "wir": "werden uns vorgenommen haben",
       "ihr": "werdet euch vorgenommen haben",
@@ -24777,8 +24777,8 @@
       "sie": "werden sich vorgenommen haben"
     },
     "konjunktiv_ii": {
-      "ich": "nähme vor mich",
-      "du": "nähmest vor dich",
+      "ich": "nähme vor mir",
+      "du": "nähmest vor dir",
       "er_sie_es": "nähme vor sich",
       "wir": "nähmen vor uns",
       "ihr": "nähmet vor euch",
@@ -24786,7 +24786,7 @@
       "sie": "nähmen vor sich"
     },
     "imperativ": {
-      "du": "Nimm dich vor",
+      "du": "Nimm dir vor",
       "ihr": "Nehmt euch vor",
       "sie": null,
       "Sie": "Nehmen Sie sich vor",

@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import { reflexiveVerbMeta } from './verbs/reflexive-audit-final.ts';
+import { reflexiveVerbMeta } from './verbs/reflexive-audit-final';
 import { config } from 'dotenv';
 
 config({ path: '.env.local' });

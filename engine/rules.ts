@@ -429,27 +429,24 @@ export function umlaut(stem: string): string {
 }
 
 /**
- * Get the reflexive accusative pronoun for a given person.
+ * Get the reflexive pronoun for a given person and case.
  *
- * Personalpronomen (reflexiv, Akkusativ):
- *   ich → mich
- *   du → dich
- *   er/sie/es → sich
- *   wir → uns
- *   ihr → euch
- *   Sie → sich
+ * Akkusativ (default):
+ *   ich → mich, du → dich, er/sie/es → sich, wir → uns, ihr → euch, Sie → sich
+ *
+ * Dativ:
+ *   ich → mir, du → dir, er/sie/es → sich, wir → uns, ihr → euch, Sie → sich
  */
-export function getReflexivePronoun(person: Person): string {
-  const pronouns: Record<Person, string> = {
-    ich: 'mich',
-    du: 'dich',
-    er_sie_es: 'sich',
-    wir: 'uns',
-    ihr: 'euch',
-    sie: 'sich',
-    Sie: 'sich',
+export function getReflexivePronoun(person: Person, reflexiveCase?: 'akkusativ' | 'dativ'): string {
+  const akk: Record<Person, string> = {
+    ich: 'mich', du: 'dich', er_sie_es: 'sich',
+    wir: 'uns', ihr: 'euch', sie: 'sich', Sie: 'sich',
   }
-  return pronouns[person]
+  const dat: Record<Person, string> = {
+    ich: 'mir', du: 'dir', er_sie_es: 'sich',
+    wir: 'uns', ihr: 'euch', sie: 'sich', Sie: 'sich',
+  }
+  return reflexiveCase === 'dativ' ? dat[person] : akk[person]
 }
 
 // ---------------------------------------------------------------------------
@@ -674,10 +671,15 @@ export function generateImperativ(
 
   // Apply reflexive pronoun FIRST (before separable prefix for correct German word order)
   if (verb.isReflexive) {
-    if (duForm) duForm = duForm + ' dich'
-    if (ihrForm) ihrForm = ihrForm + ' euch'
-    if (SieForm) SieForm = SieForm + ' sich'
-    if (wirForm) wirForm = wirForm + ' uns'
+    const useDat = verb.reflexivePronounCase === 'dativ'
+    const refDu = useDat ? 'dir' : 'dich'
+    const refIhr = useDat ? 'euch' : 'euch'
+    const refSie = useDat ? 'sich' : 'sich'
+    const refWir = useDat ? 'uns' : 'uns'
+    if (duForm) duForm = duForm + ` ${refDu}`
+    if (ihrForm) ihrForm = ihrForm + ` ${refIhr}`
+    if (SieForm) SieForm = SieForm + ` ${refSie}`
+    if (wirForm) wirForm = wirForm + ` ${refWir}`
   }
 
   // Apply separable prefix

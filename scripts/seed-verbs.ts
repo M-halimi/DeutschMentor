@@ -175,11 +175,7 @@ async function seedVerbs() {
           objectPlaceholder: placeholder,
           requiredPreposition: meta.preposition || undefined,
           prepositionCase: meta.preposition_case || undefined,
-          transitivity: meta.transitivity || verb.tr,
-          object_case: meta.object_case || verb.obj,
-          preposition: meta.preposition || verb.prep,
-          preposition_case: meta.preposition_case || verb.prepCase,
-        }
+        } as any
       }
     }
 

@@ -149,7 +149,7 @@ export function conjugatePraesens(verb: VerbEntry): ConjugationSet {
 
     // --- Handle reflexive pronouns ---
     if (verb.isReflexive) {
-      const reflexivePronoun = getReflexivePronoun(person)
+      const reflexivePronoun = getReflexivePronoun(person, verb.reflexivePronounCase)
       // In Präsens, reflexive pronoun comes BEFORE separable prefix
       if (prefix) {
         // Insert pronoun before the prefix
@@ -321,7 +321,7 @@ export function conjugatePraeteritum(verb: VerbEntry): ConjugationSet {
 
     // Handle reflexive verbs
     if (verb.isReflexive) {
-      conjugated = conjugated + ' ' + getReflexivePronoun(person)
+      conjugated = conjugated + ' ' + getReflexivePronoun(person, verb.reflexivePronounCase)
     }
 
     conjugation[person] = conjugated
@@ -433,7 +433,7 @@ export function conjugatePerfekt(verb: VerbEntry, partizipII?: string): Conjugat
 
     // Reflexive: pronoun goes between auxiliary and participle
     if (verb.isReflexive) {
-      const ref = getReflexivePronoun(person)
+      const ref = getReflexivePronoun(person, verb.reflexivePronounCase)
       conjugated = `${auxConjugated} ${ref} ${p2}`
     }
 
@@ -479,7 +479,7 @@ export function conjugatePlusquamperfekt(verb: VerbEntry, partizipII?: string): 
     let conjugated = `${auxConjugated} ${p2}`
 
     if (verb.isReflexive) {
-      const ref = getReflexivePronoun(person)
+      const ref = getReflexivePronoun(person, verb.reflexivePronounCase)
       conjugated = `${auxConjugated} ${ref} ${p2}`
     }
 
@@ -510,9 +510,9 @@ export function conjugateFuturI(verb: VerbEntry): ConjugationSet {
     const werdenForm = conjugateAuxiliaryPraesens('werden', person)
     let infinitiveForm = verb.infinitive
 
-    // Reflexive verbs need "sich" before infinitive
+    // Reflexive verbs need pronoun before infinitive
     if (verb.isReflexive) {
-      const ref = person === 'ich' ? 'mich' : person === 'du' ? 'dich' : 'sich'
+      const ref = getReflexivePronoun(person, verb.reflexivePronounCase)
       infinitiveForm = `${ref} ${infinitiveForm}`
     }
 
@@ -544,8 +544,7 @@ export function conjugateFuturII(verb: VerbEntry, partizipII?: string): Conjugat
 
     let conjugated: string
     if (verb.isReflexive) {
-      const ref = getReflexivePronoun(person)
-      conjugated = `${werdenForm} ${p2} ${aux === 'sein' ? 'sein' : 'haben'}`
+      const ref = getReflexivePronoun(person, verb.reflexivePronounCase)
       conjugated = `${werdenForm} ${ref} ${p2} ${aux === 'sein' ? 'sein' : 'haben'}`
     } else {
       conjugated = `${werdenForm} ${p2} ${aux === 'sein' ? 'sein' : 'haben'}`
@@ -659,7 +658,7 @@ export function conjugateKonjunktivII(verb: VerbEntry): ConjugationSet {
     }
 
     if (verb.isReflexive) {
-      conjugated = conjugated + ' ' + getReflexivePronoun(person)
+      conjugated = conjugated + ' ' + getReflexivePronoun(person, verb.reflexivePronounCase)
     }
 
     conjugation[person] = conjugated
