@@ -31,7 +31,11 @@ export function usePresence() {
       return
     }
 
-    sessionIdRef.current = getSessionId()
+    try {
+      sessionIdRef.current = getSessionId()
+    } catch {
+      sessionIdRef.current = ''
+    }
 
     async function heartbeat() {
       try {

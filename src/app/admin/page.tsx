@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
 import { motion } from 'framer-motion'
-import { Shield, Users, BookOpen, BarChart3, TrendingUp, Activity, UserCheck, GraduationCap, CreditCard, Key, Mail, History, Settings as SettingsIcon } from 'lucide-react'
+import { Shield, Users, BookOpen, BarChart3, TrendingUp, Activity, UserCheck, GraduationCap, CreditCard, Key, Mail, History, Settings as SettingsIcon, Brain } from 'lucide-react'
 import { useAdminStore } from '@/stores/admin-store'
 import Link from 'next/link'
 
@@ -172,6 +172,12 @@ export default function AdminPage() {
             <Link href="/admin/analytics" className="inline-flex h-24 flex-col items-center justify-center gap-2 rounded-xl border border-border bg-background text-sm font-medium hover:bg-muted hover:text-foreground transition-colors">
               <BarChart3 className="h-6 w-6" />
               <span>Analysen</span>
+            </Link>
+          )}
+          {hasPermission('intelligence.view') && (
+            <Link href="/admin/intelligence" className="inline-flex h-24 flex-col items-center justify-center gap-2 rounded-xl border border-border bg-background text-sm font-medium hover:bg-muted hover:text-foreground transition-colors">
+              <Brain className="h-6 w-6" />
+              <span>Intelligenz</span>
             </Link>
           )}
           {hasPermission('logs.view') && (

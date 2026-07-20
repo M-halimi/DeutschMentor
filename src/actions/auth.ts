@@ -5,6 +5,7 @@ import { createAdminClient } from '@/lib/supabase/admin'
 import { redirect } from 'next/navigation'
 import { revalidatePath } from 'next/cache'
 import { headers } from 'next/headers'
+import { getSiteUrl } from '@/lib/site-url'
 
 export async function signUp(formData: FormData) {
   const supabase = await createServerSupabaseClient()
@@ -161,10 +162,7 @@ export async function signOut() {
 export async function signInWithGoogle() {
   const supabase = await createServerSupabaseClient()
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
-  if (!siteUrl) {
-    return { error: 'NEXT_PUBLIC_SITE_URL is not configured' }
-  }
+  const siteUrl = await getSiteUrl()
 
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'google',

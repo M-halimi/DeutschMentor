@@ -21,7 +21,7 @@ import {
 } from '@/lib/verbs/admin-types'
 import type { VerbDetailResponse } from '@/lib/verbs/admin-types'
 import {
-  ArrowLeft, Edit, ExternalLink, Shield,
+  ArrowLeft, Edit, ExternalLink, Shield, Star,
 } from 'lucide-react'
 
 export default function VerbDetailPage() {
@@ -88,6 +88,10 @@ export default function VerbDetailPage() {
             />
           </div>
           <div className="flex gap-2">
+            <Button variant="outline" onClick={() => router.push(`/admin/verbs/${verb.id}/quality`)}>
+              <Star className="h-4 w-4 mr-2" />
+              Quality
+            </Button>
             <Button variant="outline" onClick={() => router.push(`/admin/verbs/${verb.id}/edit`)}>
               <Edit className="h-4 w-4 mr-2" />
               Edit

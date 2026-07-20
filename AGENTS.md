@@ -103,3 +103,43 @@ Body: {"query": "SQL_STATEMENT"}
 - `src/lib/ai/google-tts.ts` — Google TTS implementation
 - `src/lib/ai/tts-upgrade.ts` — TTS orchestration, AUDIO_VERSION constant
 - `supabase/migrations/00055_audio_versioning.sql` — Adds audio_version column, generated_audio cache table
+
+## Verb Quality Control Management (Jul 2026)
+
+### Migration 00056 tables (audit metadata — does NOT touch german_verbs)
+- `verb_quality_findings` — Detailed findings: verb_id, category, field_name, current_value, expected_value, explanation, example_wrong, example_correct, source_reference, severity, confidence, status
+- `verb_quality_actions` — Action log (approve/reject/false_positive/manual_edit) per finding
+- `verb_quality_approvals` — Owner approval queue (status: pending/approved/rejected)
+- `verb_quality_summary` — Per-verb cached quality score (0-100), issue counts, audit_status
+
+### Design rules
+- **Never auto-fix production data.** Approve creates an owner approval request (`verb_quality_approvals`). Only the owner's `POST /api/admin/verbs/quality/approve` actually writes to `german_verbs`.
+- Every finding has: wrong example, correct example, grammar explanation, and source reference so the owner can make an informed decision.
+
+### Finding categories
+`separable_conjugation` | `auxiliary_mismatch` | `reflexive_pronoun` | `conjugation_gap` | `slug_inconsistency` | `partizip_2` | `verb_type` | `transitivity` | `preposition` | `duplicate_verb`
+
+### Finding statuses
+`open` → `approved` (via owner), `rejected`, `false_positive`, `manual_edit` — or back to `open` via reopen.
+
+### Quality engine
+- `src/lib/verbs/quality-engine.ts` — `runQualityAudit(verbId?)` scans verbs, produces detailed `QualityFindingInput[]`. `persistQualityFindings()` deduplicates against open findings. `refreshQualitySummaries()` recomputes quality scores.
+- Scoring: error=-15, warning=-5, info=-1. Min 0, max 100.
+
+### Admin pages
+- `/admin/verbs` — Quality score column (star badge + number + issue count)
+- `/admin/verbs/[id]/quality` — Full quality view per verb: all findings with current/expected/examples/explanation/source + approve/reject/false_positive/manual_edit + Run Quality Check button
+- `/admin/verbs?sort_by=quality_score&sort_order=asc` — Sort verbs by worst quality first (sidebar link)
+
+### API routes (all protected by isAdminUser)
+| Route | Method | Purpose |
+|-------|--------|---------|
+| `/api/admin/verbs/[id]/quality` | GET | Verb + findings + summary |
+| `/api/admin/verbs/quality/findings` | PATCH | Approve/reject/false_positive/manual_edit/reopen |
+| `/api/admin/verbs/quality/run` | POST | Trigger quality scan (optionally per verb_id) |
+| `/api/admin/verbs/quality/approve` | POST | Owner applies approved change to german_verbs |
+
+### Owner approval flow
+1. Admin clicks "Approve" on a finding → `PATCH /api/admin/verbs/quality/findings` creates a `verb_quality_approvals` record (status=pending). Finding stays open.
+2. Owner visits quality page → reviews finding → clicks approve → `POST /api/admin/verbs/quality/approve` applies the change to `german_verbs`, logs to `verb_change_history`, marks finding as `approved`.
+3. `refreshQualitySummaries()` recalculates quality score after any status change.

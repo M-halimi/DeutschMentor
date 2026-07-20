@@ -84,7 +84,7 @@ export default function SignUpPage() {
         useAuthStore.getState().setUser(newProfile)
       }
 
-      router.replace('/onboarding')
+      window.location.href = '/onboarding'
     } else {
       setEmailSent(true)
       setLoading(false)

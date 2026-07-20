@@ -36,6 +36,8 @@ import {
   History,
   MessageSquare,
   Activity,
+  Star,
+  Brain,
   X,
   type LucideIcon,
 } from 'lucide-react'
@@ -141,7 +143,7 @@ const adminNavSections: { titleTKey: string; items: AdminNavItem[] }[] = [
     titleTKey: 'nav.dashboard',
     items: [
       { href: '/admin', tKey: 'nav.admin-dashboard', icon: Shield, permission: 'dashboard.view' },
-      { href: '/admin/live-users', tKey: 'nav.live-users', icon: Activity, permission: 'users.live' },
+      { href: '/admin/users/live', tKey: 'nav.live-users', icon: Activity, permission: 'users.live' },
     ],
   },
   {
@@ -160,11 +162,13 @@ const adminNavSections: { titleTKey: string; items: AdminNavItem[] }[] = [
       { href: '/admin/courses', tKey: 'nav.courses', icon: BookOpen, permission: 'courses.view' },
       { href: '/admin/verbs', tKey: 'nav.verbs', icon: BookText, permission: 'courses.view' },
       { href: '/admin/verbs/audit', tKey: 'nav.verb-audit', icon: ShieldAlert, permission: 'dashboard.view' },
+      { href: '/admin/verbs?sort_by=quality_score&sort_order=asc', tKey: 'nav.verb-quality', icon: Star, permission: 'dashboard.view' },
     ],
   },
   {
     titleTKey: 'sidebar.system',
     items: [
+      { href: '/admin/intelligence', tKey: 'nav.intelligence', icon: Brain, permission: 'intelligence.view' },
       { href: '/admin/analytics', tKey: 'nav.analytics', icon: BarChart3, permission: 'analytics.view' },
       { href: '/admin/audit-logs', tKey: 'nav.audit-logs', icon: History, permission: 'audit.view' },
       { href: '/admin/settings', tKey: 'nav.settings', icon: Settings, permission: 'settings.view', ownerOnly: true },

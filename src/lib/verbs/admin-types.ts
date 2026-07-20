@@ -18,6 +18,9 @@ export interface VerbListItem {
   audit_status: 'error' | 'warning' | 'clean' | 'pending' | null
   audit_error_count: number
   audit_warning_count: number
+  quality_score?: number
+  quality_issues?: number
+  quality_audit_status?: string | null
 }
 
 export interface VerbDetail {
@@ -204,4 +207,100 @@ export const EXAMPLE_DIFFICULTY_LABELS: Record<string, string> = {
   beginner: 'Beginner',
   intermediate: 'Intermediate',
   advanced: 'Advanced',
+}
+
+// ─── Verb Quality Control Management Types ────────────────────────────────
+
+export interface VerbQualityFinding {
+  id: string
+  verb_id: string
+  category: string
+  field_name: string
+  current_value: string | null
+  expected_value: string | null
+  explanation: string | null
+  example_wrong: string | null
+  example_correct: string | null
+  source_reference: string | null
+  severity: 'error' | 'warning' | 'info'
+  confidence: number
+  status: 'open' | 'approved' | 'rejected' | 'false_positive' | 'manual_edit'
+  created_at: string
+  updated_at: string
+}
+
+export interface VerbQualityAction {
+  id: string
+  finding_id: string
+  action: 'approve' | 'reject' | 'false_positive' | 'manual_edit'
+  actioned_by: string | null
+  notes: string | null
+  created_at: string
+}
+
+export interface VerbQualityApproval {
+  id: string
+  finding_id: string
+  verb_id: string
+  proposed_change: Record<string, unknown>
+  notes: string | null
+  status: 'pending' | 'approved' | 'rejected'
+  approved_by: string | null
+  approved_at: string | null
+  created_at: string
+}
+
+export interface VerbQualitySummary {
+  verb_id: string
+  quality_score: number
+  total_issues: number
+  error_count: number
+  warning_count: number
+  info_count: number
+  audit_status: 'error' | 'warning' | 'info' | null
+  updated_at: string
+}
+
+export const FINDING_CATEGORIES = [
+  'separable_conjugation',
+  'auxiliary_mismatch',
+  'reflexive_pronoun',
+  'conjugation_gap',
+  'slug_inconsistency',
+  'cefr_gap',
+  'partizip_2',
+  'verb_type',
+  'transitivity',
+  'preposition',
+  'duplicate_verb',
+] as const
+
+export const FINDING_CATEGORY_LABELS: Record<string, string> = {
+  separable_conjugation: 'Separable Conjugation',
+  auxiliary_mismatch: 'Auxiliary',
+  reflexive_pronoun: 'Reflexive Pronoun',
+  conjugation_gap: 'Conjugation Gap',
+  slug_inconsistency: 'Slug',
+  cefr_gap: 'CEFR Gap',
+  partizip_2: 'Partizip II',
+  verb_type: 'Verb Type',
+  transitivity: 'Transitivity',
+  preposition: 'Preposition',
+  duplicate_verb: 'Duplicate Verb',
+}
+
+export const FINDING_STATUS_LABELS: Record<string, string> = {
+  open: 'Open',
+  approved: 'Approved',
+  rejected: 'Rejected',
+  false_positive: 'False Positive',
+  manual_edit: 'Manual Edit',
+}
+
+export const FINDING_STATUS_COLORS: Record<string, string> = {
+  open: 'bg-amber-500/10 text-amber-600 border-amber-500/30',
+  approved: 'bg-emerald-500/10 text-emerald-600 border-emerald-500/30',
+  rejected: 'bg-red-500/10 text-red-600 border-red-500/30',
+  false_positive: 'bg-blue-500/10 text-blue-600 border-blue-500/30',
+  manual_edit: 'bg-purple-500/10 text-purple-600 border-purple-500/30',
 }

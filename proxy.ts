@@ -112,11 +112,30 @@ export async function proxy(request: NextRequest) {
     }
   )
 
-  const { data: { user }, error: authError } = await supabase.auth.getUser()
+  let user: NonNullable<Awaited<ReturnType<typeof supabase.auth.getUser>>['data']['user']> | null = null
+  try {
+    const result = await supabase.auth.getUser()
+    user = result.data.user
+    if (result.error) {
+      log('auth_getUser_error', { error: result.error.message })
+    }
+  } catch (err) {
+    // If supabase is unreachable (e.g., mobile on restricted WiFi), fail open
+    // so the page still renders and client-side auth handles the session.
+    log('auth_getUser_exception', { error: String(err) })
+  }
 
-  log(`path=${pathname} auth=${!!user} error=${authError?.message || 'none'}`, {
+  log(`path=${pathname} auth=${!!user}`, {
     elapsed: Date.now() - startTime,
   })
+
+  // Always copy locale cookie to response so redirects preserve it
+  function withLocaleCookies(resp: NextResponse): NextResponse {
+    if (detectedLocale) {
+      resp.cookies.set(LOCALE_COOKIE, detectedLocale, { maxAge: 31536000, path: '/', sameSite: 'lax' })
+    }
+    return resp
+  }
 
   // --- Auth check: redirect unauthenticated users to login ---
   if (!user) {
@@ -126,7 +145,7 @@ export async function proxy(request: NextRequest) {
       log('no_user_redirect_to_login', { pathname })
       const url = request.nextUrl.clone()
       url.pathname = LOGIN_ROUTE
-      return NextResponse.redirect(url)
+      return withLocaleCookies(NextResponse.redirect(url))
     }
     return supabaseResponse
   }
@@ -181,7 +200,7 @@ export async function proxy(request: NextRequest) {
       const url = request.nextUrl.clone()
       url.pathname = SUSPENDED_ROUTE
       url.searchParams.set('reason', profile?.status === 'banned' ? 'banned' : 'suspended')
-      return NextResponse.redirect(url)
+      return withLocaleCookies(NextResponse.redirect(url))
     }
 
     // --- NORMAL USER: Check admin routes ---
@@ -210,7 +229,7 @@ export async function proxy(request: NextRequest) {
         const url = request.nextUrl.clone()
         url.pathname = DASHBOARD_ROUTE
         url.searchParams.set('admin_denied', 'true')
-        return NextResponse.redirect(url)
+        return withLocaleCookies(NextResponse.redirect(url))
       }
       try {
         await adminClient.rpc('log_audit_entry', {

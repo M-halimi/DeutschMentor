@@ -20,7 +20,7 @@ import { AuditBadge, getAuditHref } from '@/components/verbs/audit-badge'
 import { CEFR_LEVELS, VERB_TYPES, AUXILIARIES, VERB_TYPE_LABELS, FREQUENCY_LABELS, AUXILIARY_LABELS } from '@/lib/verbs/admin-types'
 import type { VerbListItem } from '@/lib/verbs/admin-types'
 import {
-  Search, Plus, MoreHorizontal, Eye, Edit, ChevronLeft, ChevronRight,
+  Search, Plus, MoreHorizontal, Eye, Edit, ChevronLeft, ChevronRight, Star, AlertCircle,
 } from 'lucide-react'
 import { toast } from 'sonner'
 
@@ -171,6 +171,9 @@ export default function VerbsPage() {
                 <TableHead>Partizip II</TableHead>
                 <TableHead>Reflexive</TableHead>
                 <TableHead>Prefix</TableHead>
+                <TableHead className="cursor-pointer select-none" onClick={() => toggleSort('quality_score')}>
+                  Quality <SortIcon col="quality_score" />
+                </TableHead>
                 <TableHead>Audit</TableHead>
                 <TableHead className="w-20">Actions</TableHead>
               </TableRow>
@@ -178,13 +181,13 @@ export default function VerbsPage() {
             <TableBody>
               {loading ? (
                 <TableRow>
-                  <TableCell colSpan={11} className="text-center py-12 text-muted-foreground">
+                  <TableCell colSpan={12} className="text-center py-12 text-muted-foreground">
                     Loading...
                   </TableCell>
                 </TableRow>
               ) : verbs.length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={11} className="text-center py-12 text-muted-foreground">
+                  <TableCell colSpan={12} className="text-center py-12 text-muted-foreground">
                     No verbs found
                   </TableCell>
                 </TableRow>
@@ -210,6 +213,22 @@ export default function VerbsPage() {
                     <TableCell>{v.is_reflexive ? <Badge variant="secondary" className="text-xs">sich</Badge> : '-'}</TableCell>
                     <TableCell className="text-sm">{v.separable_prefix || '-'}</TableCell>
                     <TableCell>
+                      <div className="flex items-center gap-1.5">
+                        <Star className={`h-3 w-3 ${(v.quality_score ?? 100) >= 90 ? 'text-emerald-500 fill-emerald-500' : (v.quality_score ?? 100) >= 70 ? 'text-amber-500 fill-amber-500' : 'text-red-500 fill-red-500'}`} />
+                        <span className={`text-xs font-medium ${
+                          (v.quality_score ?? 100) >= 90 ? 'text-emerald-600' :
+                          (v.quality_score ?? 100) >= 70 ? 'text-amber-600' : 'text-red-600'
+                        }`}>
+                          {v.quality_score ?? 100}
+                        </span>
+                        {(v.quality_issues ?? 0) > 0 && (
+                          <span className="text-[10px] text-muted-foreground">
+                            ({v.quality_issues})
+                          </span>
+                        )}
+                      </div>
+                    </TableCell>
+                    <TableCell>
                       <div
                         className="cursor-pointer inline-block"
                         onClick={() => router.push(getAuditHref(v.id))}
@@ -230,6 +249,10 @@ export default function VerbsPage() {
                           <DropdownMenuItem onClick={() => router.push(`/admin/verbs/${v.id}`)}>
                             <Eye className="h-4 w-4 mr-2" />
                             View
+                          </DropdownMenuItem>
+                          <DropdownMenuItem onClick={() => router.push(`/admin/verbs/${v.id}/quality`)}>
+                            <Star className="h-4 w-4 mr-2" />
+                            Quality
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => router.push(`/admin/verbs/${v.id}/edit`)}>
                             <Edit className="h-4 w-4 mr-2" />

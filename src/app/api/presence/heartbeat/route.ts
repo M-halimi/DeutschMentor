@@ -3,6 +3,7 @@ import { createAdminClient } from '@/lib/supabase/admin'
 import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 import { parseUserAgent } from '@/lib/ua-parser'
+import { getClientIP } from '@/lib/get-client-ip'
 
 export const dynamic = 'force-dynamic'
 
@@ -25,7 +26,7 @@ export async function POST(req: NextRequest) {
     }
 
     const ua = req.headers.get('user-agent') || ''
-    const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || req.headers.get('x-real-ip') || ''
+    const ip = getClientIP(req)
     const info = parseUserAgent(ua)
 
     const admin = createAdminClient()

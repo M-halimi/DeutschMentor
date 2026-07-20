@@ -65,8 +65,168 @@ export interface Profile {
   suspended_at: string | null
   suspended_by: string | null
   suspension_expires_at: string | null
+  gender: string | null
+  country: string | null
+  city: string | null
+  timezone: string | null
+  learning_level: string | null
+  subscription_plan: string | null
+  last_lesson_id: string | null
+  last_vocabulary_practiced: string | null
+  last_verb_practiced: string | null
+  completed_lessons: number
+  progress_percentage: number
+  engagement_score: number
+  last_action: string | null
+  last_action_at: string | null
   created_at: string
   updated_at: string
+}
+
+export type Gender = 'male' | 'female' | 'other' | 'not_set'
+
+export interface UserActivityEvent {
+  id: string
+  user_id: string
+  event_type: string
+  page: string | null
+  action: string | null
+  metadata: Record<string, any>
+  ip_address: string | null
+  user_agent: string | null
+  created_at: string
+}
+
+export interface UserSession {
+  id: string
+  user_id: string
+  device_id: string | null
+  device_name: string | null
+  device_type: string | null
+  ip_address: string | null
+  browser_name: string | null
+  browser_version: string | null
+  operating_system: string | null
+  os_version: string | null
+  country: string | null
+  city: string | null
+  timezone: string | null
+  user_agent: string | null
+  session_token: string | null
+  login_at: string
+  logout_at: string | null
+  is_active: boolean
+  created_at: string
+  last_activity_at: string | null
+}
+
+export interface UserActivityLog {
+  id: string
+  user_id: string
+  activity_type: string
+  description: string | null
+  page_url: string | null
+  metadata: Record<string, any>
+  duration_seconds: number | null
+  ip_address: string | null
+  user_agent: string | null
+  created_at: string
+}
+
+export interface UserSearchQuery {
+  id: string
+  user_id: string
+  query_text: string
+  search_type: string
+  results_count: number
+  metadata: Record<string, any>
+  created_at: string
+}
+
+export interface LoginSession {
+  id: string
+  user_id: string
+  device_id: string | null
+  ip_address: string | null
+  user_agent: string | null
+  device_type: string | null
+  browser_name: string | null
+  operating_system: string | null
+  login_at: string
+  logout_at: string | null
+  is_active: boolean
+  created_at: string
+}
+
+export interface UserDailyProgress {
+  id: string
+  user_id: string
+  date: string
+  lessons_completed: number
+  vocabulary_practiced: number
+  verbs_practiced: number
+  exercises_completed: number
+  session_duration_seconds: number
+  search_queries_count: number
+}
+
+export interface IntelligenceStats {
+  totalUsers: number
+  usersWithActivity: number
+  totalActivityEvents: number
+  totalSearches: number
+  avgEngagementScore: number
+  avgProgressPercentage: number
+  totalCompletedLessons: number
+  activeToday: number
+  activityByType: Record<string, number>
+  activityTrend: { date: string; count: number }[]
+  levelDistribution: Record<string, number>
+  planDistribution: Record<string, number>
+}
+
+export interface IntelligenceTimelineItem {
+  id: string
+  user_id: string
+  user_name: string
+  user_email: string
+  avatar_url: string | null
+  activity_type: string
+  description: string | null
+  page_url: string | null
+  duration_seconds: number | null
+  created_at: string
+}
+
+export interface IntelligenceLiveUser {
+  user_id: string
+  full_name: string
+  email: string
+  avatar_url: string | null
+  role: string
+  gender: string | null
+  country: string | null
+  city: string | null
+  timezone: string | null
+  current_level: string
+  subscription_plan: string | null
+  current_page: string | null
+  last_action: string | null
+  last_action_at: string | null
+  last_lesson_id: string | null
+  last_vocabulary_practiced: string | null
+  last_verb_practiced: string | null
+  completed_lessons: number
+  progress_percentage: number
+  engagement_score: number
+  is_online: boolean
+  last_seen: string | null
+  session_duration_seconds: number | null
+  ip_address: string | null
+  device_type: string | null
+  browser_name: string | null
+  operating_system: string | null
+  login_sessions_count: number
 }
 
 export interface ProfileStatusHistory {

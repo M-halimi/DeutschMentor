@@ -5,6 +5,7 @@ import { cookies } from 'next/headers'
 import { randomUUID } from 'crypto'
 import { checkPermission, isOwner } from '@/lib/rbac/permissions'
 import { logAudit } from '@/lib/rbac/audit'
+import { getSiteUrl } from '@/lib/site-url'
 
 async function getUser() {
   const cookieStore = await cookies()
@@ -81,7 +82,7 @@ export async function POST(req: NextRequest) {
       throw error
     }
 
-    const origin = process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_VERCEL_URL || 'http://localhost:3000'
+    const origin = await getSiteUrl()
     const inviteUrl = `${origin}/admin/accept-invitation?token=${token}`
 
     console.log(`[Invitation] Created for ${email} with token ${token}. URL: ${inviteUrl}`)

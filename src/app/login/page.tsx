@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Sparkles, Eye, EyeOff } from 'lucide-react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 import { toast } from 'sonner'
 import { createClient } from '@/lib/supabase/client'
 import { useAuthStore } from '@/stores/auth-store'
@@ -27,7 +27,6 @@ function LoginForm() {
   const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
-  const router = useRouter()
   const searchParams = useSearchParams()
   const fetchUser = useAuthStore((s) => s.fetchUser)
 
@@ -57,39 +56,55 @@ function LoginForm() {
       return
     }
 
-    await fetchUser()
-    const { user: profile } = useAuthStore.getState()
+    // Use the same supabase client instance to avoid cookie sync issues
+    // between separate createClient() calls on mobile Safari.
+    const { data: { user: authUser } } = await supabase.auth.getUser()
 
-    if (profile) {
-      useAuthStore.getState().setUser(profile)
-
-      if (profile.status === 'suspended' || profile.status === 'banned') {
-        router.replace(`/account-suspended?reason=${profile.status}`)
+    if (!authUser) {
+      // Fallback: try fetchUser() which reads from auth store
+      await fetchUser()
+      const { user: fallback } = useAuthStore.getState()
+      if (fallback) {
+        useAuthStore.getState().setUser(fallback)
+        window.location.href = '/dashboard'
         return
       }
+      window.location.href = '/onboarding'
+      return
+    }
 
-      if (profile.status === 'expired') {
-        router.replace('/account-expired')
-        return
-      }
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('user_id', authUser.id)
+      .maybeSingle()
 
+    if (!profile) {
+      window.location.href = '/onboarding'
+      return
+    }
+
+    useAuthStore.getState().setUser(profile)
+
+    let redirectTo = '/dashboard'
+
+    if (profile.status === 'suspended' || profile.status === 'banned') {
+      redirectTo = `/account-suspended?reason=${profile.status}`
+    } else if (profile.status === 'expired') {
+      redirectTo = '/account-expired'
+    } else {
       const isAdmin = profile.is_owner === true ||
         profile.role_id !== null ||
         profile.role === 'admin' ||
         profile.role === 'super_admin'
 
-      if (isAdmin) {
-        router.replace('/admin')
-        return
-      }
-      if (profile.role === 'teacher') {
-        router.replace('/teacher')
-        return
-      }
-      router.replace('/dashboard')
-      return
+      if (isAdmin) redirectTo = '/admin'
+      else if (profile.role === 'teacher') redirectTo = '/teacher'
     }
-    router.replace('/onboarding')
+
+    // Hard navigation guarantees session cookies are sent on the next request.
+    // router.replace() can race with cookie commit on mobile Safari.
+    window.location.href = redirectTo
   }
 
   return (

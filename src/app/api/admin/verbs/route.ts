@@ -3,6 +3,7 @@ import { createServerSupabaseClient } from '@/lib/supabase/server'
 import { isAdminUser } from '@/lib/rbac/permissions'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { runVerbAudit } from '@/lib/verbs/audit-engine'
+import { getBulkQualitySummaries } from '@/lib/verbs/quality-engine'
 
 const AUDIT_QUERY = `
   select v.id,
@@ -57,7 +58,10 @@ export async function GET(request: NextRequest) {
   const { data: verbs, count, error } = await query
   if (error) return NextResponse.json({ error: error.message }, { status: 500 })
 
-  const auditStatuses = await computeAuditStatuses(adminClient)
+  const [auditStatuses, qualitySummaries] = await Promise.all([
+    computeAuditStatuses(adminClient),
+    getBulkQualitySummaries(),
+  ])
 
   const items = (verbs || []).map(v => {
     const as = auditStatuses.get(v.id)
@@ -67,7 +71,18 @@ export async function GET(request: NextRequest) {
     if (errorCount > 0) audit_status = 'error'
     else if (warningCount > 0) audit_status = 'warning'
     else audit_status = 'clean'
-    return { ...v, audit_status, audit_error_count: errorCount, audit_warning_count: warningCount }
+
+    const qs = qualitySummaries.get(v.id)
+
+    return {
+      ...v,
+      audit_status,
+      audit_error_count: errorCount,
+      audit_warning_count: warningCount,
+      quality_score: qs?.quality_score ?? 100,
+      quality_issues: qs?.total_issues ?? 0,
+      quality_audit_status: qs?.audit_status ?? null,
+    }
   })
 
   let filtered = items
