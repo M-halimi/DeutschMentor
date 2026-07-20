@@ -14,6 +14,7 @@ interface AudioPlayerProps {
   showReplay?: boolean
 }
 
+const AUDIO_CACHE_VERSION = 'v2'
 const audioCache = new Map<string, string>()
 
 function isAbortError(e: unknown): boolean {
@@ -107,14 +108,14 @@ export function AudioPlayer({
 
   const generateAndPlay = useCallback(async (text: string, speed: number) => {
     const lang = explicitLang || detectLanguage(text)
-    const cacheKey = `${text}:${lang}:${speed}:openai`
+    const cacheKey = `${AUDIO_CACHE_VERSION}:${text}:${lang}:${speed}:openai`
     const cachedUrl = audioCache.get(cacheKey)
     if (cachedUrl) {
       await playAudio(cachedUrl, speed)
       return
     }
 
-    const res = await fetch('/api/tts', {
+    const res = await fetch(`/api/tts?_=${AUDIO_CACHE_VERSION}-${Date.now()}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text, lang, speed: speed < 1 ? 1 : speed, provider: 'openai' }),
@@ -123,7 +124,7 @@ export function AudioPlayer({
     if (data.audioUrl) {
       audioCache.set(cacheKey, data.audioUrl)
       if (speed < 1) {
-        const slowKey = `${text}:${lang}:0.5:openai`
+        const slowKey = `${AUDIO_CACHE_VERSION}:${text}:${lang}:0.5:openai`
         if (!audioCache.has(slowKey)) audioCache.set(slowKey, data.audioUrl)
       }
       lastPlayedUrl.current = data.audioUrl
@@ -149,7 +150,7 @@ export function AudioPlayer({
     setLoading(speed === 0.5 ? 'slow' : 'normal')
 
     const lang = explicitLang || detectLanguage(text)
-    const cacheKey = `${text}:${lang}:${speed}:openai`
+    const cacheKey = `${AUDIO_CACHE_VERSION}:${text}:${lang}:${speed}:openai`
     const cachedUrl = audioCache.get(cacheKey)
 
     if (cachedUrl) {

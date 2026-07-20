@@ -158,8 +158,11 @@ export default function HoerenPage() {
   const loopRef = useRef(loop)
   loopRef.current = loop
 
+  const AUDIO_VERSION = 'v2'
+
   const isPlaceholderAudio = (url: string) =>
-    url.includes('soundhelix') || url.includes('placeholder') || url.includes('example.com')
+    url.includes('soundhelix') || url.includes('placeholder') || url.includes('example.com') ||
+    (url.includes('audio-content') && !url.includes(`/${AUDIO_VERSION}/`))
 
   useEffect(() => {
     let alive = true
@@ -197,7 +200,7 @@ export default function HoerenPage() {
         } catch {}
       } else if (lessonDetail.transcript && !generatingAudioRef.current) {
         generatingAudioRef.current = true
-        fetch('/api/tts', {
+        fetch(`/api/tts?_=${AUDIO_VERSION}-${Date.now()}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ lesson_id: selectedId, transcript: lessonDetail.transcript, level: lessonDetail.level || 'A2' })

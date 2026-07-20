@@ -22,10 +22,10 @@ export interface TTSUpgradeResult {
 }
 
 export const OPENAI_VOICE_MAP: Record<string, string> = {
-  de: 'onyx',
+  de: 'nova',
   en: 'nova',
   fr: 'shimmer',
-  ar: 'onyx',
+  ar: 'nova',
   es: 'echo',
   it: 'coral',
   pt: 'nova',
@@ -172,6 +172,8 @@ async function generateElevenLabs(text: string, lang: string, speed: number, voi
   }
 }
 
+const AUDIO_STORAGE_VERSION = 'v2'
+
 export async function generateLessonAudio(lessonId: string, transcript: string, level: string, scenario?: string): Promise<TTSUpgradeResult> {
   const { createAdminClient } = await import('@/lib/supabase/admin')
   const supabase = createAdminClient()
@@ -195,7 +197,7 @@ export async function generateLessonAudio(lessonId: string, transcript: string, 
   const googleAudio = await generateGoogleTTS(textToSpeak, 'de', speed)
   if (googleAudio) {
     const buffer = Buffer.from(googleAudio.audioUrl.split(',')[1], 'base64')
-    const filePath = `listening-audio/${lessonId}.mp3`
+    const filePath = `listening-audio/${AUDIO_STORAGE_VERSION}/${lessonId}.mp3`
     const { error: uploadError } = await supabase.storage
       .from('audio-content')
       .upload(filePath, buffer, { contentType: 'audio/mpeg', upsert: true })
@@ -216,12 +218,12 @@ export async function generateLessonAudio(lessonId: string, transcript: string, 
     lang: 'de',
     speed,
     provider: 'openai',
-    voice: 'onyx',
+    voice: 'nova',
     scenario,
   })
   if (result.success && result.audioUrl) {
     const buffer = Buffer.from(result.audioUrl.split(',')[1], 'base64')
-    const filePath = `generated-audio/${lessonId}.mp3`
+    const filePath = `generated-audio/${AUDIO_STORAGE_VERSION}/${lessonId}.mp3`
     const { error: uploadError } = await supabase.storage
       .from('audio-content')
       .upload(filePath, buffer, { contentType: 'audio/mpeg', upsert: true })
