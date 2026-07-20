@@ -314,14 +314,14 @@ export function conjugatePraeteritum(verb: VerbEntry): ConjugationSet {
       conjugated = conjugateWeakPraeteritum(stem, person)
     }
 
-    // Handle separable prefix
-    if (prefix) {
-      conjugated = conjugated + ' ' + prefix
-    }
-
-    // Handle reflexive verbs
+    // Handle reflexive verbs FIRST (before separable prefix for correct word order)
     if (verb.isReflexive) {
       conjugated = conjugated + ' ' + getReflexivePronoun(person, verb.reflexivePronounCase)
+    }
+
+    // Handle separable prefix SECOND — in Präteritum/KII, prefix goes to the very end
+    if (prefix) {
+      conjugated = conjugated + ' ' + prefix
     }
 
     conjugation[person] = conjugated
@@ -653,12 +653,12 @@ export function conjugateKonjunktivII(verb: VerbEntry): ConjugationSet {
 
     let conjugated = k2Stem + ending
 
-    if (prefix) {
-      conjugated = conjugated + ' ' + prefix
-    }
-
     if (verb.isReflexive) {
       conjugated = conjugated + ' ' + getReflexivePronoun(person, verb.reflexivePronounCase)
+    }
+
+    if (prefix) {
+      conjugated = conjugated + ' ' + prefix
     }
 
     conjugation[person] = conjugated

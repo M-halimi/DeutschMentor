@@ -15929,13 +15929,13 @@
       "sie": "werden sich eingestellt haben"
     },
     "konjunktiv_ii": {
-      "ich": "stellte ein mich",
-      "du": "stelltest ein dich",
-      "er_sie_es": "stellte ein sich",
-      "wir": "stellten ein uns",
-      "ihr": "stelltet ein euch",
-      "Sie": "stellten ein sich",
-      "sie": "stellten ein sich"
+      "ich": "würde mich einstellen",
+      "du": "würdest dich einstellen",
+      "er_sie_es": "würde sich einstellen",
+      "wir": "würden uns einstellen",
+      "ihr": "würdet euch einstellen",
+      "Sie": "würden sich einstellen",
+      "sie": "würden sich einstellen"
     },
     "imperativ": {
       "du": "Stell dich ein",

@@ -58,9 +58,10 @@ export async function GET(request: NextRequest) {
   const { data: verbs, count, error } = await query
   if (error) return NextResponse.json({ error: error.message }, { status: 500 })
 
-  const [auditStatuses, qualitySummaries] = await Promise.all([
+  const [auditStatuses, qualitySummaries, referenceData] = await Promise.all([
     computeAuditStatuses(adminClient),
     getBulkQualitySummaries(),
+    fetchReferenceData(adminClient),
   ])
 
   const items = (verbs || []).map(v => {
@@ -73,6 +74,7 @@ export async function GET(request: NextRequest) {
     else audit_status = 'clean'
 
     const qs = qualitySummaries.get(v.id)
+    const ref = referenceData.get(v.infinitive?.toLowerCase() ?? '')
 
     return {
       ...v,
@@ -82,6 +84,9 @@ export async function GET(request: NextRequest) {
       quality_score: qs?.quality_score ?? 100,
       quality_issues: qs?.total_issues ?? 0,
       quality_audit_status: qs?.audit_status ?? null,
+      has_reference: !!ref,
+      reference_confidence: ref?.confidence ?? null,
+      reference_source: ref?.source_name ?? null,
     }
   })
 
@@ -90,6 +95,8 @@ export async function GET(request: NextRequest) {
   else if (auditStatus === 'warning') filtered = items.filter(i => i.audit_status === 'warning')
   else if (auditStatus === 'clean') filtered = items.filter(i => i.audit_status === 'clean')
   else if (auditStatus === 'verified') filtered = items.filter(i => i.audit_status === 'clean')
+  else if (auditStatus === 'missing_reference') filtered = items.filter(i => !i.has_reference)
+  else if (auditStatus === 'low_confidence') filtered = items.filter(i => (i.reference_confidence ?? 0) < 70)
 
   return NextResponse.json({ data: filtered, total: count || 0, page, per_page: perPage })
 }
@@ -252,4 +259,15 @@ function parseArray(val: any): string[] {
   if (Array.isArray(val)) return val
   if (typeof val === 'string') return val.split(',').map(s => s.trim()).filter(Boolean)
   return []
+}
+
+async function fetchReferenceData(admin: any): Promise<Map<string, { confidence: number; source_name: string }>> {
+  const map = new Map()
+  const { data } = await admin.from('verb_reference_data').select('infinitive, confidence, source_name')
+  if (!data) return map
+  for (const row of data) {
+    const key = (row.infinitive as string)?.toLowerCase() ?? ''
+    if (key) map.set(key, { confidence: (row.confidence as number) ?? 0, source_name: (row.source_name as string) ?? '' })
+  }
+  return map
 }

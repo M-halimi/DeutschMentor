@@ -92,6 +92,10 @@ export default function VerbDetailPage() {
               <Star className="h-4 w-4 mr-2" />
               Quality
             </Button>
+            <Button variant="outline" onClick={() => router.push(`/admin/verbs/${verb.id}/audit`)}>
+              <Shield className="h-4 w-4 mr-2" />
+              Audit
+            </Button>
             <Button variant="outline" onClick={() => router.push(`/admin/verbs/${verb.id}/edit`)}>
               <Edit className="h-4 w-4 mr-2" />
               Edit

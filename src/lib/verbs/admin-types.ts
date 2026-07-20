@@ -21,6 +21,9 @@ export interface VerbListItem {
   quality_score?: number
   quality_issues?: number
   quality_audit_status?: string | null
+  has_reference?: boolean
+  reference_confidence?: number | null
+  reference_source?: string | null
 }
 
 export interface VerbDetail {
@@ -303,4 +306,63 @@ export const FINDING_STATUS_COLORS: Record<string, string> = {
   rejected: 'bg-red-500/10 text-red-600 border-red-500/30',
   false_positive: 'bg-blue-500/10 text-blue-600 border-blue-500/30',
   manual_edit: 'bg-purple-500/10 text-purple-600 border-purple-500/30',
+}
+
+// ─── Verb Import System Types ──────────────────────────────────────────────
+
+export interface ImportSource {
+  id: string
+  name: string
+  website: string
+  description: string
+  adapter_name: string
+  active: boolean
+}
+
+export interface ImportResult {
+  log_id: string
+  source_name: string
+  cefr_level: string
+  total_fetched: number
+  total_imported: number
+  total_errors: number
+  total_warnings: number
+  errors: string[]
+  warnings: string[]
+  verb_results: VerbImportStatus[]
+}
+
+export interface VerbImportStatus {
+  infinitive: string
+  status: 'SUCCESS' | 'WARNING' | 'FAILED'
+  message?: string
+  confidence: number
+  skipped_reason?: string
+}
+
+export type ImportProgressStep =
+  | { step: 'connecting'; message: string }
+  | { step: 'fetching'; message: string; current?: number; total?: number }
+  | { step: 'parsing'; message: string; current?: number; total?: number }
+  | { step: 'validating'; message: string; current?: number; total?: number }
+  | { step: 'saving'; message: string; current?: number; total?: number }
+  | { step: 'complete'; message: string }
+  | { step: 'error'; message: string }
+
+export interface ImportLog {
+  id: string
+  source_name: string
+  cefr_level: string
+  total_fetched: number
+  total_imported: number
+  total_approved: number
+  total_rejected: number
+  total_warnings: number
+  total_errors: number
+  status: string
+  error_message: string | null
+  started_at: string | null
+  completed_at: string | null
+  created_by: string | null
+  created_at: string
 }

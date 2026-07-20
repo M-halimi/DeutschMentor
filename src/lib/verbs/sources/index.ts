@@ -1,0 +1,6 @@
+export type { SourceAdapter, SourceVerbEntry } from './types'
+export { getAdapter, getAvailableSources } from './registry'
+export { VerbformenAdapter } from './verbformen'
+export { WiktionaryAdapter } from './wiktionary'
+export { CanoonetAdapter } from './canoonet'
+export { CustomJsonAdapter } from './custom-json'

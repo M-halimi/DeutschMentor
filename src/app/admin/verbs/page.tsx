@@ -20,7 +20,7 @@ import { AuditBadge, getAuditHref } from '@/components/verbs/audit-badge'
 import { CEFR_LEVELS, VERB_TYPES, AUXILIARIES, VERB_TYPE_LABELS, FREQUENCY_LABELS, AUXILIARY_LABELS } from '@/lib/verbs/admin-types'
 import type { VerbListItem } from '@/lib/verbs/admin-types'
 import {
-  Search, Plus, MoreHorizontal, Eye, Edit, ChevronLeft, ChevronRight, Star, AlertCircle,
+  Search, Plus, MoreHorizontal, Eye, Edit, ChevronLeft, ChevronRight, Star, AlertCircle, Shield,
 } from 'lucide-react'
 import { toast } from 'sonner'
 
@@ -139,11 +139,13 @@ export default function VerbsPage() {
             </SelectContent>
           </Select>
           <Select value={auditStatus || null} onValueChange={v => { setAuditStatus(v || ''); setPage(1) }}>
-            <SelectTrigger className="w-[140px]"><SelectValue placeholder="Audit Status" /></SelectTrigger>
+            <SelectTrigger className="w-[160px]"><SelectValue placeholder="Audit Status" /></SelectTrigger>
             <SelectContent>
               <SelectItem value="error">Has Errors</SelectItem>
               <SelectItem value="warning">Has Warnings</SelectItem>
               <SelectItem value="clean">Clean</SelectItem>
+              <SelectItem value="missing_reference">Missing Reference</SelectItem>
+              <SelectItem value="low_confidence">Low Confidence</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -174,6 +176,7 @@ export default function VerbsPage() {
                 <TableHead className="cursor-pointer select-none" onClick={() => toggleSort('quality_score')}>
                   Quality <SortIcon col="quality_score" />
                 </TableHead>
+                <TableHead>Reference</TableHead>
                 <TableHead>Audit</TableHead>
                 <TableHead className="w-20">Actions</TableHead>
               </TableRow>
@@ -181,13 +184,13 @@ export default function VerbsPage() {
             <TableBody>
               {loading ? (
                 <TableRow>
-                  <TableCell colSpan={12} className="text-center py-12 text-muted-foreground">
+                  <TableCell colSpan={13} className="text-center py-12 text-muted-foreground">
                     Loading...
                   </TableCell>
                 </TableRow>
               ) : verbs.length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={12} className="text-center py-12 text-muted-foreground">
+                  <TableCell colSpan={13} className="text-center py-12 text-muted-foreground">
                     No verbs found
                   </TableCell>
                 </TableRow>
@@ -229,6 +232,14 @@ export default function VerbsPage() {
                       </div>
                     </TableCell>
                     <TableCell>
+                      <Badge variant="outline" className={`text-xs ${(v as any).has_reference ? 'bg-emerald-500/10 text-emerald-600 border-emerald-500/30' : 'bg-amber-500/10 text-amber-600 border-amber-500/30'}`}>
+                        {(v as any).has_reference ? 'Active' : 'Missing'}
+                      </Badge>
+                      {(v as any).reference_confidence && (v as any).reference_confidence < 70 && (
+                        <span className="text-[10px] text-red-500 ml-1">Low</span>
+                      )}
+                    </TableCell>
+                    <TableCell>
                       <div
                         className="cursor-pointer inline-block"
                         onClick={() => router.push(getAuditHref(v.id))}
@@ -249,6 +260,10 @@ export default function VerbsPage() {
                           <DropdownMenuItem onClick={() => router.push(`/admin/verbs/${v.id}`)}>
                             <Eye className="h-4 w-4 mr-2" />
                             View
+                          </DropdownMenuItem>
+                          <DropdownMenuItem onClick={() => router.push(`/admin/verbs/${v.id}/audit`)}>
+                            <Shield className="h-4 w-4 mr-2" />
+                            Audit
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => router.push(`/admin/verbs/${v.id}/quality`)}>
                             <Star className="h-4 w-4 mr-2" />
