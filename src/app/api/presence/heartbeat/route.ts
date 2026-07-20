@@ -31,47 +31,28 @@ export async function POST(req: NextRequest) {
     const admin = createAdminClient()
     const now = new Date().toISOString()
 
-    const { data: existing } = await admin
+    // Atomic UPSERT backed by UNIQUE(user_id, session_id) constraint.
+    // connected_at is NOT in the payload — it keeps its original INSERT value.
+    const { error } = await admin
       .from('user_presence')
-      .select('id, login_time')
-      .eq('user_id', user.id)
-      .eq('session_id', sessionId)
-      .maybeSingle()
+      .upsert({
+        user_id: user.id,
+        session_id: sessionId,
+        is_online: true,
+        last_seen: now,
+        current_page: currentPage,
+        device_type: info.deviceType,
+        browser_name: info.browser,
+        operating_system: info.os,
+        user_agent: ua.slice(0, 512),
+        ip_address: ip,
+        disconnected_at: null,
+        updated_at: now,
+      }, {
+        onConflict: 'user_id,session_id',
+      })
 
-    if (existing) {
-      await admin
-        .from('user_presence')
-        .update({
-          is_online: true,
-          last_seen: now,
-          current_page: currentPage,
-          device_type: info.deviceType,
-          browser_name: info.browser,
-          operating_system: info.os,
-          user_agent: ua.slice(0, 512),
-          ip_address: ip,
-          updated_at: now,
-        })
-        .eq('user_id', user.id)
-        .eq('session_id', sessionId)
-    } else {
-      await admin
-        .from('user_presence')
-        .insert({
-          user_id: user.id,
-          session_id: sessionId,
-          is_online: true,
-          last_seen: now,
-          current_page: currentPage,
-          device_type: info.deviceType,
-          browser_name: info.browser,
-          operating_system: info.os,
-          user_agent: ua.slice(0, 512),
-          ip_address: ip,
-          login_time: now,
-          updated_at: now,
-        })
-    }
+    if (error) throw error
 
     return NextResponse.json({ ok: true })
   } catch (error) {

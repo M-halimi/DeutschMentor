@@ -44,11 +44,23 @@ function AdminGate({ children }: { children: React.ReactNode }) {
     }
   }, [user?.id, loadPermissions, clearPermissions, pathname])
 
+  useEffect(() => {
+    if (authLoading) return
+    if (PUBLIC_ADMIN_PAGES.some(p => pathname.startsWith(p))) return
+    if (!user) {
+      router.replace('/login')
+      return
+    }
+    if (loaded && !isAdminUser) {
+      router.replace('/dashboard?admin_denied=true')
+    }
+  }, [user, loaded, isAdminUser, authLoading, pathname, router])
+
   if (PUBLIC_ADMIN_PAGES.some(p => pathname.startsWith(p))) {
     return <>{children}</>
   }
 
-  if (authLoading || adminLoading) {
+  if (authLoading || (user && !loaded) || adminLoading) {
     return (
       <div className="flex h-screen items-center justify-center">
         <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
@@ -57,20 +69,10 @@ function AdminGate({ children }: { children: React.ReactNode }) {
   }
 
   if (!user) {
-    router.push('/login')
     return null
   }
 
-  if (!loaded) {
-    return (
-      <div className="flex h-screen items-center justify-center">
-        <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
-      </div>
-    )
-  }
-
-  if (!isAdminUser) {
-    router.push('/dashboard?admin_denied=true')
+  if (loaded && !isAdminUser) {
     return null
   }
 

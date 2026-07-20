@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
 
     await admin
       .from('user_presence')
-      .update({ is_online: false, last_seen: now, updated_at: now })
+      .update({ is_online: false, last_seen: now, disconnected_at: now, updated_at: now })
       .eq('user_id', user.id)
       .eq('session_id', sessionId)
 

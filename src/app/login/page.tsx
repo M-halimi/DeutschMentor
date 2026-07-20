@@ -64,12 +64,12 @@ function LoginForm() {
       useAuthStore.getState().setUser(profile)
 
       if (profile.status === 'suspended' || profile.status === 'banned') {
-        router.push(`/account-suspended?reason=${profile.status}`)
+        router.replace(`/account-suspended?reason=${profile.status}`)
         return
       }
 
       if (profile.status === 'expired') {
-        router.push('/account-expired')
+        router.replace('/account-expired')
         return
       }
 
@@ -79,17 +79,17 @@ function LoginForm() {
         profile.role === 'super_admin'
 
       if (isAdmin) {
-        router.push('/admin')
+        router.replace('/admin')
         return
       }
       if (profile.role === 'teacher') {
-        router.push('/teacher')
+        router.replace('/teacher')
         return
       }
-      router.push('/dashboard')
+      router.replace('/dashboard')
       return
     }
-    router.push('/onboarding')
+    router.replace('/onboarding')
   }
 
   return (

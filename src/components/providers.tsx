@@ -13,19 +13,27 @@ import { type Locale } from '@/lib/i18n/config'
 function AuthInitializer({ children }: { children: React.ReactNode }) {
   const fetchUser = useAuthStore((s) => s.fetchUser)
   const setUser = useAuthStore((s) => s.setUser)
+  const setUserRef = useRef(setUser)
+  const fetchUserRef = useRef(fetchUser)
   const { setLocale } = useI18n()
   const localeRef = useRef('de')
 
   useEffect(() => {
-    fetchUser()
+    setUserRef.current = setUser
+    fetchUserRef.current = fetchUser
+  }, [setUser, fetchUser])
+
+  useEffect(() => {
+    fetchUserRef.current()
     const supabase = createClient()
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
       if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
-        fetchUser()
+        fetchUserRef.current()
       }
       if (event === 'SIGNED_OUT') {
-        setUser(null)
+        setUserRef.current(null)
+        window.location.href = '/login'
       }
     })
 
@@ -40,7 +48,7 @@ function AuthInitializer({ children }: { children: React.ReactNode }) {
       subscription.unsubscribe()
       unsub()
     }
-  }, [fetchUser, setUser, setLocale])
+  }, [setLocale])
 
   return <>{children}</>
 }

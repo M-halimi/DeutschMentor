@@ -58,6 +58,11 @@ export const useAuthStore = create<AuthState>((set) => ({
     }
     set({ user: null, isAuthenticated: false, isLoading: false })
     useAdminStore.getState().clearPermissions()
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('admin-permissions-storage')
+      localStorage.removeItem('admin-permissions-storage-v2')
+    }
+    window.location.href = '/login'
   },
 }))
 

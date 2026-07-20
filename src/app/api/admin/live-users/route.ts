@@ -44,7 +44,7 @@ export async function GET(req: NextRequest) {
       email: 'email',
       role: 'role',
     }
-    const presenceSorts = new Set(['last_seen', 'login_time', 'device_type', 'browser_name', 'operating_system', 'current_page'])
+    const presenceSorts = new Set(['last_seen', 'login_time', 'connected_at', 'duration_seconds', 'device_type', 'browser_name', 'operating_system', 'current_page'])
 
     const sortOnPresence = presenceSorts.has(sortBy)
     const sortOnProfile = profileSorts[sortBy]
@@ -182,6 +182,13 @@ function makeSessionRow(profile: any, session: any | null, nowMs: number) {
   const lastSeen = session?.last_seen ? new Date(session.last_seen) : null
   const isOnline = lastSeen !== null && (nowMs - lastSeen.getTime()) < 70000
 
+  const connectedAt = session?.connected_at || session?.login_time || null
+  let durationSeconds = null
+  if (connectedAt) {
+    const end = session?.disconnected_at ? new Date(session.disconnected_at).getTime() : nowMs
+    durationSeconds = Math.floor((end - new Date(connectedAt).getTime()) / 1000)
+  }
+
   return {
     user_id: profile.user_id,
     full_name: profile.full_name,
@@ -196,5 +203,7 @@ function makeSessionRow(profile: any, session: any | null, nowMs: number) {
     browser_name: session?.browser_name || null,
     operating_system: session?.operating_system || null,
     login_time: session?.login_time || null,
+    connected_at: connectedAt,
+    duration_seconds: durationSeconds,
   }
 }

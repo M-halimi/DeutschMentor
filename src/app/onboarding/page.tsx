@@ -39,7 +39,7 @@ export default function OnboardingPage() {
     const { data: { user } } = await supabase.auth.getUser()
 
     if (!user) {
-      router.push('/login')
+      router.replace('/login')
       return
     }
 
@@ -74,7 +74,7 @@ export default function OnboardingPage() {
     }
 
     await fetchUser()
-    router.push('/dashboard')
+    router.replace('/dashboard')
   }
 
   return (

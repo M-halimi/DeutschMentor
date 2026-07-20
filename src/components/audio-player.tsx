@@ -12,10 +12,13 @@ interface AudioPlayerProps {
   slowUrl?: string | null
   showSlow?: boolean
   showReplay?: boolean
-  onPlayingChange?: (playing: boolean) => void
 }
 
 const audioCache = new Map<string, string>()
+
+function isAbortError(e: unknown): boolean {
+  return e instanceof DOMException && (e.name === 'AbortError' || e.name === 'NotAllowedError')
+}
 
 export function AudioPlayer({
   text,
@@ -31,10 +34,22 @@ export function AudioPlayer({
   const lastPlayedUrl = useRef<string | null>(null)
   const [browserVoiceAvailable, setBrowserVoiceAvailable] = useState(false)
   const langRef = useRef(explicitLang)
+  const genRef = useRef(0)
+  const mountedRef = useRef(true)
 
   useEffect(() => {
     langRef.current = explicitLang
   }, [explicitLang])
+
+  useEffect(() => {
+    return () => {
+      mountedRef.current = false
+      if (audioRef.current) {
+        audioRef.current.pause()
+        audioRef.current = null
+      }
+    }
+  }, [])
 
   useEffect(() => {
     const lang = explicitLang || detectLanguage(text)
@@ -63,13 +78,30 @@ export function AudioPlayer({
   }, [])
 
   const playAudio = useCallback((url: string, speed: number): Promise<void> => {
+    const gen = ++genRef.current
     return new Promise((resolve, reject) => {
       const audio = new Audio(url)
       audio.playbackRate = speed
       audioRef.current = audio
-      audio.onended = () => { cleanup(); resolve() }
-      audio.onerror = () => { cleanup(); reject(new Error('Audio playback failed')) }
-      audio.play().catch((e) => { cleanup(); reject(e) })
+      audio.onended = () => {
+        if (genRef.current !== gen) return
+        cleanup()
+        resolve()
+      }
+      audio.onerror = () => {
+        if (genRef.current !== gen) return
+        cleanup()
+        reject(new Error('Audio playback failed'))
+      }
+      audio.play().catch((e) => {
+        if (genRef.current !== gen) return
+        cleanup()
+        if (isAbortError(e)) {
+          resolve()
+          return
+        }
+        reject(e)
+      })
     })
   }, [cleanup])
 
@@ -112,6 +144,7 @@ export function AudioPlayer({
 
   const play = useCallback(async (speed: number) => {
     if (!text) return
+    const gen = ++genRef.current
     cleanup()
     setLoading(speed === 0.5 ? 'slow' : 'normal')
 
@@ -126,8 +159,10 @@ export function AudioPlayer({
       try {
         await playAudio(cachedUrl, speed)
       } catch {
+        if (genRef.current !== gen) return
         await generateAndPlay(text, speed)
       }
+      if (genRef.current !== gen) return
       setPlaying(false)
       return
     }
@@ -140,8 +175,10 @@ export function AudioPlayer({
       try {
         await playAudio(url, speed)
       } catch {
+        if (genRef.current !== gen) return
         await generateAndPlay(text, speed)
       }
+      if (genRef.current !== gen) return
       setPlaying(false)
       return
     }
@@ -150,15 +187,18 @@ export function AudioPlayer({
       setPlaying(speed === 0.5 ? 'slow' : 'normal')
       await speakViaBrowser(text, speed)
     } catch {
+      if (genRef.current !== gen) return
       try {
         setPlaying(speed === 0.5 ? 'slow' : 'normal')
         await generateAndPlay(text, speed)
       } catch {
+        if (genRef.current !== gen) return
         setPlaying(false)
         setLoading(false)
       }
     }
 
+    if (genRef.current !== gen) return
     setPlaying(false)
     setLoading(false)
   }, [text, explicitLang, cleanup, playAudio, generateAndPlay, speakViaBrowser])
@@ -170,23 +210,41 @@ export function AudioPlayer({
       setPlaying('normal')
       playAudio(lastPlayedUrl.current, 1).catch(() => {
         play(1)
-      }).finally(() => setPlaying(false))
+      })
     } else {
       play(1)
     }
   }, [text, cleanup, playAudio, play])
 
+  const handlePlayNormal = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation()
+    e.preventDefault()
+    play(1)
+  }, [play])
+
+  const handlePlaySlow = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation()
+    e.preventDefault()
+    play(0.5)
+  }, [play])
+
+  const handleReplayClick = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation()
+    e.preventDefault()
+    handleReplay()
+  }, [handleReplay])
+
   return (
-    <div className="inline-flex items-center gap-0.5">
+    <div className="inline-flex items-center gap-0.5" onClick={(e) => e.stopPropagation()}>
       <Button variant="ghost" size="icon" className="h-7 w-7" disabled={!!loading}
-        onClick={() => play(1)} aria-label="Play audio - normal speed">
+        onClick={handlePlayNormal} aria-label="Play audio - normal speed">
         {loading === 'normal' ? <Loader2 className="h-3.5 w-3.5 animate-spin" />
           : playing === 'normal' ? <Ear className="h-3.5 w-3.5 text-primary animate-pulse" />
           : <Volume2 className="h-3.5 w-3.5" />}
       </Button>
       {showSlow && (
         <Button variant="ghost" size="icon" className="h-6 w-6 text-[10px] font-medium text-muted-foreground hover:text-foreground"
-          disabled={!!loading} onClick={() => play(0.5)} aria-label="Play audio - slow speed">
+          disabled={!!loading} onClick={handlePlaySlow} aria-label="Play audio - slow speed">
           {loading === 'slow' ? <Loader2 className="h-3 w-3 animate-spin" />
             : playing === 'slow' ? <Ear className="h-3 w-3 text-primary animate-pulse" />
             : <span>½</span>}
@@ -194,7 +252,7 @@ export function AudioPlayer({
       )}
       {showReplay && (
         <Button variant="ghost" size="icon" className="h-6 w-6 text-muted-foreground hover:text-foreground"
-          disabled={!!loading || !lastPlayedUrl.current} onClick={handleReplay} aria-label="Replay audio">
+          disabled={!!loading || !lastPlayedUrl.current} onClick={handleReplayClick} aria-label="Replay audio">
           <RotateCcw className="h-3 w-3" />
         </Button>
       )}

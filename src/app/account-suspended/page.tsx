@@ -67,7 +67,7 @@ export default function AccountSuspendedPage() {
       const supabase = createClient()
       const { data: { session } } = await supabase.auth.getSession()
       if (!session?.user) {
-        router.push('/login')
+        router.replace('/login')
         return
       }
       const { data: profile } = await supabase
@@ -134,6 +134,7 @@ export default function AccountSuspendedPage() {
 
   async function handleLogout() {
     await signOut()
+    // signOut() in auth-store now does window.location.href = '/login'
   }
 
   if (loading) {

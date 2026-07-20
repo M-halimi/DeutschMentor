@@ -97,6 +97,23 @@ export default function HoerenPage() {
 
   const audioRef = useRef<HTMLAudioElement | null>(null)
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const lessonId = params.get('lesson')
+    if (lessonId) setSelectedId(lessonId)
+  }, [])
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const url = new URL(window.location.href)
+    if (selectedId) {
+      url.searchParams.set('lesson', selectedId)
+    } else {
+      url.searchParams.delete('lesson')
+    }
+    window.history.replaceState(null, '', url.toString())
+  }, [selectedId])
+
   const { data: lessons, isLoading } = useAudioLessons()
   const { data: lessonDetail, isLoading: detailLoading } = useAudioLessonWithExtras(selectedId ?? undefined)
   const submitAnswer = useSubmitListeningAnswer()
@@ -134,63 +151,84 @@ export default function HoerenPage() {
     }
   }, [analytics])
 
-  useEffect(() => {
-    if (!audioRef.current) {
-      audioRef.current = new Audio()
-    }
-    const audio = audioRef.current
-    const onTimeUpdate = () => setCurrentTime(audio.currentTime)
-    const onLoadedMetadata = () => setDuration(audio.duration)
-    const onEnded = () => { if (!loop) setIsPlaying(false); else { audio.currentTime = 0; audio.play() } }
-    const onPlay = () => setIsPlaying(true)
-    const onPause = () => setIsPlaying(false)
-    audio.addEventListener('timeupdate', onTimeUpdate)
-    audio.addEventListener('loadedmetadata', onLoadedMetadata)
-    audio.addEventListener('ended', onEnded)
-    audio.addEventListener('play', onPlay)
-    audio.addEventListener('pause', onPause)
-    return () => {
-      audio.removeEventListener('timeupdate', onTimeUpdate)
-      audio.removeEventListener('loadedmetadata', onLoadedMetadata)
-      audio.removeEventListener('ended', onEnded)
-      audio.removeEventListener('play', onPlay)
-      audio.removeEventListener('pause', onPause)
-    }
-  }, [loop])
-
   const generatingAudioRef = useRef(false)
+  const loopRef = useRef(loop)
+  loopRef.current = loop
 
   const isPlaceholderAudio = (url: string) =>
     url.includes('soundhelix') || url.includes('placeholder') || url.includes('example.com')
 
   useEffect(() => {
-    if (!selectedId || !audioRef.current) return
-    if (lessonDetail?.audio_url && !isPlaceholderAudio(lessonDetail.audio_url)) {
-      audioRef.current.src = lessonDetail.audio_url
-      audioRef.current.load()
-    } else if (lessonDetail?.transcript && !generatingAudioRef.current) {
-      generatingAudioRef.current = true
-      fetch('/api/tts', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ lesson_id: selectedId, transcript: lessonDetail.transcript, level: lessonDetail.level || 'A2' })
-      }).then(res => res.json()).then(data => {
-        if (data.audio_url && audioRef.current) {
-          audioRef.current.src = data.audio_url
-          audioRef.current.load()
+    let alive = true
+    const el = audioRef.current || new Audio()
+    audioRef.current = el
+
+    const onTimeUpdate = () => { try { setCurrentTime(el.currentTime) } catch {} }
+    const onLoadedMetadata = () => { try { setDuration(el.duration) } catch {} }
+    const onEnded = () => {
+      try {
+        if (!loopRef.current) {
+          setIsPlaying(false)
+        } else {
+          el.currentTime = 0
+          el.play().catch(() => {})
         }
-      }).catch(() => {}).finally(() => { generatingAudioRef.current = false })
+      } catch {}
     }
-    setCurrentTime(0)
-    setCurrentExerciseIdx(0)
-    setSelectedAnswer(null)
-    setShowResult(false)
-    setCompleted(false)
-    setResults([])
-    setFillBlankAnswer('')
-    setShortAnswer('')
-    setAutoShowTranscript(false)
-  }, [selectedId, lessonDetail?.audio_url, lessonDetail?.transcript, lessonDetail?.level])
+    const onPlay = () => { try { setIsPlaying(true) } catch {} }
+    const onPause = () => { try { setIsPlaying(false) } catch {} }
+
+    el.addEventListener('timeupdate', onTimeUpdate)
+    el.addEventListener('loadedmetadata', onLoadedMetadata)
+    el.addEventListener('ended', onEnded)
+    el.addEventListener('play', onPlay)
+    el.addEventListener('pause', onPause)
+
+    el.playbackRate = playbackRate
+
+    if (selectedId && lessonDetail) {
+      if (lessonDetail.audio_url && !isPlaceholderAudio(lessonDetail.audio_url)) {
+        try {
+          el.src = lessonDetail.audio_url
+          el.load()
+        } catch {}
+      } else if (lessonDetail.transcript && !generatingAudioRef.current) {
+        generatingAudioRef.current = true
+        fetch('/api/tts', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ lesson_id: selectedId, transcript: lessonDetail.transcript, level: lessonDetail.level || 'A2' })
+        }).then(res => res.json()).then(data => {
+          if (!alive) return
+          if (data.audio_url && audioRef.current) {
+            try {
+              audioRef.current.src = data.audio_url
+              audioRef.current.load()
+            } catch {}
+          }
+        }).catch(() => {}).finally(() => { generatingAudioRef.current = false })
+      }
+
+      setCurrentTime(0)
+      setCurrentExerciseIdx(0)
+      setSelectedAnswer(null)
+      setShowResult(false)
+      setCompleted(false)
+      setResults([])
+      setFillBlankAnswer('')
+      setShortAnswer('')
+      setAutoShowTranscript(false)
+    }
+
+    return () => {
+      alive = false
+      el.removeEventListener('timeupdate', onTimeUpdate)
+      el.removeEventListener('loadedmetadata', onLoadedMetadata)
+      el.removeEventListener('ended', onEnded)
+      el.removeEventListener('play', onPlay)
+      el.removeEventListener('pause', onPause)
+    }
+  }, [selectedId, lessonDetail?.id, playbackRate])
 
   const prevCompleted = useRef(completed)
   useEffect(() => {
@@ -201,18 +239,23 @@ export default function HoerenPage() {
     prevCompleted.current = completed
   }, [completed])
 
-  useEffect(() => {
-    if (audioRef.current) audioRef.current.playbackRate = playbackRate
-  }, [playbackRate])
-
   function togglePlay() {
     if (!audioRef.current) return
-    if (isPlaying) audioRef.current.pause()
-    else audioRef.current.play().catch(() => { })
+    try {
+      if (isPlaying) {
+        audioRef.current.pause()
+      } else {
+        audioRef.current.play().catch(() => {})
+      }
+    } catch {}
   }
 
   function seek(time: number) {
-    if (audioRef.current) { audioRef.current.currentTime = time; setCurrentTime(time) }
+    if (!audioRef.current) return
+    try {
+      audioRef.current.currentTime = time
+      setCurrentTime(time)
+    } catch {}
   }
 
   function handleSubmitAnswer() {
@@ -236,8 +279,17 @@ export default function HoerenPage() {
       setShowResult(false)
       setFillBlankAnswer('')
       setShortAnswer('')
+      if (audioRef.current) {
+        try {
+          audioRef.current.currentTime = 0
+          setCurrentTime(0)
+        } catch {}
+      }
     } else {
       setCompleted(true)
+      if (audioRef.current) {
+        try { audioRef.current.pause() } catch {}
+      }
     }
   }
 
@@ -249,6 +301,12 @@ export default function HoerenPage() {
     setResults([])
     setFillBlankAnswer('')
     setShortAnswer('')
+    if (audioRef.current) {
+      try {
+        audioRef.current.currentTime = 0
+        setCurrentTime(0)
+      } catch {}
+    }
   }
 
   const isCorrect = submitAnswer.data?.correct
@@ -843,7 +901,8 @@ export default function HoerenPage() {
                   onClick={togglePlay}
                   className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 text-white shadow-lg hover:shadow-xl transition-shadow"
                 >
-                  {isPlaying ? <Pause className="h-7 w-7" /> : <Play className="h-7 w-7 ml-0.5" />}
+                  <Pause className={`h-7 w-7 ${isPlaying ? '' : 'hidden'}`} />
+                  <Play className={`h-7 w-7 ml-0.5 ${isPlaying ? 'hidden' : ''}`} />
                 </motion.button>
                 <Button size="icon" variant="ghost" className="h-9 w-9" onClick={() => seek(Math.min(duration, currentTime + 10))}>
                   <SkipForward className="h-5 w-5" />
@@ -877,8 +936,10 @@ export default function HoerenPage() {
                       }
                     }}
                   >
-                    {readingAloud ? <Pause className="h-3.5 w-3.5 mr-1" /> : <Play className="h-3.5 w-3.5 mr-1" />}
-                    {readingAloud ? 'Stop' : 'Audio'}
+                    <Pause className={`h-3.5 w-3.5 mr-1 ${readingAloud ? '' : 'hidden'}`} />
+                    <Play className={`h-3.5 w-3.5 mr-1 ${readingAloud ? 'hidden' : ''}`} />
+                    <span className={readingAloud ? '' : 'hidden'}>Stop</span>
+                    <span className={readingAloud ? 'hidden' : ''}>Audio</span>
                   </Button>
                 </div>
               )}

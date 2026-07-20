@@ -126,7 +126,6 @@ export async function proxy(request: NextRequest) {
       log('no_user_redirect_to_login', { pathname })
       const url = request.nextUrl.clone()
       url.pathname = LOGIN_ROUTE
-      url.searchParams.set('redirect', pathname)
       return NextResponse.redirect(url)
     }
     return supabaseResponse

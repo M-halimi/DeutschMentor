@@ -27,6 +27,8 @@ interface LiveUser {
   browser_name: string | null
   operating_system: string | null
   login_time: string | null
+  connected_at: string | null
+  duration_seconds: number | null
 }
 
 interface Summary {
@@ -56,16 +58,14 @@ function formatDateTime(dateStr: string | null): string {
   })
 }
 
-function sessionDuration(loginTime: string | null, isOnline: boolean): string {
-  if (!loginTime) return '—'
-  if (!isOnline) return '—'
-  const seconds = Math.floor((Date.now() - new Date(loginTime).getTime()) / 1000)
+function formatDuration(seconds: number | null): string {
+  if (seconds === null || seconds === undefined) return '—'
   if (seconds < 60) return `${seconds}s`
   const minutes = Math.floor(seconds / 60)
-  if (minutes < 60) return `${minutes}m`
+  if (minutes < 60) return `${minutes}m ${seconds % 60}s`
   const hours = Math.floor(minutes / 60)
   const remainMin = minutes % 60
-  return `${hours}h ${remainMin}m`
+  return `${hours}h ${remainMin}m ${seconds % 60}s`
 }
 
 function getDeviceIcon(type: string | null) {
@@ -93,9 +93,10 @@ const COLUMNS = [
   { key: 'device_type', label: 'Device', sortable: true },
   { key: 'browser_name', label: 'Browser', sortable: true },
   { key: 'operating_system', label: 'OS', sortable: true },
-  { key: 'last_seen', label: 'Last Seen', sortable: true },
-  { key: 'login_time', label: 'Login Time', sortable: true },
   { key: 'current_page', label: 'Page', sortable: true },
+  { key: 'connected_at', label: 'Connected At', sortable: true },
+  { key: 'last_seen', label: 'Last Seen', sortable: true },
+  { key: 'duration_seconds', label: 'Duration', sortable: true },
   { key: 'role', label: 'Role', sortable: true },
 ] as const
 
@@ -317,9 +318,10 @@ export default function LiveUsersPage() {
                           </td>
                           <td className="px-3 py-2.5 text-xs text-muted-foreground whitespace-nowrap">{row.browser_name || '—'}</td>
                           <td className="px-3 py-2.5 text-xs text-muted-foreground whitespace-nowrap">{getOsLabel(row.operating_system)}</td>
-                          <td className="px-3 py-2.5 text-xs text-muted-foreground whitespace-nowrap">{timeAgo(row.last_seen)}</td>
-                          <td className="px-3 py-2.5 text-xs text-muted-foreground whitespace-nowrap">{formatDateTime(row.login_time)}</td>
                           <td className="px-3 py-2.5 text-xs text-muted-foreground max-w-[140px] truncate">{row.current_page || '—'}</td>
+                          <td className="px-3 py-2.5 text-xs text-muted-foreground whitespace-nowrap">{formatDateTime(row.connected_at)}</td>
+                          <td className="px-3 py-2.5 text-xs text-muted-foreground whitespace-nowrap">{timeAgo(row.last_seen)}</td>
+                          <td className="px-3 py-2.5 text-xs text-muted-foreground whitespace-nowrap">{formatDuration(row.duration_seconds)}</td>
                           <td className="px-3 py-2.5 text-xs whitespace-nowrap">
                             <Badge variant="outline" className="text-[10px] font-normal capitalize">
                               {row.role}
