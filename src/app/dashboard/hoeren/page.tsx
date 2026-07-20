@@ -92,8 +92,6 @@ export default function HoerenPage() {
   const [shortAnswer, setShortAnswer] = useState('')
   const [contentTab, setContentTab] = useState<'vocabulary' | 'phrases' | 'grammar'>('vocabulary')
   const [autoShowTranscript, setAutoShowTranscript] = useState(false)
-  const [readingAloud, setReadingAloud] = useState(false)
-  const [isReadingLoading, setIsReadingLoading] = useState(false)
 
   const audioRef = useRef<HTMLAudioElement | null>(null)
 
@@ -158,11 +156,9 @@ export default function HoerenPage() {
   const loopRef = useRef(loop)
   loopRef.current = loop
 
-  const AUDIO_VERSION = 'v2'
-
   const isPlaceholderAudio = (url: string) =>
     url.includes('soundhelix') || url.includes('placeholder') || url.includes('example.com') ||
-    (url.includes('audio-content') && !url.includes(`/${AUDIO_VERSION}/`))
+    (url.includes('audio-content') && !url.includes(`/female-german-v2/`))
 
   useEffect(() => {
     let alive = true
@@ -200,7 +196,7 @@ export default function HoerenPage() {
         } catch {}
       } else if (lessonDetail.transcript && !generatingAudioRef.current) {
         generatingAudioRef.current = true
-        fetch(`/api/tts?_=${AUDIO_VERSION}-${Date.now()}`, {
+        fetch('/api/tts', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ lesson_id: selectedId, transcript: lessonDetail.transcript, level: lessonDetail.level || 'A2' })
@@ -914,41 +910,6 @@ export default function HoerenPage() {
                   <SkipForward className="h-5 w-5" />
                 </Button>
               </div>
-
-              {lessonDetail.transcript && (
-                <div className="flex justify-center mb-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="text-xs"
-                    onClick={() => {
-                      if (readingAloud) {
-                        window.speechSynthesis?.cancel()
-                        setReadingAloud(false)
-                      } else {
-                        const voices = window.speechSynthesis?.getVoices() ?? []
-                        const germanVoices = voices.filter(v => v.lang.startsWith('de'))
-                        const preferred = germanVoices.find(v => /neural|natural|premium|katja|hedda|seraphina|conrad|amala|louisa|killian/i.test(v.name))
-                          ?? germanVoices.find(v => v.lang === 'de-DE')
-                          ?? germanVoices[0]
-                        const utterance = new SpeechSynthesisUtterance(lessonDetail.transcript as string)
-                        utterance.lang = 'de-DE'
-                        if (preferred) utterance.voice = preferred
-                        utterance.rate = 0.9
-                        utterance.onend = () => setReadingAloud(false)
-                        utterance.onerror = () => setReadingAloud(false)
-                        window.speechSynthesis?.speak(utterance)
-                        setReadingAloud(true)
-                      }
-                    }}
-                  >
-                    <Pause className={`h-3.5 w-3.5 mr-1 ${readingAloud ? '' : 'hidden'}`} />
-                    <Play className={`h-3.5 w-3.5 mr-1 ${readingAloud ? 'hidden' : ''}`} />
-                    <span className={readingAloud ? '' : 'hidden'}>Stop</span>
-                    <span className={readingAloud ? 'hidden' : ''}>Audio</span>
-                  </Button>
-                </div>
-              )}
 
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-xs text-muted-foreground tabular-nums w-10 text-right">{formatTime(currentTime)}</span>

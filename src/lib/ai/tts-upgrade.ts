@@ -1,6 +1,6 @@
 import { generateGoogleTTS } from './google-tts'
 
-export type TTSProvider = 'elevenlabs' | 'openai' | 'google' | 'browser'
+export type TTSProvider = 'elevenlabs' | 'openai' | 'google'
 export type GermanAccent = 'standard' | 'bavarian' | 'berlin' | 'swiss' | 'austrian'
 
 export interface TTSUpgradeOptions {
@@ -21,6 +21,8 @@ export interface TTSUpgradeResult {
   provider?: string
 }
 
+export const AUDIO_VERSION = 'female-german-v2'
+
 export const OPENAI_VOICE_MAP: Record<string, string> = {
   de: 'nova',
   en: 'nova',
@@ -33,18 +35,6 @@ export const OPENAI_VOICE_MAP: Record<string, string> = {
   ja: 'nova',
   ko: 'nova',
   zh: 'coral',
-}
-
-const ELEVENLABS_GERMAN_VOICES: Record<string, string> = {
-  standard: '21m00Tcm4TlvDq8ikWAM',
-  bavarian: 'ThT5KcBeYPX3keUQqHPh',
-  berlin: 'EXAVITQu4vr2k7mVfH7p',
-}
-
-const GERMAN_VOICE_NAMES: Record<string, string> = {
-  '21m00Tcm4TlvDq8ikWAM': 'Rachel (natural)',
-  'ThT5KcBeYPX3keUQqHPh': 'Domi (warm)',
-  'EXAVITQu4vr2k7mVfH7p': 'Bella (professional)',
 }
 
 function getInstructions(text: string, lang: string): string {
@@ -63,23 +53,18 @@ function getInstructions(text: string, lang: string): string {
 export async function generateSpeech(options: TTSUpgradeOptions): Promise<TTSUpgradeResult> {
   const { text, lang = 'de', speed = 1, provider = 'openai', voice, accent, scenario } = options
 
-  if (lang !== 'de' && lang !== 'en') {
-    const result = await generateGoogleTTS(text, lang, speed)
+  if (lang === 'de') {
+    const result = await generateGoogleTTS(text, 'de', speed)
     if (result) return { success: true, audioUrl: result.audioUrl, provider: result.provider }
   }
 
-  if (provider === 'elevenlabs' && (lang === 'de' || lang === 'en')) {
-    const result = await generateElevenLabs(text, lang, speed, voice, accent)
-    if (result.success) return result
-  }
-
-  if (provider === 'openai') {
+  if (provider === 'openai' || provider === 'elevenlabs') {
     const result = await generateSpeechOpenAI(text, lang, speed, voice)
     if (result.success) return result
   }
 
-  if (lang === 'de') {
-    const result = await generateGoogleTTS(text, 'de', speed)
+  if (lang !== 'de') {
+    const result = await generateGoogleTTS(text, lang, speed)
     if (result) return { success: true, audioUrl: result.audioUrl, provider: result.provider }
   }
 
@@ -98,7 +83,7 @@ async function generateSpeechOpenAI(text: string, lang: string, speed: number, v
   const models = process.env.OPENAI_API_KEY?.startsWith('sk-or-v1-')
     ? ['openai/tts-1-hd', 'openai/tts-1']
     : ['gpt-4o-mini-tts', 'tts-1-hd', 'tts-1']
-  const voicesToTry = [voice || OPENAI_VOICE_MAP[lang] || 'alloy']
+  const voicesToTry = [voice || OPENAI_VOICE_MAP[lang] || 'nova']
 
   for (const model of models) {
     for (const v of voicesToTry) {
@@ -128,7 +113,7 @@ async function generateSpeechOpenAI(text: string, lang: string, speed: number, v
           continue
         }
         const audioBuffer = await response.arrayBuffer()
-        const base64 = btoa(String.fromCharCode(...new Uint8Array(audioBuffer)))
+        const base64 = Buffer.from(audioBuffer).toString('base64')
         return { success: true, audioUrl: `data:audio/mp3;base64,${base64}`, provider: `openai:${model}` }
       } catch (err) {
         errors.push(`${model}/${v}: ${String(err)}`)
@@ -139,40 +124,13 @@ async function generateSpeechOpenAI(text: string, lang: string, speed: number, v
   return { success: false, error: `All OpenAI attempts failed: ${errors.join('; ')}`, provider: 'openai' }
 }
 
-async function generateElevenLabs(text: string, lang: string, speed: number, voice?: string, accent?: GermanAccent): Promise<TTSUpgradeResult> {
-  const apiKey = process.env.ELEVENLABS_API_KEY
-  if (!apiKey) {
-    return generateSpeechOpenAI(text, lang, speed, voice)
+function hashText(text: string): string {
+  let hash = 5381
+  for (let i = 0; i < text.length; i++) {
+    hash = ((hash << 5) + hash) + text.charCodeAt(i)
   }
-  try {
-    const voiceId = voice || (lang === 'de'
-      ? (accent && ELEVENLABS_GERMAN_VOICES[accent]) || ELEVENLABS_GERMAN_VOICES.standard
-      : 'EXAVITQu4vr2k7mVfH7p')
-    const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, {
-      method: 'POST',
-      headers: {
-        'Accept': 'audio/mpeg',
-        'Content-Type': 'application/json',
-        'xi-api-key': apiKey,
-      },
-      body: JSON.stringify({
-        text,
-        model_id: 'eleven_multilingual_v2',
-        voice_settings: { stability: 0.3, similarity_boost: 0.85, style: 0.4, speed: speed },
-      }),
-    })
-    if (!response.ok) {
-      return generateSpeechOpenAI(text, lang, speed, voice)
-    }
-    const audioBuffer = await response.arrayBuffer()
-    const base64 = btoa(String.fromCharCode(...new Uint8Array(audioBuffer)))
-    return { success: true, audioUrl: `data:audio/mpeg;base64,${base64}`, provider: 'elevenlabs' }
-  } catch {
-    return generateSpeechOpenAI(text, lang, speed, voice)
-  }
+  return (hash >>> 0).toString(36)
 }
-
-const AUDIO_STORAGE_VERSION = 'v2'
 
 export async function generateLessonAudio(lessonId: string, transcript: string, level: string, scenario?: string): Promise<TTSUpgradeResult> {
   const { createAdminClient } = await import('@/lib/supabase/admin')
@@ -197,7 +155,7 @@ export async function generateLessonAudio(lessonId: string, transcript: string, 
   const googleAudio = await generateGoogleTTS(textToSpeak, 'de', speed)
   if (googleAudio) {
     const buffer = Buffer.from(googleAudio.audioUrl.split(',')[1], 'base64')
-    const filePath = `listening-audio/${AUDIO_STORAGE_VERSION}/${lessonId}.mp3`
+    const filePath = `listening-audio/${AUDIO_VERSION}/${lessonId}.mp3`
     const { error: uploadError } = await supabase.storage
       .from('audio-content')
       .upload(filePath, buffer, { contentType: 'audio/mpeg', upsert: true })
@@ -207,23 +165,16 @@ export async function generateLessonAudio(lessonId: string, transcript: string, 
         .getPublicUrl(filePath)
       await supabase
         .from('audio_lessons')
-        .update({ audio_url: urlData.publicUrl })
+        .update({ audio_url: urlData.publicUrl, audio_version: AUDIO_VERSION })
         .eq('id', lessonId)
       return { success: true, audioUrl: urlData.publicUrl, provider: googleAudio.provider }
     }
   }
 
-  const result = await generateSpeech({
-    text: textToSpeak,
-    lang: 'de',
-    speed,
-    provider: 'openai',
-    voice: 'nova',
-    scenario,
-  })
+  const result = await generateSpeechOpenAI(textToSpeak, 'de', speed, 'nova')
   if (result.success && result.audioUrl) {
     const buffer = Buffer.from(result.audioUrl.split(',')[1], 'base64')
-    const filePath = `generated-audio/${AUDIO_STORAGE_VERSION}/${lessonId}.mp3`
+    const filePath = `generated-audio/${AUDIO_VERSION}/${lessonId}.mp3`
     const { error: uploadError } = await supabase.storage
       .from('audio-content')
       .upload(filePath, buffer, { contentType: 'audio/mpeg', upsert: true })
@@ -233,10 +184,67 @@ export async function generateLessonAudio(lessonId: string, transcript: string, 
         .getPublicUrl(filePath)
       await supabase
         .from('audio_lessons')
-        .update({ audio_url: urlData.publicUrl })
+        .update({ audio_url: urlData.publicUrl, audio_version: AUDIO_VERSION })
         .eq('id', lessonId)
-      return { ...result, audioUrl: urlData.publicUrl }
+      return { success: true, audioUrl: urlData.publicUrl, provider: result.provider }
     }
   }
   return result
+}
+
+export async function cacheTextAudio(text: string, lang: string = 'de'): Promise<TTSUpgradeResult> {
+  const { createAdminClient } = await import('@/lib/supabase/admin')
+  const supabase = createAdminClient()
+  const textHash = hashText(text)
+
+  const { data: existing } = await supabase
+    .from('generated_audio')
+    .select('audio_url')
+    .eq('text_hash', textHash)
+    .eq('lang', lang)
+    .eq('audio_version', AUDIO_VERSION)
+    .maybeSingle()
+
+  if (existing?.audio_url) {
+    return { success: true, audioUrl: existing.audio_url, provider: 'cache' }
+  }
+
+  const googleAudio = await generateGoogleTTS(text, lang, 1)
+  let result: TTSUpgradeResult
+  if (googleAudio) {
+    result = { success: true, audioUrl: googleAudio.audioUrl, provider: googleAudio.provider }
+  } else {
+    result = await generateSpeechOpenAI(text, lang, 1, 'nova')
+  }
+
+  if (!result.success || !result.audioUrl) return result
+
+  const buffer = Buffer.from(result.audioUrl.split(',')[1], 'base64')
+  const filePath = `cached-audio/${AUDIO_VERSION}/${textHash}.mp3`
+  const { error: uploadError } = await supabase.storage
+    .from('audio-content')
+    .upload(filePath, buffer, { contentType: 'audio/mpeg', upsert: true })
+
+  if (uploadError) {
+    return { success: false, error: `Failed to upload audio: ${uploadError.message}`, provider: result.provider }
+  }
+
+  const { data: urlData } = supabase.storage
+    .from('audio-content')
+    .getPublicUrl(filePath)
+
+  await supabase
+    .from('generated_audio')
+    .upsert({
+      text_hash: textHash,
+      text_content: text.slice(0, 500),
+      lang,
+      audio_url: urlData.publicUrl,
+      audio_version: AUDIO_VERSION,
+    }, {
+      onConflict: 'text_hash,lang,audio_version',
+      ignoreDuplicates: true,
+    })
+
+  return { success: true, audioUrl: urlData.publicUrl, provider: result.provider }
 }

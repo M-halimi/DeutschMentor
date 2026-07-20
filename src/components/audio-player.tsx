@@ -3,7 +3,7 @@
 import { useState, useRef, useCallback, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Volume2, Ear, Loader2, RotateCcw } from 'lucide-react'
-import { speakWithBrowser, getVoiceForLanguage, detectLanguage } from '@/lib/ai/tts'
+import { detectLanguage } from '@/lib/ai/tts'
 
 interface AudioPlayerProps {
   text: string
@@ -13,9 +13,6 @@ interface AudioPlayerProps {
   showSlow?: boolean
   showReplay?: boolean
 }
-
-const AUDIO_CACHE_VERSION = 'v2'
-const audioCache = new Map<string, string>()
 
 function isAbortError(e: unknown): boolean {
   return e instanceof DOMException && (e.name === 'AbortError' || e.name === 'NotAllowedError')
@@ -33,14 +30,8 @@ export function AudioPlayer({
   const [loading, setLoading] = useState<'normal' | 'slow' | false>(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const lastPlayedUrl = useRef<string | null>(null)
-  const [browserVoiceAvailable, setBrowserVoiceAvailable] = useState(false)
-  const langRef = useRef(explicitLang)
   const genRef = useRef(0)
   const mountedRef = useRef(true)
-
-  useEffect(() => {
-    langRef.current = explicitLang
-  }, [explicitLang])
 
   useEffect(() => {
     return () => {
@@ -51,24 +42,6 @@ export function AudioPlayer({
       }
     }
   }, [])
-
-  useEffect(() => {
-    const lang = explicitLang || detectLanguage(text)
-    const voice = getVoiceForLanguage(lang)
-    if (voice) {
-      setBrowserVoiceAvailable(true)
-    } else {
-      const checkVoices = () => {
-        const v = getVoiceForLanguage(lang)
-        if (v) setBrowserVoiceAvailable(true)
-        else setTimeout(checkVoices, 300)
-      }
-      if (typeof window !== 'undefined' && window.speechSynthesis) {
-        window.speechSynthesis.getVoices()
-        setTimeout(checkVoices, 200)
-      }
-    }
-  }, [text, explicitLang])
 
   const cleanup = useCallback(() => {
     if (audioRef.current) {
@@ -106,67 +79,27 @@ export function AudioPlayer({
     })
   }, [cleanup])
 
-  const generateAndPlay = useCallback(async (text: string, speed: number) => {
+  const fetchAndPlay = useCallback(async (text: string, speed: number) => {
     const lang = explicitLang || detectLanguage(text)
-    const cacheKey = `${AUDIO_CACHE_VERSION}:${text}:${lang}:${speed}:openai`
-    const cachedUrl = audioCache.get(cacheKey)
-    if (cachedUrl) {
-      await playAudio(cachedUrl, speed)
-      return
-    }
-
-    const res = await fetch(`/api/tts?_=${AUDIO_CACHE_VERSION}-${Date.now()}`, {
+    const res = await fetch(`/api/tts`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text, lang, speed: speed < 1 ? 1 : speed, provider: 'openai' }),
+      body: JSON.stringify({ text, lang }),
     })
     const data = await res.json()
-    if (data.audioUrl) {
-      audioCache.set(cacheKey, data.audioUrl)
-      if (speed < 1) {
-        const slowKey = `${AUDIO_CACHE_VERSION}:${text}:${lang}:0.5:openai`
-        if (!audioCache.has(slowKey)) audioCache.set(slowKey, data.audioUrl)
-      }
-      lastPlayedUrl.current = data.audioUrl
-      await playAudio(data.audioUrl, speed)
+    if (data.audio_url) {
+      lastPlayedUrl.current = data.audio_url
+      await playAudio(data.audio_url, speed)
     } else {
       throw new Error('No audio URL returned')
     }
   }, [explicitLang, playAudio])
-
-  const speakViaBrowser = useCallback(async (text: string, speed: number) => {
-    const lang = explicitLang || detectLanguage(text)
-    const voice = getVoiceForLanguage(lang)
-    if (!voice && browserVoiceAvailable) {
-      throw new Error('No voice available for detected language')
-    }
-    await speakWithBrowser({ text, lang, speed: speed < 1 ? 0.5 : speed })
-  }, [explicitLang, browserVoiceAvailable])
 
   const play = useCallback(async (speed: number) => {
     if (!text) return
     const gen = ++genRef.current
     cleanup()
     setLoading(speed === 0.5 ? 'slow' : 'normal')
-
-    const lang = explicitLang || detectLanguage(text)
-    const cacheKey = `${AUDIO_CACHE_VERSION}:${text}:${lang}:${speed}:openai`
-    const cachedUrl = audioCache.get(cacheKey)
-
-    if (cachedUrl) {
-      setLoading(false)
-      setPlaying(speed === 0.5 ? 'slow' : 'normal')
-      lastPlayedUrl.current = cachedUrl
-      try {
-        await playAudio(cachedUrl, speed)
-      } catch {
-        if (genRef.current !== gen) return
-        await generateAndPlay(text, speed)
-      }
-      if (genRef.current !== gen) return
-      setPlaying(false)
-      return
-    }
 
     const url = speed === 0.5 && slowUrl ? slowUrl : existingUrl
     if (url) {
@@ -177,7 +110,7 @@ export function AudioPlayer({
         await playAudio(url, speed)
       } catch {
         if (genRef.current !== gen) return
-        await generateAndPlay(text, speed)
+        await fetchAndPlay(text, speed)
       }
       if (genRef.current !== gen) return
       setPlaying(false)
@@ -186,23 +119,17 @@ export function AudioPlayer({
 
     try {
       setPlaying(speed === 0.5 ? 'slow' : 'normal')
-      await speakViaBrowser(text, speed)
+      await fetchAndPlay(text, speed)
     } catch {
       if (genRef.current !== gen) return
-      try {
-        setPlaying(speed === 0.5 ? 'slow' : 'normal')
-        await generateAndPlay(text, speed)
-      } catch {
-        if (genRef.current !== gen) return
-        setPlaying(false)
-        setLoading(false)
-      }
+      setPlaying(false)
+      setLoading(false)
     }
 
     if (genRef.current !== gen) return
     setPlaying(false)
     setLoading(false)
-  }, [text, explicitLang, cleanup, playAudio, generateAndPlay, speakViaBrowser])
+  }, [text, explicitLang, cleanup, playAudio, fetchAndPlay])
 
   const handleReplay = useCallback(() => {
     if (!text) return
