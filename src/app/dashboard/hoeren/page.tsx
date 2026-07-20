@@ -100,7 +100,10 @@ export default function HoerenPage() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     const lessonId = params.get('lesson')
-    if (lessonId) setSelectedId(lessonId)
+    if (lessonId) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setSelectedId(lessonId)
+    }
   }, [])
 
   useEffect(() => {
