@@ -5,12 +5,14 @@
  *   node scripts/seed-subscriptions.mjs
  */
 
-const SUPABASE_URL = 'https://solksyxdlmjtthhuhacj.supabase.co'
-const SERVICE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNvbGtzeXhkbG1qdHRoaHVoYWNqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4Mzc3MzUzMiwiZXhwIjoyMDk5MzQ5NTMyfQ.vNC4FiBYCqK9A9JDCN22P92w3yxMWyCyEvDAOkIRN1E'
-const MGMT_TOKEN = process.env.SUPABASE_MGMT_TOKEN
-const PROJECT_REF = process.env.SUPABASE_PROJECT_REF || 'solksyxdlmjtthhuhacj'
-
 import { readFileSync } from 'fs'
+import { config } from 'dotenv'
+config({ path: '.env.local' })
+
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL
+const SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY
+const MGMT_TOKEN = process.env.SUPABASE_ACCESS_TOKEN
+const PROJECT_REF = process.env.SUPABASE_PROJECT_REF
 import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
