@@ -73,3 +73,33 @@ OWNER_EMAIL=admin@example.com OWNER_PASSWORD=secure node scripts/setup-owner.mjs
 
 ### Debug endpoint
 `GET /api/debug` — Returns user, profile, role, permissions, admin status
+
+## Audio System (Female German TTS)
+
+### Voice config
+- **Primary**: Google Translate TTS (`translate.googleapis.com/translate_tts`, lang=`de`) — free, no API key, female voice
+- **Fallback**: OpenAI TTS (`nova` voice, female)
+- **Audio version**: `female-german-v2`
+
+### State (Jul 2026)
+- `audio_lessons` table: 42 records, all with `audio_url` and `audio_version='female-german-v2'`
+- Storage bucket `audio-content` exists but upload fails from this env (service role JWT key → "signature verification failed" for object uploads)
+- 39 lessons use embedded data URLs, 3 use storage URLs (pre-existing)
+- All transcripts, grammar_involved, vocabulary_involved populated
+
+### AudioGuard (do NOT delete)
+**Any record in `audio_lessons` where `audio_version = 'female-german-v2'` has active audio. Never delete, nullify, or overwrite `audio_url` for these records.** Only regenerate when the version changes (e.g., `female-german-v3`).
+
+### Management API approach
+The service role JWT key fails for REST/storage calls from this environment. Use the Supabase Management API for DB operations:
+```
+POST https://api.supabase.com/v1/projects/{ref}/database/query
+Authorization: Bearer supabase_mgmt_token_here
+Body: {"query": "SQL_STATEMENT"}
+```
+
+### Key file
+- `scripts/restore-audio.mjs` — Full restoration using Management API SQL + Google TTS + data URL fallback
+- `src/lib/ai/google-tts.ts` — Google TTS implementation
+- `src/lib/ai/tts-upgrade.ts` — TTS orchestration, AUDIO_VERSION constant
+- `supabase/migrations/00055_audio_versioning.sql` — Adds audio_version column, generated_audio cache table
