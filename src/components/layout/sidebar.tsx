@@ -38,6 +38,9 @@ import {
   Activity,
   Star,
   Brain,
+  Download,
+  Globe,
+  ClipboardCheck,
   X,
   type LucideIcon,
 } from 'lucide-react'
@@ -161,7 +164,10 @@ const adminNavSections: { titleTKey: string; items: AdminNavItem[] }[] = [
     items: [
       { href: '/admin/courses', tKey: 'nav.courses', icon: BookOpen, permission: 'courses.view' },
       { href: '/admin/verbs', tKey: 'nav.verbs', icon: BookText, permission: 'courses.view' },
+      { href: '/admin/verbs/import', tKey: 'nav.verb-import', icon: Download, permission: 'courses.view' },
+      { href: '/admin/verbs/sources', tKey: 'nav.verb-sources', icon: Globe, permission: 'courses.view' },
       { href: '/admin/verbs/audit', tKey: 'nav.verb-audit', icon: ShieldAlert, permission: 'dashboard.view' },
+      { href: '/admin/verbs/quality-check', tKey: 'nav.verb-quality-check', icon: ClipboardCheck, permission: 'dashboard.view' },
       { href: '/admin/verbs?sort_by=quality_score&sort_order=asc', tKey: 'nav.verb-quality', icon: Star, permission: 'dashboard.view' },
     ],
   },

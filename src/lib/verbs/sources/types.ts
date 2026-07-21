@@ -12,9 +12,23 @@ export interface SourceVerbEntry {
   confidence?: number
 }
 
+export interface ScrapeMeta {
+  source_url: string
+  fetched_at: string
+  total_found: number
+  errors: string[]
+  live: boolean
+}
+
+export interface FetchResult {
+  entries: SourceVerbEntry[]
+  meta: ScrapeMeta
+}
+
 export interface SourceAdapter {
   name: string
-  fetchByLevel(level: string): Promise<SourceVerbEntry[]>
+  fetchByLevel(level: string): Promise<FetchResult>
+  fetchAll(): Promise<FetchResult>
   fetchSingle(infinitive: string): Promise<SourceVerbEntry | null>
   testConnection(): Promise<{ ok: boolean; message: string; latency?: number }>
 }

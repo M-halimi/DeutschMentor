@@ -278,6 +278,26 @@ export const FINDING_CATEGORIES = [
   'duplicate_verb',
 ] as const
 
+export const QUALITY_CHECK_TYPES = [
+  'infinitive_format', 'cefr_consistency', 'partizip_2', 'auxiliary',
+  'reflexive', 'separable_prefix', 'verb_type', 'transitivity',
+  'object_case', 'preposition', 'conjugation_completeness',
+] as const
+
+export const QUALITY_CHECK_LABELS: Record<string, string> = {
+  infinitive_format: 'Infinitive Format',
+  cefr_consistency: 'CEFR Level',
+  partizip_2: 'Partizip II',
+  auxiliary: 'Auxiliary',
+  reflexive: 'Reflexive',
+  separable_prefix: 'Separable Prefix',
+  verb_type: 'Verb Type',
+  transitivity: 'Transitivity',
+  object_case: 'Object Case',
+  preposition: 'Preposition',
+  conjugation_completeness: 'Conjugations',
+}
+
 export const FINDING_CATEGORY_LABELS: Record<string, string> = {
   separable_conjugation: 'Separable Conjugation',
   auxiliary_mismatch: 'Auxiliary',
@@ -322,11 +342,14 @@ export interface ImportSource {
 export interface ImportResult {
   log_id: string
   source_name: string
-  cefr_level: string
+  cefr_level: string | null
   total_fetched: number
   total_imported: number
   total_errors: number
   total_warnings: number
+  total_duplicates?: number
+  total_failed?: number
+  total_valid?: number
   errors: string[]
   warnings: string[]
   verb_results: VerbImportStatus[]
@@ -352,7 +375,7 @@ export type ImportProgressStep =
 export interface ImportLog {
   id: string
   source_name: string
-  cefr_level: string
+  cefr_level: string | null
   total_fetched: number
   total_imported: number
   total_approved: number
@@ -361,8 +384,7 @@ export interface ImportLog {
   total_errors: number
   status: string
   error_message: string | null
-  started_at: string | null
+  started_at: string
   completed_at: string | null
   created_by: string | null
-  created_at: string
 }

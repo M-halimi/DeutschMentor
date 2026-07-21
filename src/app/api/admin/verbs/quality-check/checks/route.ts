@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createServerSupabaseClient } from '@/lib/supabase/server'
 import { isAdminUser } from '@/lib/rbac/permissions'
-import { importVerbsByLevel } from '@/lib/verbs/import-engine'
+import { updateQualityChecks } from '@/lib/verbs/quality-check-engine'
 
-export async function POST(request: NextRequest) {
+export async function PATCH(request: NextRequest) {
   try {
     const supabase = await createServerSupabaseClient()
     const { data: { user } } = await supabase.auth.getUser()
@@ -12,22 +12,18 @@ export async function POST(request: NextRequest) {
     if (!admin) return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
 
     const body = await request.json()
-    const { level, source, selectedInfinitives } = body
+    const { ids, action } = body
 
-    if (!source) {
-      return NextResponse.json({ error: 'source is required' }, { status: 400 })
+    if (!ids || !Array.isArray(ids) || ids.length === 0) {
+      return NextResponse.json({ error: 'ids array is required' }, { status: 400 })
+    }
+    if (!action || !['accept', 'reject'].includes(action)) {
+      return NextResponse.json({ error: 'action must be "accept" or "reject"' }, { status: 400 })
     }
 
-    if (level) {
-      const validLevels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
-      if (!validLevels.includes(level)) {
-        return NextResponse.json({ error: `Invalid level. Must be one of: ${validLevels.join(', ')}` }, { status: 400 })
-      }
-    }
+    const count = await updateQualityChecks(ids, action)
 
-    const result = await importVerbsByLevel(level || '', source, user.id, selectedInfinitives)
-
-    return NextResponse.json({ data: result })
+    return NextResponse.json({ data: { updated: count } })
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Internal server error'
     return NextResponse.json({ error: message }, { status: 500 })

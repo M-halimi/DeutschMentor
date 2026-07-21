@@ -1,6 +1,6 @@
 import { createAdminClient } from '@/lib/supabase/admin'
 import { getAdapter } from './sources'
-import type { SourceVerbEntry } from './sources/types'
+import type { SourceVerbEntry, FetchResult } from './sources/types'
 import type {
   ImportResult,
   VerbImportStatus,
@@ -44,29 +44,35 @@ function normalizeNumber(value: number | null | undefined, fallback: number): nu
 export async function importVerbsByLevel(
   level: string,
   sourceName: string,
-  userId?: string
+  userId?: string,
+  selectedInfinitives?: string[]
 ): Promise<ImportResult> {
   const admin = createAdminClient()
   const errors: string[] = []
+  const warnings: string[] = []
+  const verbResults: VerbImportStatus[] = []
   const startedAt = new Date().toISOString()
+  let duplicates = 0
+  let failedCount = 0
 
   const adapter = getAdapter(sourceName)
   if (!adapter) {
     throw new Error(`Source adapter not found for "${sourceName}". Available adapters: verbformen, wiktionary, canoonet, custom-json`)
   }
 
-  let entries: SourceVerbEntry[]
+  let fetchResult: FetchResult
   try {
-    entries = await adapter.fetchByLevel(level)
+    fetchResult = level ? await adapter.fetchByLevel(level) : await adapter.fetchAll()
   } catch (err: any) {
-    const msg = `Failed to fetch verbs from "${sourceName}" for level ${level}: ${err?.message || String(err)}`
+    const levelLabel = level ? `for level ${level}` : '(all levels)'
+    const msg = `Failed to fetch verbs from "${sourceName}" ${levelLabel}: ${err?.message || String(err)}`
     errors.push(msg)
 
     const { data: logEntry, error: logError } = await admin
       .from('verb_import_logs')
       .insert({
         source_name: sourceName,
-        cefr_level: level,
+        cefr_level: level || null,
         total_fetched: 0,
         total_imported: 0,
         status: 'failed',
@@ -83,7 +89,7 @@ export async function importVerbsByLevel(
     return {
       log_id: logEntry?.id || '',
       source_name: sourceName,
-      cefr_level: level,
+      cefr_level: level || null,
       total_fetched: 0,
       total_imported: 0,
       total_errors: errors.length,
@@ -94,11 +100,16 @@ export async function importVerbsByLevel(
     }
   }
 
+  const entries = fetchResult.entries
+  if (fetchResult.meta.errors.length > 0) {
+    errors.push(...fetchResult.meta.errors.map(e => `[${adapter.name}] ${e}`))
+  }
+
   const { data: logEntry, error: logError } = await admin
     .from('verb_import_logs')
     .insert({
       source_name: sourceName,
-      cefr_level: level,
+      cefr_level: level || null,
       total_fetched: entries.length,
       total_imported: 0,
       status: 'running',
@@ -113,7 +124,7 @@ export async function importVerbsByLevel(
     return {
       log_id: '',
       source_name: sourceName,
-      cefr_level: level,
+      cefr_level: level || null,
       total_fetched: entries.length,
       total_imported: 0,
       total_errors: errors.length,
@@ -127,10 +138,31 @@ export async function importVerbsByLevel(
   const logId = logEntry.id
   let imported = 0
 
-  for (const entry of entries) {
+  const filteredEntries = selectedInfinitives
+    ? entries.filter(e => {
+        const inf = normalizeString(e.infinitive)
+        return inf && selectedInfinitives.includes(inf)
+      })
+    : entries
+
+  if (selectedInfinitives && filteredEntries.length < selectedInfinitives.length) {
+    warnings.push(`${selectedInfinitives.length - filteredEntries.length} selected verb(s) not found in source data`)
+  }
+
+  for (const entry of filteredEntries) {
+    const status: VerbImportStatus = {
+      infinitive: entry.infinitive,
+      status: 'SUCCESS',
+      confidence: normalizeNumber(entry.confidence, 50),
+    }
+
     try {
       const infinitive = normalizeString(entry.infinitive)
       if (!infinitive) {
+        status.status = 'FAILED'
+        status.message = 'Missing infinitive'
+        verbResults.push(status)
+        failedCount++
         errors.push(`Skipped entry with missing infinitive`)
         continue
       }
@@ -146,6 +178,11 @@ export async function importVerbsByLevel(
         .maybeSingle()
 
       if (existing) {
+        status.status = 'WARNING'
+        status.message = 'Duplicate candidate — already exists in PENDING'
+        status.skipped_reason = 'duplicate'
+        verbResults.push(status)
+        duplicates++
         continue
       }
 
@@ -154,7 +191,7 @@ export async function importVerbsByLevel(
         .insert({
           infinitive,
           translation: normalizeString(entry.translation),
-          cefr_level: normalizeString(entry.cefr_level) || level,
+          cefr_level: normalizeString(entry.cefr_level) || level || null,
           auxiliary: normalizeString(entry.auxiliary),
           verb_type: normalizeString(entry.verb_type),
           separable_prefix: normalizeString(entry.separable_prefix),
@@ -169,12 +206,22 @@ export async function importVerbsByLevel(
         })
 
       if (insertError) {
+        status.status = 'FAILED'
+        status.message = insertError.message
+        verbResults.push(status)
+        failedCount++
         errors.push(`Failed to insert "${infinitive}": ${insertError.message}`)
       } else {
+        status.status = 'SUCCESS'
+        verbResults.push(status)
         imported++
       }
     } catch (err: any) {
       const infinitive = entry?.infinitive || 'unknown'
+      status.status = 'FAILED'
+      status.message = err instanceof Error ? err.message : String(err)
+      verbResults.push(status)
+      failedCount++
       errors.push(`Error processing "${infinitive}": ${err?.message || String(err)}`)
     }
   }
@@ -192,17 +239,25 @@ export async function importVerbsByLevel(
     errors.push(`Failed to update import log: ${updateError.message}`)
   }
 
+  // Update source last_sync
+  try {
+    await admin.from('verb_sources').update({ last_sync: new Date().toISOString() }).eq('name', sourceName)
+  } catch { /* non-critical */ }
+
   return {
     log_id: logId,
     source_name: sourceName,
-    cefr_level: level,
+    cefr_level: level || null,
     total_fetched: entries.length,
     total_imported: imported,
     total_errors: errors.length,
-    total_warnings: 0,
+    total_warnings: warnings.length,
+    total_duplicates: duplicates,
+    total_failed: failedCount,
+    total_valid: imported,
     errors,
-    warnings: [],
-    verb_results: [],
+    warnings,
+    verb_results: verbResults,
   }
 }
 
@@ -211,7 +266,7 @@ export async function fetchImportLogs(): Promise<any[]> {
   const { data, error } = await admin
     .from('verb_import_logs')
     .select('*')
-    .order('created_at', { ascending: false })
+    .order('started_at', { ascending: false })
 
   if (error) throw new Error(`Failed to fetch import logs: ${error.message}`)
   return data || []
@@ -428,22 +483,29 @@ export async function candidateCountsByStatus(): Promise<{ pending: number; appr
 }
 
 export async function previewImport(
-  level: string,
-  sourceName: string
+  sourceName: string,
+  level?: string
 ): Promise<{
   entries: (SourceVerbEntry & { status: VerbImportStatus })[]
   total: number
   source_name: string
-  cefr_level: string
+  cefr_level: string | null
+  already_imported: string[]
+  live: boolean
+  fetched_at: string
+  scrape_errors: string[]
+  total_found: number
 }> {
   const adapter = getAdapter(sourceName)
   if (!adapter) {
     throw new Error(`Source adapter not found for "${sourceName}"`)
   }
 
-  const entries = await adapter.fetchByLevel(level)
+  const fetchResult = level
+    ? await adapter.fetchByLevel(level)
+    : await adapter.fetchAll()
 
-  const results = entries.map(entry => {
+  const results = fetchResult.entries.map(entry => {
     const status: VerbImportStatus = {
       infinitive: entry.infinitive,
       status: 'SUCCESS',
@@ -456,11 +518,29 @@ export async function previewImport(
     return { ...entry, status }
   })
 
+  const admin = createAdminClient()
+  const [candidatesRes, referenceRes] = await Promise.all([
+    admin.from('verb_reference_candidates').select('infinitive'),
+    admin.from('verb_reference_data').select('infinitive'),
+  ])
+  const importedSet = new Set<string>()
+  for (const row of candidatesRes.data || []) importedSet.add((row.infinitive as string).toLowerCase())
+  for (const row of referenceRes.data || []) importedSet.add((row.infinitive as string).toLowerCase())
+
+  const alreadyImported = results
+    .filter(e => e.infinitive && importedSet.has(e.infinitive.toLowerCase()))
+    .map(e => e.infinitive)
+
   return {
     entries: results,
     total: results.length,
     source_name: sourceName,
-    cefr_level: level,
+    cefr_level: level ?? null,
+    already_imported: alreadyImported,
+    live: fetchResult.meta.live,
+    fetched_at: fetchResult.meta.fetched_at,
+    scrape_errors: fetchResult.meta.errors,
+    total_found: fetchResult.meta.total_found,
   }
 }
 
@@ -491,7 +571,7 @@ export async function fetchImportLogsPaginated(options?: {
   const from = (page - 1) * perPage
   const to = from + perPage - 1
 
-  dataQuery = dataQuery.order('created_at', { ascending: false }).range(from, to)
+  dataQuery = dataQuery.order('started_at', { ascending: false }).range(from, to)
 
   const [{ count }, { data, error }] = await Promise.all([countQuery, dataQuery])
 

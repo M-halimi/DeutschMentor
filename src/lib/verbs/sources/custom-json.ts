@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs'
 import { resolve } from 'path'
-import type { SourceAdapter, SourceVerbEntry } from './types'
+import type { SourceAdapter, SourceVerbEntry, FetchResult } from './types'
 
 interface JsonEntry {
   infinitive: string
@@ -43,11 +43,39 @@ export class CustomJsonAdapter implements SourceAdapter {
     }
   }
 
-  async fetchByLevel(level: string): Promise<SourceVerbEntry[]> {
+  async fetchAll(): Promise<FetchResult> {
+    const data = this.loadData()
+    const entries = data
+      .filter(entry => entry.infinitive && entry.infinitive.trim())
+      .map(entry => ({
+        infinitive: entry.infinitive.trim(),
+        auxiliary: entry.auxiliary ?? null,
+        verb_type: entry.verb_type ?? null,
+        separable_prefix: entry.separable_prefix ?? null,
+        is_reflexive: entry.is_reflexive ?? false,
+        reflexive_pronoun: entry.reflexive_pronoun ?? null,
+        partizip_2: entry.partizip_2 ?? null,
+        cefr_level: entry.cefr_level ?? null,
+        translation: entry.translation ?? null,
+        source_url: null as string | null,
+      }))
+
+    return {
+      entries,
+      meta: {
+        source_url: 'file://data/verb-reference.json',
+        fetched_at: new Date().toISOString(),
+        total_found: entries.length,
+        errors: [],
+        live: false,
+      },
+    }
+  }
+
+  async fetchByLevel(level: string): Promise<FetchResult> {
     const data = this.loadData()
     const lowerLevel = level.toLowerCase()
-
-    return data
+    const entries = data
       .filter(entry => entry.cefr_level?.toLowerCase() === lowerLevel)
       .filter(entry => entry.infinitive && entry.infinitive.trim())
       .map(entry => ({
@@ -60,7 +88,19 @@ export class CustomJsonAdapter implements SourceAdapter {
         partizip_2: entry.partizip_2 ?? null,
         cefr_level: entry.cefr_level ?? level,
         translation: entry.translation ?? null,
+        source_url: null as string | null,
       }))
+
+    return {
+      entries,
+      meta: {
+        source_url: 'file://data/verb-reference.json',
+        fetched_at: new Date().toISOString(),
+        total_found: entries.length,
+        errors: [],
+        live: false,
+      },
+    }
   }
 
   async fetchSingle(infinitive: string): Promise<SourceVerbEntry | null> {
@@ -78,6 +118,7 @@ export class CustomJsonAdapter implements SourceAdapter {
       partizip_2: entry.partizip_2 ?? null,
       cefr_level: entry.cefr_level ?? null,
       translation: entry.translation ?? null,
+      source_url: null,
     }
   }
 }

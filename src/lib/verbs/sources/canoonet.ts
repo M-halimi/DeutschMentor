@@ -1,5 +1,6 @@
 import { detectSeparablePrefix } from './prefixes'
-import type { SourceAdapter, SourceVerbEntry } from './types'
+import { getCEFRLevel, getAllVerbs, getVerbsByLevel } from './german-verbs-list'
+import type { SourceAdapter, SourceVerbEntry, FetchResult } from './types'
 
 export class CanoonetAdapter implements SourceAdapter {
   name = 'Canoonet'
@@ -20,9 +21,21 @@ export class CanoonetAdapter implements SourceAdapter {
     }
   }
 
-  async fetchByLevel(level: string): Promise<SourceVerbEntry[]> {
-    console.warn(`Canoonet does not support bulk fetch by CEFR level. Use fetchSingle for individual verbs.`)
-    return []
+  async fetchAll(): Promise<FetchResult> {
+    return scrapeCanoonet()
+  }
+
+  async fetchByLevel(level: string): Promise<FetchResult> {
+    const allResult = await scrapeCanoonet()
+    const lowerLevel = level.toLowerCase()
+    const filtered = allResult.entries.filter(e => {
+      const cefr = e.cefr_level || getCEFRLevel(e.infinitive)
+      return cefr?.toLowerCase() === lowerLevel
+    })
+    return {
+      entries: filtered,
+      meta: { ...allResult.meta, total_found: filtered.length },
+    }
   }
 
   async fetchSingle(infinitive: string): Promise<SourceVerbEntry | null> {
@@ -30,7 +43,7 @@ export class CanoonetAdapter implements SourceAdapter {
       const url = `https://www.canoonet.eu/services/Controller?service=verben&input=${encodeURIComponent(infinitive)}`
       const res = await fetch(url, {
         headers: { 'User-Agent': 'Mozilla/5.0 (compatible; DeutschMentor/1.0)' },
-        signal: AbortSignal.timeout(10000),
+        signal: AbortSignal.timeout(15000),
       })
       if (!res.ok) return null
       const html = await res.text()
@@ -38,6 +51,101 @@ export class CanoonetAdapter implements SourceAdapter {
     } catch {
       return null
     }
+  }
+}
+
+async function scrapeCanoonet(): Promise<FetchResult> {
+  const errors: string[] = []
+  const fetchedAt = new Date().toISOString()
+
+  try {
+    const res = await fetch('https://www.canoonet.eu/services/Controller?service=verben&input=*', {
+      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; DeutschMentor/1.0)' },
+      signal: AbortSignal.timeout(15000),
+    })
+
+    if (res.ok) {
+      const text = await res.text()
+      const entries = parseCanoonetList(text)
+      if (entries.length > 0) {
+        return {
+          entries,
+          meta: {
+            source_url: 'https://www.canoonet.eu/services/Controller?service=verben',
+            fetched_at: fetchedAt,
+            total_found: entries.length,
+            errors,
+            live: true,
+          },
+        }
+      }
+      errors.push('Canoonet returned empty result')
+    } else {
+      errors.push(`Canoonet returned status ${res.status}`)
+    }
+
+    return fallback(errors, fetchedAt)
+  } catch (err: any) {
+    errors.push(`Live scrape failed: ${err?.message || String(err)}`)
+    return fallback(errors, fetchedAt)
+  }
+}
+
+function parseCanoonetList(text: string): SourceVerbEntry[] {
+  const entries: SourceVerbEntry[] = []
+  const seen = new Set<string>()
+
+  const linkRegex = /<a[^>]*href="[^"]*input=([^"&]+)[^>]*>([^<]+)<\/a>/gi
+  let match: RegExpExecArray | null
+
+  while ((match = linkRegex.exec(text)) !== null) {
+    const name = (match[2] || match[1]).trim()
+    if (!name || name.includes(' ') || name.length < 2) continue
+    const lower = name.toLowerCase()
+    if (seen.has(lower)) continue
+    seen.add(lower)
+
+    entries.push({
+      infinitive: name,
+      auxiliary: null,
+      verb_type: null,
+      separable_prefix: detectSeparablePrefix(name),
+      is_reflexive: false,
+      reflexive_pronoun: null,
+      partizip_2: null,
+      cefr_level: getCEFRLevel(name),
+      translation: null,
+      source_url: `https://www.canoonet.eu/services/Controller?service=verben&input=${encodeURIComponent(name)}`,
+    })
+  }
+
+  return entries
+}
+
+function fallback(errors: string[], fetchedAt: string): FetchResult {
+  const all = getAllVerbs()
+  const entries: SourceVerbEntry[] = all.map(v => ({
+    infinitive: v.infinitive,
+    auxiliary: null,
+    verb_type: null,
+    separable_prefix: detectSeparablePrefix(v.infinitive),
+    is_reflexive: false,
+    reflexive_pronoun: null,
+    partizip_2: null,
+    cefr_level: v.level.toUpperCase(),
+    translation: null,
+    source_url: `https://www.canoonet.eu/services/Controller?service=verben&input=${encodeURIComponent(v.infinitive)}`,
+  }))
+
+  return {
+    entries,
+    meta: {
+      source_url: 'https://www.canoonet.eu',
+      fetched_at: fetchedAt,
+      total_found: entries.length,
+      errors,
+      live: false,
+    },
   }
 }
 
@@ -81,7 +189,8 @@ function parseCanoonetHtml(html: string, infinitive: string): SourceVerbEntry | 
     is_reflexive: isReflexive,
     reflexive_pronoun: reflexivePronoun,
     partizip_2: partizip2,
-    cefr_level: null,
+    cefr_level: getCEFRLevel(infinitive),
     translation: null,
+    source_url: `https://www.canoonet.eu/services/Controller?service=verben&input=${encodeURIComponent(infinitive)}`,
   }
 }

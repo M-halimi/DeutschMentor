@@ -1,5 +1,6 @@
 import { detectSeparablePrefix } from './prefixes'
-import type { SourceAdapter, SourceVerbEntry } from './types'
+import { getCEFRLevel, getAllVerbs, getVerbsByLevel } from './german-verbs-list'
+import type { SourceAdapter, SourceVerbEntry, FetchResult } from './types'
 
 export class VerbformenAdapter implements SourceAdapter {
   name = 'Verbformen'
@@ -20,12 +21,21 @@ export class VerbformenAdapter implements SourceAdapter {
     }
   }
 
-  async fetchByLevel(level: string): Promise<SourceVerbEntry[]> {
-    // Verbformen doesn't support bulk fetch by CEFR level directly.
-    // We use a curated list approach - return empty array for bulk,
-    // individual lookups work via fetchSingle.
-    console.warn(`Verbformen does not support bulk fetch by CEFR level. Use fetchSingle for individual verbs.`)
-    return []
+  async fetchAll(): Promise<FetchResult> {
+    return scrapeVerbformen()
+  }
+
+  async fetchByLevel(level: string): Promise<FetchResult> {
+    const allResult = await scrapeVerbformen()
+    const lowerLevel = level.toLowerCase()
+    const filtered = allResult.entries.filter(e => {
+      const cefr = e.cefr_level || getCEFRLevel(e.infinitive)
+      return cefr?.toLowerCase() === lowerLevel
+    })
+    return {
+      entries: filtered,
+      meta: { ...allResult.meta, total_found: filtered.length },
+    }
   }
 
   async fetchSingle(infinitive: string): Promise<SourceVerbEntry | null> {
@@ -33,7 +43,7 @@ export class VerbformenAdapter implements SourceAdapter {
       const url = `https://www.verbformen.com/?w=${encodeURIComponent(infinitive)}`
       const res = await fetch(url, {
         headers: { 'User-Agent': 'Mozilla/5.0 (compatible; DeutschMentor/1.0)' },
-        signal: AbortSignal.timeout(10000),
+        signal: AbortSignal.timeout(15000),
       })
       if (!res.ok) return null
       const html = await res.text()
@@ -41,6 +51,109 @@ export class VerbformenAdapter implements SourceAdapter {
     } catch {
       return null
     }
+  }
+}
+
+async function scrapeVerbformen(): Promise<FetchResult> {
+  const errors: string[] = []
+  const fetchedAt = new Date().toISOString()
+
+  try {
+    // Verbformen has no public verb listing API. We attempt the sitemap or index page.
+    const urls = [
+      'https://www.verbformen.com/deklination/verben/',
+      'https://www.verbformen.com/konjugation/verben/',
+    ]
+
+    for (const url of urls) {
+      const res = await fetch(url, {
+        headers: { 'User-Agent': 'Mozilla/5.0 (compatible; DeutschMentor/1.0)' },
+        signal: AbortSignal.timeout(15000),
+      })
+      if (res.ok) {
+        const html = await res.text()
+        const entries = parseVerbListHtml(html, url)
+        if (entries.length > 0) {
+          return {
+            entries,
+            meta: {
+              source_url: url,
+              fetched_at: fetchedAt,
+              total_found: entries.length,
+              errors,
+              live: true,
+            },
+          }
+        }
+      }
+      errors.push(`${url} returned status ${res.status}`)
+    }
+
+    errors.push('All live attempts failed, using fallback list')
+    return fallback(errors, fetchedAt)
+  } catch (err: any) {
+    errors.push(`Live scrape failed: ${err?.message || String(err)}`)
+    return fallback(errors, fetchedAt)
+  }
+}
+
+function parseVerbListHtml(html: string, sourceUrl: string): SourceVerbEntry[] {
+  const entries: SourceVerbEntry[] = []
+  const linkRegex = /<a\s+href="[^"]*"\s+title="([^"]+)"[^>]*>/gi
+  let match: RegExpExecArray | null
+
+  const seen = new Set<string>()
+
+  while ((match = linkRegex.exec(html)) !== null) {
+    let title = match[1].trim()
+    if (!title || title.includes(' ')) continue
+    if (title.endsWith(')')) continue
+    if (!title.endsWith('en') && !title.endsWith('n')) continue
+    const lower = title.toLowerCase()
+    if (seen.has(lower)) continue
+    seen.add(lower)
+
+    entries.push({
+      infinitive: title,
+      auxiliary: null,
+      verb_type: null,
+      separable_prefix: detectSeparablePrefix(title),
+      is_reflexive: false,
+      reflexive_pronoun: null,
+      partizip_2: null,
+      cefr_level: getCEFRLevel(title),
+      translation: null,
+      source_url: `${sourceUrl}${encodeURIComponent(title)}`,
+    })
+  }
+
+  return entries
+}
+
+function fallback(errors: string[], fetchedAt: string): FetchResult {
+  const all = getAllVerbs()
+  const entries: SourceVerbEntry[] = all.map(v => ({
+    infinitive: v.infinitive,
+    auxiliary: null,
+    verb_type: null,
+    separable_prefix: detectSeparablePrefix(v.infinitive),
+    is_reflexive: false,
+    reflexive_pronoun: null,
+    partizip_2: null,
+    cefr_level: v.level.toUpperCase(),
+    translation: null,
+    source_url: `https://www.verbformen.com/?w=${encodeURIComponent(v.infinitive)}`,
+  }))
+
+  return {
+    entries,
+    meta: {
+      source_url: 'https://www.verbformen.com',
+      fetched_at: fetchedAt,
+      total_found: entries.length,
+      errors,
+      live: false,
+    },
   }
 }
 
@@ -70,7 +183,6 @@ function parseVerbformenHtml(html: string, infinitive: string): SourceVerbEntry 
 
   const prefixMatch = html.match(/trennbar[^<]*<[^>]*>([^<]+)/i)
   if (prefixMatch) {
-    const prefixArea = prefixMatch[1].trim()
     verbType = 'separable'
     separablePrefix = detectSeparablePrefix(infinitive)
   }
@@ -90,7 +202,8 @@ function parseVerbformenHtml(html: string, infinitive: string): SourceVerbEntry 
     is_reflexive: isReflexive,
     reflexive_pronoun: reflexivePronoun,
     partizip_2: partizip2,
-    cefr_level: null,
+    cefr_level: getCEFRLevel(infinitive),
     translation: null,
+    source_url: `https://www.verbformen.com/?w=${encodeURIComponent(infinitive)}`,
   }
 }
