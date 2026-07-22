@@ -1,28 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createAdminClient } from '@/lib/supabase/admin'
-import { createServerClient } from '@supabase/ssr'
-import { cookies } from 'next/headers'
-import { isAdminUser, isOwner } from '@/lib/rbac/permissions'
+import { isOwner } from '@/lib/rbac/permissions'
 import { logAudit } from '@/lib/rbac/audit'
-
-async function getUser() {
-  const cookieStore = await cookies()
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    { cookies: { getAll() { return cookieStore.getAll() }, setAll() {} } }
-  )
-  const { data: { user } } = await supabase.auth.getUser()
-  return user
-}
+import { requireAdmin } from '@/lib/api/route-utils'
 
 export async function GET() {
   try {
-    const user = await getUser()
-    if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-
-    const admin = await isAdminUser(user.id)
-    if (!admin) return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
+    const auth = await requireAdmin()
+    if (auth.error) return auth.error
 
     const supabase = createAdminClient()
     const { data: roles, error } = await supabase
@@ -59,10 +44,10 @@ export async function GET() {
 
 export async function POST(req: NextRequest) {
   try {
-    const user = await getUser()
-    if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    const auth = await requireAdmin()
+    if (auth.error) return auth.error
 
-    const owner = await isOwner(user.id)
+    const owner = await isOwner(auth.user.id)
     if (!owner) return NextResponse.json({ error: 'Only the Platform Owner can create roles' }, { status: 403 })
 
     const body = await req.json()
@@ -91,7 +76,7 @@ export async function POST(req: NextRequest) {
       if (linkError) throw linkError
     }
 
-    logAudit({ userId: user.id, action: 'role_created', module: 'roles', resourceType: 'role', resourceId: role.id, details: { name, slug } })
+    logAudit({ userId: auth.user.id, action: 'role_created', module: 'roles', resourceType: 'role', resourceId: role.id, details: { name, slug } })
 
     return NextResponse.json({ data: role })
   } catch (error) {
@@ -102,10 +87,10 @@ export async function POST(req: NextRequest) {
 
 export async function PATCH(req: NextRequest) {
   try {
-    const user = await getUser()
-    if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    const auth = await requireAdmin()
+    if (auth.error) return auth.error
 
-    const owner = await isOwner(user.id)
+    const owner = await isOwner(auth.user.id)
     if (!owner) return NextResponse.json({ error: 'Only the Platform Owner can edit roles' }, { status: 403 })
 
     const body = await req.json()
@@ -139,7 +124,7 @@ export async function PATCH(req: NextRequest) {
 
     const { data: role } = await supabase.from('roles').select('*').eq('id', id).single()
 
-    logAudit({ userId: user.id, action: 'role_updated', module: 'roles', resourceType: 'role', resourceId: id, oldValues, newValues: { name, slug } })
+    logAudit({ userId: auth.user.id, action: 'role_updated', module: 'roles', resourceType: 'role', resourceId: id, oldValues, newValues: { name, slug } })
 
     return NextResponse.json({ data: role })
   } catch (error) {
@@ -150,10 +135,10 @@ export async function PATCH(req: NextRequest) {
 
 export async function DELETE(req: NextRequest) {
   try {
-    const user = await getUser()
-    if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    const auth = await requireAdmin()
+    if (auth.error) return auth.error
 
-    const owner = await isOwner(user.id)
+    const owner = await isOwner(auth.user.id)
     if (!owner) return NextResponse.json({ error: 'Only the Platform Owner can delete roles' }, { status: 403 })
 
     const { searchParams } = new URL(req.url)
@@ -174,7 +159,7 @@ export async function DELETE(req: NextRequest) {
     await supabase.from('role_permissions').delete().eq('role_id', id)
     await supabase.from('roles').delete().eq('id', id)
 
-    logAudit({ userId: user.id, action: 'role_deleted', module: 'roles', resourceType: 'role', resourceId: id, details: { name: existing.name } })
+    logAudit({ userId: auth.user.id, action: 'role_deleted', module: 'roles', resourceType: 'role', resourceId: id, details: { name: existing.name } })
 
     return NextResponse.json({ success: true })
   } catch (error) {

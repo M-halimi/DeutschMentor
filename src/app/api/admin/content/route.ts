@@ -1,20 +1,19 @@
 import { NextResponse } from 'next/server'
 import { createServerSupabaseClient } from '@/lib/supabase/server'
-import { isAdminUser, checkPermission } from '@/lib/rbac/permissions'
+import { checkPermission } from '@/lib/rbac/permissions'
+import { requireAdmin } from '@/lib/api/route-utils'
 
 const VALID_TABLES = ['vocabulary', 'expressions', 'grammar_exercises', 'audio_lessons', 'articles', 'dictation_exercises'] as const
 type ContentTable = typeof VALID_TABLES[number]
 
 export async function GET(request: Request) {
   try {
+    const auth = await requireAdmin()
+    if (auth.error) return auth.error
+
     const supabase = await createServerSupabaseClient()
-    const { data: { user } } = await supabase.auth.getUser()
-    if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
-    const isAdmin = await isAdminUser(user.id)
-    if (!isAdmin) return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
-
-    const canView = await checkPermission(user.id, 'vocabulary.view')
+    const canView = await checkPermission(auth.user.id, 'vocabulary.view')
     if (!canView) return NextResponse.json({ error: 'Forbidden: View vocabulary permission required' }, { status: 403 })
 
     const { searchParams } = new URL(request.url)
@@ -39,12 +38,10 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   try {
-    const supabase = await createServerSupabaseClient()
-    const { data: { user } } = await supabase.auth.getUser()
-    if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    const auth = await requireAdmin()
+    if (auth.error) return auth.error
 
-    const isAdmin = await isAdminUser(user.id)
-    if (!isAdmin) return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
+    const supabase = await createServerSupabaseClient()
 
     const body = await request.json()
     const { table, items } = body
@@ -61,12 +58,10 @@ export async function POST(request: Request) {
 
 export async function PUT(request: Request) {
   try {
-    const supabase = await createServerSupabaseClient()
-    const { data: { user } } = await supabase.auth.getUser()
-    if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    const auth = await requireAdmin()
+    if (auth.error) return auth.error
 
-    const isAdmin = await isAdminUser(user.id)
-    if (!isAdmin) return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
+    const supabase = await createServerSupabaseClient()
 
     const body = await request.json()
     const { table, id, updates } = body
@@ -83,12 +78,10 @@ export async function PUT(request: Request) {
 
 export async function DELETE(request: Request) {
   try {
-    const supabase = await createServerSupabaseClient()
-    const { data: { user } } = await supabase.auth.getUser()
-    if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    const auth = await requireAdmin()
+    if (auth.error) return auth.error
 
-    const isAdmin = await isAdminUser(user.id)
-    if (!isAdmin) return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
+    const supabase = await createServerSupabaseClient()
 
     const body = await request.json()
     const { table, id } = body

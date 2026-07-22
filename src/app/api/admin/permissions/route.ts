@@ -1,24 +1,13 @@
 import { NextResponse } from 'next/server'
 import { createAdminClient } from '@/lib/supabase/admin'
-import { createServerClient } from '@supabase/ssr'
-import { cookies } from 'next/headers'
-import { isAdminUser } from '@/lib/rbac/permissions'
+import { requireAdmin } from '@/lib/api/route-utils'
 
 export const dynamic = 'force-dynamic'
 
 export async function GET() {
   try {
-    const cookieStore = await cookies()
-    const supabase = createServerClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-      { cookies: { getAll() { return cookieStore.getAll() }, setAll() {} } }
-    )
-    const { data: { user } } = await supabase.auth.getUser()
-    if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-
-    const admin = await isAdminUser(user.id)
-    if (!admin) return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
+    const auth = await requireAdmin()
+    if (auth.error) return auth.error
 
     const supabaseAdmin = createAdminClient()
     const { data: permissions, error } = await supabaseAdmin

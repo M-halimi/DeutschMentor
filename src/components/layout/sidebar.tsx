@@ -17,7 +17,6 @@ import {
   GraduationCap,
   Settings,
   Shield,
-  ShieldAlert,
   ChevronDown,
   LogOut,
   Sparkles,
@@ -36,11 +35,12 @@ import {
   History,
   MessageSquare,
   Activity,
-  Star,
   Brain,
+  CheckCircle2,
+  Database,
   Download,
+  Eye,
   Globe,
-  ClipboardCheck,
   X,
   type LucideIcon,
 } from 'lucide-react'
@@ -49,6 +49,57 @@ import { Badge } from '@/components/ui/badge'
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import { useTranslation } from '@/lib/i18n/use-translation'
 import { usePresence } from '@/hooks/use-presence'
+
+const LABELS: Record<string, string> = {
+  'nav.verbs': 'Verben',
+  'nav.vocabulary': 'Vokabeln',
+  'nav.dictionary': 'Wörterbuch',
+  'nav.grammar': 'Grammatik',
+  'nav.dictation': 'Diktat',
+  'nav.expressions': 'Ausdrücke',
+  'nav.level-test': 'Einstufungstest',
+  'nav.exam-prep': 'Prüfungsvorbereitung',
+  'nav.certificates': 'Zertifikate',
+  'nav.subscription': 'Abo',
+  'nav.support': 'Support',
+  'nav.dashboard': 'Dashboard',
+  'nav.learning': 'Lernen',
+  'nav.stats': 'Statistiken',
+  'nav.courses': 'Kurse',
+  'nav.listening': 'Hören',
+  'nav.reading': 'Lesen',
+  'nav.writing': 'Schreiben',
+  'nav.speaking': 'Sprechen',
+  'nav.arabic-alphabet': 'Arabisches Alphabet',
+  'nav.arabic-vocabulary': 'Arabisch Vokabeln',
+  'nav.admin-dashboard': 'Dashboard',
+  'nav.live-users': 'Live-Benutzer',
+  'nav.users': 'Benutzer',
+  'nav.admin-users': 'Admin-Benutzer',
+  'nav.roles': 'Rollen',
+  'nav.invitations': 'Einladungen',
+  'nav.support-tickets': 'Support-Tickets',
+
+  'nav.intelligence': 'Intelligenz',
+  'nav.analytics': 'Analysen',
+  'nav.audit-logs': 'Audit-Logs',
+  'nav.settings': 'Einstellungen',
+  'nav.my-courses': 'Meine Kurse',
+  'nav.students': 'Schüler',
+  'sidebar.administration': 'Verwaltung',
+  'sidebar.content': 'Inhalt',
+  'sidebar.system': 'System',
+  'sidebar.student': 'Student',
+  'sidebar.skills': 'Fertigkeiten',
+  'sidebar.resources': 'Ressourcen',
+  'sidebar.arabic': 'Arabisch',
+  'sidebar.teacher': 'Lehrer',
+  'sidebar.admin': 'Admin',
+}
+
+function navLabel(key: string): string {
+  return LABELS[key] || key
+}
 
 interface NavItem { href: string; icon: LucideIcon; badge?: string; tKey: string }
 
@@ -104,7 +155,7 @@ function NavLink({ item, onNavigate }: { item: NavItem; onNavigate?: () => void 
         )}
     >
       <item.icon className="h-4 w-4 shrink-0" />
-      <span className="truncate flex-1">{item.tKey === 'nav.verbs' ? 'Verben' : item.tKey === 'nav.vocabulary' ? 'Vokabeln' : item.tKey === 'nav.dictionary' ? 'Wörterbuch' : item.tKey === 'nav.grammar' ? 'Grammatik' : item.tKey === 'nav.dictation' ? 'Diktat' : item.tKey === 'nav.expressions' ? 'Ausdrücke' : item.tKey === 'nav.level-test' ? 'Einstufungstest' : item.tKey === 'nav.exam-prep' ? 'Prüfungsvorbereitung' : item.tKey === 'nav.certificates' ? 'Zertifikate' : item.tKey === 'nav.subscription' ? 'Abo' : item.tKey === 'nav.support' ? 'Support' : item.tKey === 'nav.dashboard' ? 'Dashboard' : item.tKey === 'nav.learning' ? 'Lernen' : item.tKey === 'nav.stats' ? 'Statistiken' : item.tKey === 'nav.courses' ? 'Kurse' : item.tKey === 'nav.listening' ? 'Hören' : item.tKey === 'nav.reading' ? 'Lesen' : item.tKey === 'nav.writing' ? 'Schreiben' : item.tKey === 'nav.speaking' ? 'Sprechen' : item.tKey === 'nav.arabic-alphabet' ? 'Arabisches Alphabet' : item.tKey === 'nav.arabic-vocabulary' ? 'Arabisch Vokabeln' : item.tKey}</span>
+      <span className="truncate flex-1">{navLabel(item.tKey)}</span>
       {item.badge && (
         <Badge variant="default" className="h-5 px-1.5 text-[10px] font-bold uppercase shrink-0">
           {item.badge}
@@ -125,7 +176,7 @@ function NavSection({ titleTKey, items, defaultOpen = true, onNavigate }: { titl
         onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setOpen(!open) } }}
         className="flex w-full items-center justify-between px-3 py-1.5 text-xs font-medium text-muted-foreground uppercase tracking-wider hover:text-foreground transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1"
       >
-        <span className="truncate">{titleTKey === 'sidebar.student' ? 'Student' : titleTKey === 'sidebar.skills' ? 'Fertigkeiten' : titleTKey === 'sidebar.resources' ? 'Ressourcen' : titleTKey === 'sidebar.arabic' ? 'Arabisch' : titleTKey === 'nav.courses' ? 'Kurse' : titleTKey}</span>
+        <span className="truncate">{navLabel(titleTKey)}</span>
         <ChevronDown className={cn('h-3 w-3 shrink-0 motion-safe:transition-transform motion-safe:duration-200', open && 'rotate-180')} />
       </button>
       {open && (
@@ -163,12 +214,16 @@ const adminNavSections: { titleTKey: string; items: AdminNavItem[] }[] = [
     titleTKey: 'sidebar.content',
     items: [
       { href: '/admin/courses', tKey: 'nav.courses', icon: BookOpen, permission: 'courses.view' },
+      { href: '/admin/verbs/dashboard', tKey: 'nav.dashboard', icon: BarChart3, permission: 'courses.view' },
       { href: '/admin/verbs', tKey: 'nav.verbs', icon: BookText, permission: 'courses.view' },
-      { href: '/admin/verbs/import', tKey: 'nav.verb-import', icon: Download, permission: 'courses.view' },
-      { href: '/admin/verbs/sources', tKey: 'nav.verb-sources', icon: Globe, permission: 'courses.view' },
-      { href: '/admin/verbs/audit', tKey: 'nav.verb-audit', icon: ShieldAlert, permission: 'dashboard.view' },
-      { href: '/admin/verbs/quality-check', tKey: 'nav.verb-quality-check', icon: ClipboardCheck, permission: 'dashboard.view' },
-      { href: '/admin/verbs?sort_by=quality_score&sort_order=asc', tKey: 'nav.verb-quality', icon: Star, permission: 'dashboard.view' },
+      { href: '/admin/verbs/published', tKey: 'nav.verbs', icon: CheckCircle2, permission: 'courses.view' },
+      { href: '/admin/verbs/scraping', tKey: 'nav.dictation', icon: Globe, permission: 'courses.view' },
+      { href: '/admin/verbs/scraped', tKey: 'nav.vocabulary', icon: Database, permission: 'courses.view' },
+      { href: '/admin/verbs/import', tKey: 'nav.support', icon: Download, permission: 'courses.view' },
+      { href: '/admin/verbs/review', tKey: 'nav.certificates', icon: Eye, permission: 'courses.view' },
+      { href: '/admin/verbs/publish', tKey: 'nav.level-test', icon: Activity, permission: 'courses.view' },
+      { href: '/admin/verbs/versions', tKey: 'nav.analytics', icon: History, permission: 'courses.view' },
+      { href: '/admin/verbs/quality', tKey: 'nav.exam-prep', icon: Sparkles, permission: 'courses.view' },
     ],
   },
   {
