@@ -1,6 +1,6 @@
 import { getAdminClient } from '../utils'
-import { DashboardStats, ScrapedDataStats } from '../types'
-import { DB_TABLES, CEFR_LEVELS, SCRAPED_DATA_STATUS_LABELS } from '../constants'
+import { DashboardStats } from '../types'
+import { DB_TABLES, CEFR_LEVELS } from '../constants'
 import { getScrapedDataStats } from '../scraping/engine'
 
 export async function getDashboardStats(): Promise<DashboardStats> {
@@ -8,7 +8,8 @@ export async function getDashboardStats(): Promise<DashboardStats> {
 
   const [
     totalResult, cefrResult, typeResult, qualityResult,
-    pendingResult, approvedResult, scrapedStats,
+    pendingResult, approvedResult, scrapedStats, publishedResult,
+    translationResult, partizip2Result, auxiliaryResult,
   ] = await Promise.all([
     admin.from('german_verbs').select('*', { count: 'exact', head: true }),
     admin.from('german_verbs').select('cefr_level'),
@@ -17,6 +18,10 @@ export async function getDashboardStats(): Promise<DashboardStats> {
     admin.from(DB_TABLES.verbReferenceCandidates).select('*', { count: 'exact', head: true }).eq('status', 'PENDING'),
     admin.from(DB_TABLES.verbReferenceCandidates).select('*', { count: 'exact', head: true }).eq('status', 'APPROVED'),
     getScrapedDataStats().catch(() => ({ total: 0, pending: 0, imported: 0, rejected: 0, duplicate: 0, by_source: {}, by_cefr: {} })),
+    admin.from('german_verbs').select('*', { count: 'exact', head: true }),
+    admin.from('german_verbs').select('*', { count: 'exact', head: true }).or('english_translation.is.null,english_translation.eq.'),
+    admin.from('german_verbs').select('*', { count: 'exact', head: true }).or('partizip_2.is.null,partizip_2.eq.'),
+    admin.from('german_verbs').select('*', { count: 'exact', head: true }).or('auxiliary.is.null,auxiliary.eq.'),
   ])
 
   const totalVerbs = totalResult.count ?? 0
@@ -41,6 +46,7 @@ export async function getDashboardStats(): Promise<DashboardStats> {
 
   const pendingReview = pendingResult.count ?? 0
   const pendingApproved = approvedResult.count ?? 0
+  const publishedVerbs = totalVerbs
 
   const [missingConjResult, missingExampleResult] = await Promise.all([
     checkMissingConjugations(admin),
@@ -53,32 +59,30 @@ export async function getDashboardStats(): Promise<DashboardStats> {
 
   return {
     total_verbs: totalVerbs,
-    published_verbs: totalVerbs,
+    published_verbs: publishedVerbs,
     pending_review: pendingReview,
     missing_data: pendingApproved,
     quality_score: qualityScore,
     reflexive_count: typeCounts['reflexive'] ?? 0,
     modal_count: typeCounts['modal'] ?? 0,
     separable_count: typeCounts['separable'] ?? 0,
-    irregular_count: (typeCounts['irregular'] ?? 0) + (typeCounts['mixed'] ?? 0),
-    regular_count: typeCounts['regular'] ?? 0,
+    irregular_count: (typeCounts['irregular'] ?? 0) + (typeCounts['mixed'] ?? 0) + (typeCounts['strong'] ?? 0),
+    regular_count: (typeCounts['regular'] ?? 0) + (typeCounts['weak'] ?? 0),
     cefr_distribution: cefrDistribution,
     missing_conjugations: missingConjResult,
-    missing_translations: 0,
+    missing_translations: translationResult.count ?? 0,
     missing_examples: missingExampleResult,
-    missing_partizip2: 0,
-    missing_auxiliary: 0,
+    missing_partizip2: partizip2Result.count ?? 0,
+    missing_auxiliary: auxiliaryResult.count ?? 0,
     conflicts: conflictData?.length ?? 0,
     scraped_data: scrapedStats,
   }
 }
 
 async function checkMissingConjugations(admin: ReturnType<typeof getAdminClient>): Promise<number> {
-  const { data } = await admin.from('german_verbs').select(`
-    id,
-    verb_conjugations!inner(id)
-  `, { count: 'exact', head: false })
-  return data?.length ?? 0
+  const { count: total } = await admin.from('german_verbs').select('*', { count: 'exact', head: true })
+  const { count: withConj } = await admin.from('german_verbs').select('id, verb_conjugations!inner(id)', { count: 'exact', head: true })
+  return (total ?? 0) - (withConj ?? 0)
 }
 
 async function checkMissingExamples(admin: ReturnType<typeof getAdminClient>): Promise<number> {
@@ -105,7 +109,7 @@ export async function getAllVerbsForAdmin(options?: {
 
   let query = admin
     .from('german_verbs')
-    .select('*, verb_conjugations(*), verb_quality_summary(*)', { count: 'exact' })
+    .select('*, verb_quality_summary(*)', { count: 'exact' })
 
   if (options?.cefrLevel) query = query.eq('cefr_level', options.cefrLevel)
   if (options?.verbType) query = query.eq('verb_type', options.verbType)

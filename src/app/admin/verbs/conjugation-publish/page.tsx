@@ -4,25 +4,26 @@ import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { CheckCircle2, Send, RefreshCw, BookOpen, Globe, History, RotateCcw, Loader2, ChevronRight } from 'lucide-react'
+import { CheckCircle2, Send, RefreshCw, BookOpen, Globe, History, Loader2, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 
-interface PublishCandidate {
-  id: string; infinitive: string; source_name: string; confidence: number
-  cefr_level?: string; verb_type?: string
+interface PublishItem {
+  id: string; infinitive: string; source_name?: string; verb_type?: string
+  cefr_level?: string; auxiliary?: string; separable_prefix?: string
+  conjugations: any; created_at: string
 }
 
-interface PublishLogEntry {
-  id: string; infinitive: string; operation: string; status: string
-  published_at: string; version_id?: string; error_message?: string
+interface PublishLog {
+  id: string; infinitive: string; published_at: string
 }
 
-export default function PublishPage() {
-  const [approvedCandidates, setApprovedCandidates] = useState<PublishCandidate[]>([])
+export default function ConjugationPublishPage() {
+  const [items, setItems] = useState<PublishItem[]>([])
+  const [total, setTotal] = useState(0)
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set())
   const [publishing, setPublishing] = useState(false)
   const [loading, setLoading] = useState(true)
-  const [publishLogs, setPublishLogs] = useState<PublishLogEntry[]>([])
+  const [logs, setLogs] = useState<PublishLog[]>([])
   const [result, setResult] = useState<{ success: number; failed: number; errors: string[] } | null>(null)
 
   useEffect(() => { fetchData() }, [])
@@ -30,24 +31,23 @@ export default function PublishPage() {
   async function fetchData() {
     setLoading(true)
     try {
-      const [candidatesRes, logsRes] = await Promise.all([
-        fetch('/api/admin/verbs/review?approved=true&limit=100'),
-        fetch('/api/admin/verbs/publish?limit=20'),
+      const [queueRes, logsRes] = await Promise.all([
+        fetch('/api/admin/verbs/conjugations/publish?pageSize=100'),
+        fetch('/api/admin/verbs/conjugations/publish?logs=true&limit=20'),
       ])
-      if (candidatesRes.ok) setApprovedCandidates(await candidatesRes.json())
-      if (logsRes.ok) setPublishLogs(await logsRes.json())
+      if (queueRes.ok) { const d = await queueRes.json(); setItems(d.data); setTotal(d.total) }
+      if (logsRes.ok) setLogs(await logsRes.json())
     } finally { setLoading(false) }
   }
 
   async function publishSelected() {
     if (selectedIds.size === 0) return
-    setPublishing(true)
-    setResult(null)
+    setPublishing(true); setResult(null)
     try {
-      const res = await fetch('/api/admin/verbs/publish', {
+      const res = await fetch('/api/admin/verbs/conjugations/publish', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'batch_publish', candidate_ids: Array.from(selectedIds) }),
+        body: JSON.stringify({ ids: Array.from(selectedIds) }),
       })
       if (res.ok) {
         const data = await res.json()
@@ -62,16 +62,18 @@ export default function PublishPage() {
     setSelectedIds(prev => { const next = new Set(prev); if (next.has(id)) next.delete(id); else next.add(id); return next })
   }
   function toggleAll() {
-    if (selectedIds.size === approvedCandidates.length) setSelectedIds(new Set())
-    else setSelectedIds(new Set(approvedCandidates.map(c => c.id)))
+    if (selectedIds.size === items.length) setSelectedIds(new Set())
+    else setSelectedIds(new Set(items.map(i => i.id)))
   }
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold tracking-tight">Publish Center</h1>
+        <div>
+          <h1 className="text-2xl font-bold tracking-tight">Konjugationen Publish</h1>
+          <p className="text-sm text-muted-foreground mt-1">{total} Einträge bereit zur Veröffentlichung</p>
+        </div>
         <div className="flex items-center gap-2">
-          <Link href="/admin/verbs/versions"><Button variant="outline" size="sm"><History className="h-4 w-4 mr-2" />Versionen</Button></Link>
           <Button variant="outline" size="sm" onClick={fetchData}><RefreshCw className="h-4 w-4 mr-2" />Aktualisieren</Button>
         </div>
       </div>
@@ -95,21 +97,21 @@ export default function PublishPage() {
       <Card className="p-6">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h2 className="font-semibold">Freigegebene Kandidaten</h2>
-            <p className="text-sm text-muted-foreground">{approvedCandidates.length} bereit zur Veröffentlichung</p>
+            <h2 className="font-semibold">Freigegebene Konjugationen</h2>
+            <p className="text-sm text-muted-foreground">{items.length} bereit zur Veröffentlichung</p>
           </div>
           <Button onClick={publishSelected} disabled={selectedIds.size === 0 || publishing}>
             {publishing ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <Send className="h-4 w-4 mr-2" />}
-            {selectedIds.size || 'Alle'} veröffentlichen
+            {selectedIds.size || 'Alle'} in Produktion übernehmen
           </Button>
         </div>
-        {approvedCandidates.length === 0 ? (
+        {items.length === 0 ? (
           <div className="text-center py-8">
             <BookOpen className="h-8 w-8 mx-auto mb-2 text-muted-foreground" />
-            <p className="text-muted-foreground">Keine genehmigten Kandidaten.</p>
+            <p className="text-muted-foreground">Keine freigegebenen Konjugationen.</p>
             <div className="flex gap-2 justify-center mt-4">
-              <Link href="/admin/verbs/review"><Button variant="outline" size="sm"><CheckCircle2 className="h-4 w-4 mr-1" />Zum Review</Button></Link>
-              <Link href="/admin/verbs/scraped"><Button variant="outline" size="sm"><Globe className="h-4 w-4 mr-1" />Scraped Data</Button></Link>
+              <Link href="/admin/verbs/conjugation-review"><Button variant="outline" size="sm"><CheckCircle2 className="h-4 w-4 mr-1" />Zum Review</Button></Link>
+              <Link href="/admin/verbs/conjugation-imports"><Button variant="outline" size="sm"><Globe className="h-4 w-4 mr-1" />Import-Queue</Button></Link>
             </div>
           </div>
         ) : (
@@ -117,23 +119,25 @@ export default function PublishPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-accent/30 border-b">
-                  <th className="py-2 px-4 w-8"><input type="checkbox" checked={selectedIds.size === approvedCandidates.length} onChange={toggleAll} className="rounded" /></th>
+                  <th className="py-2 px-4 w-8"><input type="checkbox" checked={selectedIds.size === items.length} onChange={toggleAll} className="rounded" /></th>
                   <th className="text-left py-2 px-4 font-medium">Verb</th>
-                  <th className="text-left py-2 px-4 font-medium">Quelle</th>
-                  <th className="text-left py-2 px-4 font-medium">CEFR</th>
+                  <th className="text-left py-2 px-4 font-medium">Level</th>
                   <th className="text-left py-2 px-4 font-medium">Typ</th>
-                  <th className="text-left py-2 px-4 font-medium">Vertrauen</th>
+                  <th className="text-left py-2 px-4 font-medium">Hilfsverb</th>
+                  <th className="text-left py-2 px-4 font-medium">Präfix</th>
+                  <th className="text-left py-2 px-4 font-medium">Erstellt</th>
                 </tr>
               </thead>
               <tbody>
-                {approvedCandidates.map(c => (
-                  <tr key={c.id} className="border-b last:border-0 hover:bg-accent/30">
-                    <td className="py-2 px-4"><input type="checkbox" checked={selectedIds.has(c.id)} onChange={() => toggle(c.id)} className="rounded" /></td>
-                    <td className="py-2 px-4 font-medium">{c.infinitive}</td>
-                    <td className="py-2 px-4"><Badge variant="outline" className="text-xs">{c.source_name}</Badge></td>
-                    <td className="py-2 px-4">{c.cefr_level || '-'}</td>
-                    <td className="py-2 px-4">{c.verb_type || '-'}</td>
-                    <td className="py-2 px-4">{c.confidence}%</td>
+                {items.map(i => (
+                  <tr key={i.id} className="border-b last:border-0 hover:bg-accent/30">
+                    <td className="py-2 px-4"><input type="checkbox" checked={selectedIds.has(i.id)} onChange={() => toggle(i.id)} className="rounded" /></td>
+                    <td className="py-2 px-4 font-medium">{i.infinitive}</td>
+                    <td className="py-2 px-4">{i.cefr_level || '-'}</td>
+                    <td className="py-2 px-4">{i.verb_type || '-'}</td>
+                    <td className="py-2 px-4">{i.auxiliary || '-'}</td>
+                    <td className="py-2 px-4">{i.separable_prefix || '-'}</td>
+                    <td className="py-2 px-4 text-xs text-muted-foreground">{new Date(i.created_at).toLocaleDateString('de-DE')}</td>
                   </tr>
                 ))}
               </tbody>
@@ -147,24 +151,17 @@ export default function PublishPage() {
           <h2 className="font-semibold">Letzte Veröffentlichungen</h2>
           <Link href="/admin/verbs/versions"><Button variant="ghost" size="sm"><History className="h-3 w-3 mr-1" />Alle Versionen</Button></Link>
         </div>
-        {publishLogs.length === 0 ? (
+        {logs.length === 0 ? (
           <div className="p-8 text-center text-muted-foreground">Noch keine Veröffentlichungen</div>
         ) : (
           <div className="divide-y">
-            {publishLogs.slice(0, 15).map(log => (
+            {logs.slice(0, 15).map(log => (
               <div key={log.id} className="flex items-center justify-between px-6 py-4 hover:bg-accent/30">
                 <div>
                   <p className="font-medium">{log.infinitive}</p>
                   <p className="text-xs text-muted-foreground">{new Date(log.published_at).toLocaleString('de-DE')}</p>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Badge className={`text-xs ${log.operation === 'publish' ? 'bg-green-100 text-green-800' : log.operation === 'update' ? 'bg-blue-100 text-blue-800' : 'bg-gray-100 text-gray-800'}`}>
-                    {log.operation}
-                  </Badge>
-                  <Badge className={`text-xs ${log.status === 'success' || log.status === 'completed' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
-                    {log.status}
-                  </Badge>
-                </div>
+                <Badge className="bg-green-100 text-green-800 text-xs">veröffentlicht</Badge>
               </div>
             ))}
           </div>

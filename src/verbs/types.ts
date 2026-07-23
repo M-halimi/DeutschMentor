@@ -1,4 +1,4 @@
-export type ScrapingJobStatus = 'pending' | 'running' | 'completed' | 'failed' | 'cancelled'
+export type ScrapingJobStatus = 'pending' | 'running' | 'paused' | 'completed' | 'failed' | 'cancelled'
 export type ImportJobStatus = 'pending' | 'running' | 'paused' | 'completed' | 'failed' | 'cancelled'
 export type ImportItemStatus = 'pending' | 'running' | 'completed' | 'failed' | 'skipped' | 'retrying'
 export type CandidateStatus = 'PENDING' | 'APPROVED' | 'REJECTED'
@@ -25,6 +25,7 @@ export interface SourceConfig {
 export interface ScrapingJob {
   id: string
   source: string
+  source_id?: string
   cefr_level?: string
   verb_type?: string
   requested_count: number
@@ -247,7 +248,7 @@ export interface ScrapedVerbResult {
   confidence: number
 }
 
-export type ScrapedDataStatus = 'PENDING' | 'IMPORTED' | 'REJECTED' | 'DUPLICATE'
+export type ScrapedDataStatus = 'PENDING' | 'IMPORTED' | 'REJECTED' | 'DUPLICATE' | 'CONJUGATION_GENERATED'
 
 export interface ScrapedDataRecord {
   id: string
@@ -273,6 +274,7 @@ export interface ScrapedDataRecord {
   antonyms: string[]
   source_name: string
   source_url?: string
+  source_id?: string
   confidence: number
   status: ScrapedDataStatus
   job_id?: string
@@ -289,6 +291,74 @@ export interface ScrapedDataStats {
   duplicate: number
   by_source: Record<string, number>
   by_cefr: Record<string, number>
+}
+
+export type ConjugationImportStatus = 'pending_review' | 'IN_REVIEW' | 'APPROVED' | 'REJECTED' | 'PUBLISHED'
+export type ConjugationReviewAction = 'approved' | 'rejected' | 'edited' | 'skipped'
+
+export interface ConjugationImport {
+  id: string
+  scraped_data_id?: string
+  infinitive: string
+  translation?: string
+  cefr_level?: string
+  verb_type?: string
+  source_name: string
+  auxiliary?: string
+  separable_prefix?: string
+  is_reflexive: boolean
+  reflexive_pronoun?: string
+  conjugations: Record<string, Record<string, string>>
+  irregular_changes: Record<string, unknown>
+  quality_score: number
+  status: ConjugationImportStatus
+  job_id?: string
+  created_by?: string
+  created_at: string
+  updated_at: string
+}
+
+export interface ConjugationReview {
+  id: string
+  conjugation_import_id: string
+  infinitive: string
+  reviewed_conjugations: Record<string, Record<string, string>>
+  reviewed_auxiliary?: string
+  reviewed_separable?: string
+  reviewed_reflexive: boolean
+  reviewer_id?: string
+  action: ConjugationReviewAction
+  edit_data?: Record<string, unknown>
+  notes?: string
+  created_at: string
+  reviewed_at?: string
+}
+
+export interface ConjugationPublishQueueItem {
+  id: string
+  conjugation_import_id: string
+  review_id?: string
+  infinitive: string
+  conjugations: Record<string, Record<string, string>>
+  auxiliary?: string
+  separable_prefix?: string
+  is_reflexive: boolean
+  reflexive_pronoun?: string
+  verb_type?: string
+  cefr_level?: string
+  source_name?: string
+  published: boolean
+  published_at?: string
+  published_by?: string
+  created_at: string
+}
+
+export interface ConjugationGenerationResult {
+  total_scraped: number
+  total_generated: number
+  total_skipped: number
+  total_failed: number
+  errors: string[]
 }
 
 export interface DashboardStats {

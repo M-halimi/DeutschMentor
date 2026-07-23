@@ -190,6 +190,292 @@ export class CustomJsonAdapter implements SourceAdapter {
   }
 }
 
+export class DudenAdapter implements SourceAdapter {
+  name = 'Duden'
+  confidence = 92
+
+  async scrape(infinitive: string): Promise<ScrapedVerbResult | null> {
+    const url = `https://www.duden.de/rechtschreibung/${encodeURIComponent(infinitive)}`
+    try {
+      const response = await fetch(url, { headers: { 'User-Agent': 'DeutschMentor/1.0' } })
+      if (!response.ok) return null
+      const html = await response.text()
+      return parseDudenHtml(html, infinitive, url)
+    } catch {
+      return null
+    }
+  }
+
+  async search(term: string, options?: { limit?: number }): Promise<ScrapedVerbResult[]> {
+    const limit = options?.limit ?? 20
+    const results: ScrapedVerbResult[] = []
+    const searchUrl = `https://www.duden.de/suchen/dudenonline/${encodeURIComponent(term)}`
+    try {
+      const response = await fetch(searchUrl, { headers: { 'User-Agent': 'DeutschMentor/1.0' } })
+      if (!response.ok) return results
+      const html = await response.text()
+      const words = extractDudenVerbs(html)
+      const batch = await Promise.allSettled(words.slice(0, limit).map(v => this.scrape(v)))
+      for (const item of batch) {
+        if (item.status === 'fulfilled' && item.value) results.push(item.value)
+      }
+    } catch { /* ignore */ }
+    return results
+  }
+
+  validate(result: ScrapedVerbResult): { valid: boolean; errors: string[] } {
+    const errors: string[] = []
+    if (!result.infinitive) errors.push('Missing infinitive')
+    return { valid: errors.length === 0, errors }
+  }
+}
+
+export class PONSAdapter implements SourceAdapter {
+  name = 'PONS'
+  confidence = 82
+
+  async scrape(infinitive: string): Promise<ScrapedVerbResult | null> {
+    const url = `https://de.pons.com/verbtabelle/deutsch/${encodeURIComponent(infinitive)}`
+    try {
+      const response = await fetch(url, { headers: { 'User-Agent': 'DeutschMentor/1.0' } })
+      if (!response.ok) return null
+      const html = await response.text()
+      return parsePONSHtml(html, infinitive, url)
+    } catch {
+      return null
+    }
+  }
+
+  async search(term: string, options?: { limit?: number }): Promise<ScrapedVerbResult[]> {
+    const limit = options?.limit ?? 20
+    const results: ScrapedVerbResult[] = []
+    const searchUrl = `https://de.pons.com/übersetzung?q=${encodeURIComponent(term)}&l=deen`
+    try {
+      const response = await fetch(searchUrl, { headers: { 'User-Agent': 'DeutschMentor/1.0' } })
+      if (!response.ok) return results
+      const html = await response.text()
+      const words = extractPONSVerbs(html)
+      const batch = await Promise.allSettled(words.slice(0, limit).map(v => this.scrape(v)))
+      for (const item of batch) {
+        if (item.status === 'fulfilled' && item.value) results.push(item.value)
+      }
+    } catch { /* ignore */ }
+    return results
+  }
+
+  validate(result: ScrapedVerbResult): { valid: boolean; errors: string[] } {
+    const errors: string[] = []
+    if (!result.infinitive) errors.push('Missing infinitive')
+    return { valid: errors.length === 0, errors }
+  }
+}
+
+export class LEOAdapter implements SourceAdapter {
+  name = 'LEO'
+  confidence = 78
+
+  async scrape(infinitive: string): Promise<ScrapedVerbResult | null> {
+    const url = `https://dict.leo.org/englisch-deutsch/${encodeURIComponent(infinitive)}`
+    try {
+      const response = await fetch(url, { headers: { 'User-Agent': 'DeutschMentor/1.0' } })
+      if (!response.ok) return null
+      const html = await response.text()
+      const result: ScrapedVerbResult = {
+        infinitive, source_name: 'LEO', source_url: url, confidence: 78,
+      }
+      const extracts = extractHtmlData(html, {
+        translation: /<span[^>]*class="[^"]*translation[^"]*"[^>]*>([^<]+)<\/span>/i,
+        partizip_2: /Partizip[^:]*Perfekt[^:]*:\s*([^<\s]+)/i,
+      })
+      if (extracts.translation) result.translation = extracts.translation.trim()
+      if (extracts.partizip_2) result.partizip_2 = extracts.partizip_2.trim()
+      result.conjugations = extractConjugationTables(html)
+      return result
+    } catch { return null }
+  }
+
+  async search(term: string, options?: { limit?: number }): Promise<ScrapedVerbResult[]> {
+    const results: ScrapedVerbResult[] = []
+    const limit = options?.limit ?? 20
+    try {
+      const url = `https://dict.leo.org/englisch-deutsch/${encodeURIComponent(term)}`
+      const response = await fetch(url, { headers: { 'User-Agent': 'DeutschMentor/1.0' } })
+      if (!response.ok) return results
+      const html = await response.text()
+      const words: string[] = []
+      const regex = /<a[^>]*href="[^"]*\/([a-zäöüß]+(?:en|n|t|e))"[^>]*class="[^"]*dictLink[^"]*"/gi
+      let m: RegExpExecArray | null
+      while ((m = regex.exec(html)) !== null && words.length < limit) {
+        if (m[1].endsWith('en') && !words.includes(m[1])) words.push(m[1])
+      }
+      const batch = await Promise.allSettled(words.slice(0, limit).map(v => this.scrape(v)))
+      for (const item of batch) {
+        if (item.status === 'fulfilled' && item.value) results.push(item.value)
+      }
+    } catch { /* ignore */ }
+    return results
+  }
+
+  validate(result: ScrapedVerbResult): { valid: boolean; errors: string[] } {
+    return { valid: !!result.infinitive, errors: result.infinitive ? [] : ['Missing infinitive'] }
+  }
+}
+
+export class CollinsAdapter implements SourceAdapter {
+  name = 'Collins'
+  confidence = 80
+
+  async scrape(infinitive: string): Promise<ScrapedVerbResult | null> {
+    const url = `https://www.collinsdictionary.com/conjugation/german/${encodeURIComponent(infinitive)}`
+    try {
+      const response = await fetch(url, { headers: { 'User-Agent': 'DeutschMentor/1.0' } })
+      if (!response.ok) return null
+      const html = await response.text()
+      const result: ScrapedVerbResult = {
+        infinitive, source_name: 'Collins', source_url: url, confidence: 80,
+      }
+      const extracts = extractHtmlData(html, {
+        translation: /<span[^>]*class="[^"]*content[^"]*"[^>]*>([^<]+)<\/span>/i,
+        auxiliary: /Hilfsverb[^:]*:\s*([^<\s]+)/i,
+        partizip_2: /Partizip[^:]*II[^:]*:\s*([^<\s]+)/i,
+      })
+      if (extracts.translation) result.translation = extracts.translation.trim()
+      if (extracts.auxiliary) result.auxiliary = extracts.auxiliary.trim().toLowerCase()
+      if (extracts.partizip_2) result.partizip_2 = extracts.partizip_2.trim()
+      result.conjugations = extractConjugationTables(html)
+      return result
+    } catch { return null }
+  }
+
+  async search(term: string, options?: { limit?: number }): Promise<ScrapedVerbResult[]> {
+    const results: ScrapedVerbResult[] = []
+    const limit = options?.limit ?? 20
+    try {
+      const url = `https://www.collinsdictionary.com/search/?q=${encodeURIComponent(term)}&dict=conjugation`
+      const response = await fetch(url, { headers: { 'User-Agent': 'DeutschMentor/1.0' } })
+      if (!response.ok) return results
+      const html = await response.text()
+      const words: string[] = []
+      const regex = /<a[^>]*href="\/conjugation\/german\/([^"&?]+)"/gi
+      let m: RegExpExecArray | null
+      while ((m = regex.exec(html)) !== null && words.length < limit) {
+        const w = decodeURIComponent(m[1])
+        if (!words.includes(w)) words.push(w)
+      }
+      const batch = await Promise.allSettled(words.slice(0, limit).map(v => this.scrape(v)))
+      for (const item of batch) {
+        if (item.status === 'fulfilled' && item.value) results.push(item.value)
+      }
+    } catch { /* ignore */ }
+    return results
+  }
+
+  validate(result: ScrapedVerbResult): { valid: boolean; errors: string[] } {
+    return { valid: !!result.infinitive, errors: result.infinitive ? [] : ['Missing infinitive'] }
+  }
+}
+
+export class ReversoAdapter implements SourceAdapter {
+  name = 'Reverso'
+  confidence = 72
+
+  async scrape(infinitive: string): Promise<ScrapedVerbResult | null> {
+    const url = `https://context.reverso.net/übersetzung/deutsch-englisch/${encodeURIComponent(infinitive)}`
+    try {
+      const response = await fetch(url, { headers: { 'User-Agent': 'DeutschMentor/1.0' } })
+      if (!response.ok) return null
+      const html = await response.text()
+      const result: ScrapedVerbResult = {
+        infinitive, source_name: 'Reverso', source_url: url, confidence: 72,
+      }
+      const extracts = extractHtmlData(html, {
+        translation: /<span[^>]*class="[^"]*translation[^"]*"[^>]*>([^<]+)<\/span>/i,
+      })
+      if (extracts.translation) result.translation = extracts.translation.trim()
+      return result
+    } catch { return null }
+  }
+
+  async search(term: string, options?: { limit?: number }): Promise<ScrapedVerbResult[]> {
+    const results: ScrapedVerbResult[] = []
+    const limit = options?.limit ?? 20
+    try {
+      const url = `https://context.reverso.net/übersetzung/deutsch-englisch/${encodeURIComponent(term)}`
+      const response = await fetch(url, { headers: { 'User-Agent': 'DeutschMentor/1.0' } })
+      if (!response.ok) return results
+      const html = await response.text()
+      const words: string[] = []
+      const regex = /<a[^>]*href="\/übersetzung\/[^"]+\/([a-zäöüß-]+)"/gi
+      let m: RegExpExecArray | null
+      while ((m = regex.exec(html)) !== null && words.length < limit) {
+        const w = decodeURIComponent(m[1])
+        if (w.endsWith('en') && !words.includes(w)) words.push(w)
+      }
+      const batch = await Promise.allSettled(words.slice(0, limit).map(v => this.scrape(v)))
+      for (const item of batch) {
+        if (item.status === 'fulfilled' && item.value) results.push(item.value)
+      }
+    } catch { /* ignore */ }
+    return results
+  }
+
+  validate(result: ScrapedVerbResult): { valid: boolean; errors: string[] } {
+    return { valid: !!result.infinitive, errors: result.infinitive ? [] : ['Missing infinitive'] }
+  }
+}
+
+export class OpenThesaurusAdapter implements SourceAdapter {
+  name = 'OpenThesaurus'
+  confidence = 70
+
+  async scrape(infinitive: string): Promise<ScrapedVerbResult | null> {
+    const url = `https://www.openthesaurus.de/synonyme/${encodeURIComponent(infinitive)}`
+    try {
+      const response = await fetch(url, { headers: { 'User-Agent': 'DeutschMentor/1.0' } })
+      if (!response.ok) return null
+      const html = await response.text()
+      const synonyms: string[] = []
+      const regex = /<a[^>]*href="\/synonyme\/([^"#]+)"[^>]*class="[^"]*synonym[^"]*"/gi
+      let m: RegExpExecArray | null
+      while ((m = regex.exec(html)) !== null) {
+        const w = decodeURIComponent(m[1]).replace(/_/g, ' ')
+        if (w !== infinitive && !synonyms.includes(w)) synonyms.push(w)
+      }
+      return {
+        infinitive, synonyms,
+        source_name: 'OpenThesaurus', source_url: url, confidence: 70,
+      }
+    } catch { return null }
+  }
+
+  async search(term: string, options?: { limit?: number }): Promise<ScrapedVerbResult[]> {
+    const results: ScrapedVerbResult[] = []
+    const limit = options?.limit ?? 20
+    try {
+      const url = `https://www.openthesaurus.de/synonyme/search?q=${encodeURIComponent(term)}`
+      const response = await fetch(url, { headers: { 'User-Agent': 'DeutschMentor/1.0' } })
+      if (!response.ok) return results
+      const html = await response.text()
+      const words: string[] = []
+      const regex = /<a[^>]*href="\/synonyme\/([^"#]+)"/gi
+      let m: RegExpExecArray | null
+      while ((m = regex.exec(html)) !== null && words.length < limit) {
+        const w = decodeURIComponent(m[1]).replace(/_/g, ' ')
+        if (!words.includes(w)) words.push(w)
+      }
+      const batch = await Promise.allSettled(words.slice(0, limit).map(v => this.scrape(v)))
+      for (const item of batch) {
+        if (item.status === 'fulfilled' && item.value) results.push(item.value)
+      }
+    } catch { /* ignore */ }
+    return results
+  }
+
+  validate(result: ScrapedVerbResult): { valid: boolean; errors: string[] } {
+    return { valid: !!result.infinitive, errors: result.infinitive ? [] : ['Missing infinitive'] }
+  }
+}
+
 function extractInfinitivesFromSearchResults(html: string): string[] {
   const infinitives: string[] = []
   const regex = /<a[^>]*class="[^"]*verb[^"]*"[^>]*href="[^"]*\/conjugation\/\?w=([^"&]+)"/g
@@ -224,6 +510,68 @@ function extractCanoonetVerbs(html: string): string[] {
     if (word.endsWith('en')) verbs.push(word)
   }
   return [...new Set(verbs)]
+}
+
+function extractDudenVerbs(html: string): string[] {
+  const verbs: string[] = []
+  const regex = /<a[^>]*href="\/rechtschreibung\/([^"&?]+)"/g
+  let match: RegExpExecArray | null
+  while ((match = regex.exec(html)) !== null) {
+    const word = decodeURIComponent(match[1])
+    if (word.endsWith('en')) verbs.push(word)
+  }
+  return [...new Set(verbs)]
+}
+
+function extractPONSVerbs(html: string): string[] {
+  const verbs: string[] = []
+  const regex = /<a[^>]*href="\/verbtabelle\/[^"]+\/([^"&?]+)"/g
+  let match: RegExpExecArray | null
+  while ((match = regex.exec(html)) !== null) {
+    const word = decodeURIComponent(match[1])
+    if (word.endsWith('en')) verbs.push(word)
+  }
+  return [...new Set(verbs)]
+}
+
+function parseDudenHtml(html: string, infinitive: string, url: string): ScrapedVerbResult {
+  const result: ScrapedVerbResult = {
+    infinitive,
+    source_name: 'Duden',
+    source_url: url,
+    confidence: 92,
+  }
+  const extracts = extractHtmlData(html, {
+    translation: /Bedeutung[^:]*:\s*([^<]+)/i,
+    partizip_2: /Partizip II[^:]*:\s*([^<\s]+)/i,
+    auxiliary: /Hilfsverb[^:]*:\s*([^<\s]+)/i,
+    ipa: /\/([^\/]+)\//,
+  })
+  if (extracts.translation) result.translation = extracts.translation.trim()
+  if (extracts.partizip_2) result.partizip_2 = extracts.partizip_2.trim()
+  if (extracts.auxiliary) result.auxiliary = extracts.auxiliary.trim().toLowerCase()
+  if (extracts.ipa) result.ipa = extracts.ipa.trim()
+  result.conjugations = extractConjugationTables(html)
+  return result
+}
+
+function parsePONSHtml(html: string, infinitive: string, url: string): ScrapedVerbResult {
+  const result: ScrapedVerbResult = {
+    infinitive,
+    source_name: 'PONS',
+    source_url: url,
+    confidence: 82,
+  }
+  const extracts = extractHtmlData(html, {
+    translation: /Übersetzung[^:]*:\s*([^<]+)/i,
+    partizip_2: /Partizip II[^:]*:\s*([^<\s<]+)/i,
+    auxiliary: /Hilfsverb[^:]*:\s*([^<\s]+)/i,
+  })
+  if (extracts.translation) result.translation = extracts.translation.trim()
+  if (extracts.partizip_2) result.partizip_2 = extracts.partizip_2.trim()
+  if (extracts.auxiliary) result.auxiliary = extracts.auxiliary.trim().toLowerCase()
+  result.conjugations = extractConjugationTables(html)
+  return result
 }
 
 function parseVerbformenHtml(html: string, infinitive: string, url: string): ScrapedVerbResult {
@@ -318,26 +666,40 @@ function extractHtmlData(html: string, patterns: Record<string, RegExp>): Record
 function extractConjugationTables(html: string): Record<string, Record<string, string>> {
   const conjugations: Record<string, Record<string, string>> = {}
   const tensePatterns: Record<string, RegExp> = {
-    praesens: /Präsens[\s\S]*?<table[^>]*>([\s\S]*?)<\/table>/i,
-    praeteritum: /Präteritum[\s\S]*?<table[^>]*>([\s\S]*?)<\/table>/i,
-    perfekt: /Perfekt[\s\S]*?<table[^>]*>([\s\S]*?)<\/table>/i,
-    plusquamperfekt: /Plusquamperfekt[\s\S]*?<table[^>]*>([\s\S]*?)<\/table>/i,
-    futur_i: /Futur I[\s\S]*?<table[^>]*>([\s\S]*?)<\/table>/i,
-    konjunktiv_ii: /Konjunktiv II[\s\S]*?<table[^>]*>([\s\S]*?)<\/table>/i,
-    imperativ: /Imperativ[\s\S]*?<table[^>]*>([\s\S]*?)<\/table>/i,
+    praesens: /(?:Präsens|Pr\u00e4sens)[\s\S]*?(?:<table[^>]*>([\s\S]*?)<\/table>|<div[^>]*class="[^"]*conjugation[^"]*"[\s\S]*?>([\s\S]*?)<\/div>)/i,
+    praeteritum: /(?:Präteritum|Pr\u00e4teritum|Imperfekt)[\s\S]*?(?:<table[^>]*>([\s\S]*?)<\/table>|<div[^>]*class="[^"]*conjugation[^"]*"[\s\S]*?>([\s\S]*?)<\/div>)/i,
+    perfekt: /(?:Perfekt|Vollendete Gegenwart)[\s\S]*?(?:<table[^>]*>([\s\S]*?)<\/table>|<div[^>]*class="[^"]*conjugation[^"]*"[\s\S]*?>([\s\S]*?)<\/div>)/i,
+    plusquamperfekt: /(?:Plusquamperfekt|Vorvergangenheit)[\s\S]*?(?:<table[^>]*>([\s\S]*?)<\/table>|<div[^>]*class="[^"]*conjugation[^"]*"[\s\S]*?>([\s\S]*?)<\/div>)/i,
+    futur_i: /Futur (?:I|1)[\s\S]*?(?:<table[^>]*>([\s\S]*?)<\/table>|<div[^>]*class="[^"]*conjugation[^"]*"[\s\S]*?>([\s\S]*?)<\/div>)/i,
+    futur_ii: /Futur (?:II|2)[\s\S]*?(?:<table[^>]*>([\s\S]*?)<\/table>|<div[^>]*class="[^"]*conjugation[^"]*"[\s\S]*?>([\s\S]*?)<\/div>)/i,
+    konjunktiv_i: /Konjunktiv (?:I|1)[\s\S]*?(?:<table[^>]*>([\s\S]*?)<\/table>|<div[^>]*class="[^"]*conjugation[^"]*"[\s\S]*?>([\s\S]*?)<\/div>)/i,
+    konjunktiv_ii: /Konjunktiv (?:II|2)[\s\S]*?(?:<table[^>]*>([\s\S]*?)<\/table>|<div[^>]*class="[^"]*conjugation[^"]*"[\s\S]*?>([\s\S]*?)<\/div>)/i,
+    imperativ: /Imperativ[\s\S]*?(?:<table[^>]*>([\s\S]*?)<\/table>|<div[^>]*class="[^"]*conjugation[^"]*"[\s\S]*?>([\s\S]*?)<\/div>)/i,
+    passiv: /(?:Passiv|Vorgangspassiv|Zustandspassiv)[\s\S]*?(?:<table[^>]*>([\s\S]*?)<\/table>|<div[^>]*class="[^"]*conjugation[^"]*"[\s\S]*?>([\s\S]*?)<\/div>)/i,
   }
   for (const [tense, pattern] of Object.entries(tensePatterns)) {
     const match = html.match(pattern)
     if (match) {
+      const tableContent = match[1] || match[2] || ''
       const forms: Record<string, string> = {}
-      const personRegex = /<td[^>]*>\s*(ich|du|er|sie|es|wir|ihr|Sie)\s*<\/td>\s*<td[^>]*>\s*([^<]+)\s*<\/td>/gi
+      const personRegex = /(?:<td[^>]*>|<span[^>]*class="[^"]*person[^"]*"[^>]*>)\s*(ich|du|er|sie|es|wir|ihr|Sie)\s*(?:<\/td>|<\/span>)\s*(?:<td[^>]*>|<span[^>]*class="[^"]*form[^"]*"[^>]*>)\s*([^<]+)\s*(?:<\/td>|<\/span>)/gi
       let personMatch: RegExpExecArray | null
-      while ((personMatch = personRegex.exec(match[1])) !== null) {
+      while ((personMatch = personRegex.exec(tableContent)) !== null) {
         const person = personMatch[1].toLowerCase()
         const form = personMatch[2].trim()
         if (person === 'sie' && !forms['sie']) forms['sie'] = form
         else if (person === 'er') forms['er_sie_es'] = form
         else forms[person] = form
+      }
+      const fallbackRegex = /([\wäöüß]+)\s+(\w+)\s+(\w+)\s+(\w+)\s+(\w+)\s+(\w+)/i
+      if (Object.keys(forms).length === 0) {
+        const fallback = tableContent.match(fallbackRegex)
+        if (fallback) {
+          const personKeys = ['ich', 'du', 'er_sie_es', 'wir', 'ihr', 'Sie']
+          for (let i = 0; i < personKeys.length && i + 1 < fallback.length; i++) {
+            forms[personKeys[i]] = fallback[i + 1]
+          }
+        }
       }
       if (Object.keys(forms).length > 0) conjugations[tense] = forms
     }

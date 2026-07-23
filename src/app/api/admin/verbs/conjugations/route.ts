@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { requireAdmin, handleError } from '@/lib/api/route-utils'
-import { getScrapedData, getScrapedDataStats, importScrapedDataToCandidates, rejectScrapedData } from '@/verbs/scraping/engine'
-import { generateConjugations } from '@/verbs/conjugation/generator'
+import { getConjugationImports, getConjugationImportStats, deleteConjugationImports, sendConjugationToReview } from '@/verbs/conjugation/generator'
 
 export async function GET(request: NextRequest) {
   const auth = await requireAdmin()
@@ -9,16 +8,18 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
     if (searchParams.get('stats') === 'true') {
-      const stats = await getScrapedDataStats()
+      const stats = await getConjugationImportStats()
       return NextResponse.json(stats)
     }
-    const result = await getScrapedData({
+    const result = await getConjugationImports({
       status: searchParams.get('status') || undefined,
       source: searchParams.get('source') || undefined,
       cefr_level: searchParams.get('cefr_level') || undefined,
       search: searchParams.get('search') || undefined,
       page: parseInt(searchParams.get('page') || '1'),
-      pageSize: parseInt(searchParams.get('pageSize') || '50'),
+      pageSize: parseInt(searchParams.get('pageSize') || '25'),
+      sort_by: searchParams.get('sort_by') || undefined,
+      sort_order: (searchParams.get('sort_order') as 'asc' | 'desc') || undefined,
     })
     return NextResponse.json(result)
   } catch (error) {
@@ -36,17 +37,13 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'ids array is required' }, { status: 400 })
     }
     switch (body.action) {
-      case 'import': {
-        const count = await importScrapedDataToCandidates(body.ids)
-        return NextResponse.json({ imported: count })
+      case 'send_to_review': {
+        const count = await sendConjugationToReview(body.ids)
+        return NextResponse.json({ sent: count })
       }
       case 'reject': {
-        const count = await rejectScrapedData(body.ids)
+        const count = await deleteConjugationImports(body.ids)
         return NextResponse.json({ rejected: count })
-      }
-      case 'generate_conjugations': {
-        const result = await generateConjugations(body.ids, auth.user.id)
-        return NextResponse.json(result)
       }
       default:
         return NextResponse.json({ error: 'Invalid action' }, { status: 400 })

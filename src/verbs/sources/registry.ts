@@ -1,4 +1,4 @@
-import { SourceAdapter, VerbformenAdapter, WiktionaryAdapter, CanoonetAdapter, DWDSAdapter, CustomJsonAdapter } from './adapters'
+import { SourceAdapter, VerbformenAdapter, WiktionaryAdapter, CanoonetAdapter, DWDSAdapter, CustomJsonAdapter, DudenAdapter, PONSAdapter, LEOAdapter, CollinsAdapter, ReversoAdapter, OpenThesaurusAdapter } from './adapters'
 
 const adapterRegistry = new Map<string, SourceAdapter>()
 
@@ -36,9 +36,15 @@ export function registerAdapter(adapter: SourceAdapter): void {
 export function registerDefaultAdapters(): void {
   const adapters: SourceAdapter[] = [
     new VerbformenAdapter(),
-    new WiktionaryAdapter(),
-    new CanoonetAdapter(),
     new DWDSAdapter(),
+    new DudenAdapter(),
+    new CanoonetAdapter(),
+    new WiktionaryAdapter(),
+    new PONSAdapter(),
+    new LEOAdapter(),
+    new CollinsAdapter(),
+    new ReversoAdapter(),
+    new OpenThesaurusAdapter(),
     new CustomJsonAdapter(),
   ]
   for (const adapter of adapters) {

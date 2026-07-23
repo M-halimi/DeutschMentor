@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { requireAdmin, handleError } from '@/lib/api/route-utils'
-import { createScrapingJob, executeScrapingJob, listScrapingJobs, getScrapingJob, cancelScrapingJob } from '@/verbs/scraping/engine'
+import { createScrapingJob, executeScrapingJob, listScrapingJobs, getScrapingJob, cancelScrapingJob, validateSourceForScraping } from '@/verbs/scraping/engine'
 
 export async function POST(request: NextRequest) {
   const auth = await requireAdmin()
@@ -8,10 +8,27 @@ export async function POST(request: NextRequest) {
 
   try {
     const body = await request.json()
-    if (!body.source) return NextResponse.json({ error: 'Source is required' }, { status: 400 })
+
+    let sources: string[] = []
+    if (body.sources && Array.isArray(body.sources)) {
+      sources = body.sources.filter(Boolean)
+    } else if (body.source) {
+      sources = [body.source]
+    }
+
+    if (sources.length === 0) {
+      return NextResponse.json({ error: 'At least one source is required. Select from the available sources list.' }, { status: 400 })
+    }
+
+    for (const src of sources) {
+      const validation = await validateSourceForScraping(src)
+      if (!validation.valid) {
+        return NextResponse.json({ error: `Source "${src}": ${validation.error}` }, { status: 400 })
+      }
+    }
 
     const job = await createScrapingJob({
-      source: body.source,
+      sources,
       cefr_level: body.cefr_level || 'all',
       verb_type: body.verb_type,
       limit: body.limit || 20,

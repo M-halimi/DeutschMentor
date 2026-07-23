@@ -89,6 +89,10 @@ export const DB_TABLES = {
   verbQualityFindings: 'verb_quality_findings',
   verbQualitySummary: 'verb_quality_summary',
   verbScrapedData: 'verb_scraped_data',
+  verbScrapingResults: 'verb_scraping_results',
+  verbConjugationImports: 'verb_conjugation_imports',
+  verbConjugationReview: 'verb_conjugation_review',
+  verbConjugationPublishQueue: 'verb_conjugation_publish_queue',
 } as const
 
 export const MISSING_DATA_OPTIONS = [
@@ -105,4 +109,23 @@ export const SCRAPED_DATA_STATUS_LABELS: Record<string, string> = {
   IMPORTED: 'Importiert',
   REJECTED: 'Abgelehnt',
   DUPLICATE: 'Duplikat',
+  CONJUGATION_GENERATED: 'Konjugationen generiert',
 }
+
+export const CONJUGATION_IMPORT_STATUS_LABELS: Record<string, string> = {
+  pending_review: 'Ausstehend',
+  IN_REVIEW: 'Im Review',
+  APPROVED: 'Genehmigt',
+  REJECTED: 'Abgelehnt',
+  PUBLISHED: 'Veröffentlicht',
+}
+
+export const CONJUGATION_IMPORT_STATUS_BADGE: Record<string, string> = {
+  pending_review: 'bg-blue-100 text-blue-800',
+  IN_REVIEW: 'bg-yellow-100 text-yellow-800',
+  APPROVED: 'bg-green-100 text-green-800',
+  REJECTED: 'bg-red-100 text-red-800',
+  PUBLISHED: 'bg-purple-100 text-purple-800',
+}
+
+export const TENSE_ORDER = ['praesens', 'praeteritum', 'perfekt', 'plusquamperfekt', 'futur_i', 'futur_ii', 'konjunktiv_i', 'konjunktiv_ii', 'imperativ', 'passiv'] as const

@@ -5,17 +5,12 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Sparkles, AlertTriangle, CheckCircle2, XCircle, RefreshCw, Loader2, Search, ChevronRight } from 'lucide-react'
+import { Sparkles, AlertTriangle, CheckCircle2, XCircle, RefreshCw, Loader2, Search, ChevronRight, Info } from 'lucide-react'
 
 interface QualitySummary {
-  verb_id: string
-  quality_score: number
-  total_issues: number
-  error_count: number
-  warning_count: number
-  info_count: number
-  audit_status: string
-  last_audited_at?: string
+  verb_id: string; quality_score: number; total_issues: number
+  error_count: number; warning_count: number; info_count: number
+  audit_status: string; last_audited_at?: string
 }
 
 export default function QualityPage() {
@@ -26,6 +21,7 @@ export default function QualityPage() {
   const [score, setScore] = useState(0)
   const [search, setSearch] = useState('')
   const [filterStatus, setFilterStatus] = useState('')
+  const [verbIdFilter, setVerbIdFilter] = useState('')
 
   useEffect(() => { fetchData() }, [])
 
@@ -48,7 +44,7 @@ export default function QualityPage() {
   async function fetchVerbNames(ids: string[]) {
     if (ids.length === 0) return
     try {
-      const params = new URLSearchParams({ pageSize: String(ids.length) })
+      const params = new URLSearchParams({ pageSize: String(Math.min(ids.length, 1000)) })
       const res = await fetch(`/api/admin/verbs?${params}`)
       if (res.ok) {
         const data = await res.json()
@@ -56,35 +52,44 @@ export default function QualityPage() {
         for (const v of data.data) map[v.id] = v.infinitive
         setVerbs(map)
       }
-    } catch { /* ignore */ }
+    } catch {}
   }
 
   async function runAudit() {
     setAuditing(true)
     try {
       await fetch('/api/admin/verbs/quality', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({}),
       })
       await fetchData()
     } finally { setAuditing(false) }
   }
 
-  function getScoreBadge(s: number) {
+  const filtered = summaries
+    .filter(s => !filterStatus || s.audit_status === filterStatus)
+    .sort((a, b) => a.quality_score - b.quality_score)
+
+  const searched = search
+    ? filtered.filter(s => {
+        const name = verbs[s.verb_id] || ''
+        return name.toLowerCase().includes(search.toLowerCase())
+      })
+    : filtered
+
+  const verbSpecific = verbIdFilter
+    ? searched.filter(s => s.verb_id === verbIdFilter)
+    : searched
+
+  function ScoreBadge({ score: s }: { score: number }) {
     if (s >= 80) return <Badge className="bg-green-100 text-green-800">{s}</Badge>
     if (s >= 50) return <Badge className="bg-yellow-100 text-yellow-800">{s}</Badge>
     return <Badge className="bg-red-100 text-red-800">{s}</Badge>
   }
 
-  const filtered = summaries
-    .filter(s => !filterStatus || s.audit_status === filterStatus)
-    .sort((a, b) => a.quality_score - b.quality_score)
-    .slice(0, 200)
-
-  const searched = search
-    ? filtered.filter(s => (verbs[s.verb_id] || '').toLowerCase().includes(search.toLowerCase()))
-    : filtered
+  const passedCount = summaries.filter(s => s.audit_status === 'passed').length
+  const failedCount = summaries.filter(s => s.audit_status === 'failed').length
+  const totalIssues = summaries.reduce((sum, s) => sum + s.total_issues, 0)
 
   return (
     <div className="space-y-6">
@@ -101,56 +106,76 @@ export default function QualityPage() {
         </div>
       </div>
 
+      {summaries.length > 0 && (
+        <div className="grid grid-cols-4 gap-3">
+          <Card className="p-4 text-center">
+            <p className="text-xs text-muted-foreground">Auditiert</p>
+            <p className="text-2xl font-bold">{summaries.length}</p>
+          </Card>
+          <Card className="p-4 text-center">
+            <p className="text-xs text-muted-foreground">Bestanden</p>
+            <p className="text-2xl font-bold text-green-600">{passedCount}</p>
+          </Card>
+          <Card className="p-4 text-center">
+            <p className="text-xs text-muted-foreground">Fehlgeschlagen</p>
+            <p className="text-2xl font-bold text-red-600">{failedCount}</p>
+          </Card>
+          <Card className="p-4 text-center">
+            <p className="text-xs text-muted-foreground">Issues gesamt</p>
+            <p className="text-2xl font-bold text-amber-600">{totalIssues}</p>
+          </Card>
+        </div>
+      )}
+
       <Card>
-        <div className="p-4 border-b flex items-center justify-between">
-          <h2 className="font-semibold">Qualitätsübersicht</h2>
-          <div className="flex items-center gap-2">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3 w-3 text-muted-foreground" />
-              <input
-                type="text" placeholder="Verb suchen..." className="rounded-lg border pl-8 pr-3 py-1.5 text-xs bg-background w-48"
-                value={search} onChange={e => setSearch(e.target.value)}
-              />
+        <div className="p-4 border-b">
+          <div className="flex items-center justify-between">
+            <h2 className="font-semibold">Qualitätsübersicht</h2>
+            <div className="flex items-center gap-2">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3 w-3 text-muted-foreground" />
+                <input type="text" placeholder="Verb suchen..." className="rounded-lg border pl-8 pr-3 py-1.5 text-xs bg-background w-48"
+                  value={search} onChange={e => setSearch(e.target.value)} />
+              </div>
+              <select className="rounded-lg border px-2 py-1.5 text-xs bg-background" value={filterStatus} onChange={e => setFilterStatus(e.target.value)}>
+                <option value="">Alle</option>
+                <option value="passed">Bestanden</option>
+                <option value="failed">Fehlgeschlagen</option>
+                <option value="pending">Ausstehend</option>
+              </select>
+              <span className="text-xs text-muted-foreground">{summaries.length} auditiert</span>
             </div>
-            <select className="rounded-lg border px-2 py-1.5 text-xs bg-background" value={filterStatus} onChange={e => setFilterStatus(e.target.value)}>
-              <option value="">Alle</option>
-              <option value="passed">Bestanden</option>
-              <option value="failed">Fehlgeschlagen</option>
-              <option value="pending">Ausstehend</option>
-            </select>
-            <span className="text-sm text-muted-foreground">{summaries.length} auditiert</span>
           </div>
         </div>
         <div className="divide-y">
           {loading ? (
-            <div className="p-8 text-center text-muted-foreground">Lade Qualitätsdaten...</div>
-          ) : searched.length === 0 ? (
+            <div className="p-8 text-center text-muted-foreground"><Loader2 className="h-5 w-5 animate-spin mx-auto mb-2" />Lade Qualitätsdaten...</div>
+          ) : verbSpecific.length === 0 ? (
             <div className="p-8 text-center text-muted-foreground">
-              Keine Qualitätsdaten vorhanden. Führen Sie zuerst ein Audit durch.
+              <Sparkles className="h-8 w-8 mx-auto mb-2 opacity-30" />
+              <p>Keine Qualitätsdaten vorhanden. Führen Sie zuerst ein Audit durch.</p>
             </div>
-          ) : searched.map(s => (
+          ) : verbSpecific.slice(0, 200).map(s => (
             <Link key={s.verb_id} href={`/admin/verbs/${s.verb_id}/quality`} className="flex items-center justify-between px-6 py-4 hover:bg-accent/50 transition-colors">
               <div className="flex items-center gap-3">
-                {getScoreBadge(s.quality_score)}
+                <ScoreBadge score={s.quality_score} />
                 <div>
-                  <p className="font-medium text-sm">
-                    {verbs[s.verb_id] || s.verb_id.slice(0, 8)}
-                  </p>
+                  <p className="font-medium text-sm">{verbs[s.verb_id] || s.verb_id.slice(0, 8)}</p>
                   <p className="text-xs text-muted-foreground">
                     {s.error_count > 0 && <span className="text-red-500 mr-1">{s.error_count} Fehler</span>}
                     {s.warning_count > 0 && <span className="text-yellow-500 mr-1">{s.warning_count} Warnungen</span>}
                     {s.total_issues} Issues
                   </p>
-                  {s.last_audited_at && (
-                    <p className="text-xs text-muted-foreground">Zuletzt: {new Date(s.last_audited_at).toLocaleString('de-DE')}</p>
-                  )}
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <Badge className={
+                {s.last_audited_at && (
+                  <span className="text-xs text-muted-foreground">{new Date(s.last_audited_at).toLocaleDateString('de-DE')}</span>
+                )}
+                <Badge className={`text-xs ${
                   s.audit_status === 'passed' ? 'bg-green-100 text-green-800' :
                   s.audit_status === 'failed' ? 'bg-red-100 text-red-800' : 'bg-yellow-100 text-yellow-800'
-                }>{s.audit_status}</Badge>
+                }`}>{s.audit_status}</Badge>
                 <ChevronRight className="h-4 w-4 text-muted-foreground" />
               </div>
             </Link>

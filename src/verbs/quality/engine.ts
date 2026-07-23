@@ -40,6 +40,9 @@ async function auditSingleVerb(verb: GermanVerb): Promise<AuditResult> {
   checkTransitivity(verb, findings)
   checkSlug(verb, findings)
   checkCEFRLevel(verb, findings)
+  checkMissingTranslation(verb, findings)
+  checkMissingExamples(verb, findings)
+  checkDuplicateDetection(verb, findings)
 
   const score = calculateScore(findings)
   const summary: QualitySummary = {
@@ -54,6 +57,30 @@ async function auditSingleVerb(verb: GermanVerb): Promise<AuditResult> {
   }
 
   return { findings, score, summary }
+}
+
+function checkMissingTranslation(verb: GermanVerb, findings: QualityFinding[]): void {
+  const hasTranslation = verb.english_translation && verb.english_translation.trim().length > 0
+  if (!hasTranslation) {
+    findings.push(createFinding(verb.id, 'missing_translation', 'english_translation', '(missing)', '', 'English translation is missing', 'error', 90))
+  }
+}
+
+function checkMissingExamples(verb: GermanVerb, findings: QualityFinding[]): void {
+  const examples = (verb as any).verb_examples
+  if (!examples || (Array.isArray(examples) && examples.length === 0)) {
+    findings.push(createFinding(verb.id, 'missing_examples', 'examples', '(none)', 'At least 1 example', 'No example sentences provided', 'warning', 70))
+  }
+}
+
+function checkDuplicateDetection(verb: GermanVerb, findings: QualityFinding[]): void {
+  if (!verb.infinitive) return
+  const existing = new Map<string, number>()
+  const key = verb.infinitive.toLowerCase().trim()
+  if (existing.has(key)) {
+    findings.push(createFinding(verb.id, 'duplicate_verb', 'infinitive', verb.infinitive, '', `Possible duplicate of another verb with same infinitive`, 'warning', 80))
+  }
+  existing.set(key, 1)
 }
 
 function checkPartizip2(verb: GermanVerb, findings: QualityFinding[]): void {

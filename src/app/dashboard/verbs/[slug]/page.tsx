@@ -35,6 +35,7 @@ const tenseLabels: Record<string, string> = {
   plusquamperfekt: 'Plusquamperfekt',
   futur_i: 'Futur I',
   futur_ii: 'Futur II',
+  konjunktiv_i: 'Konjunktiv I',
   konjunktiv_ii: 'Konjunktiv II',
   imperativ: 'Imperativ',
   passiv: 'Passiv',
@@ -326,22 +327,22 @@ export default function VerbDetailPage() {
                 </div>
                 <p className="text-lg text-muted-foreground">{verb.english_translation}</p>
                 <div className="flex flex-wrap items-center gap-1.5 mt-3">
-                  <Badge className={levelColors[verb.cefr_level]}>{verb.cefr_level}</Badge>
-                  <Badge variant="secondary">{verbTypeLabels[verb.verb_type]}</Badge>
-                  <Badge variant="secondary" className="capitalize">{verb.frequency.replace('_', ' ')}</Badge>
+                  {verb.cefr_level && <Badge className={levelColors[verb.cefr_level]}>{verb.cefr_level}</Badge>}
+                  {verb.verb_type && <Badge variant="secondary">{verbTypeLabels[verb.verb_type]}</Badge>}
+                  {verb.frequency && <Badge variant="secondary" className="capitalize">{verb.frequency.replace('_', ' ')}</Badge>}
                   {verb.separable_prefix && <Badge variant="outline">Trennbar: {verb.separable_prefix}-</Badge>}
                   {verb.is_reflexive && <Badge variant="outline">{verb.reflexive_pronoun ?? 'sich'}</Badge>}
-                  {verb.preposition && <Badge variant="outline">{verb.preposition} + {verb.preposition_case}</Badge>}
-                  <Badge variant="outline">{verb.auxiliary}</Badge>
-                  <Badge variant="outline">Partizip II: {verb.partizip_2}</Badge>
+                  {verb.preposition && <Badge variant="outline">{verb.preposition} + {verb.preposition_case ?? ''}</Badge>}
+                  {verb.auxiliary && <Badge variant="outline">{verb.auxiliary}</Badge>}
+                  {verb.partizip_2 && <Badge variant="outline">Partizip II: {verb.partizip_2}</Badge>}
                 </div>
               </div>
             </div>
           </div>
           <CardContent className="p-4 bg-muted/20">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
-              <div><span className="text-muted-foreground">Transitivität:</span><p className="font-medium capitalize">{verb.transitivity}</p></div>
-              <div><span className="text-muted-foreground">Objekt-Kasus:</span><p className="font-medium capitalize">{verb.object_case === 'none' ? 'Kein Objekt' : verb.object_case}</p></div>
+              {verb.transitivity && <div><span className="text-muted-foreground">Transitivität:</span><p className="font-medium capitalize">{verb.transitivity}</p></div>}
+              {verb.object_case && <div><span className="text-muted-foreground">Objekt-Kasus:</span><p className="font-medium capitalize">{verb.object_case === 'none' ? 'Kein Objekt' : verb.object_case}</p></div>}
               {verb.arabic_translation && <div><span className="text-muted-foreground">Arabisch:</span><p dir="rtl" className="font-medium">{verb.arabic_translation}</p></div>}
               {verb.french_translation && <div><span className="text-muted-foreground">Französisch:</span><p className="font-medium">{verb.french_translation}</p></div>}
             </div>
@@ -392,7 +393,7 @@ export default function VerbDetailPage() {
                 <Sparkles className="h-4 w-4 text-primary" /> Präfixe
               </h3>
               <div className="space-y-2">
-                {prefixes.map(p => (
+                {prefixes.map((p: any) => (
                   <div key={p.id} className="flex items-start gap-3">
                     <Badge variant="outline" className="shrink-0 mt-0.5">{p.prefix}</Badge>
                     <div>
@@ -414,7 +415,7 @@ export default function VerbDetailPage() {
                 <Link2 className="h-4 w-4 text-primary" /> Verwandte Verben
               </h3>
               <div className="flex flex-wrap gap-2">
-                {family.map(f => {
+                {family.map((f: any) => {
                   const rv = f as any
                   const related = rv.related_verb
                   if (!related) return null
